@@ -65,6 +65,11 @@ class Addresses(unittest.TestCase):
                             ("PlaySEWithPan", F.PLAYSE_PAN)):
             self.assertRegex(asm, rf"\.definelabel {label},\s+0x{addr:08X}")
         self.assertEqual((F.FAINT_CRY_MODE, F.FAINT_PAN, F.SEQ_POKE_DEAD3), (5, 117, 1795))
+    def test_hit_sound_hooks_follow_the_region(self):
+        self.assertEqual(F.HIT_STEP0, region_ram("battle-hit-sound", "battle-hit-sound-step0"))
+        self.assertEqual(F.HIT_STEP0 - F.HIT_ACTION, 0x1E)      # the handler's entry, read-only guard of the asm
+        self.assertEqual(F.HIT_SOUNDS, {1: 1790, 2: 1788, 3: 1789})
+        self.assertEqual({v[4] for v in F.HIT_FOES.values()}, set(F.HIT_SOUNDS))
 
     def test_site_of(self):
         self.assertEqual(F.site_of(0x02042864 + 4 + 1), 0x02042864)
@@ -720,6 +725,26 @@ class Judges(unittest.TestCase):
         self.assertEqual(F._faint_windows([(1, 13, 0), (2, 13, 0), (3, 13, 1), (9, 13, 5), (20, 1, 0), (21, 1, 1)]),
                          [{"battler": 13, "start": 1, "end": 9, "states": [[0, 1], [1, 3], [5, 9]]},
                           {"battler": 1, "start": 20, "end": 21, "states": [[0, 20], [1, 21]]}])
+    def test_hitsound(self):
+        def obs(sound, started=1):
+            out = {}
+            for i, (case, (_, _, _, _, cls)) in enumerate(F.HIT_FOES.items()):
+                frame = 1000 * (i + 1)
+                sounds = [{"frame": frame - 40, "seq": 1833, "started": 1}]
+                if sound:
+                    sounds.append({"frame": frame, "seq": F.HIT_SOUNDS[cls], "started": started})
+                out[case] = {"actions": [{"frame": frame, "class": cls, "move": 33}], "sounds": sounds}
+            return out
+        self.assertEqual(F.judge_hitsound("hitsound", obs(True))[0], "fixed")
+        self.assertEqual(F.judge_hitsound("hitsound", obs(False))[0], "original")
+        self.assertEqual(F.judge_hitsound("hitsound", obs(True, started=0))[0], "unclear")   # requested, not started
+        wrong = obs(True)
+        wrong["normal"]["sounds"][-1]["seq"] = 1788                                         # the wrong hit sound
+        self.assertEqual(F.judge_hitsound("hitsound", wrong)[0], "unclear")
+        missing = obs(True)
+        missing["super"]["actions"] = []
+        self.assertEqual(F.judge_hitsound("hitsound", missing)[0], "unclear")
+        self.assertEqual(F.judge_hitsound("hitsound", {"error": "x"})[0], "unclear")
 
     def test_judge_rows(self):
         selection = {"pcbox": ["pcbox-name-width"]}

@@ -88,6 +88,7 @@ COVERAGE = {
     "trade-evolutions-levelup": ("trade-evo",),
     "petilil-hisuian-lilligant": ("petilil-evo",),
     "battle-faint-cry": ("faintcry",),
+    "battle-hit-sound": ("hitsound",),
 }
 # fix id -> why no scenario of this command covers it (honest gaps; see work/notes/emu_harness.md)
 UNCOVERED = {
@@ -249,6 +250,20 @@ FAINT_CASES = {   # case: (party from slot 0: (species, level, moves, HP or None
     "trainer": ([(150, 100, [94], None)], ("trainer", 252), [("foe", None)]),           # every foe Pokemon
     "double": ([(383, 100, [257], None)], ("double", 252), [("foe", None), ("foe", None)]),  # TrainerBattle
 }   # 252 252: a double battle against both Lv22 Pokemon of trainer 252; Groudon's Heat Wave hits both foes
+# battle-hit-sound (battle-hit-sound.listing): action 28 (BattleAct_MoveDamage) and its step 0, where the fix
+# plays the hit sound; every sequence start goes through NNS_SndArcPlayerStartSeqEx (arm9), whose sequence
+# number is the stack argument; PlaySE's call of it returns at 0x02006006 (r0: 1 = started).
+HIT_ACTION = 0x02204CF0             # (client r0, step* r1, args* r2): args[1] = effectiveness class
+HIT_STEP0 = 0x02204D0E              # the [[code]] region battle-hit-sound-step0
+SEQ_START = 0x02006B64              # NNS_SndArcPlayerStartSeqEx (seq at [sp])
+PLAYSE_SEQ_RETURN = 0x02006006      # PlaySE -> 0x02005FCC: after its bl to SEQ_START
+HIT_SOUNDS = {1: 1790, 2: 1788, 3: 1789}   # class -> SEQ_SE_DP_KOUKA_M / _H / _L (HeartGold's hit sounds)
+HIT_FOES = {   # case: (lead move slot, wild species, its level, its moves, expected class)
+    "normal": (0, 143, 70, [150], 1),          # Tackle on Snorlax (Splash)
+    "super": (1, 130, 40, [150], 2),           # Thunderbolt on Gyarados
+    "not_very": (0, 95, 40, [150], 3),         # Tackle on Onix
+}
+HIT_LEAD = (25, 50, [33, 85])                  # Pikachu Lv50: Tackle, Thunderbolt
 # antipiracy (antipiracy.listing): the six DS Protect entry points in overlay 114 and their genuine values
 ANTIPIRACY_ENTRIES = {0x02263A64: 0, 0x02263B4C: 1, 0x02263C34: 0, 0x02263D1C: 1, 0x02263E04: 0, 0x02263ECC: 1}
 def _fix_expect_bytes(fix_id, region_id):
@@ -1788,6 +1803,39 @@ def _faint_windows(runs):
             if w["states"][-1][0] != state:
                 w["states"].append([state, frame])
         prev = state
+def observe_hitsound(h):
+    """Pikachu Lv50 (Tackle, Thunderbolt) against three scripted wild Pokemon that only know Splash, one turn
+    each, then RUN: every action-28 call (step 0) with its effectiveness class, and every sequence the game
+    starts (number, frame, whether PlaySE's start succeeded)."""
+    import emu_guide0107 as G
+    import emu_open
+    import emu_verify as V
+    starts, actions = [], []          # starts: [frame, seq, PlaySE's result or None]
+
+    def started(h):
+        if starts and starts[-1][2] is None:
+            starts[-1][2] = h.reg.r0
+    h.on_exec(SEQ_START, lambda h: starts.append([h.frame, h.u32(h.reg.sp) & 0xFFFF, None]), exclusive=True)
+    h.on_exec(PLAYSE_SEQ_RETURN, started, exclusive=True)
+    h.on_exec(HIT_ACTION, lambda h: actions.append((h.frame, h.u32(h.reg.r2 + 4), h.u32(h.reg.r2 + 8)))
+              if h.u32(h.reg.r1) == 0 else None, exclusive=True)
+    species, level, moves = HIT_LEAD
+    G.lead(h, species, level=level, **emu_open.moveset(moves, [20] * len(moves)))
+    ml = V.MsgLog(h)
+    out = {}
+    for case, (slot, foe, foe_level, foe_moves, _) in HIT_FOES.items():
+        a0, s0 = len(actions), len(starts)
+        emu_open.wild_battle(h, foe, foe_level, moves=foe_moves, pp=[40] * len(foe_moves))
+        if not h.wait_screen("battle_menu", 2400):
+            return {"error": f"{case}: the battle command menu never appeared"}
+        turn = emu_open.turn(h, ml, slot)
+        fled = h.flee(battle_menu_wait=0) if turn == "menu" else h.in_field()
+        h.run_until(lambda h: h.in_field(), 900, every=10)
+        h.step(240)                   # let the field settle before the next scripted battle
+        shot = str(h.screenshot(f"hitsound_{case}_after"))
+        out[case] = {"turn": turn, "fled": fled, "screenshot": shot,
+                     "actions": [{"frame": f, "class": c, "move": m} for f, c, m in actions[a0:]],
+                     "sounds": [{"frame": f, "seq": q, "started": r} for f, q, r in starts[s0:]]}
     return out
 
 
@@ -1822,6 +1870,7 @@ SCENARIOS = {
     "trade-evo": ("full_bag_6mons.sav", None, observe_trade_evo, False),
     "petilil-evo": ("full_bag_6mons.sav", None, observe_petilil_evo, False),
     "faintcry": ("full_bag_6mons.sav", None, observe_faintcry, False),
+    "hitsound": ("full_bag_6mons.sav", None, observe_hitsound, False),
 }
 # scenarios that run with the clock pinned (weekday on the Pokegear, repeatable RNG); the older ones keep the host
 # clock so that their approved crops stay as they were taken
@@ -2207,6 +2256,26 @@ def judge_faintcry(scenario, obs, ref=None):
         why[case] = {"faints": len(wins), "faint_cries": [(x["species"], x["pan"]) for x in cries],
                      "faint_sounds": [x["pan"] for x in dead], "expected": want, "turns": c.get("turns")}
     return _state(fixed_ok, original_ok, why)
+def judge_hitsound(scenario, obs, ref=None):
+    """fixed: in every case each damage action has the expected class and its hit sound starts (PlaySE's start
+    returns 1) in the same frame; original: damage actions of every class and no hit sound (1788-1790) at all."""
+    if obs.get("error"):
+        return "unclear", {"error": obs["error"]}
+    why, fixed_ok, any_hit = {}, True, False
+    for case, (_, _, _, _, want) in HIT_FOES.items():
+        c = obs.get(case) or {}
+        acts = c.get("actions") or []
+        hits = [s for s in c.get("sounds", []) if s["seq"] in HIT_SOUNDS.values()]
+        any_hit = any_hit or bool(hits)
+        mine = [a for a in acts if a["class"] == want]
+        heard = [a for a in mine if any(s["frame"] == a["frame"] and s["seq"] == HIT_SOUNDS[want]
+                                        and s.get("started") == 1 for s in hits)]
+        why[case] = {"classes": [a["class"] for a in acts], "hit_sounds": [s["seq"] for s in hits],
+                     "expected": HIT_SOUNDS[want], "with_sound": len(heard), "of": len(mine)}
+        if not mine:
+            return "unclear", dict(why, error=f"{case}: no damage action with class {want}")
+        fixed_ok = fixed_ok and len(heard) == len(acts) == len(mine)
+    return _state(fixed_ok, not any_hit, why)
 
 
 NAMING_SITES_BY_ID = {v[0]: v for v in NAMING_SITES.values()}
@@ -2229,6 +2298,7 @@ JUDGES = {
     ("battle-variant", "battle-message-variant"): judge_battle_variant,
     ("pryce", "pryce-weather-rule"): judge_pryce,
     ("faintcry", "battle-faint-cry"): judge_faintcry,
+    ("hitsound", "battle-hit-sound"): judge_hitsound,
 }
 
 

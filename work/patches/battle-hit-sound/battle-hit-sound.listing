@@ -1,0 +1,106 @@
+; battle-hit-sound - disassembly snapshot of battle-hit-sound.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write battle-hit-sound   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: battle-hit-sound.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x4510 (RAM 0x02204CF0), 30 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02204CF0  B5F8       push {r3, r4, r5, r6, r7, lr}
+  02204CF2  B08A       sub sp, #0x28
+  02204CF4  1C07       adds r7, r0, #0
+  02204CF6  6810       ldr r0, [r2]
+  02204CF8  9100       str r1, [sp]
+  02204CFA  0400       lsls r0, r0, #0x10
+  02204CFC  0C00       lsrs r0, r0, #0x10
+  02204CFE  9001       str r0, [sp, #4]
+  02204D00  1C08       adds r0, r1, #0
+  02204D02  6800       ldr r0, [r0]
+  02204D04  2800       cmp r0, #0
+  02204D06  D002       beq #0x2204d0e  ; BattleAct_MoveDamage_Step0
+  02204D08  2801       cmp r0, #1
+  02204D0A  D035       beq #0x2204d78
+  02204D0C  E03B       b #0x2204d86
+
+== overlay14+0x452E (RAM 0x02204D0E), 66 bytes, thumb: battle-hit-sound-step0
+  02204D0A  D035       beq #0x2204d78
+  02204D0C  E03B       b #0x2204d86
+- 02204D0E  2000       movs r0, #0
+- 02204D10  9002       str r0, [sp, #8]
+- 02204D12  9801       ldr r0, [sp, #4]
+- 02204D14  2800       cmp r0, #0
+- 02204D16  DD1B       ble #0x2204d50  ; BattleAct_MoveDamage_Start
+- 02204D18  9E02       ldr r6, [sp, #8]
+- 02204D1A  AC06       add r4, sp, #0x18
+- 02204D1C  AD04       add r5, sp, #0x10
+- 02204D1E  00B0       lsls r0, r6, #2
+- 02204D20  9003       str r0, [sp, #0xc]
+- 02204D22  9903       ldr r1, [sp, #0xc]
+- 02204D24  6AB8       ldr r0, [r7, #0x28]
+- 02204D26  1879       adds r1, r7, r1
+- 02204D28  3198       adds r1, #0x98
+- 02204D2A  6809       ldr r1, [r1]
+- 02204D2C  0609       lsls r1, r1, #0x18
+- 02204D2E  0E09       lsrs r1, r1, #0x18
+- 02204D30  F010 FCE8  bl #0x2215704  ; BattleClient_GetMonObject
+- 02204D34  C401       stm r4!, {r0}
+- 02204D36  9803       ldr r0, [sp, #0xc]
+- 02204D38  1CB6       adds r6, r6, #2
+- 02204D3A  1838       adds r0, r7, r0
+- 02204D3C  309C       adds r0, #0x9c
+- 02204D3E  6800       ldr r0, [r0]
+- 02204D40  8028       strh r0, [r5]
+- 02204D42  9802       ldr r0, [sp, #8]
+- 02204D44  1CAD       adds r5, r5, #2
+- 02204D46  1C41       adds r1, r0, #1
+- 02204D48  9801       ldr r0, [sp, #4]
+- 02204D4A  9102       str r1, [sp, #8]
+- 02204D4C  4281       cmp r1, r0
+- 02204D4E  DBE6       blt #0x2204d1e
++ 02204D0E  6850       ldr r0, [r2, #4]
++ 02204D10  1E41       subs r1, r0, #1
++ 02204D12  2902       cmp r1, #2
++ 02204D14  D808       bhi #0x2204d28  ; @@lists
++ 02204D16  2801       cmp r0, #1
++ 02204D18  D100       bne #0x2204d1c  ; @@play
++ 02204D1A  2004       movs r0, #4
++ 02204D1C  21DF       movs r1, #0xdf
++ 02204D1E  00C9       lsls r1, r1, #3
++ 02204D20  1840       adds r0, r0, r1
++ 02204D22  3002       adds r0, #2
++ 02204D24  F601 F91A  bl #0x2005f5c  ; PlaySE
++ 02204D28  1C3E       adds r6, r7, #0
++ 02204D2A  3698       adds r6, #0x98
++ 02204D2C  AC06       add r4, sp, #0x18
++ 02204D2E  AD04       add r5, sp, #0x10
++ 02204D30  9801       ldr r0, [sp, #4]
++ 02204D32  9002       str r0, [sp, #8]
++ 02204D34  9802       ldr r0, [sp, #8]
++ 02204D36  3801       subs r0, #1
++ 02204D38  D40A       bmi #0x2204d50  ; BattleAct_MoveDamage_Start
++ 02204D3A  9002       str r0, [sp, #8]
++ 02204D3C  88B0       ldrh r0, [r6, #4]
++ 02204D3E  8028       strh r0, [r5]
++ 02204D40  3502       adds r5, #2
++ 02204D42  7831       ldrb r1, [r6]
++ 02204D44  3608       adds r6, #8
++ 02204D46  6AB8       ldr r0, [r7, #0x28]
++ 02204D48  F010 FCDC  bl #0x2215704  ; BattleClient_GetMonObject
++ 02204D4C  C401       stm r4!, {r0}
++ 02204D4E  E7F1       b #0x2204d34  ; @@loop
+  02204D50  9901       ldr r1, [sp, #4]
+  02204D52  A806       add r0, sp, #0x18
+
+== overlay14+0x4570 (RAM 0x02204D50), 28 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02204D50  9901       ldr r1, [sp, #4]
+  02204D52  A806       add r0, sp, #0x18
+  02204D54  0609       lsls r1, r1, #0x18
+  02204D56  0E09       lsrs r1, r1, #0x18
+  02204D58  F02A F8E0  bl #0x222ef1c  ; BattleBlink_Start
+  02204D5C  9B01       ldr r3, [sp, #4]
+  02204D5E  1C38       adds r0, r7, #0
+  02204D60  061B       lsls r3, r3, #0x18
+  02204D62  A906       add r1, sp, #0x18
+  02204D64  AA04       add r2, sp, #0x10
+  02204D66  0E1B       lsrs r3, r3, #0x18
+  02204D68  F7FC FB3A  bl #0x22013e0  ; BattleHpBar_Start

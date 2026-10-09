@@ -37,7 +37,9 @@ runtime build, equality outside its declared region, and equality of every other
 (work/build/bugfix-sequential-20261009/final-integration/assembly-proof.json).
 battle-faint-cry (D-2341) is pinned in isolation only: its overlay14 is the Chinese overlay 14 with only
 0x2C39C-0x2C4FB (Faint_Run) changed, assembled over a copy of the Chinese overlay outside the build and
-compared byte by byte with the .listing. It is not in the combined set until that set is byte-reviewed."""
+compared byte by byte with the .listing. battle-hit-sound (D-2342) is pinned the same way: its overlay14 is the
+Chinese overlay 14 with only the command-8 hook changed, assembled outside the build and compared with the .listing.
+Neither is in the combined set until that set is byte-reviewed."""
 import hashlib
 import os
 import re
@@ -633,7 +635,7 @@ class Synthetic(unittest.TestCase):
     @needs_armips
     def test_every_source_assembles_without_the_rom(self):
         summary = A.synthetic(ARMIPS)
-        self.assertIn(f"{len(ASM_FIXES) + 4} armips fixes assembled without the ROM", summary)
+        self.assertIn(f"{len(ASM_FIXES) + 5} armips fixes assembled without the ROM", summary)
 
 
 @needs_armips
@@ -674,7 +676,7 @@ class RealFixes(unittest.TestCase):
 
     def test_every_armips_fix_has_a_source(self):
         expected = sorted((*ASM_FIXES, "honey-gather", "petilil-hisuian-lilligant", "startup-content-warning",
-                           "battle-faint-cry"))
+                           "battle-faint-cry", "battle-hit-sound"))
         self.assertEqual(sorted(f["id"] for f in A.asm_fixes(self.fixes.values())), expected)
 
     def test_antipiracy_stubs(self):
@@ -810,6 +812,15 @@ class RealFixes(unittest.TestCase):
         }
         _, report = self.check_golden("battle-faint-cry", ["battle-faint-cry"])
         self.assertEqual({r["fix"] for r in report["code_regions"]}, {"battle-faint-cry"})
+
+    def test_battle_hit_sound_source_golden(self):
+        # Isolated golden (D-2342); the combined set stays the reviewed baseline.
+        GOLDEN["battle-hit-sound"] = {
+            "overlay14": "323c350ebe725c432ba3910fd78c5dd28a01f7ad",
+            "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688",
+        }
+        _, report = self.check_golden("battle-hit-sound", ["battle-hit-sound"])
+        self.assertEqual({r["fix"] for r in report["code_regions"]}, {"battle-hit-sound"})
 
     def test_preintegration_fixes_together_match_golden(self):
         rom, rep = self.check_golden("all", ASM_FIXES)
