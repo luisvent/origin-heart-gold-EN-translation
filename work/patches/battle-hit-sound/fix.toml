@@ -19,26 +19,33 @@ standard build leaves it out (the Chinese behaviour is kept) and it is built onl
 (build.py --only battle-hit-sound).
 
 Technical: the hack replaced HeartGold's battle code with its own engine in overlay 14, which drives the
-screen with a queue of action commands. Action 28 (handler table 0x0224AB70; BattleAct_MoveDamage,
-0x02204CF0) shows a move's damage: arguments [target count, effectiveness class, move id, ...], per target a
+screen with a list of commands. Command 8 (command table 0x0224ABC0, entry 8; BattleAct_MoveDamage,
+0x02204CF0; 'command 8' in faint-waits-for-hp-bar too) shows a move's damage: arguments [target count, effectiveness class, move id, ...], per target a
 battler id and the damage. It starts the target's blink and the HP-bar drain, but plays no sound, and no code
 in the hack plays the hit sounds SEQ_SE_DP_KOUKA_H/L/M (1788/1789/1790; every overlay and arm9 searched, and
 the PlaySE / sequence-start calls logged in battle). HeartGold plays them from battle command 215
 (PlayMoveHitSoundEffect) through the client handler at US overlay12 0x0225B3D4: normal 1790, super
-effective 1788, not very effective 1789. The effectiveness class of action 28 is 1 normal, 2 super effective,
-3 not very effective (observed with the battle messages 2#74 / 2#75).
+effective 1788, not very effective 1789. The effectiveness class of command 8 is 1 normal, 2 super effective,
+3 not very effective (observed with the battle messages 2#74 / 2#75). HeartGold sends 0 (normal), 1 (not very
+effective) or 2 (super effective) from the move's effectiveness flags only, so every damaging hit without an
+effectiveness flag (fixed damage such as Seismic Toss or Dragon Rage, Future Sight) plays 1790; the hack sends
+class 1 for those, so they match.
 """
 what = """
-Old: action 28 builds its target and damage lists, starts the blink and the HP bar; no sound.
+Old: command 8 builds its target and damage lists, starts the blink and the HP bar; no sound.
 New: step 0's list-building loop (overlay 14 0x02204D0E-0x02204D4F, 66 bytes) is rewritten more compactly,
 and the bytes it frees call PlaySE (arm9 0x02005F5C) first: class 1 -> 1790 KOUKA_M, 2 -> 1788 KOUKA_H,
 3 -> 1789 KOUKA_L, any other class -> no sound. The lists (target position from 0x02215704 for each battler
 id's low byte, each damage's low halfword), their count and the registers and stack slots the unchanged code
-after it uses are the same, so the blink and the HP bar run as before. One sound per action, also for a move
-that hits several targets, and per hit of a multi-hit move. Not as in HeartGold: the sound is centred
+after it uses are the same, so the blink and the HP bar run as before. One sound per command, also for a move
+that hits several targets (by the command's one class: Surf on Mewtwo and Tyranitar plays only the super
+effective sound; HeartGold plays one per target), and per hit of a multi-hit move. Not as in HeartGold: the sound is centred
 (HeartGold pans it to the target's side; there is no room for that here). Not changed: move animations that
 have no sound of their own (Electro Ball and the other hack-added moves listed in D-1598), the missing cry
-when an opposing Pokemon faints, and every other action.
+when an opposing Pokemon faints, and every other command: a one-hit KO move (command 12) and a hit on a
+substitute stay silent, although HeartGold plays the hit sound for them too (its move-damage subscript 2 and
+substitute subscript 90 are the only US battle subscripts with command 215). As in HeartGold, residual
+damage and a Pokemon hurting itself in its confusion (command 28) play no hit sound.
 """
 evidence = [
   "D-2342: the user-approved exception to D-1337 for this fix (user request 2026-10-09: 'We want to fix these bugs, so for each issue create a worktree per issue, and use a separate subagent to fix, test and review.')",
@@ -51,7 +58,7 @@ id = "battle-hit-sound-step0"
 file = "overlay14"
 offset = "0x452E"
 expect = "2000 9002 9801 2800 DD1B 9E02 AC06 AD04 00B0 9003 9903 6AB8 1879 3198 6809 0609 0E09 F010 FCE8 C401 9803 1CB6 1838 309C 6800 8028 9802 1CAD 1C41 9801 9102 4281 DBE6"
-notes = "BattleAct_MoveDamage (action 28) step 0: the target/damage list loop rewritten in fewer bytes, preceded by PlaySE(KOUKA_M/H/L) by the effectiveness class args[1]. The asm also guards, read-only, the handler's entry and the code after the loop."
+notes = "BattleAct_MoveDamage (command 8) step 0: the target/damage list loop rewritten in fewer bytes, preceded by PlaySE(KOUKA_M/H/L) by the effectiveness class args[1]. The asm also guards, read-only, the handler's entry and the code after the loop."
 
 [[us_ref]]
 id = "battle-hit-sound-us-handler"

@@ -2218,28 +2218,35 @@ standard build leaves it out (the Chinese behaviour is kept) and it is built onl
 (build.py --only battle-hit-sound).
 
 Technical: the hack replaced HeartGold's battle code with its own engine in overlay 14, which drives the
-screen with a queue of action commands. Action 28 (handler table 0x0224AB70; BattleAct_MoveDamage,
-0x02204CF0) shows a move's damage: arguments [target count, effectiveness class, move id, ...], per target a
+screen with a list of commands. Command 8 (command table 0x0224ABC0, entry 8; BattleAct_MoveDamage,
+0x02204CF0; 'command 8' in faint-waits-for-hp-bar too) shows a move's damage: arguments [target count, effectiveness class, move id, ...], per target a
 battler id and the damage. It starts the target's blink and the HP-bar drain, but plays no sound, and no code
 in the hack plays the hit sounds SEQ_SE_DP_KOUKA_H/L/M (1788/1789/1790; every overlay and arm9 searched, and
 the PlaySE / sequence-start calls logged in battle). HeartGold plays them from battle command 215
 (PlayMoveHitSoundEffect) through the client handler at US overlay12 0x0225B3D4: normal 1790, super
-effective 1788, not very effective 1789. The effectiveness class of action 28 is 1 normal, 2 super effective,
-3 not very effective (observed with the battle messages 2#74 / 2#75).
+effective 1788, not very effective 1789. The effectiveness class of command 8 is 1 normal, 2 super effective,
+3 not very effective (observed with the battle messages 2#74 / 2#75). HeartGold sends 0 (normal), 1 (not very
+effective) or 2 (super effective) from the move's effectiveness flags only, so every damaging hit without an
+effectiveness flag (fixed damage such as Seismic Toss or Dragon Rage, Future Sight) plays 1790; the hack sends
+class 1 for those, so they match.
 
 **What (old → new):**
 
-Old: action 28 builds its target and damage lists, starts the blink and the HP bar; no sound.
+Old: command 8 builds its target and damage lists, starts the blink and the HP bar; no sound.
 
 New: step 0's list-building loop (overlay 14 0x02204D0E-0x02204D4F, 66 bytes) is rewritten more compactly,
 and the bytes it frees call PlaySE (arm9 0x02005F5C) first: class 1 -> 1790 KOUKA_M, 2 -> 1788 KOUKA_H,
 3 -> 1789 KOUKA_L, any other class -> no sound. The lists (target position from 0x02215704 for each battler
 id's low byte, each damage's low halfword), their count and the registers and stack slots the unchanged code
-after it uses are the same, so the blink and the HP bar run as before. One sound per action, also for a move
-that hits several targets, and per hit of a multi-hit move. Not as in HeartGold: the sound is centred
+after it uses are the same, so the blink and the HP bar run as before. One sound per command, also for a move
+that hits several targets (by the command's one class: Surf on Mewtwo and Tyranitar plays only the super
+effective sound; HeartGold plays one per target), and per hit of a multi-hit move. Not as in HeartGold: the sound is centred
 (HeartGold pans it to the target's side; there is no room for that here). Not changed: move animations that
 have no sound of their own (Electro Ball and the other hack-added moves listed in D-1598), the missing cry
-when an opposing Pokemon faints, and every other action.
+when an opposing Pokemon faints, and every other command: a one-hit KO move (command 12) and a hit on a
+substitute stay silent, although HeartGold plays the hit sound for them too (its move-damage subscript 2 and
+substitute subscript 90 are the only US battle subscripts with command 215). As in HeartGold, residual
+damage and a Pokemon hurting itself in its confusion (command 28) play no hit sound.
 
 **Evidence:**
 
@@ -2268,8 +2275,8 @@ when an opposing Pokemon faints, and every other action.
 ; effective). D-2342 (user-approved exception to D-1337).
 ; Why and what: fix.toml next to this file; overview work/patches/FIXES.md; work/notes/hit-sound_fix.md.
 ;
-; The hack's battle engine (overlay 14) drives the screen with a queue of action commands. Action 28
-; (handler table 0x0224AB70, entry 28 = BattleAct_MoveDamage, 0x02204CF0) shows a move's damage: its
+; The hack's battle engine (overlay 14) drives the screen with a list of commands. Command 8 (command
+; table 0x0224ABC0, entry 8 = BattleAct_MoveDamage, 0x02204CF0) shows a move's damage: its
 ; arguments are [target count, type-effectiveness class, move id, ...] and per target a battler id and the
 ; damage (BattleClient +0x98 / +0x9C, 8 bytes apart). Step 0 builds the target and damage lists, starts the
 ; blink (0x0222EF1C) and the HP-bar drain (0x022013E0); step 1 waits. The effectiveness class is 1 normal,
@@ -2291,7 +2298,7 @@ when an opposing Pokemon faints, and every other action.
 .include "../include/guards.inc"
 
 .definelabel PlaySE,                     0x02005F5C   ; arm9: PlaySE(u16 seq) (US arm9 0x0200604C)
-.definelabel BattleAct_MoveDamage,       0x02204CF0   ; overlay 14, action 28: (client r0, step* r1, args* r2)
+.definelabel BattleAct_MoveDamage,       0x02204CF0   ; overlay 14, command 8: (client r0, step* r1, args* r2)
 .definelabel BattleAct_MoveDamage_Step0, 0x02204D0E   ; step 0: build the lists  <- rewritten
 .definelabel BattleAct_MoveDamage_Start, 0x02204D50   ; blink + HP bar, step++   (unchanged)
 .definelabel BattleClient_GetMonObject,  0x02215704   ; (r0 = [client+0x28], r1 = battler id) -> object

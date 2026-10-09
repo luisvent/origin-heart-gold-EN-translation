@@ -31,8 +31,9 @@ side.
 
 **The hack** replaced the battle code with its own engine (overlay 14, `0x022007E0`); the subscripts in
 a/0/0/1 are no longer loaded (their command words never appear in RAM during a battle). The engine drives the
-screen with a queue of action commands; the handler table is at `0x0224AB70`, and entry 28 is the move-damage
-action `0x02204CF0` (args: target count, effectiveness class, move id; per target a battler id and the
+screen with a list of commands; the command table is at `0x0224ABC0` (0x5E handlers, dispatched at
+`0x0220466E`), and entry 8 is the move-damage command `0x02204CF0` (the faint-waits-for-hp-bar fix calls it
+command 8 too) (args: target count, effectiveness class, move id; per target a battler id and the
 damage at BattleClient +0x98 / +0x9C). It starts the blink (`0x0222EF1C`) and the HP-bar drain
 (`0x022013E0`) but plays no sound. No code anywhere in the hack (arm9, every overlay) loads 1788-1790, and in
 battle nothing requests them:
@@ -55,7 +56,7 @@ add; they are not changed. With this fix they still play the hit sound when they
 
 ## Fix
 
-Overlay 14 `0x02204D0E`-`0x02204D4F` (66 bytes, step 0 of action 28): the hack's loop that builds the target
+Overlay 14 `0x02204D0E`-`0x02204D4F` (66 bytes, step 0 of command 8): the hack's loop that builds the target
 and damage lists is rewritten in fewer instructions, and the bytes it frees call `PlaySE(1786 + (class == 1 ?
 4 : class))`: class 1 → 1790, 2 → 1788, 3 → 1789, any other class → no sound. The lists, their count and the
 stack slots and registers the unchanged code after it uses are the same (checked: the blink and HP-bar
@@ -75,3 +76,33 @@ for the pan).
   battle ends normally.
 - Double battle (Giovanni, `TrainerBattle 402 402`, Blissey with Surf), Double Kick (two hits) and the foe's
   Tackle on our Pokémon: the sound plays each time; the lists match.
+
+## Review (2026-10-09)
+
+- The rewrite was re-read against the hack's loop (0x02204D0E): for every count the same objects (from
+  `0x02215704` with the battler id's low byte) and damages (low halfword at +0x9C) land at sp+0x18 / sp+0x10,
+  count 0 skips the loop in both; the code after it reads only [sp], [sp+4], sp+0x10, sp+0x18 and r7
+  (r4-r6 are restored by the pop; [sp+8] / [sp+0xC] are not read again). PlaySE (`0x02005F5C`) is
+  straight-line: it starts the sequence and returns, nothing waits for it. The built bytes equal the listing,
+  the control's equal the Chinese ROM.
+- HeartGold's sound by effectiveness (US overlay 12 `0x02264228`, the sender of client command 0x3F): flag 2
+  (super effective) -> 2 -> 1788, else flag 4 (not very effective) -> 1 -> 1789, else 0 -> 1790. Only US
+  battle subscripts 2 (move damage) and 90 (substitute hit) contain command 215; the confusion self-hit
+  (subscript 39) plays the confusion animation and updates the HP bar without it.
+- DeSmuME, fixed build and control (`work/build/review/cases*.py`), command 8 and every sequence logged; in all
+  13 / 12 commands the blink and HP-bar arguments equal the BattleClient lists:
+
+| Case | Hack | Fixed | HeartGold |
+|---|---|---|---|
+| Seismic Toss, Dragon Rage, Double-Edge (main hit), Future Sight (hit 2 turns later) | command 8, class 1 | 1790 | 1790 |
+| Double Kick (super effective, 2 hits) | 2 x command 8, class 2 | 1788 twice | 1788 per hit |
+| Fly hitting the player's Pokemon | command 8, class 1 | 1790 | 1790 |
+| Surf / Earthquake on Mewtwo + Tyranitar (doubles, Giovanni 402) | one command 8, count 2, class 2 | one 1788 | one sound per target |
+| Miss (Tackle on a flying Crobat), Protect, immune (Tackle on Gastly, Seismic Toss on Gastly) | no command 8 | none | none |
+| Recoil of Double-Edge, poison, Leech Seed, sandstorm | no command 8 | none | none |
+| Guillotine (one-hit KO) | command 12 | none | 1790 (by the scripts: the damage goes through subscript 2; not run) |
+| Tackle on a substitute | command 7, message only | none | 1790 (subscript 90; not run) |
+| Hurt itself in its confusion | commands 48 + 28 (as residual damage) | none | none (subscript 39) |
+
+  Struggle could not be reached by the harness (a move at 0 PP only shows "out of PP"); not tested.
+

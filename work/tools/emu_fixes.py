@@ -250,7 +250,7 @@ FAINT_CASES = {   # case: (party from slot 0: (species, level, moves, HP or None
     "trainer": ([(150, 100, [94], None)], ("trainer", 252), [("foe", None)]),           # every foe Pokemon
     "double": ([(383, 100, [257], None)], ("double", 252), [("foe", None), ("foe", None)]),  # TrainerBattle
 }   # 252 252: a double battle against both Lv22 Pokemon of trainer 252; Groudon's Heat Wave hits both foes
-# battle-hit-sound (battle-hit-sound.listing): action 28 (BattleAct_MoveDamage) and its step 0, where the fix
+# battle-hit-sound (battle-hit-sound.listing): command 8 (BattleAct_MoveDamage) and its step 0, where the fix
 # plays the hit sound; every sequence start goes through NNS_SndArcPlayerStartSeqEx (arm9), whose sequence
 # number is the stack argument; PlaySE's call of it returns at 0x02006006 (r0: 1 = started).
 HIT_ACTION = 0x02204CF0             # (client r0, step* r1, args* r2): args[1] = effectiveness class
@@ -1805,7 +1805,7 @@ def _faint_windows(runs):
         prev = state
 def observe_hitsound(h):
     """Pikachu Lv50 (Tackle, Thunderbolt) against three scripted wild Pokemon that only know Splash, one turn
-    each, then RUN: every action-28 call (step 0) with its effectiveness class, and every sequence the game
+    each, then RUN: every command-8 call (step 0) with its effectiveness class, and every sequence the game
     starts (number, frame, whether PlaySE's start succeeded)."""
     import emu_guide0107 as G
     import emu_open

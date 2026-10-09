@@ -2,8 +2,8 @@
 ; effective). D-2342 (user-approved exception to D-1337).
 ; Why and what: fix.toml next to this file; overview work/patches/FIXES.md; work/notes/hit-sound_fix.md.
 ;
-; The hack's battle engine (overlay 14) drives the screen with a queue of action commands. Action 28
-; (handler table 0x0224AB70, entry 28 = BattleAct_MoveDamage, 0x02204CF0) shows a move's damage: its
+; The hack's battle engine (overlay 14) drives the screen with a list of commands. Command 8 (command
+; table 0x0224ABC0, entry 8 = BattleAct_MoveDamage, 0x02204CF0) shows a move's damage: its
 ; arguments are [target count, type-effectiveness class, move id, ...] and per target a battler id and the
 ; damage (BattleClient +0x98 / +0x9C, 8 bytes apart). Step 0 builds the target and damage lists, starts the
 ; blink (0x0222EF1C) and the HP-bar drain (0x022013E0); step 1 waits. The effectiveness class is 1 normal,
@@ -25,7 +25,7 @@
 .include "../include/guards.inc"
 
 .definelabel PlaySE,                     0x02005F5C   ; arm9: PlaySE(u16 seq) (US arm9 0x0200604C)
-.definelabel BattleAct_MoveDamage,       0x02204CF0   ; overlay 14, action 28: (client r0, step* r1, args* r2)
+.definelabel BattleAct_MoveDamage,       0x02204CF0   ; overlay 14, command 8: (client r0, step* r1, args* r2)
 .definelabel BattleAct_MoveDamage_Step0, 0x02204D0E   ; step 0: build the lists  <- rewritten
 .definelabel BattleAct_MoveDamage_Start, 0x02204D50   ; blink + HP bar, step++   (unchanged)
 .definelabel BattleClient_GetMonObject,  0x02215704   ; (r0 = [client+0x28], r1 = battler id) -> object
