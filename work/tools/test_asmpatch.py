@@ -34,7 +34,10 @@ and individual pins were verified against the historical disassembly before upda
 Zero-PP Struggle (D-2302) adds one 240-byte overlay14 guard on 2026-10-10. Its isolated
 and combined pins were recorded only after checking the guard SHA-256 against the issue03
 runtime build, equality outside its declared region, and equality of every other combined binary
-(work/build/bugfix-sequential-20261009/final-integration/assembly-proof.json)."""
+(work/build/bugfix-sequential-20261009/final-integration/assembly-proof.json).
+battle-faint-cry (D-2341) is pinned in isolation only: its overlay14 is the Chinese overlay 14 with only
+0x2C39C-0x2C4FB (Faint_Run) changed, assembled over a copy of the Chinese overlay outside the build and
+compared byte by byte with the .listing. It is not in the combined set until that set is byte-reviewed."""
 import hashlib
 import os
 import re
@@ -630,7 +633,7 @@ class Synthetic(unittest.TestCase):
     @needs_armips
     def test_every_source_assembles_without_the_rom(self):
         summary = A.synthetic(ARMIPS)
-        self.assertIn(f"{len(ASM_FIXES) + 3} armips fixes assembled without the ROM", summary)
+        self.assertIn(f"{len(ASM_FIXES) + 4} armips fixes assembled without the ROM", summary)
 
 
 @needs_armips
@@ -670,7 +673,8 @@ class RealFixes(unittest.TestCase):
         return rom, rep
 
     def test_every_armips_fix_has_a_source(self):
-        expected = sorted((*ASM_FIXES, "honey-gather", "petilil-hisuian-lilligant", "startup-content-warning"))
+        expected = sorted((*ASM_FIXES, "honey-gather", "petilil-hisuian-lilligant", "startup-content-warning",
+                           "battle-faint-cry"))
         self.assertEqual(sorted(f["id"] for f in A.asm_fixes(self.fixes.values())), expected)
 
     def test_antipiracy_stubs(self):
@@ -797,6 +801,15 @@ class RealFixes(unittest.TestCase):
         }
         _, report = self.check_golden("startup-content-warning", ["startup-content-warning"])
         self.assertEqual(len(report["code_regions"]), 4)
+
+    def test_battle_faint_cry_source_golden(self):
+        # Isolated golden (D-2341); the combined set stays the reviewed baseline.
+        GOLDEN["battle-faint-cry"] = {
+            "overlay14": "35f3dc5f38734f332add7bff654fd3be279c4074",
+            "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688",
+        }
+        _, report = self.check_golden("battle-faint-cry", ["battle-faint-cry"])
+        self.assertEqual({r["fix"] for r in report["code_regions"]}, {"battle-faint-cry"})
 
     def test_preintegration_fixes_together_match_golden(self):
         rom, rep = self.check_golden("all", ASM_FIXES)

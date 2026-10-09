@@ -58,6 +58,14 @@ class Addresses(unittest.TestCase):
             self.assertEqual(original, 5)
             self.assertEqual(fixed, 10 if "nickname" in region else 7)
 
+    def test_faint_cry_hooks_follow_the_region(self):
+        self.assertEqual(F.FAINT_RUN, region_ram("battle-faint-cry", "battle-faint-cry-faint-run"))
+        asm = (Path(__file__).resolve().parent.parent / "patches" / "battle-faint-cry" / "battle-faint-cry.asm").read_text()
+        for label, addr in (("FaintState", F.FAINT_STATE - 1), ("Cry_Play", F.CRY_PLAY),
+                            ("PlaySEWithPan", F.PLAYSE_PAN)):
+            self.assertRegex(asm, rf"\.definelabel {label},\s+0x{addr:08X}")
+        self.assertEqual((F.FAINT_CRY_MODE, F.FAINT_PAN, F.SEQ_POKE_DEAD3), (5, 117, 1795))
+
     def test_site_of(self):
         self.assertEqual(F.site_of(0x02042864 + 4 + 1), 0x02042864)
 
@@ -680,6 +688,38 @@ class Judges(unittest.TestCase):
         self.assertNotIn("pryce-weather-rule", F.disabled_fixes())
         self.assertIn("pryce", F.select("all"))
         self.assertEqual(F.select("pryce-weather-rule"), {"pryce": ["pryce-weather-rule"]})
+    def test_faintcry(self):
+        def obs(sound=True, pan_sign=1, dead=True):
+            out, frame = {}, 1000
+            for case, (_, _, want) in F.FAINT_CASES.items():
+                c = {"faints": [], "cries": [], "sounds": [], "starts": []}
+                for side, species in want:
+                    sp = species or 81
+                    pan = (F.FAINT_PAN if side == "foe" else -F.FAINT_PAN) * pan_sign
+                    c["faints"].append({"battler": 13, "start": frame, "end": frame + 80, "states": []})
+                    if sound:
+                        c["cries"].append({"frame": frame, "mode": 5, "species": sp, "pan": pan, "volume": 127,
+                                           "heap": 5, "delay": 0, "form": 0})
+                        c["starts"].append({"frame": frame, "seq": F.SEQ_PV})
+                        if dead:
+                            c["sounds"].append({"frame": frame + 60, "seq": F.SEQ_POKE_DEAD3, "pan": pan})
+                            c["starts"].append({"frame": frame + 60, "seq": F.SEQ_POKE_DEAD3})
+                    frame += 200
+                c["cries"].append({"frame": 10, "mode": 0, "species": 25, "pan": -117, "volume": 127, "heap": 5,
+                                   "delay": 15, "form": 0})                                        # a send-out cry
+                out[case] = c
+            return out
+        self.assertEqual(F.judge_faintcry("faintcry", obs())[0], "fixed")
+        self.assertEqual(F.judge_faintcry("faintcry", obs(sound=False))[0], "original")
+        self.assertEqual(F.judge_faintcry("faintcry", obs(pan_sign=-1))[0], "unclear")      # the wrong side
+        self.assertEqual(F.judge_faintcry("faintcry", obs(dead=False))[0], "unclear")       # cry without 1795
+        missing = obs()
+        missing["wild"]["faints"] = []
+        self.assertEqual(F.judge_faintcry("faintcry", missing)[0], "unclear")
+        self.assertEqual(F.judge_faintcry("faintcry", {"error": "x"})[0], "unclear")
+        self.assertEqual(F._faint_windows([(1, 13, 0), (2, 13, 0), (3, 13, 1), (9, 13, 5), (20, 1, 0), (21, 1, 1)]),
+                         [{"battler": 13, "start": 1, "end": 9, "states": [[0, 1], [1, 3], [5, 9]]},
+                          {"battler": 1, "start": 20, "end": 21, "states": [[0, 20], [1, 21]]}])
 
     def test_judge_rows(self):
         selection = {"pcbox": ["pcbox-name-width"]}

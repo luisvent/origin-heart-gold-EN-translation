@@ -1,0 +1,119 @@
+id = "battle-faint-cry"
+title = "Battles: a Pokémon that faints cries (the low faint cry) and makes the faint sound again, on both sides"
+kind = "code"
+enabled = false
+decisions = ["D-2341"]
+requires = []
+asm = "battle-faint-cry.asm"
+why = """
+Players: when a Pokémon faints it slides off the screen in silence. In HeartGold every Pokémon that faints, on
+either side, first lets out its cry in a low, drawn-out voice and then makes a falling sound as it slides
+down. The hack lost both: wild Pokémon, a Trainer's Pokémon and your own faint without a sound (the site's FAQ
+'Some moves have no sound' lists the missing cry of opposing Pokémon; your own are silent too). The untouched
+Chinese hack is silent in the same places, so this is a bug of the hack.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
+(D-2341, 2026-10-09); other hack bugs stay report-only.
+
+Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
+standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
+(build.py --only battle-faint-cry).
+
+Technical: the hack replaced HeartGold's battle code with its own engine in overlay 14. Client command 21
+(handler table entry 21) shows a faint by calling Faint_Run (0x0222CB7C) every frame until it returns 1, a
+state machine kept in the byte 0x02255EDD: 0 prepare, 1 wait while a cry is playing (arm9 0x02006258), start
+the health-box task, 2 lower a raised sprite, 3 set up the partial draw, 4 slide down 8 px a frame and hide
+the sprite, 5 wait for the health box. Nothing in it starts a cry or a sound, so state 1 waits for nothing.
+HeartGold's faint task has the same states plus, before the slide, the cry in faint mode and the faint sound
+(US overlay12 0x022601FA, US overlay12 0x0226022A, US overlay12 0x02260244 and US overlay12 0x0226026E):
+PlayCryWithChatter (US arm9 0x0207204C) with mode 5, volume 127, heap 5, no delay and pan +117 for a front
+sprite (the foe) or -117 for a back sprite; then it waits while the cry plays; then PlaySEWithPan
+(US arm9 0x0200602C) with SEQ_SE_DP_POKE_DEAD3 (1795) and the same pan. Observed on the Chinese ROM: no cry in mode 5 and
+no sequence 1795 in a wild, Trainer, double or Explosion faint, on either side (DeSmuME hooks, melonDS
+watchpoints on the sound archive's sequence records).
+"""
+what = """
+Old: Faint_Run slides the fainted Pokémon down without a sound; its state 1 waits for a cry that never starts.
+New: Faint_Run is rewritten in its own 352 bytes (0x0222CB7C-0x0222CCDB, the same entry, states, calls and
+order) more compactly, and the bytes it frees play HeartGold's two faint sounds: when state 0 is done, the
+hack's own cry routine (arm9 0x02006898, the one its send-out cries use) with mode 5 (faint), the species and
+form the sprite shows, pan (facing - 1) * 117 (+117 foe, -117 player's side), volume 127, heap 5, no delay;
+when the cry has ended (state 1's existing wait), PlaySEWithPan(1795, the same pan) (arm9 0x02005F3C). The
+compaction does not change behaviour: the facing value without its stack round trip, one shared 'set state'
+tail, state 3's three one-load getters read directly, and state 4's y += 8 through Sprite_AddAttr (arm9
+0x02008BC8: attribute 1 is the halfword +0x26 that Sprite_GetAttr and Sprite_SetAttr read and write; the
+attribute calls of a whole faint were logged equal with and without the fix). A faint now lasts as long as the
+cry, as in HeartGold. Not as in HeartGold: Chatot plays its normal cry, never a Chatter recording (the hack's
+send-out cries do the same). Not changed: command 21's handler and its table entry, every other action, and
+the hack-added moves whose animations have no sound (D-1598).
+"""
+evidence = [
+  "D-2341: the user-approved exception to D-1337 for this fix (user request 2026-10-09: 'We want to fix these bugs, so for each issue create a worktree per issue, and use a separate subagent to fix, test and review.')",
+  "D-1598 (context note, item 3): opposing Pokémon don't cry when they faint (emulator CN); site FAQ 'Some moves have no sound'",
+  "work/notes/faint-cry_fix.md: the cause, the HeartGold reference, the rewrite and the emulator runs before and after",
+  "Runtime: emu_harness.py fixes --case battle-faint-cry (scenario faintcry: a wild foe, the player's Pokémon, Explosion (both sides), a Trainer's team and a double battle with two foes fainting in one turn; every Faint_Run call, cry and sound logged; run on the build and on one without this fix, work/notes/emu_harness.md 'Fix scenarios')",
+  "melonDS 1.1 (2026-10-09): Route 1 wild battles from route1_path_2mons.sav, a KO and Explosion; read watches on the sequence records of SEQ_PV (2) and 1795, write watch on the state byte: the build starts the cry in the frame state 0 ends and 1795 when the cry has ended, for each faint; the control build and the Chinese ROM neither; no ARM9 abort",
+]
+
+[[code]]
+id = "battle-faint-cry-faint-run"
+file = "overlay14"
+offset = "0x2C39C"
+expect = "B5F0 B083 1C05 6AA8 1C0F F7FB FDF7 1C06 1C38 F7FB FCBD 9002 1C30 F7FB F9C7 1C04 6AA8 1C39 F7E8 FB06 1C07 9802 2800 D101 2000 E000 2002 0600 0E00 9001 4847 7841 2905 D900 E087 1849 4479 88C9 0409 1409 448F 000A 0022 004E 0072 00B2 00F2 1C28 1C31 2200 2301 F000 FFE5 2800 D073 483B 2101 7041 E06F F5D9 FB31 2800 D16B 1C20 2129 F5DB FF09 2800 DD02 2102 4833 E001 4832 2103 7041 6AA8 1C31 2200 F001 F992 E059 1C20 2129 F5DB FEF7 1C05 3D08 D500 2500 1C20 2129 1C2A F5DB FD84 2D00 D14A 4826 2103 7041 1C38 F7EA FFD0 1C05 1C38 F7EA FFC8 1C06 1C38 F7EB FAC8 0600 0E01 2000 9000 9A01 1C28 1C33 F643 F829 2350 1A18 2100 9000 1C20 1C0A F5DC F9D7 4817 2104 7041 E027 1C20 2101 F5DB FEC5 1C02 1C20 2101 3208 F5DB FD55 1C20 2112 F5DB FEBB 1C05 3D08 D500 2500 1C20 2112 1C2A F5DB FD48 2D00 D10E 1C20 F5DB FD31 4807 2105 7041 E007 7801 2900 D104 2100 7041 B003 2001 BDF0 2000 B003 BDF0 5EDC 0225"
+notes = "Faint_Run (client command 21's per-frame faint routine), rewritten in its own 352 bytes: the same states and calls, plus the faint cry (Cry_Play mode 5) when state 0 is ready and SEQ_SE_DP_POKE_DEAD3 (1795) when the cry has ended. The asm guards every original halfword."
+
+[[us_ref]]
+id = "battle-faint-cry-us-pan"
+claim = "US overlay12 0x022601FA starts HeartGold's faint-cry state: pan = 117 when the sprite's facing byte (+0x67) is 2 (a front sprite, the foe), else ~116 = -117"
+file = "overlay12"
+address = "0x022601FA"
+expect = "1C20 3067 7800 2802 D101 2575 E001 2574"
+unique = true
+
+[[us_ref]]
+id = "battle-faint-cry-us-cry"
+claim = "US overlay12 0x0226022A: the cry call's last arguments (r1 = 5, the faint cry mode; [sp+0xC] = 5, the battle heap; [sp+0x10] = 0, no delay; species +0x68, form +0x6B) and the bl to PlayCryWithChatter"
+file = "overlay12"
+address = "0x0226022A"
+expect = "2105 9103 9204 1C22 3268 336B 8812 781B"
+calls = "0x0207204C"
+unique = true
+
+[[us_ref]]
+id = "battle-faint-cry-us-wait"
+claim = "US overlay12 0x02260244: after the cry, the faint task advances its state and then waits while a cry plays (the bl after these bytes; the hack has the same routine at arm9 0x02006258)"
+file = "overlay12"
+address = "0x02260244"
+expect = "1C41 1C20 3066 7001"
+calls = "0x02006360"
+
+[[us_ref]]
+id = "battle-faint-cry-us-dead3"
+claim = "US overlay12 0x0226026E: the next state loads 0x703 (1795, SEQ_SE_DP_POKE_DEAD3; literal at 0x02260378) and calls PlaySEWithPan with pan 117 or -117 by the same facing byte"
+file = "overlay12"
+address = "0x0226026E"
+expect = "4842 D103 2175"
+calls = "0x0200602C"
+
+[[us_ref]]
+id = "battle-faint-cry-us-dead3-literal"
+claim = "US overlay12 0x02260378 is the literal 0x703 (1795, SEQ_SE_DP_POKE_DEAD3) of the faint sound"
+file = "overlay12"
+address = "0x02260378"
+expect = "0703 0000"
+
+[[us_ref]]
+id = "battle-faint-cry-us-playcry"
+claim = "US arm9 0x0207204C is PlayCryWithChatter(chatter, mode, species, form, pan, volume, ...): Chatot (0x1B9) may use its Chatter recording, any other species goes to the cry core with (mode, species, pan, volume, heap, delay, form) like the hack's arm9 0x02006898"
+file = "arm9"
+address = "0x0207204C"
+expect = "B5F0 B083 1C07 481F 1C15 1C0E 1C1C 4285"
+unique = true
+
+[[us_ref]]
+id = "battle-faint-cry-us-playsepan"
+claim = "US arm9 0x0200602C is PlaySEWithPan(u16 seq, pan); its first 12 bytes are the hack's arm9 0x02005F3C"
+file = "arm9"
+address = "0x0200602C"
+hack = "arm9 0x02005F3C"
+length = 12

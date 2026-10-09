@@ -1,0 +1,326 @@
+; battle-faint-cry - disassembly snapshot of battle-faint-cry.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write battle-faint-cry   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: battle-faint-cry.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x2C39C (RAM 0x0222CB7C), 352 bytes, thumb: battle-faint-cry-faint-run
+  0222CB78  0116       lsls r6, r2, #4
+  0222CB7A  0000       movs r0, r0
+- 0222CB7C  B5F0       push {r4, r5, r6, r7, lr}
+- 0222CB7E  B083       sub sp, #0xc
+- 0222CB80  1C05       adds r5, r0, #0
+- 0222CB82  6AA8       ldr r0, [r5, #0x28]
+- 0222CB84  1C0F       adds r7, r1, #0
+- 0222CB86  F7FB FDF7  bl #0x2228778  ; Battle_GetSpriteSlot
+- 0222CB8A  1C06       adds r6, r0, #0
+- 0222CB8C  1C38       adds r0, r7, #0
+- 0222CB8E  F7FB FCBD  bl #0x222850c  ; Battler_FacingKind
+- 0222CB92  9002       str r0, [sp, #8]
+- 0222CB94  1C30       adds r0, r6, #0
+- 0222CB96  F7FB F9C7  bl #0x2227f28  ; BattleSprite_Get
+- 0222CB9A  1C04       adds r4, r0, #0
+- 0222CB9C  6AA8       ldr r0, [r5, #0x28]
+- 0222CB9E  1C39       adds r1, r7, #0
+- 0222CBA0  F7E8 FB06  bl #0x22151b0  ; Battle_GetMonView
+- 0222CBA4  1C07       adds r7, r0, #0
+- 0222CBA6  9802       ldr r0, [sp, #8]
+- 0222CBA8  2800       cmp r0, #0
+- 0222CBAA  D101       bne #0x222cbb0
+- 0222CBAC  2000       movs r0, #0
+- 0222CBAE  E000       b #0x222cbb2
+- 0222CBB0  2002       movs r0, #2
+- 0222CBB2  0600       lsls r0, r0, #0x18
+- 0222CBB4  0E00       lsrs r0, r0, #0x18
+- 0222CBB6  9001       str r0, [sp, #4]
+- 0222CBB8  4847       ldr r0, [pc, #0x11c]
+- 0222CBBA  7841       ldrb r1, [r0, #1]
+- 0222CBBC  2905       cmp r1, #5
+- 0222CBBE  D900       bls #0x222cbc2
+- 0222CBC0  E087       b #0x222ccd2
+- 0222CBC2  1849       adds r1, r1, r1
+- 0222CBC4  4479       add r1, pc
+- 0222CBC6  88C9       ldrh r1, [r1, #6]
+- 0222CBC8  0409       lsls r1, r1, #0x10
+- 0222CBCA  1409       asrs r1, r1, #0x10
+- 0222CBCC  448F       add pc, r1
+- 0222CBCE  000A       movs r2, r1
+- 0222CBD0  0022       movs r2, r4
+- 0222CBD2  004E       lsls r6, r1, #1
+- 0222CBD4  0072       lsls r2, r6, #1
+- 0222CBD6  00B2       lsls r2, r6, #2
+- 0222CBD8  00F2       lsls r2, r6, #3
+- 0222CBDA  1C28       adds r0, r5, #0
+- 0222CBDC  1C31       adds r1, r6, #0
+- 0222CBDE  2200       movs r2, #0
+- 0222CBE0  2301       movs r3, #1
+- 0222CBE2  F000 FFE5  bl #0x222dbb0  ; Faint_Prepare
+- 0222CBE6  2800       cmp r0, #0
+- 0222CBE8  D073       beq #0x222ccd2
+- 0222CBEA  483B       ldr r0, [pc, #0xec]
+- 0222CBEC  2101       movs r1, #1
+- 0222CBEE  7041       strb r1, [r0, #1]
+- 0222CBF0  E06F       b #0x222ccd2
+- 0222CBF2  F5D9 FB31  bl #0x2006258  ; Cry_IsPlaying
+- 0222CBF6  2800       cmp r0, #0
+- 0222CBF8  D16B       bne #0x222ccd2
+- 0222CBFA  1C20       adds r0, r4, #0
+- 0222CBFC  2129       movs r1, #0x29
+- 0222CBFE  F5DB FF09  bl #0x2008a14  ; Sprite_GetAttr
+- 0222CC02  2800       cmp r0, #0
+- 0222CC04  DD02       ble #0x222cc0c
+- 0222CC06  2102       movs r1, #2
+- 0222CC08  4833       ldr r0, [pc, #0xcc]
+- 0222CC0A  E001       b #0x222cc10
+- 0222CC0C  4832       ldr r0, [pc, #0xc8]
+- 0222CC0E  2103       movs r1, #3
+- 0222CC10  7041       strb r1, [r0, #1]
+- 0222CC12  6AA8       ldr r0, [r5, #0x28]
+- 0222CC14  1C31       adds r1, r6, #0
+- 0222CC16  2200       movs r2, #0
+- 0222CC18  F001 F992  bl #0x222df40  ; Faint_HealthboxOut
+- 0222CC1C  E059       b #0x222ccd2
+- 0222CC1E  1C20       adds r0, r4, #0
+- 0222CC20  2129       movs r1, #0x29
+- 0222CC22  F5DB FEF7  bl #0x2008a14  ; Sprite_GetAttr
+- 0222CC26  1C05       adds r5, r0, #0
+- 0222CC28  3D08       subs r5, #8
+- 0222CC2A  D500       bpl #0x222cc2e
+- 0222CC2C  2500       movs r5, #0
+- 0222CC2E  1C20       adds r0, r4, #0
+- 0222CC30  2129       movs r1, #0x29
+- 0222CC32  1C2A       adds r2, r5, #0
+- 0222CC34  F5DB FD84  bl #0x2008740  ; Sprite_SetAttr
+- 0222CC38  2D00       cmp r5, #0
+- 0222CC3A  D14A       bne #0x222ccd2
+- 0222CC3C  4826       ldr r0, [pc, #0x98]
+- 0222CC3E  2103       movs r1, #3
+- 0222CC40  7041       strb r1, [r0, #1]
+- 0222CC42  1C38       adds r0, r7, #0
+- 0222CC44  F7EA FFD0  bl #0x2217be8
+- 0222CC48  1C05       adds r5, r0, #0
+- 0222CC4A  1C38       adds r0, r7, #0
+- 0222CC4C  F7EA FFC8  bl #0x2217be0
+- 0222CC50  1C06       adds r6, r0, #0
+- 0222CC52  1C38       adds r0, r7, #0
+- 0222CC54  F7EB FAC8  bl #0x22181e8
+- 0222CC58  0600       lsls r0, r0, #0x18
+- 0222CC5A  0E01       lsrs r1, r0, #0x18
+- 0222CC5C  2000       movs r0, #0
+- 0222CC5E  9000       str r0, [sp]
+- 0222CC60  9A01       ldr r2, [sp, #4]
+- 0222CC62  1C28       adds r0, r5, #0
+- 0222CC64  1C33       adds r3, r6, #0
+- 0222CC66  F643 F829  bl #0x206fcbc  ; Mon_GetSpriteYOffset
+- 0222CC6A  2350       movs r3, #0x50
+- 0222CC6C  1A18       subs r0, r3, r0
+- 0222CC6E  2100       movs r1, #0
+- 0222CC70  9000       str r0, [sp]
+- 0222CC72  1C20       adds r0, r4, #0
+- 0222CC74  1C0A       adds r2, r1, #0
+- 0222CC76  F5DC F9D7  bl #0x2009028  ; Sprite_SetPartialDraw
+- 0222CC7A  4817       ldr r0, [pc, #0x5c]
+- 0222CC7C  2104       movs r1, #4
+- 0222CC7E  7041       strb r1, [r0, #1]
+- 0222CC80  E027       b #0x222ccd2
+- 0222CC82  1C20       adds r0, r4, #0
+- 0222CC84  2101       movs r1, #1
+- 0222CC86  F5DB FEC5  bl #0x2008a14  ; Sprite_GetAttr
+- 0222CC8A  1C02       adds r2, r0, #0
+- 0222CC8C  1C20       adds r0, r4, #0
+- 0222CC8E  2101       movs r1, #1
+- 0222CC90  3208       adds r2, #8
+- 0222CC92  F5DB FD55  bl #0x2008740  ; Sprite_SetAttr
+- 0222CC96  1C20       adds r0, r4, #0
+- 0222CC98  2112       movs r1, #0x12
+- 0222CC9A  F5DB FEBB  bl #0x2008a14  ; Sprite_GetAttr
+- 0222CC9E  1C05       adds r5, r0, #0
+- 0222CCA0  3D08       subs r5, #8
+- 0222CCA2  D500       bpl #0x222cca6
+- 0222CCA4  2500       movs r5, #0
+- 0222CCA6  1C20       adds r0, r4, #0
+- 0222CCA8  2112       movs r1, #0x12
+- 0222CCAA  1C2A       adds r2, r5, #0
+- 0222CCAC  F5DB FD48  bl #0x2008740  ; Sprite_SetAttr
+- 0222CCB0  2D00       cmp r5, #0
+- 0222CCB2  D10E       bne #0x222ccd2
+- 0222CCB4  1C20       adds r0, r4, #0
+- 0222CCB6  F5DB FD31  bl #0x200871c  ; Sprite_Delete
+- 0222CCBA  4807       ldr r0, [pc, #0x1c]
+- 0222CCBC  2105       movs r1, #5
+- 0222CCBE  7041       strb r1, [r0, #1]
+- 0222CCC0  E007       b #0x222ccd2
+- 0222CCC2  7801       ldrb r1, [r0]
+- 0222CCC4  2900       cmp r1, #0
+- 0222CCC6  D104       bne #0x222ccd2
+- 0222CCC8  2100       movs r1, #0
+- 0222CCCA  7041       strb r1, [r0, #1]
+- 0222CCCC  B003       add sp, #0xc
+- 0222CCCE  2001       movs r0, #1
+- 0222CCD0  BDF0       pop {r4, r5, r6, r7, pc}
+- 0222CCD2  2000       movs r0, #0
+- 0222CCD4  B003       add sp, #0xc
+- 0222CCD6  BDF0       pop {r4, r5, r6, r7, pc}
+- 0222CCD8  5EDC       ldrsh r4, [r3, r3]
+- 0222CCDA  0225       lsls r5, r4, #8
++ 0222CB7C  B5F0       push {r4, r5, r6, r7, lr}
++ 0222CB7E  B083       sub sp, #0xc
++ 0222CB80  1C05       adds r5, r0, #0
++ 0222CB82  6AA8       ldr r0, [r5, #0x28]
++ 0222CB84  1C0F       adds r7, r1, #0
++ 0222CB86  F7FB FDF7  bl #0x2228778  ; Battle_GetSpriteSlot
++ 0222CB8A  1C06       adds r6, r0, #0
++ 0222CB8C  1C38       adds r0, r7, #0
++ 0222CB8E  F7FB FCBD  bl #0x222850c  ; Battler_FacingKind
++ 0222CB92  2800       cmp r0, #0
++ 0222CB94  D000       beq #0x222cb98  ; @@facing
++ 0222CB96  2002       movs r0, #2
++ 0222CB98  9001       str r0, [sp, #4]
++ 0222CB9A  1C30       adds r0, r6, #0
++ 0222CB9C  F7FB F9C4  bl #0x2227f28  ; BattleSprite_Get
++ 0222CBA0  1C04       adds r4, r0, #0
++ 0222CBA2  6AA8       ldr r0, [r5, #0x28]
++ 0222CBA4  1C39       adds r1, r7, #0
++ 0222CBA6  F7E8 FB03  bl #0x22151b0  ; Battle_GetMonView
++ 0222CBAA  1C07       adds r7, r0, #0
++ 0222CBAC  4848       ldr r0, [pc, #0x120]
++ 0222CBAE  7841       ldrb r1, [r0, #1]
++ 0222CBB0  2905       cmp r1, #5
++ 0222CBB2  D900       bls #0x222cbb6  ; @@dispatch
++ 0222CBB4  E041       b #0x222cc3a  ; @@exit
++ 0222CBB6  1849       adds r1, r1, r1
++ 0222CBB8  4479       add r1, pc
++ 0222CBBA  88C9       ldrh r1, [r1, #6]
++ 0222CBBC  0409       lsls r1, r1, #0x10
++ 0222CBBE  1409       asrs r1, r1, #0x10
++ 0222CBC0  448F       add pc, r1
++ 0222CBC2  000A       movs r2, r1
++ 0222CBC4  003C       movs r4, r7
++ 0222CBC6  007C       lsls r4, r7, #1
++ 0222CBC8  00A0       lsls r0, r4, #2
++ 0222CBCA  00CA       lsls r2, r1, #3
++ 0222CBCC  00FC       lsls r4, r7, #3
++ 0222CBCE  1C28       adds r0, r5, #0
++ 0222CBD0  1C31       adds r1, r6, #0
++ 0222CBD2  2200       movs r2, #0
++ 0222CBD4  2301       movs r3, #1
++ 0222CBD6  F000 FFEB  bl #0x222dbb0  ; Faint_Prepare
++ 0222CBDA  2800       cmp r0, #0
++ 0222CBDC  D02D       beq #0x222cc3a  ; @@exit
++ 0222CBDE  9A01       ldr r2, [sp, #4]
++ 0222CBE0  3A01       subs r2, #1
++ 0222CBE2  2075       movs r0, #0x75
++ 0222CBE4  4342       muls r2, r0, r2
++ 0222CBE6  7978       ldrb r0, [r7, #5]
++ 0222CBE8  9002       str r0, [sp, #8]
++ 0222CBEA  2000       movs r0, #0
++ 0222CBEC  9001       str r0, [sp, #4]
++ 0222CBEE  8839       ldrh r1, [r7]
++ 0222CBF0  237F       movs r3, #0x7f
++ 0222CBF2  2005       movs r0, #5
++ 0222CBF4  9000       str r0, [sp]
++ 0222CBF6  2005       movs r0, #5
++ 0222CBF8  F5D9 FE4E  bl #0x2006898  ; Cry_Play
++ 0222CBFC  2101       movs r1, #1
++ 0222CBFE  E01A       b #0x222cc36  ; @@set_state
++ 0222CC00  F5D9 FB2A  bl #0x2006258  ; Cry_IsPlaying
++ 0222CC04  2800       cmp r0, #0
++ 0222CC06  D118       bne #0x222cc3a  ; @@exit
++ 0222CC08  9901       ldr r1, [sp, #4]
++ 0222CC0A  3901       subs r1, #1
++ 0222CC0C  2075       movs r0, #0x75
++ 0222CC0E  4341       muls r1, r0, r1
++ 0222CC10  4830       ldr r0, [pc, #0xc0]
++ 0222CC12  F5D9 F993  bl #0x2005f3c  ; PlaySEWithPan
++ 0222CC16  1C20       adds r0, r4, #0
++ 0222CC18  2129       movs r1, #0x29
++ 0222CC1A  F5DB FEFB  bl #0x2008a14  ; Sprite_GetAttr
++ 0222CC1E  2103       movs r1, #3
++ 0222CC20  2800       cmp r0, #0
++ 0222CC22  DD00       ble #0x222cc26  ; @@state1_set
++ 0222CC24  2102       movs r1, #2
++ 0222CC26  482A       ldr r0, [pc, #0xa8]
++ 0222CC28  7041       strb r1, [r0, #1]
++ 0222CC2A  6AA8       ldr r0, [r5, #0x28]
++ 0222CC2C  1C31       adds r1, r6, #0
++ 0222CC2E  2200       movs r2, #0
++ 0222CC30  F001 F986  bl #0x222df40  ; Faint_HealthboxOut
++ 0222CC34  E001       b #0x222cc3a  ; @@exit
++ 0222CC36  4826       ldr r0, [pc, #0x98]
++ 0222CC38  7041       strb r1, [r0, #1]
++ 0222CC3A  2000       movs r0, #0
++ 0222CC3C  B003       add sp, #0xc
++ 0222CC3E  BDF0       pop {r4, r5, r6, r7, pc}
++ 0222CC40  1C20       adds r0, r4, #0
++ 0222CC42  2129       movs r1, #0x29
++ 0222CC44  F5DB FEE6  bl #0x2008a14  ; Sprite_GetAttr
++ 0222CC48  1C05       adds r5, r0, #0
++ 0222CC4A  3D08       subs r5, #8
++ 0222CC4C  D500       bpl #0x222cc50  ; @@state2_set
++ 0222CC4E  2500       movs r5, #0
++ 0222CC50  1C20       adds r0, r4, #0
++ 0222CC52  2129       movs r1, #0x29
++ 0222CC54  1C2A       adds r2, r5, #0
++ 0222CC56  F5DB FD73  bl #0x2008740  ; Sprite_SetAttr
++ 0222CC5A  2D00       cmp r5, #0
++ 0222CC5C  D1ED       bne #0x222cc3a  ; @@exit
++ 0222CC5E  481C       ldr r0, [pc, #0x70]
++ 0222CC60  2103       movs r1, #3
++ 0222CC62  7041       strb r1, [r0, #1]
++ 0222CC64  2000       movs r0, #0
++ 0222CC66  9000       str r0, [sp]
++ 0222CC68  218E       movs r1, #0x8e
++ 0222CC6A  0089       lsls r1, r1, #2
++ 0222CC6C  3101       adds r1, #1
++ 0222CC6E  5C79       ldrb r1, [r7, r1]
++ 0222CC70  797B       ldrb r3, [r7, #5]
++ 0222CC72  9A01       ldr r2, [sp, #4]
++ 0222CC74  8838       ldrh r0, [r7]
++ 0222CC76  F643 F821  bl #0x206fcbc  ; Mon_GetSpriteYOffset
++ 0222CC7A  2350       movs r3, #0x50
++ 0222CC7C  1A18       subs r0, r3, r0
++ 0222CC7E  2100       movs r1, #0
++ 0222CC80  9000       str r0, [sp]
++ 0222CC82  1C20       adds r0, r4, #0
++ 0222CC84  1C0A       adds r2, r1, #0
++ 0222CC86  F5DC F9CF  bl #0x2009028  ; Sprite_SetPartialDraw
++ 0222CC8A  2104       movs r1, #4
++ 0222CC8C  E7D3       b #0x222cc36  ; @@set_state
++ 0222CC8E  1C20       adds r0, r4, #0
++ 0222CC90  2101       movs r1, #1
++ 0222CC92  2208       movs r2, #8
++ 0222CC94  F5DB FF98  bl #0x2008bc8  ; Sprite_AddAttr
++ 0222CC98  1C20       adds r0, r4, #0
++ 0222CC9A  2112       movs r1, #0x12
++ 0222CC9C  F5DB FEBA  bl #0x2008a14  ; Sprite_GetAttr
++ 0222CCA0  1C05       adds r5, r0, #0
++ 0222CCA2  3D08       subs r5, #8
++ 0222CCA4  D500       bpl #0x222cca8  ; @@state4_set
++ 0222CCA6  2500       movs r5, #0
++ 0222CCA8  1C20       adds r0, r4, #0
++ 0222CCAA  2112       movs r1, #0x12
++ 0222CCAC  1C2A       adds r2, r5, #0
++ 0222CCAE  F5DB FD47  bl #0x2008740  ; Sprite_SetAttr
++ 0222CCB2  2D00       cmp r5, #0
++ 0222CCB4  D1C1       bne #0x222cc3a  ; @@exit
++ 0222CCB6  1C20       adds r0, r4, #0
++ 0222CCB8  F5DB FD30  bl #0x200871c  ; Sprite_Delete
++ 0222CCBC  2105       movs r1, #5
++ 0222CCBE  E7BA       b #0x222cc36  ; @@set_state
++ 0222CCC0  7801       ldrb r1, [r0]
++ 0222CCC2  2900       cmp r1, #0
++ 0222CCC4  D1B9       bne #0x222cc3a  ; @@exit
++ 0222CCC6  2100       movs r1, #0
++ 0222CCC8  7041       strb r1, [r0, #1]
++ 0222CCCA  B003       add sp, #0xc
++ 0222CCCC  2001       movs r0, #1
++ 0222CCCE  BDF0       pop {r4, r5, r6, r7, pc}
++ 0222CCD0  5EDC       ldrsh r4, [r3, r3]
++ 0222CCD2  0225       lsls r5, r4, #8
++ 0222CCD4  0703       lsls r3, r0, #0x1c
++ 0222CCD6  0000       movs r0, r0
++ 0222CCD8  0000       movs r0, r0
++ 0222CCDA  0000       movs r0, r0
+  0222CCDC  B570       push {r4, r5, r6, lr}
+  0222CCDE  1C05       adds r5, r0, #0

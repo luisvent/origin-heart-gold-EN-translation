@@ -87,6 +87,7 @@ COVERAGE = {
     "type-change-message": ("typechange",),
     "trade-evolutions-levelup": ("trade-evo",),
     "petilil-hisuian-lilligant": ("petilil-evo",),
+    "battle-faint-cry": ("faintcry",),
 }
 # fix id -> why no scenario of this command covers it (honest gaps; see work/notes/emu_harness.md)
 UNCOVERED = {
@@ -231,6 +232,23 @@ TRADE_EVO_CASES = {
 # without it (the hack: 548 = Petilil, form 1).
 PETILIL_EVO = {"species": 548, "level": 10, "item": 241, "candy": 50,
                "fixed": {"species": 549, "form": 1, "ability": 55}, "original": {"species": 548, "form": 1}}
+# battle-faint-cry (battle-faint-cry.listing): Faint_Run, client command 21's per-frame faint routine, and its
+# state byte; the faint cry goes through the hack's cry routine, the faint sound through PlaySEWithPan; every
+# sequence start through NNS_SndArcPlayerStartSeqEx (arm9; the sequence number is its stack argument).
+FAINT_RUN = 0x0222CB7C              # the [[code]] region battle-faint-cry-faint-run: (client r0, battler r1)
+FAINT_STATE = 0x02255EDD            # Faint_Run's state (FaintState + 1): 0 prepare, 1 wait for the cry, ... 5
+CRY_PLAY = 0x02006898               # (mode, species, pan, volume, [sp] heap, [sp+4] delay, [sp+8] form)
+PLAYSE_PAN = 0x02005F3C             # PlaySEWithPan(seq, pan)
+FAINT_SEQ_START = 0x02006B64        # NNS_SndArcPlayerStartSeqEx (seq at [sp])
+FAINT_CRY_MODE, FAINT_PAN, SEQ_PV, SEQ_POKE_DEAD3 = 5, 117, 2, 1795
+FAINT_CASES = {   # case: (party from slot 0: (species, level, moves, HP or None), foe, expected faints as
+    #                   (side, species or None = any))
+    "wild": ([(25, 100, [85], None)], ("wild", 129, 5, [150]), [("foe", 129)]),        # Thunderbolt on Magikarp
+    "player": ([(129, 5, [150], 1)], ("wild", 19, 5, [33]), [("player", 129)]),         # Rattata's Tackle; flee
+    "explosion": ([(76, 100, [153], None)], ("wild", 143, 5, [150]), [("foe", 143), ("player", 76)]),
+    "trainer": ([(150, 100, [94], None)], ("trainer", 252), [("foe", None)]),           # every foe Pokemon
+    "double": ([(383, 100, [257], None)], ("double", 252), [("foe", None), ("foe", None)]),  # TrainerBattle
+}   # 252 252: a double battle against both Lv22 Pokemon of trainer 252; Groudon's Heat Wave hits both foes
 # antipiracy (antipiracy.listing): the six DS Protect entry points in overlay 114 and their genuine values
 ANTIPIRACY_ENTRIES = {0x02263A64: 0, 0x02263B4C: 1, 0x02263C34: 0, 0x02263D1C: 1, 0x02263E04: 0, 0x02263ECC: 1}
 def _fix_expect_bytes(fix_id, region_id):
@@ -1665,6 +1683,111 @@ def observe_pryce(h):
         decoded = [(m["species"], m["checksum_ok"]) for m in h.party()]
         out[name] = {"verdict": verdict, "messages": msgs, "presses": presses, "party": decoded}
         h.step(60)
+def observe_faintcry(h):
+    """Pokemon faint in five battles: a wild foe, the player's Pokemon, both at once (Explosion), a trainer's
+    team and a double battle (Chuck, two foes to one Surf). Logged: every Faint_Run call (frame, battler,
+    state), every cry the hack's cry routine plays (mode, species, pan, volume, heap, delay, form), every
+    PlaySEWithPan and every sequence start."""
+    import emu_guide0107 as G
+    import emu_harness as E
+    import emu_open
+    import emu_verify as V
+    runs, cries, sounds, starts = [], [], [], []
+
+    def regs(h):
+        r = h.reg
+        return [r.r0, r.r1, r.r2, r.r3, h.u32(r.sp), h.u32(r.sp + 4), h.u32(r.sp + 8)]
+    h.on_exec(FAINT_RUN, lambda h: runs.append((h.frame, h.reg.r1 & 0xFF, h.u8(FAINT_STATE))), exclusive=True)
+    h.on_exec(CRY_PLAY, lambda h: cries.append([h.frame] + regs(h)), exclusive=True)
+    h.on_exec(PLAYSE_PAN, lambda h: sounds.append((h.frame, h.reg.r0 & 0xFFFF, _s32(h.reg.r1))), exclusive=True)
+    h.on_exec(FAINT_SEQ_START, lambda h: starts.append((h.frame, h.u32(h.reg.sp) & 0xFFFF)), exclusive=True)
+    out = {}
+    for case, (party, foe, _) in FAINT_CASES.items():
+        marks = (len(runs), len(cries), len(sounds), len(starts))
+        for slot, (species, level, moves, hp) in enumerate(party):
+            if slot == 0:
+                G.lead(h, species, level=level, **emu_open.moveset(moves, [20] * len(moves)))
+            else:
+                h.generate_pokemon(species, level=level)
+                h.edit_party_mon(h.generated_slot, **emu_open.moveset(moves, [20] * len(moves)))
+                h.swap_party(slot, h.generated_slot)
+            if hp is not None:
+                G.set_party_hp(h, slot, hp)
+        ml = V.MsgLog(h)
+        if foe[0] == "wild":
+            emu_open.wild_battle(h, foe[1], foe[2], moves=foe[3], pp=[40] * len(foe[3]))
+        else:
+            h.run_script(program=E.script_bytes(("LockAll",), ("TrainerBattle", foe[1], foe[1] if foe[0] == "double"
+                                                else 0, 0, 0), ("ReleaseAll",), ("End",)))
+        if not h.wait_screen("battle_menu", 3000):
+            return {"error": f"{case}: the battle command menu never appeared"}
+        turns = []
+        for _ in range(16):
+            turn = _turn_targeted(h) if foe[0] == "double" else emu_open.turn(h, ml, 0)
+            turns.append(turn)
+            if turn != "menu":
+                break
+            if case == "player" and any(r[2] == 5 for r in runs[marks[0]:]):
+                turns.append("fled" if h.flee(battle_menu_wait=0) else "flee failed")
+                break
+        h.run_until(lambda h: h.in_field(), 1200, every=10)
+        h.step(240)
+        out[case] = {"turns": turns, "in_field": h.in_field(), "screenshot": str(h.screenshot(f"faintcry_{case}")),
+                     "faints": _faint_windows(runs[marks[0]:]),
+                     "cries": [dict(zip(("frame", "mode", "species", "pan", "volume", "heap", "delay", "form"),
+                                        [c[0], c[1], c[2], _s32(c[3])] + c[4:])) for c in cries[marks[1]:]],
+                     "sounds": [{"frame": f, "seq": q, "pan": p} for f, q, p in sounds[marks[2]:]],
+                     "starts": [{"frame": f, "seq": q} for f, q in starts[marks[3]:]]}
+    return out
+
+
+def _turn_targeted(h, max_frames=4000):
+    """At the command menu: FIGHT, the first move and, in a double battle's target screen, the top-left button
+    (the first move button's place); then B through the turn, our fainted Pokemon replaced from the party list
+    (as emu_sweeps.b_turn). Returns 'menu', 'field' or 'stuck'."""
+    import emu_guide0107 as G
+    import emu_harness as E
+    h.touch(*E.BATTLE_BUTTONS["fight"], frames=10, after=90)
+    h.touch(*E.MOVE_BUTTONS[0], frames=10, after=90)
+    h.touch(*E.MOVE_BUTTONS[0], frames=10, after=0)     # the target screen (a spread move: any button)
+    nxt = 2
+    for i in range(0, max_frames, 4):
+        h.step(4)
+        if h.in_field():
+            h.step(60)
+            return "field"
+        if i > 60 and h.on_screen("battle_menu"):
+            return "menu"
+        if i % 60 == 0 and G._match(h, G.PARTY_LIST):
+            h.touch(*E.PARTY_SLOTS[nxt], frames=10, after=60)
+            if G._match(h, G.PARTY_SUBMENU):
+                h.touch(*G.SUBMENU_SHIFT, frames=10, after=30)
+            nxt = nxt % 5 + 1
+            continue
+        if i % 64 == 60:
+            h.press("B", after=0)
+    return "stuck"
+
+
+def _s32(v):
+    v &= 0xFFFFFFFF
+    return v - (1 << 32) if v & 0x80000000 else v
+
+
+def _faint_windows(runs):
+    """Faint_Run calls -> one window per faint: from a call in state 0 after a call in another state (or the
+    first call) to the last call before the next such start. Frames of the state changes as seen at entry."""
+    out = []
+    prev = None
+    for frame, battler, state in runs:
+        if state == 0 and (prev is None or prev != 0):
+            out.append({"battler": battler, "start": frame, "end": frame, "states": [[state, frame]]})
+        elif out:
+            w = out[-1]
+            w["end"] = frame
+            if w["states"][-1][0] != state:
+                w["states"].append([state, frame])
+        prev = state
     return out
 
 
@@ -1698,6 +1821,7 @@ SCENARIOS = {
     "typechange": ("full_bag_6mons.sav", None, observe_typechange, False),
     "trade-evo": ("full_bag_6mons.sav", None, observe_trade_evo, False),
     "petilil-evo": ("full_bag_6mons.sav", None, observe_petilil_evo, False),
+    "faintcry": ("full_bag_6mons.sav", None, observe_faintcry, False),
 }
 # scenarios that run with the clock pinned (weekday on the Pokegear, repeatable RNG); the older ones keep the host
 # clock so that their approved crops stay as they were taken
@@ -2047,6 +2171,42 @@ def judge_pryce(scenario, obs, ref=None):
     fixed = all(why[n] == f for n, (_m, f, _o) in PRYCE_CASES.items())
     original = all(why[n] == o for n, (_m, _f, o) in PRYCE_CASES.items())
     return _state(fixed, original, why)
+def judge_faintcry(scenario, obs, ref=None):
+    """fixed: every case shows its expected faints, and each faint (a Faint_Run window) plays one faint-mode cry
+    (mode 5, volume 127, heap 5, no delay; species as expected) in the frame state 0 ends, whose start is seen
+    (SEQ_PV), then once the cry has ended one SEQ_SE_DP_POKE_DEAD3 (1795) with the same pan, +117 for a foe and
+    -117 for the player's side. original: the same faints, no faint-mode cry and no 1795 at all."""
+    if obs.get("error"):
+        return "unclear", {"error": obs["error"]}
+    why, fixed_ok, original_ok = {}, True, True
+    for case, (_, _, want) in FAINT_CASES.items():
+        c = obs.get(case) or {}
+        wins = c.get("faints") or []
+        cries = [x for x in c.get("cries", []) if x["mode"] == FAINT_CRY_MODE]
+        dead = [x for x in c.get("sounds", []) if x["seq"] == SEQ_POKE_DEAD3]
+        if len(wins) < len(want) or (want[0][1] is not None and len(wins) != len(want)):
+            return "unclear", dict(why, error=f"{case}: {len(wins)} faints, expected {len(want)}"
+                                   f"{' or more' if want[0][1] is None else ''}")
+        seen = []
+        for w in wins:
+            cw = [x for x in cries if w["start"] <= x["frame"] <= w["end"]]
+            dw = [x for x in dead if w["start"] <= x["frame"] <= w["end"]]
+            one = len(cw) == 1 and len(dw) == 1
+            ok = one and cw[0]["frame"] < dw[0]["frame"] and cw[0]["pan"] == dw[0]["pan"] \
+                and abs(cw[0]["pan"]) == FAINT_PAN and (cw[0]["volume"], cw[0]["heap"], cw[0]["delay"]) == (127, 5, 0) \
+                and any(s["frame"] == cw[0]["frame"] and s["seq"] == SEQ_PV for s in c.get("starts", [])) \
+                and any(s["frame"] == dw[0]["frame"] and s["seq"] == SEQ_POKE_DEAD3 for s in c.get("starts", []))
+            side = None if not cw else "foe" if cw[0]["pan"] > 0 else "player"
+            seen.append((side, cw[0]["species"] if cw else None))
+            fixed_ok = fixed_ok and ok
+        if want[0][1] is not None:
+            fixed_ok = fixed_ok and sorted(seen, key=str) == sorted(want, key=str)
+        else:       # a team: at least the expected foe faints; our Pokemon may faint too (double battle)
+            fixed_ok = fixed_ok and sum(s == "foe" for s, _ in seen) >= len(want) and None not in [s for s, _ in seen]
+        original_ok = original_ok and not cries and not dead
+        why[case] = {"faints": len(wins), "faint_cries": [(x["species"], x["pan"]) for x in cries],
+                     "faint_sounds": [x["pan"] for x in dead], "expected": want, "turns": c.get("turns")}
+    return _state(fixed_ok, original_ok, why)
 
 
 NAMING_SITES_BY_ID = {v[0]: v for v in NAMING_SITES.values()}
@@ -2068,6 +2228,7 @@ JUDGES = {
     ("healbell", "battle-party-status-sync"): judge_healbell,
     ("battle-variant", "battle-message-variant"): judge_battle_variant,
     ("pryce", "pryce-weather-rule"): judge_pryce,
+    ("faintcry", "battle-faint-cry"): judge_faintcry,
 }
 
 
