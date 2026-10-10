@@ -5,6 +5,26 @@ Patches apply to **Pokémon HeartGold (USA)**, CRC32 `C180A0E9`.
 
 ## [Unreleased]
 
+RC7 release preparation: 14 additional fixes on RC6; local build and validation only.
+
+### Fixed
+- Lugia entrance animation state bounds prevent the Whirl Islands callback crash.
+- Double Battle D-pad targeting reaches eligible foes and allies when adjacent slots are empty.
+- Exhausted player moves fall back to native Struggle when FIGHT is selected.
+- Rock Tunnel corner-child and Pokémon Tower Magcargo defeats use native whiteout recovery.
+- Completed expedition progress is retained; the Ho-Oh panel retains Silver's marker.
+- Mt. Mortar's invalid story-flag write becomes a native no-op.
+- Healing playback skips a Pokémon switched out by Roar instead of animating a missing HP bar.
+- Cute Charm applies infatuation, battle party screens synchronize status, and fainting waits for HP drain.
+- Reviewed battle-message callers select the correct side and prefix.
+- Pryce checks the party's weather-changing Abilities instead of excluding 28 species. The current user request enables this previously parked fix.
+
+### Preparation notes
+- Damage hit sound and faint cry patches are excluded by user request.
+- The Saffron move-relearner crash was reproduced in Bradam's NoBigText patch, not this translation; no new Saffron fix is included.
+- Combined checks, artifact fingerprints and runtime limits are recorded in [the RC7 integration report](work/notes/rc7_release_prep_20261010.md).
+- Earlier Lugia-only RC7 artifacts remain separate and are not the combined prep build.
+
 ## [1.0.0-rc6] - 2026-10-09
 
 Tester release. Adds a text speed option and the anti-piracy fix for real hardware, and fixes freezes and battle bugs of the original hack that players reported. 3,985 strings in 478 text banks differ from rc5.

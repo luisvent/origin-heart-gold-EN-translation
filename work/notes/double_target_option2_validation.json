@@ -1,0 +1,343 @@
+{
+  "validated_on": "2026-10-07",
+  "base_commit": "c7d2c29",
+  "branch": "codex/double-target-option2",
+  "patches_sha256": "cba27a5ca63108666a35f8ba9328ef4fa4486d665b1923931cddc54b07a320f7",
+  "patch_count": 8,
+  "code_region_bytes": 164,
+  "unit_tests": {
+    "passed": 63,
+    "skipped": 0
+  },
+  "host_cases": {
+    "native_order": 16,
+    "foe_order": 16,
+    "navigation": 320,
+    "navigation_changes": 11,
+    "repair": 256,
+    "entry": 224
+  },
+  "emulator_matrix": [
+    {
+      "lang": "cn",
+      "case": "lastR",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "lastL",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "leak",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "field",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 4,
+      "modes": [
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "spread",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 4,
+      "modes": [
+        1,
+        2,
+        7,
+        8
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "multi",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 3,
+      "modes": [
+        8
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "wildR",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "wildL",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "cancel",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "empty",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "cn",
+      "case": "single",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 0,
+      "modes": []
+    },
+    {
+      "lang": "en",
+      "case": "lastR",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "lastL",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "leak",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "field",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 4,
+      "modes": [
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "spread",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 4,
+      "modes": [
+        1,
+        2,
+        7,
+        8
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "multi",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 3,
+      "modes": [
+        8
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "wildR",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "wildL",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "cancel",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "empty",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 6,
+      "modes": [
+        6,
+        8,
+        9
+      ]
+    },
+    {
+      "lang": "en",
+      "case": "single",
+      "rc": 0,
+      "pass": true,
+      "target_screens": 0,
+      "modes": []
+    }
+  ],
+  "regression_suite": [
+    {
+      "check": "open",
+      "language": "cn",
+      "pass": true
+    },
+    {
+      "check": "open",
+      "language": "en",
+      "pass": true
+    },
+    {
+      "check": "arceus",
+      "language": "cn",
+      "pass": true
+    },
+    {
+      "check": "arceus",
+      "language": "en",
+      "pass": true
+    },
+    {
+      "check": "vqueue",
+      "language": "cn",
+      "pass": true
+    },
+    {
+      "check": "vqueue",
+      "language": "en",
+      "pass": true
+    }
+  ],
+  "roms": {
+    "cn": {
+      "source_sha256": "4807ab2c130581cb9d4f6110fc64b41ca4807b8d28e7622ebd3c9740baed95c8",
+      "output_sha256": "ce01ef2496f8665e493a2c39bb87735b56d06c6c87403ef153263916cc3491cb",
+      "isolation": {
+        "changed_file_ids": [
+          14
+        ],
+        "only_overlay14": true,
+        "arm9_arm7_overlay_tables_identical": true,
+        "overlay_size_unchanged": true,
+        "changed_bytes": 164
+      }
+    },
+    "en": {
+      "source_sha256": "6fa7b4e739391ca9ea9bfcf90d83eec6407c3c04102e52432bb41bc8ae44a7d3",
+      "output_sha256": "2415c797dd4cf5a91a268d72f70d7fba08d1796145a0a688cd4578b7b7209949",
+      "isolation": {
+        "changed_file_ids": [
+          14
+        ],
+        "only_overlay14": true,
+        "arm9_arm7_overlay_tables_identical": true,
+        "overlay_size_unchanged": true,
+        "changed_bytes": 164
+      }
+    }
+  },
+  "negative_control": {
+    "untouched_cn_rejected": true,
+    "failure": "CANCEL repair: DOWN returned foeR instead of slot 4"
+  },
+  "test_setup_correction": "Initial EN multi scenario did not empty the foe slot; final scenario explicitly KOs both replacements. CN and EN multi were rerun and passed.",
+  "review": "Sequential implementation, harness-gate, independent code and final test reviews; no unresolved blocking findings.",
+  "pass": true
+}

@@ -1,0 +1,32 @@
+id = "hooh-panel-silver-marker"
+title = "Keep Ho-Oh panel completion from clearing Silver's dream marker"
+kind = "narc"
+enabled = true
+decisions = ["D-2300", "D-2308"]
+requires = []
+why = """
+D-1580: solving the unrelated Ho-Oh panel clears565, which the dream initializer
+also reads for Silver. Early completion therefore skips the later Silver scene.
+"""
+what = """
+Replace only ClearFlag565's operand with0. The native flag0 resolver returns
+null, so ClearFlag0 makes no persisted write. Keep native puzzle success/failure,
+HidePerson1, Clear273, Set546, Warp315/5/24/0 and all dream scripts unchanged.
+Do not restore already cleared565: legitimate Silver completion also clears it.
+"""
+evidence = [
+  "work/notes/issue10_shared_progress_investigation_20261009.md",
+  "work/notes/issue10_shared_progress_reproduction_20261009.md",
+  "work/notes/issue10_shared_progress_fix_20261009.md",
+  "work/tools/test_shared_progress.py; work/tools/native_script_state.py",
+]
+
+[[narc_bytes]]
+id = "panel-unrelated-clear-noop"
+narc = "a/0/1/2"
+member = 45
+offset = "0xB8"
+expect = "0x0235"
+new = "0x0000"
+member_sha1 = "278274f4576dfe1234847d3e487ca3605a83ad56"
+notes = "ClearFlag at182: operand565 ->0; native no-op leaves the panel's own flags and Silver's marker intact."

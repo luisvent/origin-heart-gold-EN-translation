@@ -1,0 +1,35 @@
+id = "magcargo-loss-whiteout"
+title = "Restore native whiteout after losing to Pokemon Tower's Magcargo"
+kind = "narc"
+enabled = true
+decisions = ["D-2300", "D-2306"]
+requires = []
+why = """
+D-1560: native object8/script10 starts Magcargo219 Lv40. Defeat attempts to
+restart the battle before field restoration, stalls on TouchscreenMenuShow,
+and leaves black screens in both Chinese and English with a valid weak party.
+"""
+what = """
+Change only the four-byte won==0 branch displacement at member17 offset2549
+from retry2519 to existing WhiteOut/ReleaseAll/End3914. The native result helper
+returns0 only for loss/draw. Knockout, capture, flee, battle operands and the
+nonloss hide path remain unchanged. Preserve1155 and var40B7: the grunts already
+set1155 before this encounter, and ordinary departure after declining already
+hides Magcargo on reload. Do not introduce persistent retry state.
+"""
+evidence = [
+  "work/notes/issue06_magcargo_investigation_20261009.md",
+  "work/notes/issue06_magcargo_reproduction_20261009.md",
+  "work/notes/issue06_magcargo_fix_20261009.md",
+  "work/tools/test_magcargo_loss_whiteout.py",
+]
+
+[[narc_bytes]]
+id = "magcargo-loss-target"
+narc = "a/0/1/2"
+member = 17
+offset = "0x9F5"
+expect = "FFDE FFFF"
+new = "0551 0000"
+member_sha1 = "3b381a8adc85353ba9b906bd18521f7efcad95cb"
+notes = "GoToIf equality2546: displacement-34 -> +1361, relative to2553; native WhiteOut3914."

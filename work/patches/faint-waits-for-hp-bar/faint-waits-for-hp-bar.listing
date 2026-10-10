@@ -1,0 +1,85 @@
+; faint-waits-for-hp-bar - disassembly snapshot of faint-waits-for-hp-bar.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write faint-waits-for-hp-bar   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: faint-waits-for-hp-bar.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x384 (RAM 0x02200B64), 2 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02200B64  4804       ldr r0, [pc, #0x10]
+
+== overlay14+0x386 (RAM 0x02200B66), 18 bytes, thumb: faint-waits-for-hp-bar-start
+  02200B62  0000       movs r0, r0
+  02200B64  4804       ldr r0, [pc, #0x10]
+- 02200B66  2100       movs r1, #0
+- 02200B68  8001       strh r1, [r0]
+- 02200B6A  8041       strh r1, [r0, #2]
+- 02200B6C  8081       strh r1, [r0, #4]
+- 02200B6E  80C1       strh r1, [r0, #6]
+- 02200B70  8101       strh r1, [r0, #8]
+- 02200B72  8141       strh r1, [r0, #0xa]
+- 02200B74  4770       bx lr
+- 02200B76  46C0       mov r8, r8
++ 02200B66  2100       movs r1, #0
++ 02200B68  6001       str r1, [r0]
++ 02200B6A  6041       str r1, [r0, #4]
++ 02200B6C  6081       str r1, [r0, #8]
++ 02200B6E  2101       movs r1, #1
++ 02200B70  7381       strb r1, [r0, #0xe]
++ 02200B72  4770       bx lr
++ 02200B74  46C0       mov r8, r8
++ 02200B76  46C0       mov r8, r8
+  02200B78  2D30       cmp r5, #0x30
+  02200B7A  0225       lsls r5, r4, #8
+
+== overlay14+0xBE2 (RAM 0x022013C2), 6 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  022013C2  4806       ldr r0, [pc, #0x18]
+  022013C4  2101       movs r1, #1
+  022013C6  7081       strb r1, [r0, #2]
+
+== overlay14+0xC3E (RAM 0x0220141E), 6 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0220141E  4804       ldr r0, [pc, #0x10]
+  02201420  2200       movs r2, #0
+  02201422  7082       strb r2, [r0, #2]
+
+== overlay14+0x4940 (RAM 0x02205120), 2 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02205120  BD08       pop {r3, pc}
+
+== overlay14+0x4942 (RAM 0x02205122), 26 bytes, thumb: faint-waits-for-hp-bar-handler
+  0220511C  F028 FD48  bl #0x222dbb0
+  02205120  BD08       pop {r3, pc}
+- 02205122  0000       movs r0, r0
+- 02205124  B508       push {r3, lr}
+- 02205126  6811       ldr r1, [r2]
+- 02205128  0609       lsls r1, r1, #0x18
+- 0220512A  0E09       lsrs r1, r1, #0x18
+- 0220512C  F027 FD26  bl #0x222cb7c  ; Faint_Run
+- 02205130  2800       cmp r0, #0
+- 02205132  D001       beq #0x2205138
+- 02205134  2001       movs r0, #1
+- 02205136  BD08       pop {r3, pc}
+- 02205138  2000       movs r0, #0
+- 0220513A  BD08       pop {r3, pc}
++ 02205122  B508       push {r3, lr}
++ 02205124  4B04       ldr r3, [pc, #0x10]
++ 02205126  789B       ldrb r3, [r3, #2]
++ 02205128  2B00       cmp r3, #0
++ 0220512A  D003       beq #0x2205134  ; @@wait
++ 0220512C  6811       ldr r1, [r2]
++ 0220512E  F027 FD25  bl #0x222cb7c  ; Faint_Run
++ 02205132  BD08       pop {r3, pc}
++ 02205134  2000       movs r0, #0
++ 02205136  BD08       pop {r3, pc}
++ 02205138  2D3C       cmp r5, #0x3c
++ 0220513A  0225       lsls r5, r4, #8
+  0220513C  B508       push {r3, lr}
+  0220513E  6811       ldr r1, [r2]
+
+== overlay14+0x4A434 (RAM 0x0224AC14), 4 bytes, data: faint-waits-for-hp-bar-table
+- 0224AC14  02205125 (ClientCmd21_Old+1)
++ 0224AC14  02205123 (ClientCmd21_New+1)
+
+== read-only checks at absolute addresses (expect32_abs): the bytes there, unchanged
+  02200B78  02252D30
+  022013DC  02252D3C (HpBarMisc)
+  02201430  02252D3C (HpBarMisc)

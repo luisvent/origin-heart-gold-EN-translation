@@ -106,6 +106,27 @@ class Addresses(unittest.TestCase):
         self.assertEqual(len(F.TC_SET_STRING_CODE), 4)
         self.assertEqual(list(F.TC_IDS), list(range(1212, 1220)))
 
+    def test_cutecharm_hooks_follow_the_patched_call(self):
+        region = region_ram("cute-charm-infatuation", "cute-charm-infatuation-cont")
+        self.assertEqual(F.CUTE_CHARM_CONT_CALL, region + 4)          # movs r1 / adds r2 .. bl
+        self.assertEqual(F.CUTE_CHARM_CONT_OUT, F.CUTE_CHARM_CONT_CALL + 4)
+        self.assertEqual(OVERLAYS["overlay14"], 0x022007E0)
+
+    def test_healbell_list_calls_are_the_patched_bls(self):
+        regions = [e["id"] for e in REGISTRY["battle-party-status-sync"]["code"] if "-list-" in e["id"]]
+        self.assertEqual(set(F.HEALBELL_LIST_CALLS),
+                         {region_ram("battle-party-status-sync", r) for r in regions})
+        self.assertEqual(F.STATUS_ICON, 0x0208A200)
+        self.assertEqual(OVERLAYS["overlay14"], 0x022007E0)
+
+    def test_multihit_addresses_follow_the_asm(self):
+        asm = (fixreg.PATCHES_DIR / "faint-waits-for-hp-bar" / "faint-waits-for-hp-bar.asm").read_text(encoding="utf-8")
+        self.assertIn(f".definelabel Faint_Run,               {F.FAINT_RUN:#010X}".replace("0X", "0x"), asm)
+        self.assertIn(f".definelabel HpBarMisc,               {F.HPBAR_DONE - 2:#010X}".replace("0X", "0x"), asm)
+        self.assertEqual(region_ram("faint-waits-for-hp-bar", "faint-waits-for-hp-bar-handler"), 0x02205122)
+        self.assertEqual(region_ram("faint-waits-for-hp-bar", "faint-waits-for-hp-bar-start"), 0x02200B66)
+        self.assertEqual([c[0] for c in F.MULTIHIT_CASES], ["enemy", "player"])
+
     def test_font_codes(self):
         _, fonts, codes = fixreg.font_spec([REGISTRY["font-glyphs"]])
         self.assertEqual(tuple(codes), F.FONT_CODES)
@@ -242,7 +263,8 @@ class Judges(unittest.TestCase):
             self.assertGreater(len(F.UNCOVERED[fx]), 80, fx)
 
     def test_new_graphics_coverage(self):
-        self.assertEqual(set(F.UNCOVERED), {"gfx-battle-result-labels", "gfx-jp-buttons"})
+        self.assertEqual({fx for fx in F.UNCOVERED if fx.startswith("gfx-")},
+                         {"gfx-battle-result-labels", "gfx-jp-buttons"})
         for fx, scs in F.COVERAGE.items():
             if fx.startswith("gfx-"):
                 self.assertTrue(all((sc, fx) in F.CROP_CHECKS for sc in scs), fx)
@@ -541,6 +563,99 @@ class Judges(unittest.TestCase):
                 self.assertEqual(fixreg.halfwords(entries[species]["expect"])[0], 5, name)   # trade before
                 self.assertEqual(without_fix, species, name)
         self.assertEqual(set(entries), {s for s, *_ in F.TRADE_EVO_CASES.values()} - {524})
+
+    def test_battle_heal(self):
+        self.assertEqual(F.judge_battle_heal("battle-heal", {"expect": "fixed", "passed": True, "rc": 0})[0], "fixed")
+        self.assertEqual(F.judge_battle_heal("battle-heal", {"expect": "original", "passed": True, "rc": 0})[0],
+                         "original")
+        self.assertEqual(F.judge_battle_heal("battle-heal", {"expect": "fixed", "passed": False, "rc": 1})[0],
+                         "unclear")
+        self.assertEqual(F.COVERAGE["battle-heal-hpbar-switched-out"], ("battle-heal",))
+        self.assertIn("battle-heal", F.EXTERNAL)
+
+    def test_cutecharm(self):
+        def obs(lead_love, fell, per_turn, holder_ability=56, sexes=(0, 1)):
+            rec = {"34": {"id": 1, "ability": 38, "sex": sexes[0], "love": lead_love},
+                   "31": {"id": 13, "ability": holder_ability, "sex": sexes[1], "love": "0000000000000000"}}
+            return {"turns": [{"result": "menu", "records": rec}], "fell": fell, "per_turn": per_turn}
+        linked = "0d0000006b000000"          # kind 3, linked to Pokemon 13 (the holder)
+        empty = "0d00000000000000"           # kind 0: what the hack stores
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(linked, 1, 9))[0], "fixed")
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(empty, 8, 0))[0], "original")
+        # 'fell in love' never rolled: proves nothing
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs("0000000000000000", 0, 0))[0], "unclear")
+        # linked to another Pokemon, the message twice, or no per-turn line: not the fix
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs("010000000b000000", 1, 9))[0], "unclear")
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(linked, 2, 9))[0], "unclear")
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(linked, 1, 0))[0], "unclear")
+        # the setup did not hold (no Cute Charm on the holder, same genders)
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(linked, 1, 9, holder_ability=38))[0], "unclear")
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(empty, 8, 0, sexes=(1, 1)))[0], "unclear")
+        self.assertEqual(F.COVERAGE["cute-charm-infatuation"], ("cutecharm",))
+
+    def test_healbell(self):
+        def obs(shown, cures=(336, 380, 360), loops=("pokemon",)):
+            return {"party_screen": shown, "cure_messages": list(cures), "loops": list(loops)}
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0, 0, 0, 0, 0]))[0], "fixed")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0x08, 0x40, 0x10, 0, 0]))[0], "original")
+        # Heal Bell never ran (no cure messages): the screen proves nothing either way
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0, 0, 0, 0, 0], cures=()))[0], "unclear")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0x08, 0x40, 0x10, 0, 0], cures=()))[0], "unclear")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0x08, 0, 0, 0, 0]))[0], "unclear")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0, 0]))[0], "unclear")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0, 0, 0, 0, 0], loops=()))[0], "unclear")
+
+    def test_multihit(self):
+        def obs(done, enemy_bar, player_bar, jumps):
+            return {"enemy": {"faint": {"hpbar_done": done}, "hit_bars": [enemy_bar], "pixel_jumps": jumps,
+                              "box_left_with_fill": []},
+                    "player": {"faint": {"hpbar_done": done}, "hit_bars": [player_bar], "pixel_jumps": None,
+                               "box_left_with_fill": None}}
+        # recorded 2026-10-09: the build, and the Chinese ROM / the build without the fix
+        self.assertEqual(F.judge_multihit("multihit-ko", obs(1, [0, 0, 43, 43], [0, 0, 24, 24], []))[0], "fixed")
+        self.assertEqual(F.judge_multihit("multihit-ko", obs(0, [6631, 46, 46, 46], [3456, 24, 24, 24],
+                                                             [[164, 26, 48]]))[0], "original")
+        # mixed or missing evidence is never a pass
+        self.assertEqual(F.judge_multihit("multihit-ko", obs(1, [0, 0, 43, 43], [0, 0, 24, 24],
+                                                             [[164, 26, 48]]))[0], "unclear")
+        self.assertEqual(F.judge_multihit("multihit-ko", obs(0, [6631, 46, 46, 46], [3456, 24, 24, 24], []))[0],
+                         "unclear")
+        self.assertEqual(F.judge_multihit("multihit-ko", {"error": "x"})[0], "unclear")
+        self.assertEqual(F.COVERAGE["faint-waits-for-hp-bar"], ("multihit-ko",))
+
+    def test_battle_variant(self):
+        judge = F.judge_battle_variant
+
+        def obs(variant):     # every case's line printed once: params (variant battler, {0}, {1})
+            return {c[0]: {"line": [{"id": c[3], "params": [variant(c[0]), 13, 0xFFFF]}]} for c in F.VARIANT_CASES}
+        fixed, original = obs(lambda c: 13), obs(lambda c: 1)
+        self.assertEqual(judge("battle-variant", fixed, original)[0], "fixed")
+        self.assertEqual(judge("battle-variant", original, original)[0], "original")
+        self.assertEqual(judge("battle-variant", fixed, fixed)[0], "unclear")       # reference must be original
+        half = obs(lambda c: 13 if c == "protect" else 1)
+        self.assertEqual(judge("battle-variant", half, original)[0], "unclear")
+        missing = dict(fixed, protect={"line": []})
+        self.assertEqual(judge("battle-variant", missing, original)[0], "unclear")
+        self.assertEqual(F.COVERAGE["battle-message-variant"], ("battle-variant",))
+        self.assertEqual(F.VARIANT_PRINT_BANK1, 0x02225EA8)
+        self.assertEqual({c[3] for c in F.VARIANT_CASES}, {448, 1180, 706, 1220, 288, 340, 296, 1000, 1468})
+
+    def test_pryce(self):
+        fixed = {n: {"verdict": f} for n, (_m, f, _o) in F.PRYCE_CASES.items()}
+        original = {n: {"verdict": o} for n, (_m, _f, o) in F.PRYCE_CASES.items()}
+        self.assertEqual(F.judge_pryce("pryce", fixed)[0], "fixed")
+        self.assertEqual(F.judge_pryce("pryce", original)[0], "original")
+        self.assertEqual(F.judge_pryce("pryce", dict(fixed, charizard_blaze={"verdict": None}))[0], "unclear")
+        self.assertEqual(F.judge_pryce("pryce", {"error": "boom"})[0], "unclear")
+        # the cases tell the two apart, and both verdicts occur on each side
+        self.assertTrue(any(f != o for _m, f, o in F.PRYCE_CASES.values()))
+        for side in (1, 2):
+            self.assertEqual({c[side] for c in F.PRYCE_CASES.values()}, {"battle", "refused"})
+        self.assertEqual(F.COVERAGE["pryce-weather-rule"], ("pryce",))
+        # Enabled under current RC7 preparation authorization.
+        self.assertNotIn("pryce-weather-rule", F.disabled_fixes())
+        self.assertIn("pryce", F.select("all"))
+        self.assertEqual(F.select("pryce-weather-rule"), {"pryce": ["pryce-weather-rule"]})
 
     def test_judge_rows(self):
         selection = {"pcbox": ["pcbox-name-width"]}

@@ -1,0 +1,233 @@
+; double-battle-targeting - disassembly snapshot of double-battle-targeting.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write double-battle-targeting   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: double-battle-targeting.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x11DB6 (RAM 0x02212596), 4 bytes, thumb: dbltarget2-entry
+  02212592  540A       strb r2, [r1, r0]
+  02212594  1C20       adds r0, r4, #0
+- 02212596  F000 FA2B  bl #0x22129f0  ; Target_Repair
++ 02212596  F000 F908  bl #0x22127aa  ; entry_repair
+  0221259A  483E       ldr r0, [pc, #0xf8]
+  0221259C  F000 F9C2  bl #0x2212924
+
+== overlay14+0x11FA4 (RAM 0x02212784), 164 bytes, thumb: dbltarget2-code
+  02212780  4770       bx lr
+  02212782  0000       movs r0, r0
+- 02212784  B508       push {r3, lr}
+- 02212786  A900       add r1, sp, #0
+- 02212788  2201       movs r2, #1
+- 0221278A  F7FF FF9F  bl #0x22126cc  ; Target_Mask
+- 0221278E  2000       movs r0, #0
+- 02212790  AA00       add r2, sp, #0
+- 02212792  7811       ldrb r1, [r2]
+- 02212794  2901       cmp r1, #1
+- 02212796  D004       beq #0x22127a2
+- 02212798  1C40       adds r0, r0, #1
+- 0221279A  1C52       adds r2, r2, #1
+- 0221279C  2804       cmp r0, #4
+- 0221279E  DBF8       blt #0x2212792
+- 022127A0  2004       movs r0, #4
+- 022127A2  BD08       pop {r3, pc}
+- 022127A4  B5F8       push {r3, r4, r5, r6, r7, lr}
+- 022127A6  B082       sub sp, #8
+- 022127A8  1C06       adds r6, r0, #0
+- 022127AA  481D       ldr r0, [pc, #0x74]
+- 022127AC  1C0F       adds r7, r1, #0
+- 022127AE  6841       ldr r1, [r0, #4]
+- 022127B0  20FB       movs r0, #0xfb
+- 022127B2  0080       lsls r0, r0, #2
+- 022127B4  5808       ldr r0, [r1, r0]
+- 022127B6  9200       str r2, [sp]
+- 022127B8  2400       movs r4, #0
+- 022127BA  A901       add r1, sp, #4
+- 022127BC  2201       movs r2, #1
+- 022127BE  1C25       adds r5, r4, #0
+- 022127C0  F7FF FF84  bl #0x22126cc  ; Target_Mask
+- 022127C4  1C20       adds r0, r4, #0
+- 022127C6  E00D       b #0x22127e4
+- 022127C8  4A16       ldr r2, [pc, #0x58]
+- 022127CA  0043       lsls r3, r0, #1
+- 022127CC  2100       movs r1, #0
+- 022127CE  18D3       adds r3, r2, r3
+- 022127D0  E005       b #0x22127de
+- 022127D2  5CCA       ldrb r2, [r1, r3]
+- 022127D4  4296       cmp r6, r2
+- 022127D6  D101       bne #0x22127dc
+- 022127D8  1C0C       adds r4, r1, #0
+- 022127DA  1C05       adds r5, r0, #0
+- 022127DC  1C49       adds r1, r1, #1
+- 022127DE  2902       cmp r1, #2
+- 022127E0  DBF7       blt #0x22127d2
+- 022127E2  1C40       adds r0, r0, #1
+- 022127E4  2803       cmp r0, #3
+- 022127E6  DBEF       blt #0x22127c8
+- 022127E8  4A0E       ldr r2, [pc, #0x38]
+- 022127EA  A901       add r1, sp, #4
+- 022127EC  9800       ldr r0, [sp]
+- 022127EE  19E4       adds r4, r4, r7
+- 022127F0  182D       adds r5, r5, r0
+- 022127F2  2C00       cmp r4, #0
+- 022127F4  DB05       blt #0x2212802
+- 022127F6  2C02       cmp r4, #2
+- 022127F8  DA03       bge #0x2212802
+- 022127FA  2D00       cmp r5, #0
+- 022127FC  DB01       blt #0x2212802
+- 022127FE  2D03       cmp r5, #3
+- 02212800  DB02       blt #0x2212808
+- 02212802  B002       add sp, #8
+- 02212804  1C30       adds r0, r6, #0
+- 02212806  BDF8       pop {r3, r4, r5, r6, r7, pc}
+- 02212808  0068       lsls r0, r5, #1
+- 0221280A  1810       adds r0, r2, r0
+- 0221280C  5C23       ldrb r3, [r4, r0]
+- 0221280E  2B04       cmp r3, #4
+- 02212810  D002       beq #0x2212818
+- 02212812  5CC8       ldrb r0, [r1, r3]
+- 02212814  2801       cmp r0, #1
+- 02212816  D1E9       bne #0x22127ec
+- 02212818  1C18       adds r0, r3, #0
+- 0221281A  B002       add sp, #8
+- 0221281C  BDF8       pop {r3, r4, r5, r6, r7, pc}
+- 0221281E  46C0       mov r8, r8
+- 02212820  5B90       ldrh r0, [r2, r6]
+- 02212822  0225       lsls r5, r4, #8
+- 02212824  CD44       ldm r5!, {r2, r6}
+- 02212826  0224       lsls r4, r4, #8
++ 02212784  21E4       movs r1, #0xe4
++ 02212786  E000       b #0x221278a  ; scan_first0
++ 02212788  2187       movs r1, #0x87
++ 0221278A  B51C       push {r2, r3, r4, lr}
++ 0221278C  1C0C       adds r4, r1, #0
++ 0221278E  4669       mov r1, sp
++ 02212790  2201       movs r2, #1
++ 02212792  F7FF FF9B  bl #0x22126cc  ; Target_Mask
++ 02212796  2003       movs r0, #3
++ 02212798  4020       ands r0, r4
++ 0221279A  4669       mov r1, sp
++ 0221279C  5C09       ldrb r1, [r1, r0]
++ 0221279E  2901       cmp r1, #1
++ 022127A0  D002       beq #0x22127a8  ; scan_first2
++ 022127A2  08A4       lsrs r4, r4, #2
++ 022127A4  D1F7       bne #0x2212796  ; scan_first1
++ 022127A6  2004       movs r0, #4
++ 022127A8  BD1C       pop {r2, r3, r4, pc}
++ 022127AA  491D       ldr r1, [pc, #0x74]
++ 022127AC  694A       ldr r2, [r1, #0x14]
++ 022127AE  0852       lsrs r2, r2, #1
++ 022127B0  D201       bhs #0x22127b6  ; @@entry1
++ 022127B2  2205       movs r2, #5
++ 022127B4  614A       str r2, [r1, #0x14]
++ 022127B6  E11B       b #0x22129f0  ; Target_Repair
++ 022127B8  B5F8       push {r3, r4, r5, r6, r7, lr}
++ 022127BA  1C06       adds r6, r0, #0
++ 022127BC  1C0F       adds r7, r1, #0
++ 022127BE  0055       lsls r5, r2, #1
++ 022127C0  4817       ldr r0, [pc, #0x5c]
++ 022127C2  6840       ldr r0, [r0, #4]
++ 022127C4  21FB       movs r1, #0xfb
++ 022127C6  0089       lsls r1, r1, #2
++ 022127C8  5840       ldr r0, [r0, r1]
++ 022127CA  4669       mov r1, sp
++ 022127CC  2201       movs r2, #1
++ 022127CE  F7FF FF7D  bl #0x22126cc  ; Target_Mask
++ 022127D2  4B14       ldr r3, [pc, #0x50]
++ 022127D4  2405       movs r4, #5
++ 022127D6  5D18       ldrb r0, [r3, r4]
++ 022127D8  42B0       cmp r0, r6
++ 022127DA  D001       beq #0x22127e0  ; @@nav2
++ 022127DC  3C01       subs r4, #1
++ 022127DE  D1FA       bne #0x22127d6  ; @@nav1
++ 022127E0  1C22       adds r2, r4, #0
++ 022127E2  2001       movs r0, #1
++ 022127E4  4020       ands r0, r4
++ 022127E6  19C0       adds r0, r0, r7
++ 022127E8  2801       cmp r0, #1
++ 022127EA  D80E       bhi #0x221280a  ; @@nav8
++ 022127EC  19E4       adds r4, r4, r7
++ 022127EE  1964       adds r4, r4, r5
++ 022127F0  2C05       cmp r4, #5
++ 022127F2  D80A       bhi #0x221280a  ; @@nav8
++ 022127F4  5D18       ldrb r0, [r3, r4]
++ 022127F6  2804       cmp r0, #4
++ 022127F8  D011       beq #0x221281e  ; @@nav9
++ 022127FA  4669       mov r1, sp
++ 022127FC  5C09       ldrb r1, [r1, r0]
++ 022127FE  2901       cmp r1, #1
++ 02212800  D00D       beq #0x221281e  ; @@nav9
++ 02212802  2F00       cmp r7, #0
++ 02212804  D0ED       beq #0x22127e2  ; @@nav3
++ 02212806  2002       movs r0, #2
++ 02212808  E002       b #0x2212810  ; @@retry
++ 0221280A  2F00       cmp r7, #0
++ 0221280C  D106       bne #0x221281c  ; @@nav7
++ 0221280E  2001       movs r0, #1
++ 02212810  2A08       cmp r2, #8
++ 02212812  D203       bhs #0x221281c  ; @@nav7
++ 02212814  4042       eors r2, r0
++ 02212816  1C14       adds r4, r2, #0
++ 02212818  2208       movs r2, #8
++ 0221281A  E7E2       b #0x22127e2  ; @@nav3
++ 0221281C  1C30       adds r0, r6, #0
++ 0221281E  BDF8       pop {r3, r4, r5, r6, r7, pc}
++ 02212820  5B90       ldrh r0, [r2, r6]
++ 02212822  0225       lsls r5, r4, #8
++ 02212824  CD44       ldm r5!, {r2, r6}
++ 02212826  0224       lsls r4, r4, #8
+  02212828  B5F8       push {r3, r4, r5, r6, r7, lr}
+  0221282A  1C06       adds r6, r0, #0
+
+== overlay14+0x120A0 (RAM 0x02212880), 4 bytes, thumb: dbltarget2-navcall1
+  0221287C  1C28       adds r0, r5, #0
+  0221287E  1E4A       subs r2, r1, #1
+- 02212880  F7FF FF90  bl #0x22127a4
++ 02212880  F7FF FF9A  bl #0x22127b8  ; nav
+  02212884  4924       ldr r1, [pc, #0x90]
+  02212886  6148       str r0, [r1, #0x14]
+
+== overlay14+0x120B6 (RAM 0x02212896), 4 bytes, thumb: dbltarget2-navcall2
+  02212892  2100       movs r1, #0
+  02212894  2201       movs r2, #1
+- 02212896  F7FF FF85  bl #0x22127a4
++ 02212896  F7FF FF8F  bl #0x22127b8  ; nav
+  0221289A  491F       ldr r1, [pc, #0x7c]
+  0221289C  6148       str r0, [r1, #0x14]
+
+== overlay14+0x120CE (RAM 0x022128AE), 4 bytes, thumb: dbltarget2-navcall3
+  022128AA  3921       subs r1, #0x21
+  022128AC  2200       movs r2, #0
+- 022128AE  F7FF FF79  bl #0x22127a4
++ 022128AE  F7FF FF83  bl #0x22127b8  ; nav
+  022128B2  4919       ldr r1, [pc, #0x64]
+  022128B4  6148       str r0, [r1, #0x14]
+
+== overlay14+0x120E4 (RAM 0x022128C4), 4 bytes, thumb: dbltarget2-navcall4
+  022128C0  2101       movs r1, #1
+  022128C2  2200       movs r2, #0
+- 022128C4  F7FF FF6E  bl #0x22127a4
++ 022128C4  F7FF FF78  bl #0x22127b8  ; nav
+  022128C8  4913       ldr r1, [pc, #0x4c]
+  022128CA  6148       str r0, [r1, #0x14]
+
+== overlay14+0x1223A (RAM 0x02212A1A), 8 bytes, thumb: dbltarget2-cancel
+  02212A16  F7FF FE59  bl #0x22126cc  ; Target_Mask
+- 02212A1A  2C00       cmp r4, #0
+- 02212A1C  DB05       blt #0x2212a2a  ; Target_Invalid
+- 02212A1E  2C04       cmp r4, #4
+- 02212A20  DA03       bge #0x2212a2a  ; Target_Invalid
++ 02212A1A  2C04       cmp r4, #4
++ 02212A1C  D00A       beq #0x2212a34  ; Target_Keep
++ 02212A1E  D804       bhi #0x2212a2a  ; Target_Invalid
++ 02212A20  46C0       mov r8, r8
+  02212A22  A800       add r0, sp, #0
+  02212A24  5D00       ldrb r0, [r0, r4]
+
+== overlay14+0x1224C (RAM 0x02212A2C), 4 bytes, thumb: dbltarget2-fallback
+  02212A28  D104       bne #0x2212a34  ; Target_Keep
+  02212A2A  1C28       adds r0, r5, #0
+- 02212A2C  F7FF FEAA  bl #0x2212784
++ 02212A2C  F7FF FEAC  bl #0x2212788  ; first_eligible_foe
+  02212A30  4901       ldr r1, [pc, #4]
+  02212A32  6148       str r0, [r1, #0x14]

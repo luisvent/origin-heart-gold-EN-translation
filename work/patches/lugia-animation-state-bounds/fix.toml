@@ -1,0 +1,41 @@
+id = "lugia-animation-state-bounds"
+title = "Lugia cutscene: bound the special-model animation callback index"
+kind = "code"
+enabled = true
+decisions = ["D-2298"]
+requires = []
+asm = "lugia-animation-state-bounds.asm"
+why = """
+After Lawrence's first battle in Whirl Islands, Lugia's entrance freezes on melonDS 1.1.
+The supplied player save reproduces it with ordinary controls. A fresh original-Chinese diagnostic
+also reproduces it (two trainer battles skipped in temporary script RAM). This is a hack bug;
+D-2298 records the user's specific exception to D-1337, following finding D-2297.
+
+Script 104 moves object 13, sprite 426, with walking action 0x0D. The walking code sets object+0xA0
+to 3, but the special-model renderer at 0x021F80C0 indexes a two-entry callback table at 0x02208F70
+without checking that state. Entry 3 is actually the adjacent scale vector's 0x1000. BLX through it
+causes a prefetch abort. The existing texture-frame and Bulbasaur-reflection fixes do not prevent it.
+"""
+what = """
+The 24-byte dispatcher block now checks the state with an unsigned comparison before indexing.
+States 0 and 1 call the same callbacks with the same arguments and cache the selected state.
+The selected state is recovered from callee-saved r6, replacing a redundant getter to fit in place.
+Other states skip the animation callback and cache update, keeping the last model animation frame
+and last valid cached state. Position and visibility updates still run, so scripted movement proceeds;
+animation advancement resumes when a supported state returns. No script, battle, asset or save changes.
+The existing NULL-graphics and inactive-object exits are unchanged. The overlay does not grow.
+This guards this shared special-model renderer, not every animation dispatcher in the game.
+"""
+evidence = [
+  "D-2298: user request on 2026-10-09 to investigate a fix and reproduce that it worked",
+  "work/notes/lugia_freeze_repro_20261009.md: ordinary-control reproduction from the supplied save",
+  "work/notes/lugia_freeze_fix_20261009.md: cause, before/after evidence and test limitations",
+  "work/tools/emu_lugia.py: fresh-boot diagnostic regression using the supplied battery save",
+]
+
+[[code]]
+id = "lugia-animation-dispatch"
+file = "overlay1"
+offset = "0x13760"
+expect = "1C03 009E 4B09 1C28 599B 1C21 1C3A 4798 1C28 F666 F9DB 6138"
+notes = "0x021F80E0..0x021F80F7: bound the callback index; invalid states continue at the original position/visibility update. Read-only asm guards check the enclosing routine, callbacks and table."

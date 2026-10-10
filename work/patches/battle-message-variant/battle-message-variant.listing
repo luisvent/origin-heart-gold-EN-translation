@@ -1,0 +1,232 @@
+; battle-message-variant - disassembly snapshot of battle-message-variant.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write battle-message-variant   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: battle-message-variant.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0xDCFA (RAM 0x0220E4DA), 2 bytes, thumb: battle-message-variant-gravity
+  0220E4D6  D004       beq #0x220e4e2
+  0220E4D8  782A       ldrb r2, [r5]
+- 0220E4DA  9800       ldr r0, [sp]
++ 0220E4DA  1C10       adds r0, r2, #0
+  0220E4DC  4904       ldr r1, [pc, #0x10]
+  0220E4DE  F01B FC9D  bl #0x2229e1c  ; BattleMsg_Emit1
+
+== overlay14+0x19FD8 (RAM 0x0221A7B8), 2 bytes, thumb: battle-message-variant-no-effect-at-all
+  0221A7B4  6800       ldr r0, [r0]
+  0221A7B6  6A07       ldr r7, [r0, #0x20]
+- 0221A7B8  1C30       adds r0, r6, #0
++ 0221A7B8  1C20       adds r0, r4, #0
+  0221A7BA  F7FB FFF1  bl #0x22167a0  ; BattleMon_GetBattler
+
+== overlay14+0x1A6B2 (RAM 0x0221AE92), 2 bytes, thumb: battle-message-variant-doesnt-affect-1
+  0221AE8E  F7FB FC87  bl #0x22167a0  ; BattleMon_GetBattler
+- 0221AE92  1C03       adds r3, r0, #0
++ 0221AE92  1C23       adds r3, r4, #0
+  0221AE94  2212       movs r2, #0x12
+  0221AE96  480F       ldr r0, [pc, #0x3c]
+
+== overlay14+0x1A6D6 (RAM 0x0221AEB6), 2 bytes, thumb: battle-message-variant-doesnt-affect-2
+  0221AEB2  F7FB FC75  bl #0x22167a0  ; BattleMon_GetBattler
+- 0221AEB6  1C03       adds r3, r0, #0
++ 0221AEB6  1C23       adds r3, r4, #0
+  0221AEB8  2212       movs r2, #0x12
+  0221AEBA  4806       ldr r0, [pc, #0x18]
+
+== overlay14+0x1A754 (RAM 0x0221AF34), 2 bytes, thumb: battle-message-variant-doesnt-affect-3
+  0221AF30  6A00       ldr r0, [r0, #0x20]
+  0221AF32  9003       str r0, [sp, #0xc]
+- 0221AF34  1C30       adds r0, r6, #0
++ 0221AF34  1C20       adds r0, r4, #0
+  0221AF36  F7FB FC33  bl #0x22167a0  ; BattleMon_GetBattler
+
+== overlay14+0x1AA48 (RAM 0x0221B228), 2 bytes, thumb: battle-message-variant-doesnt-affect-4
+  0221B222  F7FB FABD  bl #0x22167a0  ; BattleMon_GetBattler
+  0221B226  1C02       adds r2, r0, #0
+- 0221B228  0628       lsls r0, r5, #0x18
++ 0221B228  0610       lsls r0, r2, #0x18
+  0221B22A  2112       movs r1, #0x12
+  0221B22C  0E00       lsrs r0, r0, #0x18
+
+== overlay14+0x1ABA4 (RAM 0x0221B384), 2 bytes, thumb: battle-message-variant-protect
+  0221B37E  F7FB FA0F  bl #0x22167a0  ; BattleMon_GetBattler
+  0221B382  1C02       adds r2, r0, #0
+- 0221B384  0630       lsls r0, r6, #0x18
++ 0221B384  0610       lsls r0, r2, #0x18
+  0221B386  4905       ldr r1, [pc, #0x14]
+  0221B388  0E00       lsrs r0, r0, #0x18
+
+== overlay14+0x1B116 (RAM 0x0221B8F6), 2 bytes, thumb: battle-message-variant-doesnt-affect-5
+  0221B8F2  1C02       adds r2, r0, #0
+  0221B8F4  2112       movs r1, #0x12
+- 0221B8F6  7828       ldrb r0, [r5]
++ 0221B8F6  1C10       adds r0, r2, #0
+  0221B8F8  0109       lsls r1, r1, #4
+  0221B8FA  F00E FA8F  bl #0x2229e1c  ; BattleMsg_Emit1
+
+== overlay14+0x1BA1C (RAM 0x0221C1FC), 2 bytes, thumb: battle-message-variant-drain
+  0221C1F6  F7FA FAD3  bl #0x22167a0  ; BattleMon_GetBattler
+  0221C1FA  1C02       adds r2, r0, #0
+- 0221C1FC  0620       lsls r0, r4, #0x18
++ 0221C1FC  0610       lsls r0, r2, #0x18
+  0221C1FE  4902       ldr r1, [pc, #8]
+  0221C200  0E00       lsrs r0, r0, #0x18
+
+== overlay14+0x1D908 (RAM 0x0221E0E8), 2 bytes, thumb: battle-message-variant-condition-blocked
+  0221E0E4  2800       cmp r0, #0
+  0221E0E6  D00B       beq #0x221e100
+- 0221E0E8  6828       ldr r0, [r5]
++ 0221E0E8  6868       ldr r0, [r5, #4]
+  0221E0EA  F7F8 FB59  bl #0x22167a0  ; BattleMon_GetBattler
+
+== overlay14+0x1DD5C (RAM 0x0221E53C), 158 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0221E53C  B40F       push {r0, r1, r2, r3}
+  0221E53E  B530       push {r4, r5, lr}
+  0221E540  B089       sub sp, #0x24
+  0221E542  1C0D       adds r5, r1, #0
+  0221E544  1C14       adds r4, r2, #0
+  0221E546  2100       movs r1, #0
+  0221E548  2800       cmp r0, #0
+  0221E54A  D004       beq #0x221e556
+  0221E54C  F7F8 F928  bl #0x22167a0  ; BattleMon_GetBattler
+  0221E550  0600       lsls r0, r0, #0x18
+  0221E552  0E01       lsrs r1, r0, #0x18
+  0221E554  E006       b #0x221e564  ; CondApply_VariantDone
+  0221E556  2D00       cmp r5, #0
+  0221E558  D004       beq #0x221e564  ; CondApply_VariantDone
+  0221E55A  1C28       adds r0, r5, #0
+  0221E55C  F7F8 F920  bl #0x22167a0  ; BattleMon_GetBattler
+  0221E560  0600       lsls r0, r0, #0x18
+  0221E562  0E01       lsrs r1, r0, #0x18
+  0221E564  9811       ldr r0, [sp, #0x44]
+  0221E566  2800       cmp r0, #0
+  0221E568  D032       beq #0x221e5d0
+  0221E56A  2D00       cmp r5, #0
+  0221E56C  D030       beq #0x221e5d0
+  0221E56E  A800       add r0, sp, #0
+  0221E570  F007 FC18  bl #0x2225da4
+  0221E574  AB0F       add r3, sp, #0x3c
+  0221E576  CB06       ldm r3!, {r1, r2}
+  0221E578  1C20       adds r0, r4, #0
+  0221E57A  F000 F833  bl #0x221e5e4
+  0221E57E  1C02       adds r2, r0, #0
+  0221E580  D42B       bmi #0x221e5da
+  0221E582  0412       lsls r2, r2, #0x10
+  0221E584  A800       add r0, sp, #0
+  0221E586  2102       movs r1, #2
+  0221E588  0C12       lsrs r2, r2, #0x10
+  0221E58A  F007 FC19  bl #0x2225dc0
+  0221E58E  1C28       adds r0, r5, #0
+  0221E590  F7F8 F906  bl #0x22167a0  ; BattleMon_GetBattler
+  0221E594  1C01       adds r1, r0, #0
+  0221E596  A800       add r0, sp, #0
+  0221E598  F007 FC28  bl #0x2225dec
+  0221E59C  2C08       cmp r4, #8
+  0221E59E  D001       beq #0x221e5a4
+  0221E5A0  2C0D       cmp r4, #0xd
+  0221E5A2  D107       bne #0x221e5b4
+  0221E5A4  AA0F       add r2, sp, #0x3c
+  0221E5A6  CA03       ldm r2!, {r0, r1}
+  0221E5A8  F7F8 FBE2  bl #0x2216d70
+  0221E5AC  1C01       adds r1, r0, #0
+  0221E5AE  A800       add r0, sp, #0
+  0221E5B0  F007 FC1C  bl #0x2225dec
+  0221E5B4  1C28       adds r0, r5, #0
+  0221E5B6  F7F8 F8F3  bl #0x22167a0  ; BattleMon_GetBattler
+  0221E5BA  1C01       adds r1, r0, #0
+  0221E5BC  0609       lsls r1, r1, #0x18
+  0221E5BE  A800       add r0, sp, #0
+  0221E5C0  0E09       lsrs r1, r1, #0x18
+  0221E5C2  F00A FEC3  bl #0x222934c  ; BattleMsg_SendRecord
+  0221E5C6  B009       add sp, #0x24
+  0221E5C8  BC30       pop {r4, r5}
+  0221E5CA  BC08       pop {r3}
+  0221E5CC  B004       add sp, #0x10
+  0221E5CE  4718       bx r3
+  0221E5D0  9812       ldr r0, [sp, #0x48]
+  0221E5D2  2800       cmp r0, #0
+  0221E5D4  D001       beq #0x221e5da
+  0221E5D6  F00A FEB9  bl #0x222934c  ; BattleMsg_SendRecord
+
+== overlay14+0x1DD68 (RAM 0x0221E548), 10 bytes, thumb: battle-message-variant-condition
+  0221E544  1C14       adds r4, r2, #0
+  0221E546  2100       movs r1, #0
+- 0221E548  2800       cmp r0, #0
+- 0221E54A  D004       beq #0x221e556
+- 0221E54C  F7F8 F928  bl #0x22167a0  ; BattleMon_GetBattler
+- 0221E550  0600       lsls r0, r0, #0x18
++ 0221E548  2D00       cmp r5, #0
++ 0221E54A  D106       bne #0x221e55a  ; CondApply_VariantOfR5
++ 0221E54C  2800       cmp r0, #0
++ 0221E54E  D009       beq #0x221e564  ; CondApply_VariantDone
++ 0221E550  E004       b #0x221e55c  ; CondApply_Ref
+  0221E552  0E01       lsrs r1, r0, #0x18
+  0221E554  E006       b #0x221e564  ; CondApply_VariantDone
+
+== overlay14+0x1F230 (RAM 0x0221FA10), 70 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0221FA10  1C20       adds r0, r4, #0
+  0221FA12  3023       adds r0, #0x23
+  0221FA14  7800       ldrb r0, [r0]
+  0221FA16  0640       lsls r0, r0, #0x19
+  0221FA18  0E40       lsrs r0, r0, #0x19
+  0221FA1A  D005       beq #0x221fa28
+  0221FA1C  7821       ldrb r1, [r4]
+  0221FA1E  1C20       adds r0, r4, #0
+  0221FA20  3020       adds r0, #0x20
+  0221FA22  F009 FC93  bl #0x222934c  ; BattleMsg_SendRecord
+  0221FA26  E016       b #0x221fa56
+  0221FA28  88A2       ldrh r2, [r4, #4]
+  0221FA2A  2A00       cmp r2, #0
+  0221FA2C  D013       beq #0x221fa56
+  0221FA2E  7860       ldrb r0, [r4, #1]
+  0221FA30  214D       movs r1, #0x4d
+  0221FA32  0109       lsls r1, r1, #4
+  0221FA34  F00A F9F2  bl #0x2229e1c  ; BattleMsg_Emit1
+  0221FA38  E00D       b #0x221fa56
+  0221FA3A  2D03       cmp r5, #3
+  0221FA3C  D103       bne #0x221fa46
+  0221FA3E  7820       ldrb r0, [r4]
+  0221FA40  F00A F9DC  bl #0x2229dfc
+  0221FA44  E007       b #0x221fa56
+  0221FA46  2D02       cmp r5, #2
+  0221FA48  D105       bne #0x221fa56
+  0221FA4A  7820       ldrb r0, [r4]
+  0221FA4C  214B       movs r1, #0x4b
+  0221FA4E  7862       ldrb r2, [r4, #1]
+  0221FA50  0109       lsls r1, r1, #4
+  0221FA52  F00A F9E3  bl #0x2229e1c  ; BattleMsg_Emit1
+
+== overlay14+0x1F23C (RAM 0x0221FA1C), 6 bytes, thumb: battle-message-variant-change-record
+  0221FA18  0E40       lsrs r0, r0, #0x19
+  0221FA1A  D005       beq #0x221fa28
+- 0221FA1C  7821       ldrb r1, [r4]
+- 0221FA1E  1C20       adds r0, r4, #0
+- 0221FA20  3020       adds r0, #0x20
++ 0221FA1C  1C20       adds r0, r4, #0
++ 0221FA1E  3020       adds r0, #0x20
++ 0221FA20  7901       ldrb r1, [r0, #4]
+  0221FA22  F009 FC93  bl #0x222934c  ; BattleMsg_SendRecord
+
+== overlay14+0x1F26A (RAM 0x0221FA4A), 2 bytes, thumb: battle-message-variant-heal-block
+  0221FA46  2D02       cmp r5, #2
+  0221FA48  D105       bne #0x221fa56
+- 0221FA4A  7820       ldrb r0, [r4]
++ 0221FA4A  7860       ldrb r0, [r4, #1]
+  0221FA4C  214B       movs r1, #0x4b
+  0221FA4E  7862       ldrb r2, [r4, #1]
+
+== overlay14+0x20398 (RAM 0x02220B78), 2 bytes, thumb: battle-message-variant-ingrain
+  02220B72  F7F5 FE15  bl #0x22167a0  ; BattleMon_GetBattler
+  02220B76  1C02       adds r2, r0, #0
+- 02220B78  0630       lsls r0, r6, #0x18
++ 02220B78  0610       lsls r0, r2, #0x18
+  02220B7A  21FA       movs r1, #0xfa
+  02220B7C  0E00       lsrs r0, r0, #0x18
+
+== overlay14+0x22602 (RAM 0x02222DE2), 2 bytes, thumb: battle-message-variant-pledge
+  02222DDE  2103       movs r1, #3
+  02222DE0  6A00       ldr r0, [r0, #0x20]
+- 02222DE2  1C23       adds r3, r4, #0
++ 02222DE2  1C3B       adds r3, r7, #0
+  02222DE4  F001 FF34  bl #0x2224c50

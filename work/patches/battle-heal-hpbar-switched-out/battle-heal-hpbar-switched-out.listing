@@ -1,0 +1,108 @@
+; battle-heal-hpbar-switched-out - disassembly snapshot of battle-heal-hpbar-switched-out.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write battle-heal-hpbar-switched-out   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: battle-heal-hpbar-switched-out.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x4BF0 (RAM 0x022053D0), 38 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  022053D0  B538       push {r3, r4, r5, lr}
+  022053D2  1C0C       adds r4, r1, #0
+  022053D4  1C03       adds r3, r0, #0
+  022053D6  6820       ldr r0, [r4]
+  022053D8  2800       cmp r0, #0
+  022053DA  D002       beq #0x22053e2
+  022053DC  2801       cmp r0, #1
+  022053DE  D00E       beq #0x22053fe
+  022053E0  E014       b #0x220540c
+  022053E2  6811       ldr r1, [r2]
+  022053E4  255D       movs r5, #0x5d
+  022053E6  0609       lsls r1, r1, #0x18
+  022053E8  6A98       ldr r0, [r3, #0x28]
+  022053EA  012D       lsls r5, r5, #4
+  022053EC  6852       ldr r2, [r2, #4]
+  022053EE  0E09       lsrs r1, r1, #0x18
+  022053F0  195B       adds r3, r3, r5
+  022053F2  F028 FE17  bl #0x222e024  ; BattleHeal_StartBar
+
+== overlay14+0x4C08 (RAM 0x022053E8), 2 bytes, thumb: battle-heal-hpbar-switched-out-caller
+  022053E4  255D       movs r5, #0x5d
+  022053E6  0609       lsls r1, r1, #0x18
+- 022053E8  6A98       ldr r0, [r3, #0x28]
++ 022053E8  0E08       lsrs r0, r1, #0x18
+  022053EA  012D       lsls r5, r5, #4
+  022053EC  6852       ldr r2, [r2, #4]
+
+== overlay14+0x2D844 (RAM 0x0222E024), 76 bytes, thumb: battle-heal-hpbar-switched-out-routine
+  0222E020  BD10       pop {r4, pc}
+  0222E022  0000       movs r0, r0
+- 0222E024  B570       push {r4, r5, r6, lr}
+- 0222E026  1C08       adds r0, r1, #0
+- 0222E028  1C16       adds r6, r2, #0
+- 0222E02A  1C1D       adds r5, r3, #0
+- 0222E02C  F7FA FB88  bl #0x2228740  ; Battle_BattlerOfMon
+- 0222E030  F7E7 FB48  bl #0x22156c4  ; Battle_HealthbarIndex
+- 0222E034  490C       ldr r1, [pc, #0x30]
+- 0222E036  680A       ldr r2, [r1]
+- 0222E038  21AB       movs r1, #0xab
+- 0222E03A  0089       lsls r1, r1, #2
+- 0222E03C  1852       adds r2, r2, r1
+- 0222E03E  213C       movs r1, #0x3c
+- 0222E040  4341       muls r1, r0, r1
+- 0222E042  1854       adds r4, r2, r1
+- 0222E044  1C20       adds r0, r4, #0
+- 0222E046  1C31       adds r1, r6, #0
+- 0222E048  F7E2 FD0C  bl #0x2210a64  ; Healthbar_SetHpChange
+- 0222E04C  1C20       adds r0, r4, #0
+- 0222E04E  22FA       movs r2, #0xfa
+- 0222E050  63A5       str r5, [r4, #0x38]
+- 0222E052  2100       movs r1, #0
+- 0222E054  7029       strb r1, [r5]
+- 0222E056  3023       adds r0, #0x23
+- 0222E058  7001       strb r1, [r0]
+- 0222E05A  4804       ldr r0, [pc, #0x10]
+- 0222E05C  1C21       adds r1, r4, #0
+- 0222E05E  0092       lsls r2, r2, #2
+- 0222E060  F5DF FF08  bl #0x200de74  ; CreateSysTask
+- 0222E064  BD70       pop {r4, r5, r6, pc}
+- 0222E066  46C0       mov r8, r8
+- 0222E068  5C74       ldrb r4, [r6, r1]
+- 0222E06A  0225       lsls r5, r4, #8
+- 0222E06C  DFE9       svc #0xe9
+- 0222E06E  0222       lsls r2, r4, #8
++ 0222E024  B570       push {r4, r5, r6, lr}
++ 0222E026  1C16       adds r6, r2, #0
++ 0222E028  1C1D       adds r5, r3, #0
++ 0222E02A  F7FA FB89  bl #0x2228740  ; Battle_BattlerOfMon
++ 0222E02E  2805       cmp r0, #5
++ 0222E030  D018       beq #0x222e064  ; @@not_on_field
++ 0222E032  F7E7 FB47  bl #0x22156c4  ; Battle_HealthbarIndex
++ 0222E036  300B       adds r0, #0xb
++ 0222E038  213C       movs r1, #0x3c
++ 0222E03A  4348       muls r0, r1, r0
++ 0222E03C  490A       ldr r1, [pc, #0x28]
++ 0222E03E  6809       ldr r1, [r1]
++ 0222E040  180C       adds r4, r1, r0
++ 0222E042  3418       adds r4, #0x18
++ 0222E044  1C20       adds r0, r4, #0
++ 0222E046  1C31       adds r1, r6, #0
++ 0222E048  F7E2 FD0C  bl #0x2210a64  ; Healthbar_SetHpChange
++ 0222E04C  63A5       str r5, [r4, #0x38]
++ 0222E04E  2100       movs r1, #0
++ 0222E050  7029       strb r1, [r5]
++ 0222E052  2023       movs r0, #0x23
++ 0222E054  5421       strb r1, [r4, r0]
++ 0222E056  4805       ldr r0, [pc, #0x14]
++ 0222E058  1C21       adds r1, r4, #0
++ 0222E05A  22FA       movs r2, #0xfa
++ 0222E05C  0092       lsls r2, r2, #2
++ 0222E05E  F5DF FF09  bl #0x200de74  ; CreateSysTask
++ 0222E062  BD70       pop {r4, r5, r6, pc}
++ 0222E064  7028       strb r0, [r5]
++ 0222E066  BD70       pop {r4, r5, r6, pc}
++ 0222E068  5C74       ldrb r4, [r6, r1]
++ 0222E06A  0225       lsls r5, r4, #8
++ 0222E06C  DFE9       svc #0xe9
++ 0222E06E  0222       lsls r2, r4, #8
+  0222E070  B5F8       push {r3, r4, r5, r6, r7, lr}
+  0222E072  B082       sub sp, #8

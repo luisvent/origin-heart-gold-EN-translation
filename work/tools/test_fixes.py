@@ -200,7 +200,7 @@ class Registry(unittest.TestCase):
         self.assertTrue(any("offset must be hex" in p for p in probs), probs)
         self.assertTrue(any("'01DE 12B': write one halfword" in p for p in probs), probs)
         self.assertTrue(any("'value' is gone: the fix's asm writes the new bytes" in p for p in probs), probs)
-        self.assertTrue(any("b-1: file must be 'arm9' or 'overlayNN'" in p for p in probs), probs)
+        self.assertTrue(any("b-1: file must be 'arm9', 'overlayNN' or 'scriptNNN'" in p for p in probs), probs)
 
     def test_graphics_op_keys(self):
         self.write("a", fix_toml("a", kind="graphics", entries="""
@@ -230,6 +230,19 @@ class Registry(unittest.TestCase):
         self.assertTrue(any("a/fix.toml: kind 'code' needs asm" in p for p in probs), probs)
         self.assertTrue(any("b/fix.toml: 'asm' only belongs to kinds strings, data, code" in p for p in probs), probs)
         self.assertTrue(any("c/fix.toml: asm must be a .asm file name" in p for p in probs), probs)
+
+    def test_script_file_entries(self):
+        # an event-script file (member NNN of a/0/1/2) is a [[code]] file opened at 0; not a [[string]] file
+        self.write("a", fix_toml("a", entries=code_entry("a-1", file="script928", offset="0x10C")))
+        asm = self.root / "a" / "a.asm"
+        asm.write_text(asm_header("a") + '.open "script928.bin", 0x00000000\n', encoding="utf-8")
+        self.assertEqual(self.problems(), [])
+        asm.write_text(asm_header("a") + '.open "script928.bin", 0x02000000\n', encoding="utf-8")
+        self.assertTrue(any("script928.bin opened at 0x02000000, but its load address is 0x00000000" in p
+                            for p in self.problems()), self.problems())
+        self.assertIsNone(F._ram("script928", 0x10C, {"script928": 0}))
+        self.assertEqual(sorted(["overlay1", "script928", "arm9", "itcm", "script12"], key=F._key_order),
+                         ["arm9", "itcm", "overlay1", "script12", "script928"])
 
     def test_asm_file_and_opens(self):
         self.write("a", fix_toml("a", entries=code_entry("a-1") + code_entry("a-2", file="overlay58")))
@@ -489,7 +502,10 @@ reloc_max_units = 15
                                               "[overlay58]\nsize = 0x7E0\nbss = 0\n")
         self.assertEqual(F.load_sizes(self.root), {"arm9": {"size": 0x40}, "itcm": {"size": 0x20, "bss": 0},
                                                    "overlay58": {"size": 0x7E0, "bss": 0}})
+        (self.root / "sizes.toml").write_text("[script928]\nsize = 0xA94\n")      # an event-script file: no .bss
+        self.assertEqual(F.load_sizes(self.root), {"script928": {"size": 0xA94}})
         for bad in ("[arm9]\nsize = 1\nbss = 0\n", "[overlay58]\nsize = 1\n", "[a/0/2/7]\nsize = 1\n",
+                    "[script928]\nsize = 1\nbss = 0\n",
                     "[overlay58]\nsize = -1\nbss = 0\n", "[itcm]\nsize = '1'\nbss = 0\n"):
             (self.root / "sizes.toml").write_text(bad)
             with self.assertRaises(F.FixError, msg=bad):

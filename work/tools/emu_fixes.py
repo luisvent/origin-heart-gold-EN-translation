@@ -62,6 +62,12 @@ COVERAGE = {
     "msgload": ("msgload",),
     "overworld-texture-frame-bounds": ("texture-bounds",),
     "bulbasaur-reflection-boundary": ("reflection",),
+    "pryce-weather-rule": ("pryce",),
+    "battle-message-variant": ("battle-variant",),
+    "faint-waits-for-hp-bar": ("multihit-ko",),
+    "battle-party-status-sync": ("healbell",),
+    "cute-charm-infatuation": ("cutecharm",),
+    "battle-heal-hpbar-switched-out": ("battle-heal",),
     "gfx-bag-labels": ("bag",),
     "gfx-linkcapture-bar": ("bag",),
     "gfx-dex-header": ("dex",),
@@ -83,6 +89,41 @@ COVERAGE = {
 }
 # fix id -> why no scenario of this command covers it (honest gaps; see work/notes/emu_harness.md)
 UNCOVERED = {
+    "zero-pp-struggle": "No scenario in this unified runner; emu_struggle.py separately verifies paired "
+                        "built-ROM exhausted-move cases, native damage/recoil, next turns and positive "
+                        "controls. test_zero_pp_struggle.py executes the assembled guard. Natural story "
+                        "cleanup, Bag/switch/run UI sequences and all doubles configurations are untested; "
+                        "see work/notes/issue03_struggle_fix_20261009.md.",
+    "rock-tunnel-corner-loss": "No scenario in this unified runner; emu_rock_tunnel.py separately verifies "
+                               "paired built-ROM loss/whiteout and retry using a controlled scene fixture. "
+                               "Structural outcome tests pass; complete victory runtime evidence remains "
+                               "limited. See work/notes/issue05_rock_tunnel_fix_20261009.md.",
+    "magcargo-loss-whiteout": "No scenario in this unified runner; the private issue06/fix/runtime.py runner "
+                              "verifies native built-ROM loss, whiteout, healing, movement and preserved "
+                              "one-visit state with a controlled post-grunts fixture. Knockout/capture/flee/"
+                              "draw are structurally verified, without separate outcome runtime runs; see "
+                              "work/notes/issue06_magcargo_fix_20261009.md.",
+    "expedition-completed-progress": "No scenario in this unified runner; native_script_state.py executes "
+                                    "actual native handlers in the paired built-ROM shared-progress matrix "
+                                    "(104 cases per build). Complete scenes, map reload and native save/reload "
+                                    "remain untested; see work/notes/issue10_shared_progress_fix_20261009.md.",
+    "hooh-panel-silver-marker": "No scenario in this unified runner; native_script_state.py executes actual "
+                                "native handlers in the paired built-ROM shared-progress matrix (104 cases "
+                                "per build), verifying ClearFlag0 preserves Silver's marker. Complete scenes, "
+                                "map reload and native save/reload remain untested; see "
+                                "work/notes/issue10_shared_progress_fix_20261009.md.",
+    "mortar-invalid-flag-noop": "No scenario in this unified runner; native_script_state.py executes actual "
+                                "native flag handlers in 20 bounded cases per paired build, checking SetFlag0 "
+                                "and preserved progress/Pokedex bytes. Complete scenes, map reload and native "
+                                "save/reload remain untested; see work/notes/issue09_story_flags_fix_20261009.md.",
+    "double-battle-targeting": "No targeting scenario in this unified runner yet; the dedicated "
+                               "emu_double_target.py runner freshly passed 26/26 CN/EN cases, including "
+                               "mirrored ally selection, A acceptance/engine submission, next-turn "
+                               "progression and a historical Option 2 negative control. See "
+                               "work/notes/double_target_horizontal_validation.md. Exhaustive assembled "
+                               "host coverage remains in test_double_target.py.",
+    "lugia-animation-state-bounds": "emu_lugia.py separately checks the supplied Whirl Islands save; "
+                                    "the private save is not a standard fixtures-directory input",
     "gfx-battle-result-labels": "graphics; a/1/0/4 #5 (WIN / LOSE / DRAW) is shown only by the result display of link "
                                 "and facility battles: a wild or scripted trainer battle never opens a/1/0/4 (read "
                                 "watch on its path, 2026-10-09), and the harness has no link partner and no Battle "
@@ -276,6 +317,83 @@ TC_BATTLES = {
     "color_change": (352, 100, [150], 16, 16, 50, [16], 2, 16),   # Kecleon (Color Change) hit by Gust: Flying
     "soak": (150, 100, [487], None, 74, 50, [150], 11, 487),       # Mewtwo's Soak on a wild Geodude: Water
     "protean": (658, 100, [98], 168, 213, 100, [150], 0, 98),      # Greninja (Protean) uses Quick Attack: Normal
+}
+# cute-charm-infatuation (cute-charm-infatuation.listing): the Cute Charm handler's call that builds the infatuation's
+# continuation (bl 0x02225520 -> bl 0x022251D0), and the battle records: the table of record pointers by Pokemon id,
+# the infatuation entry (condition 7: bpp+0x38+7*8) and the gender byte
+CUTE_CHARM_CONT_CALL = 0x02232AD2
+CUTE_CHARM_CONT_OUT = 0x02232AD6    # right after that call: [sp+4], [sp+8] = the continuation it built
+BPP_TABLE, BPP_TABLE_OFF = 0x02255BAC, 0x1D0      # [[BPP_TABLE] + BPP_TABLE_OFF + 4 * id] = battle record
+BPP_LOVE, BPP_ABILITY, BPP_SEX = 0x70, 0x16, 0x239
+CUTE_CHARM, TACKLE, SPLASH = 56, 33, 150
+NIDOKING, NIDOQUEEN = 34, 31        # male only / female only: the genders are fixed by the species
+CUTE_CHARM_TURNS = 10               # Tackle on a Cute Charm holder: 50 % per contact in the hack (0x0223ACDC)
+LOVE_FELL = (444, 445, 446, 447)    # battle_string bank 1: 'fell in love!' (Cute Charm, Attract)
+LOVE_TURN = (452, 453, 454, 455)    # the per-turn infatuation line
+LOVE_IMMOBILE = (456, 457, 458, 459)  # 'is immobilized by love!'
+# battle-party-status-sync (battle-party-status-sync.listing): the four party-screen loops' calls (bl BPP_GetSrcData
+# -> bl BPP_SyncSickToPP), and the arm9 status-icon routine every party screen calls for each Pokemon it draws
+HEALBELL_LIST_CALLS = {0x022027E6: "pokemon", 0x02202B82: "bag target", 0x02203DC6: "foe fainted", 0x02204066: "forced"}
+STATUS_ICON = 0x0208A200            # GetMonStatusIconId(mon): r0 = the party screen's copy of the Pokemon
+HEALBELL_MAP = (28, 1326, 80)       # where the scenario stands; the battle is a scripted TrainerBattle
+HEALBELL_TRAINER = 960              # Camper (Nuzleaf, Luvdisc, Lv 17): Fake Out on the first turn
+HEAL_BELL, CHANSEY = 215, 113
+HEALBELL_BENCH = {1: 0x08, 2: 0x40, 3: 0x10}      # party slot -> status before the battle: PSN, PAR, BRN
+HEALBELL_CURES = (336, 380, 360)    # battle_string bank 1: 'cured of its poisoning', 'of paralysis', 'burn was healed'
+# faint-waits-for-hp-bar (faint-waits-for-hp-bar.listing): Faint_Run, what client command 21 runs each frame of a
+# faint; at its first call the HP bar of the fainting Pokemon must be at 0 (HpBarDone 1, the bar's value 0 and
+# its HP field the new HP) with the fix, still draining (HpBarDone 0, value != 0, HP field the HP before the
+# hit) without it. The HP bars: [HPBAR_ROOT] + 0x2AC + 0x3C * index, {value, hp, max hp, damage} at +0.
+FAINT_RUN = 0x0222CB7C
+HPBAR_DONE = 0x02252D3E
+HPBAR_ROOT = 0x02255C74
+HPBAR_ARRAY, HPBAR_SIZE = 0x2AC, 0x3C
+# the two multi-hit KOs: (who faints, our lead species / level / moves, wild species / level / moves); Fury Cutter
+# (210) hits twice in the hack and its first hit KOs here. Our side's move is Splash (150) in the second one.
+MULTIHIT_CASES = (("enemy", 123, 50, [210], 19, 20, None),
+                  ("player", 129, 10, [150], 123, 50, [210]))
+ENEMY_HP_ROW = (37, 50, 99, 43)     # enemy HP box: label pixel x, bar x from-to, row y (top screen)
+# battle-message-variant (battle-message-variant.listing): the client's bank-1 printer (r1 = base id, r2 = {variant
+# battler, params...}). A line's form (own / wild / foe's) is picked from the variant battler; it must be the
+# Pokemon in the template's prefixed slot ({0} for every line below). One wild battle per case at the Cherrygrove
+# Pokemon Center: (name, the player's lead (species, level, moves, item), the wild Pokemon (species, level, moves,
+# item), the line, how many turns at most). Battler 1 = the lead, 13 = the wild Pokemon.
+VARIANT_PRINT_BANK1 = 0x02225EA8
+DESTINY_KNOT = 280
+VARIANT_CASES = (
+    ("knot_on_player", (128, 50, [150], DESTINY_KNOT), (113, 30, [213], None), 448, 2),   # Destiny Knot: wild in love
+    ("knot_on_wild", (113, 50, [213], 0), (128, 30, [150], DESTINY_KNOT), 448, 2),        # ... the player's in love
+    ("mean_look", (94, 50, [212], 0), (19, 10, [150], None), 1180, 1),                    # 'can no longer escape'
+    ("protect", (128, 50, [33], 0), (19, 10, [182], None), 706, 2),                       # 'protected itself'
+    ("drain", (128, 30, [202], 0), (19, 35, [33], None), 1220, 3),                        # 'had its energy drained'
+    ("immune", (128, 50, [33], 0), (92, 10, [150], None), 288, 1),                        # Normal move on a Ghost
+    ("already_poisoned", (128, 50, [92], 0), (19, 40, [150], None), 340, 4),              # Toxic again
+    ("ohko_fails", (128, 10, [32], 0), (19, 40, [150], None), 296, 1),                    # Horn Drill, higher level
+    ("roar_vs_ingrain", (128, 5, [46], 0), (43, 40, [275], None), 1000, 1),               # Roar after Ingrain
+    ("gravity", (35, 50, [356], 0), (16, 40, [19], None), 1468, 2),                       # Gravity during Fly
+)
+
+# pryce-weather-rule (pryce-weather-rule.listing): Pryce's challenge, event-script file 928 script 1, bank 613
+PRYCE_MAP = (140, 7, 5)             # Mahogany Gym, Pryce's room, below Pryce (object 0 at 7,4; hide flag 750)
+PRYCE_HIDE_FLAG = 750
+PRYCE_SCRIPT = (928, 0, 613)        # run_script file, index (script 1), message bank
+PRYCE_MSG0_ARG = 64                 # L62 NPCMsg 0 (the rule): its argument byte, where the script pointer is
+PRYCE_BATTLE = 801                  # L801 TrainerBattle 32, 32: the check passed
+PRYCE_REFUSED_MSG = 14              # L1083 NPCMsg 14: the rule again, no battle
+NPC_MSG = 0x021EE288                # overlay 1: script command 45 (NPCMsg), r0 = script context, [r0+8] -> argument
+PRYCE_CASES = {
+    # name: ([(species, ability, egg)] for party slots 2.., fixed verdict, original verdict). Slots 0-1 stay the
+    # save's (Charmeleon, Butterfree: no weather Ability, not among the 28); slot 1 is not edited in RAM (the
+    # game rewrites part of it every frame in this save, which would make an edit there a Bad Egg)
+    "charizard_blaze": ([(6, 66, False)], "battle", "refused"),
+    "probopass_sturdy": ([(476, 5, False)], "battle", "refused"),
+    "politoed_damp": ([(186, 6, False)], "battle", "refused"),
+    "politoed_drizzle": ([(186, 2, False)], "refused", "refused"),
+    "ninetales_drought": ([(38, 70, False)], "refused", "refused"),
+    "tyranitar_sand_stream": ([(248, 45, False)], "refused", "refused"),
+    "abomasnow_snow_warning": ([(460, 117, False)], "refused", "refused"),
+    "egg_politoed_drizzle": ([(186, 2, True)], "battle", "battle"),        # PlayerHasSpecies skips eggs too
+    "vanilluxe_snow_warning_slot6": ([(5, 66, False)] * 3 + [(584, 117, False)], "refused", "battle"),
 }
 
 
@@ -1192,6 +1310,221 @@ def observe_typechange(h):
     return out
 
 
+def observe_cutecharm(h):
+    """A scripted wild battle: Nidoqueen Lv100 with Cute Charm (ability written into the wild Pokemon) and only
+    Splash; the lead Nidoking Lv50 has only Tackle (contact). CUTE_CHARM_TURNS turns of Tackle: the infatuation
+    lines read (battle_string bank 1), the continuation the handler builds (after its call), the lead's
+    infatuation entry after every turn, and how often the lead's Tackle ran."""
+    import emu_harness as E
+    lead(h, NIDOKING, level=50, moves=[TACKLE, 0, 0, 0], pp=[40, 0, 0, 0])
+    ml = MsgLog(h)
+    conts = []
+    h.on_exec(CUTE_CHARM_CONT_OUT, lambda h: conts.append(h.read(h.reg.sp + 4, 8).hex()))
+    info = E.wild_battle(h, NIDOQUEEN, 100, moves=[SPLASH], pp=[40])
+    for a in E.pid_copies(h, info["pid"]):
+        h.write(a, E.encode_pokemon(h.read(a, 136), ability=CUTE_CHARM))
+
+    def records():
+        out = {}
+        tab = h.u32(BPP_TABLE)
+        for pid in range(24):
+            b = h.u32(tab + BPP_TABLE_OFF + 4 * pid)
+            if 0x02000000 <= b < 0x02400000 and h.u16(b) in (NIDOKING, NIDOQUEEN):
+                out[h.u16(b)] = {"id": pid, "ability": h.u16(b + BPP_ABILITY), "sex": h.u8(b + BPP_SEX),
+                                 "love": h.read(b + BPP_LOVE, 8).hex()}
+        return out
+    turns = []
+    for _ in range(CUTE_CHARM_TURNS):
+        r = h.battle_turn(0)
+        turns.append({"result": r, "records": records()})
+        if r != "menu":
+            break
+    msgs = [i for narc, b, i, _ in ml.rows if narc == NARC_BATTLE_STRING and b == 1]
+    shot, _ = screenshot(h, "cutecharm_end")
+    return {"turns": turns, "conts": conts, "fell": sum(i in LOVE_FELL for i in msgs),
+            "per_turn": sum(i in LOVE_TURN for i in msgs), "immobilised": sum(i in LOVE_IMMOBILE for i in msgs),
+            "tackles": msgs.count(2179), "shot": shot}
+
+
+def _status(h, mon):
+    """Observe party status through the shared diagnostic codec, including native open records."""
+    import emu_harness as E
+    return E.decode_party_pokemon(h.read(mon, 236))["party"]["status"]
+
+
+def _set_status(h, mon, value):
+    import emu_harness as E
+    h.write(mon, E.encode_pokemon(h.read(mon, 236), status=value))
+
+
+def observe_healbell(h):
+    """A trainer battle: lead Chansey Lv60 with Heal Bell only, the bench poisoned / paralysed / burned (slots
+    1-3); Heal Bell twice (the first turn is usually lost to Fake Out), then the POKeMON button: the status of
+    each Pokemon the party screen draws (its copy, at the status-icon routine) and which loop built it."""
+    import emu_harness as E
+    lead(h, CHANSEY, level=60, moves=[HEAL_BELL, 0, 0, 0], pp=[5, 0, 0, 0])
+    # The historical seed has inactive/uninitialized bench records. Build valid native
+    # bench records instead of asking the strict codec to repair their checksums.
+    for slot in HEALBELL_BENCH:
+        h.generate_pokemon(129, level=60)
+        h.swap_party(slot, h.generated_slot)
+    h.w32(h.array(E.ARR_PARTY) + 4, 4)
+    party = h.array(E.ARR_PARTY) + 8
+    for slot, value in HEALBELL_BENCH.items():
+        _set_status(h, party + 236 * slot, value)
+    before = [_status(h, party + 236 * i) for i in range(len(h.party()))]
+    ml = MsgLog(h)
+    h.trainer_battle(HEALBELL_TRAINER)
+    turns = [h.battle_turn(0) for _ in range(2)]
+    cures = [i for narc, b, i, _ in ml.rows if narc == NARC_BATTLE_STRING and b == 1 and i in HEALBELL_CURES]
+    drawn, loops = [], []
+    h.on_exec(STATUS_ICON, lambda h: drawn.append(_status(h, h.reg.r0)))
+    for addr, name in HEALBELL_LIST_CALLS.items():
+        h.on_exec(addr, (lambda n: lambda h: loops.append(n))(name))
+    h.touch(*E.BATTLE_BUTTONS["pokemon"], frames=10, after=120)
+    shot, _ = screenshot(h, "healbell_party")
+    return {"before": before, "turns": turns, "cure_messages": cures, "party_screen": drawn[:6],
+            "loops": sorted(set(loops)), "shot": shot}
+
+
+def observe_multihit(h):
+    """Two scripted wild battles in which the first hit of Fury Cutter KOs: the wild Rattata (enemy side), then
+    our Magikarp (player side). At the first call of Faint_Run (command 21) per battle: HpBarDone and the HP bars;
+    for the enemy side also the bar's pixels every frame (a jump back up, the box leaving while not empty)."""
+    import emu_harness as E
+    out = {}
+    for side, species, level, moves, wild, wlevel, wmoves in MULTIHIT_CASES:
+        h.generate_pokemon(species, level=level)
+        party = h.array(E.ARR_PARTY)
+        h.write(party + 8, h.read(party + 8 + 236 * (h.u32(party + 4) - 1), 236))   # the new Pokemon leads
+        h.edit_party_mon(0, **E.moveset(moves, [30] * len(moves)))
+        faint = []
+
+        def on_faint(h, faint=faint):
+            if not faint:
+                root = h.u32(HPBAR_ROOT)
+                bars = [list(struct.unpack("<4i", h.read(root + HPBAR_ARRAY + HPBAR_SIZE * i, 16))) for i in range(4)]
+                faint.append({"frame": h.frame, "hpbar_done": h.u8(HPBAR_DONE), "bars": bars})
+        h.on_exec(FAINT_RUN, on_faint)
+        E.write_rng(h, 1)
+        E.wild_battle(h, wild, wlevel, moves=wmoves)
+        if not h.wait_screen("battle_menu", 2400):
+            return {"error": f"{side}: the battle command menu never appeared"}
+        E.write_rng(h, 1)
+        messages = MsgLog(h)
+        h.touch(*E.BATTLE_BUTTONS["fight"], frames=10, after=40)
+        h.touch(*E.MOVE_BUTTONS[0], frames=10, after=0)
+        lx, x0, x1, y = ENEMY_HP_ROW
+        pixels = []                     # (enemy HP box shown, coloured pixels of its bar) per frame
+        for _ in range(900):
+            h.step(1)
+            img = h.emu.screenshot().convert("RGB")
+            shown = max(img.getpixel((lx, y))) - min(img.getpixel((lx, y))) > 60      # the orange 'HP' label
+            pixels.append((shown, sum(max(p) - min(p) > 60 for p in (img.getpixel((x, y)) for x in range(x0, x1)))))
+            if faint and h.frame > faint[0]["frame"] + 90:          # the box has slid off by then
+                break
+        h.on_exec(FAINT_RUN, None)
+        if not faint:
+            return {"error": f"{side}: no faint (Faint_Run never ran)"}
+        hit = [b for b in faint[0]["bars"] if b[2] > 0 and b[3] > 0]      # max hp and damage: the hit bar
+        jumps = [(i, a[1], b[1]) for i, (a, b) in enumerate(zip(pixels, pixels[1:])) if a[0] and b[0]
+                 and b[1] > a[1] + 3]
+        left_full = [(i, a[1]) for i, (a, b) in enumerate(zip(pixels, pixels[1:])) if a[0] and not b[0] and a[1] > 0]
+        out[side] = {"messages": [(n, b, i) for n, b, i, _ in messages.rows],
+                     "rng_seed": 1, "faint": faint[0], "hit_bars": hit, "shot": h.screenshot(f"multihit_{side}"),
+                     "pixel_jumps": jumps if side == "enemy" else None,
+                     "box_left_with_fill": left_full if side == "enemy" else None}
+        if side == "enemy":             # through the KO and Exp. messages back to the field
+            for _ in range(40):
+                if h.in_field():
+                    break
+                h.press("B", after=60)
+            if not h.in_field():
+                return dict(out, error="enemy: the battle did not end")
+            h.step(60)
+    return out
+
+
+def observe_battle_variant(h):
+    """One wild battle per VARIANT_CASES row: the line's first print (variant battler, {0}, {1}) and a screenshot
+    of the window after it; then the battle is left (run) when it goes on."""
+    import emu_harness as E
+    prints = []
+
+    def bank1(m):
+        prints.append({"id": m.reg.r1, "params": [m.u32(m.reg.r2 + 4 * k) for k in range(3)], "frame": m.frame})
+    h.on_exec(VARIANT_PRINT_BANK1, bank1)
+    out = {}
+    for case, mine, wild, msg, max_turns in VARIANT_CASES:
+        species, level, moves, item = mine
+        h.generate_pokemon(species, level=level, item=item)
+        h.edit_party_mon(h.generated_slot, moves=moves + [0] * (4 - len(moves)),
+                         pp=[40] * len(moves) + [0] * (4 - len(moves)))
+        h.swap_party(0, h.generated_slot)
+        mark = len(prints)
+        ws, wl, wm, wi = wild
+        E.wild_battle(h, ws, wl, item=wi, moves=wm)
+        turns = []
+        for _ in range(max_turns):
+            turns.append(h.battle_turn(0))
+            if turns[-1] != "menu" or any(p["id"] == msg for p in prints[mark:]):
+                break
+        shot = str(h.screenshot(f"battle_variant_{case}"))
+        if turns[-1] == "menu":
+            if not h.flee(max_tries=6, battle_menu_wait=0):
+                raise RuntimeError("battle-variant fixture did not return to the field")
+            h.step(120)
+        out[case] = {"turns": turns, "line": [p for p in prints[mark:] if p["id"] == msg][:2], "screenshot": shot}
+    return out
+
+
+def observe_pryce(h):
+    """Pryce's Glacier Badge challenge (no Badge yet) once per PRYCE_CASES party, in one session: the party is
+    edited in RAM (species, Ability, egg bit from slot 2; slots 0-1 stay), script 1 of file 928 is started, A answers the
+    rule's pages and Yes. The battle is not fought: when msg 0 is shown, L801 TrainerBattle in the loaded copy
+    of the script becomes 'SetVar SENTINEL, 0xB0B0; ReleaseAll; End', so reaching it ends the script. Verdict
+    per case: 'battle' (L801 reached), 'refused' (msg 14 shown), None (neither within 40 presses)."""
+    import emu_harness as E
+    h.set_flag(PRYCE_HIDE_FLAG, False)
+    stop = E.script_bytes(("SetVar", E.SENTINEL_VAR, 0xB0B0), ("ReleaseAll",), ("End",))
+    party = h.array(E.ARR_PARTY)
+    out = {}
+    for name, (mons, _fixed, _original) in PRYCE_CASES.items():
+        msgs = []
+
+        def on_msg(m):
+            ptr = m.u32(m.reg.r0 + 8)
+            msgs.append(m.u8(ptr))
+            if m.u8(ptr) == 0 and len(msgs) == 1:          # msg 0: the loaded file starts PRYCE_MSG0_ARG before
+                m.write(ptr - PRYCE_MSG0_ARG + PRYCE_BATTLE, stop)
+        h.w32(party + 4, 6)  # reactivate the six valid fixture records before editing later slots
+        for slot, (sp, ab, egg) in enumerate(mons, start=2):
+            h.edit_party_mon(slot, species=sp, ability=ab, egg=egg)
+        h.w32(party + 4, 2 + len(mons))
+        h.set_var(E.SENTINEL_VAR, 0)
+        h.on_exec(NPC_MSG, on_msg)
+        verdict = None
+        try:
+            h.run_script(file=PRYCE_SCRIPT[0], index=PRYCE_SCRIPT[1], msg_bank=PRYCE_SCRIPT[2], settle=40)
+            for presses in range(1, 41):
+                h.press("A", after=40)
+                if h.get_var(E.SENTINEL_VAR) == 0xB0B0:
+                    verdict = "battle"
+                    break
+                if PRYCE_REFUSED_MSG in msgs:
+                    verdict = "refused"
+                    break
+            if verdict == "refused":
+                for _ in range(8):                               # the rule's pages; B ends the message, and
+                    h.press("B", after=40)                       # in the field it opens nothing
+        finally:
+            h.on_exec(NPC_MSG, None)
+        decoded = [(m["species"], m["checksum_ok"]) for m in h.party()]
+        out[name] = {"verdict": verdict, "messages": msgs, "presses": presses, "party": decoded}
+        h.step(60)
+    return out
+
+
 SCENARIOS = {
     # name: (save file or None for a blank battery, start map or None, observe, needs the Chinese reference run)
     "naming": ("full_bag_6mons.sav", None, observe_naming, True),
@@ -1202,6 +1535,11 @@ SCENARIOS = {
     "font": ("full_bag_6mons.sav", None, observe_font, False),
     "textspeed": ("full_bag_6mons.sav", None, observe_textspeed, False),
     "battle": ("full_bag_6mons.sav", None, observe_battle, True),
+    "pryce": ("full_bag_6mons.sav", PRYCE_MAP, observe_pryce, False),
+    "battle-variant": ("full_bag_6mons.sav", PC_MAP, observe_battle_variant, True),
+    "multihit-ko": ("full_bag_6mons.sav", None, observe_multihit, False),
+    "healbell": ("full_bag_6mons.sav", HEALBELL_MAP, observe_healbell, False),
+    "cutecharm": ("full_bag_6mons.sav", None, observe_cutecharm, False),
     "bag": ("full_bag_6mons.sav", None, observe_bag, True),
     "dex": ("full_bag_6mons.sav", None, observe_dex, True),
     "card": ("full_bag_6mons.sav", None, observe_card, True),
@@ -1225,8 +1563,9 @@ CLOCKS = {sc: PINNED_CLOCK for sc in ("bag", "dex", "card", "pokegear", "save", 
 # safari: its outcome depends on the game's RNG; without the pinned clock the Safari case walked 240 steps without an
 # encounter on some host times
 CLOCKS["safari"] = PINNED_CLOCK
-EXTERNAL = {"msgload", "texture-bounds", "reflection"}  # scenarios run by other tools (memcheck.py,
-#                                                         emu_texture_bounds.py, emu_reflection.py)
+EXTERNAL = {"msgload", "texture-bounds", "reflection", "battle-heal"}  # scenarios run by other tools (memcheck.py,
+#                                                         emu_texture_bounds.py, emu_reflection.py,
+#                                                         emu_battle_heal.py)
 ALL_SCENARIOS = tuple(SCENARIOS) + tuple(sorted(EXTERNAL))
 
 
@@ -1504,6 +1843,66 @@ def judge_typechange(scenario, obs, ref=None):
     return _state(all(fixed), all(original), why)
 
 
+def judge_cutecharm(scenario, obs, ref=None):
+    turns = obs.get("turns") or []
+    last = (turns[-1]["records"] if turns else {})
+    lead, holder = (last.get(str(sp), last.get(sp)) for sp in (NIDOKING, NIDOQUEEN))   # JSON keys are strings
+    why = {k: obs.get(k) for k in ("fell", "per_turn", "immobilised", "tackles", "conts")}
+    why["turns"] = [t["result"] for t in turns]
+    if not lead or not holder or holder["ability"] != CUTE_CHARM or (lead["sex"], holder["sex"]) != (0, 1):
+        return "unclear", dict(why, error="no battle with a male attacker and a female Cute Charm holder",
+                               records=last)
+    love = bytes.fromhex(lead["love"])
+    kind, linked = love[4] & 7, (love[4] | love[5] << 8) >> 3 & 0x3F
+    why.update(lead_love=lead["love"], kind=kind, linked_to=linked, holder_id=holder["id"])
+    # the hack: 'fell in love!' (once per successful 50 % roll), an empty entry (kind 0), no per-turn line;
+    # the fix: 'fell in love!' once, the entry linked to the holder (kind 3), the per-turn line every turn after
+    fixed = obs.get("fell") == 1 and kind == 3 and linked == holder["id"] and (obs.get("per_turn") or 0) >= 1
+    original = (obs.get("fell") or 0) >= 1 and kind == 0 and not obs.get("per_turn")
+    return _state(fixed, original, why)
+
+
+def judge_healbell(scenario, obs, ref=None):
+    shown = obs.get("party_screen", [])
+    bench = [shown[s] for s in sorted(HEALBELL_BENCH)] if len(shown) >= 4 else None
+    why = {"cure_messages": obs.get("cure_messages"), "party_screen_status": [hex(x) for x in shown],
+           "loops": obs.get("loops"), "turns": obs.get("turns")}
+    # both builds cure (the battle prints all three cure messages) and build the screen in the POKeMON loop;
+    # the fix shows the cured bench, the hack the statuses from before the battle
+    ok = sorted(obs.get("cure_messages") or []) == sorted(HEALBELL_CURES) and obs.get("loops") == ["pokemon"]
+    return _state(ok and bench == [0, 0, 0], ok and bench == [HEALBELL_BENCH[s] for s in sorted(HEALBELL_BENCH)],
+                  why)
+
+
+def judge_battle_variant(scenario, obs, ref=None):
+    """'fixed': in every case the line's variant battler is the Pokemon it names ({0}). 'original': in every case
+    it is another Pokemon (the attacker, the move user or the Destiny Knot holder). A case whose line never
+    printed makes the run 'unclear'. The Chinese reference run must show the original."""
+    def state(o):
+        rows = [(o.get(c[0]) or {}).get("line") or [] for c in VARIANT_CASES]
+        if not all(rows):
+            return False, False
+        same = [all(p["params"][0] == p["params"][1] for p in r) for r in rows]
+        other = [all(p["params"][0] != p["params"][1] for p in r) for r in rows]
+        return all(same), all(other)
+    fixed, original = state(obs)
+    why = {c[0]: [p["params"] for p in (obs.get(c[0]) or {}).get("line") or []] for c in VARIANT_CASES}
+    if ref is not None and state(ref) != (False, True):
+        return "unclear", dict(why, error="the Chinese ROM did not show the original behaviour")
+    return _state(fixed, original, why)
+
+
+def judge_pryce(scenario, obs, ref=None):
+    """Every PRYCE_CASES party gets the verdict of the fix (only a weather-changing Ability is refused) or of
+    the hack (the 28 species are refused, whatever their Ability)."""
+    why = {name: (obs.get(name) or {}).get("verdict") for name in PRYCE_CASES}
+    if obs.get("error"):
+        return "unclear", dict(why, error=obs["error"])
+    fixed = all(why[n] == f for n, (_m, f, _o) in PRYCE_CASES.items())
+    original = all(why[n] == o for n, (_m, _f, o) in PRYCE_CASES.items())
+    return _state(fixed, original, why)
+
+
 NAMING_SITES_BY_ID = {v[0]: v for v in NAMING_SITES.values()}
 JUDGES = {
     ("naming", "namelen"): judge_namelen,
@@ -1519,6 +1918,10 @@ JUDGES = {
     ("battle-references", "battle-message-references"): judge_battle_references,
     ("safari", "safari-no-wild-double"): judge_safari,
     ("typechange", "type-change-message"): judge_typechange,
+    ("cutecharm", "cute-charm-infatuation"): judge_cutecharm,
+    ("healbell", "battle-party-status-sync"): judge_healbell,
+    ("battle-variant", "battle-message-variant"): judge_battle_variant,
+    ("pryce", "pryce-weather-rule"): judge_pryce,
 }
 
 
@@ -1652,14 +2055,67 @@ def judge_trade_evo(scenario, obs, ref=None):
     return _state(fixed, original, why)
 
 
+def run_battle_heal(rom, expect, sav_dir, out):
+    """emu_battle_heal.py (Maxie's second wave: healing playback for a Pokemon Roar dragged out) on one ROM:
+    --expect original on a control, fixed on the ROM under test."""
+    import emu_harness as E
+    out = Path(out)
+    if (out / "report.json").exists():       # --overwrite: battle-heal refuses an existing report
+        os.replace(out / "report.json", out / "report.previous.json")
+    t0 = time.time()
+    rc, _, err = E.spawn(["battle-heal", "--rom", Path(rom).resolve(), "--sav",
+                          (Path(sav_dir) / "full_bag_6mons.sav").resolve(), "--out", out.resolve(),
+                          "--expect", expect], timeout=900)
+    try:
+        rep = json.loads((out / "report.json").read_text())
+    except (OSError, ValueError):
+        return {"error": f"battle-heal failed (rc {rc}): {err[-800:]}", "seconds": 0}
+    return {"expect": expect, "rc": rc, "passed": rep.get("passed"), "error": rep.get("error"),
+            "failures": rep.get("failures"),
+            "trials": [{k: t.get(k) for k in ("delay", "result", "skipped_heals", "bars_without_sprite",
+                                              "null_sprite_reads")} for t in rep.get("trials", [])],
+            "report": str(out / "report.json"), "seconds": round(time.time() - t0, 1)}
+
+
+def judge_battle_heal(scenario, obs, ref=None):
+    why = {k: obs.get(k) for k in ("expect", "passed", "trials", "failures", "error", "report")}
+    ok = bool(obs.get("passed")) and obs.get("rc") == 0
+    return _state(ok and obs.get("expect") == "fixed", ok and obs.get("expect") == "original", why)
+
+
+def judge_multihit(scenario, obs, ref=None):
+    """Per side, at the first frame of the faint: fixed = HpBarDone 1 and the hit bar at its new HP (value 0,
+    HP field 0); original = HpBarDone 0 and the hit bar still draining (value != 0, HP field the HP before the
+    hit). Enemy side, pixels: fixed = no jump back up and the box leaves empty; original = both seen."""
+    why, fixed, original = {}, True, True
+    for side, *_ in MULTIHIT_CASES:
+        o = obs.get(side)
+        if not o:
+            return "unclear", {"error": obs.get("error", f"no {side} observation")}
+        f, bars = o["faint"], o["hit_bars"]
+        why[side] = {"hpbar_done": f["hpbar_done"], "hit_bars": bars, "pixel_jumps": o.get("pixel_jumps"),
+                     "box_left_with_fill": o.get("box_left_with_fill")}
+        if len(bars) != 1:
+            return "unclear", dict(why, error=f"{side}: expected one hit HP bar, got {bars}")
+        value, hp, _max, _damage = bars[0]
+        fixed = fixed and f["hpbar_done"] == 1 and value == 0 and hp == 0
+        original = original and f["hpbar_done"] == 0 and value != 0 and hp > 0
+        if side == "enemy":
+            fixed = fixed and not o["pixel_jumps"] and not o["box_left_with_fill"]
+            original = original and bool(o["pixel_jumps"] or o["box_left_with_fill"])
+    return _state(fixed, original, why)
+
+
 JUDGES[("msgload", "msgload")] = judge_msgload
 JUDGES.update({k: crop_judge(*v) for k, v in CROP_CHECKS.items()})
 JUDGES[("trade-evo", "trade-evolutions-levelup")] = judge_trade_evo
+JUDGES[("multihit-ko", "faint-waits-for-hp-bar")] = judge_multihit
 # checks across the two runs of a fix (fixed ROM, control), after both judged right
 PAIR_CHECKS = {("ivev", "ivev-panel"): pair_ivev, ("pcbox", "pcbox-name-width"): pair_pcbox}
 JUDGES[("texture-bounds", "overworld-texture-frame-bounds")] = judge_texture_bounds
 JUDGES[("reflection", "bulbasaur-reflection-boundary")] = judge_reflection
 JUDGES[("evolution", "evolution-moves")] = judge_evolution
+JUDGES[("battle-heal", "battle-heal-hpbar-switched-out")] = judge_battle_heal
 
 
 # --------------------------------------------------------------------------------------------- runner
@@ -1667,10 +2123,20 @@ def scenario_fixes(scenario):
     return [fx for fx, scs in COVERAGE.items() if scenario in scs]
 
 
+def disabled_fixes():
+    """Fix ids that are off by default (fix.toml enabled = false): a normal build does not carry them."""
+    import fixes as fixreg
+    return {f["id"] for f in fixreg.load_all() if not f.get("enabled")}
+
+
 def select(case):
-    """--case: 'all', scenario names and/or fix ids -> the scenarios to run, with the fixes judged in each."""
+    """--case: 'all', scenario names and/or fix ids -> the scenarios to run, with the fixes judged in each.
+    'all' leaves out the fixes that are disabled (a normal build does not carry them) and the scenarios that only
+    cover such fixes; name a disabled fix (or its scenario) to run it on a ROM built with it (build.py --only)."""
     if case == "all":
-        return {sc: scenario_fixes(sc) for sc in ALL_SCENARIOS}
+        off = disabled_fixes()
+        out = {sc: [f for f in scenario_fixes(sc) if f not in off] for sc in ALL_SCENARIOS}
+        return {sc: fixes for sc, fixes in out.items() if fixes or not scenario_fixes(sc)}
     out = {}
     for name in case.split(","):
         if name in ALL_SCENARIOS:
@@ -1799,9 +2265,11 @@ def run_job(job, cn, sav_dir, out):
             obs = run_texture_bounds(rom, "fixed" if label == "fixed" else "original", sav_dir, d)
         elif sc == "reflection":
             obs = run_reflection(rom, "fixed" if label == "fixed" else "original", sav_dir, d)
+        elif sc == "battle-heal":
+            obs = run_battle_heal(rom, "fixed" if label == "fixed" else "original", sav_dir, d)
         else:
             obs = E.run_child(["fixes-child", "--scenario", sc, "--rom", Path(rom).resolve(), "--sav-dir",
-                               Path(sav_dir).resolve(), "--out", d.resolve()], timeout=900)
+                               Path(sav_dir).resolve(), "--out", d.resolve()], timeout=900, log=d / "child.log")
     except Exception as exc:          # a crash is an observation too: the judge sees no data
         obs = {"error": f"{type(exc).__name__}: {str(exc)[-800:]}"}
     obs.setdefault("seconds", round(time.time() - t0, 1))
@@ -1864,6 +2332,10 @@ def run(a):
     t0 = time.time()
     built, provenance = [], {}
     applied, applied_from = fixed_applied(rom, a.rom_report)
+    missing = sorted({f for fixes in selection.values() for f in fixes} - set(applied))
+    if missing:
+        raise ValueError(f"{rom.name} was built without {', '.join(missing)} ({applied_from}); a disabled fix is "
+                         "judged only on a ROM built with it (build.py --only <the enabled fixes>,<fix>)")
     text = text_sha1(rom)
     for fx in sorted({f for fixes in selection.values() for f in fixes}):
         problems = ["--rebuild-controls"] if a.rebuild_controls else control_problems(controls, fx, applied, text)

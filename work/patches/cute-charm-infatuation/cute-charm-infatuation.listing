@@ -1,0 +1,75 @@
+; cute-charm-infatuation - disassembly snapshot of cute-charm-infatuation.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write cute-charm-infatuation   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: cute-charm-infatuation.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x32290 (RAM 0x02232A70), 130 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02232A70  B5F0       push {r4, r5, r6, r7, lr}
+  02232A72  B085       sub sp, #0x14
+  02232A74  200B       movs r0, #0xb
+  02232A76  1C0D       adds r5, r1, #0
+  02232A78  F7DD F922  bl #0x220fcc0  ; EventVar_Get
+  02232A7C  4285       cmp r5, r0
+  02232A7E  D136       bne #0x2232aee
+  02232A80  2037       movs r0, #0x37
+  02232A82  F7DD F91D  bl #0x220fcc0  ; EventVar_Get
+  02232A86  2800       cmp r0, #0
+  02232A88  D131       bne #0x2232aee
+  02232A8A  F7F0 FED7  bl #0x222383c  ; Battle_SkipCheck
+  02232A8E  2800       cmp r0, #0
+  02232A90  D12D       bne #0x2232aee
+  02232A92  200A       movs r0, #0xa
+  02232A94  F7DD F914  bl #0x220fcc0  ; EventVar_Get
+  02232A98  0600       lsls r0, r0, #0x18
+  02232A9A  0E04       lsrs r4, r0, #0x18
+  02232A9C  1C28       adds r0, r5, #0
+  02232A9E  F7E2 FB8D  bl #0x22151bc  ; Battle_GetPoke
+  02232AA2  1C06       adds r6, r0, #0
+  02232AA4  1C20       adds r0, r4, #0
+  02232AA6  F7E2 FB89  bl #0x22151bc  ; Battle_GetPoke
+  02232AAA  1C07       adds r7, r0, #0
+  02232AAC  1C30       adds r0, r6, #0
+  02232AAE  F7E5 FB9B  bl #0x22181e8  ; Bpp_GetSex
+  02232AB2  0600       lsls r0, r0, #0x18
+  02232AB4  0E04       lsrs r4, r0, #0x18
+  02232AB6  1C38       adds r0, r7, #0
+  02232AB8  F7E5 FB96  bl #0x22181e8  ; Bpp_GetSex
+  02232ABC  0600       lsls r0, r0, #0x18
+  02232ABE  0E00       lsrs r0, r0, #0x18
+  02232AC0  2C02       cmp r4, #2
+  02232AC2  D014       beq #0x2232aee
+  02232AC4  2802       cmp r0, #2
+  02232AC6  D012       beq #0x2232aee
+  02232AC8  4284       cmp r4, r0
+  02232ACA  D010       beq #0x2232aee
+  02232ACC  A801       add r0, sp, #4
+  02232ACE  2107       movs r1, #7
+  02232AD0  1C2A       adds r2, r5, #0
+  02232AD2  F7F2 FD25  bl #0x2225520  ; SickCont_MakePokeSick
+  02232AD6  9802       ldr r0, [sp, #8]
+  02232AD8  9901       ldr r1, [sp, #4]
+  02232ADA  9004       str r0, [sp, #0x10]
+  02232ADC  2032       movs r0, #0x32
+  02232ADE  9103       str r1, [sp, #0xc]
+  02232AE0  AC03       add r4, sp, #0xc
+  02232AE2  9000       str r0, [sp]
+  02232AE4  1C28       adds r0, r5, #0
+  02232AE6  2107       movs r1, #7
+  02232AE8  CC0C       ldm r4!, {r2, r3}
+  02232AEA  F008 F8F7  bl #0x223acdc  ; TouchAddSick
+  02232AEE  B005       add sp, #0x14
+  02232AF0  BDF0       pop {r4, r5, r6, r7, pc}
+
+== overlay14+0x322EE (RAM 0x02232ACE), 8 bytes, thumb: cute-charm-infatuation-cont
+  02232ACA  D010       beq #0x2232aee
+  02232ACC  A801       add r0, sp, #4
+- 02232ACE  2107       movs r1, #7
+- 02232AD0  1C2A       adds r2, r5, #0
+- 02232AD2  F7F2 FD25  bl #0x2225520  ; SickCont_MakePokeSick
++ 02232ACE  1C29       adds r1, r5, #0
++ 02232AD0  1C2A       adds r2, r5, #0
++ 02232AD2  F7F2 FB7D  bl #0x22251d0  ; SickCont_MakeLinked
+  02232AD6  9802       ldr r0, [sp, #8]
+  02232AD8  9901       ldr r1, [sp, #4]

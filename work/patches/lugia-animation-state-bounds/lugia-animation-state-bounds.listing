@@ -1,0 +1,112 @@
+; lugia-animation-state-bounds - disassembly snapshot of lugia-animation-state-bounds.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write lugia-animation-state-bounds   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: lugia-animation-state-bounds.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay1+0x13740 (RAM 0x021F80C0), 80 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  021F80C0  B5F8       push {r3, r4, r5, r6, r7, lr}
+  021F80C2  1C05       adds r5, r0, #0
+  021F80C4  F666 FA60  bl #0x205e588
+  021F80C8  1C07       adds r7, r0, #0
+  021F80CA  1C28       adds r0, r5, #0
+  021F80CC  683C       ldr r4, [r7]
+  021F80CE  F001 F923  bl #0x21f9318
+  021F80D2  2801       cmp r0, #1
+  021F80D4  D018       beq #0x21f8108
+  021F80D6  2C00       cmp r4, #0
+  021F80D8  D016       beq #0x21f8108
+  021F80DA  1C28       adds r0, r5, #0
+  021F80DC  F666 F9E6  bl #0x205e4ac
+  021F80E0  1C03       adds r3, r0, #0
+  021F80E2  009E       lsls r6, r3, #2
+  021F80E4  4B09       ldr r3, [pc, #0x24]
+  021F80E6  1C28       adds r0, r5, #0
+  021F80E8  599B       ldr r3, [r3, r6]
+  021F80EA  1C21       adds r1, r4, #0
+  021F80EC  1C3A       adds r2, r7, #0
+  021F80EE  4798       blx r3
+  021F80F0  1C28       adds r0, r5, #0
+  021F80F2  F666 F9DB  bl #0x205e4ac
+  021F80F6  6138       str r0, [r7, #0x10]
+  021F80F8  1C28       adds r0, r5, #0
+  021F80FA  1C21       adds r1, r4, #0
+  021F80FC  F001 F996  bl #0x21f942c
+  021F8100  1C28       adds r0, r5, #0
+  021F8102  1C21       adds r1, r4, #0
+  021F8104  F000 F872  bl #0x21f81ec
+  021F8108  BDF8       pop {r3, r4, r5, r6, r7, pc}
+  021F810A  46C0       mov r8, r8
+  021F810C  8F70       ldrh r0, [r6, #0x3a]
+  021F810E  0220       lsls r0, r4, #8
+
+== overlay1+0x13760 (RAM 0x021F80E0), 24 bytes, thumb: lugia-animation-dispatch
+  021F80DC  F666 F9E6  bl #0x205e4ac
+- 021F80E0  1C03       adds r3, r0, #0
+- 021F80E2  009E       lsls r6, r3, #2
+- 021F80E4  4B09       ldr r3, [pc, #0x24]
+- 021F80E6  1C28       adds r0, r5, #0
+- 021F80E8  599B       ldr r3, [r3, r6]
+- 021F80EA  1C21       adds r1, r4, #0
+- 021F80EC  1C3A       adds r2, r7, #0
+- 021F80EE  4798       blx r3
+- 021F80F0  1C28       adds r0, r5, #0
+- 021F80F2  F666 F9DB  bl #0x205e4ac
+- 021F80F6  6138       str r0, [r7, #0x10]
++ 021F80E0  2801       cmp r0, #1
++ 021F80E2  D809       bhi #0x21f80f8
++ 021F80E4  0086       lsls r6, r0, #2
++ 021F80E6  4B09       ldr r3, [pc, #0x24]
++ 021F80E8  599B       ldr r3, [r3, r6]
++ 021F80EA  1C28       adds r0, r5, #0
++ 021F80EC  1C21       adds r1, r4, #0
++ 021F80EE  1C3A       adds r2, r7, #0
++ 021F80F0  4798       blx r3
++ 021F80F2  08B0       lsrs r0, r6, #2
++ 021F80F4  6138       str r0, [r7, #0x10]
++ 021F80F6  46C0       mov r8, r8
+  021F80F8  1C28       adds r0, r5, #0
+  021F80FA  1C21       adds r1, r4, #0
+
+== overlay1+0x1381C (RAM 0x021F819C), 80 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  021F819C  B510       push {r4, lr}
+  021F819E  6910       ldr r0, [r2, #0x10]
+  021F81A0  1C0C       adds r4, r1, #0
+  021F81A2  2800       cmp r0, #0
+  021F81A4  D007       beq #0x21f81b6
+  021F81A6  1C20       adds r0, r4, #0
+  021F81A8  2100       movs r1, #0
+  021F81AA  F62C F9AD  bl #0x2024508
+  021F81AE  1C20       adds r0, r4, #0
+  021F81B0  2100       movs r1, #0
+  021F81B2  F62C F9D9  bl #0x2024568
+  021F81B6  2101       movs r1, #1
+  021F81B8  1C20       adds r0, r4, #0
+  021F81BA  0309       lsls r1, r1, #0xc
+  021F81BC  F62C F9B6  bl #0x202452c
+  021F81C0  BD10       pop {r4, pc}
+  021F81C2  0000       movs r0, r0
+  021F81C4  B510       push {r4, lr}
+  021F81C6  6910       ldr r0, [r2, #0x10]
+  021F81C8  1C0C       adds r4, r1, #0
+  021F81CA  2801       cmp r0, #1
+  021F81CC  D007       beq #0x21f81de
+  021F81CE  1C20       adds r0, r4, #0
+  021F81D0  2101       movs r1, #1
+  021F81D2  F62C F999  bl #0x2024508
+  021F81D6  1C20       adds r0, r4, #0
+  021F81D8  2100       movs r1, #0
+  021F81DA  F62C F9C5  bl #0x2024568
+  021F81DE  2101       movs r1, #1
+  021F81E0  1C20       adds r0, r4, #0
+  021F81E2  0309       lsls r1, r1, #0xc
+  021F81E4  F62C F9A2  bl #0x202452c
+  021F81E8  BD10       pop {r4, pc}
+  021F81EA  0000       movs r0, r0
+
+== overlay1+0x245F0 (RAM 0x02208F70), 8 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02208F70  819D       strh r5, [r3, #0xc]
+  02208F72  021F       lsls r7, r3, #8
+  02208F74  81C5       strh r5, [r0, #0xe]
+  02208F76  021F       lsls r7, r3, #8

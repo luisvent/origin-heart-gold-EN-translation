@@ -1,0 +1,51 @@
+id = "cute-charm-infatuation"
+title = "Battle: Cute Charm infatuates the attacker (the 'fell in love!' line no longer prints without effect)"
+kind = "code"
+enabled = true
+decisions = ["D-2315"]
+requires = []
+asm = "cute-charm-infatuation.asm"
+why = """
+Players: when a Pokémon with Cute Charm is hit by a contact move from a Pokémon of the other gender, the
+battle often says the attacker fell in love (battle_string 1#444), but nothing happens: no 'is in love'
+line on its next turns, it attacks normally, and the next contact prints 'fell in love!' again (a reviewer
+saw it six times in one battle on the Chinese ROM). Attract and Destiny Knot infatuate correctly. The
+untouched Chinese ROM does the same, so this is a bug of the hack.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
+(D-2315, 2026-10-09); other hack bugs stay report-only.
+
+Technical: overlay 14 is the hack's battle engine. A condition is stored per battle record in 8-byte
+entries at bpp+0x38+n*8 (infatuation: condition 7, bpp+0x70); the second word's low 3 bits are its kind
+(0 none, 3 linked to a Pokémon, ...). Cute Charm's handler (0x02232A70) checks that the holder was hit, by
+a Pokémon with a gender other than the holder's, then calls the contact-chance helper 0x0223ACDC (contact,
+Shield Dust, 50 %, then the add-condition action with the 'fell in love' message). It builds the
+condition's continuation with 0x02225520, the constructor of the status conditions 0..5, which has no case
+for condition 7 and returns kind 0. The action prints the message and stores an empty entry, so the
+attacker is not infatuated and the next contact passes again.
+"""
+what = """
+Old: 'movs r1, #7; adds r2, r5, #0; bl 0x02225520' (0x02232ACE) -> continuation of kind 0 -> message, no
+infatuation.
+New: 'adds r1, r5, #0; adds r2, r5, #0; bl 0x022251D0': the constructor Attract (0x022255FA) and Destiny
+Knot (0x0220AF06) use, with the Cute Charm holder's id: kind 3, linked to the holder. The attacker is now
+infatuated with the holder: the per-turn 'is in love' line and the hack's chance to be unable to attack
+follow, and a second contact does not print 'fell in love!' again while it lasts. Not changed: the hack's
+50 % chance (vanilla Gen 4 has 1/3, Gen 5+ 30 %; D-1002), the contact, gender, genderless and Oblivious
+checks, the message, every other ability and status.
+"""
+evidence = [
+  "D-2315: the user-approved exception to D-1337 for this fix (2026-10-09)",
+  "work/notes/cute-charm-infatuation_fix.md: the handler, the two constructors, the emulator runs before and after",
+  "Runtime: emu_harness.py fixes --case cute-charm-infatuation (scenario cutecharm: wild Nidoqueen with Cute Charm hit by the player's Nidoking with Tackle; the 'fell in love' and 'in love' lines and the infatuation entry bpp+0x70). 2026-10-09, DeSmuME: fixed 'fell in love' once, the per-turn line 9 times, entry linked to the holder; the --without build 'fell in love' 8 times, no per-turn line, entry of kind 0",
+  "DeSmuME, Chinese ROM / --without build / fixed build, 2026-10-09: the player's Cute Charm holder hit by a wild Pokemon's Tackle, same gender, Oblivious, a non-contact move, a genderless attacker (work/notes/cute-charm-infatuation_fix.md 'Evidence')",
+  "melonDS 1.1 (headless backend), 2026-10-09: trainer.sav, Route 1 trainer's Bidoof (Tackle) against a Cute Charm Nidoking: Chinese ROM and --without build store an empty entry and repeat 'fell in love!'; the fixed build infatuates once, then the per-turn line; no ARM9 abort",
+  "Open, not fixed here: D-2316 (the per-turn infatuation line names the two Pokemon the wrong way round, also with Attract on the Chinese ROM)",
+]
+
+[[code]]
+id = "cute-charm-infatuation-cont"
+file = "overlay14"
+offset = "0x322EE"
+expect = "2107 1C2A F7F2 FD25"
+notes = "Cute Charm handler: the infatuation's continuation is built with SickCont_MakeLinked(holder, holder) (0x022251D0, kind 3) instead of the status-condition constructor 0x02225520 with condition 7 (kind 0, an empty entry). The asm also guards, read-only, the rest of the handler."

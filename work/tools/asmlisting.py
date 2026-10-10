@@ -138,6 +138,83 @@ def disassemble(data: bytes, addr: int, mode: str, labels=None, literals=False) 
     return rows
 
 
+_SCRIPT_CMDS = {}
+_SCRIPT_JUMPS = {22, 23, 24, 25, 26, 28, 29, 225}    # GoTo, ..., Call, GoToIf, CallIf: last argument s32 relative
+
+
+def _script_cmds() -> dict:
+    """{command: (name, argument sizes)} of the hack's event-script engine (docs/script_cmds.json)."""
+    if not _SCRIPT_CMDS:
+        import json
+        for k, (name, sizes) in json.loads((TOOLS / "docs" / "script_cmds.json").read_text(encoding="utf-8")).items():
+            _SCRIPT_CMDS[int(k)] = (name, sizes)
+    return _SCRIPT_CMDS
+
+
+def _script_argsizes(op, data, p):
+    """Argument sizes of one command (the few commands whose arguments depend on the first one: docs/romdata)."""
+    if op in (400, 401, 402):
+        return [1, 2] if p < len(data) and data[p] == 2 else [1]
+    if op in (465, 489) and p + 2 <= len(data):
+        a = data[p] | data[p + 1] << 8
+        if op == 465:
+            return [2, 2, 2] if a <= 3 else ([2] if a == 6 else [2, 2])
+        return [2, 2] if 1 <= a <= 3 else ([2, 2, 2] if a in (5, 6) else [2])
+    return _script_cmds()[op][1]
+
+
+def decode_script(data: bytes, start: int, end: int, labels=None, whole=False) -> list:
+    """(offset, bytes text, command text) rows of event-script commands in data[start:end], linearly (the
+    area must start on a command). Variables (>= 0x4000) in hex; a jump shows its target as L<offset> (the
+    numbering of docs/scriptdump.py), with its label from `labels` {offset: name}. A run of zero bytes at the
+    end is one row; bytes that are not a whole command are shown as bytes. whole: a command that starts
+    before `end` is shown whole, also where it runs past `end` (a read-only guard's span)."""
+    rows, i = [], start
+    cmds = _script_cmds()
+    while i < end:
+        tail = data[i:end]
+        if len(tail) > 2 and not any(tail):
+            rows.append((i, f"{len(tail)} x 00", f"{len(tail)} bytes of 0x00"))
+            break
+        op = data[i] | data[i + 1] << 8 if i + 2 <= (len(data) if whole else end) else None
+        sizes = _script_argsizes(op, data, i + 2) if op in cmds else None
+        n = 2 + sum(sizes) if sizes is not None else 0
+        if sizes is None or i + n > (len(data) if whole else end):
+            rows.append((i, " ".join(f"{b:02X}" for b in tail), ".byte (not a whole command)"))
+            break
+        args, q = [], i + 2
+        for k, sz in enumerate(sizes):
+            v = int.from_bytes(data[q:q + sz], "little", signed=(sz == 4))
+            q += sz
+            if op in _SCRIPT_JUMPS and k == len(sizes) - 1:
+                name = (labels or {}).get(q + v)
+                args.append(f"L{q + v}" + (f" ({name})" if name else ""))
+            else:
+                args.append(f"0x{v:04X}" if sz == 2 and v >= 0x4000 else str(v))
+        rows.append((i, " ".join(f"{b:02X}" for b in data[i:q]), f"{cmds[op][0]} {', '.join(args)}".strip()))
+        i = q
+    return rows
+
+
+def _script_lines(prefix, rows) -> list:
+    return [f"{prefix}L{a:<5d} {t}".rstrip() for a, _b, t in rows]
+
+
+def render_script(asm: Assembled, area: dict, labels: tuple) -> list:
+    """One section for an area of an event-script file (scriptNNN): old and new as script commands."""
+    new_labels, old_labels, _every = labels
+    key = area["file"]
+    old, new = asm.old[key], asm.new[key]
+    start, end = _span(asm, area)
+    region = _region_of(asm.fx, key, start, asm.bases)
+    out = [f"== {key}+0x{start:X} (script offset L{start}), {end - start} bytes, event script: {region}"]
+    out += _script_lines("- ", decode_script(old, start, end, old_labels))
+    out += _script_lines("+ ", decode_script(new, start, end, new_labels))
+    nxt = decode_script(old, end, min(len(old), end + 16), old_labels)[:1]
+    out += _script_lines("  ", [r for r in nxt if not r[2].startswith(".byte")])
+    return out
+
+
 def _hex(chunk: bytes, mode: str) -> str:
     if mode == "thumb" and len(chunk) % 2 == 0:
         return " ".join(f"{_hw(chunk, j):04X}" for j in range(0, len(chunk), 2))
@@ -414,6 +491,9 @@ def render_area(asm: Assembled, area: dict, labels: tuple, changed: dict, writes
     """One section for a data area (or a code area alone: render_code)."""
     if "insn" in area["writes"]:
         return render_code(asm, [area], labels, changed)
+    import fixes as fixreg
+    if fixreg.SCRIPT_FILE_RE.fullmatch(area["file"]):
+        return render_script(asm, area, labels)
     new_labels, old_labels, every = labels
     key, base = area["file"], asm.base(area["file"])
     old, new = asm.old[key], asm.new[key]
@@ -482,6 +562,9 @@ def render(asm: Assembled, cs_version: str, armips_version: str) -> str:
            "; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one",
            "; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).",
            ""]
+    import fixes as fixreg
+    if any(fixreg.SCRIPT_FILE_RE.fullmatch(k) for k in asm.old):
+        out[-2:-1] = [out[-2][:-1] + ";", "; an event-script file (scriptNNN) shows its commands at their file offsets (L<offset>)."]
     areas = sorted(asm.layout.get("areas", []), key=lambda a: (a["file"], a["start"]))
     blocks = [("area", g[0]["file"], g[0]["start"], g) for g in _groups(asm, areas)]
     blocks += [("readonly", r["file"], r["start"], r) for r in asm.layout.get("readonly", [])]
@@ -493,6 +576,13 @@ def render(asm: Assembled, cs_version: str, armips_version: str) -> str:
             key, base = item["file"], asm.base(item["file"])
             lo = min(a for a, _ in item["reads"]) - base
             hi = max(a + n for a, n in item["reads"]) - base
+            import fixes as fixreg
+            if fixreg.SCRIPT_FILE_RE.fullmatch(key):
+                out.append(f"== {key}+0x{lo:X} (script offset L{lo}), {hi - lo} bytes, event script: read-only "
+                           f"guard (the source checks these bytes and writes none of them)")
+                out += _script_lines("  ", decode_script(asm.old[key], lo, hi, old_labels, whole=True))
+                out.append("")
+                continue
             out.append(f"== {key}+0x{lo:X} (RAM 0x{base + lo:08X}), {hi - lo} bytes, {item['mode']}: read-only guard "
                        f"(the source checks these bytes and writes none of them)")
             out += _lines("  ", disassemble(asm.old[key][lo:hi], base + lo, item["mode"], old_labels))

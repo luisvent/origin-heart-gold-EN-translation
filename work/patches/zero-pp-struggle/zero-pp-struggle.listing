@@ -1,0 +1,361 @@
+; zero-pp-struggle - disassembly snapshot of zero-pp-struggle.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write zero-pp-struggle   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: zero-pp-struggle.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x180 (RAM 0x02200960), 76 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02200960  B430       push {r4, r5}
+  02200962  2400       movs r4, #0
+  02200964  6004       str r4, [r0]
+  02200966  6044       str r4, [r0, #4]
+  02200968  4C0D       ldr r4, [pc, #0x34]
+  0220096A  0712       lsls r2, r2, #0x1c
+  0220096C  446C       add r4, sp, r4
+  0220096E  7C24       ldrb r4, [r4, #0x10]
+  02200970  0409       lsls r1, r1, #0x10
+  02200972  0E12       lsrs r2, r2, #0x18
+  02200974  6084       str r4, [r0, #8]
+  02200976  6805       ldr r5, [r0]
+  02200978  240F       movs r4, #0xf
+  0220097A  43A5       bics r5, r4
+  0220097C  2401       movs r4, #1
+  0220097E  4325       orrs r5, r4
+  02200980  24F0       movs r4, #0xf0
+  02200982  43A5       bics r5, r4
+  02200984  1C2C       adds r4, r5, #0
+  02200986  4314       orrs r4, r2
+  02200988  4A06       ldr r2, [pc, #0x18]
+  0220098A  0A09       lsrs r1, r1, #8
+  0220098C  4022       ands r2, r4
+  0220098E  430A       orrs r2, r1
+  02200990  4905       ldr r1, [pc, #0x14]
+  02200992  400A       ands r2, r1
+  02200994  07D9       lsls r1, r3, #0x1f
+  02200996  0949       lsrs r1, r1, #5
+  02200998  4311       orrs r1, r2
+  0220099A  6001       str r1, [r0]
+  0220099C  BC30       pop {r4, r5}
+  0220099E  4770       bx lr
+  022009A0  FFF8       .hword 0xFFF8
+  022009A2  FFFF       .hword 0xFFFF
+  022009A4  00FF       lsls r7, r7, #3
+  022009A6  FF00       .hword 0xFF00
+  022009A8  FFFF       .hword 0xFFFF
+  022009AA  FBFF       .hword 0xFBFF
+
+== overlay14+0x2794 (RAM 0x02202F74), 28 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02202F74  4944       ldr r1, [pc, #0x110]
+  02202F76  5860       ldr r0, [r4, r1]
+  02202F78  1D09       adds r1, r1, #4
+  02202F7A  5861       ldr r1, [r4, r1]
+  02202F7C  F029 FAE8  bl #0x222c550
+  02202F80  2800       cmp r0, #0
+  02202F82  D004       beq #0x2202f8e
+  02202F84  4941       ldr r1, [pc, #0x104]
+  02202F86  1C20       adds r0, r4, #0
+  02202F88  F7FF F82A  bl #0x2201fe0
+  02202F8C  E079       b #0x2203082
+  02202F8E  2001       movs r0, #1
+
+== overlay14+0x15D58 (RAM 0x02216538), 16 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02216538  8BC0       ldrh r0, [r0, #0x1e]
+  0221653A  2800       cmp r0, #0
+  0221653C  D101       bne #0x2216542
+  0221653E  2001       movs r0, #1
+  02216540  4770       bx lr
+  02216542  2000       movs r0, #0
+  02216544  4770       bx lr
+  02216546  0000       movs r0, r0
+
+== overlay14+0x15FC0 (RAM 0x022167A0), 4 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  022167A0  7D00       ldrb r0, [r0, #0x14]
+  022167A2  4770       bx lr
+
+== overlay14+0x16654 (RAM 0x02216E34), 12 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02216E34  4901       ldr r1, [pc, #4]
+  02216E36  5C40       ldrb r0, [r0, r1]
+  02216E38  4770       bx lr
+  02216E3A  46C0       mov r8, r8
+  02216E3C  029E       lsls r6, r3, #0xa
+  02216E3E  0000       movs r0, r0
+
+== overlay14+0x16680 (RAM 0x02216E60), 16 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02216E60  2212       movs r2, #0x12
+  02216E62  434A       muls r2, r1, r2
+  02216E64  1881       adds r1, r0, r2
+  02216E66  4801       ldr r0, [pc, #4]
+  02216E68  5A08       ldrh r0, [r1, r0]
+  02216E6A  4770       bx lr
+  02216E6C  025A       lsls r2, r3, #9
+  02216E6E  0000       movs r0, r0
+
+== overlay14+0x16734 (RAM 0x02216F14), 16 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02216F14  2212       movs r2, #0x12
+  02216F16  434A       muls r2, r1, r2
+  02216F18  1881       adds r1, r0, r2
+  02216F1A  2097       movs r0, #0x97
+  02216F1C  0080       lsls r0, r0, #2
+  02216F1E  5C08       ldrb r0, [r1, r0]
+  02216F20  4770       bx lr
+  02216F22  0000       movs r0, r0
+
+== overlay14+0x16924 (RAM 0x02217104), 44 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02217104  B418       push {r3, r4}
+  02217106  2207       movs r2, #7
+  02217108  400A       ands r2, r1
+  0221710A  0549       lsls r1, r1, #0x15
+  0221710C  2301       movs r3, #1
+  0221710E  0E09       lsrs r1, r1, #0x18
+  02217110  1C1C       adds r4, r3, #0
+  02217112  1841       adds r1, r0, r1
+  02217114  4805       ldr r0, [pc, #0x14]
+  02217116  4094       lsls r4, r2
+  02217118  0622       lsls r2, r4, #0x18
+  0221711A  5C08       ldrb r0, [r1, r0]
+  0221711C  0E12       lsrs r2, r2, #0x18
+  0221711E  4210       tst r0, r2
+  02217120  D100       bne #0x2217124
+  02217122  2300       movs r3, #0
+  02217124  1C18       adds r0, r3, #0
+  02217126  BC18       pop {r3, r4}
+  02217128  4770       bx lr
+  0221712A  46C0       mov r8, r8
+  0221712C  02BA       lsls r2, r7, #0xa
+  0221712E  0000       movs r0, r0
+
+== overlay14+0x17330 (RAM 0x02217B10), 8 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02217B10  21AB       movs r1, #0xab
+  02217B12  0089       lsls r1, r1, #2
+  02217B14  5840       ldr r0, [r0, r1]
+  02217B16  4770       bx lr
+
+== overlay14+0x2BB24 (RAM 0x0222C304), 24 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0222C304  B5F8       push {r3, r4, r5, r6, r7, lr}
+  0222C306  B08C       sub sp, #0x30
+  0222C308  1C0C       adds r4, r1, #0
+  0222C30A  1C05       adds r5, r0, #0
+  0222C30C  1C1E       adds r6, r3, #0
+  0222C30E  9200       str r2, [sp]
+  0222C310  2CA5       cmp r4, #0xa5
+  0222C312  D102       bne #0x222c31a
+  0222C314  B00C       add sp, #0x30
+  0222C316  2000       movs r0, #0
+  0222C318  BDF8       pop {r3, r4, r5, r6, r7, pc}
+  0222C31A  1C20       adds r0, r4, #0
+
+== overlay14+0x2BD70 (RAM 0x0222C550), 240 bytes, thumb: zero-pp-command-guard
+  0222C54C  02EB       lsls r3, r5, #0xb
+  0222C54E  0000       movs r0, r0
+- 0222C550  B5F0       push {r4, r5, r6, r7, lr}
+- 0222C552  B085       sub sp, #0x14
+- 0222C554  1C05       adds r5, r0, #0
+- 0222C556  1C0C       adds r4, r1, #0
+- 0222C558  F7E9 FFEE  bl #0x2216538
+- 0222C55C  2800       cmp r0, #0
+- 0222C55E  D105       bne #0x222c56c
+- 0222C560  1C28       adds r0, r5, #0
+- 0222C562  2104       movs r1, #4
+- 0222C564  F7EA FDCE  bl #0x2217104
+- 0222C568  2800       cmp r0, #0
+- 0222C56A  D007       beq #0x222c57c
+- 0222C56C  2C00       cmp r4, #0
+- 0222C56E  D002       beq #0x222c576
+- 0222C570  1C20       adds r0, r4, #0
+- 0222C572  F7D4 F9D3  bl #0x220091c
+- 0222C576  B005       add sp, #0x14
+- 0222C578  2001       movs r0, #1
+- 0222C57A  BDF0       pop {r4, r5, r6, r7, pc}
+- 0222C57C  1C28       adds r0, r5, #0
+- 0222C57E  2101       movs r1, #1
+- 0222C580  F7EA FDC0  bl #0x2217104
+- 0222C584  2800       cmp r0, #0
+- 0222C586  D00E       beq #0x222c5a6
+- 0222C588  2C00       cmp r4, #0
+- 0222C58A  D009       beq #0x222c5a0
+- 0222C58C  1C28       adds r0, r5, #0
+- 0222C58E  F7EA F907  bl #0x22167a0
+- 0222C592  1C01       adds r1, r0, #0
+- 0222C594  0609       lsls r1, r1, #0x18
+- 0222C596  1C20       adds r0, r4, #0
+- 0222C598  0E09       lsrs r1, r1, #0x18
+- 0222C59A  2200       movs r2, #0
+- 0222C59C  F7D4 F9C8  bl #0x2200930
+- 0222C5A0  B005       add sp, #0x14
+- 0222C5A2  2001       movs r0, #1
+- 0222C5A4  BDF0       pop {r4, r5, r6, r7, pc}
+- 0222C5A6  1C28       adds r0, r5, #0
+- 0222C5A8  211A       movs r1, #0x1a
+- 0222C5AA  F7EA FBBD  bl #0x2216d28
+- 0222C5AE  2800       cmp r0, #0
+- 0222C5B0  D023       beq #0x222c5fa
+- 0222C5B2  A801       add r0, sp, #4
+- 0222C5B4  1C29       adds r1, r5, #0
+- 0222C5B6  221A       movs r2, #0x1a
+- 0222C5B8  F7EA FBC0  bl #0x2216d3c
+- 0222C5BC  9901       ldr r1, [sp, #4]
+- 0222C5BE  9802       ldr r0, [sp, #8]
+- 0222C5C0  AA03       add r2, sp, #0xc
+- 0222C5C2  9103       str r1, [sp, #0xc]
+- 0222C5C4  9004       str r0, [sp, #0x10]
+- 0222C5C6  CA03       ldm r2!, {r0, r1}
+- 0222C5C8  F7EA FBD2  bl #0x2216d70
+- 0222C5CC  1C07       adds r7, r0, #0
+- 0222C5CE  1C28       adds r0, r5, #0
+- 0222C5D0  F7EB FA9E  bl #0x2217b10
+- 0222C5D4  1C06       adds r6, r0, #0
+- 0222C5D6  1C28       adds r0, r5, #0
+- 0222C5D8  F7EA F8E2  bl #0x22167a0
+- 0222C5DC  0600       lsls r0, r0, #0x18
+- 0222C5DE  0E00       lsrs r0, r0, #0x18
+- 0222C5E0  2C00       cmp r4, #0
+- 0222C5E2  D007       beq #0x222c5f4
+- 0222C5E4  0632       lsls r2, r6, #0x18
+- 0222C5E6  9000       str r0, [sp]
+- 0222C5E8  1C20       adds r0, r4, #0
+- 0222C5EA  1C39       adds r1, r7, #0
+- 0222C5EC  0E12       lsrs r2, r2, #0x18
+- 0222C5EE  2300       movs r3, #0
+- 0222C5F0  F7D4 F9B6  bl #0x2200960
+- 0222C5F4  B005       add sp, #0x14
+- 0222C5F6  2001       movs r0, #1
+- 0222C5F8  BDF0       pop {r4, r5, r6, r7, pc}
+- 0222C5FA  1C28       adds r0, r5, #0
+- 0222C5FC  211B       movs r1, #0x1b
+- 0222C5FE  F7EA FB93  bl #0x2216d28
+- 0222C602  2800       cmp r0, #0
+- 0222C604  D019       beq #0x222c63a
+- 0222C606  1C28       adds r0, r5, #0
+- 0222C608  F7EA FCA4  bl #0x2216f54
+- 0222C60C  1C07       adds r7, r0, #0
+- 0222C60E  1C28       adds r0, r5, #0
+- 0222C610  F7EB FA7E  bl #0x2217b10
+- 0222C614  1C06       adds r6, r0, #0
+- 0222C616  1C28       adds r0, r5, #0
+- 0222C618  F7EA F8C2  bl #0x22167a0
+- 0222C61C  0600       lsls r0, r0, #0x18
+- 0222C61E  0E00       lsrs r0, r0, #0x18
+- 0222C620  2C00       cmp r4, #0
+- 0222C622  D007       beq #0x222c634
+- 0222C624  0632       lsls r2, r6, #0x18
+- 0222C626  9000       str r0, [sp]
+- 0222C628  1C20       adds r0, r4, #0
+- 0222C62A  1C39       adds r1, r7, #0
+- 0222C62C  0E12       lsrs r2, r2, #0x18
+- 0222C62E  2300       movs r3, #0
+- 0222C630  F7D4 F996  bl #0x2200960
+- 0222C634  B005       add sp, #0x14
+- 0222C636  2001       movs r0, #1
+- 0222C638  BDF0       pop {r4, r5, r6, r7, pc}
+- 0222C63A  2000       movs r0, #0
+- 0222C63C  B005       add sp, #0x14
+- 0222C63E  BDF0       pop {r4, r5, r6, r7, pc}
++ 0222C550  B5F0       push {r4, r5, r6, r7, lr}
++ 0222C552  B085       sub sp, #0x14
++ 0222C554  1C05       adds r5, r0, #0
++ 0222C556  1C0C       adds r4, r1, #0
++ 0222C558  F7E9 FFEE  bl #0x2216538
++ 0222C55C  2800       cmp r0, #0
++ 0222C55E  D105       bne #0x222c56c  ; skip
++ 0222C560  1C28       adds r0, r5, #0
++ 0222C562  2104       movs r1, #4
++ 0222C564  F7EA FDCE  bl #0x2217104
++ 0222C568  2800       cmp r0, #0
++ 0222C56A  D005       beq #0x222c578  ; flag_one
++ 0222C56C  2C00       cmp r4, #0
++ 0222C56E  D052       beq #0x222c616  ; forced
++ 0222C570  1C20       adds r0, r4, #0
++ 0222C572  F7D4 F9D3  bl #0x220091c
++ 0222C576  E04E       b #0x222c616  ; forced
++ 0222C578  1C28       adds r0, r5, #0
++ 0222C57A  2101       movs r1, #1
++ 0222C57C  F7EA FDC2  bl #0x2217104
++ 0222C580  2800       cmp r0, #0
++ 0222C582  D00A       beq #0x222c59a  ; stored_26
++ 0222C584  2C00       cmp r4, #0
++ 0222C586  D046       beq #0x222c616  ; forced
++ 0222C588  1C28       adds r0, r5, #0
++ 0222C58A  F7EA F909  bl #0x22167a0
++ 0222C58E  1C01       adds r1, r0, #0
++ 0222C590  1C20       adds r0, r4, #0
++ 0222C592  2200       movs r2, #0
++ 0222C594  F7D4 F9CC  bl #0x2200930
++ 0222C598  E03D       b #0x222c616  ; forced
++ 0222C59A  1C28       adds r0, r5, #0
++ 0222C59C  211A       movs r1, #0x1a
++ 0222C59E  F7EA FBC3  bl #0x2216d28
++ 0222C5A2  2800       cmp r0, #0
++ 0222C5A4  D00A       beq #0x222c5bc  ; stored_27
++ 0222C5A6  A801       add r0, sp, #4
++ 0222C5A8  1C29       adds r1, r5, #0
++ 0222C5AA  221A       movs r2, #0x1a
++ 0222C5AC  F7EA FBC6  bl #0x2216d3c
++ 0222C5B0  AA01       add r2, sp, #4
++ 0222C5B2  CA03       ldm r2!, {r0, r1}
++ 0222C5B4  F7EA FBDC  bl #0x2216d70
++ 0222C5B8  1C07       adds r7, r0, #0
++ 0222C5BA  E01B       b #0x222c5f4  ; construct
++ 0222C5BC  1C28       adds r0, r5, #0
++ 0222C5BE  211B       movs r1, #0x1b
++ 0222C5C0  F7EA FBB2  bl #0x2216d28
++ 0222C5C4  2800       cmp r0, #0
++ 0222C5C6  D004       beq #0x222c5d2  ; pp_scan
++ 0222C5C8  1C28       adds r0, r5, #0
++ 0222C5CA  F7EA FCC3  bl #0x2216f54
++ 0222C5CE  1C07       adds r7, r0, #0
++ 0222C5D0  E010       b #0x222c5f4  ; construct
++ 0222C5D2  9809       ldr r0, [sp, #0x24]
++ 0222C5D4  4912       ldr r1, [pc, #0x48]
++ 0222C5D6  4288       cmp r0, r1
++ 0222C5D8  D11F       bne #0x222c61a  ; ordinary
++ 0222C5DA  4E12       ldr r6, [pc, #0x48]
++ 0222C5DC  1976       adds r6, r6, r5
++ 0222C5DE  2704       movs r7, #4
++ 0222C5E0  8830       ldrh r0, [r6]
++ 0222C5E2  2800       cmp r0, #0
++ 0222C5E4  D002       beq #0x222c5ec  ; pp_advance
++ 0222C5E6  78B0       ldrb r0, [r6, #2]
++ 0222C5E8  2800       cmp r0, #0
++ 0222C5EA  D116       bne #0x222c61a  ; ordinary
++ 0222C5EC  3612       adds r6, #0x12
++ 0222C5EE  3F01       subs r7, #1
++ 0222C5F0  D1F6       bne #0x222c5e0  ; pp_next
++ 0222C5F2  27A5       movs r7, #0xa5
++ 0222C5F4  1C28       adds r0, r5, #0
++ 0222C5F6  F7EB FA8B  bl #0x2217b10
++ 0222C5FA  1C06       adds r6, r0, #0
++ 0222C5FC  1C28       adds r0, r5, #0
++ 0222C5FE  F7EA F8CF  bl #0x22167a0
++ 0222C602  9000       str r0, [sp]
++ 0222C604  2C00       cmp r4, #0
++ 0222C606  D006       beq #0x222c616  ; forced
++ 0222C608  1C20       adds r0, r4, #0
++ 0222C60A  1C39       adds r1, r7, #0
++ 0222C60C  0632       lsls r2, r6, #0x18
++ 0222C60E  0E12       lsrs r2, r2, #0x18
++ 0222C610  2300       movs r3, #0
++ 0222C612  F7D4 F9A5  bl #0x2200960
++ 0222C616  2001       movs r0, #1
++ 0222C618  E000       b #0x222c61c  ; done
++ 0222C61A  2000       movs r0, #0
++ 0222C61C  B005       add sp, #0x14
++ 0222C61E  BDF0       pop {r4, r5, r6, r7, pc}
++ 0222C620  2F81       cmp r7, #0x81
++ 0222C622  0220       lsls r0, r4, #8
++ 0222C624  025A       lsls r2, r3, #9
++ 0222C626  0000       movs r0, r0
++ 0222C628  0000       movs r0, r0
++ 0222C62A  0000       movs r0, r0
++ 0222C62C  0000       movs r0, r0
++ 0222C62E  0000       movs r0, r0
++ 0222C630  0000       movs r0, r0
++ 0222C632  0000       movs r0, r0
++ 0222C634  0000       movs r0, r0
++ 0222C636  0000       movs r0, r0
++ 0222C638  0000       movs r0, r0
++ 0222C63A  0000       movs r0, r0
++ 0222C63C  0000       movs r0, r0
++ 0222C63E  0000       movs r0, r0
+  0222C640  B5F8       push {r3, r4, r5, r6, r7, lr}
+  0222C642  B08A       sub sp, #0x28

@@ -1,0 +1,80 @@
+id = "faint-waits-for-hp-bar"
+title = "Battle: a Pokémon knocked out by a multi-hit move faints after its HP bar has drained (the bar no longer jumps back and vanishes)"
+kind = "code"
+enabled = true
+decisions = ["D-2318"]
+requires = []
+asm = "faint-waits-for-hp-bar.asm"
+why = """
+Players: when a multi-hit move knocks a Pokémon out (Fury Cutter, which hits twice in this hack, Fury Attack,
+Double Kick, Bullet Seed, ...), its HP bar does not drain to empty: halfway through it jumps back to (nearly)
+full and the HP box slides off while the Pokémon faints. Players read this as the move one-shotting
+everything (Discord, 2026-10-07: 'the health bar just vanishes'; 'if the attack is a KO the health bar just
+completely goes instead of draining, damage is calculated correctly'). The damage is right; only the display
+is cut short. A one-hit KO (Slash, X-Scissor) and a multi-hit move that does not KO drain normally. Both sides
+are affected (the player's Pokémon too). The untouched Chinese ROM does the same, so this is a bug of the hack;
+vanilla HeartGold's healthbar task tells the battle engine the command is done only after the bar has
+drained (US overlay12 0x0225FFE2), so the vanilla engine does not cut the drain short.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
+(D-2318, 2026-10-09); other hack bugs stay report-only.
+
+Technical: the hack's battle client (overlay 14) plays a turn as a list of commands (interpreter
+0x02204608, handlers 0x0224ABC0). Command 8 (a hit) starts the HP-bar task 0x02201328 and waits only for the
+hit's blink (18 frames); the bar drains on in the task, one step per frame, and sets the byte 0x02252D3E when it
+has finished. Command 21 (the faint: cry, HP box redrawn and slid off, sprite drops; 0x0222CB7C) does not wait
+for it. After a one-hit KO the 'fainted!' message (54 frames) comes between the two and covers the drain;
+after the KO hit of a multi-hit move the faint follows the hit at once. Its HP-box redraw (0x0222DF58 ->
+0x02210934) draws the bar from the HP the bar still holds from before the hit (the task writes the new HP only
+when it ends), which is the jump back to full, and then the box slides away.
+"""
+what = """
+Old: command 21 starts the faint at once, even while an HP bar is draining.
+New: command 21 waits (returns 'not done', asked again every frame) while 0x02252D3E is 0, i.e. while an HP
+bar is still draining, then runs the faint exactly as before. The handler moves into the 2 bytes of alignment
+padding in front of it (0x02205122) and the table entry for command 21 (0x0224AC14) follows it; the old
+'& 0xFF' of the battler is dropped (command 21's argument is read as one byte) and Faint_Run's 1/0 is
+returned as it is (the interpreter tests for non-zero only). Because the byte is in overlay 14's .bss (0 at
+the start of a battle), the battle client's set-up 0x02200B64 now also sets it to 1 ('no bar running'): it
+zeroes the same 12 bytes with three word stores instead of six halfword stores and uses the 4 bytes this frees.
+Every other reader of the byte (command 12, the level-up effect) starts its own task before it reads it, so
+the start value does not change them. A one-hit KO and every faint whose bar has already finished keep their
+timing; a multi-hit KO now shows the full drain to 0 before the faint (up to about 30 frames longer).
+Not changed: the order of the messages ('Hit 2 time(s)!' still comes after the faint, as in the hack), the
+damage, the blink, command 8 (a hit still does not wait for its bar), the HP-bar code itself.
+"""
+evidence = [
+  "D-2318: the user-approved exception to D-1337 for this fix (user request 2026-10-09: 'We want to fix these bugs, so for each issue create a worktree per issue, and use a separate subagent to fix, test and review.')",
+  "Discord bug thread 'Scyther bug' (2026-10-07): Fury Cutter KOs, the health bar vanishes instead of draining; 'if it's not a KO or they hold a Focus Sash it looks normal'",
+  "work/notes/multihit-ko-hpbar_fix.md: reproduction, the command trace of a multi-hit KO against a one-hit KO, the cause, vanilla comparison and the before/after runs",
+  "Runtime: emu_harness.py fixes --case faint-waits-for-hp-bar (scenario multihit-ko: a Lv50 Scyther's Fury Cutter KOs a wild Rattata; the enemy HP bar's displayed value, its HP field and the frame the faint (command 21) starts; run on the build and on one without this fix, work/notes/emu_harness.md 'Fix scenarios')",
+]
+
+[[code]]
+id = "faint-waits-for-hp-bar-handler"
+file = "overlay14"
+offset = "0x4942"
+expect = "0000 B508 6811 0609 0E09 F027 FD26 2800 D001 2001 BD08 2000 BD08"
+notes = "Command 21's handler (old: 0x02205124), moved 2 bytes earlier into the alignment padding: returns 0 while HpBarDone (0x02252D3E) is 0, i.e. while an HP bar is draining, else Faint_Run(client, battler) as before. The asm also guards, read-only, the task start and end that write the byte."
+
+[[code]]
+id = "faint-waits-for-hp-bar-table"
+file = "overlay14"
+offset = "0x4A434"
+expect = "5125 0220"
+notes = "Client command table (0x0224ABC0) entry 21: 0x02205125 -> 0x02205123, the moved handler."
+
+[[code]]
+id = "faint-waits-for-hp-bar-start"
+file = "overlay14"
+offset = "0x386"
+expect = "2100 8001 8041 8081 80C1 8101 8141 4770 46C0"
+notes = "BattleMisc_Reset (0x02200B64, battle client set-up): the same 12 bytes zeroed with three word stores, then HpBarDone = 1 ('no HP bar running'), since overlay 14's .bss starts at 0."
+
+[[us_ref]]
+id = "faint-waits-for-hp-bar-us-healthbar-task"
+claim = "US overlay12 0x0225FFE2: in the healthbar task of vanilla HeartGold, state 0 sets the bar (the bl below), state 1 steps the drain until it returns -1, only then state 2 reports the command done to the battle engine"
+file = "overlay12"
+address = "0x0225FFE2"
+expect = "7820 2800 D002 2801 D007 E011 6B21 1C20"
+calls = "0x02264DCC"
