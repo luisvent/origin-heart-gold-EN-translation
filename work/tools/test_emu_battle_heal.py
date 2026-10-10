@@ -1,11 +1,15 @@
 """Tests for emu_battle_heal.py (Potion / berry then Roar: health-bar NULL sprite) and its tie to the fix
 work/patches/battle-heal-hpbar-switched-out. No emulator is started."""
+import contextlib
+import io
+import json
 from pathlib import Path
 import re
 import sys
 import tempfile
 from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import emu_battle_heal as B  # noqa: E402
@@ -63,6 +67,68 @@ class Hooks(unittest.TestCase):
         t.gauge(self.machine(r0=0x022E58DC))
         self.assertEqual(t.bars, {0x022C147C: {"frame": 5, "sprite": 0}})
         self.assertEqual(t.null_reads, 1)
+
+
+class TrialErrors(unittest.TestCase):
+    def run_trials(self, failing):
+        """Synthetic transport; exercise real run(), installed callbacks and report writing."""
+        hooks = {}
+        h = SimpleNamespace(frame=0, trial=-1)
+        h.on_exec = lambda address, fn: hooks.update({address: fn})
+        h.save_state = lambda path: None
+        h.load_state = lambda path: setattr(h, "trial", h.trial + 1)
+        h.step = lambda frames: None
+        h.screenshot = lambda name: Path(name)
+        h.u32 = lambda address: 0x022E58DC
+
+        def read_opcode(address):
+            if h.trial in failing:
+                raise OSError("injected observation failure")
+            return B.GAUGE_SPRITE_LOAD_OP
+
+        h.u16 = read_opcode
+
+        def play_turn(h, *_):
+            for ident in (1, 7):
+                h.reg = SimpleNamespace(lr=B.HEAL_CMD_RETURN, r1=ident, r2=20)
+                hooks[B.BAR_ROUTINE](h)
+            h.reg = SimpleNamespace(r1=0x022C147C)
+            hooks[B.BAR_TASK](h)
+            h.reg = SimpleNamespace(r0=0x022E58DC)
+            hooks[B.GAUGE_SPRITE_LOAD](h)
+
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            fixture = root / "fixture.bin"
+            fixture.write_bytes(b"synthetic input")
+            args = SimpleNamespace(rom=fixture, sav=fixture, out=root / "out", expect="fixed", delays="0,4,8")
+            with patch.object(B, "validate_rom"), patch.object(B, "setup"), \
+                 patch.object(B, "party_order", return_value=[1, 2]), \
+                 patch.object(B, "potion", side_effect=play_turn), \
+                 patch.object(B, "wait_menu", return_value="menu"), \
+                 contextlib.redirect_stdout(io.StringIO()):
+                rc = B.run(args, harness_factory=lambda *a, **kw: contextlib.nullcontext(h))
+            report = json.loads((args.out / "report.json").read_text())
+        return rc, report
+
+    def test_observation_error_in_any_trial_fails_and_is_retained(self):
+        for failing in ({0}, {1}, {2}, {0, 1}):
+            with self.subTest(failing=failing):
+                rc, report = self.run_trials(failing)
+                self.assertEqual(rc, 1)
+                self.assertFalse(report["passed"])
+                self.assertEqual(report["failures"], ["hook errors"])
+                self.assertEqual(len(report["hook_errors"]), len(failing))
+                for i, row in enumerate(report["trials"]):
+                    self.assertEqual(row["hook_errors"],
+                                     ["OSError: injected observation failure"] if i in failing else [])
+
+    def test_clean_multi_trial_run_passes(self):
+        rc, report = self.run_trials(set())
+        self.assertEqual(rc, 0)
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["hook_errors"], [])
+        self.assertTrue(all(row["hook_errors"] == [] for row in report["trials"]))
 
 
 class TiedToFix(unittest.TestCase):

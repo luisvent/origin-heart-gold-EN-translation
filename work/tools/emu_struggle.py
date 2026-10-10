@@ -107,6 +107,39 @@ def advance(h, t, out, frames=4200):
     return "timeout"
 
 
+def run_turn(h, t, out, case, turn, without):
+    """Play a turn, or verify the original engine rejected an exhausted move."""
+    start = len(t.rows)
+    before = snapshot(h, active(h))
+    slot = 2 if case == "positive" else 0
+    h.touch(*E.BATTLE_BUTTONS["fight"], frames=10, after=40)
+    h.screenshot(t.phase + "-fight")
+    if case in ("positive", "last-pp", "enemy") or without:
+        h.touch(*E.MOVE_BUTTONS[slot], frames=10, after=60)
+    rejected = without and (
+        case not in ("positive", "last-pp", "enemy") or (case == "last-pp" and turn == 1)
+    )
+    if rejected:
+        for _ in range(8):
+            h.press("B", after=30)
+        observed = t.rows[start:]
+        assert any(
+            r["kind"] == "usability" and r["actor"]["number"] == before["number"]
+            and r["move"] == before["moves"][slot] for r in observed
+        ), case + " exhausted move usability check absent"
+        assert not any(r["kind"] == "action" for r in observed), case + " exhausted move unexpectedly submitted"
+        assert h.on_screen("battle_menu"), case + " rejection did not return to command menu"
+        after = snapshot(h, active(h))
+        assert after["number"] == before["number"], case + " rejection changed active battler"
+        assert before["pp"] == after["pp"] == [0] * 4, case + " rejection changed exhausted PP"
+        return "rejected"
+    if case == "double":
+        assert h.wait_screen("battle_menu", 600), "partner command absent"
+        h.touch(*E.BATTLE_BUTTONS["fight"], frames=10, after=40)
+        h.touch(*E.MOVE_BUTTONS[0], frames=10, after=60)
+    return advance(h, t, out)
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--rom", required=True)
@@ -183,20 +216,7 @@ def main():
             for turn in range(2 if case == "last-pp" else 1):
                 t.phase = f"{case}-turn{turn + 1}"
                 start = len(t.rows)
-                h.touch(*E.BATTLE_BUTTONS["fight"], frames=10, after=40)
-                h.screenshot(t.phase + "-fight")
-                if case in ("positive", "last-pp", "enemy") or args.without:
-                    h.touch(*E.MOVE_BUTTONS[2 if case == "positive" else 0], frames=10, after=60)
-                if args.without and case not in ("positive", "last-pp", "enemy"):
-                    for _ in range(8):
-                        h.press("B", after=30)
-                    outcome = "rejected"
-                else:
-                    if case == "double":
-                        assert h.wait_screen("battle_menu", 600), "partner command absent"
-                        h.touch(*E.BATTLE_BUTTONS["fight"], frames=10, after=40)
-                        h.touch(*E.MOVE_BUTTONS[0], frames=10, after=60)
-                    outcome = advance(h, t, out)
+                outcome = run_turn(h, t, out, case, turn, args.without)
                 row["turns"].append(
                     {
                         "outcome": outcome,

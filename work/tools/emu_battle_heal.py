@@ -258,11 +258,12 @@ def run(args, harness_factory=None):
                        "skipped_heals": len(trace.heals) - len(trace.bars),
                        "lead_bar_ok": any(v["sprite"] for v in trace.bars.values()),
                        "null_sprite_reads": trace.null_reads,
+                       "hook_errors": list(trace.errors),
                        "screen": str(h.screenshot(f"trial_{d}_{result}"))}
                 report["trials"].append(row)
             Trace.remove(h)
-        report["hook_errors"] = trace.errors
-        report["failures"] = failures(args.expect, report["trials"], trace.errors)
+        report["hook_errors"] = [error for trial in report["trials"] for error in trial["hook_errors"]]
+        report["failures"] = failures(args.expect, report["trials"], report["hook_errors"])
         report["passed"] = not report["failures"]
     except Exception as exc:
         report["error"] = f"{type(exc).__name__}: {exc}"
