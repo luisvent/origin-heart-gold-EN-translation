@@ -1,0 +1,58 @@
+id = "battle-heal-hpbar-switched-out"
+title = "Battle: a Potion on a Pokémon that is forced out the same turn no longer freezes (Maxie gauntlet)"
+kind = "code"
+enabled = true
+decisions = ["D-2314"]
+requires = []
+asm = "battle-heal-hpbar-switched-out.asm"
+why = """
+Players: in the second wave of Maxie's gauntlet at the top of the Lavender Town tower (the double battle
+against Magmortar and Houndoom), using a Potion from the battle Bag on the Pokémon in battle can freeze the
+game right after 'used the Potion!' (Discord report, 2026-10-07). It happens when Houndoom uses Roar in the
+same turn and drags another Pokémon in: the healed Pokémon has already left the field when the Potion's
+health bar is animated. Reproduced on melonDS 1.1 with the untouched Chinese ROM and with develop
+(work/notes/melonds-retest_fix.md); DeSmuME keeps running. Real hardware is untested. Any healing item from
+the Bag followed by a forced switch of that Pokémon in the same turn takes the same path.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it (D-2314,
+2026-10-09); other hack bugs stay report-only.
+
+Technical: the hack's battle engine (overlay 14) computes the whole turn, then plays it back. The Potion's
+playback command (handler 0x022053D0) calls 0x0222E024 with the healed Pokémon's id; that routine finds the
+battler showing the Pokémon (0x02228740) from the party order after the whole turn. After Roar the Pokémon
+is not on the field: the lookup returns 5, the battler-to-bar table (0x0224D134) maps it to health bar 0,
+which a double battle never sets up, and the bar task's gauge drawing (0x02210C94) loads the bar's NULL
+sprite pointer and reads address 0 (ldr r0, [r0] at 0x02210C9E). melonDS raises a data abort (abort LR
+0x02210CA6) and the game hangs; DeSmuME reads address 0 and goes on. In a single battle the same lookup
+picks the opponent's bar instead (no crash, a wrong bar animates).
+"""
+what = """
+Old: battler lookup 5 (not on the field) -> health bar 0 (double) or the opponent's bar (single) ->
+animation task on it -> NULL sprite read -> data abort.
+New: 0x0222E024 checks the lookup: for 5 it writes that nonzero value to the command's done flag and returns
+without a health-bar task, so the playback goes on with the next event; the bar of a Pokémon on the field
+is animated exactly as before. The routine is re-laid in place (0x4C bytes, the same literal pool) to make
+room: the handler passes the id byte in r0 as well ('ldr r0, [r3, #0x28]' -> 'lsr r0, r1, #0x18' at
+0x022053E8; the routine never read the old r0), and the bar address G + 0x2AC + index * 0x3C is computed as
+G + (index + 11) * 0x3C + 0x18. Not changed: the HP itself (the battle data already holds it), the order of
+the turn, Roar, the other playback commands.
+"""
+evidence = [
+  "D-2314: the user-approved exception to D-1337 for this fix (user request 2026-10-09: 'We want to fix these bugs, so for each issue create a worktree per issue, and use a separate subagent to fix, test and review.')",
+  "work/notes/melonds-retest_fix.md: reproduction on melonDS 1.1 (Chinese ROM and develop), the abort, the call chain, the party order after Roar, the before/after runs",
+  "Runtime: emu_harness.py fixes --case battle-heal-hpbar-switched-out (scenario battle-heal: emu_battle_heal.py, a Potion on the lead in a trainer battle where the opponent can only use Roar; run on the build and on one without this fix)",
+]
+
+[[code]]
+id = "battle-heal-hpbar-switched-out-caller"
+file = "overlay14"
+offset = "0x4C08"
+expect = "0x6A98"
+notes = "Potion playback handler (0x022053D0), state 0: 'ldr r0, [r3, #0x28]' -> 'lsr r0, r1, #0x18', so the bar routine gets the Pokémon id in r0 (it never read the old r0)."
+
+[[code]]
+id = "battle-heal-hpbar-switched-out-routine"
+file = "overlay14"
+offset = "0x2D844"
+expect = "B570 1C08 1C16 1C1D F7FA FB88 F7E7 FB48 490C 680A 21AB 0089 1852 213C 4341 1854 1C20 1C31 F7E2 FD0C 1C20 22FA 63A5 2100 7029 3023 7001 4804 1C21 0092 F5DF FF08 BD70 46C0 5C74 0225 DFE9 0222"
+notes = "0x0222E024 (push through literal pool): returns with the done flag set when the healed Pokémon is not on the field (battler lookup 5) instead of animating a health bar that does not exist (NULL sprite). Re-laid in place; the guards in the asm pin every original halfword."

@@ -1,0 +1,176 @@
+; battle-party-status-sync - disassembly snapshot of battle-party-status-sync.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write battle-party-status-sync   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: battle-party-status-sync.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x2006 (RAM 0x022027E6), 4 bytes, thumb: battle-party-status-sync-list-pokemon
+  022027E2  F012 FCDD  bl #0x22151a0  ; BtlParty_GetMember
+- 022027E6  F013 FFE5  bl #0x22167b4  ; BPP_GetSrcData
++ 022027E6  F016 F9B8  bl #0x2218b5a  ; BPP_SyncSickToPP
+  022027EA  1C01       adds r1, r0, #0
+  022027EC  6820       ldr r0, [r4]
+
+== overlay14+0x23A2 (RAM 0x02202B82), 4 bytes, thumb: battle-party-status-sync-list-2
+  02202B7E  F012 FB0F  bl #0x22151a0  ; BtlParty_GetMember
+- 02202B82  F013 FE17  bl #0x22167b4  ; BPP_GetSrcData
++ 02202B82  F015 FFEA  bl #0x2218b5a  ; BPP_SyncSickToPP
+  02202B86  1C01       adds r1, r0, #0
+  02202B88  6830       ldr r0, [r6]
+
+== overlay14+0x35E6 (RAM 0x02203DC6), 4 bytes, thumb: battle-party-status-sync-list-3
+  02203DC2  F011 F9ED  bl #0x22151a0  ; BtlParty_GetMember
+- 02203DC6  F012 FCF5  bl #0x22167b4  ; BPP_GetSrcData
++ 02203DC6  F014 FEC8  bl #0x2218b5a  ; BPP_SyncSickToPP
+  02203DCA  1C01       adds r1, r0, #0
+  02203DCC  6838       ldr r0, [r7]
+
+== overlay14+0x3886 (RAM 0x02204066), 4 bytes, thumb: battle-party-status-sync-list-4
+  02204062  F011 F89D  bl #0x22151a0  ; BtlParty_GetMember
+- 02204066  F012 FBA5  bl #0x22167b4  ; BPP_GetSrcData
++ 02204066  F014 FD78  bl #0x2218b5a  ; BPP_SyncSickToPP
+  0220406A  1C01       adds r1, r0, #0
+  0220406C  6830       ldr r0, [r6]
+
+== overlay14+0x15FD4 (RAM 0x022167B4), 4 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  022167B4  6900       ldr r0, [r0, #0x10]
+  022167B6  4770       bx lr
+
+== overlay14+0x16484 (RAM 0x02216C64), 30 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02216C64  303C       adds r0, #0x3c
+  02216C66  2201       movs r2, #1
+  02216C68  3008       adds r0, #8
+  02216C6A  6801       ldr r1, [r0]
+  02216C6C  0749       lsls r1, r1, #0x1d
+  02216C6E  0F49       lsrs r1, r1, #0x1d
+  02216C70  D001       beq #0x2216c76
+  02216C72  1C10       adds r0, r2, #0
+  02216C74  4770       bx lr
+  02216C76  1C52       adds r2, r2, #1
+  02216C78  3008       adds r0, #8
+  02216C7A  2A06       cmp r2, #6
+  02216C7C  DBF5       blt #0x2216c6a
+  02216C7E  2000       movs r0, #0
+  02216C80  4770       bx lr
+
+== overlay14+0x18348 (RAM 0x02218B28), 42 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02218B28  B538       push {r3, r4, r5, lr}
+  02218B2A  1C04       adds r4, r0, #0
+  02218B2C  2092       movs r0, #0x92
+  02218B2E  1C0D       adds r5, r1, #0
+  02218B30  0080       lsls r0, r0, #2
+  02218B32  6921       ldr r1, [r4, #0x10]
+  02218B34  1820       adds r0, r4, r0
+  02218B36  F7FF FF85  bl #0x2218a44
+  02218B3A  1C22       adds r2, r4, #0
+  02218B3C  6920       ldr r0, [r4, #0x10]
+  02218B3E  21A3       movs r1, #0xa3
+  02218B40  321E       adds r2, #0x1e
+  02218B42  F655 FA15  bl #0x206df70  ; SetMonData
+  02218B46  1C22       adds r2, r4, #0
+  02218B48  6920       ldr r0, [r4, #0x10]
+  02218B4A  2108       movs r1, #8
+  02218B4C  3218       adds r2, #0x18
+  02218B4E  F655 FA0F  bl #0x206df70  ; SetMonData
+
+== overlay14+0x18372 (RAM 0x02218B52), 80 bytes, thumb: battle-party-status-sync-reflect
+  02218B4E  F655 FA0F  bl #0x206df70  ; SetMonData
+- 02218B52  1C20       adds r0, r4, #0
+- 02218B54  F7FE F886  bl #0x2216c64  ; BPP_GetPokeSick
+- 02218B58  9000       str r0, [sp]
+- 02218B5A  8BE1       ldrh r1, [r4, #0x1e]
+- 02218B5C  2900       cmp r1, #0
+- 02218B5E  D019       beq #0x2218b94
+- 02218B60  2805       cmp r0, #5
+- 02218B62  D819       bhi #0x2218b98
+- 02218B64  1800       adds r0, r0, r0
+- 02218B66  4478       add r0, pc
+- 02218B68  88C0       ldrh r0, [r0, #6]
+- 02218B6A  0400       lsls r0, r0, #0x10
+- 02218B6C  1400       asrs r0, r0, #0x10
+- 02218B6E  4487       add pc, r0
+- 02218B70  0026       movs r6, r4
+- 02218B72  001C       movs r4, r3
+- 02218B74  0026       movs r6, r4
+- 02218B76  0016       movs r6, r2
+- 02218B78  0010       movs r0, r2
+- 02218B7A  000A       movs r2, r1
+- 02218B7C  2008       movs r0, #8
+- 02218B7E  9000       str r0, [sp]
+- 02218B80  E00A       b #0x2218b98
+- 02218B82  2010       movs r0, #0x10
+- 02218B84  9000       str r0, [sp]
+- 02218B86  E007       b #0x2218b98
+- 02218B88  2020       movs r0, #0x20
+- 02218B8A  9000       str r0, [sp]
+- 02218B8C  E004       b #0x2218b98
+- 02218B8E  2040       movs r0, #0x40
+- 02218B90  9000       str r0, [sp]
+- 02218B92  E001       b #0x2218b98
+- 02218B94  2000       movs r0, #0
+- 02218B96  9000       str r0, [sp]
+- 02218B98  6920       ldr r0, [r4, #0x10]
+- 02218B9A  21A0       movs r1, #0xa0
+- 02218B9C  AA00       add r2, sp, #0
+- 02218B9E  F655 F9E7  bl #0x206df70  ; SetMonData
++ 02218B52  1C20       adds r0, r4, #0
++ 02218B54  F000 F801  bl #0x2218b5a  ; BPP_SyncSickToPP
++ 02218B58  E023       b #0x2218ba2  ; ReflectToPP_Moves
++ 02218B5A  B538       push {r3, r4, r5, lr}
++ 02218B5C  1C04       adds r4, r0, #0
++ 02218B5E  F7FE F881  bl #0x2216c64  ; BPP_GetPokeSick
++ 02218B62  8BE1       ldrh r1, [r4, #0x1e]
++ 02218B64  2900       cmp r1, #0
++ 02218B66  D001       beq #0x2218b6c  ; @@store
++ 02218B68  A104       adr r1, #0x10
++ 02218B6A  5C09       ldrb r1, [r1, r0]
++ 02218B6C  9100       str r1, [sp]
++ 02218B6E  6920       ldr r0, [r4, #0x10]
++ 02218B70  21A0       movs r1, #0xa0
++ 02218B72  AA00       add r2, sp, #0
++ 02218B74  F655 F9FC  bl #0x206df70  ; SetMonData
++ 02218B78  6920       ldr r0, [r4, #0x10]
++ 02218B7A  BD38       pop {r3, r4, r5, pc}
++ 02218B7C  4000       ands r0, r0
++ 02218B7E  2002       movs r0, #2
++ 02218B80  0810       lsrs r0, r2, #0x20
++ 02218B82  0000       movs r0, r0
++ 02218B84  0000       movs r0, r0
++ 02218B86  0000       movs r0, r0
++ 02218B88  0000       movs r0, r0
++ 02218B8A  0000       movs r0, r0
++ 02218B8C  0000       movs r0, r0
++ 02218B8E  0000       movs r0, r0
++ 02218B90  0000       movs r0, r0
++ 02218B92  0000       movs r0, r0
++ 02218B94  0000       movs r0, r0
++ 02218B96  0000       movs r0, r0
++ 02218B98  0000       movs r0, r0
++ 02218B9A  0000       movs r0, r0
++ 02218B9C  0000       movs r0, r0
++ 02218B9E  0000       movs r0, r0
++ 02218BA0  0000       movs r0, r0
+  02218BA2  1C20       adds r0, r4, #0
+  02218BA4  F7FF FF26  bl #0x22189f4
+
+== overlay14+0x183C2 (RAM 0x02218BA2), 46 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02218BA2  1C20       adds r0, r4, #0
+  02218BA4  F7FF FF26  bl #0x22189f4
+  02218BA8  1C20       adds r0, r4, #0
+  02218BAA  F7FD FF13  bl #0x22169d4
+  02218BAE  2800       cmp r0, #0
+  02218BB0  D101       bne #0x2218bb6
+  02218BB2  2D00       cmp r5, #0
+  02218BB4  D001       beq #0x2218bba
+  02218BB6  7921       ldrb r1, [r4, #4]
+  02218BB8  E000       b #0x2218bbc
+  02218BBA  7961       ldrb r1, [r4, #5]
+  02218BBC  6920       ldr r0, [r4, #0x10]
+  02218BBE  F659 FB47  bl #0x2072250
+  02218BC2  6920       ldr r0, [r4, #0x10]
+  02218BC4  3420       adds r4, #0x20
+  02218BC6  2106       movs r1, #6
+  02218BC8  1C22       adds r2, r4, #0
+  02218BCA  F655 F9D1  bl #0x206df70  ; SetMonData
+  02218BCE  BD38       pop {r3, r4, r5, pc}

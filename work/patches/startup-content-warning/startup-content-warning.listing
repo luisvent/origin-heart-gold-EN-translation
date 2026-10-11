@@ -1,0 +1,57 @@
+; startup-content-warning - disassembly snapshot of startup-content-warning.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write startup-content-warning   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: startup-content-warning.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay49+0x2836 (RAM 0x021E71B6), 2 bytes, thumb: startup-hide-qr-background
+  021E71B0  F635 F952  bl #0x201c458
+  021E71B4  2004       movs r0, #4
+- 021E71B6  2101       movs r1, #1
++ 021E71B6  2100       movs r1, #0
+  021E71B8  F635 F94E  bl #0x201c458
+
+== overlay49+0x29BA (RAM 0x021E733A), 4 bytes, thumb: startup-page-order-call
+  021E7336  6BE2       ldr r2, [r4, #0x3c]
+  021E7338  1C29       adds r1, r5, #0
+- 021E733A  F624 FBE7  bl #0x200bb0c
++ 021E733A  F000 F87B  bl #0x21e7434  ; NoticeMessage
+  021E733E  2304       movs r3, #4
+  021E7340  9300       str r3, [sp]
+
+== overlay49+0x2AB4 (RAM 0x021E7434), 24 bytes, thumb: startup-page-order-helper
+  021E7430  0200       lsls r0, r0, #8
+  021E7432  0001       movs r1, r0
+- 021E7434  B510       push {r4, lr}
+- 021E7436  B084       sub sp, #0x10
+- 021E7438  1C04       adds r4, r0, #0
+- 021E743A  302C       adds r0, #0x2c
+- 021E743C  2100       movs r1, #0
+- 021E743E  F636 FEB3  bl #0x201e1a8
+- 021E7442  1C20       adds r0, r4, #0
+- 021E7444  302C       adds r0, #0x2c
+- 021E7446  F636 FD0D  bl #0x201de64
+- 021E744A  68A0       ldr r0, [r4, #8]
++ 021E7434  B508       push {r3, lr}
++ 021E7436  2900       cmp r1, #0
++ 021E7438  D101       bne #0x21e743e  ; @@original
++ 021E743A  2104       movs r1, #4
++ 021E743C  E000       b #0x21e7440  ; @@read
++ 021E743E  3901       subs r1, #1
++ 021E7440  F624 FB64  bl #0x200bb0c
++ 021E7444  BD08       pop {r3, pc}
++ 021E7446  0000       movs r0, r0
++ 021E7448  0000       movs r0, r0
++ 021E744A  0000       movs r0, r0
+  021E744C  6BE2       ldr r2, [r4, #0x3c]
+  021E744E  2108       movs r1, #8
+
+== overlay49+0x2E42 (RAM 0x021E77C2), 4 bytes, thumb: startup-skip-qr-caption
+  021E77BC  F7FF FE02  bl #0x21e73c4
+  021E77C0  1C20       adds r0, r4, #0
+- 021E77C2  F7FF FE37  bl #0x21e7434
++ 021E77C2  46C0       mov r8, r8
++ 021E77C4  46C0       mov r8, r8
+  021E77C6  4844       ldr r0, [pc, #0x110]
+  021E77C8  F61E FA46  bl #0x2005c58

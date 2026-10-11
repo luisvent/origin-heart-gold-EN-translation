@@ -1,0 +1,331 @@
+{
+  "format": 1,
+  "date": "2026-10-10",
+  "status": "User-requested two-page Options navigation; sanitized host checks pass; native acceptance pending",
+  "owned_sources": {
+    "work/research/difficulty-armips/native/settings.h": {
+      "bytes": 1297,
+      "sha256": "e6875942402a9b792357b6f3ca23db13039a7093c41f98f75f5d693fbbb5aca0"
+    },
+    "work/research/difficulty-armips/native/settings.c": {
+      "bytes": 2181,
+      "sha256": "38426b761de8b54b218cb63b7192674997338228ddeed8d808e48839476c74d1"
+    },
+    "work/research/difficulty-armips/native/options.h": {
+      "bytes": 1211,
+      "sha256": "2f1f111d1dbeeda9d0179473b20819ef7e24539215dbde9eff3c5ec59b024c6b"
+    },
+    "work/research/difficulty-armips/native/options.c": {
+      "bytes": 15616,
+      "sha256": "ef56a907a388c50d7f166e2930a7dd48fec68e1cde11ec664f1ef69449e645ee"
+    },
+    "work/research/difficulty-armips/native/options.asm": {
+      "bytes": 3785,
+      "sha256": "5dfdc6cf7fdf2b735e99f3a3706219c2ad790179699bfb3b0465d43865590d01"
+    },
+    "work/research/difficulty-armips/native/options_hooks.json": {
+      "bytes": 3856,
+      "sha256": "6370b4ac73568dfc95b83bc1c92497500bf17d5699e703e396a7a8fd5d04d8d0"
+    },
+    "work/research/difficulty-armips/compatibility.asm": {
+      "bytes": 2886,
+      "sha256": "7100d39340ce79b66e12dd551a6cd0656036c6410140de6a8c12c5ca09a6b25f"
+    },
+    "work/research/difficulty-armips/compatibility.json": {
+      "bytes": 12854,
+      "sha256": "ca9970c214db66c2b94b35a4a843aada4c22010583dca5861ab1b17a5924bcd4"
+    },
+    "work/research/difficulty-armips/research/options-handoff.md": {
+      "bytes": 16103,
+      "sha256": "586f3c9b067fcdfdbb4c0cfe1d36a6059e61fc123d3b0f3a4450e0a74bf22eaa"
+    },
+    "work/research/difficulty-armips/IMPLEMENTATION.md": {
+      "bytes": 4107,
+      "sha256": "fc515f013aaeee2f2e0784291880090bfe08d9fd967d829f0a589d4daf3fd55a"
+    },
+    "work/research/difficulty-armips/research/integration-impl-handoff.md": {
+      "bytes": 16709,
+      "sha256": "f582290a01ce222d2022906b1545aea661b96855eca32685062a99f3470391c1"
+    }
+  },
+  "read_only_dependencies_and_protected_sources": {
+    "work/patches/text-speed/native.c": {
+      "bytes": 22148,
+      "sha256": "6333b6617fffa3d689358efbbeda3680ad795327354a320592833d51921f51d7"
+    },
+    "work/patches/text-speed/payload.json": {
+      "bytes": 5405,
+      "sha256": "0ade5869b9f67db97c2c8ad568aa652504da5cf9aa9518d6b5fb800a6055ec06"
+    },
+    "work/patches/text-speed/text-speed.asm": {
+      "bytes": 16337,
+      "sha256": "17ed9e94bc57b20dad8869d5e6cfeb839592e3cf085fe0f7b875281bbff589ac"
+    },
+    "work/patches/text-speed/labels.h": {
+      "bytes": 326,
+      "sha256": "0629c9c89581af10e3ede80cfdf213515e09af44110285265ccfd90419268044"
+    },
+    "work/patches/text-speed/fix.toml": {
+      "bytes": 6181,
+      "sha256": "3a92db6cfc49f88165a832477c5282ff6b3d01efaeb4904a13811e75f2668d55"
+    },
+    "work/tools/text_speed_patch.py": {
+      "bytes": 34347,
+      "sha256": "4742497e976bc997ca4e1aa0c5c5d58a0dfc6a21a5b46f064804fa9367602543"
+    },
+    "work/patches/include/charmap.tbl": {
+      "bytes": 4109,
+      "sha256": "73655106ad785c13ccad7bbeb01c9e82431d57a0279d735bfa3e7bdfef2aafb6"
+    },
+    "work/tools/font_widths.json": {
+      "bytes": 67587,
+      "sha256": "688ed2576d14d124cc91777371771a3667f43b5719c57ac3232726dc6b1a3438"
+    },
+    "work/research/difficulty-armips/native/policy.h": {
+      "bytes": 3042,
+      "sha256": "2e79f06e4925720af05baa32dd18c1a58467a3149f2edfc25461db67426f8da0"
+    },
+    "work/research/difficulty-armips/native/policy.c": {
+      "bytes": 1116,
+      "sha256": "7a5e7e15bba65a0327e04ecd0b7f7e241f1390ff18117a3a90921fdfcbb42910"
+    },
+    "work/research/difficulty-armips/native/growth.h": {
+      "bytes": 2923,
+      "sha256": "107d2756b1fa13dca4a45c7fbf5664d979c5e9d8f7e11dcf22d9498220ea5986"
+    },
+    "work/research/difficulty-armips/native/growth.c": {
+      "bytes": 3811,
+      "sha256": "242c6e783e0479f0f9ea050e2f0ce28c98691193cfa24e516240f7fe21a7c431"
+    },
+    "work/research/difficulty-armips/foundation.asm": {
+      "bytes": 1840,
+      "sha256": "f16ebbf3c3f8072631c6e711ee97bc5532e38861ec9745f87cfa8e49d2f28b59"
+    },
+    "work/research/difficulty-armips/hooks.asm": {
+      "bytes": 473,
+      "sha256": "b1b96e794d4f865c8877bec56f6585116b7320acfffcc8fc91eed44012ec3af0"
+    },
+    "work/research/difficulty-armips/fix.toml": {
+      "bytes": 1096,
+      "sha256": "9b9097ddfb60ccf661f2a7e01baa46530584b1446b98af581aac04763da10ca2"
+    },
+    "work/research/difficulty-armips/check.py": {
+      "bytes": 6571,
+      "sha256": "b35f016cc5afc1814ab00d7e554189bb8d08e78ab93b80167f86e17570fe8ee5"
+    },
+    "work/research/difficulty-armips/README.md": {
+      "bytes": 3930,
+      "sha256": "54c121c5ba8311e118899088a8f167c91b948d7306f0d7927a0d610fdde5b2f9"
+    }
+  },
+  "tools": {
+    "clang": {
+      "path": "/usr/bin/clang",
+      "bytes": 118640,
+      "sha256": "b8763cf250e607a778bb4603cecb5b90338814d0a3dfcba0d57b1de242f610e9",
+      "version": "Apple clang version 21.0.0 (clang-2100.0.123.102)"
+    },
+    "ld.lld": {
+      "path": "/Users/contributor/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/bin/gcc-ld/ld.lld",
+      "bytes": 372656,
+      "sha256": "e473fedf72eb9e95054f1a10f6e8e4e39ce887e22d238e5ae81939894733ac2c",
+      "version": "LLD 21.1.3 (https://github.com/rust-lang/llvm-project.git 4f74b76fb69688474e073fb26b316d9ea571388f) (compatible with GNU linkers)"
+    },
+    "armips": {
+      "path": "/Users/contributor/Developer/armips/build/armips",
+      "bytes": 950200,
+      "sha256": "8aa385096b5d0c188cf4a678aaef0957379c04201bcb1a49368fd2cb3486e054",
+      "version": "armips assembler v0.11.0 (Oct  8 2026 00:03:17) by Kingcom"
+    }
+  },
+  "reference_input_pins": "../compatibility.json full_input_guards and roms",
+  "integration_requirements": [
+    "Check owned source pins BEFORE building; protected source pins bind this handoff and require explicit re-review if changed. Later runtime/Candy source is not pinned by this scoped module.",
+    "Verify complete EN input sections and dependency hashes before ASM. CN hashes are provenance only.",
+    "Use final ELF labels, preserve Thumb state, measure total C/BSS/stubs and native stack/heap limits.",
+    "Materialize interior BSS before post-C stubs; verify cold boot/reset clears state.",
+    "Native acceptance must use actual input and original routines; host ABI mock results do not establish UI/save/gameplay proof."
+  ],
+  "previous_options_c_before_integration_help_edit": {
+    "bytes": 11264,
+    "sha256": "e7b9a786387c839ad732299a43f3ba68a09f6215b2bf120067c6e3172bea3934"
+  },
+  "historical_verification_artifacts_before_integration_help_edit": {
+    "work/build/difficulty-v2/options/settings.o": {
+      "bytes": 1448,
+      "sha256": "535938397b70e3cc90e7b605dee21f845fc202d843c5415a1fd74c697db960a3"
+    },
+    "work/build/difficulty-v2/options/options.o": {
+      "bytes": 5724,
+      "sha256": "fe588d488ab06642c917cdc6b20f99d348dc3a3b724c0bafb4a92a87143935aa"
+    },
+    "work/build/difficulty-v2/options/options.elf": {
+      "bytes": 54368,
+      "sha256": "6e203a6f8538b06a685f0fa140fde1454fe588e738d9d95d77c9d67d2a400b1d"
+    },
+    "work/build/difficulty-v2/options/options.map": {
+      "bytes": 4667,
+      "sha256": "0e08640087e42b56cf3acb2f198beacaf406b2ddbc968155f0a659dfaa2c3c5e"
+    },
+    "work/build/difficulty-v2/options/options.su": {
+      "bytes": 1005,
+      "sha256": "813371e7b697c196a5b483d0d5521ae5638d3b06837f8950a8838a259c0f55ca"
+    },
+    "work/build/difficulty-v2/options/settings.su": {
+      "bytes": 483,
+      "sha256": "9de85dce1e25b7a92569e7f1304d450ef62593f51dbaefc0b491c92b4d873050"
+    },
+    "work/build/difficulty-v2/options/host_check.c": {
+      "bytes": 7384,
+      "sha256": "88199e217672346714d3534ef6863b5cbf27e51f58944ce05084d7d94bdfe274"
+    },
+    "work/build/difficulty-v2/options/host_check": {
+      "bytes": 38488,
+      "sha256": "341f059bf8b4fb3e44fc3ccceaf428787a32c7e0a9ef7582a842607a9745730b"
+    },
+    "work/build/difficulty-v2/options/host-check.txt": {
+      "bytes": 195,
+      "sha256": "358945177e6b00260a1b9ac56e1fe61f06b136954a26e58e27cc0c12e97dda56"
+    },
+    "work/build/difficulty-v2/options/assemble_check.py": {
+      "bytes": 4876,
+      "sha256": "2f5610fff00e8cde76ffee90d0b4e746f9517fd0e7dbc4ddaf0ec732df099840"
+    },
+    "work/build/difficulty-v2/options/assembly-check.json": {
+      "bytes": 1757,
+      "sha256": "495aa55ab30ba930781a5add66aed71c58f7aa5ce78c16ebe243109f39de571b"
+    },
+    "work/build/difficulty-v2/options/compat_check.py": {
+      "bytes": 4230,
+      "sha256": "2abf214c00c7edb4d35679ca5c1635a005e3f8feacd5f9d58338ef378f78564f"
+    },
+    "work/build/difficulty-v2/options/compat-check.json": {
+      "bytes": 525,
+      "sha256": "6f2bffab12400591a7903d60774550c683f096804ad8e07c0a41a7329430956f"
+    },
+    "work/build/difficulty-v2/options/font-check.json": {
+      "bytes": 840,
+      "sha256": "ad02d11de7d4ceb9a06757b16516969110a293858cccd3bf5e6605b5d16f44f4"
+    },
+    "work/build/difficulty-v2/options/link.ld": {
+      "bytes": 316,
+      "sha256": "b6e33e2f06df96201ddbbc974c8887066e9a4ce05abd2cd705a52a730d455408"
+    },
+    "work/build/difficulty-v2/options/stage/options-stubs.bin": {
+      "bytes": 72,
+      "sha256": "724a2541482dc3862f0e825c263c51333ebf8f8427e82f1edf486e68f68e920a"
+    },
+    "work/build/difficulty-v2/options/stage/arm9.bin": {
+      "bytes": 1115808,
+      "sha256": "9867c713bc892e565d6c42f22e509cc9d5695f3f89d41a39b93abe48ca437a0c"
+    },
+    "work/build/difficulty-v2/options/stage/overlay50.bin": {
+      "bytes": 5916,
+      "sha256": "47265820b8f495a67bc059d0a1779387feeb2515411a91a3e7ae0f2848a2ddad"
+    },
+    "work/build/difficulty-v2/options/stage/itcm.bin": {
+      "bytes": 4032,
+      "sha256": "ef541b662e1b457fee4e22b673442015d7724dbc9b9e8736f7e4caee51a44934"
+    },
+    "work/build/difficulty-v2/options/stage/c-symbols.inc": {
+      "bytes": 371,
+      "sha256": "57b8d5335959d0ae4bb650a9d7765ddcb06ea3e9abf371bd7d99a9200b15626d"
+    },
+    "work/build/difficulty-v2/options/stage/options.asm.sym": {
+      "bytes": 970,
+      "sha256": "ba58a4d5c10e34457702663e9bd1c36c82023380a5a50b83817c1dc0ee6364ab"
+    },
+    "work/build/difficulty-v2/options/stage/compatibility.asm.sym": {
+      "bytes": 498,
+      "sha256": "966d11a0567d71af5c5c68ce43e1011d317224d7dddccc0611d8dd62e9f52224"
+    }
+  },
+  "historical_checks_before_integration_help_edit": {
+    "host_shipping_C": "PASS 524288 codec cases plus protected halfword/no-store and native ABI mock tests",
+    "Thumb_compile_link": "PASS warnings-as-errors, no unresolved symbols/relocations; NOT native execution",
+    "armips": "PASS 9 hooks,72 stub bytes,24 compatibility halfwords,33 independent corruptions rejected",
+    "compatibility_instructions": "PASS 65536 words x17 bounded actual assembled sequence cases; 6 full input hash mutation rejections",
+    "labels": "PASS local font0 advance/character limits; runtime screen check pending",
+    "production_text_speed_recompiled": false,
+    "native_ui": false,
+    "ROM_build": false,
+    "save_reload_reset": false,
+    "GPT6_Astra_review": "PENDING parent sequential stage"
+  },
+  "checks": {
+    "current_validation": "See source-bound integration-impl/receipt.json and tests/report.json after rebuild",
+    "native_ui": "PENDING parent current-source rerun after cursor/cap rebuild; earlier five UI cases and later driver error are historical"
+  },
+  "verification_artifacts": {},
+  "previous_options_c_before_parent_share_help_fix": {
+    "bytes": 11274,
+    "sha256": "3230099f6103b132ed6bc2893f0e6c5d65a9c44fa6bcfbb92bb60c3707e45c1c"
+  },
+  "historical_checks_before_parent_share_help_fix": {
+    "shipping_host_C_after_help_edit": "PASS fresh ASan/UBSan options_check: 524288 codec cases plus halfword, transaction, input/touch/cleanup ABI mocks; native UI NOT claimed",
+    "combined_Thumb_compile_link": "integration build compiles current options.c with other shipping modules and no undefined symbols; see source-bound integration receipt",
+    "native_ui": "PENDING next test agent",
+    "save_reload_reset": "PENDING next test agent"
+  },
+  "historical_verification_artifacts_before_parent_share_help_fix": {
+    "work/build/difficulty-v2/integration-impl/options_check.c": {
+      "bytes": 7384,
+      "sha256": "88199e217672346714d3534ef6863b5cbf27e51f58944ce05084d7d94bdfe274"
+    },
+    "work/build/difficulty-v2/integration-impl/options_check": {
+      "bytes": 134432,
+      "sha256": "144084aee75f576ee57ed42c3ed0f44ab3196ebd059672b092d83c031745002d"
+    }
+  },
+  "historical_owned_sources_before_cursor_fix": {
+    "work/research/difficulty-armips/native/options.c": {
+      "bytes": 11263,
+      "sha256": "a0d290ffbc9b927213f2c0b6c8a48664956ef57fe75f60269097f6dbb072c46f"
+    },
+    "work/research/difficulty-armips/native/options.h": {
+      "bytes": 1188,
+      "sha256": "a57a96b6f26b1469166999e86fc3c1cb19b0a03f0d4e45da4821766503572572"
+    },
+    "work/research/difficulty-armips/native/options.asm": {
+      "bytes": 3748,
+      "sha256": "6af62973f3ab9aade1b43b44b4d04c22e523fbb2449f85b33a8f5a5a2574f02b"
+    },
+    "work/research/difficulty-armips/native/options_hooks.json": {
+      "bytes": 3758,
+      "sha256": "4e7b6ab41504bcbeb07f3bb5f915190e0a47bff8b76273925d7bbbf01bef0452"
+    }
+  },
+  "historical_checks_before_cursor_fix": {
+    "bounded_share_help_fix": "PASS exact two literals, retained CAP exception text, ASCII glyph mapping and font0 widths, identical ARM instructions; bounded-check.json",
+    "combined_build_and_host_static": "Required fresh integration-impl/receipt.json and tests/report.json after this pin update; historical passes above do not establish acceptance of changed source",
+    "native_ui": "PENDING approved parent native run",
+    "save_reload_reset": "PENDING approved parent native run",
+    "GPT6_Astra_review": "PENDING after full native work"
+  },
+  "historical_verification_artifacts_before_cursor_fix": {
+    "work/build/difficulty-v2/options-parent-fix/options-before.s": {
+      "bytes": 34451,
+      "sha256": "2ca8f5e650f1508221fe3a2183c6b08a8215fc2cdfcd5df1d3546f74870678ee"
+    },
+    "work/build/difficulty-v2/options-parent-fix/options-after.s": {
+      "bytes": 34440,
+      "sha256": "68679d83070f162925902eb66f566395bfc9c917d92d2408a17ef272e0931436"
+    },
+    "work/build/difficulty-v2/options-parent-fix/assembly.diff": {
+      "bytes": 484,
+      "sha256": "7035bbc6a0d9e78b16e148f96b081d32d486d6f1436d73c972754c8b425a4dbd"
+    },
+    "work/build/difficulty-v2/options-parent-fix/bounded-check.json": {
+      "bytes": 747,
+      "sha256": "909f3aab7388bd69a1fc4e0dfec98c344d14780f817ebb0dc9dd9f75a1dbfd0c"
+    }
+  },
+  "previous_options_c_before_nondecreasing_cap_help": {
+    "bytes": 11460,
+    "sha256": "460fbd8285473a9d82561fe9108a6d792975676f5d77d1b3a2f0268daef2d76b"
+  },
+  "prior_options_source_before_two_pages": {
+    "bytes": 11456,
+    "sha256": "2126c87e5a61685f551922c381992021493f479e5a91f64236d45a546d62f99c"
+  }
+}

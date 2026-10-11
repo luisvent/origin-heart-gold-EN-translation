@@ -1,0 +1,62 @@
+id = "pryce-weather-rule"
+title = "Pryce's Glacier Badge rule checks the party's Abilities (no weather-changing Ability), not 28 species"
+kind = "code"
+enabled = true
+decisions = ["D-2320"]
+requires = []
+asm = "pryce-weather-rule.asm"
+why = """
+Players: Pryce (Mahogany Gym) only battles for the Glacier Badge under his rule: no Pokémon whose Ability
+changes the weather, and a Double Battle. He refuses teams with no such Pokémon: a player reported 'he
+tells me to use a team with no weather-changing Abilities. I have no Pokémon like that but he doesn't let me
+fight'. The check bans 28 species whatever their Ability: Charizard (Blaze, Solar Power, Tough Claws here)
+and Probopass (Sturdy, Magnet Pull, Power Spot) can never change the weather, yet are refused; a Politoed
+with Damp or a Tyranitar is refused the same way as a Politoed with Drizzle. The untouched Chinese ROM does
+the same, so this is a bug of the hack.
+
+Status: D-2320 and D-2313 authorize and enable this scoped exception to D-1337 for RC7 preparation. The current user request overrides the earlier keep-disabled choice. Other hack bugs stay report-only.
+
+Technical: event-script file 928 (Pryce's room, message bank 613), script 1: after the rule (msg 0) and Yes,
+L252 GetPartyCount (one Pokémon -> L1072), then L269-L794 28 x {PlayerHasSpecies 0x800C, species;
+CompareVarToValue 0x800C, 0; GoToIf != -> L1083} (L1083: msg 14, the rule again, end), then L801
+TrainerBattle 32, 32. The species are 6, 37, 38, 87, 144, 186, 218, 219, 230, 244, 248, 279, 321, 324, 369,
+382, 383, 384, 449, 450, 459, 460, 476, 478, 526, 698, 699, 873. No script command reads a party Pokémon's
+Ability.
+"""
+what = """
+Old: a party holding any of the 28 species is refused (msg 14), whatever the Pokémon's Ability; any other
+party battles.
+New: a party is refused when one of its Pokémon (eggs skipped) has as its Ability one that changes the
+weather: Drizzle (2), Sand Stream (45), Drought (70), Snow Warning (117), Primordial Sea (189), Desolate Land
+(190), Delta Stream (191), Sand Spit (245), Orichalcum Pulse (288), Teraform Zero (309), Wildfire (313); every
+other party battles. The Ability is the Pokémon's own (GetMonData field 10, the hack's u16 at block B +0x1A,
+the one the summary shows); a Mega Evolution or Primal Reversion in battle is not foreseen (a Charizard holding
+Charizardite Y passes).
+Two edits: (1) arm9 0x0204CD0E 'add r4, #0x13' -> nop: script command 542 (MonGetContestValue slot, type,
+ret), used by no script of the hack, now returns GetMonData field `type` itself instead of contest stat
+0x13 + type. (2) script 928 L269-L800 (532 bytes, the 28 checks): SetVar 0x8004, 0; per slot below the party
+count from L252 (0x8005): field 76 (egg) -> next slot; field 10 (Ability) compared with the 11 Abilities ->
+L1083; then GoTo L801; the rest of the old block is zero-filled and never reached. Not changed: the rule text,
+the one-Pokémon check, the battle, the post-Badge rematches (L1124, L1167: no rule).
+"""
+evidence = [
+  "D-2320: the user-approved exception to D-1337 for this fix (Discord report, 2026-10-09)",
+  "work/notes/pryce-weather-rule_fix.md: the script, the command, the Ability list and how it was chosen, the emulator runs",
+  "guide/known-issues.md 'Pryce's weather rule' (the 28 species, Charizard and Probopass banned without a weather Ability)",
+  "Runtime: emu_harness.py fixes --case pryce-weather-rule (scenario pryce: Mahogany Gym, Pryce's challenge with a test Pokémon in the party, one run per case; run on the build and on one without this fix, work/notes/emu_harness.md 'Fix scenarios')",
+]
+
+[[code]]
+id = "pryce-weather-rule-field"
+file = "arm9"
+offset = "0x4CD0E"
+expect = "0x3413"
+notes = "ScrCmd_MonGetContestValue (command 542): 'add r4, #0x13' -> nop, so the field passed to GetMonData is the script's value (10 = Ability, 76 = egg). No script of the hack uses the command."
+
+[[code]]
+id = "pryce-weather-rule-script"
+file = "script928"
+offset = "0x10C"
+length = 534
+expect_sha1 = "eb0a31fe4ac2f44c064b93253953ab139c38943d"
+notes = "Pryce's rule check, script file 928 L269-L800 (bytes 0x10C-0x321: from the last byte of the GoToIf before it to the TrainerBattle command after it, kept even): the 28 PlayerHasSpecies checks become the Ability loop; the asm guards each old check."

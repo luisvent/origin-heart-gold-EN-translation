@@ -1,0 +1,37 @@
+id = "expedition-completed-progress"
+title = "Preserve beasts eligibility when revisiting the completed expedition leader"
+kind = "narc"
+enabled = false
+decisions = ["D-2321", "D-2300", "D-2308"]
+requires = []
+why = """
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
+
+D-1579: leader script962 only recognizes completed state10. Later Lance/beast
+states11/12 fall into recruitment and accepting victory overwrites409F with3,
+permanently erasing the one-time Burned Tower beasts eligibility at11.
+"""
+what = """
+Keep Compare409F,10 and its target5827; change equality to greater-or-equal.
+States10/11/12 use existing completed dialogue without battle or progress writes.
+States0..9, recruitment, battle outcomes and the native11->12 beast release stay
+unchanged. No global counter remap or backward save restoration.
+"""
+evidence = [
+  "work/notes/issue10_shared_progress_investigation_20261009.md",
+  "work/notes/issue10_shared_progress_reproduction_20261009.md",
+  "work/notes/issue10_shared_progress_fix_20261009.md",
+  "work/tools/test_shared_progress.py; work/tools/native_script_state.py",
+]
+
+[[narc_bytes]]
+id = "completed-leader-condition"
+narc = "a/0/1/2"
+member = 962
+offset = "0x88"
+expect = "0x3601"
+new = "0x3604"
+member_sha1 = "33cb77c9032d91186fa1680ae2b28919b4f58be5"
+notes = "Condition byte136: equality1 -> unsigned >=4; following displacement byte137=36 is pinned and unchanged."

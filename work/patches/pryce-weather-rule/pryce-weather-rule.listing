@@ -1,0 +1,197 @@
+; pryce-weather-rule - disassembly snapshot of pryce-weather-rule.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write pryce-weather-rule   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: pryce-weather-rule.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end);
+; an event-script file (scriptNNN) shows its commands at their file offsets (L<offset>).
+
+== arm9+0x4CCC0 (RAM 0x0204CCC0), 94 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0204CCC0  B5F8       push {r3, r4, r5, r6, r7, lr}
+  0204CCC2  1C05       adds r5, r0, #0
+  0204CCC4  F7F2 FC36  bl #0x203f534  ; ScriptReadHalfword
+  0204CCC8  1C01       adds r1, r0, #0
+  0204CCCA  1C28       adds r0, r5, #0
+  0204CCCC  3080       adds r0, #0x80
+  0204CCCE  6800       ldr r0, [r0]
+  0204CCD0  F7F2 FF0A  bl #0x203fae8  ; ScriptGetVar
+  0204CCD4  1C07       adds r7, r0, #0
+  0204CCD6  1C28       adds r0, r5, #0
+  0204CCD8  F7F2 FC2C  bl #0x203f534  ; ScriptReadHalfword
+  0204CCDC  1C01       adds r1, r0, #0
+  0204CCDE  1C28       adds r0, r5, #0
+  0204CCE0  3080       adds r0, #0x80
+  0204CCE2  6800       ldr r0, [r0]
+  0204CCE4  F7F2 FF00  bl #0x203fae8  ; ScriptGetVar
+  0204CCE8  1C04       adds r4, r0, #0
+  0204CCEA  1C28       adds r0, r5, #0
+  0204CCEC  F7F2 FC22  bl #0x203f534  ; ScriptReadHalfword
+  0204CCF0  1C01       adds r1, r0, #0
+  0204CCF2  1C28       adds r0, r5, #0
+  0204CCF4  3080       adds r0, #0x80
+  0204CCF6  6800       ldr r0, [r0]
+  0204CCF8  F7F2 FEDA  bl #0x203fab0  ; ScriptGetVarPointer
+  0204CCFC  3580       adds r5, #0x80
+  0204CCFE  1C06       adds r6, r0, #0
+  0204CD00  6828       ldr r0, [r5]
+  0204CD02  68C0       ldr r0, [r0, #0xc]
+  0204CD04  F026 FCAA  bl #0x207365c  ; SaveArray_Party_Get
+  0204CD08  1C39       adds r1, r7, #0
+  0204CD0A  F026 FB47  bl #0x207339c  ; Party_GetMonByIndex
+  0204CD0E  3413       adds r4, #0x13
+  0204CD10  1C21       adds r1, r4, #0
+  0204CD12  2200       movs r2, #0
+  0204CD14  F020 FD98  bl #0x206d848  ; GetMonData
+  0204CD18  8030       strh r0, [r6]
+  0204CD1A  2000       movs r0, #0
+  0204CD1C  BDF8       pop {r3, r4, r5, r6, r7, pc}
+
+== arm9+0x4CD0E (RAM 0x0204CD0E), 2 bytes, thumb: pryce-weather-rule-field
+  0204CD0A  F026 FB47  bl #0x207339c  ; Party_GetMonByIndex
+- 0204CD0E  3413       adds r4, #0x13
++ 0204CD0E  46C0       mov r8, r8
+  0204CD10  1C21       adds r1, r4, #0
+  0204CD12  2200       movs r2, #0
+
+== arm9+0x6DA12 (RAM 0x0206DA12), 2 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0206DA12  0232       lsls r2, r6, #8
+
+== arm9+0x6DA96 (RAM 0x0206DA96), 2 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0206DA96  0300       lsls r0, r0, #0xc
+
+== arm9+0x6DC32 (RAM 0x0206DC32), 2 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0206DC32  8B6C       ldrh r4, [r5, #0x1a]
+
+== arm9+0x6DD0A (RAM 0x0206DD0A), 6 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0206DD0A  6928       ldr r0, [r5, #0x10]
+  0206DD0C  0040       lsls r0, r0, #1
+  0206DD0E  0FC4       lsrs r4, r0, #0x1f
+
+== script928+0x10D (script offset L269), 532 bytes, event script: pryce-weather-rule-script
+- L269   PlayerHasSpecies 0x800C, 6
+- L275   CompareVarToValue 0x800C, 0
+- L281   GoToIf 5, L1083 (Pryce_Refused)
+- L288   PlayerHasSpecies 0x800C, 37
+- L294   CompareVarToValue 0x800C, 0
+- L300   GoToIf 5, L1083 (Pryce_Refused)
+- L307   PlayerHasSpecies 0x800C, 38
+- L313   CompareVarToValue 0x800C, 0
+- L319   GoToIf 5, L1083 (Pryce_Refused)
+- L326   PlayerHasSpecies 0x800C, 87
+- L332   CompareVarToValue 0x800C, 0
+- L338   GoToIf 5, L1083 (Pryce_Refused)
+- L345   PlayerHasSpecies 0x800C, 144
+- L351   CompareVarToValue 0x800C, 0
+- L357   GoToIf 5, L1083 (Pryce_Refused)
+- L364   PlayerHasSpecies 0x800C, 186
+- L370   CompareVarToValue 0x800C, 0
+- L376   GoToIf 5, L1083 (Pryce_Refused)
+- L383   PlayerHasSpecies 0x800C, 218
+- L389   CompareVarToValue 0x800C, 0
+- L395   GoToIf 5, L1083 (Pryce_Refused)
+- L402   PlayerHasSpecies 0x800C, 219
+- L408   CompareVarToValue 0x800C, 0
+- L414   GoToIf 5, L1083 (Pryce_Refused)
+- L421   PlayerHasSpecies 0x800C, 230
+- L427   CompareVarToValue 0x800C, 0
+- L433   GoToIf 5, L1083 (Pryce_Refused)
+- L440   PlayerHasSpecies 0x800C, 244
+- L446   CompareVarToValue 0x800C, 0
+- L452   GoToIf 5, L1083 (Pryce_Refused)
+- L459   PlayerHasSpecies 0x800C, 248
+- L465   CompareVarToValue 0x800C, 0
+- L471   GoToIf 5, L1083 (Pryce_Refused)
+- L478   PlayerHasSpecies 0x800C, 279
+- L484   CompareVarToValue 0x800C, 0
+- L490   GoToIf 5, L1083 (Pryce_Refused)
+- L497   PlayerHasSpecies 0x800C, 321
+- L503   CompareVarToValue 0x800C, 0
+- L509   GoToIf 5, L1083 (Pryce_Refused)
+- L516   PlayerHasSpecies 0x800C, 324
+- L522   CompareVarToValue 0x800C, 0
+- L528   GoToIf 5, L1083 (Pryce_Refused)
+- L535   PlayerHasSpecies 0x800C, 369
+- L541   CompareVarToValue 0x800C, 0
+- L547   GoToIf 5, L1083 (Pryce_Refused)
+- L554   PlayerHasSpecies 0x800C, 382
+- L560   CompareVarToValue 0x800C, 0
+- L566   GoToIf 5, L1083 (Pryce_Refused)
+- L573   PlayerHasSpecies 0x800C, 383
+- L579   CompareVarToValue 0x800C, 0
+- L585   GoToIf 5, L1083 (Pryce_Refused)
+- L592   PlayerHasSpecies 0x800C, 384
+- L598   CompareVarToValue 0x800C, 0
+- L604   GoToIf 5, L1083 (Pryce_Refused)
+- L611   PlayerHasSpecies 0x800C, 449
+- L617   CompareVarToValue 0x800C, 0
+- L623   GoToIf 5, L1083 (Pryce_Refused)
+- L630   PlayerHasSpecies 0x800C, 450
+- L636   CompareVarToValue 0x800C, 0
+- L642   GoToIf 5, L1083 (Pryce_Refused)
+- L649   PlayerHasSpecies 0x800C, 459
+- L655   CompareVarToValue 0x800C, 0
+- L661   GoToIf 5, L1083 (Pryce_Refused)
+- L668   PlayerHasSpecies 0x800C, 460
+- L674   CompareVarToValue 0x800C, 0
+- L680   GoToIf 5, L1083 (Pryce_Refused)
+- L687   PlayerHasSpecies 0x800C, 476
+- L693   CompareVarToValue 0x800C, 0
+- L699   GoToIf 5, L1083 (Pryce_Refused)
+- L706   PlayerHasSpecies 0x800C, 478
+- L712   CompareVarToValue 0x800C, 0
+- L718   GoToIf 5, L1083 (Pryce_Refused)
+- L725   PlayerHasSpecies 0x800C, 526
+- L731   CompareVarToValue 0x800C, 0
+- L737   GoToIf 5, L1083 (Pryce_Refused)
+- L744   PlayerHasSpecies 0x800C, 698
+- L750   CompareVarToValue 0x800C, 0
+- L756   GoToIf 5, L1083 (Pryce_Refused)
+- L763   PlayerHasSpecies 0x800C, 699
+- L769   CompareVarToValue 0x800C, 0
+- L775   GoToIf 5, L1083 (Pryce_Refused)
+- L782   PlayerHasSpecies 0x800C, 873
+- L788   CompareVarToValue 0x800C, 0
+- L794   GoToIf 5, L1083 (Pryce_Refused)
++ L269   SetVar 0x8004, 0
++ L275   MonGetContestValue 0x8004, 76, 0x800C
++ L283   CompareVarToValue 0x800C, 1
++ L289   GoToIf 1, L447 (Pryce_NextSlot)
++ L296   MonGetContestValue 0x8004, 10, 0x800C
++ L304   CompareVarToValue 0x800C, 2
++ L310   GoToIf 1, L1083 (Pryce_Refused)
++ L317   CompareVarToValue 0x800C, 45
++ L323   GoToIf 1, L1083 (Pryce_Refused)
++ L330   CompareVarToValue 0x800C, 70
++ L336   GoToIf 1, L1083 (Pryce_Refused)
++ L343   CompareVarToValue 0x800C, 117
++ L349   GoToIf 1, L1083 (Pryce_Refused)
++ L356   CompareVarToValue 0x800C, 189
++ L362   GoToIf 1, L1083 (Pryce_Refused)
++ L369   CompareVarToValue 0x800C, 190
++ L375   GoToIf 1, L1083 (Pryce_Refused)
++ L382   CompareVarToValue 0x800C, 191
++ L388   GoToIf 1, L1083 (Pryce_Refused)
++ L395   CompareVarToValue 0x800C, 245
++ L401   GoToIf 1, L1083 (Pryce_Refused)
++ L408   CompareVarToValue 0x800C, 288
++ L414   GoToIf 1, L1083 (Pryce_Refused)
++ L421   CompareVarToValue 0x800C, 309
++ L427   GoToIf 1, L1083 (Pryce_Refused)
++ L434   CompareVarToValue 0x800C, 313
++ L440   GoToIf 1, L1083 (Pryce_Refused)
++ L447   AddVar 0x8004, 1
++ L453   CompareVarToVar 0x8004, 0x8005
++ L459   GoToIf 0, L275 (Pryce_NextMon)
++ L466   GoTo L801 (Pryce_Battle)
++ L472   329 bytes of 0x00
+  L801   TrainerBattle 32, 32, 0, 0
+
+== script928+0x321 (script offset L801), 6 bytes, event script: read-only guard (the source checks these bytes and writes none of them)
+  L801   TrainerBattle 32, 32, 0, 0
+
+== script928+0x43B (script offset L1083), 4 bytes, event script: read-only guard (the source checks these bytes and writes none of them)
+  L1083  NPCMsg 14
+  L1086  WaitButton
+
+== read-only checks at absolute addresses (expect32_abs): the bytes there, unchanged
+  020F81B4  0204CCC1 (ScrCmd_MonGetContestValue+1)

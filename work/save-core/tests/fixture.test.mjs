@@ -144,3 +144,13 @@ test('diagnostic corruption is reported and cannot pass any fixture mutation',()
     assert.throws(()=>patchPokemonFixture(record,{},policy),/flags/);
   }
 });
+
+for (let selector=0;selector<32;selector++) test(`Pryce fixture egg bit preserves IVs and party cache, shuffle ${selector}`,()=>{
+  const record=pokemonFixture(selector),before=decodeOracle(record);
+  const egg=patchPokemonFixture(record,{egg:true},policy),oracle=decodeOracle(egg);
+  const expected=before.logical.slice();view(expected).setUint32(48,view(expected).getUint32(48,true)|0x40000000,true);
+  assert.deepEqual(oracle.logical,expected);assert.deepEqual(oracle.tail,before.tail);assert.equal(oracle.checksumOk,true);
+  assert.equal(decodePokemonDiagnostic(egg).isEgg,true);
+  assert.deepEqual(patchPokemonFixture(egg,{egg:false},policy),record);
+  for(const invalid of [0,1,null,'true'])assert.throws(()=>patchPokemonFixture(record,{egg:invalid},policy));
+});

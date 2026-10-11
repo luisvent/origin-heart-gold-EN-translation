@@ -287,7 +287,7 @@ export function patchPokemonPokerus(record: Uint8Array, status: PokerusStatus): 
 export interface PokemonFixtureChanges {
   species?: number; item?: number; ability?: number; form?: number; fateful?: boolean;
   moves?: readonly number[]; pp?: readonly number[]; exp?: number; currentHp?: number; otId?: number;
-  friendship?: number; status?: number;
+  friendship?: number; status?: number; egg?: boolean;
 }
 function fixtureInteger(value: unknown, maximum: number, label: string): asserts value is number {
   if (!Number.isSafeInteger(value) || (value as number) < 0 || (value as number) > maximum) {
@@ -301,7 +301,7 @@ function fixtureInteger(value: unknown, maximum: number, label: string): asserts
 export function patchPokemonFixture(record: Uint8Array, changes: PokemonFixtureChanges, options: {tailPolicy: 'preserve'}): Uint8Array {
   if (!options || options.tailPolicy !== 'preserve') throw new EditorError('invalid-input', 'Fixture edits require explicit preserve tail policy.');
   if (!changes || typeof changes !== 'object' || Array.isArray(changes)) throw new EditorError('invalid-input', 'Expected fixture changes.');
-  const known = ['species','item','ability','form','fateful','moves','pp','exp','currentHp','otId','friendship','status'];
+  const known = ['species','item','ability','form','fateful','moves','pp','exp','currentHp','otId','friendship','status','egg'];
   for (const key of Object.keys(changes)) if (!known.includes(key)) throw new EditorError('invalid-input', `Unknown Pokémon field: ${key}.`);
   const {pid, payload, a, b} = unpack(record);
   const data = view(payload);
@@ -315,6 +315,11 @@ export function patchPokemonFixture(record: Uint8Array, changes: PokemonFixtureC
   if (changes.friendship !== undefined) { fixtureInteger(changes.friendship,255,'Friendship'); payload[a+12] = changes.friendship; }
   if (changes.form !== undefined) {
     fixtureInteger(changes.form,31,'Form'); payload[b+24] = (payload[b+24]! & 7) | (changes.form << 3);
+  }
+  if (changes.egg !== undefined) {
+    if (typeof changes.egg !== 'boolean') throw new EditorError('invalid-pokemon','Egg state must be boolean.');
+    const ivWord = data.getUint32(b+16,true);
+    data.setUint32(b+16,changes.egg ? ivWord | 0x40000000 : ivWord & ~0x40000000,true);
   }
   if (changes.fateful !== undefined) {
     if (typeof changes.fateful !== 'boolean') throw new EditorError('invalid-pokemon','Fateful state must be boolean.');

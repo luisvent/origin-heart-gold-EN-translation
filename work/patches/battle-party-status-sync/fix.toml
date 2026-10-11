@@ -1,0 +1,79 @@
+id = "battle-party-status-sync"
+title = "In-battle party screen: status conditions show as they are now (Heal Bell, Aromatherapy, statuses gained in battle)"
+kind = "code"
+enabled = true
+decisions = ["D-2317"]
+requires = []
+asm = "battle-party-status-sync.asm"
+why = """
+Players: after Heal Bell or Aromatherapy cures the whole party, the Pokémon on the bench still show PSN, PAR,
+BRN and so on in the party screen (a Discord report: 'just a visual bug': switched in, they are cured).
+The same screen also never shows a status gained during the battle: a Pokémon burned by its Flame Orb shows
+no BRN there. The untouched Chinese ROM does the same, so this is a bug of the hack.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
+(D-2317, 2026-10-09); other hack bugs stay report-only.
+
+Technical: the hack's battle engine (overlay 14) keeps a battle record per party member with its own status
+table, and a pointer to the battle's copy of the party Pokémon at record+0x10. Status changes (inflicted,
+cured by a move, item or ability, for the active Pokémon and the bench alike) change the record only; the
+copy gets the record's status at the end of the battle, from BPP_ReflectToPP (0x02218B28: condition ->
+party status bits, SetMonData status). The in-battle party screens are built from the copies: four loops
+(0x022027DC, the POKéMON button; 0x02202B78, the Bag's 'use on which Pokémon'; 0x0220405C, the forced
+switch after a faint; 0x02203DBC, 'Will you switch your Pokémon?' after the foe's Pokémon faints) add each member's copy to a new party. So these screens show the status from the start of the
+battle. Switching in uses the record (the cured Pokémon has no status), and after the battle the party is
+right.
+"""
+what = """
+Old: party screen <- the battle's party copies, status as at the start of the battle.
+New: ReflectToPP's status block (0x02218B52-0x02218BA1) is replaced by a call to a routine in the same
+bytes, BPP_SyncSickToPP(record): the same conversion (fainted -> 0; PAR 0x40, SLP 2, FRZ 0x20, BRN 0x10,
+PSN 0x08, as the hack's switch) and SetMonData status on the copy, returning the copy. ReflectToPP does
+exactly what it did. The four party-screen loops call BPP_SyncSickToPP instead of BPP_GetSrcData
+(0x022027E6, 0x02202B82, 0x02203DC6, 0x02204066: one bl each), so each copy carries its current status when
+a party screen is built. Not changed: the cure and the status logic, the record, HP/PP/items/forms of the
+copy, the end-of-battle copy (it writes the same status), the opponent's side, other screens that take one
+Pokémon's copy (catching, 0x0222B99E; 0x0222F5B2).
+The copy's status is set to what the end of the battle would write anyway, only earlier.
+"""
+evidence = [
+  "D-2317: the user-approved exception to D-1337 for this fix (Discord report 'After using Heal Bell ... still displayed on the Pokémon in the swap screen'; user request 2026-10-09 to fix the reported bugs, one worktree each)",
+  "work/notes/heal-bell-status_fix.md: the records, the copies, the four loops and the emulator runs before and after",
+  "Reproduced 2026-10-09 (DeSmuME, trainer battle, lead Chansey with Heal Bell or Aromatherapy, bench PSN/PAR/BRN): the Chinese ROM and the build without this fix print the three cure messages (battle_string 1#336/380/360) and still show PSN/PAR/BRN in the party screen; the build with the fix shows none; Flame Orb's burn on the lead shows only with the fix",
+  "Runtime: emu_harness.py fixes --case battle-party-status-sync (scenario healbell: Heal Bell in a trainer battle, then the POKéMON button; the status of every Pokémon the party screen draws; each run on the build and on one without this fix, work/notes/emu_harness.md 'Fix scenarios')",
+]
+
+[[code]]
+id = "battle-party-status-sync-reflect"
+file = "overlay14"
+offset = "0x18372"
+expect = "1C20 F7FE F886 9000 8BE1 2900 D019 2805 D819 1800 4478 88C0 0400 1400 4487 0026 001C 0026 0016 0010 000A 2008 9000 E00A 2010 9000 E007 2020 9000 E004 2040 9000 E001 2000 9000 6920 21A0 AA00 F655 F9E7"
+notes = "BPP_ReflectToPP's status block -> bl BPP_SyncSickToPP + b to the rest of ReflectToPP; BPP_SyncSickToPP (0x02218B5A) and its condition table take the same bytes (the remainder is zero-filled, never reached). The asm also guards, read-only, BPP_GetSrcData, BPP_GetPokeSick and ReflectToPP around the block."
+
+[[code]]
+id = "battle-party-status-sync-list-pokemon"
+file = "overlay14"
+offset = "0x2006"
+expect = "F013 FFE5"
+notes = "Party screen of the POKéMON button (loop 0x022027DC): bl BPP_GetSrcData -> bl BPP_SyncSickToPP."
+
+[[code]]
+id = "battle-party-status-sync-list-2"
+file = "overlay14"
+offset = "0x23A2"
+expect = "F013 FE17"
+notes = "Party screen loop 0x02202B78: bl BPP_GetSrcData -> bl BPP_SyncSickToPP."
+
+[[code]]
+id = "battle-party-status-sync-list-3"
+file = "overlay14"
+offset = "0x35E6"
+expect = "F012 FCF5"
+notes = "Party screen loop 0x02203DBC (the switch offered when the foe's Pokémon faints): bl BPP_GetSrcData -> bl BPP_SyncSickToPP."
+
+[[code]]
+id = "battle-party-status-sync-list-4"
+file = "overlay14"
+offset = "0x3886"
+expect = "F012 FBA5"
+notes = "Party screen loop 0x0220405C: bl BPP_GetSrcData -> bl BPP_SyncSickToPP."

@@ -1,0 +1,17 @@
+{
+  "format": 1,
+  "reservation": ["0x023DC000", "0x023E0000"],
+  "hooks": [
+    {"file":"overlay14.bin","address":"0x02214CA2","size":4,"before":"01f037f8","kind":"bl","stub":"DG_Begin","target":"dg_battle_begin"},
+    {"file":"overlay14.bin","address":"0x02214DA6","size":4,"before":"06f6c9fa","kind":"bl","stub":"DG_Free","target":"dg_battle_root_free"},
+    {"file":"overlay14.bin","address":"0x022289EA","size":4,"before":"ecf7e9fe","kind":"bl","stub":"DG_Share","target":"dg_growth_share_enabled"},
+    {"file":"overlay14.bin","address":"0x0221F778","size":4,"before":"fff7b8ff","kind":"bl","stub":"DG_Eligible","target":"dg_growth_eligible"},
+    {"file":"overlay14.bin","address":"0x0221F83E","size":4,"before":"fff755ff","kind":"bl","stub":"DG_Eligible","target":"dg_growth_eligible"}
+  ],
+  "edits": [
+    {"file":"arm9.bin","address":"0x020D1970","size":4,"before":"00003e02","after":"00c03d02","purpose":"reserve resident memory below ARM7 startup/backup"}
+  ],
+  "stubs": {"size":160,"alignment":4,"file":"runtime-stubs.bin"},
+  "candy": "deferred under D-2304: stable field-menu ownership through delayed effect not established",
+  "day_care": "skipped under D-2304; native behavior unchanged"
+}

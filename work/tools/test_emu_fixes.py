@@ -5,6 +5,7 @@ import struct
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import emu_fixes as F  # noqa: E402
@@ -105,6 +106,27 @@ class Addresses(unittest.TestCase):
         self.assertEqual(F.TC_WORDS_END_CODE, bytes.fromhex("05b0f0bd"))     # add sp, #0x14; pop {r4-r7, pc}
         self.assertEqual(len(F.TC_SET_STRING_CODE), 4)
         self.assertEqual(list(F.TC_IDS), list(range(1212, 1220)))
+
+    def test_cutecharm_hooks_follow_the_patched_call(self):
+        region = region_ram("cute-charm-infatuation", "cute-charm-infatuation-cont")
+        self.assertEqual(F.CUTE_CHARM_CONT_CALL, region + 4)          # movs r1 / adds r2 .. bl
+        self.assertEqual(F.CUTE_CHARM_CONT_OUT, F.CUTE_CHARM_CONT_CALL + 4)
+        self.assertEqual(OVERLAYS["overlay14"], 0x022007E0)
+
+    def test_healbell_list_calls_are_the_patched_bls(self):
+        regions = [e["id"] for e in REGISTRY["battle-party-status-sync"]["code"] if "-list-" in e["id"]]
+        self.assertEqual(set(F.HEALBELL_LIST_CALLS),
+                         {region_ram("battle-party-status-sync", r) for r in regions})
+        self.assertEqual(F.STATUS_ICON, 0x0208A200)
+        self.assertEqual(OVERLAYS["overlay14"], 0x022007E0)
+
+    def test_multihit_addresses_follow_the_asm(self):
+        asm = (fixreg.PATCHES_DIR / "faint-waits-for-hp-bar" / "faint-waits-for-hp-bar.asm").read_text(encoding="utf-8")
+        self.assertIn(f".definelabel Faint_Run,               {F.FAINT_RUN:#010X}".replace("0X", "0x"), asm)
+        self.assertIn(f".definelabel HpBarMisc,               {F.HPBAR_DONE - 2:#010X}".replace("0X", "0x"), asm)
+        self.assertEqual(region_ram("faint-waits-for-hp-bar", "faint-waits-for-hp-bar-handler"), 0x02205122)
+        self.assertEqual(region_ram("faint-waits-for-hp-bar", "faint-waits-for-hp-bar-start"), 0x02200B66)
+        self.assertEqual([c[0] for c in F.MULTIHIT_CASES], ["enemy", "player"])
 
     def test_font_codes(self):
         _, fonts, codes = fixreg.font_spec([REGISTRY["font-glyphs"]])
@@ -242,13 +264,14 @@ class Judges(unittest.TestCase):
             self.assertGreater(len(F.UNCOVERED[fx]), 80, fx)
 
     def test_new_graphics_coverage(self):
-        self.assertEqual(set(F.UNCOVERED), {"gfx-battle-result-labels", "gfx-jp-buttons"})
+        self.assertEqual({fx for fx in F.UNCOVERED if fx.startswith("gfx-")},
+                         {"gfx-battle-result-labels", "gfx-jp-buttons"})
         for fx, scs in F.COVERAGE.items():
             if fx.startswith("gfx-"):
                 self.assertTrue(all((sc, fx) in F.CROP_CHECKS for sc in scs), fx)
         # the pinned-clock scenarios are crop scenarios (independent of what is approved or still pending), plus
-        # safari, whose encounter depends on the RNG
-        self.assertLessEqual(set(F.CLOCKS) - {"safari"}, {sc for (sc, fx) in F.CROP_CHECKS})
+        # safari encounters and the native Heal Bell fixture, whose setup depends on the RNG
+        self.assertLessEqual(set(F.CLOCKS) - {"safari", "healbell"}, {sc for (sc, fx) in F.CROP_CHECKS})
         self.assertEqual(F.CLOCKS["safari"], F.PINNED_CLOCK)
 
     def test_pending_crop_judge(self):
@@ -542,6 +565,99 @@ class Judges(unittest.TestCase):
                 self.assertEqual(without_fix, species, name)
         self.assertEqual(set(entries), {s for s, *_ in F.TRADE_EVO_CASES.values()} - {524})
 
+    def test_battle_heal(self):
+        self.assertEqual(F.judge_battle_heal("battle-heal", {"expect": "fixed", "passed": True, "rc": 0})[0], "fixed")
+        self.assertEqual(F.judge_battle_heal("battle-heal", {"expect": "original", "passed": True, "rc": 0})[0],
+                         "original")
+        self.assertEqual(F.judge_battle_heal("battle-heal", {"expect": "fixed", "passed": False, "rc": 1})[0],
+                         "unclear")
+        self.assertEqual(F.COVERAGE["battle-heal-hpbar-switched-out"], ("battle-heal",))
+        self.assertIn("battle-heal", F.EXTERNAL)
+
+    def test_cutecharm(self):
+        def obs(lead_love, fell, per_turn, holder_ability=56, sexes=(0, 1)):
+            rec = {"34": {"id": 1, "ability": 38, "sex": sexes[0], "love": lead_love},
+                   "31": {"id": 13, "ability": holder_ability, "sex": sexes[1], "love": "0000000000000000"}}
+            return {"turns": [{"result": "menu", "records": rec}], "fell": fell, "per_turn": per_turn}
+        linked = "0d0000006b000000"          # kind 3, linked to Pokemon 13 (the holder)
+        empty = "0d00000000000000"           # kind 0: what the hack stores
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(linked, 1, 9))[0], "fixed")
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(empty, 8, 0))[0], "original")
+        # 'fell in love' never rolled: proves nothing
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs("0000000000000000", 0, 0))[0], "unclear")
+        # linked to another Pokemon, the message twice, or no per-turn line: not the fix
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs("010000000b000000", 1, 9))[0], "unclear")
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(linked, 2, 9))[0], "unclear")
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(linked, 1, 0))[0], "unclear")
+        # the setup did not hold (no Cute Charm on the holder, same genders)
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(linked, 1, 9, holder_ability=38))[0], "unclear")
+        self.assertEqual(F.judge_cutecharm("cutecharm", obs(empty, 8, 0, sexes=(1, 1)))[0], "unclear")
+        self.assertEqual(F.COVERAGE["cute-charm-infatuation"], ("cutecharm",))
+
+    def test_healbell(self):
+        def obs(shown, cures=(336, 380, 360), loops=("pokemon",)):
+            return {"party_screen": shown, "cure_messages": list(cures), "loops": list(loops)}
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0, 0, 0, 0, 0]))[0], "fixed")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0x08, 0x40, 0x10, 0, 0]))[0], "original")
+        # Heal Bell never ran (no cure messages): the screen proves nothing either way
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0, 0, 0, 0, 0], cures=()))[0], "unclear")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0x08, 0x40, 0x10, 0, 0], cures=()))[0], "unclear")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0x08, 0, 0, 0, 0]))[0], "unclear")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0, 0]))[0], "unclear")
+        self.assertEqual(F.judge_healbell("healbell", obs([0, 0, 0, 0, 0, 0], loops=()))[0], "unclear")
+
+    def test_multihit(self):
+        def obs(done, enemy_bar, player_bar, jumps):
+            return {"enemy": {"faint": {"hpbar_done": done}, "hit_bars": [enemy_bar], "pixel_jumps": jumps,
+                              "box_left_with_fill": []},
+                    "player": {"faint": {"hpbar_done": done}, "hit_bars": [player_bar], "pixel_jumps": None,
+                               "box_left_with_fill": None}}
+        # recorded 2026-10-09: the build, and the Chinese ROM / the build without the fix
+        self.assertEqual(F.judge_multihit("multihit-ko", obs(1, [0, 0, 43, 43], [0, 0, 24, 24], []))[0], "fixed")
+        self.assertEqual(F.judge_multihit("multihit-ko", obs(0, [6631, 46, 46, 46], [3456, 24, 24, 24],
+                                                             [[164, 26, 48]]))[0], "original")
+        # mixed or missing evidence is never a pass
+        self.assertEqual(F.judge_multihit("multihit-ko", obs(1, [0, 0, 43, 43], [0, 0, 24, 24],
+                                                             [[164, 26, 48]]))[0], "unclear")
+        self.assertEqual(F.judge_multihit("multihit-ko", obs(0, [6631, 46, 46, 46], [3456, 24, 24, 24], []))[0],
+                         "unclear")
+        self.assertEqual(F.judge_multihit("multihit-ko", {"error": "x"})[0], "unclear")
+        self.assertEqual(F.COVERAGE["faint-waits-for-hp-bar"], ("multihit-ko",))
+
+    def test_battle_variant(self):
+        judge = F.judge_battle_variant
+
+        def obs(variant):     # every case's line printed once: params (variant battler, {0}, {1})
+            return {c[0]: {"line": [{"id": c[3], "params": [variant(c[0]), 13, 0xFFFF]}]} for c in F.VARIANT_CASES}
+        fixed, original = obs(lambda c: 13), obs(lambda c: 1)
+        self.assertEqual(judge("battle-variant", fixed, original)[0], "fixed")
+        self.assertEqual(judge("battle-variant", original, original)[0], "original")
+        self.assertEqual(judge("battle-variant", fixed, fixed)[0], "unclear")       # reference must be original
+        half = obs(lambda c: 13 if c == "protect" else 1)
+        self.assertEqual(judge("battle-variant", half, original)[0], "unclear")
+        missing = dict(fixed, protect={"line": []})
+        self.assertEqual(judge("battle-variant", missing, original)[0], "unclear")
+        self.assertEqual(F.COVERAGE["battle-message-variant"], ("battle-variant",))
+        self.assertEqual(F.VARIANT_PRINT_BANK1, 0x02225EA8)
+        self.assertEqual({c[3] for c in F.VARIANT_CASES}, {448, 1180, 706, 1220, 288, 340, 296, 1000, 1468})
+
+    def test_pryce(self):
+        fixed = {n: {"verdict": f} for n, (_m, f, _o) in F.PRYCE_CASES.items()}
+        original = {n: {"verdict": o} for n, (_m, _f, o) in F.PRYCE_CASES.items()}
+        self.assertEqual(F.judge_pryce("pryce", fixed)[0], "fixed")
+        self.assertEqual(F.judge_pryce("pryce", original)[0], "original")
+        self.assertEqual(F.judge_pryce("pryce", dict(fixed, charizard_blaze={"verdict": None}))[0], "unclear")
+        self.assertEqual(F.judge_pryce("pryce", {"error": "boom"})[0], "unclear")
+        # the cases tell the two apart, and both verdicts occur on each side
+        self.assertTrue(any(f != o for _m, f, o in F.PRYCE_CASES.values()))
+        for side in (1, 2):
+            self.assertEqual({c[side] for c in F.PRYCE_CASES.values()}, {"battle", "refused"})
+        self.assertEqual(F.COVERAGE["pryce-weather-rule"], ("pryce",))
+        # Enabled under current RC7 preparation authorization.
+        self.assertNotIn("pryce-weather-rule", F.disabled_fixes())
+        self.assertIn("pryce", F.select("all"))
+        self.assertEqual(F.select("pryce-weather-rule"), {"pryce": ["pryce-weather-rule"]})
+
     def test_judge_rows(self):
         selection = {"pcbox": ["pcbox-name-width"]}
         results = {("pcbox", "fixed"): PCBOX_FIXED, ("pcbox", "no-pcbox-name-width"): PCBOX_ORIGINAL}
@@ -594,6 +710,166 @@ class ControlProvenance(unittest.TestCase):
                 self.assertIn("rom.sha1 differs", F.control_problems(c, "namelen", applied, "t")[0])
             with tempfile.TemporaryDirectory() as td:
                 self.assertIn("missing", F.control_problems(Path(td), "namelen", applied, "t")[0])
+
+
+class ClosedWildFixture(unittest.TestCase):
+    class Harness:
+        def __init__(self):
+            self.frames = 0
+            self.permanent = False
+        def read(self, address, size):
+            assert size == 136
+            return bytes([int(self.permanent or (self.frames == 0 and address == 2))]) * size
+        def step(self, count):
+            assert count == 1
+            self.frames += count
+        def write(self, *args):
+            raise AssertionError("record-state validation must not write")
+
+    @staticmethod
+    def strict(raw):
+        if raw[0]:
+            raise ValueError("record open or corrupt")
+        return raw
+
+    def test_waits_for_all_native_copies_to_close(self):
+        import emu_harness as E
+        h = self.Harness()
+        with patch.object(E, "encode_pokemon", side_effect=self.strict):
+            self.assertEqual(F.closed_wild_fixture_copies(h, 9, lambda h, pid: [1, 2]), [1, 2])
+        self.assertEqual(h.frames, 1)
+
+    def test_invalid_native_record_is_never_repaired_or_edited(self):
+        import emu_harness as E
+        h = self.Harness(); h.permanent = True
+        with patch.object(E, "encode_pokemon", side_effect=self.strict):
+            with self.assertRaisesRegex(RuntimeError, "no record was edited"):
+                F.closed_wild_fixture_copies(h, 9, lambda h, pid: [1, 2])
+        self.assertEqual(h.frames, 60)
+
+    def test_missing_native_copy_cannot_pass(self):
+        h = self.Harness()
+        with self.assertRaisesRegex(RuntimeError, "did not close"):
+            F.closed_wild_fixture_copies(h, 9, lambda h, pid: [])
+        self.assertEqual(h.frames, 60)
+
+
+class HealBellFixture(unittest.TestCase):
+    class Harness:
+        def __init__(self):
+            self.party = 0x02010000
+            self.records = {self.party + 8 + 236 * i: bytes([i]) * 236 for i in range(6)}
+            self.generated_slot = 5
+            self.generations = 0
+            self.writes = []
+
+        def array(self, _):
+            return self.party
+
+        def generate_pokemon(self, species, level):
+            assert (species, level) == (129, 60)
+            self.generations += 1
+            self.records[self.party + 8 + 236 * 5] = bytes([64 + self.generations]) * 236
+
+        def read(self, address, size):
+            assert size == 236
+            return self.records[address]
+
+        def write(self, address, raw):
+            self.writes.append(address)
+            self.records[address] = raw
+
+    def test_entry_fixture_rejects_battle_or_foreign_party_before_writes(self):
+        h = self.Harness()
+        h.in_field = lambda: False
+        with self.assertRaisesRegex(RuntimeError, "outside the field"):
+            F.install_healbell_entry_fixture(h, [])
+        h.in_field = lambda: True
+        with self.assertRaisesRegex(RuntimeError, "ownership mismatch"):
+            F.install_healbell_entry_fixture(h, [(h.party + 4, h.party + 8 + 236, bytes(236))])
+        self.assertEqual(h.writes, [])
+
+    def test_entry_fixture_validates_all_native_records_before_any_write(self):
+        import emu_harness as E
+        h = self.Harness()
+        h.in_field = lambda: True
+        rows = [(h.party, h.party + 8 + 236 * slot, bytes([slot]) * 236) for slot in F.HEALBELL_BENCH]
+        def strict(raw, **fields):
+            if raw[0] == 3:
+                raise ValueError("native checksum mismatch")
+            return raw
+        with patch.object(E, "encode_pokemon", side_effect=strict):
+            with self.assertRaisesRegex(ValueError, "checksum mismatch"):
+                F.install_healbell_entry_fixture(h, rows)
+        self.assertEqual(h.writes, [])
+
+    def test_entry_fixture_applies_each_status_to_its_validated_native_record(self):
+        import emu_harness as E
+        h = self.Harness()
+        h.in_field = lambda: True
+        rows = [(h.party, h.party + 8 + 236 * slot, bytes([slot]) * 236) for slot in F.HEALBELL_BENCH]
+        def strict(raw, **fields):
+            self.assertEqual(fields, {"status": F.HEALBELL_BENCH[raw[0]]})
+            return raw
+        with patch.object(E, "encode_pokemon", side_effect=strict):
+            hashes = F.install_healbell_entry_fixture(h, rows)
+        self.assertEqual(len(hashes), 3)
+        self.assertEqual(h.writes, [row[1] for row in rows])
+
+    def test_invalid_seed_bench_is_discarded_without_repair_or_swap(self):
+        import emu_harness as E
+        h = self.Harness()
+        checked = []
+
+        def strict(raw):
+            checked.append(raw)
+            if raw[0] < 64:
+                raise ValueError("invalid historical seed; cannot repair")
+            return raw
+
+        with patch.object(E, "encode_pokemon", side_effect=strict):
+            F.prepare_healbell_bench(h)
+        self.assertEqual(len(checked), 3)
+        self.assertEqual(h.writes, [h.party + 8 + 236 * i for i in F.HEALBELL_BENCH])
+        for index, slot in enumerate(F.HEALBELL_BENCH, 65):
+            self.assertEqual(h.records[h.party + 8 + 236 * slot], bytes([index]) * 236)
+        self.assertEqual(h.records[h.party + 8], bytes(236))
+        self.assertEqual(h.records[h.party + 8 + 236 * 4], bytes([4]) * 236)
+
+    def test_invalid_native_output_cannot_write_a_bench_slot(self):
+        import emu_harness as E
+        h = self.Harness()
+        with patch.object(E, "encode_pokemon", side_effect=ValueError("native checksum mismatch")):
+            with self.assertRaisesRegex(ValueError, "checksum mismatch"):
+                F.prepare_healbell_bench(h)
+        self.assertEqual(h.writes, [])
+
+    def test_changed_native_source_cannot_write_a_bench_slot(self):
+        import emu_harness as E
+        h = self.Harness()
+
+        def changed(raw):
+            h.records[h.party + 8 + 236 * 5] = bytes([99]) * 236
+            return raw
+
+        with patch.object(E, "encode_pokemon", side_effect=changed):
+            with self.assertRaisesRegex(RuntimeError, "changed before copying"):
+                F.prepare_healbell_bench(h)
+        self.assertEqual(h.writes, [])
+
+    def test_late_invalid_native_output_leaves_all_bench_slots_untouched(self):
+        import emu_harness as E
+        h = self.Harness()
+
+        def strict(raw):
+            if raw[0] == 67:
+                raise ValueError("third native record invalid")
+            return raw
+
+        with patch.object(E, "encode_pokemon", side_effect=strict):
+            with self.assertRaisesRegex(ValueError, "third native record invalid"):
+                F.prepare_healbell_bench(h)
+        self.assertEqual(h.writes, [])
 
 
 if __name__ == "__main__":

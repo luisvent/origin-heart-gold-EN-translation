@@ -1,0 +1,35 @@
+id = "rock-tunnel-corner-loss"
+title = "Restore native whiteout after losing to Rock Tunnel's corner child"
+kind = "narc"
+enabled = true
+decisions = ["D-2300", "D-2305"]
+requires = []
+why = """
+D-1548: the real corner child (map 342, object 17, script 18) starts trainer 606.
+On defeat, its GoToIf at member 129 offset 2897 jumps into a different child's
+dialogue at 3782 before field restoration, producing an undefined instruction
+and black screens on Chinese and English. D-2300 authorizes this scoped repair.
+"""
+what = """
+Change only the four-byte relative loss displacement at 2900, from target 3782
+to the existing WhiteOut/ReleaseAll/End block at 2734 used by seven other loss
+branches in this script. Keep trainer 606, native battle arguments 606,0,0,0,
+the condition, win message 76, win flag 1966, retry and all reward gates intact.
+The original entire member SHA-1 and the four expected bytes guard the edit.
+"""
+evidence = [
+  "work/notes/issue05_rock_tunnel_investigation_20261009.md",
+  "work/notes/issue05_rock_tunnel_reproduction_20261009.md",
+  "work/notes/issue05_rock_tunnel_fix_20261009.md",
+  "work/tools/test_rock_tunnel_corner_loss.py; work/tools/emu_rock_tunnel.py",
+]
+
+[[narc_bytes]]
+id = "corner-child-loss-target"
+narc = "a/0/1/2"
+member = 129
+offset = "0xB54"
+expect = "036E 0000"
+new = "FF56 FFFF"
+member_sha1 = "c73334fd0e00250cad1b66fc2b929931374bdca4"
+notes = "GoToIf equality at 2897: displacement +878 -> -170, relative to 2904. Native whiteout at 2734."

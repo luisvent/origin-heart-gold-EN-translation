@@ -1,0 +1,17 @@
+id = "honey-gather"
+title = "Restore Honey Gather after battle"
+kind = "code"
+enabled = true
+decisions = ["D-2324", "D-2325", "D-2326"]
+requires = []
+asm = "honey-gather.asm"
+why = "D-2324: the hack only implements Pickup in its post-battle collector. D-2325 records explicit user approval for this isolated repair."
+what = "Add Honey Gather with its empty-held-item requirement and 5-50 percent level chance, depositing one Honey in the Bag. Preserve Pickup probability, reward weights, held-item policy and random draw order. Only report an award after Bag_AddItem succeeds, including Pickup. Reuse the original collector allocation; no overlay growth."
+evidence = ["work/notes/honey_gather_investigation_20261010.md"]
+
+[[code]]
+id = "post-battle-collector"
+file = "overlay14"
+offset = "0x2B4E8"
+expect = "B5F0 B085 9000 9101 2000 9004 4837 1C17 6800 6901 9801 0080 1808 6840 9003 9804 9002 9803 F647 FB54 2800 DD5C 9A02 9800 0612 9901 0E12 F004 FE0F 1C06 F7EB FF70 1C30 F7EB FF75 1C04 2000 8038 1C30 F7EA FD4D 214C 2200 F641 FD93 2800 D139 2C35 D137 200A F7FA FBC8 2800 D032 2064 2400 F7FA FB98 1C05 1C30 F7EC F9E0 1E40 210A F6C5 EA66 0600 0E03 2B0A D300 2309 4818 4A18 2100 18C3 7818 8816 1820 0600 0E04 42AC DD11 4811 2201 6800 2305 6901 2042 0080 5808 1C31 F64A FE43 803E 9804 1C40 0600 0E00 9004 E004 1C49 1C92 330A 2916 D3E1 9802 1CBF 1C40 9002 9803 F647 FAF8 9902 4281 DBA2 9804 B005 BDF0 5BAC 0225 E3D8 0224 E3AC 0224"
+notes = "0x0222BCC8..0x0222BDBF: collector including literal pool."

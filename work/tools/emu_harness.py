@@ -1934,10 +1934,14 @@ def cmd_cleanup(a):
     return 0
 
 
-def run_child(args, timeout=900):
+def run_child(args, timeout=900, log=None):
     """Run 'emu_harness.py <args>' in a fresh process and return the JSON of its 'RESULT ' line.
     One emulator per process: a second DeSmuME instance in the same process crashes (SIGSEGV)."""
     rc, out, err = spawn(args, timeout)
+    if log is not None:
+        path = Path(log)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(f"child exit: {rc}\nSTDOUT\n{out}\nSTDERR\n{err}")
     for line in out.splitlines():
         if "RESULT " in line:          # DeSmuME may print to stdout without a newline just before it
             return json.loads(line[line.index("RESULT ") + 7:])
@@ -2461,6 +2465,10 @@ def main(argv=None):
                         "original/fixed assertions")
     import emu_reflection
     emu_reflection.add_arguments(rf)
+    bh = sub.add_parser("battle-heal", help="Potion then Roar in Maxie's second wave (health-bar NULL sprite); "
+                        "original/fixed assertions")
+    import emu_battle_heal
+    emu_battle_heal.add_arguments(bh)
     import emu_fixes
     fx = sub.add_parser("fixes", help="one scenario per fix in work/patches: the fixed ROM and each control build "
                                       "(build.py --without <fix>) (emu_fixes.py)")
@@ -2483,7 +2491,8 @@ def main(argv=None):
     return {"info": cmd_info, "wild": cmd_wild, "unown": cmd_wild, "screens": cmd_screens, "drive": cmd_drive, "thief": cmd_thief, "messages": cmd_messages,
             "dexcapture": cmd_dexcapture, "scenarios": emu_scenarios.run, "suite": emu_scenarios.run,
             "scenario-run": emu_scenarios.cmd_child,
-            "texture-bounds": emu_texture_bounds.run, "reflection": emu_reflection.run, "hang": emu_hang.run,
+            "texture-bounds": emu_texture_bounds.run, "reflection": emu_reflection.run, "battle-heal": emu_battle_heal.run,
+            "hang": emu_hang.run,
             "fixes": emu_fixes.run, "fixes-child": emu_fixes.cmd_child, "fixes-approve": emu_fixes.cmd_approve, "cleanup": cmd_cleanup,
             "textfit": emu_textfit.run, "textfit-child": emu_textfit.cmd_child,
             "layer": emu_layer.cmd_run, "approve": emu_layer.cmd_approve}[a.cmd](a)

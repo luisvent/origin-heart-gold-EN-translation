@@ -1,0 +1,28 @@
+id = "zero-pp-struggle"
+title = "Use the existing Struggle action when every known move is out of PP"
+kind = "code"
+enabled = true
+decisions = ["D-2300", "D-2302"]
+requires = []
+asm = "zero-pp-struggle.asm"
+why = """
+D-1576: the original hack opens ordinary move selection even when all moves have zero PP,
+then correctly rejects every move. D-2300 authorizes this original-hack repair.
+"""
+what = """
+Preserve the initial command guard's fainted/skip, forced action and stored move precedence.
+After those checks, only the FIGHT handler call (LR 0x02202F81) may scan the four native move slots. Empty move IDs do not count as available,
+even if their PP byte is nonzero. If any known move has PP, return the native ordinary-selection
+result. Otherwise construct move 165 through the existing forced-move action constructor,
+retaining the native actor number and target field. Struggle's existing validator, target resolver,
+damage and recoil executor handle the action. Both per-move PP validators remain unchanged.
+Other callers retain native behavior, keeping Bag, switching and running available. Shared constructor/return code keeps the repair inside the original 240-byte guard; no growth.
+"""
+evidence = ["work/notes/issue03_struggle_reproduction_20261009.md", "work/notes/issue03_struggle_fix_20261009.md"]
+
+[[code]]
+id = "zero-pp-command-guard"
+file = "overlay14"
+offset = "0x2BD70"
+expect = "B5F0 B085 1C05 1C0C F7E9 FFEE 2800 D105 1C28 2104 F7EA FDCE 2800 D007 2C00 D002 1C20 F7D4 F9D3 B005 2001 BDF0 1C28 2101 F7EA FDC0 2800 D00E 2C00 D009 1C28 F7EA F907 1C01 0609 1C20 0E09 2200 F7D4 F9C8 B005 2001 BDF0 1C28 211A F7EA FBBD 2800 D023 A801 1C29 221A F7EA FBC0 9901 9802 AA03 9103 9004 CA03 F7EA FBD2 1C07 1C28 F7EB FA9E 1C06 1C28 F7EA F8E2 0600 0E00 2C00 D007 0632 9000 1C20 1C39 0E12 2300 F7D4 F9B6 B005 2001 BDF0 1C28 211B F7EA FB93 2800 D019 1C28 F7EA FCA4 1C07 1C28 F7EB FA7E 1C06 1C28 F7EA F8C2 0600 0E00 2C00 D007 0632 9000 1C20 1C39 0E12 2300 F7D4 F996 B005 2001 BDF0 2000 B005 BDF0"
+notes = "0x0222C550..0x0222C63F: preserve forced-command precedence; add aggregate PP fallback."

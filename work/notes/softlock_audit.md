@@ -110,3 +110,12 @@ Rare Candy evolutions skip Crobat's Cross Poison, Charizard's Air Slash and Gyar
 ## Rocket HQ runtime freeze (2026-10-08, D-2043)
 
 A player's corrected rc5 battery save reproduces a freeze in melonDS 1.1 at map 247 (17,4), before the camera ambush. Released English rc5, English WIP and untouched Chinese v4.0.3 share an ARM9 data-abort signature at `02024696`. DeSmuME passes this position in Chinese and English WIP. Preserve under D-1337; the exact model/texture asset remains unconfirmed. See [reproduction, ROM/save identities and CPU evidence](rocket_hq_freeze_repro_20261008.md).
+
+## Follow-up: post-battle item collection (2026-10-10)
+
+Honey Gather (D-2324) is absent from the original post-battle collector. Pickup
+also ignores Bag_AddItem failure and can announce a reward that was not added.
+The user authorized an isolated repair and chose direct-to-Bag Honey (D-2325).
+See [the investigation and regression evidence](honey_gather_investigation_20261010.md).
+The fix originated in `fix/honey-gather` and its source is now integrated in
+`release/rc7-prep`; the new combined build remains pending and it has not been released.

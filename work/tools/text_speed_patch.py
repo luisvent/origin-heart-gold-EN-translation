@@ -351,6 +351,7 @@ def registry_code_patches(fixes=None,hc_report=None):
     for fx in fixreg.code_entries_fixes(fixes):
         if fx['id']==FIX_ID:continue
         for e in fx.get('code',[]):
+            if fixreg.SCRIPT_FILE_RE.fullmatch(str(e.get('file'))):continue  # an event-script file: not code text speed pins
             if 'expect' not in e:
                 raise ValueError(f'Code region {e["id"]} of fix {fx["id"]} has no expect halfwords; text speed cannot normalise it')
             out.append({'id':e['id'],'file':e['file'],'offset':e['offset'],'expect':e['expect'],

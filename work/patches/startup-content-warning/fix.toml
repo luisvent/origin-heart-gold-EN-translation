@@ -1,0 +1,38 @@
+id = "startup-content-warning"
+title = "New Game: mature-content warning first, remove QQ promotion"
+kind = "code"
+enabled = true
+decisions = ["D-2327", "D-2328", "D-2329"]
+requires = []
+asm = "startup-content-warning.asm"
+why = "The English release needs a visible mature-content warning before play; the user approved replacing QQ/Tieba promotion and removing the QR display."
+what = "Map the five notice counter positions to bank 0816 IDs 4,0,1,2,3. Keep timing, transitions and final-page detection unchanged. Hide lower-screen BG4 (QR image) and skip the separate QR caption renderer. The former caption prologue holds the message-index helper; no overlay growth. Bank edits retain author credits, non-commercial and repost attribution, and show the release version, translator credit, website and save editor reference. The user rejected the permission claim and removed the cheat-tool limitation and bugs disclaimer."
+evidence = ["work/notes/content_warning_investigation_20261010.md", "CN runtime: bank 816 loaded by overlay49 at 0x021E76B6; page reader 0x021E733A; caption reader 0x021E7450. Counter at state+0x54, 9-second timers at +0x56, final position 4."]
+
+[[code]]
+id = "startup-hide-qr-background"
+file = "overlay49"
+offset = "0x2836"
+expect = "0x2101"
+notes = "BG4 enable argument becomes false. Initialization and cleanup remain intact."
+
+[[code]]
+id = "startup-page-order-call"
+file = "overlay49"
+offset = "0x29BA"
+expect = "F624 FBE7"
+notes = "Route only notice body reads through page-to-message mapping."
+
+[[code]]
+id = "startup-page-order-helper"
+file = "overlay49"
+offset = "0x2AB4"
+expect = "B510 B084 1C04 302C 2100 F636 FEB3 1C20 302C F636 FD0D 68A0"
+notes = "Repurpose unreachable QR caption prologue; map 0 to 4, and 1..4 to 0..3."
+
+[[code]]
+id = "startup-skip-qr-caption"
+file = "overlay49"
+offset = "0x2E42"
+expect = "F7FF FE37"
+notes = "Remove the only call to the QR caption renderer."

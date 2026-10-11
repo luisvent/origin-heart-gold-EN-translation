@@ -1,0 +1,461 @@
+{
+  "format": 1,
+  "input_only": "current EN with existing TEXT SPEED; CN provenance hashes are NOT alternate accepted bytes",
+  "storage_mask": "0x8028",
+  "full_input_guards": {
+    "en": {
+      "arm9": {
+        "base": "0x2000000",
+        "size": 1115808,
+        "sha256": "5590ddbb205b1306d309285de7ec8081c01143c7981623681a73a507406a79e9"
+      },
+      "overlay50": {
+        "base": "0x21e4980",
+        "size": 5916,
+        "sha256": "236119def00fcdaf31fd06c930c5cd0d7a3c9c01d0662cfaddb23955cbebaffa"
+      },
+      "itcm": {
+        "base": "0x1ff8000",
+        "size": 4032,
+        "sha256": "b52c94deb88d138d98cee663f8568e6d4dd7da91ae272610ad802f79c693371e"
+      }
+    },
+    "cn": {
+      "arm9": {
+        "base": "0x2000000",
+        "size": 1115808,
+        "sha256": "b3249c2996c204695a2528e2e52bf0d9841ec05263a6bcecfc7db181204f96cf"
+      },
+      "overlay50": {
+        "base": "0x21e4980",
+        "size": 5632,
+        "sha256": "852d8fcd01bf09ba54bee1a24609e2a82e71d25b5d6dd84c5d919cc0b3418856"
+      },
+      "itcm": {
+        "base": "0x1ff8000",
+        "size": 1568,
+        "sha256": "838df87fbcf4107eb85d4c97d9fab741fd0a99d24a4dc85577e3bc8c3eded3c1"
+      }
+    }
+  },
+  "roms": {
+    "en": {
+      "path": "work/build/rc7-baseline/origin_hg_v4.0.3_en_wip.nds",
+      "sha256": "18b6d1478af1740ec693cb30b02da2a8d37b0f715d105f0410466bc4dd355940"
+    },
+    "cn": {
+      "path": "work/rom/origin_v4.0.3_cn.nds",
+      "sha256": "4807ab2c130581cb9d4f6110fc64b41ca4807b8d28e7622ebd3c9740baed95c8"
+    }
+  },
+  "dependencies": [
+    {
+      "file": "arm9.bin",
+      "start": "0x200403c",
+      "end": "0x20040cc",
+      "purpose": "startup title",
+      "sha256": {
+        "en": "b32973f6e7dad4fdad02a175434f2d1decaad654b319fc84f32b25a09e1a62ee",
+        "cn": "b32973f6e7dad4fdad02a175434f2d1decaad654b319fc84f32b25a09e1a62ee"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x202b148",
+      "end": "0x202b29c",
+      "purpose": "Options allocation/init/copy/readers/writers",
+      "sha256": {
+        "en": "9ba2a7dda760a1f7afc5c7b4fb95d69fe7b5206df4415595fba0f4b7af09cc2c",
+        "cn": "32d783d2cc73971a5418ef9b3c07f3607374ae5c359888520244ea3e14213c8d"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x203e520",
+      "end": "0x203e560",
+      "purpose": "field launcher",
+      "sha256": {
+        "en": "66902fc932e0ff7c6f82ce445d7465939408fff2cec2eaf883aac9d1918ba1ee",
+        "cn": "66902fc932e0ff7c6f82ce445d7465939408fff2cec2eaf883aac9d1918ba1ee"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x20f6f78",
+      "end": "0x20f6f88",
+      "purpose": "Options descriptor",
+      "sha256": {
+        "en": "04a2ceb7dcdc883790093c06fce0323a12d0da02bc809658cde0dea3eb00b6ba",
+        "cn": "04a2ceb7dcdc883790093c06fce0323a12d0da02bc809658cde0dea3eb00b6ba"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x200719c",
+      "end": "0x20071c4",
+      "purpose": "manager data/args alloc/free",
+      "sha256": {
+        "en": "cf7faada0244e7851bf80d672fa3f856678fcabfbbba4bd34584654f529aa9ac",
+        "cn": "cf7faada0244e7851bf80d672fa3f856678fcabfbbba4bd34584654f529aa9ac"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x2017c28",
+      "end": "0x2017c58",
+      "purpose": "field input mode",
+      "sha256": {
+        "en": "28fa55ca5d3838ff55eef1caa6cf02d19aa67d400f95dc67df39553a632b7782",
+        "cn": "28fa55ca5d3838ff55eef1caa6cf02d19aa67d400f95dc67df39553a632b7782"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x2026864",
+      "end": "0x20268dc",
+      "purpose": "String new/delete/clear",
+      "sha256": {
+        "en": "9a9e4fdea162ac686fa3fc0d4341c6de37bafc6969141f9c2071115cfffc2979",
+        "cn": "9a9e4fdea162ac686fa3fc0d4341c6de37bafc6969141f9c2071115cfffc2979"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x2026eb8",
+      "end": "0x2026f1c",
+      "purpose": "String copy",
+      "sha256": {
+        "en": "1e3205281e541f0f6eff317849f404bffdd6e8b9e3efebbef523231750a8c218",
+        "cn": "1e3205281e541f0f6eff317849f404bffdd6e8b9e3efebbef523231750a8c218"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x2020834",
+      "end": "0x2020884",
+      "purpose": "synchronous native printer",
+      "sha256": {
+        "en": "a05257651243875c45b8322419de2e4f8372b60e9193ab8c32ac1532e84cb459",
+        "cn": "a05257651243875c45b8322419de2e4f8372b60e9193ab8c32ac1532e84cb459"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x201dda8",
+      "end": "0x201ddf8",
+      "purpose": "window VRAM copy",
+      "sha256": {
+        "en": "f617898c17489de038ff6666736248fa67fbf0ab1860f2742ded711512579b62",
+        "cn": "f617898c17489de038ff6666736248fa67fbf0ab1860f2742ded711512579b62"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x201e1a8",
+      "end": "0x201e21c",
+      "purpose": "window fill",
+      "sha256": {
+        "en": "0ac42b0857172e0d3c5531a85bd225a1ecab756d825ed0c2f795e839d69edd02",
+        "cn": "0ac42b0857172e0d3c5531a85bd225a1ecab756d825ed0c2f795e839d69edd02"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x2024e48",
+      "end": "0x2024e64",
+      "purpose": "sprite visibility",
+      "sha256": {
+        "en": "bddf1dc2c6d540a4eeb4001f29e3f9d9c08da42a464a496ef1feff713dafc309",
+        "cn": "bddf1dc2c6d540a4eeb4001f29e3f9d9c08da42a464a496ef1feff713dafc309"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x201b1e4",
+      "end": "0x201b23c",
+      "purpose": "heap destruction",
+      "sha256": {
+        "en": "25d6c0a996eaab6dfc70516d16704227f08fcd32c9dce7baf4bb065ac150129a",
+        "cn": "25d6c0a996eaab6dfc70516d16704227f08fcd32c9dce7baf4bb065ac150129a"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x2029348",
+      "end": "0x2029354",
+      "purpose": "Options accessor",
+      "sha256": {
+        "en": "b929b1844211af09a3b304884540fe733756cabb0119437a686c56b91d9d66ed",
+        "cn": "b929b1844211af09a3b304884540fe733756cabb0119437a686c56b91d9d66ed"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x2027740",
+      "end": "0x2027764",
+      "purpose": "SaveArray getter",
+      "sha256": {
+        "en": "193dbe4a1b02382e97d68bd960957d46844d9db9b7f88fed30c9de1f662da13d",
+        "cn": "193dbe4a1b02382e97d68bd960957d46844d9db9b7f88fed30c9de1f662da13d"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x2025834",
+      "end": "0x2025854",
+      "purpose": "native touch-down reference",
+      "sha256": {
+        "en": "4019f9b5e79445429bec8e3cd22ff4190e32371f9777aa81ddb9718ee2ce56e4",
+        "cn": "4019f9b5e79445429bec8e3cd22ff4190e32371f9777aa81ddb9718ee2ce56e4"
+      }
+    },
+    {
+      "file": "arm9.bin",
+      "start": "0x20021d8",
+      "end": "0x2002258",
+      "purpose": "native held-key reference",
+      "sha256": {
+        "en": "66ee62b1e6e07dad6d9007867c7747b23421c0c6c26293ebf0ef076bc9555dd2",
+        "cn": "66ee62b1e6e07dad6d9007867c7747b23421c0c6c26293ebf0ef076bc9555dd2"
+      }
+    },
+    {
+      "file": "overlay50.bin",
+      "start": "0x21e4980",
+      "end": "0x21e5f80",
+      "purpose": "complete original overlay50 code and tables",
+      "sha256": {
+        "en": "ac90bbdf2baf083b02745809b65d4a5462cfb6c94addd8283a7e1ae817b70704",
+        "cn": "852d8fcd01bf09ba54bee1a24609e2a82e71d25b5d6dd84c5d919cc0b3418856"
+      }
+    }
+  ],
+  "edits": [
+    {
+      "file": "arm9.bin",
+      "address": "0x20040b4",
+      "size": 2,
+      "before": "8006",
+      "after": "c006",
+      "purpose": "startup title LSL r0,27"
+    },
+    {
+      "file": "arm9.bin",
+      "address": "0x20040b6",
+      "size": 2,
+      "before": "800f",
+      "after": "c00f",
+      "purpose": "startup title LSR r0,31"
+    },
+    {
+      "file": "arm9.bin",
+      "address": "0x202b202",
+      "size": 2,
+      "before": "8006",
+      "after": "c006",
+      "purpose": "title getter LSL r0,27"
+    },
+    {
+      "file": "arm9.bin",
+      "address": "0x202b204",
+      "size": 2,
+      "before": "800f",
+      "after": "c00f",
+      "purpose": "title getter LSR r0,31"
+    },
+    {
+      "file": "arm9.bin",
+      "address": "0x202b210",
+      "size": 2,
+      "before": "8907",
+      "after": "c907",
+      "purpose": "title setter input bit0"
+    },
+    {
+      "file": "arm9.bin",
+      "address": "0x202b214",
+      "size": 2,
+      "before": "3022",
+      "after": "1022",
+      "purpose": "title setter clear bit4 only"
+    },
+    {
+      "file": "arm9.bin",
+      "address": "0x202b216",
+      "size": 2,
+      "before": "890e",
+      "after": "c90e",
+      "purpose": "title setter position bit4"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e49f6",
+      "size": 2,
+      "before": "8007",
+      "after": "c007",
+      "purpose": "initial local title snapshot input bit0"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e49fa",
+      "size": 2,
+      "before": "3021",
+      "after": "1021",
+      "purpose": "initial local title snapshot clear bit4 only"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e49fc",
+      "size": 2,
+      "before": "800e",
+      "after": "c00e",
+      "purpose": "initial local title snapshot position bit4"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4ab8",
+      "size": 2,
+      "before": "3022",
+      "after": "1022",
+      "purpose": "Apply local title snapshot clear bit4 only"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4ac2",
+      "size": 2,
+      "before": "9207",
+      "after": "d207",
+      "purpose": "Apply local title snapshot input bit0"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4ac4",
+      "size": 2,
+      "before": "920e",
+      "after": "d20e",
+      "purpose": "Apply local title snapshot position bit4"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e53b4",
+      "size": 2,
+      "before": "8006",
+      "after": "c006",
+      "purpose": "load native title row from local snapshot"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e53b6",
+      "size": 2,
+      "before": "820f",
+      "after": "c20f",
+      "purpose": "load native title row from local snapshot"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4b18",
+      "size": 2,
+      "before": "8906",
+      "after": "c906",
+      "purpose": "native Apply title extraction"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4b1a",
+      "size": 2,
+      "before": "890f",
+      "after": "c90f",
+      "purpose": "native Apply title extraction"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4b44",
+      "size": 2,
+      "before": "8006",
+      "after": "c006",
+      "purpose": "native Cancel title extraction"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4b46",
+      "size": 2,
+      "before": "800f",
+      "after": "c00f",
+      "purpose": "native Cancel title extraction"
+    },
+    {
+      "file": "itcm.bin",
+      "address": "0x1ff8766",
+      "size": 2,
+      "before": "0c21",
+      "after": "0421",
+      "purpose": "print_task inlined fast mask"
+    },
+    {
+      "file": "itcm.bin",
+      "address": "0x1ff8a1e",
+      "size": 2,
+      "before": "0c21",
+      "after": "0421",
+      "purpose": "load_rows speed mask"
+    },
+    {
+      "file": "itcm.bin",
+      "address": "0x1ff8ac4",
+      "size": 2,
+      "before": "0c23",
+      "after": "0423",
+      "purpose": "commit_speed clear mask"
+    },
+    {
+      "file": "itcm.bin",
+      "address": "0x1ff8af8",
+      "size": 2,
+      "before": "0c23",
+      "after": "0423",
+      "purpose": "exit_free inlined commit clear mask"
+    },
+    {
+      "file": "itcm.bin",
+      "address": "0x1ff8c2e",
+      "size": 2,
+      "before": "0c21",
+      "after": "0421",
+      "purpose": "pass_end inlined fast mask"
+    }
+  ],
+  "itcm_contract": {
+    "base": "0x1ff8620",
+    "payload_size": 2460,
+    "payload_sha256": "0c34069f2168a84b47d0ac597d4669ef3ba1273d468c83e4d4ba8cf97958020c",
+    "symbols": {
+      "frame_end": 33523233,
+      "text_speed_state": 33525640,
+      "print_task": 33523533,
+      "load_rows": 33524237,
+      "load_choice": 33524285,
+      "load_label": 33524353,
+      "commit_speed": 33524393,
+      "exit_free": 33524437,
+      "draw_label": 33524497,
+      "setup_sprites": 33524533,
+      "pass_end": 33524617,
+      "call_print": 33525293
+    },
+    "unaltered_extent_end": "0x01ff8fc0",
+    "source_sha256": "11b4a2f343cf8673164b7528f2e2149aa0d1dc103069aa123c03c63dd3c3ec5a",
+    "semantic_limitation": "Old reserved TEXT SPEED encodings2/3 become bit2 NORMAL/FAST plus CAP; no migration marker; title high bit becomes ITEMS_ALL; do not claim downgrade equivalence.",
+    "allowed_delta_span_bytes": 10,
+    "actual_changed_bytes": 5
+  },
+  "historical_roms": {
+    "en": {
+      "path": "work/build/double-target-armips/final/origin_hg_v4.0.3_en_wip.nds",
+      "sha256": "a5a418b277bf07390e7282413923ec34f1c364f4a96c88936d65a73a80d51f40"
+    },
+    "cn": {
+      "path": "work/rom/origin_v4.0.3_cn.nds",
+      "sha256": "4807ab2c130581cb9d4f6110fc64b41ca4807b8d28e7622ebd3c9740baed95c8"
+    }
+  }
+}

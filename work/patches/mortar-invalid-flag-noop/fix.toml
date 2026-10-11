@@ -1,0 +1,38 @@
+id = "mortar-invalid-flag-noop"
+title = "Prevent the expedition departure from writing into Pokédex caught data"
+kind = "narc"
+enabled = false
+decisions = ["D-2321", "D-2300", "D-2310"]
+requires = []
+why = """
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
+
+D-1333/D-1550: member962 SetFlag4461 exceeds the3231 persisted-flag limit.
+After a returning native assertion it writes bit5 at Pokédex+0x11, the Weezing
+caught bit, without updating seen data. Its intended story flag is unproved.
+"""
+what = """
+Replace only the invalid SetFlag4461 operand with0, a native no-op. Keep the
+departure's Set675, Clear670 and SetVar409F=7, all scene offsets and the separate
+completed-expedition gate repair. Do not guess461/365, change NPC persistence,
+clear previously written Pokédex bits or migrate any existing save data.
+Route1's separate7286 marker remains deferred pending safe old-save compatibility.
+"""
+evidence = [
+  "work/notes/issue09_story_flags_investigation_20261009.md",
+  "work/notes/issue09_story_flags_offline_reproduction_20261009.md",
+  "work/notes/issue09_story_flags_fix_20261009.md",
+  "work/tools/test_story_flags.py; work/tools/native_script_state.py",
+]
+
+[[narc_bytes]]
+id = "departure-invalid-set-noop"
+narc = "a/0/1/2"
+member = 962
+offset = "0x71D"
+expect = "0x116D"
+new = "0x0000"
+member_sha1 = "33cb77c9032d91186fa1680ae2b28919b4f58be5"
+notes = "SetFlag at1819: operand4461 ->0; native SetFlag0 makes no persisted write."

@@ -1,0 +1,263 @@
+; honey-gather - disassembly snapshot of honey-gather.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write honey-gather   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: honey-gather.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x15974 (RAM 0x02216154), 12 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02216154  1C28       adds r0, r5, #0
+  02216156  2106       movs r1, #6
+  02216158  2200       movs r2, #0
+  0221615A  F657 FB75  bl #0x206d848
+  0221615E  8420       strh r0, [r4, #0x20]
+
+== overlay14+0x15FBC (RAM 0x0221679C), 4 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  0221679C  8C00       ldrh r0, [r0, #0x20]
+  0221679E  4770       bx lr
+
+== overlay14+0x15FD4 (RAM 0x022167B4), 4 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  022167B4  6900       ldr r0, [r0, #0x10]
+  022167B6  4770       bx lr
+
+== overlay14+0x17418 (RAM 0x02217BF8), 4 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02217BF8  8AC0       ldrh r0, [r0, #0x16]
+  02217BFA  4770       bx lr
+
+== overlay14+0x17924 (RAM 0x02218104), 8 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02218104  3024       adds r0, #0x24
+  02218106  7800       ldrb r0, [r0]
+  02218108  4770       bx lr
+  0221810A  0000       movs r0, r0
+
+== overlay14+0x2B4E8 (RAM 0x0222BCC8), 248 bytes, thumb: post-battle-collector
+  0222BCC4  5BAC       ldrh r4, [r5, r6]
+  0222BCC6  0225       lsls r5, r4, #8
+- 0222BCC8  B5F0       push {r4, r5, r6, r7, lr}
+- 0222BCCA  B085       sub sp, #0x14
+- 0222BCCC  9000       str r0, [sp]
+- 0222BCCE  9101       str r1, [sp, #4]
+- 0222BCD0  2000       movs r0, #0
+- 0222BCD2  9004       str r0, [sp, #0x10]
+- 0222BCD4  4837       ldr r0, [pc, #0xdc]
+- 0222BCD6  1C17       adds r7, r2, #0
+- 0222BCD8  6800       ldr r0, [r0]
+- 0222BCDA  6901       ldr r1, [r0, #0x10]
+- 0222BCDC  9801       ldr r0, [sp, #4]
+- 0222BCDE  0080       lsls r0, r0, #2
+- 0222BCE0  1808       adds r0, r1, r0
+- 0222BCE2  6840       ldr r0, [r0, #4]
+- 0222BCE4  9003       str r0, [sp, #0xc]
+- 0222BCE6  9804       ldr r0, [sp, #0x10]
+- 0222BCE8  9002       str r0, [sp, #8]
+- 0222BCEA  9803       ldr r0, [sp, #0xc]
+- 0222BCEC  F647 FB54  bl #0x2073398
+- 0222BCF0  2800       cmp r0, #0
+- 0222BCF2  DD5C       ble #0x222bdae
+- 0222BCF4  9A02       ldr r2, [sp, #8]
+- 0222BCF6  9800       ldr r0, [sp]
+- 0222BCF8  0612       lsls r2, r2, #0x18
+- 0222BCFA  9901       ldr r1, [sp, #4]
+- 0222BCFC  0E12       lsrs r2, r2, #0x18
+- 0222BCFE  F004 FE0F  bl #0x2230920
+- 0222BD02  1C06       adds r6, r0, #0
+- 0222BD04  F7EB FF70  bl #0x2217be8
+- 0222BD08  1C30       adds r0, r6, #0
+- 0222BD0A  F7EB FF75  bl #0x2217bf8
+- 0222BD0E  1C04       adds r4, r0, #0
+- 0222BD10  2000       movs r0, #0
+- 0222BD12  8038       strh r0, [r7]
+- 0222BD14  1C30       adds r0, r6, #0
+- 0222BD16  F7EA FD4D  bl #0x22167b4
+- 0222BD1A  214C       movs r1, #0x4c
+- 0222BD1C  2200       movs r2, #0
+- 0222BD1E  F641 FD93  bl #0x206d848
+- 0222BD22  2800       cmp r0, #0
+- 0222BD24  D139       bne #0x222bd9a
+- 0222BD26  2C35       cmp r4, #0x35
+- 0222BD28  D137       bne #0x222bd9a
+- 0222BD2A  200A       movs r0, #0xa
+- 0222BD2C  F7FA FBC8  bl #0x22264c0
+- 0222BD30  2800       cmp r0, #0
+- 0222BD32  D032       beq #0x222bd9a
+- 0222BD34  2064       movs r0, #0x64
+- 0222BD36  2400       movs r4, #0
+- 0222BD38  F7FA FB98  bl #0x222646c
+- 0222BD3C  1C05       adds r5, r0, #0
+- 0222BD3E  1C30       adds r0, r6, #0
+- 0222BD40  F7EC F9E0  bl #0x2218104
+- 0222BD44  1E40       subs r0, r0, #1
+- 0222BD46  210A       movs r1, #0xa
+- 0222BD48  F6C5 EA66  blx #0x20f1218
+- 0222BD4C  0600       lsls r0, r0, #0x18
+- 0222BD4E  0E03       lsrs r3, r0, #0x18
+- 0222BD50  2B0A       cmp r3, #0xa
+- 0222BD52  D300       blo #0x222bd56
+- 0222BD54  2309       movs r3, #9
+- 0222BD56  4818       ldr r0, [pc, #0x60]
+- 0222BD58  4A18       ldr r2, [pc, #0x60]
+- 0222BD5A  2100       movs r1, #0
+- 0222BD5C  18C3       adds r3, r0, r3
+- 0222BD5E  7818       ldrb r0, [r3]
+- 0222BD60  8816       ldrh r6, [r2]
+- 0222BD62  1820       adds r0, r4, r0
+- 0222BD64  0600       lsls r0, r0, #0x18
+- 0222BD66  0E04       lsrs r4, r0, #0x18
+- 0222BD68  42AC       cmp r4, r5
+- 0222BD6A  DD11       ble #0x222bd90
+- 0222BD6C  4811       ldr r0, [pc, #0x44]
+- 0222BD6E  2201       movs r2, #1
+- 0222BD70  6800       ldr r0, [r0]
+- 0222BD72  2305       movs r3, #5
+- 0222BD74  6901       ldr r1, [r0, #0x10]
+- 0222BD76  2042       movs r0, #0x42
+- 0222BD78  0080       lsls r0, r0, #2
+- 0222BD7A  5808       ldr r0, [r1, r0]
+- 0222BD7C  1C31       adds r1, r6, #0
+- 0222BD7E  F64A FE43  bl #0x2076a08
+- 0222BD82  803E       strh r6, [r7]
+- 0222BD84  9804       ldr r0, [sp, #0x10]
+- 0222BD86  1C40       adds r0, r0, #1
+- 0222BD88  0600       lsls r0, r0, #0x18
+- 0222BD8A  0E00       lsrs r0, r0, #0x18
+- 0222BD8C  9004       str r0, [sp, #0x10]
+- 0222BD8E  E004       b #0x222bd9a
+- 0222BD90  1C49       adds r1, r1, #1
+- 0222BD92  1C92       adds r2, r2, #2
+- 0222BD94  330A       adds r3, #0xa
+- 0222BD96  2916       cmp r1, #0x16
+- 0222BD98  D3E1       blo #0x222bd5e
+- 0222BD9A  9802       ldr r0, [sp, #8]
+- 0222BD9C  1CBF       adds r7, r7, #2
+- 0222BD9E  1C40       adds r0, r0, #1
+- 0222BDA0  9002       str r0, [sp, #8]
+- 0222BDA2  9803       ldr r0, [sp, #0xc]
+- 0222BDA4  F647 FAF8  bl #0x2073398
+- 0222BDA8  9902       ldr r1, [sp, #8]
+- 0222BDAA  4281       cmp r1, r0
+- 0222BDAC  DBA2       blt #0x222bcf4
+- 0222BDAE  9804       ldr r0, [sp, #0x10]
+- 0222BDB0  B005       add sp, #0x14
+- 0222BDB2  BDF0       pop {r4, r5, r6, r7, pc}
+- 0222BDB4  5BAC       ldrh r4, [r5, r6]
+- 0222BDB6  0225       lsls r5, r4, #8
+- 0222BDB8  E3D8       b #0x222c56c
+- 0222BDBA  0224       lsls r4, r4, #8
+- 0222BDBC  E3AC       b #0x222c518
+- 0222BDBE  0224       lsls r4, r4, #8
++ 0222BCC8  B5F0       push {r4, r5, r6, r7, lr}
++ 0222BCCA  B085       sub sp, #0x14
++ 0222BCCC  9000       str r0, [sp]
++ 0222BCCE  9101       str r1, [sp, #4]
++ 0222BCD0  1C16       adds r6, r2, #0
++ 0222BCD2  2500       movs r5, #0
++ 0222BCD4  2700       movs r7, #0
++ 0222BCD6  4834       ldr r0, [pc, #0xd0]
++ 0222BCD8  6800       ldr r0, [r0]
++ 0222BCDA  6900       ldr r0, [r0, #0x10]
++ 0222BCDC  0089       lsls r1, r1, #2
++ 0222BCDE  1840       adds r0, r0, r1
++ 0222BCE0  6840       ldr r0, [r0, #4]
++ 0222BCE2  9002       str r0, [sp, #8]
++ 0222BCE4  E001       b #0x222bcea  ; check_slot
++ 0222BCE6  3501       adds r5, #1
++ 0222BCE8  3602       adds r6, #2
++ 0222BCEA  9802       ldr r0, [sp, #8]
++ 0222BCEC  F647 FB54  bl #0x2073398
++ 0222BCF0  4285       cmp r5, r0
++ 0222BCF2  DA4B       bge #0x222bd8c  ; done
++ 0222BCF4  9800       ldr r0, [sp]
++ 0222BCF6  9901       ldr r1, [sp, #4]
++ 0222BCF8  1C2A       adds r2, r5, #0
++ 0222BCFA  F004 FE11  bl #0x2230920
++ 0222BCFE  1C04       adds r4, r0, #0
++ 0222BD00  2000       movs r0, #0
++ 0222BD02  8030       strh r0, [r6]
++ 0222BD04  6920       ldr r0, [r4, #0x10]
++ 0222BD06  214C       movs r1, #0x4c
++ 0222BD08  2200       movs r2, #0
++ 0222BD0A  F641 FD9D  bl #0x206d848
++ 0222BD0E  2800       cmp r0, #0
++ 0222BD10  D1E9       bne #0x222bce6  ; next_slot
++ 0222BD12  8AE0       ldrh r0, [r4, #0x16]
++ 0222BD14  2835       cmp r0, #0x35
++ 0222BD16  D00F       beq #0x222bd38  ; pickup
++ 0222BD18  2876       cmp r0, #0x76
++ 0222BD1A  D1E4       bne #0x222bce6  ; next_slot
++ 0222BD1C  8C20       ldrh r0, [r4, #0x20]
++ 0222BD1E  2800       cmp r0, #0
++ 0222BD20  D1E1       bne #0x222bce6  ; next_slot
++ 0222BD22  F000 F836  bl #0x222bd92  ; level_band
++ 0222BD26  3001       adds r0, #1
++ 0222BD28  0081       lsls r1, r0, #2
++ 0222BD2A  1840       adds r0, r0, r1
++ 0222BD2C  F7FA FBC8  bl #0x22264c0
++ 0222BD30  2800       cmp r0, #0
++ 0222BD32  D0D8       beq #0x222bce6  ; next_slot
++ 0222BD34  245E       movs r4, #0x5e
++ 0222BD36  E019       b #0x222bd6c  ; award
++ 0222BD38  200A       movs r0, #0xa
++ 0222BD3A  F7FA FBC1  bl #0x22264c0
++ 0222BD3E  2800       cmp r0, #0
++ 0222BD40  D0D1       beq #0x222bce6  ; next_slot
++ 0222BD42  2064       movs r0, #0x64
++ 0222BD44  F7FA FB92  bl #0x222646c
++ 0222BD48  9003       str r0, [sp, #0xc]
++ 0222BD4A  F000 F822  bl #0x222bd92  ; level_band
++ 0222BD4E  4917       ldr r1, [pc, #0x5c]
++ 0222BD50  1809       adds r1, r1, r0
++ 0222BD52  4A17       ldr r2, [pc, #0x5c]
++ 0222BD54  2316       movs r3, #0x16
++ 0222BD56  9803       ldr r0, [sp, #0xc]
++ 0222BD58  780C       ldrb r4, [r1]
++ 0222BD5A  42A0       cmp r0, r4
++ 0222BD5C  D305       blo #0x222bd6a  ; selected
++ 0222BD5E  1B00       subs r0, r0, r4
++ 0222BD60  310A       adds r1, #0xa
++ 0222BD62  3202       adds r2, #2
++ 0222BD64  3B01       subs r3, #1
++ 0222BD66  D1F7       bne #0x222bd58  ; select_item
++ 0222BD68  E7BD       b #0x222bce6  ; next_slot
++ 0222BD6A  8814       ldrh r4, [r2]
++ 0222BD6C  480E       ldr r0, [pc, #0x38]
++ 0222BD6E  6800       ldr r0, [r0]
++ 0222BD70  6901       ldr r1, [r0, #0x10]
++ 0222BD72  2042       movs r0, #0x42
++ 0222BD74  0080       lsls r0, r0, #2
++ 0222BD76  5808       ldr r0, [r1, r0]
++ 0222BD78  1C21       adds r1, r4, #0
++ 0222BD7A  2201       movs r2, #1
++ 0222BD7C  2305       movs r3, #5
++ 0222BD7E  F64A FE43  bl #0x2076a08
++ 0222BD82  2800       cmp r0, #0
++ 0222BD84  D0AF       beq #0x222bce6  ; next_slot
++ 0222BD86  8034       strh r4, [r6]
++ 0222BD88  3701       adds r7, #1
++ 0222BD8A  E7AC       b #0x222bce6  ; next_slot
++ 0222BD8C  1C38       adds r0, r7, #0
++ 0222BD8E  B005       add sp, #0x14
++ 0222BD90  BDF0       pop {r4, r5, r6, r7, pc}
++ 0222BD92  B508       push {r3, lr}
++ 0222BD94  2024       movs r0, #0x24
++ 0222BD96  5C20       ldrb r0, [r4, r0]
++ 0222BD98  3801       subs r0, #1
++ 0222BD9A  210A       movs r1, #0xa
++ 0222BD9C  F6C5 EA3C  blx #0x20f1218
++ 0222BDA0  2809       cmp r0, #9
++ 0222BDA2  D900       bls #0x222bda6  ; band_done
++ 0222BDA4  2009       movs r0, #9
++ 0222BDA6  BD08       pop {r3, pc}
++ 0222BDA8  5BAC       ldrh r4, [r5, r6]
++ 0222BDAA  0225       lsls r5, r4, #8
++ 0222BDAC  E3D8       b #0x222c560
++ 0222BDAE  0224       lsls r4, r4, #8
++ 0222BDB0  E3AC       b #0x222c50c
++ 0222BDB2  0224       lsls r4, r4, #8
++ 0222BDB4  0000       movs r0, r0
++ 0222BDB6  0000       movs r0, r0
++ 0222BDB8  0000       movs r0, r0
++ 0222BDBA  0000       movs r0, r0
++ 0222BDBC  0000       movs r0, r0
++ 0222BDBE  0000       movs r0, r0
+  0222BDC0  B538       push {r3, r4, r5, lr}
+  0222BDC2  1C04       adds r4, r0, #0

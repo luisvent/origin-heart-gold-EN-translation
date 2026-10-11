@@ -135,3 +135,6 @@ work/save-core/node_modules
 .!*!*
 # Raw reference attachments remain local; only normalized website facts are tracked.
 /work/tools/site/reference_raw/
+
+# Local reference directory may be linked into isolated release-prep worktrees.
+/work/translate/ref

@@ -38,7 +38,8 @@ fix.toml
 
   Entries (arrays of tables; a fix uses the ones of its kind):
     [[code]]      the regions a code/data fix may change (kinds code, data). Keys: id, file ("arm9" |
-                  "overlayNN"), offset ("0x4E", file offset; arm9/overlays: offset in the RAM image), expect,
+                  "overlayNN" | "scriptNNN": member NNN of the event-script NARC a/0/1/2, opened at 0), offset
+                  ("0x4E", file offset; arm9/overlays: offset in the RAM image; scripts: offset in the file), expect,
                   notes. expect: the original bytes of the region, as one halfword written 0x + 1-4 hex digits
                   ("0x2305") or a run of 2+ halfwords of exactly 4 hex digits each ("01DE 012B ..."); anything
                   else is refused (a bare "2320" is ambiguous). A large region (an overlay a fix rewrites in
@@ -116,6 +117,8 @@ Blind spots of the overlap check: it compares entries only within one namespace 
     font member would not be seen to overlap a [[font]] glyph in it;
   * [[string]] entries are byte ranges in arm9 / overlays, like [[code]]; a [[grow]] is one key per overlay,
     so two fixes cannot grow the same overlay.
+  * an event-script file edited by [[code]] entries is keyed "scriptNNN" (byte ranges), so a [[graphics]]
+    member_from_file of "a/0/1/2#NNN" would not be seen to overlap it.
 Today no fix is in these situations (font only in font-glyphs).
 
 CLI
@@ -178,7 +181,12 @@ CODE_KEYS = {"id": str, "file": str, "offset": str, "expect": str, "length": int
              "notes": str}
 CODE_REQUIRED = ("id", "file", "offset", "notes")         # plus expect, or length + expect_sha1
 SHA1_RE = re.compile(r"[0-9a-f]{40}")
-CODE_FILE_RE = re.compile(r"arm9|overlay\d+")   # [[code]] / [[string]] files; "itcm" only grows ([[grow]])
+CODE_FILE_RE = re.compile(r"arm9|overlay\d+|script\d+")   # [[code]] files; "itcm" only grows ([[grow]])
+STRING_FILE_RE = re.compile(r"arm9|overlay\d+")          # [[string]] files
+# "scriptNNN": member NNN of the event-script NARC a/0/1/2 (hardcoded.SCRIPT_NARC), staged as scriptNNN.bin and
+# opened at address 0, so an `.org` is the offset in the script file (the L-numbers of docs/scriptdump.py).
+SCRIPT_FILE_RE = re.compile(r"script\d+")
+SCRIPT_BASE = 0
 # `.open "<file>.bin", 0x<load address>` in a fix's asm (comments allowed after it)
 ASM_OPEN_RE = re.compile(r'^\s*\.open\s+"([^"]+)"\s*,\s*(0x[0-9A-Fa-f]+)\s*(?:;.*)?$', re.I)
 STRING_KEYS = {"id": str, "file": str, "offset": str, "zh": str, "en": str, "max_units": int,
@@ -344,7 +352,8 @@ def _validate_entries(fx, where, problems):
         if isinstance(e.get("offset"), str) and not HEX_RE.fullmatch(e["offset"]):
             problems.append(f"{w}: offset must be hex like '0x4E'")
         if isinstance(e.get("file"), str) and not CODE_FILE_RE.fullmatch(e["file"]):
-            problems.append(f"{w}: file must be 'arm9' or 'overlayNN' (the ITCM block 'itcm' may only grow: [[grow]])")
+            problems.append(f"{w}: file must be 'arm9', 'overlayNN' or 'scriptNNN' (the ITCM block 'itcm' may only "
+                            f"grow: [[grow]])")
         if "expect" in e and ("length" in e or "expect_sha1" in e):
             problems.append(f"{w}: give expect, or length + expect_sha1, not both")
         elif "expect" not in e:
@@ -366,7 +375,7 @@ def _validate_entries(fx, where, problems):
             problems.append(f"{w}: offset must be hex like '0x6F0'")
         if e.get("id") and e.get("file") and e.get("offset") and e["id"] != f"{e['file']}:{e['offset']}":
             problems.append(f"{w}: id must be '<file>:<offset>'")
-        if isinstance(e.get("file"), str) and not CODE_FILE_RE.fullmatch(e["file"]):
+        if isinstance(e.get("file"), str) and not STRING_FILE_RE.fullmatch(e["file"]):
             problems.append(f"{w}: file must be 'arm9' or 'overlayNN' (the ITCM block 'itcm' may only grow: [[grow]])")
         for ptr in e.get("pointers", []) if _is(e.get("pointers", []), STRS) else []:
             if not HEX_RE.fullmatch(ptr):
@@ -1198,7 +1207,8 @@ def _validate_asm(fx, where, problems, overlay_bases):
                             f"(expected one of {', '.join(sorted(f + '.bin' for f in files)) or 'none'})")
             continue
         opened.add(key)
-        want = ARM9_BASE if key == "arm9" else ITCM_BASE if key == "itcm" else (overlay_bases or {}).get(key)
+        want = (ARM9_BASE if key == "arm9" else ITCM_BASE if key == "itcm"
+                else SCRIPT_BASE if SCRIPT_FILE_RE.fullmatch(key) else (overlay_bases or {}).get(key))
         if want is not None and base != want:
             problems.append(f"{w}: {name} opened at {base:#010x}, but its load address is {want:#010x}"
                             f"{'' if key == 'arm9' else ' (' + OVERLAYS_TOML + ')'}")
@@ -1399,7 +1409,8 @@ def check_overlay_bases(rom, root: Path = PATCHES_DIR):
 
 
 def _key_order(k):
-    return ({"arm9": 0, "itcm": 1}.get(k, 2), int(k[7:]) if k.startswith("overlay") else 0)
+    return ({"arm9": 0, "itcm": 1}.get(k, 3 if k.startswith("script") else 2),
+            int(k[7:]) if k.startswith("overlay") else int(k[6:]) if k.startswith("script") else 0)
 
 
 def load_sizes(root: Path = PATCHES_DIR) -> dict:
@@ -1414,17 +1425,18 @@ def load_sizes(root: Path = PATCHES_DIR) -> dict:
     except tomllib.TOMLDecodeError as ex:
         raise FixError(f"{p.name}: {ex}") from None
     for k, v in data.items():
-        want = {"size"} if k == "arm9" else {"size", "bss"}
-        if (not re.fullmatch(r"arm9|itcm|overlay\d+", k) or not isinstance(v, dict) or set(v) != want
+        want = {"size"} if k == "arm9" or SCRIPT_FILE_RE.fullmatch(k) else {"size", "bss"}
+        if (not re.fullmatch(r"arm9|itcm|overlay\d+|script\d+", k) or not isinstance(v, dict) or set(v) != want
                 or not all(_is(x, int) and x >= 0 for x in v.values())):
-            raise FixError(f"{p.name}: [{k}] must be [arm9] with 'size', or [itcm] / [overlayNN] with 'size' "
-                           f"and 'bss' (non-negative integers)")
+            raise FixError(f"{p.name}: [{k}] must be [arm9] / [scriptNNN] with 'size', or [itcm] / [overlayNN] "
+                           f"with 'size' and 'bss' (non-negative integers)")
     return data
 
 
 def rom_sizes(rom, keys) -> dict:
-    """The sizes.toml rows of `keys` ("arm9", "itcm", "overlayNN") in an ndspy ROM: the arm9 file, the ITCM
-    autoload section (ndspy loadArm9) and the overlay files, with the .bss of the last two; None when absent."""
+    """The sizes.toml rows of `keys` ("arm9", "itcm", "overlayNN", "scriptNNN") in an ndspy ROM: the arm9 file,
+    the ITCM autoload section (ndspy loadArm9), the overlay files, with the .bss of these two, and event-script
+    files; None when absent."""
     import ndspy.code
     table = ndspy.code.loadOverlayTable(rom.arm9OverlayTable, lambda i, f: bytes(rom.files[f]))
     out = {}
@@ -1434,6 +1446,11 @@ def rom_sizes(rom, keys) -> dict:
         elif k == "itcm":
             secs = [s for s in rom.loadArm9().sections if s.ramAddress == ITCM_BASE]
             out[k] = {"size": len(secs[0].data), "bss": secs[0].bssSize} if len(secs) == 1 else None
+        elif SCRIPT_FILE_RE.fullmatch(k):
+            import msgtool
+            files = msgtool.Narc.parse(msgtool.get_file(rom, "a/0/1/2")).files
+            n = int(k[6:])
+            out[k] = {"size": len(files[n])} if n < len(files) else None
         else:
             ov = table.get(int(k[7:])) if re.fullmatch(r"overlay\d+", k) else None
             out[k] = {"size": len(rom.files[ov.fileID]), "bss": ov.bssSize} if ov else None
@@ -1461,7 +1478,8 @@ def write_sizes(rom, fixes, root: Path = PATCHES_DIR) -> Path:
     keys = sorted({e["file"] for fx in fixes if fx.get("kind") in ASM_KINDS and fx.get("asm")
                    for t in ("code", "string", "grow") for e in fx.get(t, [])}, key=_key_order)
     lines = ["# Size of every binary the armips fixes patch, in the Chinese ROM: the arm9 file, the ITCM autoload",
-             "# section and the overlay files (bss: their .bss). Generated with overlays.toml by",
+             "# section, the overlay files (bss: their .bss) and event-script files (scriptNNN: member NNN of",
+             "# a/0/1/2). Generated with overlays.toml by",
              "# `python3 work/tools/fixes.py overlays`; build.py checks it against the ROM it loads. Sizes only:",
              "# `asmpatch.py synthetic` (check.py, CI) assembles every source over zero-filled stand-ins of these",
              "# sizes, without the ROM.", ""]
@@ -1475,6 +1493,8 @@ def write_sizes(rom, fixes, root: Path = PATCHES_DIR) -> Path:
 
 
 def _ram(file, off, bases):
+    if SCRIPT_FILE_RE.fullmatch(file):
+        return None                                  # an event-script file is data the script engine reads
     if file == "arm9":
         return 0x02000000 + off
     if file == "itcm":

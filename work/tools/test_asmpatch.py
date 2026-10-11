@@ -25,7 +25,16 @@ the same day (D-2289): its overlay2 is the Chinese overlay 2 with the 20 bytes a
 (D-2290): its overlay14 is the Chinese overlay 14 with the jump-table entry 0x252C4 = 0x00BE and the
 five-instruction type case at 0x2537E (12 bytes), checked against bytes encoded by hand, independently of armips
 (test_type_change_message_bytes); its 'b 0x02225B16' at 0x2536A belongs to battle-message-error-marker since the
-merge."""
+merge. Lugia (D-2298) adds the guarded 24-byte overlay1 dispatcher; its bytes are independently
+encoded in test_lugia_dispatch_bytes_and_boundaries, and read-only guards are mutation-tested.
+Double-battle targeting was initially byte-identical to approved Option 2 (2026-10-06). Its separately
+approved horizontal fallback (2026-10-09) is independently Thumb-encoded in test_double_target.py;
+the new individual and combined overlay14 pins use those expected regions. The preceding combined
+and individual pins were verified against the historical disassembly before updating either one.
+Zero-PP Struggle (D-2302) adds one 240-byte overlay14 guard on 2026-10-10. Its isolated
+and combined pins were recorded only after checking the guard SHA-256 against the issue03
+runtime build, equality outside its declared region, and equality of every other combined binary
+(work/build/bugfix-sequential-20261009/final-integration/assembly-proof.json)."""
 import hashlib
 import os
 import re
@@ -43,92 +52,107 @@ import asmpatch as A  # noqa: E402
 import fixes as F  # noqa: E402
 
 ROM_CN = HERE.parent / "rom" / "origin_v4.0.3_cn.nds"
-ASM_FIXES = ("outfit-chooser-strings", "namelen", "naming-keyboard", "msgload", "pcbox-name-width", "ivev-panel",
-             "antipiracy", "text-speed", "overworld-texture-frame-bounds", "bulbasaur-reflection-boundary",
-             "battle-message-error-marker", "battle-message-references", "evolution-moves", "safari-no-wild-double",
-             "type-change-message")
+# Reviewed pre-integration combined golden set. Honey Gather and startup warning
+# have separate source tests; extend this set only after combined byte review.
+ASM_FIXES = ('outfit-chooser-strings',
+ 'namelen',
+ 'naming-keyboard',
+ 'msgload',
+ 'pcbox-name-width',
+ 'ivev-panel',
+ 'antipiracy',
+ 'text-speed',
+ 'overworld-texture-frame-bounds',
+ 'bulbasaur-reflection-boundary',
+ 'battle-message-error-marker',
+ 'battle-message-references',
+ 'evolution-moves',
+ 'safari-no-wild-double',
+ 'type-change-message',
+ 'lugia-animation-state-bounds',
+ 'double-battle-targeting',
+ 'zero-pp-struggle',
+ 'battle-heal-hpbar-switched-out',
+ 'cute-charm-infatuation',
+ 'battle-party-status-sync',
+ 'faint-waits-for-hp-bar',
+ 'battle-message-variant',
+ 'pryce-weather-rule')
 # SHA-1 of every binary each fix changes (alone, and all together as "all") and of the y9 overlay table
-GOLDEN = {
-    "outfit-chooser-strings": {
-        "overlay58": "8fb5f17c824265a0e8da07803410d5d4999b84a4",
-        "y9": "90ebb4a7ba151c4e4d3ae19a06be6f06451dabb1"
-    },
-    "namelen": {
-        "arm9": "4f353f1e220d6ef9ac9ff967c3f7f3fbdd5ba68d",
-        "overlay44": "bb8393e2d4c2cd05a094e984597a0de6ce0bd841",
-        "overlay49": "dc255061037a45f36d47c7698418f70874c7a035",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "naming-keyboard": {
-        "arm9": "3b513dfb3737a997d300a8977bc1cf1b5304bacb",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "msgload": {
-        "arm9": "17255012a4c3660b4c872c28b5aa3fb82116b4e9",
-        "overlay17": "5015627c82275c7836897b67dfec73c662015635",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "pcbox-name-width": {
-        "overlay16": "87cd982681b4164781e92a68994d6190c54d7a35",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "ivev-panel": {
-        "arm9": "0c8fd98f8d8fc6e314892055612ebcbaa412f0eb",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "overworld-texture-frame-bounds": {
-        "arm9": "e7f21ac23a61fc752c0d0f8e891c93dd205dab41",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "bulbasaur-reflection-boundary": {
-        "overlay1": "e47febed127e898212e32db2d91b577e7ff6106c",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "battle-message-error-marker": {
-        "overlay14": "0825912e0a5ea831b01317bf28d6ea710fa8bd06",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "battle-message-references": {
-        "overlay14": "8e5aa06548bbf44ebc5fa39687b23f7ba19f16d5",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "evolution-moves": {
-        "arm9": "a6b115c26c853db96fc0f85bf0d9cdfdd56737e6",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "safari-no-wild-double": {
-        "overlay2": "6d1ad40ac86ca53b734a0f489d8f75d6111adf78",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "type-change-message": {
-        "overlay14": "ee8cc4be5ed4b30d173c870a5d4ccd02e16e8b9c",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "antipiracy": {
-        "overlay114": "2ab9890fab31a6b5fa4e432652ffb1a5b5d40a3c",
-        "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688"
-    },
-    "text-speed": {
-        "arm9": "5a4efb4737ca6f892ee0930b2ee113f4f568bfd1",
-        "overlay50": "1fd493386aac113cafab10e6872e85b502fe9dbc",
-        "overlay92": "1adb1a13649442f6995453eb0034214aaf4de515",
-        "y9": "25d4a33a740ce2bb960ed27a8afa1a0d3b56208f"
-    },
-    "all": {
-        "arm9": "cc26e71d5ae7c8875a0a5cf34435e1dc8e3b13c8",
-        "overlay1": "e47febed127e898212e32db2d91b577e7ff6106c",
-        "overlay14": "2e3154ff4f4789bcfd81f5edcb2d889862629d69",
-        "overlay2": "6d1ad40ac86ca53b734a0f489d8f75d6111adf78",
-        "overlay16": "87cd982681b4164781e92a68994d6190c54d7a35",
-        "overlay17": "5015627c82275c7836897b67dfec73c662015635",
-        "overlay44": "bb8393e2d4c2cd05a094e984597a0de6ce0bd841",
-        "overlay49": "dc255061037a45f36d47c7698418f70874c7a035",
-        "overlay50": "1fd493386aac113cafab10e6872e85b502fe9dbc",
-        "overlay58": "8fb5f17c824265a0e8da07803410d5d4999b84a4",
-        "overlay92": "1adb1a13649442f6995453eb0034214aaf4de515",
-        "overlay114": "2ab9890fab31a6b5fa4e432652ffb1a5b5d40a3c",
-        "y9": "3483751df97682d807071808d46d411fd316a428"
-    }
+GOLDEN = {'outfit-chooser-strings': {'overlay58': '8fb5f17c824265a0e8da07803410d5d4999b84a4',
+                            'y9': '90ebb4a7ba151c4e4d3ae19a06be6f06451dabb1'},
+ 'namelen': {'arm9': '4f353f1e220d6ef9ac9ff967c3f7f3fbdd5ba68d',
+             'overlay44': 'bb8393e2d4c2cd05a094e984597a0de6ce0bd841',
+             'overlay49': 'dc255061037a45f36d47c7698418f70874c7a035',
+             'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'naming-keyboard': {'arm9': '3b513dfb3737a997d300a8977bc1cf1b5304bacb',
+                     'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'msgload': {'arm9': '17255012a4c3660b4c872c28b5aa3fb82116b4e9',
+             'overlay17': '5015627c82275c7836897b67dfec73c662015635',
+             'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'pcbox-name-width': {'overlay16': '87cd982681b4164781e92a68994d6190c54d7a35',
+                      'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'ivev-panel': {'arm9': '0c8fd98f8d8fc6e314892055612ebcbaa412f0eb', 'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'overworld-texture-frame-bounds': {'arm9': 'e7f21ac23a61fc752c0d0f8e891c93dd205dab41',
+                                    'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'bulbasaur-reflection-boundary': {'overlay1': 'e47febed127e898212e32db2d91b577e7ff6106c',
+                                   'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'lugia-animation-state-bounds': {'overlay1': 'dadc4ac9aaeefd24e9d4c8d27d90d3722a36088a',
+                                  'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'battle-message-error-marker': {'overlay14': '0825912e0a5ea831b01317bf28d6ea710fa8bd06',
+                                 'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'battle-message-references': {'overlay14': '8e5aa06548bbf44ebc5fa39687b23f7ba19f16d5',
+                               'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'evolution-moves': {'arm9': 'a6b115c26c853db96fc0f85bf0d9cdfdd56737e6',
+                     'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'safari-no-wild-double': {'overlay2': '6d1ad40ac86ca53b734a0f489d8f75d6111adf78',
+                           'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'type-change-message': {'overlay14': 'ee8cc4be5ed4b30d173c870a5d4ccd02e16e8b9c',
+                         'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'antipiracy': {'overlay114': '2ab9890fab31a6b5fa4e432652ffb1a5b5d40a3c',
+                'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'text-speed': {'arm9': '5a4efb4737ca6f892ee0930b2ee113f4f568bfd1',
+                'overlay50': '1fd493386aac113cafab10e6872e85b502fe9dbc',
+                'overlay92': '1adb1a13649442f6995453eb0034214aaf4de515',
+                'y9': '25d4a33a740ce2bb960ed27a8afa1a0d3b56208f'},
+ 'double-battle-targeting': {'overlay14': '2d68b430e5dc83264b870d5c4c35c0f40c47060b',
+                             'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'zero-pp-struggle': {'overlay14': 'e795daa8e750b49eda8b48d4e5fc02bf29b10613',
+                      'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'battle-heal-hpbar-switched-out': {'overlay14': '8bd3bf7fed719d3ee61fb649564e6136cc0244e6',
+                                    'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'cute-charm-infatuation': {'overlay14': 'f65936e4b9bd1a4d4cdb6768ccb633ac6165bf3d',
+                            'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'battle-party-status-sync': {'overlay14': 'a9db85ec565f154642744275ca99fb814cb88320',
+                              'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'faint-waits-for-hp-bar': {'overlay14': '1941618d67555906642877239d1174cf8f43810a',
+                            'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'battle-message-variant': {'overlay14': '69cdda5f7b5af07c3815facd0e4994c99046c07c',
+                            'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'pryce-weather-rule': {'arm9': '472571f8cb861e91b38649a187b9168a864c27f0',
+                        'script928': '1306c506f5c4777d5aee61915a516d4afdc74f15',
+                        'y9': '14a857a74185e918becc63b963a4a7b5a0cf8688'},
+ 'all': {'arm9': '99ddec7c795792568d834970715449a0efd2554d',
+         'overlay1': 'f343d8292df13a82b67e4290054055f7f5c62fd7',
+         'overlay2': '6d1ad40ac86ca53b734a0f489d8f75d6111adf78',
+         'overlay14': 'de9d24c8728774e91540fa1f557d73e19d1cb0f6',
+         'overlay16': '87cd982681b4164781e92a68994d6190c54d7a35',
+         'overlay17': '5015627c82275c7836897b67dfec73c662015635',
+         'overlay44': 'bb8393e2d4c2cd05a094e984597a0de6ce0bd841',
+         'overlay49': 'dc255061037a45f36d47c7698418f70874c7a035',
+         'overlay50': '1fd493386aac113cafab10e6872e85b502fe9dbc',
+         'overlay58': '8fb5f17c824265a0e8da07803410d5d4999b84a4',
+         'overlay92': '1adb1a13649442f6995453eb0034214aaf4de515',
+         'overlay114': '2ab9890fab31a6b5fa4e432652ffb1a5b5d40a3c',
+         'script928': '1306c506f5c4777d5aee61915a516d4afdc74f15',
+         'y9': '3483751df97682d807071808d46d411fd316a428'}}
+
+# Reviewed against the 45-fix baseline: only Honey Gather and startup regions
+# differ. Main-root private proof: work/build/rc7-completion-20261010/baseline-review.json.
+GOLDEN["rc7-combined"] = {
+    **GOLDEN["all"],
+    "overlay14": "0a74e17c830f811c61da70c69048e0953e5c9051",
+    "overlay49": "6461375cc6928823130cb0079c1f492e3f6dff80",
 }
 
 
@@ -489,7 +513,7 @@ class Synthetic(unittest.TestCase):
         self.assertIsInstance(images, A.SyntheticImages)
         sizes = F.load_sizes()
         self.assertEqual({k: len(v) for k, v in images.items()}, {k: v["size"] for k, v in sizes.items()})
-        self.assertEqual(set(layout), set(sizes) - {"arm9"})
+        self.assertEqual(set(layout), {k for k in sizes if k != "arm9" and not F.SCRIPT_FILE_RE.fullmatch(k)})
         # the regions hold their fix.toml expect bytes, everything else is zero
         nl = next(f for f in fixes if f["id"] == "namelen")
         r = A.regions(nl, bases)[0]
@@ -606,7 +630,7 @@ class Synthetic(unittest.TestCase):
     @needs_armips
     def test_every_source_assembles_without_the_rom(self):
         summary = A.synthetic(ARMIPS)
-        self.assertIn(f"{len(ASM_FIXES)} armips fixes assembled without the ROM", summary)
+        self.assertIn(f"{len(ASM_FIXES) + 2} armips fixes assembled without the ROM", summary)
 
 
 @needs_armips
@@ -622,7 +646,7 @@ class RealFixes(unittest.TestCase):
         cls.fixes = {f["id"]: f for f in F.load_all()}
         cls.cn = m.load_rom(ROM_CN)
         view = hc.RomView(cls.cn)
-        cls.keys = ["arm9"] + [f"overlay{i}" for i in sorted(view.ovs)]
+        cls.keys = ["arm9"] + [f"overlay{i}" for i in sorted(view.ovs)] + ["script928"]
 
     def images(self, rom):
         view = self.hc.RomView(rom)
@@ -646,7 +670,8 @@ class RealFixes(unittest.TestCase):
         return rom, rep
 
     def test_every_armips_fix_has_a_source(self):
-        self.assertEqual(sorted(f["id"] for f in A.asm_fixes(self.fixes.values())), sorted(ASM_FIXES))
+        expected = sorted((*ASM_FIXES, "honey-gather", "startup-content-warning"))
+        self.assertEqual(sorted(f["id"] for f in A.asm_fixes(self.fixes.values())), expected)
 
     def test_antipiracy_stubs(self):
         # the six DS Protect entries in overlay114 return the genuine-cart values 0,1,0,1,0,1 ('mov r0,#n;
@@ -665,6 +690,33 @@ class RealFixes(unittest.TestCase):
             self.assertEqual(orig[off:off + 8].hex(), "f0472de980d04de2")
             self.assertEqual(struct.unpack_from("<2I", new, off), (0xE3A00000 | ret, 0xE12FFF1E))
 
+    def test_lugia_dispatch_bytes_and_boundaries(self):
+        # Hand-encoded Thumb: unsigned BHI skips to the existing position update;
+        # literal load still resolves to the original two-entry callback table.
+        rom, _ = self.assembled(["lugia-animation-state-bounds"])
+        old = self.hc.RomView(self.cn).get("overlay1")
+        new = self.hc.RomView(rom).get("overlay1")
+        want = bytearray(old)
+        want[0x13760:0x13778] = struct.pack(
+            "<12H", 0x2801, 0xD809, 0x0086, 0x4B09, 0x599B, 0x1C28,
+            0x1C21, 0x1C3A, 0x4798, 0x08B0, 0x6138, 0x46C0)
+        self.assertEqual(new, bytes(want))
+        self.assertEqual(rom.arm9OverlayTable, self.cn.arm9OverlayTable)
+
+    def test_lugia_refuses_changed_dispatch_dependencies(self):
+        # These are OUTSIDE the write region: region expect checks alone cannot
+        # protect the NULL exits, literal, callback ABI or callback-table extent.
+        for addr in (0x021F80D0, 0x021F80F8, 0x021F810C,
+                     0x021F819C, 0x021F81C4, 0x02208F70, 0x02208F74):
+            with self.subTest(address=hex(addr)):
+                rom = self.m.load_rom(ROM_CN)
+                view = self.hc.RomView(rom)
+                data = bytearray(view.get("overlay1"))
+                data[addr - 0x021E4980] ^= 1
+                view.set("overlay1", data)
+                with self.assertRaisesRegex(A.AsmError, "guard failed"):
+                    A.apply(rom, [self.fixes["lugia-animation-state-bounds"]], ARMIPS)
+
     def test_type_change_message_bytes(self):
         # the jump-table entry for kind 3 (0x02225AA4: tail 0x011A -> 0x00BE, the case at 0x02225B5E) and the type
         # case lsl r2, r4, #2 / ldr r0, [sp, #8] / ldr r2, [r7, r2] / add r1, r4, #0 / bl 0x0200C084 at
@@ -677,6 +729,14 @@ class RealFixes(unittest.TestCase):
         want[0x2537E:0x2538A] = struct.pack("<6H", 0x00A2, 0x9802, 0x58BA, 0x1C21, 0xF5E6, 0xFA8D)
         self.assertEqual(bytes(new), bytes(want))
         self.assertEqual(struct.unpack_from("<H", old, 0x2538A)[0], 0xE026)   # the old copy's b tail, kept
+
+    def test_double_target_independent_bytes(self):
+        from test_double_target import expected_replacement_regions
+        rom, _ = self.assembled(["double-battle-targeting"])
+        expected = bytearray(self.hc.RomView(self.cn).get("overlay14"))
+        for offset, blob in expected_replacement_regions().items():
+            expected[offset:offset + len(blob)] = blob
+        self.assertEqual(self.hc.RomView(rom).get("overlay14"), bytes(expected))
 
     def test_evolution_moves_bytes(self):
         # the routine 0x02070870-0x02070923 rewritten (old entry 'mov r3, #0', TryLearnOnEvolution at 0x02070900
@@ -727,14 +787,25 @@ class RealFixes(unittest.TestCase):
                 _, rep = self.check_golden(fid, [fid])
                 self.assertEqual({r["fix"] for r in rep["code_regions"] + rep["strings"]}, {fid})
 
-    def test_all_fixes_together_match_golden(self):
+    def test_startup_content_warning_source_golden(self):
+        # Imported isolated golden from investigate/content-warnings. The combined
+        # ASM_FIXES/GOLDEN set remains the reviewed pre-integration baseline until
+        # a combined byte review; do not bless new combined hashes here.
+        GOLDEN["startup-content-warning"] = {
+            "overlay49": "29b48cdf8cf9d02a9bdba0f49f9e4372444cc665",
+            "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688",
+        }
+        _, report = self.check_golden("startup-content-warning", ["startup-content-warning"])
+        self.assertEqual(len(report["code_regions"]), 4)
+
+    def test_preintegration_fixes_together_match_golden(self):
         rom, rep = self.check_golden("all", ASM_FIXES)
-        self.assertEqual(len(rep["code_regions"]), 56)
+        self.assertEqual(len(rep["code_regions"]), 94)
         self.assertEqual([(r["id"], r["mode"], r["en"]) for r in rep["strings"]],
                          [("overlay58:0x6F0", "in-place", "OK"), ("overlay58:0x6F6", "relocated", "Outfit 1"),
                           ("overlay58:0x6FE", "relocated", "Outfit 3"), ("overlay58:0x706", "relocated", "Outfit 2")])
         self.assertEqual(rep["armips"]["version"], A.PINNED_VERSION)
-        self.assertEqual(A.verify(rom, rep), "ok (4 strings, 56 code regions)")
+        self.assertEqual(A.verify(rom, rep), "ok (4 strings, 94 code regions)")
         view = self.hc.RomView(rom)
         self.assertEqual(view.table_ram_size(58), 0x818)
         self.assertEqual(rep["grown"], {"overlay58": {"from": 0x7E0, "to": 0x818},
@@ -751,10 +822,16 @@ class RealFixes(unittest.TestCase):
         # a build report from before the rename ("code_patches") still verifies
         old = {k: v for k, v in rep.items() if k not in ("code_regions", "grown")}
         old["code_patches"] = rep["code_regions"]
-        self.assertEqual(A.verify(rom, old), "ok (4 strings, 56 code regions)")
+        self.assertEqual(A.verify(rom, old), "ok (4 strings, 94 code regions)")
         # no Chinese left in the chooser
         cm_zh = self.m.Charmap.load([self.hc.ZH_CHARMAP])
         self.assertEqual(list(self.hc.scan_blob(view.get("overlay58"), cm_zh, self.hc._bigrams())), [])
+
+    def test_rc7_combined_fixes_match_reviewed_golden(self):
+        ids = (*ASM_FIXES, "honey-gather", "startup-content-warning")
+        rom, report = self.check_golden("rc7-combined", ids)
+        self.assertEqual(len(report["code_regions"]), 99)
+        self.assertEqual(A.verify(rom, report), "ok (4 strings, 99 code regions)")
 
     def test_verify_catches_a_changed_rom(self):
         rom, rep = self.assembled(["outfit-chooser-strings"])

@@ -15,7 +15,8 @@ The build:
   1. reads the decompressed arm9 / overlay images it needs from the ROM through RomView and checks every
      region's original bytes (`expect`, the encoded `zh`, the pointers' old targets);
   2. stages them as <stage>/rom/arm9.bin, <stage>/rom/itcm.bin (the ARM9 autoload section at 0x01FF8000,
-     ndspy loadArm9), <stage>/rom/overlayNN.bin next to a copy of work/patches/include (<stage>/include) and
+     ndspy loadArm9), <stage>/rom/overlayNN.bin, <stage>/rom/scriptNNN.bin (member NNN of the event-script
+     NARC a/0/1/2, opened at 0) next to a copy of work/patches/include (<stage>/include) and
      each [native] fix's payload bytes as <stage>/native/<fix>.bin, after its module validated them. armips
      resolves `.open`, `.include` and `.loadtable` paths against its working
      directory, which is <stage>/rom, so a source says `.open "arm9.bin", 0x02000000` and
@@ -192,9 +193,12 @@ Region = namedtuple("Region", "file start end id expect required sha1", defaults
 
 
 def base_of(key, bases):
-    """The RAM load address of a staged file: arm9, itcm, or an overlay from `bases` (None when unknown)."""
+    """The RAM load address of a staged file: arm9, itcm, or an overlay from `bases` (None when unknown); 0 for
+    an event-script file (scriptNNN), whose addresses are offsets in the file."""
     if key == "itcm":
         return fixreg.ITCM_BASE
+    if fixreg.SCRIPT_FILE_RE.fullmatch(key):
+        return fixreg.SCRIPT_BASE                    # an event-script file: offsets, no RAM address
     return fixreg.ARM9_BASE if key == "arm9" else (bases or {}).get(key)
 
 
@@ -622,14 +626,13 @@ def native_bytes(fx) -> bytes:
 
 
 def staged_keys(fixes) -> list:
-    """The files (arm9, itcm, overlayNN) the armips fixes among `fixes` change: their [[code]] regions,
-    [[string]] entries and [[grow]] files. In write-back order: arm9 before itcm (writing itcm rebuilds the
-    ARM9 file around the main section), then the overlays."""
+    """The files (arm9, itcm, overlayNN, scriptNNN) the armips fixes among `fixes` change: their [[code]]
+    regions, [[string]] entries and [[grow]] files. In write-back order: arm9 before itcm (writing itcm rebuilds
+    the ARM9 file around the main section), then the overlays, then the event-script files."""
     keys = set()
     for fx in asm_fixes(fixes):
         keys |= {e["file"] for t in ("code", "string", "grow") for e in fx.get(t, [])}
-    order = {"arm9": 0, "itcm": 1}
-    return sorted(keys, key=lambda k: (order.get(k, 2), int(k[7:]) if k.startswith("overlay") else 0))
+    return sorted(keys, key=fixreg._key_order)
 
 
 def arm9_bookkeeping(old: bytes, new: bytes, main_len: int, settings_offs: int) -> list:

@@ -5,6 +5,7 @@ The disassembly tests need capstone (skipped without it); the tests that assembl
 Chinese ROM (skipped without them): the committed snapshots must be current, and a changed source must make
 its snapshot stale."""
 import shutil
+import struct
 import sys
 import tempfile
 import unittest
@@ -61,6 +62,34 @@ class Disassemble(unittest.TestCase):
     def test_undecodable_bytes_are_shown_as_data(self):
         rows = L.disassemble(hw(0xF000), 0x02000000, "thumb")      # half a bl
         self.assertEqual(rows, [(0x02000000, "F000", ".hword 0xF000")])
+
+
+class Script(unittest.TestCase):
+    """Event-script files (scriptNNN): commands at their offsets, jumps as L<target>."""
+
+    def test_decode(self):
+        data = (bytes(4) + struct.pack("<HHH", 389, 0x800C, 6) + struct.pack("<HBi", 28, 5, 2)
+                + struct.pack("<H", 2) + bytes(5))
+        rows = L.decode_script(data, 4, 24, {19: "Done"})
+        self.assertEqual([(a, t) for a, _b, t in rows], [(4, "PlayerHasSpecies 0x800C, 6"),
+                                                        (10, "GoToIf 5, L19 (Done)"), (17, "End"),
+                                                        (19, "5 bytes of 0x00")])
+        self.assertEqual(rows[1][1], "1C 00 05 02 00 00 00")
+        self.assertEqual(L.decode_script(data, 4, 18)[-1], (17, "02", ".byte (not a whole command)"))
+        # a guard's span: the command that starts inside it is shown whole
+        self.assertEqual(L.decode_script(data, 4, 6, whole=True)[0][2], "PlayerHasSpecies 0x800C, 6")
+        self.assertEqual(L.decode_script(data, 4, 6)[0][2], ".byte (not a whole command)")
+
+    def test_render(self):
+        old = bytes(2) + struct.pack("<HHH", 389, 0x800C, 6) + struct.pack("<H", 2)
+        new = bytes(2) + struct.pack("<HHH", 41, 0x8004, 0) + struct.pack("<H", 2)
+        fx = {"id": "t", "kind": "code", "code": [{"id": "t-s", "file": "script9", "offset": "0x2", "length": 6,
+                                                   "expect_sha1": "0" * 40, "notes": "n"}]}
+        asm = L.Assembled(fx, {"script9": old}, {"script9": new}, {}, "", {})
+        area = {"file": "script9", "start": 2, "size": 6, "mode": "thumb", "appended": False, "writes": ["halfword"]}
+        out = L.render_area(asm, area, ({}, {}, {}), {}, {})
+        self.assertEqual(out, ["== script9+0x2 (script offset L2), 6 bytes, event script: t-s",
+                               "- L2     PlayerHasSpecies 0x800C, 6", "+ L2     SetVar 0x8004, 0", "  L8     End"])
 
 
 def fake(old, new, listing="", areas=(), key="arm9", regions=(("t-1", "0x10", "0x2305"),)):

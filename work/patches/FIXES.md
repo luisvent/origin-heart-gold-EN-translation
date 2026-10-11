@@ -26,22 +26,38 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`gfx-type-icons`](#gfx-type-icons) | graphics | yes | – | Type and contest icons (USA art; FAIRY from hg-engine) |
 | [`gfx-weather-banners`](#gfx-weather-banners) | graphics | yes | – | Battle weather banners |
 | [`gfx-yes-no-buttons`](#gfx-yes-no-buttons) | graphics | yes | – | Touch-screen YES/NO buttons |
+| [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
+| [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
+| [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
+| [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
+| [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
 | [`antipiracy`](#antipiracy) | code | yes | – | Real hardware: the six DS Protect entry points return the genuine-cart values |
+| [`battle-heal-hpbar-switched-out`](#battle-heal-hpbar-switched-out) | code | yes | – | Battle: a Potion on a Pokémon that is forced out the same turn no longer freezes (Maxie gauntlet) |
 | [`battle-message-error-marker`](#battle-message-error-marker) | code | yes | – | Battle text: the hack's error marker before a Pokémon name prints '(Error) ' instead of Chinese (错误) |
 | [`battle-message-references`](#battle-message-references) | code | yes | – | Battle text: Nature Power's 'turned into' line and the per-turn infatuation line name the right Pokémon |
+| [`battle-message-variant`](#battle-message-variant) | code | yes | – | Battle text: 'The wild' / 'The foe's' goes with the Pokémon the line names (Destiny Knot, Mean Look, Protect, drain, immunity, ...) |
+| [`battle-party-status-sync`](#battle-party-status-sync) | code | yes | – | In-battle party screen: status conditions show as they are now (Heal Bell, Aromatherapy, statuses gained in battle) |
 | [`bulbasaur-reflection-boundary`](#bulbasaur-reflection-boundary) | code | yes | – | Following Pokémon: Bulbasaur's reflection in water no longer reads a NULL graphics pointer (black screen over water) |
+| [`cute-charm-infatuation`](#cute-charm-infatuation) | code | yes | – | Battle: Cute Charm infatuates the attacker (the 'fell in love!' line no longer prints without effect) |
+| [`double-battle-targeting`](#double-battle-targeting) | code | yes | – | Double battles: escape the D-pad target cursor trap after a foe position becomes empty |
 | [`evolution-moves`](#evolution-moves) | code | yes | – | Evolution: an evolved Pokémon is offered its evolution moves (Crobat Cross Poison, Charizard Air Slash, Gyarados Bite) |
+| [`faint-waits-for-hp-bar`](#faint-waits-for-hp-bar) | code | yes | – | Battle: a Pokémon knocked out by a multi-hit move faints after its HP bar has drained (the bar no longer jumps back and vanishes) |
+| [`honey-gather`](#honey-gather) | code | yes | – | Restore Honey Gather after battle |
 | [`ivev-panel`](#ivev-panel) | code | yes | – | Summary IV/EV panel: the IV column clears the English stat labels |
+| [`lugia-animation-state-bounds`](#lugia-animation-state-bounds) | code | yes | – | Lugia cutscene: bound the special-model animation callback index |
 | [`msgload`](#msgload) | code | yes | – | Text banks are read line by line (fixes the summary and bag memory crashes) |
 | [`namelen`](#namelen) | code | yes | – | Name lengths: US limits (7 characters for trainers, 10 for Pokémon) |
 | [`naming-keyboard`](#naming-keyboard) | code | yes | – | English naming keyboard: ABC page first, pinyin IME off |
 | [`overworld-texture-frame-bounds`](#overworld-texture-frame-bounds) | code | yes | – | Overworld objects: a texture frame the texture does not have no longer crashes (Rocket HQ freeze) |
+| [`pryce-weather-rule`](#pryce-weather-rule) | code | yes | – | Pryce's Glacier Badge rule checks the party's Abilities (no weather-changing Ability), not 28 species |
 | [`safari-no-wild-double`](#safari-no-wild-double) | code | yes | – | Safari Zone: wild encounters are single battles again (no frozen double battle) |
+| [`startup-content-warning`](#startup-content-warning) | code | yes | – | New Game: mature-content warning first, remove QQ promotion |
 | [`text-speed`](#text-speed) | code | yes | `msgload` | Options TEXT SPEED: NORMAL / FAST, 30 fps printer catch-up, Pokégear calls wait for A/B |
 | [`type-change-message`](#type-change-message) | code | yes | `battle-message-error-marker` | Battle: type-change messages name the new type, not the last move used (Color Change, Protean, Soak, ...) |
+| [`zero-pp-struggle`](#zero-pp-struggle) | code | yes | – | Use the existing Struggle action when every known move is out of PP |
 
 ## font-glyphs
 
@@ -711,6 +727,192 @@ New: the USA member: YES / NO.
 
 - `a/1/5/2` #2, #3, #4, #5, #6, #7, #8, #9 = the same members as the Chinese ROM (decompressed): Screens #2-9 of a/1/5/2 (LZ10) decompress to the USA ones, so the USA sheet #1 fits them
 
+## expedition-completed-progress
+
+**Preserve beasts eligibility when revisiting the completed expedition leader**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2321, D-2300, D-2308
+- Source: `work/patches/expedition-completed-progress/fix.toml`
+
+**Why (the Chinese hack):**
+
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
+
+D-1579: leader script962 only recognizes completed state10. Later Lance/beast
+states11/12 fall into recruitment and accepting victory overwrites409F with3,
+permanently erasing the one-time Burned Tower beasts eligibility at11.
+
+**What (old → new):**
+
+Keep Compare409F,10 and its target5827; change equality to greater-or-equal.
+States10/11/12 use existing completed dialogue without battle or progress writes.
+States0..9, recruitment, battle outcomes and the native11->12 beast release stay
+unchanged. No global counter remap or backward save restoration.
+
+**Evidence:**
+
+- work/notes/issue10_shared_progress_investigation_20261009.md
+- work/notes/issue10_shared_progress_reproduction_20261009.md
+- work/notes/issue10_shared_progress_fix_20261009.md
+- work/tools/test_shared_progress.py; work/tools/native_script_state.py
+
+**Touches:**
+
+- `a/0/1/2` #962 +0x88 `completed-leader-condition`: `0x3601` → `0x3604` (member SHA-1 `33cb77c9032d`): Condition byte136: equality1 -> unsigned >=4; following displacement byte137=36 is pinned and unchanged.
+
+## hooh-panel-silver-marker
+
+**Keep Ho-Oh panel completion from clearing Silver's dream marker**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2321, D-2300, D-2308
+- Source: `work/patches/hooh-panel-silver-marker/fix.toml`
+
+**Why (the Chinese hack):**
+
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
+
+D-1580: solving the unrelated Ho-Oh panel clears565, which the dream initializer
+also reads for Silver. Early completion therefore skips the later Silver scene.
+
+**What (old → new):**
+
+Replace only ClearFlag565's operand with0. The native flag0 resolver returns
+null, so ClearFlag0 makes no persisted write. Keep native puzzle success/failure,
+HidePerson1, Clear273, Set546, Warp315/5/24/0 and all dream scripts unchanged.
+Do not restore already cleared565: legitimate Silver completion also clears it.
+
+**Evidence:**
+
+- work/notes/issue10_shared_progress_investigation_20261009.md
+- work/notes/issue10_shared_progress_reproduction_20261009.md
+- work/notes/issue10_shared_progress_fix_20261009.md
+- work/tools/test_shared_progress.py; work/tools/native_script_state.py
+
+**Touches:**
+
+- `a/0/1/2` #45 +0xB8 `panel-unrelated-clear-noop`: `0x0235` → `0x0000` (member SHA-1 `278274f4576d`): ClearFlag at182: operand565 ->0; native no-op leaves the panel's own flags and Silver's marker intact.
+
+## magcargo-loss-whiteout
+
+**Restore native whiteout after losing to Pokemon Tower's Magcargo**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2300, D-2306
+- Source: `work/patches/magcargo-loss-whiteout/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-1560: native object8/script10 starts Magcargo219 Lv40. Defeat attempts to
+restart the battle before field restoration, stalls on TouchscreenMenuShow,
+and leaves black screens in both Chinese and English with a valid weak party.
+
+**What (old → new):**
+
+Change only the four-byte won==0 branch displacement at member17 offset2549
+from retry2519 to existing WhiteOut/ReleaseAll/End3914. The native result helper
+returns0 only for loss/draw. Knockout, capture, flee, battle operands and the
+nonloss hide path remain unchanged. Preserve1155 and var40B7: the grunts already
+set1155 before this encounter, and ordinary departure after declining already
+hides Magcargo on reload. Do not introduce persistent retry state.
+
+**Evidence:**
+
+- work/notes/issue06_magcargo_investigation_20261009.md
+- work/notes/issue06_magcargo_reproduction_20261009.md
+- work/notes/issue06_magcargo_fix_20261009.md
+- work/tools/test_magcargo_loss_whiteout.py
+
+**Touches:**
+
+- `a/0/1/2` #17 +0x9F5 `magcargo-loss-target`: `FFDE FFFF` → `0551 0000` (member SHA-1 `3b381a8adc85`): GoToIf equality2546: displacement-34 -> +1361, relative to2553; native WhiteOut3914.
+
+## mortar-invalid-flag-noop
+
+**Prevent the expedition departure from writing into Pokédex caught data**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2321, D-2300, D-2310
+- Source: `work/patches/mortar-invalid-flag-noop/fix.toml`
+
+**Why (the Chinese hack):**
+
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
+
+D-1333/D-1550: member962 SetFlag4461 exceeds the3231 persisted-flag limit.
+After a returning native assertion it writes bit5 at Pokédex+0x11, the Weezing
+caught bit, without updating seen data. Its intended story flag is unproved.
+
+**What (old → new):**
+
+Replace only the invalid SetFlag4461 operand with0, a native no-op. Keep the
+departure's Set675, Clear670 and SetVar409F=7, all scene offsets and the separate
+completed-expedition gate repair. Do not guess461/365, change NPC persistence,
+clear previously written Pokédex bits or migrate any existing save data.
+Route1's separate7286 marker remains deferred pending safe old-save compatibility.
+
+**Evidence:**
+
+- work/notes/issue09_story_flags_investigation_20261009.md
+- work/notes/issue09_story_flags_offline_reproduction_20261009.md
+- work/notes/issue09_story_flags_fix_20261009.md
+- work/tools/test_story_flags.py; work/tools/native_script_state.py
+
+**Touches:**
+
+- `a/0/1/2` #962 +0x71D `departure-invalid-set-noop`: `0x116D` → `0x0000` (member SHA-1 `33cb77c9032d`): SetFlag at1819: operand4461 ->0; native SetFlag0 makes no persisted write.
+
+## rock-tunnel-corner-loss
+
+**Restore native whiteout after losing to Rock Tunnel's corner child**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2300, D-2305
+- Source: `work/patches/rock-tunnel-corner-loss/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-1548: the real corner child (map 342, object 17, script 18) starts trainer 606.
+On defeat, its GoToIf at member 129 offset 2897 jumps into a different child's
+dialogue at 3782 before field restoration, producing an undefined instruction
+and black screens on Chinese and English. D-2300 authorizes this scoped repair.
+
+**What (old → new):**
+
+Change only the four-byte relative loss displacement at 2900, from target 3782
+to the existing WhiteOut/ReleaseAll/End block at 2734 used by seven other loss
+branches in this script. Keep trainer 606, native battle arguments 606,0,0,0,
+the condition, win message 76, win flag 1966, retry and all reward gates intact.
+The original entire member SHA-1 and the four expected bytes guard the edit.
+
+**Evidence:**
+
+- work/notes/issue05_rock_tunnel_investigation_20261009.md
+- work/notes/issue05_rock_tunnel_reproduction_20261009.md
+- work/notes/issue05_rock_tunnel_fix_20261009.md
+- work/tools/test_rock_tunnel_corner_loss.py; work/tools/emu_rock_tunnel.py
+
+**Touches:**
+
+- `a/0/1/2` #129 +0xB54 `corner-child-loss-target`: `036E 0000` → `FF56 FFFF` (member SHA-1 `c73334fd0e00`): GoToIf equality at 2897: displacement +878 -> -170, relative to 2904. Native whiteout at 2734.
+
 ## trade-evolutions-levelup
 
 **Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed)**
@@ -1125,6 +1327,201 @@ GENUINE_ALL_GOOD equ 1          ; "all checks pass":   1 on a genuine cart
 
 </details>
 
+## battle-heal-hpbar-switched-out
+
+**Battle: a Potion on a Pokémon that is forced out the same turn no longer freezes (Maxie gauntlet)**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2314
+- Source: `work/patches/battle-heal-hpbar-switched-out/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: in the second wave of Maxie's gauntlet at the top of the Lavender Town tower (the double battle
+against Magmortar and Houndoom), using a Potion from the battle Bag on the Pokémon in battle can freeze the
+game right after 'used the Potion!' (Discord report, 2026-10-07). It happens when Houndoom uses Roar in the
+same turn and drags another Pokémon in: the healed Pokémon has already left the field when the Potion's
+health bar is animated. Reproduced on melonDS 1.1 with the untouched Chinese ROM and with develop
+(work/notes/melonds-retest_fix.md); DeSmuME keeps running. Real hardware is untested. Any healing item from
+the Bag followed by a forced switch of that Pokémon in the same turn takes the same path.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it (D-2314,
+2026-10-09); other hack bugs stay report-only.
+
+Technical: the hack's battle engine (overlay 14) computes the whole turn, then plays it back. The Potion's
+playback command (handler 0x022053D0) calls 0x0222E024 with the healed Pokémon's id; that routine finds the
+battler showing the Pokémon (0x02228740) from the party order after the whole turn. After Roar the Pokémon
+is not on the field: the lookup returns 5, the battler-to-bar table (0x0224D134) maps it to health bar 0,
+which a double battle never sets up, and the bar task's gauge drawing (0x02210C94) loads the bar's NULL
+sprite pointer and reads address 0 (ldr r0, [r0] at 0x02210C9E). melonDS raises a data abort (abort LR
+0x02210CA6) and the game hangs; DeSmuME reads address 0 and goes on. In a single battle the same lookup
+picks the opponent's bar instead (no crash, a wrong bar animates).
+
+**What (old → new):**
+
+Old: battler lookup 5 (not on the field) -> health bar 0 (double) or the opponent's bar (single) ->
+animation task on it -> NULL sprite read -> data abort.
+
+New: 0x0222E024 checks the lookup: for 5 it writes that nonzero value to the command's done flag and returns
+without a health-bar task, so the playback goes on with the next event; the bar of a Pokémon on the field
+is animated exactly as before. The routine is re-laid in place (0x4C bytes, the same literal pool) to make
+room: the handler passes the id byte in r0 as well ('ldr r0, [r3, #0x28]' -> 'lsr r0, r1, #0x18' at
+0x022053E8; the routine never read the old r0), and the bar address G + 0x2AC + index * 0x3C is computed as
+G + (index + 11) * 0x3C + 0x18. Not changed: the HP itself (the battle data already holds it), the order of
+the turn, Roar, the other playback commands.
+
+**Evidence:**
+
+- D-2314: the user-approved exception to D-1337 for this fix (user request 2026-10-09: 'We want to fix these bugs, so for each issue create a worktree per issue, and use a separate subagent to fix, test and review.')
+- work/notes/melonds-retest_fix.md: reproduction on melonDS 1.1 (Chinese ROM and develop), the abort, the call chain, the party order after Roar, the before/after runs
+- Runtime: emu_harness.py fixes --case battle-heal-hpbar-switched-out (scenario battle-heal: emu_battle_heal.py, a Potion on the lead in a trainer battle where the opponent can only use Roar; run on the build and on one without this fix)
+
+**Touches:**
+
+- `overlay14+0x4C08` (RAM 0x022053E8) `battle-heal-hpbar-switched-out-caller`: 2 bytes, was `6A98`
+- `overlay14+0x2D844` (RAM 0x0222E024) `battle-heal-hpbar-switched-out-routine`: 76 bytes, was `B570 1C08 1C16 1C1D … (38 halfwords)`
+
+**Disassembly snapshot:** [`battle-heal-hpbar-switched-out.listing`](battle-heal-hpbar-switched-out/battle-heal-hpbar-switched-out.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write battle-heal-hpbar-switched-out`)
+
+**Source** (`work/patches/battle-heal-hpbar-switched-out/battle-heal-hpbar-switched-out.asm`, armips; the new bytes):
+
+<details>
+<summary>battle-heal-hpbar-switched-out.asm</summary>
+
+```asm
+; battle-heal-hpbar-switched-out - Battle: a healing item used on a Pokemon that is forced out later in the
+; same turn (Roar, ...) no longer freezes the game (Maxie gauntlet, Lavender Town). D-2314 (user-approved
+; exception to D-1337). Why and what: fix.toml next to this file; overview work/patches/FIXES.md;
+; work/notes/melonds-retest_fix.md.
+;
+; The hack's battle engine (overlay 14) computes a whole turn first and then plays it back on the client.
+; A Potion from the battle Bag queues the client command handled by BattleHeal_Cmd (0x022053D0): state 0
+; calls BattleHeal_StartBar (0x0222E024, r1 = the healed Pokemon's id byte, r2 = HP, r3 = the command's done
+; flag), state 1 waits for that flag. BattleHeal_StartBar looks up the battler that shows the Pokemon
+; (0x02228740: battler 0-3, or 5 when the Pokemon is not on the field), turns it into a health-bar index
+; (0x022156C4) and starts a task (0x0222DFE8) that animates that health bar and sets the done flag.
+; The lookup reads the party order after the whole turn. When the same turn forces the healed Pokemon out
+; (Houndoom's Roar in the gauntlet's second wave), it is no longer on the field: the lookup returns 5, the
+; index table gives health bar 0, which a double battle never sets up, and the task's gauge drawing reads
+; the bar's NULL sprite (ldr r0, [r0] at 0x02210C9E). melonDS 1.1 (and the hardware's protection unit)
+; raise a data abort there and the game freezes on 'used the Potion!'; DeSmuME reads address 0 and goes on.
+; In a single battle the same index points at the opponent's bar instead.
+;
+; The fix: when the lookup returns 5, BattleHeal_StartBar writes that nonzero value to the done flag and
+; returns without a health-bar task (the Pokemon's bar is not on screen; it is drawn from its current HP when
+; it comes back). To make room in place, the routine is re-laid: the caller passes the id in r0 (it was
+; loaded into r1 and r0 was unused), and G + 0x2AC + index * 0x3C is computed as G + (index + 11) * 0x3C
+; + 0x18. Every other step, its order, the task, its priority and the literal pool are unchanged.
+
+.nds
+.thumb
+.include "../include/guards.inc"
+
+.definelabel BattleHeal_Cmd,        0x022053D0   ; client command handler: state 0 start, state 1 wait
+.definelabel BattleHeal_CmdLoadR0,  0x022053E8   ; ldr r0, [r3, #0x28] (r0 unused by the callee)  <- edit 1
+.definelabel BattleHeal_StartBar,   0x0222E024   ; r1 = Pokemon id, r2 = HP, r3 = done flag      <- edit 2
+.definelabel Battle_BattlerOfMon,   0x02228740   ; id -> battler 0-3, 5 = not on the field
+.definelabel Battle_HealthbarIndex, 0x022156C4   ; battler -> health-bar index (table 0x0224D134)
+.definelabel Healthbar_SetHpChange, 0x02210A64
+.definelabel CreateSysTask,         0x0200DE74
+.definelabel HealthbarHeal_Task,    0x0222DFE9   ; the bar animation task (Thumb)
+.definelabel Battle_Global,         0x02255C74   ; -> G; health bars at G + 0x2AC, 0x3C bytes each
+
+.open "overlay14.bin", 0x022007E0
+
+; Edit 1: the handler passes the id byte in r0 as well (r1 holds id << 24 here).
+.org BattleHeal_Cmd
+    expect16_at 0x00, 0xB538    ; push  {r3-r5, lr}
+    expect16_at 0x02, 0x1C0C    ; add   r4, r1, #0
+    expect16_at 0x04, 0x1C03    ; add   r3, r0, #0
+    expect16_at 0x06, 0x6820    ; ldr   r0, [r4]                state
+    expect16_at 0x08, 0x2800    ; cmp   r0, #0
+    expect16_at 0x0A, 0xD002    ; beq   state 0
+    expect16_at 0x0C, 0x2801    ; cmp   r0, #1
+    expect16_at 0x0E, 0xD00E    ; beq   state 1
+    expect16_at 0x10, 0xE014    ; b     return 0
+    expect16_at 0x12, 0x6811    ; ldr   r1, [r2]                Pokemon id (command argument 0)
+    expect16_at 0x14, 0x255D    ; mov   r5, #0x5D
+    expect16_at 0x16, 0x0609    ; lsl   r1, r1, #0x18
+    expect16_at 0x1A, 0x012D    ; lsl   r5, r5, #4              done flag at +0x5D0
+    expect16_at 0x1C, 0x6852    ; ldr   r2, [r2, #4]            HP (command argument 1)
+    expect16_at 0x1E, 0x0E09    ; lsr   r1, r1, #0x18
+    expect16_at 0x20, 0x195B    ; add   r3, r3, r5
+    expect16_at 0x22, 0xF028    ; bl    BattleHeal_StartBar     (1/2)
+    expect16_at 0x24, 0xFE17    ;                               (2/2)
+.org BattleHeal_CmdLoadR0
+.area 2
+    expect16 0x6A98             ; ldr   r0, [r3, #0x28]
+    lsr     r0, r1, #0x18
+.endarea
+
+; Edit 2: BattleHeal_StartBar, push through literal pool (0x4C bytes), re-laid with the not-on-field exit.
+.org BattleHeal_StartBar
+    expect32_at 0x00, 0x1C08B570    ; push {r4-r6, lr}; add r0, r1, #0
+    expect32_at 0x04, 0x1C1D1C16    ; add r6, r2, #0; add r5, r3, #0
+    expect32_at 0x08, 0xFB88F7FA    ; bl Battle_BattlerOfMon
+    expect32_at 0x0C, 0xFB48F7E7    ; bl Battle_HealthbarIndex
+    expect32_at 0x10, 0x680A490C    ; ldr r1, =Battle_Global; ldr r2, [r1]
+    expect32_at 0x14, 0x008921AB    ; mov r1, #0xAB; lsl r1, r1, #2
+    expect32_at 0x18, 0x213C1852    ; add r2, r2, r1; mov r1, #0x3C
+    expect32_at 0x1C, 0x18544341    ; mul r1, r0; add r4, r2, r1
+    expect32_at 0x20, 0x1C311C20    ; add r0, r4, #0; add r1, r6, #0
+    expect32_at 0x24, 0xFD0CF7E2    ; bl Healthbar_SetHpChange
+    expect32_at 0x28, 0x22FA1C20    ; add r0, r4, #0; mov r2, #0xFA
+    expect32_at 0x2C, 0x210063A5    ; str r5, [r4, #0x38]; mov r1, #0
+    expect32_at 0x30, 0x30237029    ; strb r1, [r5]; add r0, #0x23
+    expect32_at 0x34, 0x48047001    ; strb r1, [r0]; ldr r0, =HealthbarHeal_Task
+    expect32_at 0x38, 0x00921C21    ; add r1, r4, #0; lsl r2, r2, #2
+    expect32_at 0x3C, 0xFF08F5DF    ; bl CreateSysTask
+    expect32_at 0x40, 0x46C0BD70    ; pop {r4-r6, pc}; nop
+    expect32_at 0x44, Battle_Global
+    expect32_at 0x48, HealthbarHeal_Task
+.area 0x4C
+    push    {r4-r6, lr}
+    add     r6, r2, #0              ; HP
+    add     r5, r3, #0              ; done flag
+    bl      Battle_BattlerOfMon     ; r0 = Pokemon id (edit 1)
+    cmp     r0, #5
+    beq     @@not_on_field
+    bl      Battle_HealthbarIndex
+    add     r0, #11
+    mov     r1, #0x3C
+    mul     r0, r1
+    ldr     r1, [@@global]
+    ldr     r1, [r1]
+    add     r4, r1, r0
+    add     r4, #0x18               ; r4 = G + 0x2AC + index * 0x3C
+    add     r0, r4, #0
+    add     r1, r6, #0
+    bl      Healthbar_SetHpChange
+    str     r5, [r4, #0x38]         ; the task sets this flag when it ends
+    mov     r1, #0
+    strb    r1, [r5]
+    mov     r0, #0x23
+    strb    r1, [r4, r0]            ; task state 0
+    ldr     r0, [@@task]
+    add     r1, r4, #0
+    mov     r2, #0xFA
+    lsl     r2, r2, #2              ; priority 1000
+    bl      CreateSysTask
+    pop     {r4-r6, pc}
+@@not_on_field:
+    strb    r0, [r5]                ; done (5): the handler moves on, no bar to animate
+    pop     {r4-r6, pc}
+.align 4
+@@global:
+    .word   Battle_Global
+@@task:
+    .word   HealthbarHeal_Task
+.endarea
+
+.close
+```
+
+</details>
+
 ## battle-message-error-marker
 
 **Battle text: the hack's error marker before a Pokémon name prints '(Error) ' instead of Chinese (错误)**
@@ -1515,6 +1912,800 @@ messages appear, the condition logic. A static audit of every message record and
 
 </details>
 
+## battle-message-variant
+
+**Battle text: 'The wild' / 'The foe's' goes with the Pokémon the line names (Destiny Knot, Mean Look, Protect, drain, immunity, ...)**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2319
+- Source: `work/patches/battle-message-variant/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: when one Pokémon's move, Ability or held item affects another Pokémon, the battle line about the
+affected Pokémon could lose or gain its 'The wild' / 'The foe's' prefix, because the game took the prefix
+from the Pokémon that caused it. A wild Chansey's Attract on a Tauros holding a Destiny Knot printed
+'Chansey fell in love because of the Destiny Knot!' (the wild Chansey, without 'The wild'); the other way
+round, the player's own Pokémon was called 'The wild ...'. In a trainer battle the player's Pokémon is called
+'The foe's ...'. The same happened to Mean Look and Block ('can no longer escape'), Curse, Poison Point,
+Gastro Acid, Smack Down, Octolock and the other condition lines listed below, to four 'HP was restored'
+handlers and to Heal Block's 'can't heal'; and to move lines about the target: 'The wild Rattata protected
+itself' printed as 'Rattata protected itself', likewise 'had its energy drained', 'It doesn't seem to affect
+...', 'It had no effect at all on ...', 'is already poisoned' (and the other 'already ...' lines), 'couldn't
+stay airborne because of gravity', 'anchored itself with its roots' and the Pledge 'is waiting for ...'.
+The untouched Chinese ROM does the same (it drops or adds 野生的 / 对手的), so this is a bug of the hack.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
+(D-2319, 2026-10-09: 'Please fix'; the move lines in round 2: 'Yes, same branch'); other hack bugs stay
+report-only.
+
+Technical: bank 1 of battle_string has four forms of each line (the player's, wild, foe's, a trainer's); the
+server sends a line with a 'variant battler' and the client picks the form from that battler's side
+(0x02225E40). The form belongs to the Pokémon the prefix stands before.
+1. The condition applier (overlay 14, 0x0221E53C, called through 0x0221F87C and its queued path 0x0221E05C)
+   sends a message record its caller built with the source's battler when there is a source (0x0221E548:
+   cmp r0, #0; beq), else the target's; its own default message uses the target. Every caller whose record
+   names a Pokémon in the prefixed slot and whose source and target differ names the target (static audit of
+   all 51 calls, work/notes/destiny-knot-side_fix.md): Destiny Knot 1#448 (0x0220AECC: source = the holder),
+   item-inflicted conditions through 0x0220C838, Poison Point-type poisoning 1#638, 1#324, Mean Look / Block /
+   other trapping 1#1180 (three handlers), Curse 1#1442 ({1} = the cursed one = the target), 1#754, Gastro
+   Acid-type 1#762 and 1#1836, 1#1840, Smack Down 1#1530, Electrify 1#1604, Powder 1#1624, Octolock 1#1958.
+2. The change applier 0x0221F968 sends its record with the source's battler (0x0221FA1C: ldrb r1, [r4]).
+   Four callers name the target there (1#524 'HP was restored', 0x0223A9DC, 0x0223DEBC, 0x02244598,
+   0x02246430); two name the source (1#944 Wish, 1#2138); the rest have source = target.
+3. In the same function Heal Block's 1#1200 '{0} can't heal' is sent with the source's battler and the
+   target as {0} (0x0221FA4A).
+4. Move code that sends its line itself (stream op 3 via 0x02229E1C / 0x02224C50, or the condition check's
+   'already ...' helper 0x02229944) passes the attacker's or move user's battler while the line names the
+   target: 1#296 (0x0221A7B8), 1#288 (0x0221AE92, 0x0221AEB6, 0x0221AF34, 0x0221B228, 0x0221B8F6), Protect
+   1#706 (0x0221B384), drain 1#1220 (0x0221C1FC), the condition check 0x0221E0AC (struct source instead of
+   target, 0x0221E0E8: 1#340 and the other lines of 0x02229944), Gravity 1#1468 (0x0220E4DA), Ingrain 1#1000
+   (0x02220B78); Pledge 1#1554 (0x02222DE2) puts the prefix on {1} but passes {0}'s battler.
+
+**What (old → new):**
+
+Old: 1. variant = source, else target; 2. variant = source; 3. variant = source.
+
+New: 1. variant = target, else source (0x0221E548, 10 bytes: cmp r5, #0; bne -> the old target path;
+cmp r0, #0; beq -> no variant; b -> the old call with r0 = source; the old source path's last four
+instructions are no longer reached). 2. variant = the record's first parameter (0x0221FA1C, 6 bytes: the
+record address first, then ldrb r1, [r0, #4]). 3. variant = target (0x0221FA4A, 2 bytes: ldrb r0, [r4, #1]).
+4. One halfword per site (24 bytes): the variant is the register or field that already holds the named
+Pokémon (the target, or {0} / {1}); the attacker's value is still computed and no longer used.
+Not changed: message ids and parameters, which Pokémon gets the condition and the stored source (the
+infatuation message still names the attracter), the default messages, and every line whose variant already
+was the Pokémon it names: the new choice equals the old one whenever source and target (1, 3) or source and
+first parameter (2) are the same Pokémon, or (4) attacker and target are. Not covered (reported in
+work/notes/destiny-knot-side_fix.md): Lock-On / Mind Reader 1#878 (prefix on {1} while the condition and its
+message belong to the user: needs new code, no room in place) and 1#1410 (0x02221F56, variant from a stack
+argument whose source was not found; not confirmed).
+
+**Evidence:**
+
+- D-2319: the user-approved exception to D-1337 for this fix (user, 2026-10-09: 'Please fix', round 2 'Yes, same branch'; found by the reviewer of fix/battle-text-chinese)
+- work/notes/destiny-knot-side_fix.md: the message path, the static audit of every condition-applier and change-applier call and of the move-line sites, the runtime checks
+- Runtime: emu_harness.py fixes --case battle-message-variant (scenario battle-variant: ten wild battles, Destiny Knot both ways, Mean Look, Protect, Giga Drain, Tackle on a Ghost, Toxic again, Horn Drill on a higher level, Roar after Ingrain, Gravity during Fly; the client's bank-1 printer 0x02225EA8 hooked: variant battler against {0}). 2026-10-09, DeSmuME, PASS: the full build has variant = {0} in all ten, the --without build and the untouched Chinese ROM the other Pokémon in all ten
+- DeSmuME 2026-10-09, more battles (work/notes/destiny-knot-side_fix.md): Mean Look against Camper Ward's Nuzleaf ('The foe's Nuzleaf can no longer escape!'), Curse (prefix on {1}): original on the control and the Chinese ROM, fixed on the full build; Lock-On 1#878 unchanged (not covered); battle sweep 24/24
+- melonDS 1.1 (headless backend), 2026-10-09, Route 24 grass against a wild Shroomish: Mean Look 'The wild Shroomish can no longer escape!' and Toxic again 'The wild Shroomish is already poisoned.' on the full build, 'Shroomish ...' on the --without build; no ARM9 abort, prefetch abort or undefined instruction, no hang (work/notes/destiny-knot-side_fix.md)
+
+**Touches:**
+
+- `overlay14+0x1DD68` (RAM 0x0221E548) `battle-message-variant-condition`: 10 bytes, was `2800 D004 F7F8 F928 … (5 halfwords)`
+- `overlay14+0x1F23C` (RAM 0x0221FA1C) `battle-message-variant-change-record`: 6 bytes, was `7821 1C20 3020`
+- `overlay14+0x1F26A` (RAM 0x0221FA4A) `battle-message-variant-heal-block`: 2 bytes, was `7820`
+- `overlay14+0x19FD8` (RAM 0x0221A7B8) `battle-message-variant-no-effect-at-all`: 2 bytes, was `1C30`
+- `overlay14+0x1A6B2` (RAM 0x0221AE92) `battle-message-variant-doesnt-affect-1`: 2 bytes, was `1C03`
+- `overlay14+0x1A6D6` (RAM 0x0221AEB6) `battle-message-variant-doesnt-affect-2`: 2 bytes, was `1C03`
+- `overlay14+0x1A754` (RAM 0x0221AF34) `battle-message-variant-doesnt-affect-3`: 2 bytes, was `1C30`
+- `overlay14+0x1AA48` (RAM 0x0221B228) `battle-message-variant-doesnt-affect-4`: 2 bytes, was `0628`
+- `overlay14+0x1ABA4` (RAM 0x0221B384) `battle-message-variant-protect`: 2 bytes, was `0630`
+- `overlay14+0x1B116` (RAM 0x0221B8F6) `battle-message-variant-doesnt-affect-5`: 2 bytes, was `7828`
+- `overlay14+0x1BA1C` (RAM 0x0221C1FC) `battle-message-variant-drain`: 2 bytes, was `0620`
+- `overlay14+0x1D908` (RAM 0x0221E0E8) `battle-message-variant-condition-blocked`: 2 bytes, was `6828`
+- `overlay14+0xDCFA` (RAM 0x0220E4DA) `battle-message-variant-gravity`: 2 bytes, was `9800`
+- `overlay14+0x20398` (RAM 0x02220B78) `battle-message-variant-ingrain`: 2 bytes, was `0630`
+- `overlay14+0x22602` (RAM 0x02222DE2) `battle-message-variant-pledge`: 2 bytes, was `1C23`
+
+**Disassembly snapshot:** [`battle-message-variant.listing`](battle-message-variant/battle-message-variant.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write battle-message-variant`)
+
+**Source** (`work/patches/battle-message-variant/battle-message-variant.asm`, armips; the new bytes):
+
+<details>
+<summary>battle-message-variant.asm</summary>
+
+```asm
+; battle-message-variant - battle lines that one Pokemon's effect prints about another Pokemon pick their
+; own / wild / foe's / trainer's form from the Pokemon they name (Destiny Knot: "The wild Chansey fell in love
+; because of the Destiny Knot!"). D-2319 (user-approved exception to D-1337).
+; Why and what: fix.toml next to this file; overview work/patches/FIXES.md; work/notes/destiny-knot-side_fix.md.
+;
+; Bank 1 of battle_string has four forms of each line: plain (the player's Pokemon), 'The wild ...', 'The
+; foe's ...' and '<trainer>'s ...'. The server sends the line with a variant battler (stream op 3); the client
+; picks the form from that battler's side (0x02225E40) and fills the template's parameters. The form belongs to
+; the Pokemon the prefix stands before, so the variant battler has to be that Pokemon.
+;
+; 1. Condition applier (0x0221E53C; reached from ApplyCondition 0x0221F87C and its queued path 0x0221E05C).
+;    Its struct holds the source (the Pokemon whose move, Ability or item causes it, [0]) and the target (the
+;    one that gets the condition, [4]); a message record the caller built (+0x30 of its struct) is sent with
+;    0x0222934C(record, variant). The variant is the source's when there is one, else the target's; its own
+;    default message names the target and passes the target. Every caller with a record of its own whose source
+;    and target differ names the target (static audit, work/notes/destiny-knot-side_fix.md), e.g. Destiny Knot
+;    (0x0220AECC: source = the holder, target = the attacker, 1#448 "{target} fell in love because of the
+;    {item}"), Mean Look / Block 1#1180, Curse 1#1442, Poison Point 1#638, Gastro Acid 1#762, Smack Down 1#1530,
+;    Octolock 1#1958. Fix: test the target first (the source only when there is no target). 10 bytes.
+; 2. Change applier (0x0221F968, ApplyHPChange with a message record at +0x20, source [0], target [1]): the
+;    record is sent with the source's battler. Callers whose source differs from the record's first argument
+;    name the target there (1#524 "{0}'s HP was restored", four handlers); two name the source (1#944, 1#2138).
+;    Fix: the variant is the record's first argument (low byte of its first parameter, record + 4). 6 bytes.
+; 3. Same function, Heal Block: 1#1200 "{0} can't heal because of Heal Block" is emitted with the source's
+;    battler and the target as {0}. Fix: the target's battler. 2 bytes.
+;
+; Not changed: the message ids, the arguments, the default messages, which Pokemon gets the condition and its
+; source, and every line whose variant already is the Pokemon it names (unchanged by construction: the new
+; choice equals the old one whenever source and target, or source and first argument, are the same).
+
+.nds
+.thumb
+.include "../include/guards.inc"
+
+.definelabel CondApply_Message,         0x0221E53C   ; (src mon, tgt mon, cond, ...; default flag, record)
+.definelabel CondApply_PickVariant,     0x0221E548   ; r1 = variant battler: src, else tgt   <- edit 1
+.definelabel CondApply_VariantOfR5,     0x0221E55A   ; r0 = tgt; bl BattleMon_GetBattler; r1 = result
+.definelabel CondApply_Ref,             0x0221E55C   ; bl BattleMon_GetBattler (r0 = a battle Pokemon)
+.definelabel CondApply_VariantDone,     0x0221E564
+.definelabel HPChange_SendRecord,       0x0221FA1C   ; 0x0222934C(record + 0x20, [struct]) <- edit 2
+.definelabel HPChange_HealBlocked,      0x0221FA4A   ; 0x02229E1C([struct], 1200, [struct+1]) <- edit 3
+.definelabel BattleMon_GetBattler,      0x022167A0   ; ldrb r0, [r0, #0x14]
+.definelabel BattleMsg_SendRecord,      0x0222934C   ; (record, variant battler)
+.definelabel BattleMsg_Emit1,           0x02229E1C   ; (variant battler, id, param)
+
+.open "overlay14.bin", 0x022007E0
+
+; Read-only guards: the applier's variant choice and both record sends (nothing is written here).
+.org CondApply_Message
+    expect16_at 0x00, 0xB40F    ; push  {r0, r1, r2, r3}
+    expect16_at 0x02, 0xB530    ; push  {r4, r5, lr}
+    expect16_at 0x04, 0xB089    ; sub   sp, #0x24
+    expect16_at 0x06, 0x1C0D    ; adds  r5, r1, #0              r5 = target
+    expect16_at 0x08, 0x1C14    ; adds  r4, r2, #0              r4 = condition
+    expect16_at 0x0A, 0x2100    ; movs  r1, #0
+    expect16_at 0x0C, 0x2800    ; cmp   r0, #0                  r0 = source  <- edit 1 (0x0C-0x15)
+    expect16_at 0x0E, 0xD004    ; beq   0x0221E556
+    expect16_at 0x10, 0xF7F8    ; bl    BattleMon_GetBattler    (1/2)
+    expect16_at 0x12, 0xF928    ;                               (2/2)
+    expect16_at 0x14, 0x0600    ; lsls  r0, r0, #0x18
+    expect16_at 0x16, 0x0E01    ; lsrs  r1, r0, #0x18           variant = source
+    expect16_at 0x18, 0xE006    ; b     CondApply_VariantDone
+    expect16_at 0x1A, 0x2D00    ; cmp   r5, #0                  0x0221E556
+    expect16_at 0x1C, 0xD004    ; beq   CondApply_VariantDone
+    expect16_at 0x1E, 0x1C28    ; adds  r0, r5, #0              CondApply_VariantOfR5
+    expect16_at 0x20, 0xF7F8    ; bl    BattleMon_GetBattler    (1/2)  CondApply_Ref
+    expect16_at 0x22, 0xF920    ;                               (2/2)
+    expect16_at 0x24, 0x0600    ; lsls  r0, r0, #0x18
+    expect16_at 0x26, 0x0E01    ; lsrs  r1, r0, #0x18           variant = target
+    expect16_at 0x28, 0x9811    ; ldr   r0, [sp, #0x44]         CondApply_VariantDone: default-message flag
+    expect16_at 0x2A, 0x2800    ; cmp   r0, #0
+    expect16_at 0x2C, 0xD032    ; beq   0x0221E5D0
+    expect16_at 0x2E, 0x2D00    ; cmp   r5, #0
+    expect16_at 0x30, 0xD030    ; beq   0x0221E5D0
+    expect16_at 0x52, 0x1C28    ; adds  r0, r5, #0              default message: {0} = target
+    expect16_at 0x54, 0xF7F8    ; bl    BattleMon_GetBattler    (1/2)
+    expect16_at 0x56, 0xF906    ;                               (2/2)
+    expect16_at 0x78, 0x1C28    ; adds  r0, r5, #0              ... and variant = target
+    expect16_at 0x7A, 0xF7F8    ; bl    BattleMon_GetBattler    (1/2)
+    expect16_at 0x7C, 0xF8F3    ;                               (2/2)
+    expect16_at 0x7E, 0x1C01    ; adds  r1, r0, #0
+    expect16_at 0x80, 0x0609    ; lsls  r1, r1, #0x18
+    expect16_at 0x82, 0xA800    ; add   r0, sp, #0
+    expect16_at 0x84, 0x0E09    ; lsrs  r1, r1, #0x18
+    expect16_at 0x86, 0xF00A    ; bl    BattleMsg_SendRecord    (1/2)
+    expect16_at 0x88, 0xFEC3    ;                               (2/2)
+    expect16_at 0x94, 0x9812    ; ldr   r0, [sp, #0x48]         0x0221E5D0: the caller's record
+    expect16_at 0x96, 0x2800    ; cmp   r0, #0
+    expect16_at 0x98, 0xD001    ; beq   0x0221E5DA
+    expect16_at 0x9A, 0xF00A    ; bl    BattleMsg_SendRecord    (1/2)  r1 = the variant chosen above
+    expect16_at 0x9C, 0xFEB9    ;                               (2/2)
+
+; Edit 1: the target's battler first, the source's only when there is no target. The old target branch
+; (0x0221E55A-0x0221E563) does the target; the source reuses its call at 0x0221E55C (r0 = source).
+; 0x0221E552-0x0221E559 (lsrs, b, cmp r5, beq) are no longer reached.
+.org CondApply_PickVariant
+.area 10
+    expect16_at 0, 0x2800       ; cmp   r0, #0                  a source?
+    expect16_at 2, 0xD004       ; beq   0x0221E556
+    expect16_at 4, 0xF7F8       ; bl    BattleMon_GetBattler    (1/2)
+    expect16_at 6, 0xF928       ;                               (2/2)
+    expect16_at 8, 0x0600       ; lsls  r0, r0, #0x18
+    cmp     r5, #0
+    bne     CondApply_VariantOfR5       ; a target: its battler
+    cmp     r0, #0
+    beq     CondApply_VariantDone       ; neither: battler 0, as before
+    b       CondApply_Ref               ; only a source: its battler (r0 = source)
+.endarea
+
+; Read-only guards: the change applier's message paths.
+.org 0x0221FA10
+    expect16_at 0x00, 0x1C20    ; adds  r0, r4, #0
+    expect16_at 0x02, 0x3023    ; adds  r0, #0x23
+    expect16_at 0x04, 0x7800    ; ldrb  r0, [r0]                record type (+0x23)
+    expect16_at 0x06, 0x0640    ; lsls  r0, r0, #0x19
+    expect16_at 0x08, 0x0E40    ; lsrs  r0, r0, #0x19
+    expect16_at 0x0A, 0xD005    ; beq   0x0221FA28              no record
+    expect16_at 0x12, 0xF009    ; bl    BattleMsg_SendRecord    (1/2)  <- edit 2 is 0x0221FA1C-0x0221FA21
+    expect16_at 0x14, 0xFC93    ;                               (2/2)
+    expect16_at 0x16, 0xE016    ; b     0x0221FA56
+    expect16_at 0x36, 0x2D02    ; cmp   r5, #2                  0x0221FA46: heal blocked
+    expect16_at 0x38, 0xD105    ; bne   0x0221FA56
+    expect16_at 0x3C, 0x214B    ; movs  r1, #0x4B               (0x0221FA4A: edit 3)
+    expect16_at 0x3E, 0x7862    ; ldrb  r2, [r4, #1]            {0} = target
+    expect16_at 0x40, 0x0109    ; lsls  r1, r1, #4              1200
+    expect16_at 0x42, 0xF00A    ; bl    BattleMsg_Emit1         (1/2)
+    expect16_at 0x44, 0xF9E3    ;                               (2/2)
+
+; Edit 2: the record goes out with its first parameter's battler (record + 0x20, parameters from +4).
+.org HPChange_SendRecord
+.area 6
+    expect16_at 0, 0x7821       ; ldrb  r1, [r4]                variant = source
+    expect16_at 2, 0x1C20       ; adds  r0, r4, #0
+    expect16_at 4, 0x3020       ; adds  r0, #0x20               r0 = record
+    add     r0, r4, #0
+    add     r0, #0x20           ; r0 = record
+    ldrb    r1, [r0, #4]        ; variant = the first parameter (a battler)
+.endarea
+
+; Edit 3: Heal Block's line takes the target's battler, the Pokemon it names.
+.org HPChange_HealBlocked
+.area 2
+    expect16_at 0, 0x7820       ; ldrb  r0, [r4]                variant = source
+    ldrb    r0, [r4, #1]        ; variant = target
+.endarea
+
+; 4. Move lines that the move code sends itself (stream op 3 through 0x02229E1C / 0x02224C50, or the condition
+;    check's 'already ...' helper 0x02229944) with the attacker's or the move user's battler while {0} (or {1})
+;    is another Pokemon. Each edit makes the variant the Pokemon the prefix stands before; one halfword each:
+;    1#296 'It had no effect at all on {0}' (OHKO on a higher level), 1#288 'It doesn't seem to affect {0}' (five
+;    sites), 1#706 Protect, 1#1220 drain moves, the condition check's messages (1#340 'is already poisoned' and
+;    the other 'already ...' / 'doesn't affect' lines of 0x02229944: struct + 4 is the target, + 0 the source),
+;    1#1468 Gravity, 1#1000 Ingrain against Roar / Whirlwind, 1#1554 Pledge ('{0} is waiting for {1}': prefix
+;    on {1}). Not changed: their ids, parameters and when they appear.
+
+.definelabel Gravity_Variant, 0x0220E4DA
+.definelabel NoEffectAtAll_Variant, 0x0221A7B8
+.definelabel DoesntAffect1_Variant, 0x0221AE92
+.definelabel DoesntAffect2_Variant, 0x0221AEB6
+.definelabel DoesntAffect3_Variant, 0x0221AF34
+.definelabel DoesntAffect4_Variant, 0x0221B228
+.definelabel Protect_Variant, 0x0221B384
+.definelabel DoesntAffect5_Variant, 0x0221B8F6
+.definelabel Drain_Variant, 0x0221C1FC
+.definelabel CondBlocked_Variant, 0x0221E0E8
+.definelabel Ingrain_Variant, 0x02220B78
+.definelabel Pledge_Variant, 0x02222DE2
+
+; 1#1468 Gravity: variant = {0} (r2, the grounded Pokemon), not Gravity's user ([sp])
+.org Gravity_Variant
+.area 2
+    expect16_at -0x02, 0x782A    ; 0220E4D8 ldrb r2, [r5]
+    expect16_at 0x00, 0x9800    ; 0220E4DA ldr r0, [sp]   <- the edit
+    expect16_at 0x02, 0x4904    ; 0220E4DC ldr r1, [pc, #0x10]
+    expect16_at 0x04, 0xF01B    ; 0220E4DE bl #0x2229e1c
+    expect16_at 0x06, 0xFC9D    ; 0220E4E0 (2/2)
+    add     r0, r2, #0
+.endarea
+
+; 1#296 OHKO 'had no effect at all on {0}': variant = the target (r4), not the attacker (r6)
+.org NoEffectAtAll_Variant
+.area 2
+    expect16_at -0x06, 0x482B    ; 0221A7B2 ldr r0, [pc, #0xac]
+    expect16_at -0x04, 0x6800    ; 0221A7B4 ldr r0, [r0]
+    expect16_at -0x02, 0x6A07    ; 0221A7B6 ldr r7, [r0, #0x20]
+    expect16_at 0x00, 0x1C30    ; 0221A7B8 adds r0, r6, #0   <- the edit
+    expect16_at 0x02, 0xF7FB    ; 0221A7BA bl #0x22167a0
+    expect16_at 0x04, 0xFFF1    ; 0221A7BC (2/2)
+    expect16_at 0x06, 0x9005    ; 0221A7BE str r0, [sp, #0x14]
+    expect16_at 0x08, 0x1C20    ; 0221A7C0 adds r0, r4, #0
+    expect16_at 0x0A, 0xF7FB    ; 0221A7C2 bl #0x22167a0
+    expect16_at 0x0C, 0xFFED    ; 0221A7C4 (2/2)
+    expect16_at 0x0E, 0x9000    ; 0221A7C6 str r0, [sp]
+    expect16_at 0x10, 0x4826    ; 0221A7C8 ldr r0, [pc, #0x98]
+    expect16_at 0x12, 0x224A    ; 0221A7CA movs r2, #0x4a
+    expect16_at 0x14, 0x9001    ; 0221A7CC str r0, [sp, #4]
+    expect16_at 0x16, 0x9B05    ; 0221A7CE ldr r3, [sp, #0x14]
+    expect16_at 0x18, 0x1C38    ; 0221A7D0 adds r0, r7, #0
+    expect16_at 0x1A, 0x2103    ; 0221A7D2 movs r1, #3
+    expect16_at 0x1C, 0x0092    ; 0221A7D4 lsls r2, r2, #2
+    expect16_at 0x1E, 0xF00A    ; 0221A7D6 bl #0x2224c50
+    expect16_at 0x20, 0xFA3B    ; 0221A7D8 (2/2)
+    add     r0, r4, #0
+.endarea
+
+; 1#288: variant = {0} (r4, the target's battler) instead of the attacker's
+.org DoesntAffect1_Variant
+.area 2
+    expect16_at -0x0C, 0x4812    ; 0221AE86 ldr r0, [pc, #0x48]
+    expect16_at -0x0A, 0x6800    ; 0221AE88 ldr r0, [r0]
+    expect16_at -0x08, 0x6A05    ; 0221AE8A ldr r5, [r0, #0x20]
+    expect16_at -0x06, 0x1C30    ; 0221AE8C adds r0, r6, #0
+    expect16_at -0x04, 0xF7FB    ; 0221AE8E bl #0x22167a0
+    expect16_at -0x02, 0xFC87    ; 0221AE90 (2/2)
+    expect16_at 0x00, 0x1C03    ; 0221AE92 adds r3, r0, #0   <- the edit
+    expect16_at 0x02, 0x2212    ; 0221AE94 movs r2, #0x12
+    expect16_at 0x04, 0x480F    ; 0221AE96 ldr r0, [pc, #0x3c]
+    expect16_at 0x06, 0x9400    ; 0221AE98 str r4, [sp]
+    expect16_at 0x08, 0x9001    ; 0221AE9A str r0, [sp, #4]
+    expect16_at 0x0A, 0x1C28    ; 0221AE9C adds r0, r5, #0
+    expect16_at 0x0C, 0x2103    ; 0221AE9E movs r1, #3
+    expect16_at 0x0E, 0x0112    ; 0221AEA0 lsls r2, r2, #4
+    expect16_at 0x10, 0xF009    ; 0221AEA2 bl #0x2224c50
+    expect16_at 0x12, 0xFED5    ; 0221AEA4 (2/2)
+    add     r3, r4, #0
+.endarea
+
+; 1#288 (type immunity): variant = {0} (r4) instead of the attacker's
+.org DoesntAffect2_Variant
+.area 2
+    expect16_at -0x0C, 0x4809    ; 0221AEAA ldr r0, [pc, #0x24]
+    expect16_at -0x0A, 0x6800    ; 0221AEAC ldr r0, [r0]
+    expect16_at -0x08, 0x6A05    ; 0221AEAE ldr r5, [r0, #0x20]
+    expect16_at -0x06, 0x1C30    ; 0221AEB0 adds r0, r6, #0
+    expect16_at -0x04, 0xF7FB    ; 0221AEB2 bl #0x22167a0
+    expect16_at -0x02, 0xFC75    ; 0221AEB4 (2/2)
+    expect16_at 0x00, 0x1C03    ; 0221AEB6 adds r3, r0, #0   <- the edit
+    expect16_at 0x02, 0x2212    ; 0221AEB8 movs r2, #0x12
+    expect16_at 0x04, 0x4806    ; 0221AEBA ldr r0, [pc, #0x18]
+    expect16_at 0x06, 0x9400    ; 0221AEBC str r4, [sp]
+    expect16_at 0x08, 0x9001    ; 0221AEBE str r0, [sp, #4]
+    expect16_at 0x0A, 0x1C28    ; 0221AEC0 adds r0, r5, #0
+    expect16_at 0x0C, 0x2103    ; 0221AEC2 movs r1, #3
+    expect16_at 0x0E, 0x0112    ; 0221AEC4 lsls r2, r2, #4
+    expect16_at 0x10, 0xF009    ; 0221AEC6 bl #0x2224c50
+    expect16_at 0x12, 0xFEC3    ; 0221AEC8 (2/2)
+    add     r3, r4, #0
+.endarea
+
+; 1#288 in the loop over a move's targets: variant = the target (r4; {0} = r7 = its battler)
+.org DoesntAffect3_Variant
+.area 2
+    expect16_at -0x12, 0x1C20    ; 0221AF22 adds r0, r4, #0
+    expect16_at -0x10, 0xF7FB    ; 0221AF24 bl #0x22167a0
+    expect16_at -0x0E, 0xFC3C    ; 0221AF26 (2/2)
+    expect16_at -0x0C, 0x0600    ; 0221AF28 lsls r0, r0, #0x18
+    expect16_at -0x0A, 0x0E07    ; 0221AF2A lsrs r7, r0, #0x18
+    expect16_at -0x08, 0x480D    ; 0221AF2C ldr r0, [pc, #0x34]
+    expect16_at -0x06, 0x6800    ; 0221AF2E ldr r0, [r0]
+    expect16_at -0x04, 0x6A00    ; 0221AF30 ldr r0, [r0, #0x20]
+    expect16_at -0x02, 0x9003    ; 0221AF32 str r0, [sp, #0xc]
+    expect16_at 0x00, 0x1C30    ; 0221AF34 adds r0, r6, #0   <- the edit
+    expect16_at 0x02, 0xF7FB    ; 0221AF36 bl #0x22167a0
+    expect16_at 0x04, 0xFC33    ; 0221AF38 (2/2)
+    expect16_at 0x06, 0x1C03    ; 0221AF3A adds r3, r0, #0
+    expect16_at 0x08, 0x2212    ; 0221AF3C movs r2, #0x12
+    expect16_at 0x0A, 0x480A    ; 0221AF3E ldr r0, [pc, #0x28]
+    expect16_at 0x0C, 0x9700    ; 0221AF40 str r7, [sp]
+    expect16_at 0x0E, 0x9001    ; 0221AF42 str r0, [sp, #4]
+    expect16_at 0x10, 0x9803    ; 0221AF44 ldr r0, [sp, #0xc]
+    expect16_at 0x12, 0x2103    ; 0221AF46 movs r1, #3
+    expect16_at 0x14, 0x0112    ; 0221AF48 lsls r2, r2, #4
+    expect16_at 0x16, 0xF009    ; 0221AF4A bl #0x2224c50
+    expect16_at 0x18, 0xFE81    ; 0221AF4C (2/2)
+    add     r0, r4, #0
+.endarea
+
+; 1#288 from the immunity dispatcher: variant = {0} (r2, the target's battler)
+.org DoesntAffect4_Variant
+.area 2
+    expect16_at -0x0E, 0xF7FB    ; 0221B21A bl #0x22167a0
+    expect16_at -0x0C, 0xFAC1    ; 0221B21C (2/2)
+    expect16_at -0x0A, 0x1C05    ; 0221B21E adds r5, r0, #0
+    expect16_at -0x08, 0x1C20    ; 0221B220 adds r0, r4, #0
+    expect16_at -0x06, 0xF7FB    ; 0221B222 bl #0x22167a0
+    expect16_at -0x04, 0xFABD    ; 0221B224 (2/2)
+    expect16_at -0x02, 0x1C02    ; 0221B226 adds r2, r0, #0
+    expect16_at 0x00, 0x0628    ; 0221B228 lsls r0, r5, #0x18   <- the edit
+    expect16_at 0x02, 0x2112    ; 0221B22A movs r1, #0x12
+    expect16_at 0x04, 0x0E00    ; 0221B22C lsrs r0, r0, #0x18
+    expect16_at 0x06, 0x0109    ; 0221B22E lsls r1, r1, #4
+    expect16_at 0x08, 0xF00E    ; 0221B230 bl #0x2229e1c
+    expect16_at 0x0A, 0xFDF4    ; 0221B232 (2/2)
+    lsl     r0, r2, #0x18
+.endarea
+
+; 1#706 Protect: variant = {0} (r2, the protected Pokemon), not the attacker (r6)
+.org Protect_Variant
+.area 2
+    expect16_at -0x10, 0x1C28    ; 0221B374 adds r0, r5, #0
+    expect16_at -0x0E, 0xF7FB    ; 0221B376 bl #0x22167a0
+    expect16_at -0x0C, 0xFA13    ; 0221B378 (2/2)
+    expect16_at -0x0A, 0x1C06    ; 0221B37A adds r6, r0, #0
+    expect16_at -0x08, 0x1C20    ; 0221B37C adds r0, r4, #0
+    expect16_at -0x06, 0xF7FB    ; 0221B37E bl #0x22167a0
+    expect16_at -0x04, 0xFA0F    ; 0221B380 (2/2)
+    expect16_at -0x02, 0x1C02    ; 0221B382 adds r2, r0, #0
+    expect16_at 0x00, 0x0630    ; 0221B384 lsls r0, r6, #0x18   <- the edit
+    expect16_at 0x02, 0x4905    ; 0221B386 ldr r1, [pc, #0x14]
+    expect16_at 0x04, 0x0E00    ; 0221B388 lsrs r0, r0, #0x18
+    expect16_at 0x06, 0xF00E    ; 0221B38A bl #0x2229e1c
+    expect16_at 0x08, 0xFD47    ; 0221B38C (2/2)
+    lsl     r0, r2, #0x18
+.endarea
+
+; 1#288 when the target is not the struct's source: variant = {0} (r2), not the source
+.org DoesntAffect5_Variant
+.area 2
+    expect16_at -0x0A, 0x1C20    ; 0221B8EC adds r0, r4, #0
+    expect16_at -0x08, 0xF7FA    ; 0221B8EE bl #0x22167a0
+    expect16_at -0x06, 0xFF57    ; 0221B8F0 (2/2)
+    expect16_at -0x04, 0x1C02    ; 0221B8F2 adds r2, r0, #0
+    expect16_at -0x02, 0x2112    ; 0221B8F4 movs r1, #0x12
+    expect16_at 0x00, 0x7828    ; 0221B8F6 ldrb r0, [r5]   <- the edit
+    expect16_at 0x02, 0x0109    ; 0221B8F8 lsls r1, r1, #4
+    expect16_at 0x04, 0xF00E    ; 0221B8FA bl #0x2229e1c
+    expect16_at 0x06, 0xFA8F    ; 0221B8FC (2/2)
+    add     r0, r2, #0
+.endarea
+
+; 1#1220 drain: variant = {0} (r2, the drained Pokemon), not the drainer (r4)
+.org Drain_Variant
+.area 2
+    expect16_at -0x10, 0x1C20    ; 0221C1EC adds r0, r4, #0
+    expect16_at -0x0E, 0xF7FA    ; 0221C1EE bl #0x22167a0
+    expect16_at -0x0C, 0xFAD7    ; 0221C1F0 (2/2)
+    expect16_at -0x0A, 0x1C04    ; 0221C1F2 adds r4, r0, #0
+    expect16_at -0x08, 0x1C30    ; 0221C1F4 adds r0, r6, #0
+    expect16_at -0x06, 0xF7FA    ; 0221C1F6 bl #0x22167a0
+    expect16_at -0x04, 0xFAD3    ; 0221C1F8 (2/2)
+    expect16_at -0x02, 0x1C02    ; 0221C1FA adds r2, r0, #0
+    expect16_at 0x00, 0x0620    ; 0221C1FC lsls r0, r4, #0x18   <- the edit
+    expect16_at 0x02, 0x4902    ; 0221C1FE ldr r1, [pc, #8]
+    expect16_at 0x04, 0x0E00    ; 0221C200 lsrs r0, r0, #0x18
+    expect16_at 0x06, 0xF00D    ; 0221C202 bl #0x2229e1c
+    expect16_at 0x08, 0xFE0B    ; 0221C204 (2/2)
+    lsl     r0, r2, #0x18
+.endarea
+
+; condition check's messages via 0x02229944 (1#340 ...): variant = the target (struct + 4), not the source
+.org CondBlocked_Variant
+.area 2
+    expect16_at 0x00, 0x6828    ; 0221E0E8 ldr r0, [r5]   <- the edit
+    expect16_at 0x02, 0xF7F8    ; 0221E0EA bl #0x22167a0
+    expect16_at 0x04, 0xFB59    ; 0221E0EC (2/2)
+    expect16_at 0x06, 0x6969    ; 0221E0EE ldr r1, [r5, #0x14]
+    expect16_at 0x08, 0x0600    ; 0221E0F0 lsls r0, r0, #0x18
+    expect16_at 0x0A, 0x9100    ; 0221E0F2 str r1, [sp]
+    expect16_at 0x0C, 0x6869    ; 0221E0F4 ldr r1, [r5, #4]
+    expect16_at 0x0E, 0x68AB    ; 0221E0F6 ldr r3, [r5, #8]
+    expect16_at 0x10, 0x0E00    ; 0221E0F8 lsrs r0, r0, #0x18
+    expect16_at 0x12, 0x1C22    ; 0221E0FA adds r2, r4, #0
+    expect16_at 0x14, 0xF000    ; 0221E0FC bl #0x221e420
+    expect16_at 0x16, 0xF990    ; 0221E0FE (2/2)
+    ldr     r0, [r5, #4]
+.endarea
+
+; 1#1000 Ingrain vs Roar: variant = {0} (r2, the rooted Pokemon), not the Roar user (r6)
+.org Ingrain_Variant
+.area 2
+    expect16_at -0x10, 0x1C30    ; 02220B68 adds r0, r6, #0
+    expect16_at -0x0E, 0xF7F5    ; 02220B6A bl #0x22167a0
+    expect16_at -0x0C, 0xFE19    ; 02220B6C (2/2)
+    expect16_at -0x0A, 0x1C06    ; 02220B6E adds r6, r0, #0
+    expect16_at -0x08, 0x1C20    ; 02220B70 adds r0, r4, #0
+    expect16_at -0x06, 0xF7F5    ; 02220B72 bl #0x22167a0
+    expect16_at -0x04, 0xFE15    ; 02220B74 (2/2)
+    expect16_at -0x02, 0x1C02    ; 02220B76 adds r2, r0, #0
+    expect16_at 0x00, 0x0630    ; 02220B78 lsls r0, r6, #0x18   <- the edit
+    expect16_at 0x02, 0x21FA    ; 02220B7A movs r1, #0xfa
+    expect16_at 0x04, 0x0E00    ; 02220B7C lsrs r0, r0, #0x18
+    expect16_at 0x06, 0x0089    ; 02220B7E lsls r1, r1, #2
+    expect16_at 0x08, 0xF009    ; 02220B80 bl #0x2229e1c
+    expect16_at 0x0A, 0xF94C    ; 02220B82 (2/2)
+    lsl     r0, r2, #0x18
+.endarea
+
+; 1#1554 Pledge '{0} is waiting for {1}': variant = {1} (r7), the Pokemon the prefix stands before
+.org Pledge_Variant
+.area 2
+    expect16_at -0x12, 0x9400    ; 02222DD0 str r4, [sp]
+    expect16_at -0x10, 0x4808    ; 02222DD2 ldr r0, [pc, #0x20]
+    expect16_at -0x0E, 0x9701    ; 02222DD4 str r7, [sp, #4]
+    expect16_at -0x0C, 0x9002    ; 02222DD6 str r0, [sp, #8]
+    expect16_at -0x0A, 0x4805    ; 02222DD8 ldr r0, [pc, #0x14]
+    expect16_at -0x08, 0x4A07    ; 02222DDA ldr r2, [pc, #0x1c]
+    expect16_at -0x06, 0x6800    ; 02222DDC ldr r0, [r0]
+    expect16_at -0x04, 0x2103    ; 02222DDE movs r1, #3
+    expect16_at -0x02, 0x6A00    ; 02222DE0 ldr r0, [r0, #0x20]
+    expect16_at 0x00, 0x1C23    ; 02222DE2 adds r3, r4, #0   <- the edit
+    expect16_at 0x02, 0xF001    ; 02222DE4 bl #0x2224c50
+    expect16_at 0x04, 0xFF34    ; 02222DE6 (2/2)
+    add     r3, r7, #0
+.endarea
+
+.close
+```
+
+</details>
+
+## battle-party-status-sync
+
+**In-battle party screen: status conditions show as they are now (Heal Bell, Aromatherapy, statuses gained in battle)**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2317
+- Source: `work/patches/battle-party-status-sync/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: after Heal Bell or Aromatherapy cures the whole party, the Pokémon on the bench still show PSN, PAR,
+BRN and so on in the party screen (a Discord report: 'just a visual bug': switched in, they are cured).
+The same screen also never shows a status gained during the battle: a Pokémon burned by its Flame Orb shows
+no BRN there. The untouched Chinese ROM does the same, so this is a bug of the hack.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
+(D-2317, 2026-10-09); other hack bugs stay report-only.
+
+Technical: the hack's battle engine (overlay 14) keeps a battle record per party member with its own status
+table, and a pointer to the battle's copy of the party Pokémon at record+0x10. Status changes (inflicted,
+cured by a move, item or ability, for the active Pokémon and the bench alike) change the record only; the
+copy gets the record's status at the end of the battle, from BPP_ReflectToPP (0x02218B28: condition ->
+party status bits, SetMonData status). The in-battle party screens are built from the copies: four loops
+(0x022027DC, the POKéMON button; 0x02202B78, the Bag's 'use on which Pokémon'; 0x0220405C, the forced
+switch after a faint; 0x02203DBC, 'Will you switch your Pokémon?' after the foe's Pokémon faints) add each member's copy to a new party. So these screens show the status from the start of the
+battle. Switching in uses the record (the cured Pokémon has no status), and after the battle the party is
+right.
+
+**What (old → new):**
+
+Old: party screen <- the battle's party copies, status as at the start of the battle.
+
+New: ReflectToPP's status block (0x02218B52-0x02218BA1) is replaced by a call to a routine in the same
+bytes, BPP_SyncSickToPP(record): the same conversion (fainted -> 0; PAR 0x40, SLP 2, FRZ 0x20, BRN 0x10,
+PSN 0x08, as the hack's switch) and SetMonData status on the copy, returning the copy. ReflectToPP does
+exactly what it did. The four party-screen loops call BPP_SyncSickToPP instead of BPP_GetSrcData
+(0x022027E6, 0x02202B82, 0x02203DC6, 0x02204066: one bl each), so each copy carries its current status when
+a party screen is built. Not changed: the cure and the status logic, the record, HP/PP/items/forms of the
+copy, the end-of-battle copy (it writes the same status), the opponent's side, other screens that take one
+Pokémon's copy (catching, 0x0222B99E; 0x0222F5B2).
+The copy's status is set to what the end of the battle would write anyway, only earlier.
+
+**Evidence:**
+
+- D-2317: the user-approved exception to D-1337 for this fix (Discord report 'After using Heal Bell ... still displayed on the Pokémon in the swap screen'; user request 2026-10-09 to fix the reported bugs, one worktree each)
+- work/notes/heal-bell-status_fix.md: the records, the copies, the four loops and the emulator runs before and after
+- Reproduced 2026-10-09 (DeSmuME, trainer battle, lead Chansey with Heal Bell or Aromatherapy, bench PSN/PAR/BRN): the Chinese ROM and the build without this fix print the three cure messages (battle_string 1#336/380/360) and still show PSN/PAR/BRN in the party screen; the build with the fix shows none; Flame Orb's burn on the lead shows only with the fix
+- Runtime: emu_harness.py fixes --case battle-party-status-sync (scenario healbell: Heal Bell in a trainer battle, then the POKéMON button; the status of every Pokémon the party screen draws; each run on the build and on one without this fix, work/notes/emu_harness.md 'Fix scenarios')
+
+**Touches:**
+
+- `overlay14+0x18372` (RAM 0x02218B52) `battle-party-status-sync-reflect`: 80 bytes, was `1C20 F7FE F886 9000 … (40 halfwords)`
+- `overlay14+0x2006` (RAM 0x022027E6) `battle-party-status-sync-list-pokemon`: 4 bytes, was `F013 FFE5`
+- `overlay14+0x23A2` (RAM 0x02202B82) `battle-party-status-sync-list-2`: 4 bytes, was `F013 FE17`
+- `overlay14+0x35E6` (RAM 0x02203DC6) `battle-party-status-sync-list-3`: 4 bytes, was `F012 FCF5`
+- `overlay14+0x3886` (RAM 0x02204066) `battle-party-status-sync-list-4`: 4 bytes, was `F012 FBA5`
+
+**Disassembly snapshot:** [`battle-party-status-sync.listing`](battle-party-status-sync/battle-party-status-sync.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write battle-party-status-sync`)
+
+**Source** (`work/patches/battle-party-status-sync/battle-party-status-sync.asm`, armips; the new bytes):
+
+<details>
+<summary>battle-party-status-sync.asm</summary>
+
+```asm
+; battle-party-status-sync - In-battle party screen: status conditions cured or inflicted during the battle
+; (Heal Bell, Aromatherapy, Refresh, Natural Cure, Flame Orb, ...) are shown as they are now. D-2317
+; (user-approved exception to D-1337).
+; Why and what: fix.toml next to this file; overview work/patches/FIXES.md; work/notes/heal-bell-status_fix.md.
+;
+; The hack's battle engine (overlay 14) keeps a battle Pokemon record (bpp) per party member, with its own
+; status table (8-byte entries at bpp+0x40.., one per condition) and a pointer to the battle's copy of the
+; party Pokemon at bpp+0x10 (BPP_GetSrcData, 0x022167B4). Battles change the record only: the copy gets the
+; record's status at the end of the battle, from BPP_ReflectToPP (0x02218B28), which converts the record's
+; condition (BPP_GetPokeSick, 0x02216C64: 0 none, 1 PAR, 2 SLP, 3 FRZ, 4 BRN, 5 PSN) to party status bits
+; and calls SetMonData(copy, 0xA0 status, ...). The in-battle party screens are built from the copies: four
+; loops (0x022027DC POKEMON button, 0x02202B78 Bag target, 0x0220405C forced switch, 0x02203DBC foe-fainted
+; switch list) add BPP_GetSrcData(member) for each member to a new party. So these screens show each
+; Pokemon's status from the start of the battle: a Pokemon cured on the bench by Heal Bell still shows
+; PSN/PAR/BRN, one burned by a Flame Orb shows none.
+;
+; The fix: ReflectToPP's status block (0x02218B52-0x02218BA1) becomes a call to a new routine in the same
+; bytes, BPP_SyncSickToPP(bpp): the same conversion and SetMonData, returning the copy. ReflectToPP's
+; behaviour is unchanged. The four party-screen loops call BPP_SyncSickToPP instead of BPP_GetSrcData, so
+; every member's copy carries its current status when the screen is built. Nothing else is written to the
+; copy (HP, PP, item, form stay as they are), and the record is not touched.
+
+.nds
+.thumb
+.include "../include/guards.inc"
+
+.definelabel SetMonData,                0x0206DF70   ; arm9: SetMonData(mon, field, &value); 0xA0 = status
+.definelabel Party_AddMon,              0x0207327C   ; arm9: Party_AddMon(party, mon)
+.definelabel BtlParty_GetMember,        0x022151A0   ; (party, index) -> bpp
+.definelabel BPP_GetSrcData,            0x022167B4   ; bpp -> [bpp+0x10], the battle's party Pokemon
+.definelabel BPP_GetPokeSick,           0x02216C64   ; bpp -> 0 none, 1 PAR, 2 SLP, 3 FRZ, 4 BRN, 5 PSN
+.definelabel BPP_ReflectToPP,           0x02218B28   ; bpp, flag: HP, exp, status, moves, form, item -> copy
+.definelabel ReflectToPP_Status,        0x02218B52   ; its status block                    <- edit 1
+.definelabel ReflectToPP_Moves,         0x02218BA2   ; the rest of ReflectToPP (moves, form, item)
+.definelabel PartyList_Pokemon_Src,     0x022027E6   ; POKEMON button party screen: bl BPP_GetSrcData <- edit 2
+.definelabel PartyList_2_Src,           0x02202B82   ; Bag: 'use on which Pokemon'          <- edits 3-5
+.definelabel PartyList_3_Src,           0x02203DC6   ; 'Will you switch?' after the foe faints
+.definelabel PartyList_4_Src,           0x02204066   ; forced switch after a faint
+
+.open "overlay14.bin", 0x022007E0
+
+; Read-only guards: the routines BPP_SyncSickToPP relies on.
+.org BPP_GetSrcData
+    expect16_at 0x00, 0x6900    ; ldr   r0, [r0, #0x10]
+    expect16_at 0x02, 0x4770    ; bx    lr
+
+.org BPP_GetPokeSick
+    expect16_at 0x00, 0x303C    ; adds  r0, #0x3c
+    expect16_at 0x02, 0x2201    ; movs  r2, #1
+    expect16_at 0x04, 0x3008    ; adds  r0, #8
+    expect16_at 0x06, 0x6801    ; ldr   r1, [r0]                 entry i: [bpp + 0x3C + 8*i]
+    expect16_at 0x08, 0x0749    ; lsls  r1, r1, #0x1d
+    expect16_at 0x0A, 0x0F49    ; lsrs  r1, r1, #0x1d
+    expect16_at 0x0C, 0xD001    ; beq   next
+    expect16_at 0x0E, 0x1C10    ; adds  r0, r2, #0               return i (1..5)
+    expect16_at 0x10, 0x4770    ; bx    lr
+    expect16_at 0x12, 0x1C52    ; adds  r2, r2, #1
+    expect16_at 0x14, 0x3008    ; adds  r0, #8
+    expect16_at 0x16, 0x2A06    ; cmp   r2, #6
+    expect16_at 0x18, 0xDBF5    ; blt   loop
+    expect16_at 0x1A, 0x2000    ; movs  r0, #0                   none
+    expect16_at 0x1C, 0x4770    ; bx    lr
+
+.org BPP_ReflectToPP
+    expect16_at 0x00, 0xB538    ; push  {r3, r4, r5, lr}
+    expect16_at 0x02, 0x1C04    ; add   r4, r0, #0               r4 = bpp
+    expect16_at 0x04, 0x2092    ; mov   r0, #0x92
+    expect16_at 0x06, 0x1C0D    ; add   r5, r1, #0               r5 = flag
+    expect16_at 0x08, 0x0080    ; lsl   r0, r0, #2
+    expect16_at 0x0A, 0x6921    ; ldr   r1, [r4, #0x10]
+    expect16_at 0x0C, 0x1820    ; add   r0, r4, r0
+    expect16_at 0x0E, 0xF7FF    ; bl    0x02218A44 (1/2)
+    expect16_at 0x10, 0xFF85    ;                  (2/2)
+    expect16_at 0x12, 0x1C22    ; add   r2, r4, #0
+    expect16_at 0x14, 0x6920    ; ldr   r0, [r4, #0x10]
+    expect16_at 0x16, 0x21A3    ; mov   r1, #0xa3                current HP
+    expect16_at 0x18, 0x321E    ; add   r2, #0x1e
+    expect16_at 0x1A, 0xF655    ; bl    SetMonData (1/2)
+    expect16_at 0x1C, 0xFA15    ;                  (2/2)
+    expect16_at 0x1E, 0x1C22    ; add   r2, r4, #0
+    expect16_at 0x20, 0x6920    ; ldr   r0, [r4, #0x10]
+    expect16_at 0x22, 0x2108    ; mov   r1, #8                   experience
+    expect16_at 0x24, 0x3218    ; add   r2, #0x18
+    expect16_at 0x26, 0xF655    ; bl    SetMonData (1/2)
+    expect16_at 0x28, 0xFA0F    ;                  (2/2)         then the status block (edit 1)
+.org ReflectToPP_Moves
+    expect16_at 0x00, 0x1C20    ; add   r0, r4, #0
+    expect16_at 0x02, 0xF7FF    ; bl    0x022189F4 (1/2)         moves and PP
+    expect16_at 0x04, 0xFF26    ;                  (2/2)
+    expect16_at 0x06, 0x1C20    ; add   r0, r4, #0
+    expect16_at 0x08, 0xF7FD    ; bl    0x022169D4 (1/2)
+    expect16_at 0x0A, 0xFF13    ;                  (2/2)
+    expect16_at 0x0C, 0x2800    ; cmp   r0, #0
+    expect16_at 0x0E, 0xD101    ; bne   0x02218BB6
+    expect16_at 0x10, 0x2D00    ; cmp   r5, #0                   flag
+    expect16_at 0x12, 0xD001    ; beq   0x02218BBA
+    expect16_at 0x14, 0x7921    ; ldrb  r1, [r4, #4]             form
+    expect16_at 0x16, 0xE000    ; b     0x02218BBC
+    expect16_at 0x18, 0x7961    ; ldrb  r1, [r4, #5]
+    expect16_at 0x1A, 0x6920    ; ldr   r0, [r4, #0x10]
+    expect16_at 0x1C, 0xF659    ; bl    0x02072250 (1/2)
+    expect16_at 0x1E, 0xFB47    ;                  (2/2)
+    expect16_at 0x20, 0x6920    ; ldr   r0, [r4, #0x10]
+    expect16_at 0x22, 0x3420    ; add   r4, #0x20
+    expect16_at 0x24, 0x2106    ; mov   r1, #6                   held item
+    expect16_at 0x26, 0x1C22    ; add   r2, r4, #0
+    expect16_at 0x28, 0xF655    ; bl    SetMonData (1/2)
+    expect16_at 0x2A, 0xF9D1    ;                  (2/2)
+    expect16_at 0x2C, 0xBD38    ; pop   {r3, r4, r5, pc}         (the block's [sp] is not read again)
+
+; Edit 1: ReflectToPP's status block -> a call to BPP_SyncSickToPP, which takes its place.
+.org ReflectToPP_Status
+.area ReflectToPP_Moves - ReflectToPP_Status
+    expect16_at 0x00, 0x1C20    ; adds  r0, r4, #0
+    expect16_at 0x02, 0xF7FE    ; bl    BPP_GetPokeSick (1/2)
+    expect16_at 0x04, 0xF886    ;                       (2/2)
+    expect16_at 0x06, 0x9000    ; str   r0, [sp]
+    expect16_at 0x08, 0x8BE1    ; ldrh  r1, [r4, #0x1e]          current HP
+    expect16_at 0x0A, 0x2900    ; cmp   r1, #0
+    expect16_at 0x0C, 0xD019    ; beq   -> status 0
+    expect16_at 0x0E, 0x2805    ; cmp   r0, #5
+    expect16_at 0x10, 0xD819    ; bhi   -> status = condition
+    expect16_at 0x12, 0x1800    ; adds  r0, r0, r0               switch (condition)
+    expect16_at 0x14, 0x4478    ; add   r0, pc
+    expect16_at 0x16, 0x88C0    ; ldrh  r0, [r0, #6]
+    expect16_at 0x18, 0x0400    ; lsls  r0, r0, #0x10
+    expect16_at 0x1A, 0x1400    ; asrs  r0, r0, #0x10
+    expect16_at 0x1C, 0x4487    ; add   pc, r0
+    expect16_at 0x1E, 0x0026    ; .hword: 0 none -> condition (0)
+    expect16_at 0x20, 0x001C    ; .hword: 1 PAR  -> 0x40
+    expect16_at 0x22, 0x0026    ; .hword: 2 SLP  -> condition (2)
+    expect16_at 0x24, 0x0016    ; .hword: 3 FRZ  -> 0x20
+    expect16_at 0x26, 0x0010    ; .hword: 4 BRN  -> 0x10
+    expect16_at 0x28, 0x000A    ; .hword: 5 PSN  -> 0x08
+    expect16_at 0x2A, 0x2008    ; movs  r0, #8
+    expect16_at 0x2C, 0x9000    ; str   r0, [sp]
+    expect16_at 0x2E, 0xE00A    ; b     store
+    expect16_at 0x30, 0x2010    ; movs  r0, #0x10
+    expect16_at 0x32, 0x9000    ; str   r0, [sp]
+    expect16_at 0x34, 0xE007    ; b     store
+    expect16_at 0x36, 0x2020    ; movs  r0, #0x20
+    expect16_at 0x38, 0x9000    ; str   r0, [sp]
+    expect16_at 0x3A, 0xE004    ; b     store
+    expect16_at 0x3C, 0x2040    ; movs  r0, #0x40
+    expect16_at 0x3E, 0x9000    ; str   r0, [sp]
+    expect16_at 0x40, 0xE001    ; b     store
+    expect16_at 0x42, 0x2000    ; movs  r0, #0                   fainted: no status
+    expect16_at 0x44, 0x9000    ; str   r0, [sp]
+    expect16_at 0x46, 0x6920    ; ldr   r0, [r4, #0x10]          store: the copy
+    expect16_at 0x48, 0x21A0    ; movs  r1, #0xa0
+    expect16_at 0x4A, 0xAA00    ; add   r2, sp, #0
+    expect16_at 0x4C, 0xF655    ; bl    SetMonData (1/2)
+    expect16_at 0x4E, 0xF9E7    ;                  (2/2)
+    add     r0, r4, #0
+    bl      BPP_SyncSickToPP
+    b       ReflectToPP_Moves
+
+; BPP_SyncSickToPP(r0 = bpp) -> r0 = the battle's party Pokemon (what BPP_GetSrcData returns), whose status
+; is now the record's: the conversion ReflectToPP did inline (fainted -> 0; else SickToStatus). Keeps r4-r7.
+BPP_SyncSickToPP:
+    push    {r3, r4, r5, lr}
+    add     r4, r0, #0
+    bl      BPP_GetPokeSick         ; r0 = 0..5
+    ldrh    r1, [r4, #0x1E]         ; current HP
+    cmp     r1, #0
+    beq     @@store                 ; fainted: status 0 (r1 = 0)
+    add     r1, r15, #(SickToStatus - ((. + 4) & ~3))   ; adr r1, SickToStatus
+    ldrb    r1, [r1, r0]
+@@store:
+    str     r1, [sp]                ; the pushed r3's slot
+    ldr     r0, [r4, #0x10]         ; the battle's party Pokemon
+    mov     r1, #0xA0               ; status
+    add     r2, sp, #0
+    bl      SetMonData
+    ldr     r0, [r4, #0x10]
+    pop     {r3, r4, r5, pc}
+.align 4
+SickToStatus:                       ; condition -> party status bits, as ReflectToPP's switch
+    .byte   0x00                    ; 0 none
+    .byte   0x40                    ; 1 PAR
+    .byte   0x02                    ; 2 SLP (ReflectToPP stores the condition number, 2)
+    .byte   0x20                    ; 3 FRZ
+    .byte   0x10                    ; 4 BRN
+    .byte   0x08                    ; 5 PSN
+.align 2
+    .fill   ReflectToPP_Moves - ., 0   ; the rest of the old block: no longer reached
+.endarea
+
+; Edits 2-5: the in-battle party screen loops take each member's party Pokemon through BPP_SyncSickToPP.
+; Each loop: r0 = BtlParty_GetMember(party, i); bl <here>; add r1, r0, #0; ldr r0, [list]; bl Party_AddMon.
+.macro party_list_src, addr, bl_hi, bl_lo, get_hi, get_lo, after
+.org addr
+    expect16_at -0x04, get_hi       ; bl    BtlParty_GetMember (1/2)
+    expect16_at -0x02, get_lo       ;                          (2/2)
+    expect16_at 0x04, 0x1C01        ; add   r1, r0, #0
+    expect16_at 0x06, after         ; ldr   r0, [rN]          the new party
+.area 4
+    expect16_at 0x00, bl_hi         ; bl    BPP_GetSrcData (1/2)
+    expect16_at 0x02, bl_lo         ;                      (2/2)
+    bl      BPP_SyncSickToPP
+.endarea
+.endmacro
+
+    party_list_src PartyList_Pokemon_Src, 0xF013, 0xFFE5, 0xF012, 0xFCDD, 0x6820
+    party_list_src PartyList_2_Src,       0xF013, 0xFE17, 0xF012, 0xFB0F, 0x6830
+    party_list_src PartyList_3_Src,       0xF012, 0xFCF5, 0xF011, 0xF9ED, 0x6838
+    party_list_src PartyList_4_Src,       0xF012, 0xFBA5, 0xF011, 0xF89D, 0x6830
+
+.close
+```
+
+</details>
+
 ## bulbasaur-reflection-boundary
 
 **Following Pokémon: Bulbasaur's reflection in water no longer reads a NULL graphics pointer (black screen over water)**
@@ -1688,6 +2879,510 @@ of the hack; this port was reproduced and verified here, not copied.
 .area 2
     expect16 0xDD07             ; ble ReflectionGfx_NotFollower
     blt     ReflectionGfx_NotFollower
+.endarea
+
+.close
+```
+
+</details>
+
+## cute-charm-infatuation
+
+**Battle: Cute Charm infatuates the attacker (the 'fell in love!' line no longer prints without effect)**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2315
+- Source: `work/patches/cute-charm-infatuation/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: when a Pokémon with Cute Charm is hit by a contact move from a Pokémon of the other gender, the
+battle often says the attacker fell in love (battle_string 1#444), but nothing happens: no 'is in love'
+line on its next turns, it attacks normally, and the next contact prints 'fell in love!' again (a reviewer
+saw it six times in one battle on the Chinese ROM). Attract and Destiny Knot infatuate correctly. The
+untouched Chinese ROM does the same, so this is a bug of the hack.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
+(D-2315, 2026-10-09); other hack bugs stay report-only.
+
+Technical: overlay 14 is the hack's battle engine. A condition is stored per battle record in 8-byte
+entries at bpp+0x38+n*8 (infatuation: condition 7, bpp+0x70); the second word's low 3 bits are its kind
+(0 none, 3 linked to a Pokémon, ...). Cute Charm's handler (0x02232A70) checks that the holder was hit, by
+a Pokémon with a gender other than the holder's, then calls the contact-chance helper 0x0223ACDC (contact,
+Shield Dust, 50 %, then the add-condition action with the 'fell in love' message). It builds the
+condition's continuation with 0x02225520, the constructor of the status conditions 0..5, which has no case
+for condition 7 and returns kind 0. The action prints the message and stores an empty entry, so the
+attacker is not infatuated and the next contact passes again.
+
+**What (old → new):**
+
+Old: 'movs r1, #7; adds r2, r5, #0; bl 0x02225520' (0x02232ACE) -> continuation of kind 0 -> message, no
+infatuation.
+
+New: 'adds r1, r5, #0; adds r2, r5, #0; bl 0x022251D0': the constructor Attract (0x022255FA) and Destiny
+Knot (0x0220AF06) use, with the Cute Charm holder's id: kind 3, linked to the holder. The attacker is now
+infatuated with the holder: the per-turn 'is in love' line and the hack's chance to be unable to attack
+follow, and a second contact does not print 'fell in love!' again while it lasts. Not changed: the hack's
+50 % chance (vanilla Gen 4 has 1/3, Gen 5+ 30 %; D-1002), the contact, gender, genderless and Oblivious
+checks, the message, every other ability and status.
+
+**Evidence:**
+
+- D-2315: the user-approved exception to D-1337 for this fix (2026-10-09)
+- work/notes/cute-charm-infatuation_fix.md: the handler, the two constructors, the emulator runs before and after
+- Runtime: emu_harness.py fixes --case cute-charm-infatuation (scenario cutecharm: wild Nidoqueen with Cute Charm hit by the player's Nidoking with Tackle; the 'fell in love' and 'in love' lines and the infatuation entry bpp+0x70). 2026-10-09, DeSmuME: fixed 'fell in love' once, the per-turn line 9 times, entry linked to the holder; the --without build 'fell in love' 8 times, no per-turn line, entry of kind 0
+- DeSmuME, Chinese ROM / --without build / fixed build, 2026-10-09: the player's Cute Charm holder hit by a wild Pokemon's Tackle, same gender, Oblivious, a non-contact move, a genderless attacker (work/notes/cute-charm-infatuation_fix.md 'Evidence')
+- melonDS 1.1 (headless backend), 2026-10-09: trainer.sav, Route 1 trainer's Bidoof (Tackle) against a Cute Charm Nidoking: Chinese ROM and --without build store an empty entry and repeat 'fell in love!'; the fixed build infatuates once, then the per-turn line; no ARM9 abort
+- Open, not fixed here: D-2316 (the per-turn infatuation line names the two Pokemon the wrong way round, also with Attract on the Chinese ROM)
+
+**Touches:**
+
+- `overlay14+0x322EE` (RAM 0x02232ACE) `cute-charm-infatuation-cont`: 8 bytes, was `2107 1C2A F7F2 FD25`
+
+**Disassembly snapshot:** [`cute-charm-infatuation.listing`](cute-charm-infatuation/cute-charm-infatuation.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write cute-charm-infatuation`)
+
+**Source** (`work/patches/cute-charm-infatuation/cute-charm-infatuation.asm`, armips; the new bytes):
+
+<details>
+<summary>cute-charm-infatuation.asm</summary>
+
+```asm
+; cute-charm-infatuation - Battle: Cute Charm infatuates the attacker again ('fell in love!' no longer prints
+; without effect). D-2315 (user-approved exception to D-1337).
+; Why and what: fix.toml next to this file; overview work/patches/FIXES.md; work/notes/cute-charm-infatuation_fix.md.
+;
+; Overlay 14 is the hack's battle engine. A condition ("sick") is stored per battle record in 8-byte entries
+; at bpp+0x38+n*8; infatuation is condition 7 (bpp+0x70). Each entry carries a continuation word whose low
+; 3 bits are its kind (0 none, 1 turns, 2 permanent, 3 linked to a Pokemon, ...); kind 0 is no condition.
+;
+; Cute Charm (ability 56) has one handler, CuteCharm_OnHit (0x02232A70, event 0xBB, after a hit): the holder
+; is the target, the attacker is read from event var 0xA, both must have a gender and differ; then it builds
+; the continuation and hands it, with condition 7, to TouchAddSick (0x0223ACDC: contact, Shield Dust, the
+; chance 0x32 = 50 %, then the add-condition action with message 1#444 'fell in love'). It builds the
+; continuation with SickCont_MakePokeSick (0x02225520), the constructor for the five status conditions
+; 0..5 (sleep gets its turn count there): any other condition falls to its default case, kind 0. So the
+; action prints 'fell in love!' and stores an empty entry: the attacker is never infatuated, no per-turn
+; line, and the next contact prints the line again.
+;
+; Attract and Destiny Knot use SickCont_MakeLinked (0x022251D0, r1 = r2 = the Pokemon to be in love with:
+; kind 3, Pokemon id in bits 3..8; 0x022255FA, 0x0220AF06). The fix calls it the same way with the holder's
+; id (r5): two instructions, 'movs r1, #7' -> 'adds r1, r5, #0' and the bl target. Everything around them,
+; and the 50 % chance, stay as they are. The guards below check the whole handler.
+
+.nds
+.thumb
+.include "../include/guards.inc"
+
+.definelabel CuteCharm_OnHit,          0x02232A70   ; ability 56 handler (r1 = holder's Pokemon id)
+.definelabel CuteCharm_MakeCont,       0x02232ACE   ; movs r1, #7; adds r2, r5, #0; bl ...MakePokeSick <- edit
+.definelabel SickCont_MakePokeSick,    0x02225520   ; (out, condition 0..5, Pokemon id); other conditions: kind 0
+.definelabel SickCont_MakeLinked,      0x022251D0   ; (out, Pokemon id, Pokemon id): kind 3, linked to that Pokemon
+.definelabel TouchAddSick,             0x0223ACDC   ; (holder, condition, cont lo, cont hi, [sp] chance %)
+.definelabel EventVar_Get,             0x0220FCC0
+.definelabel Battle_GetPoke,           0x022151BC   ; Pokemon id -> battle record
+.definelabel Bpp_GetSex,               0x022181E8   ; [bpp+0x239]: 0 male, 1 female, 2 none
+.definelabel Battle_SkipCheck,         0x0222383C   ; not identified; nonzero: no effect
+
+.open "overlay14.bin", 0x022007E0
+
+; Read-only guards: the handler around the edit (nothing is written here).
+.org CuteCharm_OnHit
+    expect16_at 0x00, 0xB5F0    ; push  {r4-r7, lr}
+    expect16_at 0x02, 0xB085    ; sub   sp, #0x14
+    expect16_at 0x04, 0x200B    ; mov   r0, #0xB                 target (defender)
+    expect16_at 0x06, 0x1C0D    ; add   r5, r1, #0               r5 = holder
+    expect16_at 0x08, 0xF7DD    ; bl    EventVar_Get  (1/2)
+    expect16_at 0x0A, 0xF922    ;                     (2/2)
+    expect16_at 0x0C, 0x4285    ; cmp   r5, r0
+    expect16_at 0x0E, 0xD136    ; bne   return
+    expect16_at 0x10, 0x2037    ; mov   r0, #0x37
+    expect16_at 0x12, 0xF7DD    ; bl    EventVar_Get  (1/2)
+    expect16_at 0x14, 0xF91D    ;                     (2/2)
+    expect16_at 0x16, 0x2800    ; cmp   r0, #0
+    expect16_at 0x18, 0xD131    ; bne   return
+    expect16_at 0x1A, 0xF7F0    ; bl    Battle_SkipCheck (1/2)
+    expect16_at 0x1C, 0xFED7    ;                     (2/2)
+    expect16_at 0x1E, 0x2800    ; cmp   r0, #0
+    expect16_at 0x20, 0xD12D    ; bne   return
+    expect16_at 0x22, 0x200A    ; mov   r0, #0xA                 attacker
+    expect16_at 0x24, 0xF7DD    ; bl    EventVar_Get  (1/2)
+    expect16_at 0x26, 0xF914    ;                     (2/2)
+    expect16_at 0x28, 0x0600    ; lsl   r0, r0, #0x18
+    expect16_at 0x2A, 0x0E04    ; lsr   r4, r0, #0x18            r4 = attacker
+    expect16_at 0x2C, 0x1C28    ; add   r0, r5, #0
+    expect16_at 0x2E, 0xF7E2    ; bl    Battle_GetPoke (1/2)
+    expect16_at 0x30, 0xFB8D    ;                     (2/2)
+    expect16_at 0x32, 0x1C06    ; add   r6, r0, #0
+    expect16_at 0x34, 0x1C20    ; add   r0, r4, #0
+    expect16_at 0x36, 0xF7E2    ; bl    Battle_GetPoke (1/2)
+    expect16_at 0x38, 0xFB89    ;                     (2/2)
+    expect16_at 0x3A, 0x1C07    ; add   r7, r0, #0
+    expect16_at 0x3C, 0x1C30    ; add   r0, r6, #0
+    expect16_at 0x3E, 0xF7E5    ; bl    Bpp_GetSex    (1/2)
+    expect16_at 0x40, 0xFB9B    ;                     (2/2)
+    expect16_at 0x42, 0x0600    ; lsl   r0, r0, #0x18
+    expect16_at 0x44, 0x0E04    ; lsr   r4, r0, #0x18            r4 = holder's gender
+    expect16_at 0x46, 0x1C38    ; add   r0, r7, #0
+    expect16_at 0x48, 0xF7E5    ; bl    Bpp_GetSex    (1/2)
+    expect16_at 0x4A, 0xFB96    ;                     (2/2)
+    expect16_at 0x4C, 0x0600    ; lsl   r0, r0, #0x18
+    expect16_at 0x4E, 0x0E00    ; lsr   r0, r0, #0x18            r0 = attacker's gender
+    expect16_at 0x50, 0x2C02    ; cmp   r4, #2
+    expect16_at 0x52, 0xD014    ; beq   return                   holder genderless
+    expect16_at 0x54, 0x2802    ; cmp   r0, #2
+    expect16_at 0x56, 0xD012    ; beq   return                   attacker genderless
+    expect16_at 0x58, 0x4284    ; cmp   r4, r0
+    expect16_at 0x5A, 0xD010    ; beq   return                   same gender
+    expect16_at 0x5C, 0xA801    ; add   r0, sp, #4               out = the continuation
+    ; 0x5E..0x65: the edit below
+    expect16_at 0x66, 0x9802    ; ldr   r0, [sp, #8]
+    expect16_at 0x68, 0x9901    ; ldr   r1, [sp, #4]
+    expect16_at 0x6A, 0x9004    ; str   r0, [sp, #0x10]
+    expect16_at 0x6C, 0x2032    ; mov   r0, #0x32                chance 50 % (kept)
+    expect16_at 0x6E, 0x9103    ; str   r1, [sp, #0xC]
+    expect16_at 0x70, 0xAC03    ; add   r4, sp, #0xC
+    expect16_at 0x72, 0x9000    ; str   r0, [sp]
+    expect16_at 0x74, 0x1C28    ; add   r0, r5, #0               holder
+    expect16_at 0x76, 0x2107    ; mov   r1, #7                   condition 7: infatuation
+    expect16_at 0x78, 0xCC0C    ; ldmia r4!, {r2, r3}            the continuation
+    expect16_at 0x7A, 0xF008    ; bl    TouchAddSick  (1/2)
+    expect16_at 0x7C, 0xF8F7    ;                     (2/2)
+    expect16_at 0x7E, 0xB005    ; add   sp, #0x14                return
+    expect16_at 0x80, 0xBDF0    ; pop   {r4-r7, pc}
+
+; The edit: the continuation is 'linked to the Cute Charm holder' (kind 3, holder's id), as for Attract.
+.org CuteCharm_MakeCont
+.area 8
+    expect16_at 0, 0x2107       ; movs  r1, #7                   condition 7 for the status constructor
+    expect16_at 2, 0x1C2A       ; adds  r2, r5, #0
+    expect16_at 4, 0xF7F2       ; bl    SickCont_MakePokeSick (1/2)
+    expect16_at 6, 0xFD25       ;                             (2/2)
+    add     r1, r5, #0          ; r1 = holder's id
+    add     r2, r5, #0          ; r2 = holder's id (unchanged)
+    bl      SickCont_MakeLinked
+.endarea
+
+.close
+```
+
+</details>
+
+## double-battle-targeting
+
+**Double battles: escape the D-pad target cursor trap after a foe position becomes empty**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-1337
+- Source: `work/patches/double-battle-targeting/fix.toml`
+
+**Why (the Chinese hack):**
+
+An empty foe position can trap the D-pad cursor on a teammate. Touch targeting still works.
+The original Chinese hack does the same: shared target memory, ally-first fallback and straight-line
+navigation combine with per-frame repair rejecting CANCEL. The later isolated Option 2 worktree records
+specific user approval on 2026-10-06 as an exception to D-1002/D-1337; the root investigation's earlier
+'not approved' status is superseded. The initial port matched that worktree's eight enabled patches.
+On 2026-10-09 the user separately approved horizontal fallback for an ineligible adjacent Pokemon slot
+to close a remaining reachability gap (mode 9, presence mask 7, eligibility [1,1,0,0]).
+
+**What (old → new):**
+
+Old: after a foe slot becomes empty, the cursor can remain on an ally with no D-pad escape.
+
+New: target entry retains an eligible remembered foe or opens on a living eligible foe, left first.
+Vertical navigation retries the other column only when straight-line navigation fails. Horizontal
+navigation first tries the adjacent slot; if that Pokemon slot is ineligible, it tries the other Pokemon
+row in the same direction. Outward horizontal edges and horizontal movement on CANCEL stay native.
+CANCEL stays selected. Spread moves retain first-eligible order 0,1,2,3 and representative engine value.
+Shared target memory and right-column return from CANCEL remain; per-battler memory (Option 4) is outside
+this fix. Eight guarded in-place edits, no growth or allocations. Armips replaces the old clang generator.
+
+**Evidence:**
+
+- work/notes/double_target_option2_plan.md: original approval, implementation and historical CN/EN validation
+- work/notes/double_target_option2_validation.json: historical 22/22 emulator matrix, dated 2026-10-07
+- work/notes/double_target_armips_port.md: initial migration baseline, newly approved horizontal fallback and host verification
+- work/tools/test_double_target.py: assembled machine code, exhaustive masks/navigation/repair/entry and patch-byte digest
+- Bradams/Speedoption independently diagnosed the same bug; no code or patch bytes reused
+
+**Touches:**
+
+- `overlay14+0x11FA4` (RAM 0x02212784) `dbltarget2-code`: 164 bytes, was `B508 A900 2201 F7FF … (82 halfwords)`
+- `overlay14+0x120A0` (RAM 0x02212880) `dbltarget2-navcall1`: 4 bytes, was `F7FF FF90`
+- `overlay14+0x120B6` (RAM 0x02212896) `dbltarget2-navcall2`: 4 bytes, was `F7FF FF85`
+- `overlay14+0x120CE` (RAM 0x022128AE) `dbltarget2-navcall3`: 4 bytes, was `F7FF FF79`
+- `overlay14+0x120E4` (RAM 0x022128C4) `dbltarget2-navcall4`: 4 bytes, was `F7FF FF6E`
+- `overlay14+0x11DB6` (RAM 0x02212596) `dbltarget2-entry`: 4 bytes, was `F000 FA2B`
+- `overlay14+0x1224C` (RAM 0x02212A2C) `dbltarget2-fallback`: 4 bytes, was `F7FF FEAA`
+- `overlay14+0x1223A` (RAM 0x02212A1A) `dbltarget2-cancel`: 8 bytes, was `2C00 DB05 2C04 DA03`
+
+**Disassembly snapshot:** [`double-battle-targeting.listing`](double-battle-targeting/double-battle-targeting.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write double-battle-targeting`)
+
+**Source** (`work/patches/double-battle-targeting/double-battle-targeting.asm`, armips; the new bytes):
+
+<details>
+<summary>double-battle-targeting.asm</summary>
+
+```asm
+; double-battle-targeting - Escape the double-battle D-pad targeting trap. D-1337 exception.
+; Option 2 approved in the isolated worktree on 2026-10-06; see fix.toml and
+; work/notes/double_target_option2_plan.md. Original code, no Bradams patch bytes reused.
+; Preserve native spread order; single targets prefer living foes, left first.
+; Vertical navigation retries the other column only after the native search fails.
+; Horizontal navigation tries the other Pokemon row only after an ineligible adjacent slot.
+; This additional behavior was approved on 2026-10-09; historical Option 2 bytes are the port baseline.
+
+.nds
+.thumb
+.include "../include/guards.inc"
+.definelabel Target_Mask, 0x022126CC
+.definelabel Target_Repair, 0x022129F0
+.definelabel Target_Keep, 0x02212A34
+.definelabel Target_Invalid, 0x02212A2A
+
+.open "overlay14.bin", 0x022007E0
+
+.org 0x02212784
+.area 0xA4
+    expect16_at 0x00, 0xB508
+    expect16_at 0x02, 0xA900
+    expect16_at 0x04, 0x2201
+    expect16_at 0x06, 0xF7FF
+    expect16_at 0x08, 0xFF9F
+    expect16_at 0x0A, 0x2000
+    expect16_at 0x0C, 0xAA00
+    expect16_at 0x0E, 0x7811
+    expect16_at 0x10, 0x2901
+    expect16_at 0x12, 0xD004
+    expect16_at 0x14, 0x1C40
+    expect16_at 0x16, 0x1C52
+    expect16_at 0x18, 0x2804
+    expect16_at 0x1A, 0xDBF8
+    expect16_at 0x1C, 0x2004
+    expect16_at 0x1E, 0xBD08
+    expect16_at 0x20, 0xB5F8
+    expect16_at 0x22, 0xB082
+    expect16_at 0x24, 0x1C06
+    expect16_at 0x26, 0x481D
+    expect16_at 0x28, 0x1C0F
+    expect16_at 0x2A, 0x6841
+    expect16_at 0x2C, 0x20FB
+    expect16_at 0x2E, 0x0080
+    expect16_at 0x30, 0x5808
+    expect16_at 0x32, 0x9200
+    expect16_at 0x34, 0x2400
+    expect16_at 0x36, 0xA901
+    expect16_at 0x38, 0x2201
+    expect16_at 0x3A, 0x1C25
+    expect16_at 0x3C, 0xF7FF
+    expect16_at 0x3E, 0xFF84
+    expect16_at 0x40, 0x1C20
+    expect16_at 0x42, 0xE00D
+    expect16_at 0x44, 0x4A16
+    expect16_at 0x46, 0x0043
+    expect16_at 0x48, 0x2100
+    expect16_at 0x4A, 0x18D3
+    expect16_at 0x4C, 0xE005
+    expect16_at 0x4E, 0x5CCA
+    expect16_at 0x50, 0x4296
+    expect16_at 0x52, 0xD101
+    expect16_at 0x54, 0x1C0C
+    expect16_at 0x56, 0x1C05
+    expect16_at 0x58, 0x1C49
+    expect16_at 0x5A, 0x2902
+    expect16_at 0x5C, 0xDBF7
+    expect16_at 0x5E, 0x1C40
+    expect16_at 0x60, 0x2803
+    expect16_at 0x62, 0xDBEF
+    expect16_at 0x64, 0x4A0E
+    expect16_at 0x66, 0xA901
+    expect16_at 0x68, 0x9800
+    expect16_at 0x6A, 0x19E4
+    expect16_at 0x6C, 0x182D
+    expect16_at 0x6E, 0x2C00
+    expect16_at 0x70, 0xDB05
+    expect16_at 0x72, 0x2C02
+    expect16_at 0x74, 0xDA03
+    expect16_at 0x76, 0x2D00
+    expect16_at 0x78, 0xDB01
+    expect16_at 0x7A, 0x2D03
+    expect16_at 0x7C, 0xDB02
+    expect16_at 0x7E, 0xB002
+    expect16_at 0x80, 0x1C30
+    expect16_at 0x82, 0xBDF8
+    expect16_at 0x84, 0x0068
+    expect16_at 0x86, 0x1810
+    expect16_at 0x88, 0x5C23
+    expect16_at 0x8A, 0x2B04
+    expect16_at 0x8C, 0xD002
+    expect16_at 0x8E, 0x5CC8
+    expect16_at 0x90, 0x2801
+    expect16_at 0x92, 0xD1E9
+    expect16_at 0x94, 0x1C18
+    expect16_at 0x96, 0xB002
+    expect16_at 0x98, 0xBDF8
+    expect16_at 0x9A, 0x46C0
+    expect16_at 0x9C, 0x5B90
+    expect16_at 0x9E, 0x0225
+    expect16_at 0xA0, 0xCD44
+    expect16_at 0xA2, 0x0224
+first_eligible:            ; 0x02212784: native order 0,1,2,3 (spread callers + repair spread branch)
+    mov r1, #0xE4
+    b scan_first0
+first_eligible_foe:        ; order 3,1,0,2 (vanilla): repair single-target fallback (BL at 0x02212A2C)
+    mov r1, #0x87
+scan_first0:  push {r2-r4, lr}       ; r2's slot = 4-byte eligibility buffer
+    add r4, r1, #0
+    mov r1, sp
+    mov r2, #1
+    bl Target_Mask
+scan_first1:  mov r0, #3
+    and r0, r4
+    mov r1, sp
+    ldrb r1, [r1, r0]
+    cmp r1, #1
+    beq scan_first2
+    lsr r4, r4, #2        ; next 2-bit slot; order list ends when no bits are left
+    bne scan_first1
+    mov r0, #4
+scan_first2:  pop {r2-r4, pc}
+
+; entry into target selection: keep a remembered opposing target (1/3), otherwise invalidate it so the
+; native repair picks the first eligible target (foe first). Tail-calls the native repair; r0 = obj.
+entry_repair:
+    ldr r1, =0x02255B90
+    ldr r2, [r1, #0x14]
+    lsr r2, r2, #1        ; odd slots: 1/3 are foes; other odd values fail native unsigned repair
+    bcs @@entry1          ; no stored target is modified by this test
+    mov r2, #5
+    str r2, [r1, #0x14]
+@@entry1:
+    b Target_Repair
+
+; navigation: r0 = current slot, r1 = dx, r2 = dy -> new slot. Grid 2 cols x 3 rows at 0x0224CD44.
+; Native straight-line search (skip ineligible slots, cancel always accepted, leaving the grid keeps the
+; current slot). Vertical failure retries from the same row in the other column. An ineligible horizontal
+; neighbor retries from the other Pokemon row in the same direction. CANCEL and outward edges stay native.
+nav:
+    push {r3-r7, lr}       ; r3's stack slot is the 4-byte eligibility buffer
+    add r6, r0, #0
+    add r7, r1, #0
+    lsl r5, r2, #1        ; row stride (dy * 2); signed wrap is checked by unsigned grid bounds
+    ldr r0, =0x02255B90
+    ldr r0, [r0, #4]
+    mov r1, #0xfb
+    lsl r1, r1, #2
+    ldr r0, [r0, r1]
+    mov r1, sp
+    mov r2, #1
+    bl Target_Mask
+    ldr r3, =0x0224CD44
+    mov r4, #5            ; grid index of the current slot (last match, as native; none -> 0)
+@@nav1:  ldrb r0, [r3, r4]
+    cmp r0, r6
+    beq @@nav2
+    sub r4, #1
+    bne @@nav1
+@@nav2:  add r2, r4, #0        ; r2 = start index (bit 3 set once the other column was tried)
+@@nav3:  mov r0, #1
+    and r0, r4
+    add r0, r0, r7        ; new column
+    cmp r0, #1
+    bhi @@nav8
+    add r4, r4, r7
+    add r4, r4, r5        ; new grid index after dx and the row stride
+    cmp r4, #5
+    bhi @@nav8
+    ldrb r0, [r3, r4]
+    cmp r0, #4             ; cancel is always accepted
+    beq @@nav9
+    mov r1, sp
+    ldrb r1, [r1, r0]
+    cmp r1, #1
+    beq @@nav9
+    cmp r7, #0
+    beq @@nav3            ; vertical: continue the original straight-line search
+    mov r0, #2           ; horizontal: retry from the other Pokemon row
+    b @@retry
+@@nav8:  cmp r7, #0             ; left the grid: outward horizontal -> stay (native)
+    bne @@nav7
+    mov r0, #1           ; vertical: retry from the other column
+@@retry: cmp r2, #8             ; only one retry, for either direction
+    bhs @@nav7
+    eor r2, r0
+    add r4, r2, #0        ; restart before applying the same direction
+    mov r2, #8
+    b @@nav3
+@@nav7:  add r0, r6, #0
+@@nav9:  pop {r3-r7, pc}
+
+.align 4
+.pool
+.endarea
+
+; Redirect navigation to the vertical column retry and horizontal Pokemon-row retry.
+.org 0x02212880
+.area 4
+    expect16_at 0x00, 0xF7FF
+    expect16_at 0x02, 0xFF90
+    bl nav
+.endarea
+
+; Redirect navigation to the vertical column retry and horizontal Pokemon-row retry.
+.org 0x02212896
+.area 4
+    expect16_at 0x00, 0xF7FF
+    expect16_at 0x02, 0xFF85
+    bl nav
+.endarea
+
+; Redirect navigation to the vertical column retry and horizontal Pokemon-row retry.
+.org 0x022128AE
+.area 4
+    expect16_at 0x00, 0xF7FF
+    expect16_at 0x02, 0xFF79
+    bl nav
+.endarea
+
+; Redirect navigation to the vertical column retry and horizontal Pokemon-row retry.
+.org 0x022128C4
+.area 4
+    expect16_at 0x00, 0xF7FF
+    expect16_at 0x02, 0xFF6E
+    bl nav
+.endarea
+
+; Target-screen entry keeps a remembered foe (1/3), otherwise resets to a living foe, left first.
+.org 0x02212596
+.area 4
+    expect16_at 0x00, 0xF000
+    expect16_at 0x02, 0xFA2B
+    bl entry_repair
+.endarea
+
+; Single-target repair uses foe-first order; every spread caller retains native order 0,1,2,3.
+.org 0x02212A2C
+.area 4
+    expect16_at 0x00, 0xF7FF
+    expect16_at 0x02, 0xFEAA
+    bl first_eligible_foe
+.endarea
+
+; Keep CANCEL (4) during per-frame single-target repair; unsigned comparison rejects invalid values.
+.org 0x02212A1A
+.area 8
+    expect16_at 0x00, 0x2C00
+    expect16_at 0x02, 0xDB05
+    expect16_at 0x04, 0x2C04
+    expect16_at 0x06, 0xDA03
+    cmp r4, #4
+    beq Target_Keep
+    bhi Target_Invalid
+    nop
 .endarea
 
 .close
@@ -2003,6 +3698,447 @@ TryLearn_EvoMove:
 
 </details>
 
+## faint-waits-for-hp-bar
+
+**Battle: a Pokémon knocked out by a multi-hit move faints after its HP bar has drained (the bar no longer jumps back and vanishes)**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2318
+- Source: `work/patches/faint-waits-for-hp-bar/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: when a multi-hit move knocks a Pokémon out (Fury Cutter, which hits twice in this hack, Fury Attack,
+Double Kick, Bullet Seed, ...), its HP bar does not drain to empty: halfway through it jumps back to (nearly)
+full and the HP box slides off while the Pokémon faints. Players read this as the move one-shotting
+everything (Discord, 2026-10-07: 'the health bar just vanishes'; 'if the attack is a KO the health bar just
+completely goes instead of draining, damage is calculated correctly'). The damage is right; only the display
+is cut short. A one-hit KO (Slash, X-Scissor) and a multi-hit move that does not KO drain normally. Both sides
+are affected (the player's Pokémon too). The untouched Chinese ROM does the same, so this is a bug of the hack;
+vanilla HeartGold's healthbar task tells the battle engine the command is done only after the bar has
+drained (US overlay12 0x0225FFE2), so the vanilla engine does not cut the drain short.
+
+Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
+(D-2318, 2026-10-09); other hack bugs stay report-only.
+
+Technical: the hack's battle client (overlay 14) plays a turn as a list of commands (interpreter
+0x02204608, handlers 0x0224ABC0). Command 8 (a hit) starts the HP-bar task 0x02201328 and waits only for the
+hit's blink (18 frames); the bar drains on in the task, one step per frame, and sets the byte 0x02252D3E when it
+has finished. Command 21 (the faint: cry, HP box redrawn and slid off, sprite drops; 0x0222CB7C) does not wait
+for it. After a one-hit KO the 'fainted!' message (54 frames) comes between the two and covers the drain;
+after the KO hit of a multi-hit move the faint follows the hit at once. Its HP-box redraw (0x0222DF58 ->
+0x02210934) draws the bar from the HP the bar still holds from before the hit (the task writes the new HP only
+when it ends), which is the jump back to full, and then the box slides away.
+
+**What (old → new):**
+
+Old: command 21 starts the faint at once, even while an HP bar is draining.
+
+New: command 21 waits (returns 'not done', asked again every frame) while 0x02252D3E is 0, i.e. while an HP
+bar is still draining, then runs the faint exactly as before. The handler moves into the 2 bytes of alignment
+padding in front of it (0x02205122) and the table entry for command 21 (0x0224AC14) follows it; the old
+'& 0xFF' of the battler is dropped (command 21's argument is read as one byte) and Faint_Run's 1/0 is
+returned as it is (the interpreter tests for non-zero only). Because the byte is in overlay 14's .bss (0 at
+the start of a battle), the battle client's set-up 0x02200B64 now also sets it to 1 ('no bar running'): it
+zeroes the same 12 bytes with three word stores instead of six halfword stores and uses the 4 bytes this frees.
+Every other reader of the byte (command 12, the level-up effect) starts its own task before it reads it, so
+the start value does not change them. A one-hit KO and every faint whose bar has already finished keep their
+timing; a multi-hit KO now shows the full drain to 0 before the faint (up to about 30 frames longer).
+Not changed: the order of the messages ('Hit 2 time(s)!' still comes after the faint, as in the hack), the
+damage, the blink, command 8 (a hit still does not wait for its bar), the HP-bar code itself.
+
+**Evidence:**
+
+- D-2318: the user-approved exception to D-1337 for this fix (user request 2026-10-09: 'We want to fix these bugs, so for each issue create a worktree per issue, and use a separate subagent to fix, test and review.')
+- Discord bug thread 'Scyther bug' (2026-10-07): Fury Cutter KOs, the health bar vanishes instead of draining; 'if it's not a KO or they hold a Focus Sash it looks normal'
+- work/notes/multihit-ko-hpbar_fix.md: reproduction, the command trace of a multi-hit KO against a one-hit KO, the cause, vanilla comparison and the before/after runs
+- Runtime: emu_harness.py fixes --case faint-waits-for-hp-bar (scenario multihit-ko: a Lv50 Scyther's Fury Cutter KOs a wild Rattata; the enemy HP bar's displayed value, its HP field and the frame the faint (command 21) starts; run on the build and on one without this fix, work/notes/emu_harness.md 'Fix scenarios')
+
+**Touches:**
+
+- `overlay14+0x4942` (RAM 0x02205122) `faint-waits-for-hp-bar-handler`: 26 bytes, was `0000 B508 6811 0609 … (13 halfwords)`
+- `overlay14+0x4A434` (RAM 0x0224AC14) `faint-waits-for-hp-bar-table`: 4 bytes, was `5125 0220`
+- `overlay14+0x386` (RAM 0x02200B66) `faint-waits-for-hp-bar-start`: 18 bytes, was `2100 8001 8041 8081 … (9 halfwords)`
+
+**USA cross-checks** (`[[us_ref]]`, each checked against the USA ROM by `usref.py`, `check.py --full`):
+
+- `US overlay12 0x0225FFE2` = `7820 2800 D002 2801 D007 E011 6B21 1C20`, then `bl 0x02264DCC`: US overlay12 0x0225FFE2: in the healthbar task of vanilla HeartGold, state 0 sets the bar (the bl below), state 1 steps the drain until it returns -1, only then state 2 reports the command done to the battle engine
+
+**Disassembly snapshot:** [`faint-waits-for-hp-bar.listing`](faint-waits-for-hp-bar/faint-waits-for-hp-bar.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write faint-waits-for-hp-bar`)
+
+**Source** (`work/patches/faint-waits-for-hp-bar/faint-waits-for-hp-bar.asm`, armips; the new bytes):
+
+<details>
+<summary>faint-waits-for-hp-bar.asm</summary>
+
+```asm
+; faint-waits-for-hp-bar - Battle: a Pokémon knocked out by a multi-hit move faints after its HP bar has
+; drained, not halfway through it. D-2318 (user-approved exception to D-1337).
+; Why and what: fix.toml next to this file; overview work/patches/FIXES.md; work/notes/multihit-ko-hpbar_fix.md.
+;
+; The hack's battle client (overlay 14) plays each turn as a list of commands. Command 8 (a hit: blink and
+; HP bar) starts the HP-bar task 0x02201328 through 0x022013E0 and waits only for the blink; the bar keeps
+; draining afterwards. HpBarTask_Start clears the byte HpBarDone (0x02252D3E) and the task sets it to 1 when
+; every bar it drives is at its new value (command 12 waits for that byte). Command 21 (the faint: cry, HP box
+; redrawn and slid off, sprite drops; Faint_Run 0x0222CB7C) does not look at it. After a one-hit KO a message
+; ('The wild ... fainted!', 54 frames) comes between the two commands and the bar has time to finish; after
+; the KO hit of a multi-hit move the faint comes straight after the hit, so it starts while the bar is still
+; draining: the HP box is redrawn from the bar's HP before the hit (it looks full again) and slides away.
+;
+; The fix:
+; 1. Command 21 waits while HpBarDone is 0: its handler returns 'not done' until every running HP bar has
+;    finished, then runs Faint_Run as before. The new handler sits 2 bytes earlier, in the alignment padding
+;    before the old one (0x02205122), so the table entry for command 21 moves with it.
+; 2. HpBarDone starts at 1 ('no bar running'): it is in overlay 14's .bss, which is 0 when a battle starts, and
+;    a faint before the first HP bar of the battle would otherwise wait for ever. BattleMisc_Reset (0x02200B64,
+;    called once when the battle client is set up) zeroes the halfwords 0x02252D30..0x02252D3B; it now zeroes
+;    the same bytes with three word stores and sets HpBarDone to 1 with the 4 bytes this frees.
+; HpBarDone is written only by HpBarTask_Start (0), the HP-bar task's end (1) and the level-up effect
+; 0x022115C0/0x02211604 (0, then 1), and read by command 12 and the level-up step at 0x0222F88C; each of
+; those starts its own task before it reads the byte, so the start value changes nothing for them.
+
+.nds
+.thumb
+.include "../include/guards.inc"
+
+.definelabel BattleMisc_Reset,        0x02200B64   ; battle client set-up (0x02224E9C): zero 0x02252D30..3B
+.definelabel BattleMisc_Pool,         0x02200B78   ; .word 0x02252D30
+.definelabel HpBarTask_Start,         0x022013E0   ; strb 0 -> HpBarDone, start task 0x02201328
+.definelabel HpBarTask_Done,          0x022013C2   ; the task's end: strb 1 -> HpBarDone
+.definelabel ClientCmd_Table,         0x0224ABC0   ; 0x5E command handlers (Thumb pointers)
+.definelabel ClientCmd21_Slot,        0x0224AC14   ; ClientCmd_Table[21]
+.definelabel ClientCmdX_End,          0x02205120   ; end of the handler before command 21's (0x02205114)
+.definelabel ClientCmd21_New,         0x02205122   ; the new handler (alignment padding + the old handler)
+.definelabel ClientCmd21_Old,         0x02205124
+.definelabel Faint_Run,               0x0222CB7C   ; (client, battler) -> 1 when the faint is finished
+.definelabel HpBarMisc,               0x02252D3C   ; u8 [3]: two counters, HpBarDone at +2
+
+.open "overlay14.bin", 0x022007E0
+
+; ---------------------------------------------------------------------------------------------- 1. command 21
+; Read-only guard: the task end and start that write HpBarDone (the meaning the new handler relies on).
+.org HpBarTask_Done
+    expect16_at 0x00, 0x4806    ; ldr   r0, =HpBarMisc
+    expect16_at 0x02, 0x2101    ; mov   r1, #1
+    expect16_at 0x04, 0x7081    ; strb  r1, [r0, #2]            HpBarDone = 1: every bar finished
+    expect32_abs 0x022013DC, HpBarMisc
+.org HpBarTask_Start + 0x3E
+    expect16_at 0x00, 0x4804    ; ldr   r0, =HpBarMisc
+    expect16_at 0x02, 0x2200    ; mov   r2, #0
+    expect16_at 0x04, 0x7082    ; strb  r2, [r0, #2]            HpBarDone = 0: a bar starts draining
+    expect32_abs 0x02201430, HpBarMisc
+
+; The handler before command 21's ends with its pop; the next halfword is alignment padding.
+.org ClientCmdX_End
+    expect16_at 0x00, 0xBD08    ; pop   {r3, pc}
+
+; Command 21's handler: the old one ran Faint_Run(client, args[0] & 0xFF) and turned its result into 1 / 0.
+; args[0] is the battler, read as one byte (argument type 1 of command 21: 0x0224D234 [21] = 1 -> 0x0222433C),
+; so the mask did nothing; Faint_Run returns 1 or 0 itself and the interpreter (0x02204692) only tests
+; for non-zero, so its result is returned as it is.
+.org ClientCmd21_New
+.area 0x1A
+    expect16_at 0x00, 0x0000    ; padding
+    expect16_at 0x02, 0xB508    ; push  {r3, lr}                old handler
+    expect16_at 0x04, 0x6811    ; ldr   r1, [r2]
+    expect16_at 0x06, 0x0609    ; lsl   r1, r1, #24
+    expect16_at 0x08, 0x0E09    ; lsr   r1, r1, #24
+    expect16_at 0x0A, 0xF027    ; bl    Faint_Run  (1/2)
+    expect16_at 0x0C, 0xFD26    ;                  (2/2)
+    expect16_at 0x0E, 0x2800    ; cmp   r0, #0
+    expect16_at 0x10, 0xD001    ; beq   0x02205138
+    expect16_at 0x12, 0x2001    ; mov   r0, #1
+    expect16_at 0x14, 0xBD08    ; pop   {r3, pc}
+    expect16_at 0x16, 0x2000    ; mov   r0, #0
+    expect16_at 0x18, 0xBD08    ; pop   {r3, pc}
+    push    {r3, lr}
+    ldr     r3, [@@misc]
+    ldrb    r3, [r3, #2]        ; HpBarDone
+    cmp     r3, #0
+    beq     @@wait              ; an HP bar is still draining: not done, ask again next frame
+    ldr     r1, [r2]            ; battler
+    bl      Faint_Run
+    pop     {r3, pc}
+@@wait:
+    mov     r0, #0
+    pop     {r3, pc}
+@@misc:
+    .word   HpBarMisc
+.endarea
+
+.org ClientCmd21_Slot
+.area 4
+    expect32 ClientCmd21_Old + 1
+    .word   ClientCmd21_New + 1
+.endarea
+
+; ---------------------------------------------------------------------------------------------- 2. start value
+.org BattleMisc_Reset
+    expect16_at 0x00, 0x4804    ; ldr   r0, =0x02252D30          (kept)
+    expect32_abs BattleMisc_Pool, 0x02252D30
+.org BattleMisc_Reset + 2
+.area 0x12
+    expect16_at 0x00, 0x2100    ; mov   r1, #0
+    expect16_at 0x02, 0x8001    ; strh  r1, [r0]
+    expect16_at 0x04, 0x8041    ; strh  r1, [r0, #2]
+    expect16_at 0x06, 0x8081    ; strh  r1, [r0, #4]
+    expect16_at 0x08, 0x80C1    ; strh  r1, [r0, #6]
+    expect16_at 0x0A, 0x8101    ; strh  r1, [r0, #8]
+    expect16_at 0x0C, 0x8141    ; strh  r1, [r0, #0xA]
+    expect16_at 0x0E, 0x4770    ; bx    lr
+    expect16_at 0x10, 0x46C0    ; nop   (padding before the literal)
+    mov     r1, #0
+    str     r1, [r0]            ; 0x02252D30..33  (word-aligned: the same 12 bytes as the six halfwords)
+    str     r1, [r0, #4]        ; 0x02252D34..37
+    str     r1, [r0, #8]        ; 0x02252D38..3B
+    mov     r1, #1
+    strb    r1, [r0, #0xE]      ; HpBarDone (0x02252D3E) = 1: no HP bar running yet
+    bx      lr
+    nop
+    nop
+.endarea
+
+.close
+```
+
+</details>
+
+## honey-gather
+
+**Restore Honey Gather after battle**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2324, D-2325, D-2326
+- Source: `work/patches/honey-gather/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-2324: the hack only implements Pickup in its post-battle collector. D-2325 records explicit user approval for this isolated repair.
+
+**What (old → new):**
+
+Add Honey Gather with its empty-held-item requirement and 5-50 percent level chance, depositing one Honey in the Bag. Preserve Pickup probability, reward weights, held-item policy and random draw order. Only report an award after Bag_AddItem succeeds, including Pickup. Reuse the original collector allocation; no overlay growth.
+
+**Evidence:**
+
+- work/notes/honey_gather_investigation_20261010.md
+
+**Touches:**
+
+- `overlay14+0x2B4E8` (RAM 0x0222BCC8) `post-battle-collector`: 248 bytes, was `B5F0 B085 9000 9101 … (124 halfwords)`
+
+**Disassembly snapshot:** [`honey-gather.listing`](honey-gather/honey-gather.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write honey-gather`)
+
+**Source** (`work/patches/honey-gather/honey-gather.asm`, armips; the new bytes):
+
+<details>
+<summary>honey-gather.asm</summary>
+
+```asm
+; honey-gather - Restore direct-to-Bag Honey Gather. D-2324/D-2325/D-2326.
+.nds
+.thumb
+.include "../include/guards.inc"
+.open "overlay14.bin", 0x022007E0
+.org 0x022167B4
+    expect32_at 0x00, 0x47706900
+.org 0x02217BF8
+    expect32_at 0x00, 0x47708AC0
+.org 0x02218104
+    expect32_at 0x00, 0x78003024
+    expect32_at 0x04, 0x00004770
+.org 0x0221679C
+    expect32_at 0x00, 0x47708C00
+.org 0x02216154
+    expect32_at 0x00, 0x21061C28
+    expect32_at 0x04, 0xF6572200
+    expect32_at 0x08, 0x8420FB75
+.org 0x0222BCC8
+    expect32_at 0x00, 0xB085B5F0
+    expect32_at 0x04, 0x91019000
+    expect32_at 0x08, 0x90042000
+    expect32_at 0x0C, 0x1C174837
+    expect32_at 0x10, 0x69016800
+    expect32_at 0x14, 0x00809801
+    expect32_at 0x18, 0x68401808
+    expect32_at 0x1C, 0x98049003
+    expect32_at 0x20, 0x98039002
+    expect32_at 0x24, 0xFB54F647
+    expect32_at 0x28, 0xDD5C2800
+    expect32_at 0x2C, 0x98009A02
+    expect32_at 0x30, 0x99010612
+    expect32_at 0x34, 0xF0040E12
+    expect32_at 0x38, 0x1C06FE0F
+    expect32_at 0x3C, 0xFF70F7EB
+    expect32_at 0x40, 0xF7EB1C30
+    expect32_at 0x44, 0x1C04FF75
+    expect32_at 0x48, 0x80382000
+    expect32_at 0x4C, 0xF7EA1C30
+    expect32_at 0x50, 0x214CFD4D
+    expect32_at 0x54, 0xF6412200
+    expect32_at 0x58, 0x2800FD93
+    expect32_at 0x5C, 0x2C35D139
+    expect32_at 0x60, 0x200AD137
+    expect32_at 0x64, 0xFBC8F7FA
+    expect32_at 0x68, 0xD0322800
+    expect32_at 0x6C, 0x24002064
+    expect32_at 0x70, 0xFB98F7FA
+    expect32_at 0x74, 0x1C301C05
+    expect32_at 0x78, 0xF9E0F7EC
+    expect32_at 0x7C, 0x210A1E40
+    expect32_at 0x80, 0xEA66F6C5
+    expect32_at 0x84, 0x0E030600
+    expect32_at 0x88, 0xD3002B0A
+    expect32_at 0x8C, 0x48182309
+    expect32_at 0x90, 0x21004A18
+    expect32_at 0x94, 0x781818C3
+    expect32_at 0x98, 0x18208816
+    expect32_at 0x9C, 0x0E040600
+    expect32_at 0xA0, 0xDD1142AC
+    expect32_at 0xA4, 0x22014811
+    expect32_at 0xA8, 0x23056800
+    expect32_at 0xAC, 0x20426901
+    expect32_at 0xB0, 0x58080080
+    expect32_at 0xB4, 0xF64A1C31
+    expect32_at 0xB8, 0x803EFE43
+    expect32_at 0xBC, 0x1C409804
+    expect32_at 0xC0, 0x0E000600
+    expect32_at 0xC4, 0xE0049004
+    expect32_at 0xC8, 0x1C921C49
+    expect32_at 0xCC, 0x2916330A
+    expect32_at 0xD0, 0x9802D3E1
+    expect32_at 0xD4, 0x1C401CBF
+    expect32_at 0xD8, 0x98039002
+    expect32_at 0xDC, 0xFAF8F647
+    expect32_at 0xE0, 0x42819902
+    expect32_at 0xE4, 0x9804DBA2
+    expect32_at 0xE8, 0xBDF0B005
+    expect32_at 0xEC, 0x02255BAC
+    expect32_at 0xF0, 0x0224E3D8
+    expect32_at 0xF4, 0x0224E3AC
+.area 0xF8, 0
+    push {r4-r7, lr}
+    sub sp, 0x14
+    str r0, [sp, 0]
+    str r1, [sp, 4]
+    mov r6, r2
+    mov r5, 0
+    mov r7, 0
+    ldr r0, =0x02255BAC
+    ldr r0, [r0]
+    ldr r0, [r0, 0x10]
+    lsl r1, r1, 2
+    add r0, r0, r1
+    ldr r0, [r0, 4]
+    str r0, [sp, 8]
+    b check_slot
+next_slot:
+    add r5, 1
+    add r6, 2
+check_slot:
+    ldr r0, [sp, 8]
+    bl 0x02073398
+    cmp r5, r0
+    bge done
+    ldr r0, [sp, 0]
+    ldr r1, [sp, 4]
+    mov r2, r5
+    bl 0x02230920
+    mov r4, r0
+    mov r0, 0
+    strh r0, [r6]
+    ldr r0, [r4, 0x10]
+    mov r1, 0x4C
+    mov r2, 0
+    bl 0x0206D848
+    cmp r0, 0
+    bne next_slot
+    ldrh r0, [r4, 0x16]
+    cmp r0, 53
+    beq pickup
+    cmp r0, 118
+    bne next_slot
+    ldrh r0, [r4, 0x20]
+    cmp r0, 0
+    bne next_slot
+    bl level_band
+    add r0, 1
+    lsl r1, r0, 2
+    add r0, r0, r1
+    bl 0x022264C0
+    cmp r0, 0
+    beq next_slot
+    mov r4, 94
+    b award
+pickup:
+    mov r0, 10
+    bl 0x022264C0
+    cmp r0, 0
+    beq next_slot
+    mov r0, 100
+    bl 0x0222646C
+    str r0, [sp, 12]
+    bl level_band
+    ldr r1, =0x0224E3D8
+    add r1, r1, r0
+    ldr r2, =0x0224E3AC
+    mov r3, 22
+    ldr r0, [sp, 12]
+select_item:
+    ldrb r4, [r1]
+    cmp r0, r4
+    blo selected
+    sub r0, r0, r4
+    add r1, 10
+    add r2, 2
+    sub r3, 1
+    bne select_item
+    b next_slot
+selected:
+    ldrh r4, [r2]
+award:
+    ldr r0, =0x02255BAC
+    ldr r0, [r0]
+    ldr r1, [r0, 0x10]
+    mov r0, 0x42
+    lsl r0, r0, 2
+    ldr r0, [r1, r0]
+    mov r1, r4
+    mov r2, 1
+    mov r3, 5
+    bl 0x02076A08
+    cmp r0, 0
+    beq next_slot
+    strh r4, [r6]
+    add r7, 1
+    b next_slot
+done:
+    mov r0, r7
+    add sp, 0x14
+    pop {r4-r7, pc}
+level_band:
+    push {r3, lr}
+    mov r0, 0x24
+    ldrb r0, [r4, r0]
+    sub r0, 1
+    mov r1, 10
+    blx 0x020F1218
+    cmp r0, 9
+    bls band_done
+    mov r0, 9
+band_done:
+    pop {r3, pc}
+.pool
+.endarea
+.close
+```
+
+</details>
+
 ## ivev-panel
 
 **Summary IV/EV panel: the IV column clears the English stat labels**
@@ -2080,6 +4216,133 @@ IV_SHIFT equ 6                  ; px: two-digit IVs clear 'Defense' by 3 px
     mov     r2, #0x1A + IV_SHIFT
 .endarea
 
+.close
+```
+
+</details>
+
+## lugia-animation-state-bounds
+
+**Lugia cutscene: bound the special-model animation callback index**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2298
+- Source: `work/patches/lugia-animation-state-bounds/fix.toml`
+
+**Why (the Chinese hack):**
+
+After Lawrence's first battle in Whirl Islands, Lugia's entrance freezes on melonDS 1.1.
+The supplied player save reproduces it with ordinary controls. A fresh original-Chinese diagnostic
+also reproduces it (two trainer battles skipped in temporary script RAM). This is a hack bug;
+D-2298 records the user's specific exception to D-1337, following finding D-2297.
+
+Script 104 moves object 13, sprite 426, with walking action 0x0D. The walking code sets object+0xA0
+to 3, but the special-model renderer at 0x021F80C0 indexes a two-entry callback table at 0x02208F70
+without checking that state. Entry 3 is actually the adjacent scale vector's 0x1000. BLX through it
+causes a prefetch abort. The existing texture-frame and Bulbasaur-reflection fixes do not prevent it.
+
+**What (old → new):**
+
+The 24-byte dispatcher block now checks the state with an unsigned comparison before indexing.
+States 0 and 1 call the same callbacks with the same arguments and cache the selected state.
+The selected state is recovered from callee-saved r6, replacing a redundant getter to fit in place.
+Other states skip the animation callback and cache update, keeping the last model animation frame
+and last valid cached state. Position and visibility updates still run, so scripted movement proceeds;
+animation advancement resumes when a supported state returns. No script, battle, asset or save changes.
+The existing NULL-graphics and inactive-object exits are unchanged. The overlay does not grow.
+This guards this shared special-model renderer, not every animation dispatcher in the game.
+
+**Evidence:**
+
+- D-2298: user request on 2026-10-09 to investigate a fix and reproduce that it worked
+- work/notes/lugia_freeze_repro_20261009.md: ordinary-control reproduction from the supplied save
+- work/notes/lugia_freeze_fix_20261009.md: cause, before/after evidence and test limitations
+- work/tools/emu_lugia.py: fresh-boot diagnostic regression using the supplied battery save
+
+**Touches:**
+
+- `overlay1+0x13760` (RAM 0x021F80E0) `lugia-animation-dispatch`: 24 bytes, was `1C03 009E 4B09 1C28 … (12 halfwords)`
+
+**Disassembly snapshot:** [`lugia-animation-state-bounds.listing`](lugia-animation-state-bounds/lugia-animation-state-bounds.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write lugia-animation-state-bounds`)
+
+**Source** (`work/patches/lugia-animation-state-bounds/lugia-animation-state-bounds.asm`, armips; the new bytes):
+
+<details>
+<summary>lugia-animation-state-bounds.asm</summary>
+
+```asm
+; lugia-animation-state-bounds - Lugia cutscene callback bounds. D-2298 (finding D-2297).
+; See fix.toml and work/notes/lugia_freeze_fix_20261009.md for evidence and limits.
+.nds
+.thumb
+.include "../include/guards.inc"
+.open "overlay1.bin", 0x021E4980
+
+; Read-only guards: dispatcher, both callbacks, and the two-entry table.
+.org 0x021F80C0
+    expect32_at 0x00, 0x1C05B5F8
+    expect32_at 0x04, 0xFA60F666
+    expect32_at 0x08, 0x1C281C07
+    expect32_at 0x0C, 0xF001683C
+    expect32_at 0x10, 0x2801F923
+    expect32_at 0x14, 0x2C00D018
+    expect32_at 0x18, 0x1C28D016
+    expect32_at 0x1C, 0xF9E6F666
+    expect32_at 0x20, 0x009E1C03
+    expect32_at 0x24, 0x1C284B09
+    expect32_at 0x28, 0x1C21599B
+    expect32_at 0x2C, 0x47981C3A
+    expect32_at 0x30, 0xF6661C28
+    expect32_at 0x34, 0x6138F9DB
+    expect32_at 0x38, 0x1C211C28
+    expect32_at 0x3C, 0xF996F001
+    expect32_at 0x40, 0x1C211C28
+    expect32_at 0x44, 0xF872F000
+    expect32_at 0x48, 0x46C0BDF8
+    expect32_at 0x4C, 0x02208F70
+.org 0x021F819C
+    expect32_at 0x00, 0x6910B510
+    expect32_at 0x04, 0x28001C0C
+    expect32_at 0x08, 0x1C20D007
+    expect32_at 0x0C, 0xF62C2100
+    expect32_at 0x10, 0x1C20F9AD
+    expect32_at 0x14, 0xF62C2100
+    expect32_at 0x18, 0x2101F9D9
+    expect32_at 0x1C, 0x03091C20
+    expect32_at 0x20, 0xF9B6F62C
+    expect32_at 0x24, 0x0000BD10
+    expect32_at 0x28, 0x6910B510
+    expect32_at 0x2C, 0x28011C0C
+    expect32_at 0x30, 0x1C20D007
+    expect32_at 0x34, 0xF62C2101
+    expect32_at 0x38, 0x1C20F999
+    expect32_at 0x3C, 0xF62C2100
+    expect32_at 0x40, 0x2101F9C5
+    expect32_at 0x44, 0x03091C20
+    expect32_at 0x48, 0xF9A2F62C
+    expect32_at 0x4C, 0x0000BD10
+.org 0x02208F70
+    expect32_at 0x00, 0x021F819D
+    expect32_at 0x04, 0x021F81C5
+
+.org 0x021F80E0
+.area 0x18
+    expect32 0x009E1C03
+    cmp r0, 1
+    bhi 0x021F80F8         ; unsupported state: retain frame/cache, still update position/visibility
+    lsl r6, r0, 2
+    ldr r3, [pc, 0x24]     ; original literal at 0x021F810C -> callback table 0x02208F70
+    ldr r3, [r3, r6]
+    mov r0, r5            ; unchanged callback arguments: map object, graphics, private data
+    mov r1, r4
+    mov r2, r7
+    blx r3
+    lsr r0, r6, 2         ; callbacks preserve r6 and do not change object animation state
+    str r0, [r7, 0x10]    ; same cached state for valid input, no cache write for invalid input
+    nop
+.endarea
 .close
 ```
 
@@ -2809,6 +5072,340 @@ being bound to texture parameters read from address 0.
 
 </details>
 
+## pryce-weather-rule
+
+**Pryce's Glacier Badge rule checks the party's Abilities (no weather-changing Ability), not 28 species**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2320
+- Source: `work/patches/pryce-weather-rule/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: Pryce (Mahogany Gym) only battles for the Glacier Badge under his rule: no Pokémon whose Ability
+changes the weather, and a Double Battle. He refuses teams with no such Pokémon: a player reported 'he
+tells me to use a team with no weather-changing Abilities. I have no Pokémon like that but he doesn't let me
+fight'. The check bans 28 species whatever their Ability: Charizard (Blaze, Solar Power, Tough Claws here)
+and Probopass (Sturdy, Magnet Pull, Power Spot) can never change the weather, yet are refused; a Politoed
+with Damp or a Tyranitar is refused the same way as a Politoed with Drizzle. The untouched Chinese ROM does
+the same, so this is a bug of the hack.
+
+Status: D-2320 and D-2313 authorize and enable this scoped exception to D-1337 for RC7 preparation. The current user request overrides the earlier keep-disabled choice. Other hack bugs stay report-only.
+
+Technical: event-script file 928 (Pryce's room, message bank 613), script 1: after the rule (msg 0) and Yes,
+L252 GetPartyCount (one Pokémon -> L1072), then L269-L794 28 x {PlayerHasSpecies 0x800C, species;
+CompareVarToValue 0x800C, 0; GoToIf != -> L1083} (L1083: msg 14, the rule again, end), then L801
+TrainerBattle 32, 32. The species are 6, 37, 38, 87, 144, 186, 218, 219, 230, 244, 248, 279, 321, 324, 369,
+382, 383, 384, 449, 450, 459, 460, 476, 478, 526, 698, 699, 873. No script command reads a party Pokémon's
+Ability.
+
+**What (old → new):**
+
+Old: a party holding any of the 28 species is refused (msg 14), whatever the Pokémon's Ability; any other
+party battles.
+
+New: a party is refused when one of its Pokémon (eggs skipped) has as its Ability one that changes the
+weather: Drizzle (2), Sand Stream (45), Drought (70), Snow Warning (117), Primordial Sea (189), Desolate Land
+(190), Delta Stream (191), Sand Spit (245), Orichalcum Pulse (288), Teraform Zero (309), Wildfire (313); every
+other party battles. The Ability is the Pokémon's own (GetMonData field 10, the hack's u16 at block B +0x1A,
+the one the summary shows); a Mega Evolution or Primal Reversion in battle is not foreseen (a Charizard holding
+Charizardite Y passes).
+Two edits: (1) arm9 0x0204CD0E 'add r4, #0x13' -> nop: script command 542 (MonGetContestValue slot, type,
+ret), used by no script of the hack, now returns GetMonData field `type` itself instead of contest stat
+0x13 + type. (2) script 928 L269-L800 (532 bytes, the 28 checks): SetVar 0x8004, 0; per slot below the party
+count from L252 (0x8005): field 76 (egg) -> next slot; field 10 (Ability) compared with the 11 Abilities ->
+L1083; then GoTo L801; the rest of the old block is zero-filled and never reached. Not changed: the rule text,
+the one-Pokémon check, the battle, the post-Badge rematches (L1124, L1167: no rule).
+
+**Evidence:**
+
+- D-2320: the user-approved exception to D-1337 for this fix (Discord report, 2026-10-09)
+- work/notes/pryce-weather-rule_fix.md: the script, the command, the Ability list and how it was chosen, the emulator runs
+- guide/known-issues.md 'Pryce's weather rule' (the 28 species, Charizard and Probopass banned without a weather Ability)
+- Runtime: emu_harness.py fixes --case pryce-weather-rule (scenario pryce: Mahogany Gym, Pryce's challenge with a test Pokémon in the party, one run per case; run on the build and on one without this fix, work/notes/emu_harness.md 'Fix scenarios')
+
+**Touches:**
+
+- `arm9+0x4CD0E` (RAM 0x0204CD0E) `pryce-weather-rule-field`: 2 bytes, was `3413`
+- `script928+0x10C` `pryce-weather-rule-script`: 534 bytes, original SHA-1 `eb0a31fe4ac2f44c064b93253953ab139c38943d`
+
+**Disassembly snapshot:** [`pryce-weather-rule.listing`](pryce-weather-rule/pryce-weather-rule.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write pryce-weather-rule`)
+
+**Source** (`work/patches/pryce-weather-rule/pryce-weather-rule.asm`, armips; the new bytes):
+
+<details>
+<summary>pryce-weather-rule.asm</summary>
+
+```asm
+; pryce-weather-rule - Pryce's Glacier Badge rule checks the party's Abilities, not 28 species. D-2320
+; (user-approved exception to D-1337).
+; Why and what: fix.toml next to this file; overview work/patches/FIXES.md; work/notes/pryce-weather-rule_fix.md.
+;
+; Pryce (Mahogany Gym, event-script file 928, message bank 613) tells the player: no Pokemon whose Ability
+; changes the weather, Double Battle (msg 0, msg 14: 能够靠特性改变天气的精灵). His check (L269-L794) refuses
+; the party when it holds any of 28 species (PlayerHasSpecies), whatever their Ability: a Charizard (Blaze,
+; Solar Power, Tough Claws here) or a Probopass (Sturdy, Magnet Pull, Power Spot) is refused, which no
+; Ability of theirs explains.
+;
+; The script engine has no command that reads a party Pokemon's Ability. MonGetContestValue (command 542,
+; used by no script of the hack) reads GetMonData(party mon, 0x13 + type); without the '+ 0x13' it reads
+; any GetMonData field. Part 1 removes that add (one instruction). Part 2 replaces the 28 species checks
+; with a loop over the party: an egg is skipped (field 76), and a Pokemon whose current Ability (field 10,
+; the hack's u16 at block B +0x1A) changes the weather sends the script to the refusal (L1083, msg 14).
+; Everything else (the party-count check before it, the battle after it) is unchanged.
+
+.nds
+.include "../include/guards.inc"
+
+; ------------------------------------------------------------------------------------------------ part 1: arm9
+.thumb
+.definelabel ScriptCmdTable,                0x020F793C   ; u32 handler (Thumb) per script command, 843 entries
+.definelabel ScrCmd_MonGetContestValue,     0x0204CCC0   ; command 542 (slot, type, ret var)
+.definelabel MonGetContestValue_Field,      0x0204CD0E   ; add r4, #0x13: field = 0x13 + type  <- the edit
+.definelabel ScriptReadHalfword,            0x0203F534
+.definelabel ScriptGetVar,                  0x0203FAE8   ; the value of a var, or the literal
+.definelabel ScriptGetVarPointer,           0x0203FAB0
+.definelabel SaveArray_Party_Get,           0x0207365C
+.definelabel Party_GetMonByIndex,           0x0207339C
+.definelabel GetMonData,                    0x0206D848   ; (mon, field, buf)
+.definelabel BoxMonData_JumpTable,          0x0206D9FE   ; s16 case offsets (from 0x0206DA00) per field
+.definelabel BoxMonData_Ability,            0x0206DC32   ; field 10: ldrh r4, [block B, #0x1A]
+.definelabel BoxMonData_IsEgg,              0x0206DD00   ; field 76: the egg bit (bit 30 of block B +0x10)
+
+.open "arm9.bin", 0x02000000
+
+; Read-only: command 542 is this routine.
+expect32_abs ScriptCmdTable + 4 * 542, ScrCmd_MonGetContestValue + 1
+
+; Read-only: the routine (slot, type, ret: *ret = GetMonData(Party_GetMonByIndex(party, slot), 0x13 + type)).
+.org ScrCmd_MonGetContestValue
+    expect16_at 0x00, 0xB5F8    ; push  {r3-r7, lr}
+    expect16_at 0x02, 0x1C05    ; add   r5, r0, #0              r5 = script context
+    expect16_at 0x04, 0xF7F2    ; bl    ScriptReadHalfword      (1/2)
+    expect16_at 0x06, 0xFC36    ;                               (2/2)
+    expect16_at 0x08, 0x1C01    ; add   r1, r0, #0
+    expect16_at 0x0A, 0x1C28    ; add   r0, r5, #0
+    expect16_at 0x0C, 0x3080    ; add   r0, #0x80
+    expect16_at 0x0E, 0x6800    ; ldr   r0, [r0]
+    expect16_at 0x10, 0xF7F2    ; bl    ScriptGetVar            (1/2)
+    expect16_at 0x12, 0xFF0A    ;                               (2/2)
+    expect16_at 0x14, 0x1C07    ; add   r7, r0, #0              r7 = party slot
+    expect16_at 0x16, 0x1C28    ; add   r0, r5, #0
+    expect16_at 0x18, 0xF7F2    ; bl    ScriptReadHalfword      (1/2)
+    expect16_at 0x1A, 0xFC2C    ;                               (2/2)
+    expect16_at 0x1C, 0x1C01    ; add   r1, r0, #0
+    expect16_at 0x1E, 0x1C28    ; add   r0, r5, #0
+    expect16_at 0x20, 0x3080    ; add   r0, #0x80
+    expect16_at 0x22, 0x6800    ; ldr   r0, [r0]
+    expect16_at 0x24, 0xF7F2    ; bl    ScriptGetVar            (1/2)
+    expect16_at 0x26, 0xFF00    ;                               (2/2)
+    expect16_at 0x28, 0x1C04    ; add   r4, r0, #0              r4 = type (u16)
+    expect16_at 0x2A, 0x1C28    ; add   r0, r5, #0
+    expect16_at 0x2C, 0xF7F2    ; bl    ScriptReadHalfword      (1/2)
+    expect16_at 0x2E, 0xFC22    ;                               (2/2)
+    expect16_at 0x30, 0x1C01    ; add   r1, r0, #0
+    expect16_at 0x32, 0x1C28    ; add   r0, r5, #0
+    expect16_at 0x34, 0x3080    ; add   r0, #0x80
+    expect16_at 0x36, 0x6800    ; ldr   r0, [r0]
+    expect16_at 0x38, 0xF7F2    ; bl    ScriptGetVarPointer     (1/2)
+    expect16_at 0x3A, 0xFEDA    ;                               (2/2)
+    expect16_at 0x3C, 0x3580    ; add   r5, #0x80
+    expect16_at 0x3E, 0x1C06    ; add   r6, r0, #0              r6 = ret var
+    expect16_at 0x40, 0x6828    ; ldr   r0, [r5]
+    expect16_at 0x42, 0x68C0    ; ldr   r0, [r0, #0xC]          save data
+    expect16_at 0x44, 0xF026    ; bl    SaveArray_Party_Get     (1/2)
+    expect16_at 0x46, 0xFCAA    ;                               (2/2)
+    expect16_at 0x48, 0x1C39    ; add   r1, r7, #0
+    expect16_at 0x4A, 0xF026    ; bl    Party_GetMonByIndex     (1/2)
+    expect16_at 0x4C, 0xFB47    ;                               (2/2)
+    expect16_at 0x50, 0x1C21    ; add   r1, r4, #0              field
+    expect16_at 0x52, 0x2200    ; mov   r2, #0
+    expect16_at 0x54, 0xF020    ; bl    GetMonData              (1/2)
+    expect16_at 0x56, 0xFD98    ;                               (2/2)
+    expect16_at 0x58, 0x8030    ; strh  r0, [r6]
+    expect16_at 0x5A, 0x2000    ; mov   r0, #0
+    expect16_at 0x5C, 0xBDF8    ; pop   {r3-r7, pc}
+
+; Read-only: GetMonData field 10 is the Ability (u16, block B +0x1A), field 76 the egg bit.
+.org BoxMonData_JumpTable + 2 * 10
+    expect16 BoxMonData_Ability - 0x0206DA00
+.org BoxMonData_JumpTable + 2 * 76
+    expect16 BoxMonData_IsEgg - 0x0206DA00
+.org BoxMonData_Ability
+    expect16_at 0x00, 0x8B6C    ; ldrh  r4, [r5, #0x1A]         r5 = block B
+.org BoxMonData_IsEgg
+    expect16_at 0x0A, 0x6928    ; ldr   r0, [r5, #0x10]
+    expect16_at 0x0C, 0x0040    ; lsl   r0, r0, #1
+    expect16_at 0x0E, 0x0FC4    ; lsr   r4, r0, #31             bit 30
+
+; The edit: the field is the script's value itself (MonGetContestValue becomes 'get GetMonData field').
+.org MonGetContestValue_Field
+.area 2
+    expect16 0x3413             ; add   r4, #0x13
+    nop                         ; (mov r8, r8)
+.endarea
+
+.close
+
+; --------------------------------------------------------------------------------- part 2: event script 928
+; Opened at 0: addresses are offsets in the script file, the L-numbers of work/tools/docs/scriptdump.py 928.
+; Script commands: u16 command, then its arguments (work/tools/docs/script_cmds.json); vars 0x8000+.
+
+CMD_COMPARE_VAR_VALUE   equ 17      ; CompareVarToValue var, u16 value
+CMD_COMPARE_VAR_VAR     equ 18      ; CompareVarToVar var, var
+CMD_GOTO                equ 22      ; GoTo s32 (from the end of the command)
+CMD_GOTO_IF             equ 28      ; GoToIf u8 condition, s32
+CMD_ADD_VAR             equ 39      ; AddVar var, value
+CMD_SET_VAR             equ 41      ; SetVar var, value
+CMD_NPC_MSG             equ 45      ; NPCMsg u8 message
+CMD_TRAINER_BATTLE      equ 213
+CMD_PLAYER_HAS_SPECIES  equ 389     ; PlayerHasSpecies ret var, species
+CMD_MON_GET_DATA        equ 542     ; MonGetContestValue slot, field, ret var (part 1: field = GetMonData field)
+COND_LT                 equ 0
+COND_EQ                 equ 1
+COND_NE                 equ 5
+
+VAR_SLOT                equ 0x8004  ; loop counter (a scratch var; Pryce's script does not use it)
+VAR_COUNT               equ 0x8005  ; party count: GetPartyCount 0x8005 at L252, just before the check
+VAR_RESULT              equ 0x800C
+
+MON_FIELD_ABILITY       equ 10
+MON_FIELD_IS_EGG        equ 76
+
+; Abilities that change the weather (bank 712 descriptions; work/notes/pryce-weather-rule_fix.md).
+ABILITY_DRIZZLE         equ 2       ; 降雨: rain
+ABILITY_SAND_STREAM     equ 45      ; 扬沙: sandstorm
+ABILITY_DROUGHT         equ 70      ; 日照: sun
+ABILITY_SNOW_WARNING    equ 117     ; 降雪: hail
+ABILITY_PRIMORDIAL_SEA  equ 189     ; 始源之海: heavy rain
+ABILITY_DESOLATE_LAND   equ 190     ; 终结之地: harsh sun
+ABILITY_DELTA_STREAM    equ 191     ; 德尔塔气流: strong winds
+ABILITY_SAND_SPIT       equ 245     ; 吐沙: sandstorm when hit
+ABILITY_ORICHALCUM_PULSE equ 288    ; 绯红脉动: sun on entry
+ABILITY_TERAFORM_ZERO   equ 309     ; 归零化境: erases weather and terrain
+ABILITY_WILDFIRE        equ 313     ; 霹雳火: harsh sun (the hack's own)
+
+.definelabel Pryce_PartyCount,  0x0FC   ; L252: GetPartyCount 0x8005; one Pokemon -> L1072
+.definelabel Pryce_RuleCheck,   0x10D   ; L269: the 28 species checks                   <- the edit
+.definelabel Pryce_Battle,      0x321   ; L801: TrainerBattle 32, 32 (Double Battle)
+.definelabel Pryce_Refused,     0x43B   ; L1083: NPCMsg 14 (the rule; sort out your party)
+
+.macro species_check_was, n, species        ; old check n: PlayerHasSpecies; != 0 -> Pryce_Refused
+    expect16_at 19 * (n) + 0, CMD_PLAYER_HAS_SPECIES
+    expect16_at 19 * (n) + 2, VAR_RESULT
+    expect16_at 19 * (n) + 4, species
+    expect16_at 19 * (n) + 6, CMD_COMPARE_VAR_VALUE
+    expect16_at 19 * (n) + 12, CMD_GOTO_IF
+    expect32_at 19 * (n) + 15, Pryce_Refused - (Pryce_RuleCheck + 19 * (n) + 19)
+.endmacro
+
+.macro SetVar, var, value
+    .halfword CMD_SET_VAR, var, value
+.endmacro
+.macro AddVar, var, value
+    .halfword CMD_ADD_VAR, var, value
+.endmacro
+.macro CompareVarToValue, var, value
+    .halfword CMD_COMPARE_VAR_VALUE, var, value
+.endmacro
+.macro CompareVarToVar, var1, var2
+    .halfword CMD_COMPARE_VAR_VAR, var1, var2
+.endmacro
+.macro MonGetData, slot, field, ret
+    .halfword CMD_MON_GET_DATA, slot, field, ret
+.endmacro
+.macro GoToIf, cond, target
+    .halfword CMD_GOTO_IF
+    .byte cond
+    .word (target) - (org() + 4)
+.endmacro
+.macro GoTo, target
+    .halfword CMD_GOTO
+    .word (target) - (org() + 4)
+.endmacro
+.macro RefuseIfAbility, ability
+    CompareVarToValue VAR_RESULT, ability
+    GoToIf COND_EQ, Pryce_Refused
+.endmacro
+
+.open "script928.bin", 0x00000000
+
+; Read-only: the refusal and the battle the check leads to.
+.org Pryce_Refused
+    expect16_at 0, CMD_NPC_MSG
+    expect16_at 2, 14 | (50 << 8)   ; message 14 (u8), then WaitButton (command 50)
+.org Pryce_Battle
+    expect16_at 0, CMD_TRAINER_BATTLE
+    expect16_at 2, 32               ; Pryce (trainer 32)
+    expect16_at 4, 32               ; twice: Double Battle
+
+.org Pryce_RuleCheck
+.area Pryce_Battle - Pryce_RuleCheck
+    species_check_was 0, 6          ; Charizard
+    species_check_was 1, 37         ; Vulpix
+    species_check_was 2, 38         ; Ninetales
+    species_check_was 3, 87         ; Dewgong
+    species_check_was 4, 144        ; Articuno
+    species_check_was 5, 186        ; Politoed
+    species_check_was 6, 218        ; Slugma
+    species_check_was 7, 219        ; Magcargo
+    species_check_was 8, 230        ; Kingdra
+    species_check_was 9, 244        ; Entei
+    species_check_was 10, 248       ; Tyranitar
+    species_check_was 11, 279       ; Pelipper
+    species_check_was 12, 321       ; Wailord
+    species_check_was 13, 324       ; Torkoal
+    species_check_was 14, 369       ; Relicanth
+    species_check_was 15, 382       ; Kyogre
+    species_check_was 16, 383       ; Groudon
+    species_check_was 17, 384       ; Rayquaza
+    species_check_was 18, 449       ; Hippopotas
+    species_check_was 19, 450       ; Hippowdon
+    species_check_was 20, 459       ; Snover
+    species_check_was 21, 460       ; Abomasnow
+    species_check_was 22, 476       ; Probopass
+    species_check_was 23, 478       ; Froslass
+    species_check_was 24, 526       ; Gigalith
+    species_check_was 25, 698       ; Amaura
+    species_check_was 26, 699       ; Aurorus
+    species_check_was 27, 873       ; Frosmoth
+    ; the 28 checks fill the area exactly
+    .if Pryce_RuleCheck + 19 * 28 != Pryce_Battle
+        .error "the old species checks do not end at Pryce_Battle"
+    .endif
+
+    SetVar VAR_SLOT, 0
+Pryce_NextMon:
+    MonGetData VAR_SLOT, MON_FIELD_IS_EGG, VAR_RESULT
+    CompareVarToValue VAR_RESULT, 1
+    GoToIf COND_EQ, Pryce_NextSlot                      ; an egg changes no weather
+    MonGetData VAR_SLOT, MON_FIELD_ABILITY, VAR_RESULT
+    RefuseIfAbility ABILITY_DRIZZLE
+    RefuseIfAbility ABILITY_SAND_STREAM
+    RefuseIfAbility ABILITY_DROUGHT
+    RefuseIfAbility ABILITY_SNOW_WARNING
+    RefuseIfAbility ABILITY_PRIMORDIAL_SEA
+    RefuseIfAbility ABILITY_DESOLATE_LAND
+    RefuseIfAbility ABILITY_DELTA_STREAM
+    RefuseIfAbility ABILITY_SAND_SPIT
+    RefuseIfAbility ABILITY_ORICHALCUM_PULSE
+    RefuseIfAbility ABILITY_TERAFORM_ZERO
+    RefuseIfAbility ABILITY_WILDFIRE
+Pryce_NextSlot:
+    AddVar VAR_SLOT, 1
+    CompareVarToVar VAR_SLOT, VAR_COUNT
+    GoToIf COND_LT, Pryce_NextMon                   ; slots 0 .. count - 1
+    GoTo Pryce_Battle
+    .fill Pryce_Battle - org(), 0               ; the rest of the old checks: never reached
+.endarea
+
+.close
+```
+
+</details>
+
 ## safari-no-wild-double
 
 **Safari Zone: wild encounters are single battles again (no frozen double battle)**
@@ -3019,6 +5616,108 @@ encounter paths (they have no random double).
     nop
 .endarea
 
+.close
+```
+
+</details>
+
+## startup-content-warning
+
+**New Game: mature-content warning first, remove QQ promotion**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2327, D-2328, D-2329
+- Source: `work/patches/startup-content-warning/fix.toml`
+
+**Why (the Chinese hack):**
+
+The English release needs a visible mature-content warning before play; the user approved replacing QQ/Tieba promotion and removing the QR display.
+
+**What (old → new):**
+
+Map the five notice counter positions to bank 0816 IDs 4,0,1,2,3. Keep timing, transitions and final-page detection unchanged. Hide lower-screen BG4 (QR image) and skip the separate QR caption renderer. The former caption prologue holds the message-index helper; no overlay growth. Bank edits retain author credits, non-commercial and repost attribution, and show the release version, translator credit, website and save editor reference. The user rejected the permission claim and removed the cheat-tool limitation and bugs disclaimer.
+
+**Evidence:**
+
+- work/notes/content_warning_investigation_20261010.md
+- CN runtime: bank 816 loaded by overlay49 at 0x021E76B6; page reader 0x021E733A; caption reader 0x021E7450. Counter at state+0x54, 9-second timers at +0x56, final position 4.
+
+**Touches:**
+
+- `overlay49+0x2836` (RAM 0x021E71B6) `startup-hide-qr-background`: 2 bytes, was `2101`
+- `overlay49+0x29BA` (RAM 0x021E733A) `startup-page-order-call`: 4 bytes, was `F624 FBE7`
+- `overlay49+0x2AB4` (RAM 0x021E7434) `startup-page-order-helper`: 24 bytes, was `B510 B084 1C04 302C … (12 halfwords)`
+- `overlay49+0x2E42` (RAM 0x021E77C2) `startup-skip-qr-caption`: 4 bytes, was `F7FF FE37`
+
+**Disassembly snapshot:** [`startup-content-warning.listing`](startup-content-warning/startup-content-warning.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write startup-content-warning`)
+
+**Source** (`work/patches/startup-content-warning/startup-content-warning.asm`, armips; the new bytes):
+
+<details>
+<summary>startup-content-warning.asm</summary>
+
+```asm
+; startup-content-warning - First-page warning and no QQ display. D-2327, D-2328, D-2329
+.nds
+.thumb
+.include "../include/guards.inc"
+.open "overlay49.bin", 0x021E4980
+
+; Keep the lower-screen background loaded for normal cleanup, but hidden.
+; BG4 is the QR background; BG5 is the separate caption window.
+.org 0x021E71B6
+.area 2
+    expect16 0x2101
+    mov r1, #0
+.endarea
+
+; Page counter remains 0..4, so timing and final-page detection are unchanged.
+.org 0x021E733A
+.area 4
+    expect16_at 0, 0xF624
+    expect16_at 2, 0xFBE7
+    bl NoticeMessage
+.endarea
+
+; Reuse the now-unreachable QR caption renderer prologue, without overlay growth.
+.org 0x021E7434
+.area 0x18
+    expect16_at 0x00, 0xB510
+    expect16_at 0x02, 0xB084
+    expect16_at 0x04, 0x1C04
+    expect16_at 0x06, 0x302C
+    expect16_at 0x08, 0x2100
+    expect16_at 0x0A, 0xF636
+    expect16_at 0x0C, 0xFEB3
+    expect16_at 0x0E, 0x1C20
+    expect16_at 0x10, 0x302C
+    expect16_at 0x12, 0xF636
+    expect16_at 0x14, 0xFD0D
+    expect16_at 0x16, 0x68A0
+NoticeMessage:
+    push {r3, lr}
+    cmp r1, #0
+    bne @@original
+    mov r1, #4
+    b @@read
+@@original:
+    sub r1, #1
+@@read:
+    bl 0x0200BB0C
+    pop {r3, pc}
+    .fill 0x021E744C - ., 0
+.endarea
+
+; Do not read/draw the QQ caption, including on the first warning page.
+.org 0x021E77C2
+.area 4
+    expect16_at 0, 0xF7FF
+    expect16_at 2, 0xFE37
+    nop
+    nop
+.endarea
 .close
 ```
 
@@ -3751,6 +6450,297 @@ form #1215 / #1219: its side offset (0x02225E40) is 0, 1 or 2, and an ally's Pok
     bl      BufferTypeName
 .endarea
 
+.close
+```
+
+</details>
+
+## zero-pp-struggle
+
+**Use the existing Struggle action when every known move is out of PP**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2300, D-2302
+- Source: `work/patches/zero-pp-struggle/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-1576: the original hack opens ordinary move selection even when all moves have zero PP,
+then correctly rejects every move. D-2300 authorizes this original-hack repair.
+
+**What (old → new):**
+
+Preserve the initial command guard's fainted/skip, forced action and stored move precedence.
+After those checks, only the FIGHT handler call (LR 0x02202F81) may scan the four native move slots. Empty move IDs do not count as available,
+even if their PP byte is nonzero. If any known move has PP, return the native ordinary-selection
+result. Otherwise construct move 165 through the existing forced-move action constructor,
+retaining the native actor number and target field. Struggle's existing validator, target resolver,
+damage and recoil executor handle the action. Both per-move PP validators remain unchanged.
+Other callers retain native behavior, keeping Bag, switching and running available. Shared constructor/return code keeps the repair inside the original 240-byte guard; no growth.
+
+**Evidence:**
+
+- work/notes/issue03_struggle_reproduction_20261009.md
+- work/notes/issue03_struggle_fix_20261009.md
+
+**Touches:**
+
+- `overlay14+0x2BD70` (RAM 0x0222C550) `zero-pp-command-guard`: 240 bytes, was `B5F0 B085 1C05 1C0C … (120 halfwords)`
+
+**Disassembly snapshot:** [`zero-pp-struggle.listing`](zero-pp-struggle/zero-pp-struggle.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write zero-pp-struggle`)
+
+**Source** (`work/patches/zero-pp-struggle/zero-pp-struggle.asm`, armips; the new bytes):
+
+<details>
+<summary>zero-pp-struggle.asm</summary>
+
+```asm
+; zero-pp-struggle - Restore exhausted-move Struggle actions. D-2300/D-2302 (D-1576).
+.nds
+.thumb
+.include "../include/guards.inc"
+.open "overlay14.bin", 0x022007E0
+.org 0x02216538
+    expect32_at 0x00, 0x28008BC0
+    expect32_at 0x04, 0x2001D101
+    expect32_at 0x08, 0x20004770
+    expect32_at 0x0C, 0x00004770
+.org 0x02217104
+    expect32_at 0x00, 0x2207B418
+    expect32_at 0x04, 0x0549400A
+    expect32_at 0x08, 0x0E092301
+    expect32_at 0x0C, 0x18411C1C
+    expect32_at 0x10, 0x40944805
+    expect32_at 0x14, 0x5C080622
+    expect32_at 0x18, 0x42100E12
+    expect32_at 0x1C, 0x2300D100
+    expect32_at 0x20, 0xBC181C18
+    expect32_at 0x24, 0x46C04770
+    expect32_at 0x28, 0x000002BA
+.org 0x02200960
+    expect32_at 0x00, 0x2400B430
+    expect32_at 0x04, 0x60446004
+    expect32_at 0x08, 0x07124C0D
+    expect32_at 0x0C, 0x7C24446C
+    expect32_at 0x10, 0x0E120409
+    expect32_at 0x14, 0x68056084
+    expect32_at 0x18, 0x43A5240F
+    expect32_at 0x1C, 0x43252401
+    expect32_at 0x20, 0x43A524F0
+    expect32_at 0x24, 0x43141C2C
+    expect32_at 0x28, 0x0A094A06
+    expect32_at 0x2C, 0x430A4022
+    expect32_at 0x30, 0x400A4905
+    expect32_at 0x34, 0x094907D9
+    expect32_at 0x38, 0x60014311
+    expect32_at 0x3C, 0x4770BC30
+    expect32_at 0x40, 0xFFFFFFF8
+    expect32_at 0x44, 0xFF0000FF
+    expect32_at 0x48, 0xFBFFFFFF
+.org 0x022167A0
+    expect32_at 0x00, 0x47707D00
+.org 0x02217B10
+    expect32_at 0x00, 0x008921AB
+    expect32_at 0x04, 0x47705840
+.org 0x02216E34
+    expect32_at 0x00, 0x5C404901
+    expect32_at 0x04, 0x46C04770
+    expect32_at 0x08, 0x0000029E
+.org 0x02202F74
+    expect32_at 0x00, 0x58604944
+    expect32_at 0x04, 0x58611D09
+    expect32_at 0x08, 0xFAE8F029
+    expect32_at 0x0C, 0xD0042800
+    expect32_at 0x10, 0x1C204941
+    expect32_at 0x14, 0xF82AF7FF
+    expect32_at 0x18, 0x2001E079
+.org 0x0222C304
+    expect32_at 0x00, 0xB08CB5F8
+    expect32_at 0x04, 0x1C051C0C
+    expect32_at 0x08, 0x92001C1E
+    expect32_at 0x0C, 0xD1022CA5
+    expect32_at 0x10, 0x2000B00C
+    expect32_at 0x14, 0x1C20BDF8
+; Native slot helpers guard the move/PP field offsets used by the scan.
+.org 0x02216E60
+    expect32_at 0x00, 0x434A2212
+    expect32_at 0x04, 0x48011881
+    expect32_at 0x08, 0x47705A08
+    expect32_at 0x0C, 0x0000025A
+.org 0x02216F14
+    expect32_at 0x00, 0x434A2212
+    expect32_at 0x04, 0x20971881
+    expect32_at 0x08, 0x5C080080
+    expect32_at 0x0C, 0x00004770
+.org 0x0222C550
+    expect32_at 0x00, 0xB085B5F0
+    expect32_at 0x04, 0x1C0C1C05
+    expect32_at 0x08, 0xFFEEF7E9
+    expect32_at 0x0C, 0xD1052800
+    expect32_at 0x10, 0x21041C28
+    expect32_at 0x14, 0xFDCEF7EA
+    expect32_at 0x18, 0xD0072800
+    expect32_at 0x1C, 0xD0022C00
+    expect32_at 0x20, 0xF7D41C20
+    expect32_at 0x24, 0xB005F9D3
+    expect32_at 0x28, 0xBDF02001
+    expect32_at 0x2C, 0x21011C28
+    expect32_at 0x30, 0xFDC0F7EA
+    expect32_at 0x34, 0xD00E2800
+    expect32_at 0x38, 0xD0092C00
+    expect32_at 0x3C, 0xF7EA1C28
+    expect32_at 0x40, 0x1C01F907
+    expect32_at 0x44, 0x1C200609
+    expect32_at 0x48, 0x22000E09
+    expect32_at 0x4C, 0xF9C8F7D4
+    expect32_at 0x50, 0x2001B005
+    expect32_at 0x54, 0x1C28BDF0
+    expect32_at 0x58, 0xF7EA211A
+    expect32_at 0x5C, 0x2800FBBD
+    expect32_at 0x60, 0xA801D023
+    expect32_at 0x64, 0x221A1C29
+    expect32_at 0x68, 0xFBC0F7EA
+    expect32_at 0x6C, 0x98029901
+    expect32_at 0x70, 0x9103AA03
+    expect32_at 0x74, 0xCA039004
+    expect32_at 0x78, 0xFBD2F7EA
+    expect32_at 0x7C, 0x1C281C07
+    expect32_at 0x80, 0xFA9EF7EB
+    expect32_at 0x84, 0x1C281C06
+    expect32_at 0x88, 0xF8E2F7EA
+    expect32_at 0x8C, 0x0E000600
+    expect32_at 0x90, 0xD0072C00
+    expect32_at 0x94, 0x90000632
+    expect32_at 0x98, 0x1C391C20
+    expect32_at 0x9C, 0x23000E12
+    expect32_at 0xA0, 0xF9B6F7D4
+    expect32_at 0xA4, 0x2001B005
+    expect32_at 0xA8, 0x1C28BDF0
+    expect32_at 0xAC, 0xF7EA211B
+    expect32_at 0xB0, 0x2800FB93
+    expect32_at 0xB4, 0x1C28D019
+    expect32_at 0xB8, 0xFCA4F7EA
+    expect32_at 0xBC, 0x1C281C07
+    expect32_at 0xC0, 0xFA7EF7EB
+    expect32_at 0xC4, 0x1C281C06
+    expect32_at 0xC8, 0xF8C2F7EA
+    expect32_at 0xCC, 0x0E000600
+    expect32_at 0xD0, 0xD0072C00
+    expect32_at 0xD4, 0x90000632
+    expect32_at 0xD8, 0x1C391C20
+    expect32_at 0xDC, 0x23000E12
+    expect32_at 0xE0, 0xF996F7D4
+    expect32_at 0xE4, 0x2001B005
+    expect32_at 0xE8, 0x2000BDF0
+    expect32_at 0xEC, 0xBDF0B005
+.area 0xF0, 0
+    push {r4-r7, lr}
+    sub sp, 0x14
+    mov r5, r0
+    mov r4, r1
+    bl 0x02216538
+    cmp r0, 0
+    bne skip
+    mov r0, r5
+    mov r1, 4
+    bl 0x02217104
+    cmp r0, 0
+    beq flag_one
+skip:
+    cmp r4, 0
+    beq forced
+    mov r0, r4
+    bl 0x0220091C
+    b forced
+flag_one:
+    mov r0, r5
+    mov r1, 1
+    bl 0x02217104
+    cmp r0, 0
+    beq stored_26
+    cmp r4, 0
+    beq forced
+    mov r0, r5
+    bl 0x022167A0
+    mov r1, r0
+    mov r0, r4
+    mov r2, 0
+    bl 0x02200930
+    b forced
+stored_26:
+    mov r0, r5
+    mov r1, 0x1A
+    bl 0x02216D28
+    cmp r0, 0
+    beq stored_27
+    add r0, sp, 4
+    mov r1, r5
+    mov r2, 0x1A
+    bl 0x02216D3C
+    add r2, sp, 4
+    ldmia r2!, {r0,r1}
+    bl 0x02216D70
+    mov r7, r0
+    b construct
+stored_27:
+    mov r0, r5
+    mov r1, 0x1B
+    bl 0x02216D28
+    cmp r0, 0
+    beq pp_scan
+    mov r0, r5
+    bl 0x02216F54
+    mov r7, r0
+    b construct
+pp_scan:
+    ; This guard also runs before command entry. Keep Bag/switch/run available:
+    ; only the FIGHT handler may submit the new zero-PP fallback.
+    ldr r0, [sp, 0x24]   ; saved caller LR (20-byte push + 20-byte locals)
+    ldr r1, =0x02202F81
+    cmp r0, r1
+    bne ordinary
+    ldr r6, =0x25A
+    add r6, r5
+    mov r7, 4
+pp_next:
+    ldrh r0, [r6]
+    cmp r0, 0
+    beq pp_advance
+    ldrb r0, [r6, 2]
+    cmp r0, 0
+    bne ordinary
+pp_advance:
+    add r6, 0x12
+    sub r7, 1
+    bne pp_next
+    mov r7, 165
+construct:
+    mov r0, r5
+    bl 0x02217B10
+    mov r6, r0
+    mov r0, r5
+    bl 0x022167A0
+    str r0, [sp]
+    cmp r4, 0
+    beq forced
+    mov r0, r4
+    mov r1, r7
+    lsl r2, r6, 24
+    lsr r2, r2, 24
+    mov r3, 0
+    bl 0x02200960
+forced:
+    mov r0, 1
+    b done
+ordinary:
+    mov r0, 0
+done:
+    add sp, 0x14
+    pop {r4-r7, pc}
+.pool
+.endarea
 .close
 ```
 

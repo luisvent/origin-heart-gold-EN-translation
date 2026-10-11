@@ -1,0 +1,31 @@
+id = "difficulty-armips"
+title = "Research: recovered difficulty resident hook migration"
+kind = "code"
+enabled = false
+decisions = ["D-1575"]
+requires = []
+asm = "hooks.asm"
+why = "The recovered difficulty research wrote ARM9 hook bytes directly from Python."
+what = "Represent the three historical hook edits as guarded armips mnemonics. The resident payload and autoload installation remain separate, unfinished research; this manifest must not be installed in work/patches."
+evidence = ["README.md: static checks and remaining integration requirements"]
+
+[[code]]
+id = "difficulty-resident-startup"
+file = "arm9"
+offset = "0x908"
+expect = "C495 EB03"
+notes = "Historical startup BL to 0x020F1B64 becomes BL to the resident bootstrap."
+
+[[code]]
+id = "difficulty-resident-arena"
+file = "arm9"
+offset = "0xD1970"
+expect = "0000 023E"
+notes = "Historical arena upper bound reserves 4 KiB at 0x023DF000."
+
+[[code]]
+id = "difficulty-resident-field-getter"
+file = "arm9"
+offset = "0x3E544"
+expect = "F7EA FF00"
+notes = "Historical field launcher getter BL becomes BL to the resident Thumb prefix."

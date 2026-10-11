@@ -69,8 +69,18 @@ def load(fixes=None) -> dict:
 # ROM access: one "image" per file key
 # --------------------------------------------------------------------------------------
 
+SCRIPT_NARC = "a/0/1/2"      # the event-script NARC: file key "scriptNNN" is its member NNN (load address 0)
+
+
+def script_member(key):
+    """The event-script NARC member a "scriptNNN" file key names (None for any other key)."""
+    mo = re.fullmatch(r"script(\d+)", key)
+    return f"{SCRIPT_NARC}#{int(mo.group(1))}" if mo else None
+
+
 class RomView:
-    """Read/modify arm9, overlays and filesystem files of an ndspy ROM by file key."""
+    """Read/modify arm9, overlays and filesystem files of an ndspy ROM by file key ("arm9", "itcm",
+    "overlayNN", "scriptNNN" = member NNN of the event-script NARC, or "<path>[#member]")."""
 
     def __init__(self, rom):
         self.rom = rom
@@ -108,6 +118,7 @@ class RomView:
             return bytes(self.rom.arm9)
         if key == "itcm":
             return bytes(self.itcm_section().data)
+        key = script_member(key) or key
         ov = self.overlay(key)
         if ov is not None:
             if ov.compressed:
@@ -146,6 +157,7 @@ class RomView:
             self.itcm_section(code).data = bytearray(data)
             self.rom.arm9 = bytes(code.save(compress=False))
             return
+        key = script_member(key) or key
         ov = self.overlay(key)
         if ov is not None:
             old_len = len(self.rom.files[ov.fileID])

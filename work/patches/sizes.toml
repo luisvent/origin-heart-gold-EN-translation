@@ -1,5 +1,6 @@
 # Size of every binary the armips fixes patch, in the Chinese ROM: the arm9 file, the ITCM autoload
-# section and the overlay files (bss: their .bss). Generated with overlays.toml by
+# section, the overlay files (bss: their .bss) and event-script files (scriptNNN: member NNN of
+# a/0/1/2). Generated with overlays.toml by
 # `python3 work/tools/fixes.py overlays`; build.py checks it against the ROM it loads. Sizes only:
 # `asmpatch.py synthetic` (check.py, CI) assembles every source over zero-filled stand-ins of these
 # sizes, without the ROM.
@@ -54,3 +55,6 @@ bss = 0x0
 [overlay114]
 size = 0x1320
 bss = 0x0
+
+[script928]
+size = 0xA94
