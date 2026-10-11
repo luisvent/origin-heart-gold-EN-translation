@@ -1,0 +1,1577 @@
+{
+  "schema_version": 1,
+  "researched_on": "2026-10-09",
+  "user_approved": true,
+  "working_interpretation": "user_confirmed_gym_only_nondecreasing_running_maximum",
+  "raw_game_text_included": false,
+  "sources": [
+    {
+      "path": "work/rom/origin_v4.0.3_cn.nds",
+      "sha256": "4807ab2c130581cb9d4f6110fc64b41ca4807b8d28e7622ebd3c9740baed95c8"
+    },
+    {
+      "path": "site/src/data/trainers.json",
+      "sha256": "4dedf64ca36530f482eac4bdcac2d65cdc1a01de6ed7d545471d500f63efa11f"
+    },
+    {
+      "path": "site/src/data/trainer_guide.json",
+      "sha256": "383bd3b0655fc50dab92e2d2499026d207edd99137d2973ccc78095ab509fc00"
+    },
+    {
+      "path": "work/tools/docs/trainer_guide.py",
+      "sha256": "c9e994d26aa4a006653e3571020903896de44e728af120d2108325d70bfa8be5"
+    },
+    {
+      "path": "work/tools/docs/romdata.py",
+      "sha256": "a54b7fc9ef5cd2a0081c14ad51e8a3fdef591fdc4e8dda7aac8014e437db2116"
+    },
+    {
+      "path": "work/tools/docs/script_cmds.json",
+      "sha256": "f35e31664f1eff9114a2643ce3fb9188358f513ee6fd6276c4dad377153aa659"
+    },
+    {
+      "path": "work/notes/trainer_runtime_review.md",
+      "sha256": "e8bac7f51705400a740d3751125dedf82de4df5633d686f20688fcadc7a7a7e3"
+    },
+    {
+      "path": "work/notes/trainer_reachability.md",
+      "sha256": "5212b6f86f542df8fe1d3f6190e46fa67821a9cd7673826fd74515c08a3e65ff"
+    },
+    {
+      "path": "work/translate/bank_maps.json",
+      "sha256": "345fa3f1523b1ec276fd958019059094bf2f2a5468f53f8c50866edda2d230cf"
+    },
+    {
+      "path": "guide/01-pallet-to-pewter.md",
+      "sha256": "db35d3d7a376a9188b59a4056489e30f3d31f751b806217a04ef49f5f87cd315"
+    },
+    {
+      "path": "guide/02-pewter-to-vermilion.md",
+      "sha256": "ee31b75f8346e38ee9aca7b26a2be6215bfd734a49b1c0fa7151649134303b96"
+    },
+    {
+      "path": "guide/03-vermilion-to-celadon.md",
+      "sha256": "fc351052ac6f96c95d4e462cac8f13503595cf3b60635a08df2595eb48fdd7f2"
+    },
+    {
+      "path": "guide/04-celadon-fuchsia-saffron.md",
+      "sha256": "a1afb8e3fd9dcbcd0fe0e4b9388670a5118b7cb9250ce500fe229506cba52fa1"
+    },
+    {
+      "path": "guide/05-saffron-cinnabar.md",
+      "sha256": "ebf29877ff22fd2396e5c943dd8e160a677046508890da24e555e13145ae1b03"
+    },
+    {
+      "path": "guide/06-sevii-islands-indigo.md",
+      "sha256": "aca6eb7efa4529ee6bf18a7bec521eda8483f1726649829d1997e2d48b50e452"
+    },
+    {
+      "path": "guide/07-league-to-cherrygrove.md",
+      "sha256": "b81c2b0e9a2da097582308673d2388d98fc9df17dd0401091888a324657255ba"
+    },
+    {
+      "path": "guide/08-cherrygrove-to-azalea.md",
+      "sha256": "5007f77ecc339438c37d0081c54d1432a7b0b35e76ebe729dff045ae785185dc"
+    },
+    {
+      "path": "guide/09-ilex-goldenrod.md",
+      "sha256": "189bf0ce870455d2b1d683a877b4f9d7bd055388d7c9ef27288c2e18f60d5861"
+    },
+    {
+      "path": "guide/10-ecruteak-olivine.md",
+      "sha256": "f07bd67789a6c76312f6d9183840ea334a66b91d88090dc936e905f3100d0c03"
+    },
+    {
+      "path": "guide/11-cianwood-mahogany.md",
+      "sha256": "0bbfad8ef7f868d38bc5ea1de4ca30805f032e1578919cbae33a2bf67e596c43"
+    },
+    {
+      "path": "guide/12-lake-of-rage-to-sinjoh.md",
+      "sha256": "3bc4c7879831c09035cb6808060faed3e6704a7bd77d34c3a5445537c86182d0"
+    },
+    {
+      "path": "guide/13-dungeons-and-common.md",
+      "sha256": "0ffc32e8783ada602e1553ab02add8d27e63243c6a82a2f1f932368c7fdcc2bd"
+    },
+    {
+      "inventory_checkout": "poke-difficulty-research",
+      "inventory": "work/research/difficulty-recovery/record-inventory.json",
+      "record_name": "/root/earth_badge_verification",
+      "sha256": "6a4c4333f894951e1874cafffc7d7a44699b99f2f88edf85a13e70c7fd3d896f",
+      "lines": [
+        112,
+        155,
+        339
+      ],
+      "historical_only": true
+    }
+  ],
+  "source_hashes_are_evidence_only": true,
+  "source_comparison": {
+    "website_maxima_match_rom": true,
+    "website_hash_is_runtime_gate": false
+  },
+  "script_archive": "a/0/1/2",
+  "party_archive": "a/0/5/6",
+  "script_members": [
+    {
+      "id": 3,
+      "sha256": "f7cba80b7cadccbe1ea2f5453a1892b3499d02f926b4967cdd267ad915d04293"
+    },
+    {
+      "id": 15,
+      "sha256": "6902f426173681b436b2f4e3ec4c19d828250b39b6ab1ca5e030cfab59a319e2"
+    },
+    {
+      "id": 66,
+      "sha256": "b3091987dfac82219217c30aa11c23dc069c43f4d9498804414b48170069ca1e"
+    },
+    {
+      "id": 90,
+      "sha256": "03afab9985ec23040859d6773fba6faa3bdbe3a51e37a9ea7eb7380b99e8e5fd"
+    },
+    {
+      "id": 111,
+      "sha256": "993456c46458d407bfb00fc7173c8852992e1486f12155e415f8f643dac86cfd"
+    },
+    {
+      "id": 112,
+      "sha256": "f73c88c3c0126c259e57f062a01544229f3543e68d8936e3bc3abee8e3e6ab6a"
+    },
+    {
+      "id": 121,
+      "sha256": "868a6bea44f71a2cff2b4d7dd6e96771a1fed35e3e4c2d9efc64582fbfb759c2"
+    },
+    {
+      "id": 741,
+      "sha256": "dd8e5258bb667ca3d069e27f19f400ae6b4cfbe6b590a1993ec6c94ae10e9673"
+    },
+    {
+      "id": 750,
+      "sha256": "8359faacdc6992a5dd1473640473516e1d1c8cb5451517d768f0732427a9b3f1"
+    },
+    {
+      "id": 758,
+      "sha256": "6aef8acfc1ff935006438aa416bc7f0708514b75acf674b47bef4065d21e6f1b"
+    },
+    {
+      "id": 776,
+      "sha256": "ae2aff15303e3308e578fd09af7e9c15697f447bb81dcb5757001aa9d61ada62"
+    },
+    {
+      "id": 782,
+      "sha256": "3f2241ff4602cca107083512bc46a628b09bc2441320b06b45b43e84b035aee0"
+    },
+    {
+      "id": 783,
+      "sha256": "085d740234b40f5a42f4bf79c06fedbd2054297df6439f5d061c6dab9b617ecc"
+    },
+    {
+      "id": 784,
+      "sha256": "46b4e5144599d30ec26a096d5eb122960aecc41175f185980c315a4c8a5e59f4"
+    },
+    {
+      "id": 806,
+      "sha256": "87ab4d88902baa73075f3bee7c9e32059e0ac2b541960d886ad867cf7cbbe8da"
+    },
+    {
+      "id": 817,
+      "sha256": "8b1a5472e17da65458e88de30d83378d626cdbeb80cf8fb2547e3c61d8b98ea8"
+    },
+    {
+      "id": 818,
+      "sha256": "457e88060fad8c61ed04ec437ed503fde62dd9b80b323b75cbdb3315eb404965"
+    },
+    {
+      "id": 819,
+      "sha256": "4fa70e592c858b9842e4a87200486ebfd5c815dffd2f47bd76096d8724dd19db"
+    },
+    {
+      "id": 820,
+      "sha256": "6eb842af092d97b91d3391f7086d39574bfb539a73debc99921dffcd0a1b0b73"
+    },
+    {
+      "id": 821,
+      "sha256": "3003a04ca0553ebdfb14ef8a95f3c419074cd7f186a0a4747770d9c1342b3e1f"
+    },
+    {
+      "id": 826,
+      "sha256": "6966ba75a5151ddd2bd65640eb83f83753689cccdab349fc074dafced8d2a5fc"
+    },
+    {
+      "id": 846,
+      "sha256": "1e682d2055b706eb97adf69d24f17f56a425c09927fa9e09773ea173d78f8349"
+    },
+    {
+      "id": 853,
+      "sha256": "2c05e5e2493dc835e2bd2d043186f9018bfbb0353dc067eaff6c687778f0feea"
+    },
+    {
+      "id": 856,
+      "sha256": "aa4f1a2ece013a79834ddce8487d311d78da2c7790d612bf875f8f92a46fbff2"
+    },
+    {
+      "id": 866,
+      "sha256": "266bccb597d51cd15fe150daabcc83285bd8bb80989ba1b290c9345aca18f7d0"
+    },
+    {
+      "id": 874,
+      "sha256": "73f3cc14d466abc2724c74a5d47e8c7ff9771410c715f22289791d54eee4c1b3"
+    },
+    {
+      "id": 883,
+      "sha256": "6a8244454b2a09993334dd89e54a01422af455c9c4aac05f6816580a054ad57e"
+    },
+    {
+      "id": 899,
+      "sha256": "8bf3c543446d60043ad896109d80a6f5b5b4dd929a16f6fe223c3b0ba8b605c4"
+    },
+    {
+      "id": 900,
+      "sha256": "290273ebb7d810e4739cdbaeb11990b73ec4bce407fb081ca60f2fd23345709a"
+    },
+    {
+      "id": 909,
+      "sha256": "1adafd9b78c7a12a920af6e0a681bd905ece7d370c268f28e098e0aebd526a26"
+    },
+    {
+      "id": 912,
+      "sha256": "8cdbffdb7c35c20457e3f4d4c9a62b88dcdaf77191f1aed88ffe6c3e82a4557c"
+    },
+    {
+      "id": 918,
+      "sha256": "3cddc2873a4f8d28c775aa6f04fb325cdf4150493a8b9ca3a4baf21bf97f0579"
+    },
+    {
+      "id": 928,
+      "sha256": "b09ff1c9ab1048496b3ca36469c4af2735ccc157d4c84f2577aa8392c804941e"
+    },
+    {
+      "id": 939,
+      "sha256": "0197a879bfff8d1c421d88ddf9db64ebb9a100017320b66d4ece81369fc2fd49"
+    }
+  ],
+  "gym_facts": [
+    {
+      "rank": 1,
+      "leader": "Brock",
+      "badge_id": 0,
+      "opponents": [
+        {
+          "trainer_id": 253,
+          "maximum": 12,
+          "party_member_sha256": "4266d174689dcf34bcec8c808e275f3b1acc766c9d1d6c3caf78fba2b8e92c1f"
+        }
+      ],
+      "maximum": 12,
+      "guide_chapter": 1,
+      "battle_calls": [
+        {
+          "script": 750,
+          "offset": 106,
+          "command": "TrainerBattle",
+          "args": [
+            253,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 750,
+          "offset": 131,
+          "command": "GiveBadge",
+          "args": [
+            0
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 0
+      }
+    },
+    {
+      "rank": 2,
+      "leader": "Misty",
+      "badge_id": 1,
+      "opponents": [
+        {
+          "trainer_id": 254,
+          "maximum": 20,
+          "party_member_sha256": "3e786a44e66738eea593b550dc154225740b71cf5bbaeaec42df4d9ef2ccb8ee"
+        }
+      ],
+      "maximum": 20,
+      "guide_chapter": 2,
+      "battle_calls": [
+        {
+          "script": 758,
+          "offset": 268,
+          "command": "TrainerBattle",
+          "args": [
+            254,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 758,
+          "offset": 293,
+          "command": "GiveBadge",
+          "args": [
+            1
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 1
+      }
+    },
+    {
+      "rank": 3,
+      "leader": "Lt. Surge",
+      "badge_id": 2,
+      "opponents": [
+        {
+          "trainer_id": 255,
+          "maximum": 25,
+          "party_member_sha256": "fee4ef121f7bf45aa568499c0653d84bf261640b601a7f496a4d873519ce5bdc"
+        }
+      ],
+      "maximum": 25,
+      "guide_chapter": 3,
+      "battle_calls": [
+        {
+          "script": 776,
+          "offset": 403,
+          "command": "TrainerBattle",
+          "args": [
+            255,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 776,
+          "offset": 428,
+          "command": "GiveBadge",
+          "args": [
+            2
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 2
+      }
+    },
+    {
+      "rank": 4,
+      "leader": "Erika",
+      "badge_id": 3,
+      "opponents": [
+        {
+          "trainer_id": 256,
+          "maximum": 38,
+          "party_member_sha256": "9f0fd1609748eece4b700eb63cf701433797fc9894a0a907d9844cc53bfd7ebb"
+        }
+      ],
+      "maximum": 38,
+      "guide_chapter": 3,
+      "battle_calls": [
+        {
+          "script": 784,
+          "offset": 130,
+          "command": "TrainerBattle",
+          "args": [
+            256,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 783,
+          "offset": 7652,
+          "command": "TrainerBattle",
+          "args": [
+            256,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 853,
+          "offset": 3330,
+          "command": "GiveBadge",
+          "args": [
+            3
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "gym_victory_scene",
+        "writes": [
+          {
+            "script": 784,
+            "offset": 1380,
+            "command": "SetFlag",
+            "args": [
+              1220
+            ]
+          },
+          {
+            "script": 783,
+            "offset": 8172,
+            "command": "SetFlag",
+            "args": [
+              1220
+            ]
+          }
+        ],
+        "candidate_predicate": {
+          "any": [
+            {
+              "badge": 3
+            },
+            {
+              "flag": 1220
+            }
+          ]
+        },
+        "predicate_verified_for_all_saves": false,
+        "ceremony_clear": {
+          "script": 853,
+          "offset": 3182,
+          "command": "ClearFlag",
+          "args": [
+            1220
+          ]
+        },
+        "object_hide_after_win": {
+          "script": 784,
+          "offset": 1424,
+          "command": "HidePerson",
+          "args": [
+            7
+          ]
+        },
+        "mapped_event_member": 352,
+        "mapped_object_id": 7,
+        "rejected_flag": 1173,
+        "rejected_flag_prebattle_hide": {
+          "script": 783,
+          "offset": 7563,
+          "command": "HidePerson",
+          "args": [
+            11
+          ]
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "leader": "Koga",
+      "badge_id": 5,
+      "opponents": [
+        {
+          "trainer_id": 257,
+          "maximum": 55,
+          "party_member_sha256": "7345ff95a1e4521cd4047cfdad5aafb928bedc9e0b023b21058d34d2d3224bf2"
+        }
+      ],
+      "maximum": 55,
+      "guide_chapter": 4,
+      "battle_calls": [
+        {
+          "script": 806,
+          "offset": 382,
+          "command": "TrainerBattle",
+          "args": [
+            257,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 806,
+          "offset": 407,
+          "command": "GiveBadge",
+          "args": [
+            5
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 5
+      }
+    },
+    {
+      "rank": 6,
+      "leader": "Blaine",
+      "badge_id": 6,
+      "opponents": [
+        {
+          "trainer_id": 259,
+          "maximum": 65,
+          "party_member_sha256": "931c89d084d889a9f7624245d4129a5db34c79c7dcd7aef1f9947497b933008a"
+        }
+      ],
+      "maximum": 65,
+      "guide_chapter": 5,
+      "battle_calls": [
+        {
+          "script": 15,
+          "offset": 1310,
+          "command": "TrainerBattle",
+          "args": [
+            259,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 15,
+          "offset": 1387,
+          "command": "GiveBadge",
+          "args": [
+            6
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 6
+      }
+    },
+    {
+      "rank": 7,
+      "leader": "Sabrina",
+      "badge_id": 4,
+      "opponents": [
+        {
+          "trainer_id": 258,
+          "maximum": 80,
+          "party_member_sha256": "f14c99cc2996fcbbb8402e9ad8f659dfe0b7c46f1e6cf35a69a8b6e5452d3064"
+        }
+      ],
+      "maximum": 80,
+      "guide_chapter": 5,
+      "battle_calls": [
+        {
+          "script": 826,
+          "offset": 140,
+          "command": "TrainerBattle",
+          "args": [
+            258,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 826,
+          "offset": 165,
+          "command": "GiveBadge",
+          "args": [
+            4
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 4
+      }
+    },
+    {
+      "rank": 8,
+      "leader": "Giovanni",
+      "badge_id": 7,
+      "opponents": [
+        {
+          "trainer_id": 662,
+          "maximum": 100,
+          "party_member_sha256": "dd601a2a712d55f5209cbd343d92428a5f125df78b4bba83039c0c7128db4a83"
+        }
+      ],
+      "maximum": 100,
+      "guide_chapter": 6,
+      "battle_calls": [
+        {
+          "script": 741,
+          "offset": 2311,
+          "command": "TrainerBattle",
+          "args": [
+            662,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 741,
+          "offset": 2863,
+          "command": "GiveBadge",
+          "args": [
+            7
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 7
+      }
+    },
+    {
+      "rank": 9,
+      "leader": "Falkner",
+      "badge_id": 8,
+      "opponents": [
+        {
+          "trainer_id": 20,
+          "maximum": 80,
+          "party_member_sha256": "ea9291a407563e4deae0b529e36641f9dfc1c73888db475e8480bd7b6a7711df"
+        }
+      ],
+      "maximum": 80,
+      "guide_chapter": 8,
+      "battle_calls": [
+        {
+          "script": 856,
+          "offset": 14156,
+          "command": "TrainerBattle",
+          "args": [
+            20,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 856,
+          "offset": 14181,
+          "command": "GiveBadge",
+          "args": [
+            8
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 8
+      }
+    },
+    {
+      "rank": 10,
+      "leader": "Bugsy",
+      "badge_id": 9,
+      "opponents": [
+        {
+          "trainer_id": 21,
+          "maximum": 80,
+          "party_member_sha256": "207a4572d3f5b18cf057f722af015e0585da49d7b8499ab3af32506a606ba360"
+        }
+      ],
+      "maximum": 80,
+      "guide_chapter": 8,
+      "battle_calls": [
+        {
+          "script": 866,
+          "offset": 4257,
+          "command": "TrainerBattle",
+          "args": [
+            21,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 866,
+          "offset": 4291,
+          "command": "GiveBadge",
+          "args": [
+            9
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 9
+      }
+    },
+    {
+      "rank": 11,
+      "leader": "Whitney",
+      "badge_id": 10,
+      "opponents": [
+        {
+          "trainer_id": 714,
+          "maximum": 88,
+          "party_member_sha256": "3077087c41e77a84e5eaa3607a520f6037e025d57e7705b2630d15f974f608d3"
+        },
+        {
+          "trainer_id": 30,
+          "maximum": 88,
+          "party_member_sha256": "5bc09519a389873ca763f84ecfb3de00cd79bd77e56313f5177230caf5f789fc"
+        },
+        {
+          "trainer_id": 266,
+          "maximum": 87,
+          "party_member_sha256": "b61edd06edb939858311c0444068ff85448e6eb970e4bc5a53930cce830f30d1"
+        }
+      ],
+      "maximum": 88,
+      "guide_chapter": 9,
+      "battle_calls": [
+        {
+          "script": 883,
+          "offset": 99,
+          "command": "TrainerBattle",
+          "args": [
+            714,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 883,
+          "offset": 1303,
+          "command": "MultiBattle",
+          "args": [
+            343,
+            30,
+            266,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 883,
+          "offset": 143,
+          "command": "GiveBadge",
+          "args": [
+            10
+          ]
+        },
+        {
+          "script": 883,
+          "offset": 1444,
+          "command": "GiveBadge",
+          "args": [
+            10
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 10
+      }
+    },
+    {
+      "rank": 12,
+      "leader": "Morty",
+      "badge_id": 11,
+      "opponents": [
+        {
+          "trainer_id": 31,
+          "maximum": 80,
+          "party_member_sha256": "9896394b534519f42f972c8062a2ca65706d1cbc24c1727b9daa5346424a8012"
+        }
+      ],
+      "maximum": 80,
+      "guide_chapter": 10,
+      "battle_calls": [
+        {
+          "script": 918,
+          "offset": 13687,
+          "command": "TrainerBattle",
+          "args": [
+            31,
+            31,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 918,
+          "offset": 13715,
+          "command": "GiveBadge",
+          "args": [
+            11
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 11
+      }
+    },
+    {
+      "rank": 13,
+      "leader": "Jasmine",
+      "badge_id": 13,
+      "opponents": [
+        {
+          "trainer_id": 33,
+          "maximum": 80,
+          "party_member_sha256": "883589bbf826135cbd1c4ebcba175c81bc4342330639a8b08b78638d2752f1f3"
+        }
+      ],
+      "maximum": 80,
+      "guide_chapter": 10,
+      "battle_calls": [
+        {
+          "script": 909,
+          "offset": 14944,
+          "command": "TrainerBattle",
+          "args": [
+            33,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 909,
+          "offset": 14972,
+          "command": "GiveBadge",
+          "args": [
+            13
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 13
+      }
+    },
+    {
+      "rank": 14,
+      "leader": "Chuck",
+      "badge_id": 12,
+      "opponents": [
+        {
+          "trainer_id": 34,
+          "maximum": 80,
+          "party_member_sha256": "2a8fa3088de8136fcbbb1302472730c47dd7171d443df3e38cd72b292c0755af"
+        }
+      ],
+      "maximum": 80,
+      "guide_chapter": 11,
+      "battle_calls": [
+        {
+          "script": 874,
+          "offset": 14976,
+          "command": "TrainerBattle",
+          "args": [
+            34,
+            34,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 874,
+          "offset": 15014,
+          "command": "GiveBadge",
+          "args": [
+            12
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 12
+      }
+    },
+    {
+      "rank": 15,
+      "leader": "Pryce",
+      "badge_id": 14,
+      "opponents": [
+        {
+          "trainer_id": 32,
+          "maximum": 85,
+          "party_member_sha256": "91a597e2f63d68cb1e444e9995663ff5f69e23caa4db35130d352342feac32c1"
+        }
+      ],
+      "maximum": 85,
+      "guide_chapter": 11,
+      "battle_calls": [
+        {
+          "script": 928,
+          "offset": 801,
+          "command": "TrainerBattle",
+          "args": [
+            32,
+            32,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 928,
+          "offset": 845,
+          "command": "GiveBadge",
+          "args": [
+            14
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "badge",
+        "id": 14
+      }
+    },
+    {
+      "rank": 16,
+      "leader": "Clair",
+      "badge_id": 15,
+      "opponents": [
+        {
+          "trainer_id": 35,
+          "maximum": 85,
+          "party_member_sha256": "9a5a46b015ea6f66e6f78b18537ad099ef61d75ddece580dc00547badc78d622"
+        }
+      ],
+      "maximum": 85,
+      "guide_chapter": 12,
+      "battle_calls": [
+        {
+          "script": 939,
+          "offset": 14122,
+          "command": "TrainerBattle",
+          "args": [
+            35,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "badge_awards": [
+        {
+          "script": 112,
+          "offset": 4728,
+          "command": "GiveBadge",
+          "args": [
+            15
+          ]
+        }
+      ],
+      "completion": {
+        "kind": "gym_victory_scene",
+        "writes": [
+          {
+            "script": 939,
+            "offset": 14164,
+            "command": "SetFlag",
+            "args": [
+              209
+            ]
+          },
+          {
+            "script": 939,
+            "offset": 14168,
+            "command": "SetVar",
+            "args": [
+              16546,
+              4
+            ]
+          }
+        ],
+        "candidate_predicate": {
+          "any": [
+            {
+              "badge": 15
+            },
+            {
+              "flag": 209
+            }
+          ]
+        },
+        "predicate_verified_for_all_saves": false
+      }
+    }
+  ],
+  "story_facts": [
+    {
+      "id": "rainbow_ceremony",
+      "after_guide_rank": 4,
+      "opponents": [
+        {
+          "trainer_id": 443,
+          "maximum": 55,
+          "party_member_sha256": "0c0941b472a6d85f44b1453fd1905ff0202147d285fd3e4148d47dd2736fae65"
+        },
+        {
+          "trainer_id": 453,
+          "maximum": 50,
+          "party_member_sha256": "a8655c9eaa000d222c984449e5ae0cb51e487a2f084c03df27893f2b64e4cddc"
+        }
+      ],
+      "battle_calls": [
+        {
+          "script": 853,
+          "offset": 2599,
+          "command": "MultiBattle",
+          "args": [
+            272,
+            443,
+            453,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "two_island_trial",
+      "after_guide_rank": 7,
+      "opponents": [
+        {
+          "trainer_id": 643,
+          "maximum": 73,
+          "party_member_sha256": "6ceddd791625dcd294d38c7358db8c8c79f6b77d40e81ee6c5a69becb7f134ca"
+        },
+        {
+          "trainer_id": 644,
+          "maximum": 76,
+          "party_member_sha256": "7161628d14081f85312e351bb78729818215b8490b67b69d2b5dcfcff2173691"
+        },
+        {
+          "trainer_id": 646,
+          "maximum": 75,
+          "party_member_sha256": "101034fc3b984d0c0b46ae35dafc56c046b703996d1d9782a6d7bb2be926a1be"
+        },
+        {
+          "trainer_id": 647,
+          "maximum": 74,
+          "party_member_sha256": "7930e72be43918fcc063abe0f4d0ab5717d9304934c3fa45eb7c96c55f14f2fe"
+        }
+      ],
+      "battle_calls": [
+        {
+          "script": 782,
+          "offset": 2323,
+          "command": "TrainerBattle",
+          "args": [
+            643,
+            643,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 782,
+          "offset": 4615,
+          "command": "TrainerBattle",
+          "args": [
+            644,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 782,
+          "offset": 5001,
+          "command": "MultiBattle",
+          "args": [
+            645,
+            646,
+            647,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indigo_tournament",
+      "after_guide_rank": 8,
+      "opponents": [
+        {
+          "trainer_id": 986,
+          "maximum": 80,
+          "party_member_sha256": "43d29c9ad25e7798c97fe9ff6f0c6205c1b029719ed0f00107f85f7e136d413b"
+        },
+        {
+          "trainer_id": 635,
+          "maximum": 83,
+          "party_member_sha256": "c803ac1a48076fa6e76b9d1a14a5b0aa498e4ef5dfa133067efbb7178b8117f6"
+        },
+        {
+          "trainer_id": 636,
+          "maximum": 85,
+          "party_member_sha256": "40e3d19ee6f75b0ea68b53d4076ed5b9ef0b319ada63a98d899bfdb49d08aeb3"
+        }
+      ],
+      "battle_calls": [
+        {
+          "script": 900,
+          "offset": 985,
+          "command": "TrainerBattle",
+          "args": [
+            986,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 899,
+          "offset": 3472,
+          "command": "TrainerBattle",
+          "args": [
+            635,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 899,
+          "offset": 4781,
+          "command": "TrainerBattle",
+          "args": [
+            636,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "first_league",
+      "after_guide_rank": 8,
+      "opponents": [
+        {
+          "trainer_id": 245,
+          "maximum": 89,
+          "party_member_sha256": "eb2390d99fc4073128d6857786c8e78ee527ebac7097db54fd34eb499bd2e65b"
+        },
+        {
+          "trainer_id": 247,
+          "maximum": 90,
+          "party_member_sha256": "6385af6eca399865e6ea93495e542d14d6e0e94300d8520f5e8180cd1cabb21f"
+        },
+        {
+          "trainer_id": 418,
+          "maximum": 88,
+          "party_member_sha256": "ff0c672fb074168c62cc969a720b694beb3b59d3c30c849ec15b9cbb27d2d902"
+        },
+        {
+          "trainer_id": 246,
+          "maximum": 90,
+          "party_member_sha256": "e3d8d0bfdf0af0ce772c6e36a56749a3aed180c42f0501ea610a696599f90677"
+        },
+        {
+          "trainer_id": 261,
+          "maximum": 93,
+          "party_member_sha256": "9ffa9e70f030d5e17ba2e2b4656a3087243649517d0f77dab58ba52e724fcfaf"
+        }
+      ],
+      "battle_calls": [
+        {
+          "script": 817,
+          "offset": 833,
+          "command": "TrainerBattle",
+          "args": [
+            245,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 818,
+          "offset": 910,
+          "command": "TrainerBattle",
+          "args": [
+            247,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 819,
+          "offset": 790,
+          "command": "TrainerBattle",
+          "args": [
+            418,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 820,
+          "offset": 879,
+          "command": "TrainerBattle",
+          "args": [
+            246,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 821,
+          "offset": 1235,
+          "command": "TrainerBattle",
+          "args": [
+            261,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerulean_cave",
+      "after_guide_rank": 8,
+      "opponents": [
+        {
+          "trainer_id": 402,
+          "maximum": 100,
+          "party_member_sha256": "ce94d2781b7d9e1dad6d67dd166684ffa63f916e9fb195ebbf49b470a7f779ae"
+        }
+      ],
+      "battle_calls": [
+        {
+          "script": 912,
+          "offset": 4818,
+          "command": "TrainerBattle",
+          "args": [
+            402,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "script": 912,
+          "offset": 4922,
+          "command": "TrainerBattle",
+          "args": [
+            402,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "script": 912,
+          "offset": 2559,
+          "command": "TrainerBattle",
+          "args": [
+            402,
+            402,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rehabilitation",
+      "after_guide_rank": 8,
+      "opponents": [
+        {
+          "trainer_id": 994,
+          "maximum": 82,
+          "party_member_sha256": "0252be4e80ad55c6f9787623f50c36a124187d9234ec5e5aa0ffacbfa864525a"
+        },
+        {
+          "trainer_id": 995,
+          "maximum": 82,
+          "party_member_sha256": "ea6e3e516352d2e5bef582d3bb85162dbbcf6ad2cd283be30c1093ab4af1bbc2"
+        },
+        {
+          "trainer_id": 261,
+          "maximum": 93,
+          "party_member_sha256": "9ffa9e70f030d5e17ba2e2b4656a3087243649517d0f77dab58ba52e724fcfaf"
+        },
+        {
+          "trainer_id": 996,
+          "maximum": 90,
+          "party_member_sha256": "9deed7ac15f56ba10cfdc3f825eaad7a8fc4e988c2f2f6954d48b99a2a8dc24c"
+        },
+        {
+          "trainer_id": 161,
+          "maximum": 82,
+          "party_member_sha256": "c61a012ea6a16990c6a8387a748ac219a883108a69a0efe72d2c5ccd9a975b43"
+        }
+      ],
+      "battle_calls": []
+    },
+    {
+      "id": "lighthouse",
+      "after_guide_rank": 13,
+      "opponents": [
+        {
+          "trainer_id": 810,
+          "maximum": 82,
+          "party_member_sha256": "b503b7c7a7043ddfa8014c6ffafa1cbaa49389e34ecdd1034e8c632a2d6858c3"
+        },
+        {
+          "trainer_id": 811,
+          "maximum": 65,
+          "party_member_sha256": "1fb426a90964b65573e0703edca36f3540b4ed5bf967287efa83a2806ff53af1"
+        },
+        {
+          "trainer_id": 812,
+          "maximum": 82,
+          "party_member_sha256": "f6f165a43041192f32b68bbcbb12bc94f9ffe0d3c949b5d372daee5acdadce15"
+        },
+        {
+          "trainer_id": 813,
+          "maximum": 65,
+          "party_member_sha256": "d79be41b048cadd0418d4caba864aef59ff17c4d93a33403113bfb3af6ed272a"
+        },
+        {
+          "trainer_id": 816,
+          "maximum": 87,
+          "party_member_sha256": "8b5cb5dfbefcc6e3b0b6e756c2fa4213b094b9c06ed951afbe864f2e3805d7ed"
+        },
+        {
+          "trainer_id": 817,
+          "maximum": 90,
+          "party_member_sha256": "afd63be5bc7b7d45e4150ac6da09b452e7ecfdcee6331021cd2250f1fe921b89"
+        }
+      ],
+      "battle_calls": [
+        {
+          "script": 66,
+          "offset": 722,
+          "command": "MultiBattle",
+          "args": [
+            815,
+            810,
+            811,
+            0
+          ]
+        },
+        {
+          "script": 66,
+          "offset": 1451,
+          "command": "TrainerBattle",
+          "args": [
+            816,
+            817,
+            0,
+            0
+          ]
+        },
+        {
+          "script": 66,
+          "offset": 2993,
+          "command": "MultiBattle",
+          "args": [
+            814,
+            812,
+            813,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chuck_cave",
+      "after_guide_rank": 13,
+      "opponents": [
+        {
+          "trainer_id": 718,
+          "maximum": 89,
+          "party_member_sha256": "71f2d5fb6ca2bd5bf0d805a68b308b28ce8a07262ee13335d119bb028328e002"
+        }
+      ],
+      "battle_calls": [
+        {
+          "script": 121,
+          "offset": 1375,
+          "command": "TrainerBattle",
+          "args": [
+            718,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mahogany_hq",
+      "after_guide_rank": 14,
+      "opponents": [
+        {
+          "trainer_id": 553,
+          "maximum": 88,
+          "party_member_sha256": "351813b0622a45a821f4dbe8866de5592f0544eaee9fd28287def4d94f1f82e5"
+        },
+        {
+          "trainer_id": 817,
+          "maximum": 90,
+          "party_member_sha256": "afd63be5bc7b7d45e4150ac6da09b452e7ecfdcee6331021cd2250f1fe921b89"
+        },
+        {
+          "trainer_id": 893,
+          "maximum": 90,
+          "party_member_sha256": "d23310ea7b8a7da338f5d13fa6fec61992099ab0e28f0b4e5939ffd5c566d55d"
+        },
+        {
+          "trainer_id": 549,
+          "maximum": 88,
+          "party_member_sha256": "f08f4617f0b4a16cd598edad617920c65f4bcc559e5804edd9115de66451bad0"
+        },
+        {
+          "trainer_id": 816,
+          "maximum": 87,
+          "party_member_sha256": "8b5cb5dfbefcc6e3b0b6e756c2fa4213b094b9c06ed951afbe864f2e3805d7ed"
+        }
+      ],
+      "battle_calls": []
+    },
+    {
+      "id": "tianyuan",
+      "after_guide_rank": 16,
+      "opponents": [
+        {
+          "trainer_id": 937,
+          "maximum": 90,
+          "party_member_sha256": "cb9028acf834896945d60b5d783d045eceaa89a0bd6633439a9118b8cab32467"
+        }
+      ],
+      "battle_calls": [
+        {
+          "script": 112,
+          "offset": 167,
+          "command": "TrainerBattle",
+          "args": [
+            937,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "excluded_badge_scene": {
+    "trainer_id": 261,
+    "stored_maximum": 93,
+    "script": 741,
+    "entry_1_based": 1,
+    "battle_offset": 151,
+    "award_offset": 176,
+    "badge_id": 15,
+    "event_binding": false
+  },
+  "constructor": {
+    "arm9_address": 34023216,
+    "region_length": 552,
+    "sha256": "9616a50614dd53513c097b50b8187a6029bc68810a14c7d100c750fb2fd164fc",
+    "level_load_address": 34023446,
+    "record_level_offset": 6,
+    "create_call_address": 34023454,
+    "create_target": 34001088,
+    "level_scaling_observed": false,
+    "fresh_emulator_test": false,
+    "historical_giovanni_native_maximum": 100
+  },
+  "proposal": {
+    "approved": true,
+    "interpretation_authority": "user",
+    "selection": "first_unfinished_gym_in_guide_order",
+    "caps": [
+      12,
+      20,
+      25,
+      38,
+      55,
+      65,
+      80,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "completed_all_gyms_cap": 100,
+    "completion_semantics": "gym_victory_not_delayed_badge",
+    "preserve_existing_level": true,
+    "preserve_existing_exp": true,
+    "block_overlevel_use": false,
+    "growth_at_or_above_cap": 0,
+    "bank_excess_exp": false,
+    "decision": "D-2312",
+    "cap_derivation": "running_maximum_of_gym_facts_maximum_through_first_unfinished_row",
+    "skipped_gyms": "Later completions neither bypass an earlier unfinished row nor raise its cap; closing a gap skips already completed subsequent rows.",
+    "monotonicity": "Adding completion predicates never decreases the cap; no persistent high-water mark or protection against save/progression rollback."
+  },
+  "resolver_abi": {
+    "input_predicates": {
+      "badge": "boolean_by_native_badge_id",
+      "flag": "boolean_by_native_flag_id"
+    },
+    "output": "integer_level_1_to_100",
+    "return_after_all_gym_completions": 100,
+    "badge_count_input": false,
+    "no_story_cap_stages": true,
+    "stable_scene_boundaries": true,
+    "native_badge_reader_address": "0x02029429",
+    "native_flag_getter_address": "0x0204F865",
+    "native_binding_status": "implemented_in_native/caps.c_runtime_acceptance_pending",
+    "native_calling_conventions_verified": false,
+    "cap_selection": "running_maximum_of_gym_facts_maximum_through_first_unfinished_row"
+  },
+  "story_placement_semantics": "guide_route_placement_not_enforced_prerequisite",
+  "completion_evidence_status": "static_script_and_mapped_object_audit_runtime_acceptance_pending",
+  "decision": "D-2312",
+  "policy_updated_on": "2026-10-10"
+}

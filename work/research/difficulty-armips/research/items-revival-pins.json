@@ -1,0 +1,133 @@
+{
+  "format": 1,
+  "inputs": {
+    "cn": {
+      "path": "work/rom/origin_v4.0.3_cn.nds",
+      "sha256": "4807ab2c130581cb9d4f6110fc64b41ca4807b8d28e7622ebd3c9740baed95c8"
+    },
+    "en": {
+      "path": "work/build/rc7-baseline/origin_hg_v4.0.3_en_wip.nds",
+      "sha256": "18b6d1478af1740ec693cb30b02da2a8d37b0f715d105f0410466bc4dd355940"
+    },
+    "observed_candidate": {
+      "path": "work/build/difficulty-v2/revival-fix/before/candidate.nds",
+      "sha256": "47f80277b9abedd35e554b4f30fb0844559d78d21ccf32d14a359afc94271e9a"
+    }
+  },
+  "ranges": [
+    {
+      "label": "effect_frame_actor_target",
+      "file": "overlay14.bin",
+      "start": "0x22217c8",
+      "end": "0x22217ec",
+      "sha256": "bc546ce32985036342ff22c3b03ecc3173c4dfda66c2c1af148f7a50901ee653"
+    },
+    {
+      "label": "ordered_effect_loop",
+      "file": "overlay14.bin",
+      "start": "0x22218b4",
+      "end": "0x22218e8",
+      "sha256": "6572238bc7598a352bc5c2dbc16e783502adbf7bfecb1c7ad75902aad04a782c"
+    },
+    {
+      "label": "effect_table",
+      "file": "overlay14.bin",
+      "start": "0x224d19c",
+      "end": "0x224d234",
+      "sha256": "09591f623417e71fff44d193cf1bb348f9516104269c6ea37614a87bc3336e90"
+    },
+    {
+      "label": "revival_callback",
+      "file": "overlay14.bin",
+      "start": "0x2221e30",
+      "end": "0x2221ed0",
+      "sha256": "3b14ee1b46b4c50525d03d09e8e3c365a49e12359c5746b1e4b663bdce8e4274"
+    },
+    {
+      "label": "ordinary_hp_callback",
+      "file": "overlay14.bin",
+      "start": "0x2221b84",
+      "end": "0x2221c38",
+      "sha256": "f0653c8b0d771bdce73b5bf4c5ee5460ae841a759101065058c1bcf20cb95d5e"
+    },
+    {
+      "label": "revival_dispatch",
+      "file": "overlay14.bin",
+      "start": "0x2223610",
+      "end": "0x22236ba",
+      "sha256": "c6216a4c57ebe19488634ce8e5be5387439d29a6695ff800fc4ecba8b279c30c"
+    },
+    {
+      "label": "revival_hp_event",
+      "file": "overlay14.bin",
+      "start": "0x222adfc",
+      "end": "0x222ae20",
+      "sha256": "742710d4caa8bad6e0971d5c4ce042bd08d50ec4d41b1431b0c829b358e218cb"
+    },
+    {
+      "label": "ordinary_hp_dispatch",
+      "file": "overlay14.bin",
+      "start": "0x221f968",
+      "end": "0x221fa68",
+      "sha256": "89234fae1f5111d87302249474aa20f3dcd667115b6ebcf6eaa1e55e8f47e9b6",
+      "historical_sha256": "adaa08133919df23a308aa3ac4b6bb246b60a28d6c26e60882a5830783505445",
+      "review": "RC7 battle-message-variant changes only message variant selection at 0221FA1C/0221FA4A; HP effect ABI/control flow unchanged."
+    },
+    {
+      "label": "ordinary_hp_event",
+      "file": "overlay14.bin",
+      "start": "0x222a0a0",
+      "end": "0x222a100",
+      "sha256": "b07a352e26ecfe403661fba838b9cf58c0b99e6e068eba8e5da98ccd0462a462"
+    },
+    {
+      "label": "attribute_decoder",
+      "file": "arm9.bin",
+      "start": "0x20764b4",
+      "end": "0x2076684",
+      "sha256": "dcca725f94ac1f0e1a753925fbca99877b08e05b49c81d04646655a4d78925f2"
+    },
+    {
+      "label": "effect_table_literal",
+      "file": "overlay14.bin",
+      "start": "0x2221950",
+      "end": "0x2221954",
+      "sha256": "fe229bf30325ff8b43d998ce34dc5e4024cba85d353c178c92f7eb06f9dc16ad"
+    },
+    {
+      "label": "current_root_mon_resolver",
+      "file": "overlay14.bin",
+      "start": "0x22151bc",
+      "end": "0x22151d0",
+      "sha256": "ebfbe6ac7fedaaa7ee5580c2855bb760997f3bd987f5b4aa91b41dac1732752b"
+    },
+    {
+      "label": "recipient_id_getter",
+      "file": "overlay14.bin",
+      "start": "0x22167a0",
+      "end": "0x22167a4",
+      "sha256": "44efdb3a133e06bffa7756399d380414d13869e235567c1bbac07c9a196a65e2"
+    },
+    {
+      "label": "local_owner_range_table",
+      "file": "overlay14.bin",
+      "start": "0x224d130",
+      "end": "0x224d134",
+      "sha256": "61e1a399ba3b82aa779330b7babaf425497bf043a14c865b803ca4af79feb980"
+    }
+  ],
+  "historical_inputs": {
+    "cn": {
+      "path": "work/rom/origin_v4.0.3_cn.nds",
+      "sha256": "4807ab2c130581cb9d4f6110fc64b41ca4807b8d28e7622ebd3c9740baed95c8"
+    },
+    "en": {
+      "path": "work/build/double-target-armips/final/origin_hg_v4.0.3_en_wip.nds",
+      "sha256": "a5a418b277bf07390e7282413923ec34f1c364f4a96c88936d65a73a80d51f40"
+    },
+    "observed_candidate": {
+      "path": "work/build/difficulty-v2/revival-fix/before/candidate.nds",
+      "sha256": "47f80277b9abedd35e554b4f30fb0844559d78d21ccf32d14a359afc94271e9a"
+    }
+  }
+}

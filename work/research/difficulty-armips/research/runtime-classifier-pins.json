@@ -1,0 +1,62 @@
+{
+  "input": "work/build/double-target-armips/final/origin_hg_v4.0.3_en_wip.nds",
+  "input_sha256": "a5a418b277bf07390e7282413923ec34f1c364f4a96c88936d65a73a80d51f40",
+  "trace": "work/build/difficulty-v2/tests/native-tests/battle/result.json",
+  "trace_sha256": "fdf049ecb448c29b40021a15ab1d32b1c23858183e91249bda0a445f978b1e79",
+  "trace_candidate_sha256": "cf22e4173fd116f614ebfac5e5d2549a6bc7ac7f7faeb396b2af9486621b28e4",
+  "ranges": [
+    {
+      "label": "script implicit arg vs form",
+      "image": "arm9",
+      "start": "0x20434e8",
+      "end": "0x2043544",
+      "sha256": "44c8ddc478be1d63a83e64c5ed41898cdcfccf615ee10ac4d30f5d545de8cd92"
+    },
+    {
+      "label": "scripted wild constructor caller and setter",
+      "image": "arm9",
+      "start": "0x2050418",
+      "end": "0x2050486",
+      "sha256": "5108b7a68daba494b4fa824b84be0243d33086bdca146f53a53ace1d7c73e318"
+    },
+    {
+      "label": "constructor zero",
+      "image": "arm9",
+      "start": "0x2050c34",
+      "end": "0x2050c5a",
+      "sha256": "4a2b1b0f502df6dec4b6acfaf35dfae93505e20c476ed81dd6209d415a0bab4e"
+    },
+    {
+      "label": "special control1",
+      "image": "arm9",
+      "start": "0x2050640",
+      "end": "0x2050684",
+      "sha256": "19f541e9552759702d287b6cd9c7b53b543068da697f0261d6de8a82a68b71bc"
+    },
+    {
+      "label": "replay adds10h",
+      "image": "arm9",
+      "start": "0x203054c",
+      "end": "0x203055e",
+      "sha256": "ef33615d84ee95806dfe95738fd8cab475dfd0218b5769eeaffb58e7751d5502"
+    },
+    {
+      "label": "begin leaf no setup writes",
+      "image": "overlay14",
+      "start": "0x2215d14",
+      "end": "0x2215d86",
+      "sha256": "2143143992c75362c5a15bf0caeee9a1ba3830818de9c22a21867e976c109dc5"
+    },
+    {
+      "label": "entry root publication before begin",
+      "image": "overlay14",
+      "start": "0x2214c50",
+      "end": "0x2214cb8",
+      "sha256": "75896bf7ef14711d474f57ae0b94bfff5af378caa7d94bbf69e8ef4ded634eca"
+    }
+  ],
+  "static_report": {
+    "work/build/difficulty-v2/integration-impl/runtime-classifier-evidence.json": "18278fe0db78fa3f5b34392f57ef9d38c5ddf0416ef726d17610bdb4048c9499"
+  },
+  "scope": "positive scripted-wild0/control8 caller evidence, not a random-encounter or completed reward proof"
+}

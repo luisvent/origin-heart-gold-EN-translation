@@ -1,5 +1,91 @@
 # RC7 release preparation — 2026-10-10
 
+> Source integration update: Honey Gather, startup notices and opt-in difficulty source
+> were added after the builds below. Those artifacts and hashes do not validate this
+> checkout's current source. See [the bounded source integration report](rc7_source_integration_20261010.md).
+
+## Current validation run — 2026-10-10
+
+The current baseline contains **47 enabled fixes** (45 revised fixes plus Honey
+Gather and the approved startup notices). Earlier fingerprints below are historical.
+The baseline ROM SHA-1 is `7ebeaee81a0232b70d5b2a434a2d52fb22a97ea2`;
+its USA-source xdelta SHA-1 is `e7dc27dc200c98c7ddf8326362ae2b2458a83a17`.
+
+The latest strict production gate passed with **1049 tool tests, 43 documentation
+tests and 35 site-tool tests**, with no skips, pinned tools, verified assembly/listings
+and USA claims, expected artifact hashes, and byte-identical rebuild/patch reproduction.
+Save-core separately passed 202 tests, typechecking, lint and mutation checks.
+The site tests and production build passed (4636 pages).
+Private logs are under the primary root's `work/build/rc7-completion-20261010/`.
+
+Difficulty's input pins were revised only after an exact byte/dependency review;
+see [the compatibility review](rc7_difficulty_compatibility_20261010.md).
+Its installed candidate SHA-256 is
+`c0f8a54f36dbfd9a32500009fc5ed44222c42ff9a884c03142fb43d1aba0b251`.
+The independent fresh-compilation verifier passed exact-write/preservation checks
+and all 53 negative corruption/overlap/bounds rejections. All 188 difficulty
+host/static tests passed. The 94-job native suite remains running; **16 required
+native requirements still have no implemented driver**. Host tests and installer
+verification do not establish those requirements. The candidate is not release-ready.
+
+Five combined gameplay scenario groups and all three melonDS freeze cases passed.
+The broad production-fix native run is still running. Its Heal Bell case initially
+failed because an invalid historical seed record was reused by the fixture. The
+fixture now buffers three validated native-generated records before replacing any
+bench slots; invalid or changing generated output remains rejected. Four regressions
+and the fresh fixed/control Heal Bell pair passed. The ROM was not changed by this
+fixture correction. All 18 Honey Gather pairs and all 14 individual Struggle checks
+passed; Rock Tunnel loss/win/control passed. Startup captures were visually inspected,
+including an enlarged credits/footer detail: no clipping or overlap.
+
+The supplemental targeting invocation mistakenly expected the untouched Chinese
+ROM to implement the new targeting behavior. These failures are invalid positive
+control expectations, not evidence of a regression in the combined ROM. The historical
+Option 2 control separately passed its intended `--expect-option2` oracle. Initial
+Honey invocations had missing fixture CLI arguments; the corrected prepared-fixture
+run supersedes them and passed all 19 steps (preparation plus 18 checks). Preserve
+both original logs and corrected evidence; do not describe the original batch as passing.
+
+No RC7 release has been published. Local playtest patches are not release artifacts.
+
+## Current scope revision — D-2321
+
+The user excluded `mortar-invalid-flag-noop`, `expedition-completed-progress` and
+`hooh-panel-silver-marker` after reviewing their audit provenance and uncertain story intent.
+They remain in the registry with `enabled = false`. RC7 now adds **11 fixes to RC6,
+45 enabled fixes total**, preserving the Chinese bytes in event-script members 45 and 962.
+No player report is recorded for the Mt. Mortar write; the expedition and Silver changes
+are withheld because their non-crashing consequences may reflect intended behavior.
+
+The 48-fix artifacts and runtime evidence below are historical, not the current release candidate.
+Revised artifacts are under `work/build/rc7-scope-revised/` and the strict-check output
+`work/build/rc7-scope-revised-checked/`. No published release artifacts were replaced.
+The original 48-fix files under `work/build/rc7-final/` must not be used as the current candidate.
+
+Independent comparison of the revised ROM with the previous candidate confirms exactly five
+restored bytes: member45 offsets184/185 and member962 offsets136/1821/1822. Both complete
+members now match the untouched Chinese ROM byte-for-byte. Every other logical ROM part,
+including both translation archives and all battle/animation code, is identical to the previous candidate.
+Proof: `work/build/rc7-scope-revised/scope-proof.json`.
+
+| Current fingerprint | SHA-1 |
+|---|---|
+| Text | `922a51f5639fda62fce76bc678793c050fac7a46` |
+| Nontext | `da788dec0e577e0e04ca592e7dc974c5d3fbd79c` |
+| ROM | `a45fe3ec141ef6ad8f0bf00b1fb7114e19993c27` |
+| Xdelta | `ca7206a64f8a3844323e498c482a50f733ce7756` |
+
+The normal builder and artifact verification passed. `check.py --full --strict-release`
+passed all 11 stages: 1029 tool tests, 43 docs tests and 35 site tests, plus registry,
+assembly, listings, USA claims, expected hashes and reproducibility. The second build
+produced identical ROM/xdelta bytes and a matching normalized report.
+Log: `work/build/rc7-scope-revised-check.log`.
+No new emulator run is claimed for this scope removal; previous runtime evidence applies to
+the unchanged code and retained fixes, with its original limitations.
+
+## Historical 48-fix preparation (superseded scope)
+
+
 Local preparation only; no publication, download or modification of existing release artifacts.
 Branch `release/rc7-prep`, isolated checkout
 `work/build/rc7-release-prep-checkout`, based on RC6/develop `a657a13`.

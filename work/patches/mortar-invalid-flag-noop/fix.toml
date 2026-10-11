@@ -1,10 +1,14 @@
 id = "mortar-invalid-flag-noop"
 title = "Prevent the expedition departure from writing into Pokédex caught data"
 kind = "narc"
-enabled = true
-decisions = ["D-2300", "D-2310"]
+enabled = false
+decisions = ["D-2321", "D-2300", "D-2310"]
 requires = []
 why = """
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
+
 D-1333/D-1550: member962 SetFlag4461 exceeds the3231 persisted-flag limit.
 After a returning native assertion it writes bit5 at Pokédex+0x11, the Weezing
 caught bit, without updating seen data. Its intended story flag is unproved.

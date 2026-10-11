@@ -89,6 +89,8 @@ COVERAGE = {
 }
 # fix id -> why no scenario of this command covers it (honest gaps; see work/notes/emu_harness.md)
 UNCOVERED = {
+    "honey-gather": "Dedicated emu_honey_gather.py checks native rewards and Bag insertion; run separately.",
+    "startup-content-warning": "Dedicated emu_startup_warning.py captures the native startup screens; run separately.",
     "zero-pp-struggle": "No scenario in this unified runner; emu_struggle.py separately verifies paired "
                         "built-ROM exhausted-move cases, native damage/recoil, next turns and positive "
                         "controls. test_zero_pp_struggle.py executes the assembled guard. Natural story "
@@ -336,7 +338,7 @@ LOVE_IMMOBILE = (456, 457, 458, 459)  # 'is immobilized by love!'
 HEALBELL_LIST_CALLS = {0x022027E6: "pokemon", 0x02202B82: "bag target", 0x02203DC6: "foe fainted", 0x02204066: "forced"}
 STATUS_ICON = 0x0208A200            # GetMonStatusIconId(mon): r0 = the party screen's copy of the Pokemon
 HEALBELL_MAP = (28, 1326, 80)       # where the scenario stands; the battle is a scripted TrainerBattle
-HEALBELL_TRAINER = 960              # Camper (Nuzleaf, Luvdisc, Lv 17): Fake Out on the first turn
+HEALBELL_TRAINER = 6                # Starly Lv4 / Rattata Lv5: simple native moves, no first-turn Fake Out
 HEAL_BELL, CHANSEY = 215, 113
 HEALBELL_BENCH = {1: 0x08, 2: 0x40, 3: 0x10}      # party slot -> status before the battle: PSN, PAR, BRN
 HEALBELL_CURES = (336, 380, 360)    # battle_string bank 1: 'cured of its poisoning', 'of paralysis', 'burn was healed'
@@ -1169,6 +1171,19 @@ def observe_safari(h):
     lets RUN get back to the field. The hack builds a double setup for both, but the Safari path creates one
     wild Pokemon."""
     import emu_harness as E
+    # The historical Lv9 lead can faint before the bounded escape checks on
+    # a fresh candidate's higher-level encounter. Use a validated, fully
+    # evolved native generator output; keep the original two-mon roster size.
+    party = h.array(E.ARR_PARTY)
+    count = h.u32(party + 4)
+    generated = h.generate_pokemon(20, level=100)
+    raw = h.read(party + 8 + 236 * generated["slot"], 236)
+    if E.encode_pokemon(raw) != raw:
+        raise ValueError("Safari fixture's native generator record changed")
+    h.write(party + 8, raw)
+    h.w32(party + 4, count)
+    if h.read(party + 8, 236) != raw or not h.in_field():
+        raise ValueError("Safari fixture replacement did not remain in field")
     base = Path(h.out) / "safari_base.dst"
     h.save_state(base)
     cur = {}
@@ -1357,24 +1372,86 @@ def _set_status(h, mon, value):
     h.write(mon, E.encode_pokemon(h.read(mon, 236), status=value))
 
 
+def prepare_healbell_bench(h):
+    """Replace disposable seed bench slots with validated native-generated records.
+
+    Some historical seed slots are invalid. They are discarded as fixture input;
+    swapping would incorrectly ask the strict codec to accept those old records.
+    """
+    import emu_harness as E
+    prepared = []
+    for slot in HEALBELL_BENCH:
+        h.generate_pokemon(129, level=60)
+        party = h.array(E.ARR_PARTY)
+        source = party + 8 + 236 * h.generated_slot
+        target = party + 8 + 236 * slot
+        raw = h.read(source, 236)
+        E.encode_pokemon(raw)  # strict validation; never repair native output
+        if h.array(E.ARR_PARTY) != party or h.read(source, 236) != raw:
+            raise RuntimeError("native Heal Bell fixture changed before copying")
+        prepared.append((party, target, raw))
+    # Generate everything first: subsequent native generator/menu frames can
+    # temporarily open earlier party records. Install the buffered closed records
+    # together, with no emulator steps between writes and status preparation.
+    for party, target, raw in prepared:
+        if h.array(E.ARR_PARTY) != party:
+            raise RuntimeError("native Heal Bell party moved before copying")
+        h.write(target, raw)
+        if h.read(target, 236) != raw:
+            raise RuntimeError("native Heal Bell fixture copy did not persist")
+    return prepared
+
+
+def install_healbell_entry_fixture(h, prepared):
+    """Install validated disposable bench inputs before the native battle constructor."""
+    import emu_harness as E
+    if not h.in_field():
+        raise RuntimeError("Heal Bell fixture installation outside the field")
+    party = h.array(E.ARR_PARTY)
+    expected = [party + 8 + 236 * slot for slot in HEALBELL_BENCH]
+    if [target for owner, target, raw in prepared] != expected or any(owner != party for owner, target, raw in prepared):
+        raise RuntimeError("Heal Bell fixture party/slot ownership mismatch")
+    encoded = [(target, E.encode_pokemon(raw, status=HEALBELL_BENCH[slot]))
+               for slot, (owner, target, raw) in zip(HEALBELL_BENCH, prepared)]
+    if h.array(E.ARR_PARTY) != party:
+        raise RuntimeError("Heal Bell fixture party changed before entry")
+    for target, raw in encoded:
+        h.write(target, raw)
+        if h.read(target, 236) != raw:
+            raise RuntimeError("Heal Bell entry fixture did not persist")
+    return [hashlib.sha256(raw).hexdigest() for target, raw in encoded]
+
+
 def observe_healbell(h):
     """A trainer battle: lead Chansey Lv60 with Heal Bell only, the bench poisoned / paralysed / burned (slots
-    1-3); Heal Bell twice (the first turn is usually lost to Fake Out), then the POKeMON button: the status of
+    1-3); Heal Bell twice, then the POKeMON button: the status of
     each Pokemon the party screen draws (its copy, at the status-icon routine) and which loop built it."""
     import emu_harness as E
     lead(h, CHANSEY, level=60, moves=[HEAL_BELL, 0, 0, 0], pp=[5, 0, 0, 0])
     # The historical seed has inactive/uninitialized bench records. Build valid native
     # bench records instead of asking the strict codec to repair their checksums.
-    for slot in HEALBELL_BENCH:
-        h.generate_pokemon(129, level=60)
-        h.swap_party(slot, h.generated_slot)
+    prepared = prepare_healbell_bench(h)
     h.w32(h.array(E.ARR_PARTY) + 4, 4)
     party = h.array(E.ARR_PARTY) + 8
     for slot, value in HEALBELL_BENCH.items():
         _set_status(h, party + 236 * slot, value)
     before = [_status(h, party + 236 * i) for i in range(len(h.party()))]
     ml = MsgLog(h)
-    h.trainer_battle(HEALBELL_TRAINER)
+    entry = []
+    def native_entry(m):
+        if entry:
+            raise RuntimeError("duplicate Heal Bell native script entry")
+        entry.append(dict(frame=m.frame, records=install_healbell_entry_fixture(m, prepared)))
+    # The saved bench is disposable input. Install its strict native-generated
+    # replacements after LockAll, immediately before TrainerBattle constructs
+    # any battle state; no battle records or outcomes are modified.
+    h.on_exec(0x02048B64, native_entry)
+    try:
+        h.trainer_battle(HEALBELL_TRAINER)
+    finally:
+        h.on_exec(0x02048B64, None)
+    if len(entry) != 1:
+        raise RuntimeError("Heal Bell native entry fixture was not installed")
     turns = [h.battle_turn(0) for _ in range(2)]
     cures = [i for narc, b, i, _ in ml.rows if narc == NARC_BATTLE_STRING and b == 1 and i in HEALBELL_CURES]
     drawn, loops = [], []
@@ -1383,7 +1460,7 @@ def observe_healbell(h):
         h.on_exec(addr, (lambda n: lambda h: loops.append(n))(name))
     h.touch(*E.BATTLE_BUTTONS["pokemon"], frames=10, after=120)
     shot, _ = screenshot(h, "healbell_party")
-    return {"before": before, "turns": turns, "cure_messages": cures, "party_screen": drawn[:6],
+    return {"before": before, "entry_fixture": entry, "turns": turns, "cure_messages": cures, "party_screen": drawn[:6],
             "loops": sorted(set(loops)), "shot": shot}
 
 
@@ -1445,6 +1522,22 @@ def observe_multihit(h):
     return out
 
 
+def closed_wild_fixture_copies(h, pid, scan):
+    """Wait for the native finalizer to close every candidate record before editing."""
+    import emu_harness as E
+    for waited in range(61):
+        copies = scan(h, pid)
+        try:
+            valid = bool(copies) and all(E.encode_pokemon(h.read(address, 136)) == h.read(address, 136) for address in copies)
+        except ValueError:
+            valid = False
+        if valid:
+            return copies
+        if waited == 60:
+            raise RuntimeError("native wild fixture records did not close; no record was edited")
+        h.step(1)
+
+
 def observe_battle_variant(h):
     """One wild battle per VARIANT_CASES row: the line's first print (variant battler, {0}, {1}) and a screenshot
     of the window after it; then the battle is left (run) when it goes on."""
@@ -1463,7 +1556,12 @@ def observe_battle_variant(h):
         h.swap_party(0, h.generated_slot)
         mark = len(prints)
         ws, wl, wm, wi = wild
-        E.wild_battle(h, ws, wl, item=wi, moves=wm)
+        original_scan = E.pid_copies
+        E.pid_copies = lambda m, pid: closed_wild_fixture_copies(m, pid, original_scan)
+        try:
+            E.wild_battle(h, ws, wl, item=wi, moves=wm)
+        finally:
+            E.pid_copies = original_scan
         turns = []
         for _ in range(max_turns):
             turns.append(h.battle_turn(0))
@@ -1563,6 +1661,7 @@ CLOCKS = {sc: PINNED_CLOCK for sc in ("bag", "dex", "card", "pokegear", "save", 
 # safari: its outcome depends on the game's RNG; without the pinned clock the Safari case walked 240 steps without an
 # encounter on some host times
 CLOCKS["safari"] = PINNED_CLOCK
+CLOCKS["healbell"] = PINNED_CLOCK
 EXTERNAL = {"msgload", "texture-bounds", "reflection", "battle-heal"}  # scenarios run by other tools (memcheck.py,
 #                                                         emu_texture_bounds.py, emu_reflection.py,
 #                                                         emu_battle_heal.py)
@@ -2063,14 +2162,25 @@ def run_battle_heal(rom, expect, sav_dir, out):
     if (out / "report.json").exists():       # --overwrite: battle-heal refuses an existing report
         os.replace(out / "report.json", out / "report.previous.json")
     t0 = time.time()
+    extra = []
+    receipt = Path(rom).resolve().parent / "receipt.json"
+    if receipt.exists():
+        installation = json.loads(receipt.read_text())
+        if Path(installation["output"]["path"]).resolve() != Path(rom).resolve():
+            raise ValueError("adjacent difficulty receipt identifies another ROM")
+        # The reproduction specifically uses a Potion. Native ALL restores
+        # that fixture choice. The current Options interaction reaches the native
+        # Roar branch without additional field time or battle outcome edits.
+        extra = ["--difficulty-receipt", receipt, "--entry-delay", "0"]
     rc, _, err = E.spawn(["battle-heal", "--rom", Path(rom).resolve(), "--sav",
                           (Path(sav_dir) / "full_bag_6mons.sav").resolve(), "--out", out.resolve(),
-                          "--expect", expect], timeout=900)
+                          "--expect", expect, *extra], timeout=900)
     try:
         rep = json.loads((out / "report.json").read_text())
     except (OSError, ValueError):
         return {"error": f"battle-heal failed (rc {rc}): {err[-800:]}", "seconds": 0}
     return {"expect": expect, "rc": rc, "passed": rep.get("passed"), "error": rep.get("error"),
+            "difficulty_options": rep.get("difficulty_options"), "entry_delay": rep.get("entry_delay", 0),
             "failures": rep.get("failures"),
             "trials": [{k: t.get(k) for k in ("delay", "result", "skipped_heals", "bars_without_sprite",
                                               "null_sprite_reads")} for t in rep.get("trials", [])],

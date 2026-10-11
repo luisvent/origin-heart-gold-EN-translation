@@ -66,6 +66,10 @@ def add_arguments(parser):
                         help="original: the dragged-out Potion target reads a NULL sprite; fixed: no trial may")
     parser.add_argument("--delays", default=",".join(map(str, DELAYS)),
                         help="frames waited at the command menu before each trial, comma-separated")
+    parser.add_argument("--difficulty-receipt", type=Path,
+                        help="installed difficulty receipt: select ALL through native Options before the Potion trial")
+    parser.add_argument("--entry-delay", type=int, default=0,
+                        help="frames waited in the field before the native battle constructor (0..3600)")
 
 
 def file_identity(path):
@@ -175,18 +179,45 @@ def wait_menu(h, max_frames, field=True):
     return "stuck"
 
 
-def setup(h, E):
+def setup(h, E, difficulty_receipt=None, entry_delay=0):
     h.boot_to_menu()
     h.continue_game()
     h.press("B", after=30)
+    configuration = None
+    if difficulty_receipt is not None:
+        receipt = json.loads(Path(difficulty_receipt).read_text())
+        if file_identity(Path(h.rom))["sha256"] != receipt["output"]["sha256"]:
+            raise ValueError("difficulty receipt does not identify the trial ROM")
+        h.hold("L")
+        h.step(2)
+        h.touch(123, 113, frames=6, after=240)
+        h.release("L")
+        h.step(60)
+        state = h.u32(receipt["build"]["elf_labels"]["page"] + 24)
+        if not 0x02000000 <= state <= 0x023DC000 - 0x28:
+            raise ValueError("native difficulty page owner absent")
+        options = h.u32(state + 0x24)
+        before = h.u16(options)
+        h.touch(200, 35, frames=6, after=30)
+        if h.u16(options) != before:
+            raise ValueError("difficulty draft wrote live Options")
+        h.touch(149, 180, frames=6, after=240)
+        after = h.u16(options)
+        if after != before | 0x20 or not h.in_field():
+            raise ValueError("native ALL Apply changed other settings or did not return to field")
+        configuration = {"receipt": file_identity(Path(difficulty_receipt)),
+                         "before": before, "after": after, "input": "held L, touch ALL, touch APPLY"}
     mon = h.generate_pokemon(MARSHTOMP, level=100)
     h.swap_party(0, mon["slot"])
     h.edit_party_mon(0, moves=LEAD_MOVES, pp=LEAD_PP)
     set_party_hp(h, 0, 0.5)
     h.bag_put_first(POTION, 99, pocket="medicine")
+    if entry_delay:
+        h.step(entry_delay)
     h.run_script(program=E.script_bytes(*WAVE2))
     if wait_menu(h, 9000, field=False) != "menu":
         raise RuntimeError("the second wave's command menu did not appear")
+    return configuration
 
 
 def failures(expect, trials, errors):
@@ -220,6 +251,12 @@ def run(args, harness_factory=None):
     """Return 0 only when the trials meet the expectation."""
     delays = [int(x) for x in str(args.delays).split(",")]
     rom, sav, out = Path(args.rom).resolve(), Path(args.sav).resolve(), Path(args.out).resolve()
+    difficulty_receipt = getattr(args, "difficulty_receipt", None)
+    entry_delay = getattr(args, "entry_delay", 0)
+    if not 0 <= entry_delay <= 3600:
+        raise ValueError("entry delay must be 0..3600")
+    if difficulty_receipt is not None:
+        difficulty_receipt = Path(difficulty_receipt).resolve()
     if (out / "report.json").exists():
         raise ValueError("refusing to overwrite an existing report.json; choose a new --out")
     identity = {"rom": file_identity(rom), "save": file_identity(sav)}
@@ -236,7 +273,11 @@ def run(args, harness_factory=None):
             harness_factory = Harness
         import emu_harness as E
         with harness_factory(rom, sav=sav, out=out / "screens", rtc=CLOCK, emulator="desmume") as h:
-            setup(h, E)
+            if difficulty_receipt is None and not entry_delay:
+                setup(h, E)
+            else:
+                report["difficulty_options"] = setup(h, E, difficulty_receipt, entry_delay)
+                report["entry_delay"] = entry_delay
             baseline = out / "baseline.dst"
             h.save_state(baseline)
             before = party_order(h)

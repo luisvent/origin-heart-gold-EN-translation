@@ -5,21 +5,23 @@ Patches apply to **Pokémon HeartGold (USA)**, CRC32 `C180A0E9`.
 
 ## [Unreleased]
 
-RC7 release preparation: 14 additional fixes on RC6; local build and validation only.
+RC7 source preparation: 13 additional enabled fixes on RC6. The previously validated build contains 11; the new combined build remains pending. Difficulty source is retained as opt-in research and is not installed by the standard builder.
 
 ### Fixed
+- Honey Gather can now find one Honey after an eligible battle and put it directly in the Bag. The Pokémon must hold no item; its chance rises from 5% at levels 1–10 to 50% at levels 91–100. The original hack skipped Honey Gather entirely. User-approved repair (D-2324/D-2325).
+- Post-battle item collection only reports an award when the Bag accepts it. This also prevents Pickup from claiming an item when its stack or pocket is full; its existing odds and rewards are unchanged (D-2326).
 - Lugia entrance animation state bounds prevent the Whirl Islands callback crash.
 - Double Battle D-pad targeting reaches eligible foes and allies when adjacent slots are empty.
 - Exhausted player moves fall back to native Struggle when FIGHT is selected.
 - Rock Tunnel corner-child and Pokémon Tower Magcargo defeats use native whiteout recovery.
-- Completed expedition progress is retained; the Ho-Oh panel retains Silver's marker.
-- Mt. Mortar's invalid story-flag write becomes a native no-op.
 - Healing playback skips a Pokémon switched out by Roar instead of animating a missing HP bar.
 - Cute Charm applies infatuation, battle party screens synchronize status, and fainting waits for HP drain.
 - Reviewed battle-message callers select the correct side and prefix.
 - Pryce checks the party's weather-changing Abilities instead of excluding 28 species. The current user request enables this previously parked fix.
 
 ### Preparation notes
+- Honey Gather, startup content-warning notices and opt-in difficulty source are integrated locally; [current checks and remaining blockers](work/notes/rc7_source_integration_20261010.md). No combined ROM has been rebuilt for this source integration.
+- Expedition progress, the Ho-Oh panel/Silver marker, and the Mt. Mortar invalid-flag patches are disabled by user decision D-2321; RC7 preserves the Chinese behavior.
 - Damage hit sound and faint cry patches are excluded by user request.
 - The Saffron move-relearner crash was reproduced in Bradam's NoBigText patch, not this translation; no new Saffron fix is included.
 - Combined checks, artifact fingerprints and runtime limits are recorded in [the RC7 integration report](work/notes/rc7_release_prep_20261010.md).

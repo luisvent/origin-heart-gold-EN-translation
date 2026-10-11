@@ -1,10 +1,14 @@
 id = "hooh-panel-silver-marker"
 title = "Keep Ho-Oh panel completion from clearing Silver's dream marker"
 kind = "narc"
-enabled = true
-decisions = ["D-2300", "D-2308"]
+enabled = false
+decisions = ["D-2321", "D-2300", "D-2308"]
 requires = []
 why = """
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
+
 D-1580: solving the unrelated Ho-Oh panel clears565, which the dream initializer
 also reads for Silver. Early completion therefore skips the later Silver scene.
 """

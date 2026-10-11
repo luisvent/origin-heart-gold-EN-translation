@@ -2,6 +2,11 @@
 
 An English fan translation of **起源心金 (Pokémon Origin HeartGold) v4.0.3**, a Chinese ROM hack of Pokémon HeartGold. The hack retells the story with characters from Pokémon Origins, the anime and Pokémon Adventures.
 
+> [!WARNING]
+> **Mature content**
+>
+> This fan game contains strong language, sexual themes and innuendo, violence, death, and dark humour. It is intended for mature audiences and is not suitable for children.
+
 ## Play it
 
 [Patch your game here](https://originheartgold.github.io/origin-heart-gold-EN-translation/patch/) and play it in an emulator. Our automated checks run in DeSmuME; the freeze and battle fixes were also tested in melonDS.

@@ -1,0 +1,186 @@
+{
+  "format": 1,
+  "inputs": {
+    "cn": {
+      "path": "work/rom/origin_v4.0.3_cn.nds",
+      "sha256": "4807ab2c130581cb9d4f6110fc64b41ca4807b8d28e7622ebd3c9740baed95c8"
+    },
+    "en": {
+      "path": "work/build/double-target-armips/final/origin_hg_v4.0.3_en_wip.nds",
+      "sha256": "a5a418b277bf07390e7282413923ec34f1c364f4a96c88936d65a73a80d51f40"
+    },
+    "observed_candidate": {
+      "path": "work/build/difficulty-v2/items-binding-fix/before/candidate.nds",
+      "sha256": "bb625d52cc2d90fad69708d1d198d5c15d4ce76fdd36b524e703a0fa77848cf4"
+    }
+  },
+  "ranges": [
+    {
+      "label": "party_vs_trainer_info_allocations",
+      "file": "arm9.bin",
+      "start": "0x2050ca4",
+      "end": "0x2050cb8",
+      "sha256": "a997e3a61fcb37418a430de127035a74acf4e746393cca84eb505b053e8be044"
+    },
+    {
+      "label": "bag_allocation_store",
+      "file": "arm9.bin",
+      "start": "0x2050cdc",
+      "end": "0x2050ce8",
+      "sha256": "abfec7e972777a7bd4d434285a2d01e9777f2568365b9a2b9fa1c8e71e04dee9"
+    },
+    {
+      "label": "bag_allocation_zero_copy",
+      "file": "arm9.bin",
+      "start": "0x20767ec",
+      "end": "0x2076830",
+      "sha256": "ee869c6008e9d263e4569ff67a072e210cd434a3b8664a07ece26097e00017ff"
+    },
+    {
+      "label": "trainer_info_allocation",
+      "file": "arm9.bin",
+      "start": "0x2029370",
+      "end": "0x2029384",
+      "sha256": "b66c49286d6632fd3f826a915698a65e17dfa778fa69865ffe61a817e84109a2"
+    },
+    {
+      "label": "save_bag_accessor",
+      "file": "arm9.bin",
+      "start": "0x2076e28",
+      "end": "0x2076e34",
+      "sha256": "cdf8a78c9a1cf5048192935964928112b67675954dd39c449519152f7990e502"
+    },
+    {
+      "label": "save_population_getter",
+      "file": "arm9.bin",
+      "start": "0x2051074",
+      "end": "0x2051098",
+      "sha256": "bbe341135c6a7ec40f787e8662bb260de3247d76729e4e096b04ecec8c8ea4ac"
+    },
+    {
+      "label": "clone_copy_destination",
+      "file": "arm9.bin",
+      "start": "0x2051170",
+      "end": "0x205117c",
+      "sha256": "ce573111c4b87099ff64c5307cb9e98c98acd6ba952c36361624611ce50a582a"
+    },
+    {
+      "label": "bag_creator_and_owner",
+      "file": "overlay14.bin",
+      "start": "0x2202a4a",
+      "end": "0x2202a78",
+      "sha256": "57895d8f7980a03d2cb157526d07e01c0df45824a7b41368909f683286f0e6fd"
+    },
+    {
+      "label": "owner0_consume_same_bag",
+      "file": "overlay14.bin",
+      "start": "0x2215a2c",
+      "end": "0x2215a78",
+      "sha256": "91636bd9d3fbcad3de36238ea1844cfbfc2a140095640e9e9e93cb920ae83d5b"
+    },
+    {
+      "label": "bag_clone_free",
+      "file": "arm9.bin",
+      "start": "0x2050fbc",
+      "end": "0x2050fc6",
+      "sha256": "18f9509a7917b8ebf6166ffe60e121c07e861b9fed8d1b610ddcf560990e9238"
+    }
+  ],
+  "trace_observations": [
+    {
+      "mode": "all",
+      "path": "work/build/difficulty-v2/tests/native-tests/items_all/result.json",
+      "sha256": "eb7e3441a9ac6aab42f5d85aaaeb391ebbc59ca2107e198127dea426618dc932",
+      "candidate_sha256": "bb625d52cc2d90fad69708d1d198d5c15d4ce76fdd36b524e703a0fa77848cf4",
+      "launch_setup": 36349884,
+      "snapshot": {
+        "flags": 4,
+        "cap": 12,
+        "allowed": 1,
+        "root": 36441908,
+        "epoch": 1
+      },
+      "mask_event": {
+        "name": "mask",
+        "frame": 5503,
+        "lr": 37607168,
+        "sp": 41826056,
+        "item": 17,
+        "heap": 5,
+        "ui": 36494332,
+        "args": {
+          "address": 36494252,
+          "party": 36351872,
+          "bag": 36360736,
+          "heap": 5,
+          "owner": 0,
+          "tutorial": 0,
+          "item": 0,
+          "category": 0,
+          "remembered": 0
+        },
+        "result": 4
+      },
+      "decoded_setup": {
+        "bag_0x108": 36360736,
+        "trainer_info_0xf8": 36351872,
+        "pokemon_party_0x4": 36350384,
+        "unrelated_0x168": 0
+      }
+    },
+    {
+      "mode": "restricted",
+      "path": "work/build/difficulty-v2/tests/native-tests/items_restricted/result.json",
+      "sha256": "4af3ed1ce59b0dd86cdd8fb100d708e832c5777fbf598d1230ccf7b0b9a45bb9",
+      "candidate_sha256": "bb625d52cc2d90fad69708d1d198d5c15d4ce76fdd36b524e703a0fa77848cf4",
+      "launch_setup": 36349964,
+      "snapshot": {
+        "flags": 0,
+        "cap": 12,
+        "allowed": 1,
+        "root": 36441988,
+        "epoch": 1
+      },
+      "mask_event": {
+        "name": "mask",
+        "frame": 5503,
+        "lr": 37607168,
+        "sp": 41826056,
+        "item": 17,
+        "heap": 5,
+        "ui": 36494412,
+        "args": {
+          "address": 36494332,
+          "party": 36351952,
+          "bag": 36360816,
+          "heap": 5,
+          "owner": 0,
+          "tutorial": 0,
+          "item": 0,
+          "category": 0,
+          "remembered": 0
+        },
+        "result": 4
+      },
+      "decoded_setup": {
+        "bag_0x108": 36360816,
+        "trainer_info_0xf8": 36351952,
+        "pokemon_party_0x4": 36350464,
+        "unrelated_0x168": 0
+      }
+    }
+  ],
+  "contract": {
+    "setup_bag": "0x108",
+    "setup_owner0_trainer_info": "0xF8",
+    "setup_owner0_pokemon_party": "0x4",
+    "bag_ui_args_trainer_info": "0x0",
+    "bag_ui_args_bag": "0x4",
+    "bag_size": "0x864",
+    "trainer_info_size": "0x20",
+    "save_bag_getter": "0x02076E29",
+    "save_entry": 3,
+    "bag_copy": "0x02076821",
+    "native_owner0_consume": "0x02215A2D"
+  }
+}

@@ -205,4 +205,6 @@ No fakemon. The hack does change many Pokémon's stats, abilities, moves and evo
 
 ### How mature is the story?
 
-The story follows the Pokémon anime and the Pokémon Adventures manga, with the hack's own scenes added. Some lines include swearing, dark humour and violence. The translation keeps the original's tone and doesn't tone it down.
+This fan game contains strong language, sexual themes and innuendo, violence, death, and dark humour. It is intended for mature audiences and is not suitable for children.
+
+The story draws on the Pokémon anime and Pokémon Adventures manga, with the hack's own scenes added. The English translation preserves the original hack's tone and content.

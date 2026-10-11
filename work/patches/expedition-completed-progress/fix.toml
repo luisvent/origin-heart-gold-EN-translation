@@ -1,10 +1,14 @@
 id = "expedition-completed-progress"
 title = "Preserve beasts eligibility when revisiting the completed expedition leader"
 kind = "narc"
-enabled = true
-decisions = ["D-2300", "D-2308"]
+enabled = false
+decisions = ["D-2321", "D-2300", "D-2308"]
 requires = []
 why = """
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
+
 D-1579: leader script962 only recognizes completed state10. Later Lance/beast
 states11/12 fall into recruitment and accepting victory overwrites409F with3,
 permanently erasing the one-time Burned Tower beasts eligibility at11.

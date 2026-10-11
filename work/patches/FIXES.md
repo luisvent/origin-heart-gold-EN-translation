@@ -26,10 +26,10 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`gfx-type-icons`](#gfx-type-icons) | graphics | yes | – | Type and contest icons (USA art; FAIRY from hg-engine) |
 | [`gfx-weather-banners`](#gfx-weather-banners) | graphics | yes | – | Battle weather banners |
 | [`gfx-yes-no-buttons`](#gfx-yes-no-buttons) | graphics | yes | – | Touch-screen YES/NO buttons |
-| [`expedition-completed-progress`](#expedition-completed-progress) | narc | yes | – | Preserve beasts eligibility when revisiting the completed expedition leader |
-| [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | yes | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
+| [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
+| [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
-| [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | yes | – | Prevent the expedition departure from writing into Pokédex caught data |
+| [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
@@ -45,6 +45,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`double-battle-targeting`](#double-battle-targeting) | code | yes | – | Double battles: escape the D-pad target cursor trap after a foe position becomes empty |
 | [`evolution-moves`](#evolution-moves) | code | yes | – | Evolution: an evolved Pokémon is offered its evolution moves (Crobat Cross Poison, Charizard Air Slash, Gyarados Bite) |
 | [`faint-waits-for-hp-bar`](#faint-waits-for-hp-bar) | code | yes | – | Battle: a Pokémon knocked out by a multi-hit move faints after its HP bar has drained (the bar no longer jumps back and vanishes) |
+| [`honey-gather`](#honey-gather) | code | yes | – | Restore Honey Gather after battle |
 | [`ivev-panel`](#ivev-panel) | code | yes | – | Summary IV/EV panel: the IV column clears the English stat labels |
 | [`lugia-animation-state-bounds`](#lugia-animation-state-bounds) | code | yes | – | Lugia cutscene: bound the special-model animation callback index |
 | [`msgload`](#msgload) | code | yes | – | Text banks are read line by line (fixes the summary and bag memory crashes) |
@@ -53,6 +54,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`overworld-texture-frame-bounds`](#overworld-texture-frame-bounds) | code | yes | – | Overworld objects: a texture frame the texture does not have no longer crashes (Rocket HQ freeze) |
 | [`pryce-weather-rule`](#pryce-weather-rule) | code | yes | – | Pryce's Glacier Badge rule checks the party's Abilities (no weather-changing Ability), not 28 species |
 | [`safari-no-wild-double`](#safari-no-wild-double) | code | yes | – | Safari Zone: wild encounters are single battles again (no frozen double battle) |
+| [`startup-content-warning`](#startup-content-warning) | code | yes | – | New Game: mature-content warning first, remove QQ promotion |
 | [`text-speed`](#text-speed) | code | yes | `msgload` | Options TEXT SPEED: NORMAL / FAST, 30 fps printer catch-up, Pokégear calls wait for A/B |
 | [`type-change-message`](#type-change-message) | code | yes | `battle-message-error-marker` | Battle: type-change messages name the new type, not the last move used (Color Change, Protean, Soak, ...) |
 | [`zero-pp-struggle`](#zero-pp-struggle) | code | yes | – | Use the existing Struggle action when every known move is out of PP |
@@ -730,12 +732,16 @@ New: the USA member: YES / NO.
 **Preserve beasts eligibility when revisiting the completed expedition leader**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
-- Decisions: D-2300, D-2308
+- Decisions: D-2321, D-2300, D-2308
 - Source: `work/patches/expedition-completed-progress/fix.toml`
 
 **Why (the Chinese hack):**
+
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
 
 D-1579: leader script962 only recognizes completed state10. Later Lance/beast
 states11/12 fall into recruitment and accepting victory overwrites409F with3,
@@ -764,12 +770,16 @@ unchanged. No global counter remap or backward save restoration.
 **Keep Ho-Oh panel completion from clearing Silver's dream marker**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
-- Decisions: D-2300, D-2308
+- Decisions: D-2321, D-2300, D-2308
 - Source: `work/patches/hooh-panel-silver-marker/fix.toml`
 
 **Why (the Chinese hack):**
+
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
 
 D-1580: solving the unrelated Ho-Oh panel clears565, which the dream initializer
 also reads for Silver. Early completion therefore skips the later Silver scene.
@@ -833,12 +843,16 @@ hides Magcargo on reload. Do not introduce persistent retry state.
 **Prevent the expedition departure from writing into Pokédex caught data**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
-- Decisions: D-2300, D-2310
+- Decisions: D-2321, D-2300, D-2310
 - Source: `work/patches/mortar-invalid-flag-noop/fix.toml`
 
 **Why (the Chinese hack):**
+
+Disabled for RC7 by D-2321: preserve the Chinese behavior for this audit-discovered
+issue; the user withdrew its inclusion after reviewing report provenance and intent.
+Historical rationale follows.
 
 D-1333/D-1550: member962 SetFlag4461 exceeds the3231 persisted-flag limit.
 After a returning native assertion it writes bit5 at Pokédex+0x11, the Weezing
@@ -3891,6 +3905,240 @@ damage, the blink, command 8 (a hit still does not wait for its bar), the HP-bar
 
 </details>
 
+## honey-gather
+
+**Restore Honey Gather after battle**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2324, D-2325, D-2326
+- Source: `work/patches/honey-gather/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-2324: the hack only implements Pickup in its post-battle collector. D-2325 records explicit user approval for this isolated repair.
+
+**What (old → new):**
+
+Add Honey Gather with its empty-held-item requirement and 5-50 percent level chance, depositing one Honey in the Bag. Preserve Pickup probability, reward weights, held-item policy and random draw order. Only report an award after Bag_AddItem succeeds, including Pickup. Reuse the original collector allocation; no overlay growth.
+
+**Evidence:**
+
+- work/notes/honey_gather_investigation_20261010.md
+
+**Touches:**
+
+- `overlay14+0x2B4E8` (RAM 0x0222BCC8) `post-battle-collector`: 248 bytes, was `B5F0 B085 9000 9101 … (124 halfwords)`
+
+**Disassembly snapshot:** [`honey-gather.listing`](honey-gather/honey-gather.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write honey-gather`)
+
+**Source** (`work/patches/honey-gather/honey-gather.asm`, armips; the new bytes):
+
+<details>
+<summary>honey-gather.asm</summary>
+
+```asm
+; honey-gather - Restore direct-to-Bag Honey Gather. D-2324/D-2325/D-2326.
+.nds
+.thumb
+.include "../include/guards.inc"
+.open "overlay14.bin", 0x022007E0
+.org 0x022167B4
+    expect32_at 0x00, 0x47706900
+.org 0x02217BF8
+    expect32_at 0x00, 0x47708AC0
+.org 0x02218104
+    expect32_at 0x00, 0x78003024
+    expect32_at 0x04, 0x00004770
+.org 0x0221679C
+    expect32_at 0x00, 0x47708C00
+.org 0x02216154
+    expect32_at 0x00, 0x21061C28
+    expect32_at 0x04, 0xF6572200
+    expect32_at 0x08, 0x8420FB75
+.org 0x0222BCC8
+    expect32_at 0x00, 0xB085B5F0
+    expect32_at 0x04, 0x91019000
+    expect32_at 0x08, 0x90042000
+    expect32_at 0x0C, 0x1C174837
+    expect32_at 0x10, 0x69016800
+    expect32_at 0x14, 0x00809801
+    expect32_at 0x18, 0x68401808
+    expect32_at 0x1C, 0x98049003
+    expect32_at 0x20, 0x98039002
+    expect32_at 0x24, 0xFB54F647
+    expect32_at 0x28, 0xDD5C2800
+    expect32_at 0x2C, 0x98009A02
+    expect32_at 0x30, 0x99010612
+    expect32_at 0x34, 0xF0040E12
+    expect32_at 0x38, 0x1C06FE0F
+    expect32_at 0x3C, 0xFF70F7EB
+    expect32_at 0x40, 0xF7EB1C30
+    expect32_at 0x44, 0x1C04FF75
+    expect32_at 0x48, 0x80382000
+    expect32_at 0x4C, 0xF7EA1C30
+    expect32_at 0x50, 0x214CFD4D
+    expect32_at 0x54, 0xF6412200
+    expect32_at 0x58, 0x2800FD93
+    expect32_at 0x5C, 0x2C35D139
+    expect32_at 0x60, 0x200AD137
+    expect32_at 0x64, 0xFBC8F7FA
+    expect32_at 0x68, 0xD0322800
+    expect32_at 0x6C, 0x24002064
+    expect32_at 0x70, 0xFB98F7FA
+    expect32_at 0x74, 0x1C301C05
+    expect32_at 0x78, 0xF9E0F7EC
+    expect32_at 0x7C, 0x210A1E40
+    expect32_at 0x80, 0xEA66F6C5
+    expect32_at 0x84, 0x0E030600
+    expect32_at 0x88, 0xD3002B0A
+    expect32_at 0x8C, 0x48182309
+    expect32_at 0x90, 0x21004A18
+    expect32_at 0x94, 0x781818C3
+    expect32_at 0x98, 0x18208816
+    expect32_at 0x9C, 0x0E040600
+    expect32_at 0xA0, 0xDD1142AC
+    expect32_at 0xA4, 0x22014811
+    expect32_at 0xA8, 0x23056800
+    expect32_at 0xAC, 0x20426901
+    expect32_at 0xB0, 0x58080080
+    expect32_at 0xB4, 0xF64A1C31
+    expect32_at 0xB8, 0x803EFE43
+    expect32_at 0xBC, 0x1C409804
+    expect32_at 0xC0, 0x0E000600
+    expect32_at 0xC4, 0xE0049004
+    expect32_at 0xC8, 0x1C921C49
+    expect32_at 0xCC, 0x2916330A
+    expect32_at 0xD0, 0x9802D3E1
+    expect32_at 0xD4, 0x1C401CBF
+    expect32_at 0xD8, 0x98039002
+    expect32_at 0xDC, 0xFAF8F647
+    expect32_at 0xE0, 0x42819902
+    expect32_at 0xE4, 0x9804DBA2
+    expect32_at 0xE8, 0xBDF0B005
+    expect32_at 0xEC, 0x02255BAC
+    expect32_at 0xF0, 0x0224E3D8
+    expect32_at 0xF4, 0x0224E3AC
+.area 0xF8, 0
+    push {r4-r7, lr}
+    sub sp, 0x14
+    str r0, [sp, 0]
+    str r1, [sp, 4]
+    mov r6, r2
+    mov r5, 0
+    mov r7, 0
+    ldr r0, =0x02255BAC
+    ldr r0, [r0]
+    ldr r0, [r0, 0x10]
+    lsl r1, r1, 2
+    add r0, r0, r1
+    ldr r0, [r0, 4]
+    str r0, [sp, 8]
+    b check_slot
+next_slot:
+    add r5, 1
+    add r6, 2
+check_slot:
+    ldr r0, [sp, 8]
+    bl 0x02073398
+    cmp r5, r0
+    bge done
+    ldr r0, [sp, 0]
+    ldr r1, [sp, 4]
+    mov r2, r5
+    bl 0x02230920
+    mov r4, r0
+    mov r0, 0
+    strh r0, [r6]
+    ldr r0, [r4, 0x10]
+    mov r1, 0x4C
+    mov r2, 0
+    bl 0x0206D848
+    cmp r0, 0
+    bne next_slot
+    ldrh r0, [r4, 0x16]
+    cmp r0, 53
+    beq pickup
+    cmp r0, 118
+    bne next_slot
+    ldrh r0, [r4, 0x20]
+    cmp r0, 0
+    bne next_slot
+    bl level_band
+    add r0, 1
+    lsl r1, r0, 2
+    add r0, r0, r1
+    bl 0x022264C0
+    cmp r0, 0
+    beq next_slot
+    mov r4, 94
+    b award
+pickup:
+    mov r0, 10
+    bl 0x022264C0
+    cmp r0, 0
+    beq next_slot
+    mov r0, 100
+    bl 0x0222646C
+    str r0, [sp, 12]
+    bl level_band
+    ldr r1, =0x0224E3D8
+    add r1, r1, r0
+    ldr r2, =0x0224E3AC
+    mov r3, 22
+    ldr r0, [sp, 12]
+select_item:
+    ldrb r4, [r1]
+    cmp r0, r4
+    blo selected
+    sub r0, r0, r4
+    add r1, 10
+    add r2, 2
+    sub r3, 1
+    bne select_item
+    b next_slot
+selected:
+    ldrh r4, [r2]
+award:
+    ldr r0, =0x02255BAC
+    ldr r0, [r0]
+    ldr r1, [r0, 0x10]
+    mov r0, 0x42
+    lsl r0, r0, 2
+    ldr r0, [r1, r0]
+    mov r1, r4
+    mov r2, 1
+    mov r3, 5
+    bl 0x02076A08
+    cmp r0, 0
+    beq next_slot
+    strh r4, [r6]
+    add r7, 1
+    b next_slot
+done:
+    mov r0, r7
+    add sp, 0x14
+    pop {r4-r7, pc}
+level_band:
+    push {r3, lr}
+    mov r0, 0x24
+    ldrb r0, [r4, r0]
+    sub r0, 1
+    mov r1, 10
+    blx 0x020F1218
+    cmp r0, 9
+    bls band_done
+    mov r0, 9
+band_done:
+    pop {r3, pc}
+.pool
+.endarea
+.close
+```
+
+</details>
+
 ## ivev-panel
 
 **Summary IV/EV panel: the IV column clears the English stat labels**
@@ -5368,6 +5616,108 @@ encounter paths (they have no random double).
     nop
 .endarea
 
+.close
+```
+
+</details>
+
+## startup-content-warning
+
+**New Game: mature-content warning first, remove QQ promotion**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2327, D-2328, D-2329
+- Source: `work/patches/startup-content-warning/fix.toml`
+
+**Why (the Chinese hack):**
+
+The English release needs a visible mature-content warning before play; the user approved replacing QQ/Tieba promotion and removing the QR display.
+
+**What (old → new):**
+
+Map the five notice counter positions to bank 0816 IDs 4,0,1,2,3. Keep timing, transitions and final-page detection unchanged. Hide lower-screen BG4 (QR image) and skip the separate QR caption renderer. The former caption prologue holds the message-index helper; no overlay growth. Bank edits retain author credits, non-commercial and repost attribution, and show the release version, translator credit, website and save editor reference. The user rejected the permission claim and removed the cheat-tool limitation and bugs disclaimer.
+
+**Evidence:**
+
+- work/notes/content_warning_investigation_20261010.md
+- CN runtime: bank 816 loaded by overlay49 at 0x021E76B6; page reader 0x021E733A; caption reader 0x021E7450. Counter at state+0x54, 9-second timers at +0x56, final position 4.
+
+**Touches:**
+
+- `overlay49+0x2836` (RAM 0x021E71B6) `startup-hide-qr-background`: 2 bytes, was `2101`
+- `overlay49+0x29BA` (RAM 0x021E733A) `startup-page-order-call`: 4 bytes, was `F624 FBE7`
+- `overlay49+0x2AB4` (RAM 0x021E7434) `startup-page-order-helper`: 24 bytes, was `B510 B084 1C04 302C … (12 halfwords)`
+- `overlay49+0x2E42` (RAM 0x021E77C2) `startup-skip-qr-caption`: 4 bytes, was `F7FF FE37`
+
+**Disassembly snapshot:** [`startup-content-warning.listing`](startup-content-warning/startup-content-warning.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write startup-content-warning`)
+
+**Source** (`work/patches/startup-content-warning/startup-content-warning.asm`, armips; the new bytes):
+
+<details>
+<summary>startup-content-warning.asm</summary>
+
+```asm
+; startup-content-warning - First-page warning and no QQ display. D-2327, D-2328, D-2329
+.nds
+.thumb
+.include "../include/guards.inc"
+.open "overlay49.bin", 0x021E4980
+
+; Keep the lower-screen background loaded for normal cleanup, but hidden.
+; BG4 is the QR background; BG5 is the separate caption window.
+.org 0x021E71B6
+.area 2
+    expect16 0x2101
+    mov r1, #0
+.endarea
+
+; Page counter remains 0..4, so timing and final-page detection are unchanged.
+.org 0x021E733A
+.area 4
+    expect16_at 0, 0xF624
+    expect16_at 2, 0xFBE7
+    bl NoticeMessage
+.endarea
+
+; Reuse the now-unreachable QR caption renderer prologue, without overlay growth.
+.org 0x021E7434
+.area 0x18
+    expect16_at 0x00, 0xB510
+    expect16_at 0x02, 0xB084
+    expect16_at 0x04, 0x1C04
+    expect16_at 0x06, 0x302C
+    expect16_at 0x08, 0x2100
+    expect16_at 0x0A, 0xF636
+    expect16_at 0x0C, 0xFEB3
+    expect16_at 0x0E, 0x1C20
+    expect16_at 0x10, 0x302C
+    expect16_at 0x12, 0xF636
+    expect16_at 0x14, 0xFD0D
+    expect16_at 0x16, 0x68A0
+NoticeMessage:
+    push {r3, lr}
+    cmp r1, #0
+    bne @@original
+    mov r1, #4
+    b @@read
+@@original:
+    sub r1, #1
+@@read:
+    bl 0x0200BB0C
+    pop {r3, pc}
+    .fill 0x021E744C - ., 0
+.endarea
+
+; Do not read/draw the QQ caption, including on the first warning page.
+.org 0x021E77C2
+.area 4
+    expect16_at 0, 0xF7FF
+    expect16_at 2, 0xFE37
+    nop
+    nop
+.endarea
 .close
 ```
 

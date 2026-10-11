@@ -1,0 +1,111 @@
+{
+  "format": 1,
+  "compatibility": "../compatibility.json",
+  "input_guard_policy": "Verify every EN whole-file guard BEFORE either ASM runs, plus source pins; CN guards are provenance, not alternative install acceptance. Reject partial/double install.",
+  "hooks": [
+    {
+      "file": "arm9.bin",
+      "address": "0x203e544",
+      "size": 4,
+      "before": "eaf700ff",
+      "target": "dg_menu_field_getter",
+      "stub": "DG_Stub_dg_menu_field_getter",
+      "kind": "bl",
+      "abi": "r0=SaveData; returns original Options pointer"
+    },
+    {
+      "file": "arm9.bin",
+      "address": "0x203e556",
+      "size": 4,
+      "before": "fff7e3ff",
+      "target": "dg_menu_launch",
+      "stub": "DG_Stub_dg_menu_launch",
+      "kind": "bl",
+      "abi": "r0=FieldSystem,r1=Args; native dispatcher"
+    },
+    {
+      "file": "arm9.bin",
+      "address": "0x20f6f78",
+      "size": 4,
+      "before": "81491e02",
+      "target": "dg_menu_init",
+      "stub": "DG_Stub_dg_menu_init",
+      "kind": "thumb_pointer",
+      "abi": "r0=manager,r1=step; returns native completion"
+    },
+    {
+      "file": "arm9.bin",
+      "address": "0x20f6f80",
+      "size": 4,
+      "before": "694a1e02",
+      "target": "dg_menu_exit",
+      "stub": "DG_Stub_dg_menu_exit",
+      "kind": "thumb_pointer",
+      "abi": "r0=manager,r1=step; custom skips ALL native setters and preview restores"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4d7c",
+      "size": 4,
+      "before": "13f646fe",
+      "target": "dg_menu_load_rows",
+      "stub": "DG_Stub_dg_menu_load_rows",
+      "kind": "bl",
+      "abi": "r0=state; normal tail calls existing TEXT SPEED loader"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4d88",
+      "size": 4,
+      "before": "00f042fa",
+      "target": "dg_menu_draw",
+      "stub": "DG_Stub_dg_menu_draw",
+      "kind": "bl",
+      "abi": "r0=state; custom replaces entire normal draw/preview pass"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4db4",
+      "size": 4,
+      "before": "37f650fb",
+      "target": "dg_menu_cursor_plane",
+      "stub": "DG_Stub_dg_menu_cursor_plane",
+      "kind": "bl",
+      "abi": "r0=BG index,r1=enabled; final init enable after original sprite creation; custom hides BG0 outline and nine sprites, normal forwards unchanged"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4c00",
+      "size": 4,
+      "before": "00f0c4fd",
+      "target": "dg_menu_input",
+      "stub": "DG_Stub_dg_menu_input",
+      "kind": "bl",
+      "abi": "r0=state; replace native input dispatch only in custom"
+    },
+    {
+      "file": "overlay50.bin",
+      "address": "0x21e4c20",
+      "size": 4,
+      "before": "00f0aaff",
+      "target": "dg_menu_exit_animation",
+      "stub": "DG_Stub_dg_menu_exit_animation",
+      "kind": "bl",
+      "abi": "r0=state; no hidden footer animation wait in custom"
+    }
+  ],
+  "stubs": {
+    "file": "options-stubs.bin",
+    "base_symbol": "DG_OPTIONS_STUB_BASE (supply via armips -definelabel; not in include for .open parse)",
+    "alignment": 4,
+    "size": 72,
+    "start_label": "DG_OptionsStubsStart",
+    "end_label": "DG_OptionsStubsEnd",
+    "placement": "align4 AFTER all C initialized data and BSS and any prior stubs; materialize interior BSS zeros; reserve complete span",
+    "external_symbols": "c-symbols.inc: each dg_menu_* is an odd ELF STT_FUNC Thumb value; assembler thunks use it verbatim",
+    "clobbers": "r3 only (caller-saved); all hooks have at most r0/r1 args; LR/SP unchanged by thunks"
+  },
+  "state": "native.Options allocation unchanged 0x378; zero counts skip absent choice strings; page+pending are resident BSS",
+  "host_test_macro": "DG_OPTIONS_HOST_TEST",
+  "native_acceptance": "PENDING installer and actual native input; never treat host mocks as UI acceptance"
+}

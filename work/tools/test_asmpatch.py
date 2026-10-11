@@ -52,6 +52,8 @@ import asmpatch as A  # noqa: E402
 import fixes as F  # noqa: E402
 
 ROM_CN = HERE.parent / "rom" / "origin_v4.0.3_cn.nds"
+# Reviewed pre-integration combined golden set. Honey Gather and startup warning
+# have separate source tests; extend this set only after combined byte review.
 ASM_FIXES = ('outfit-chooser-strings',
  'namelen',
  'naming-keyboard',
@@ -144,6 +146,14 @@ GOLDEN = {'outfit-chooser-strings': {'overlay58': '8fb5f17c824265a0e8da07803410d
          'overlay114': '2ab9890fab31a6b5fa4e432652ffb1a5b5d40a3c',
          'script928': '1306c506f5c4777d5aee61915a516d4afdc74f15',
          'y9': '3483751df97682d807071808d46d411fd316a428'}}
+
+# Reviewed against the 45-fix baseline: only Honey Gather and startup regions
+# differ. Main-root private proof: work/build/rc7-completion-20261010/baseline-review.json.
+GOLDEN["rc7-combined"] = {
+    **GOLDEN["all"],
+    "overlay14": "0a74e17c830f811c61da70c69048e0953e5c9051",
+    "overlay49": "6461375cc6928823130cb0079c1f492e3f6dff80",
+}
 
 
 
@@ -620,7 +630,7 @@ class Synthetic(unittest.TestCase):
     @needs_armips
     def test_every_source_assembles_without_the_rom(self):
         summary = A.synthetic(ARMIPS)
-        self.assertIn(f"{len(ASM_FIXES)} armips fixes assembled without the ROM", summary)
+        self.assertIn(f"{len(ASM_FIXES) + 2} armips fixes assembled without the ROM", summary)
 
 
 @needs_armips
@@ -660,7 +670,8 @@ class RealFixes(unittest.TestCase):
         return rom, rep
 
     def test_every_armips_fix_has_a_source(self):
-        self.assertEqual(sorted(f["id"] for f in A.asm_fixes(self.fixes.values())), sorted(ASM_FIXES))
+        expected = sorted((*ASM_FIXES, "honey-gather", "startup-content-warning"))
+        self.assertEqual(sorted(f["id"] for f in A.asm_fixes(self.fixes.values())), expected)
 
     def test_antipiracy_stubs(self):
         # the six DS Protect entries in overlay114 return the genuine-cart values 0,1,0,1,0,1 ('mov r0,#n;
@@ -776,7 +787,18 @@ class RealFixes(unittest.TestCase):
                 _, rep = self.check_golden(fid, [fid])
                 self.assertEqual({r["fix"] for r in rep["code_regions"] + rep["strings"]}, {fid})
 
-    def test_all_fixes_together_match_golden(self):
+    def test_startup_content_warning_source_golden(self):
+        # Imported isolated golden from investigate/content-warnings. The combined
+        # ASM_FIXES/GOLDEN set remains the reviewed pre-integration baseline until
+        # a combined byte review; do not bless new combined hashes here.
+        GOLDEN["startup-content-warning"] = {
+            "overlay49": "29b48cdf8cf9d02a9bdba0f49f9e4372444cc665",
+            "y9": "14a857a74185e918becc63b963a4a7b5a0cf8688",
+        }
+        _, report = self.check_golden("startup-content-warning", ["startup-content-warning"])
+        self.assertEqual(len(report["code_regions"]), 4)
+
+    def test_preintegration_fixes_together_match_golden(self):
         rom, rep = self.check_golden("all", ASM_FIXES)
         self.assertEqual(len(rep["code_regions"]), 94)
         self.assertEqual([(r["id"], r["mode"], r["en"]) for r in rep["strings"]],
@@ -804,6 +826,12 @@ class RealFixes(unittest.TestCase):
         # no Chinese left in the chooser
         cm_zh = self.m.Charmap.load([self.hc.ZH_CHARMAP])
         self.assertEqual(list(self.hc.scan_blob(view.get("overlay58"), cm_zh, self.hc._bigrams())), [])
+
+    def test_rc7_combined_fixes_match_reviewed_golden(self):
+        ids = (*ASM_FIXES, "honey-gather", "startup-content-warning")
+        rom, report = self.check_golden("rc7-combined", ids)
+        self.assertEqual(len(report["code_regions"]), 99)
+        self.assertEqual(A.verify(rom, report), "ok (4 strings, 99 code regions)")
 
     def test_verify_catches_a_changed_rom(self):
         rom, rep = self.assembled(["outfit-chooser-strings"])

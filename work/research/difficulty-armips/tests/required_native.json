@@ -1,0 +1,1242 @@
+{
+  "schema_version": 1,
+  "scope": "Required native acceptance matrix. Host C/sanitizers/instruction models cannot satisfy these cases.",
+  "exceptions": [
+    {
+      "feature": "Rare Candy",
+      "decision": "D-2304",
+      "requirement": "Intentionally unchanged; no cap-support acceptance claim."
+    },
+    {
+      "feature": "Day Care",
+      "decision": "D-2304",
+      "requirement": "Intentionally unchanged; no cap-support acceptance claim."
+    }
+  ],
+  "cases": [
+    {
+      "id": "ui.visible_glyphs",
+      "layer": "native ARM execution",
+      "oracle": "Review fresh normal and difficulty page-navigation screenshots plus all five difficulty focus positions: readable glyphs, visible footer arrows, no overlap, correct choices/help and Confirm/Back.",
+      "driver": "native_ui.py",
+      "requirement": "Review fresh normal and difficulty page-navigation screenshots plus all five difficulty focus positions: readable glyphs, visible footer arrows, no overlap, correct choices/help and Confirm/Back.",
+      "risk": "Unvalidated native behavior: ui.visible_glyphs",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.page_navigation",
+      "layer": "native ARM execution",
+      "oracle": "Normal field Options entry exposes footer page arrows; touch and L/R preserve both drafts; shared Confirm merges both, Back cancels both, native footer window is removed on exit and reopen works.",
+      "driver": "native_ui.py",
+      "requirement": "Two real Options pages, visible navigation, retained normal and difficulty drafts and shared Confirm/Back.",
+      "risk": "Hidden entry, draft loss, partial commit, overlapping footer glyphs or leaked native window.",
+      "proof_layers": [
+        "native ARM execution",
+        "independent page/owner/draft oracle",
+        "current screenshot review"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.b_cancel",
+      "layer": "native ARM execution",
+      "oracle": "Actual native draft change followed by B: no Options word change, native exit executes.",
+      "driver": "native_ui.py",
+      "requirement": "Actual native draft change followed by B: no Options word change, native exit executes.",
+      "risk": "Unvalidated native behavior: ui.b_cancel",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.dpad_apply",
+      "layer": "native ARM execution",
+      "oracle": "Actual D-pad toggles all three then Apply; exactly mask8028 changes, draft did not store.",
+      "driver": "native_ui.py",
+      "requirement": "Actual D-pad toggles all three then Apply; exactly mask8028 changes, draft did not store.",
+      "risk": "Unvalidated native behavior: ui.dpad_apply",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.touch_cancel",
+      "layer": "native ARM execution",
+      "oracle": "Actual changed draft then touch CANCEL; no live settings change.",
+      "driver": "native_ui.py",
+      "requirement": "Actual changed draft then touch CANCEL; no live settings change.",
+      "risk": "Unvalidated native behavior: ui.touch_cancel",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.touch_apply",
+      "layer": "native ARM execution",
+      "oracle": "Actual touch chooses each row and Apply; bits match values; unrelated fields unchanged.",
+      "driver": "native_ui.py",
+      "requirement": "Actual touch chooses each row and Apply; bits match values; unrelated fields unchanged.",
+      "risk": "Unvalidated native behavior: ui.touch_apply",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.normal_reentry",
+      "layer": "native ARM execution",
+      "oracle": "Close/reopen ordinary Options after difficulty page; mode/callbacks and full word preserved on cancel.",
+      "driver": "native_ui.py",
+      "requirement": "Close/reopen ordinary Options after difficulty page; mode/callbacks and full word preserved on cancel.",
+      "risk": "Unvalidated native behavior: ui.normal_reentry",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.seven_settings",
+      "layer": "native ARM execution",
+      "oracle": "Change/apply/cancel each of seven normal rows; difficulty bits survive, native previews still work.",
+      "driver": "native_ui.py",
+      "requirement": "Change/apply/cancel each of seven normal rows; difficulty bits survive, native previews still work.",
+      "risk": "Unvalidated native behavior: ui.seven_settings",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.title_textspeed",
+      "layer": "native ARM execution",
+      "oracle": "Native title and TEXT SPEED read/write/preview both values; no bleed from CAP/ITEMS/SHARE bits.",
+      "driver": "native_ui.py",
+      "requirement": "Native title and TEXT SPEED read/write/preview both values; no bleed from CAP/ITEMS/SHARE bits.",
+      "risk": "Unvalidated native behavior: ui.title_textspeed",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.save_reload",
+      "layer": "native ARM execution",
+      "oracle": "Apply, native in-game save, copied battery reload cold boot; three flags and seven settings persist; save CRC/mirrors valid.",
+      "driver": "native_ui.py",
+      "requirement": "Apply, native in-game save, copied battery reload cold boot; three flags and seven settings persist; save CRC/mirrors valid.",
+      "risk": "Unvalidated native behavior: ui.save_reload",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.softreset",
+      "layer": "native ARM execution",
+      "oracle": "Actual native soft reset after save; page/runtime BSS reinitialized, saved settings retained.",
+      "driver": "native_ui.py",
+      "requirement": "Actual native soft reset after save; page/runtime BSS reinitialized, saved settings retained.",
+      "risk": "Unvalidated native behavior: ui.softreset",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "ui.legacy_newgame",
+      "layer": "native ARM execution",
+      "oracle": "Fresh new game defaults and representative existing saves decode without save corruption.",
+      "driver": "native_ui.py",
+      "requirement": "Fresh new game defaults and representative existing saves decode without save corruption.",
+      "risk": "Unvalidated native behavior: ui.legacy_newgame",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.begin_free",
+      "layer": "native ARM execution",
+      "oracle": "Observe real installed entry/free wrappers and original callees; capture precedes first item/reward; free invalidates.",
+      "driver": "native_battle.py",
+      "requirement": "Observe real installed entry/free wrappers and original callees; capture precedes first item/reward; free invalidates.",
+      "risk": "Unvalidated native behavior: runtime.begin_free",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.root_reuse",
+      "layer": "native ARM execution",
+      "oracle": "Two or more real battles at cap12 with changed settings; validate every begin/free generation transition across the whole trace, nonzero uint32 wrap and no historical epoch revival. Same/reused root captures new options exactly once; does not prove a changed progression cap.",
+      "driver": "native_battle.py",
+      "requirement": "Two or more real battles at cap12 with changed settings; validate every begin/free generation transition across the whole trace, nonzero uint32 wrap and no historical epoch revival. Same/reused root captures new options exactly once; does not prove a changed progression cap.",
+      "risk": "Unvalidated native behavior: runtime.root_reuse",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.frozen_control",
+      "layer": "native ARM execution",
+      "oracle": "Trace setup18C at entry and subsequent engine changes; captured ordinary classification/settings/cap stay frozen.",
+      "driver": null,
+      "requirement": "Trace setup18C at entry and subsequent engine changes; captured ordinary classification/settings/cap stay frozen.",
+      "risk": "Unvalidated native behavior: runtime.frozen_control",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance",
+        "No complete native driver assigned; requirement remains open"
+      ]
+    },
+    {
+      "id": "runtime.load_identity",
+      "layer": "native ARM execution",
+      "oracle": "Native load/reset replaces current save outside battle; next battle uses fresh ownership; no old snapshot.",
+      "driver": "native_lifecycle.py",
+      "requirement": "Native load/reset replaces current save outside battle; next battle uses fresh ownership; no old snapshot.",
+      "risk": "Unvalidated native behavior: runtime.load_identity",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.arena",
+      "layer": "native ARM execution",
+      "oracle": "English arena/heap/stack transitions through Options/battle/reopen; resident immutable range remains installed.",
+      "driver": "native_lifecycle.py",
+      "requirement": "English arena/heap/stack transitions through Options/battle/reopen; resident immutable range remains installed.",
+      "risk": "Unvalidated native behavior: runtime.arena",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.two_participants",
+      "layer": "native ARM execution",
+      "oracle": "Two actual participants, one capped: uncapped participant native award unchanged capsOFF vsON, capped forfeits only its own award.",
+      "driver": "native_battle.py",
+      "requirement": "Two actual participants, one capped: uncapped participant native award unchanged capsOFF vsON, capped forfeits only its own award.",
+      "risk": "Unvalidated native behavior: growth.two_participants",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.bench_share_on",
+      "layer": "native ARM execution",
+      "oracle": "Capped fighter and uncapped bench sharingON: bench EXP/EV same as native control, fighter keeps native EV.",
+      "driver": "native_battle.py",
+      "requirement": "Capped fighter and uncapped bench sharingON: bench EXP/EV same as native control, fighter keeps native EV.",
+      "risk": "Unvalidated native behavior: growth.bench_share_on",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.bench_share_off",
+      "layer": "native ARM execution",
+      "oracle": "Identical party/opponent fixture shareOFF: bench EXP+EV zero; participating EXP/EV unchanged.",
+      "driver": "native_battle.py",
+      "requirement": "Identical party/opponent fixture shareOFF: bench EXP+EV zero; participating EXP/EV unchanged.",
+      "risk": "Unvalidated native behavior: growth.bench_share_off",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.partial_messages",
+      "layer": "native ARM execution",
+      "oracle": "Partial cap crossing: messages1D/1E and application1F equal accepted amount; cache/backing/checksum/level agree.",
+      "driver": "native_battle.py",
+      "requirement": "Partial cap crossing: messages1D/1E and application1F equal accepted amount; cache/backing/checksum/level agree.",
+      "risk": "Unvalidated native behavior: growth.partial_messages",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.zero_messages",
+      "layer": "native ARM execution",
+      "oracle": "Zero accepted EXP emits no positive message/application; native EV remains eligible; raw reward preserved.",
+      "driver": "native_battle.py",
+      "requirement": "Zero accepted EXP emits no positive message/application; native EV remains eligible; raw reward preserved.",
+      "risk": "Unvalidated native behavior: growth.zero_messages",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.deferred",
+      "layer": "native ARM execution",
+      "oracle": "Actual trainer two-KO Share ON Cap OFF/ON controls: positive deferred bench applies exactly once without individual1D/1E message; former fighter deferred native award clamps to zero at cap12. Original boolean/deferred and raw records preserved; cache/backing and EV verified. No claim of partial deferred crossing or all aggregate contexts.",
+      "driver": "native_multiko.py",
+      "requirement": "Actual trainer two-KO Share ON Cap OFF/ON controls: positive deferred bench applies exactly once without individual1D/1E message; former fighter deferred native award clamps to zero at cap12. Original boolean/deferred and raw records preserved; cache/backing and EV verified. No claim of partial deferred crossing or all aggregate contexts.",
+      "risk": "Unvalidated native behavior: growth.deferred",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.no_banking",
+      "layer": "native ARM execution",
+      "oracle": "Multiple KOs, switch participation, capped/uncapped bench permutations; rejected EXP never reaches later recipients or later cap.",
+      "driver": "native_composites.py",
+      "requirement": "Multiple KOs, switch participation, capped/uncapped bench permutations; rejected EXP never reaches later recipients or later cap.",
+      "risk": "Unvalidated native behavior: growth.no_banking",
+      "proof_layers": [
+        "source-bound native constituent executions",
+        "independently replayed composite oracle"
+      ],
+      "exclusions": [
+        "Each required constituent must pass with current binding; host-only evidence is insufficient"
+      ]
+    },
+    {
+      "id": "growth.overlevel",
+      "layer": "native ARM execution",
+      "oracle": "Existing over-cap/level100 mon unchanged except permitted native effects; no downlevel or unsigned wrap.",
+      "driver": "native_edges.py",
+      "requirement": "Existing over-cap/level100 mon unchanged except permitted native effects; no downlevel or unsigned wrap.",
+      "risk": "Unvalidated native behavior: growth.overlevel",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.native_exclusions",
+      "layer": "native ARM execution",
+      "oracle": "Native egg/fainted/empty/remote-recipient exclusions remain baseline; no host override of eligibility or awards.",
+      "driver": "native_exclusions.py",
+      "requirement": "Native egg/fainted/empty/remote-recipient exclusions remain baseline; no host override of eligibility or awards.",
+      "risk": "Unvalidated native behavior: growth.native_exclusions",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "progression.erika_routes",
+      "layer": "native ARM execution",
+      "oracle": "Actual script execution: both Erika wins set1220 and allow next-entry38\u219255 before badge; loss/retry does not advance; ceremony handoff retains completion. Pre-entry flag fixture cases separately prove readers only and cannot satisfy this story-script obligation.",
+      "driver": null,
+      "requirement": "Actual script execution: both Erika wins set1220 and allow next-entry38\u219255 before badge; loss/retry does not advance; ceremony handoff retains completion. Pre-entry flag fixture cases separately prove readers only and cannot satisfy this story-script obligation.",
+      "risk": "Unvalidated native behavior: progression.erika_routes",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance",
+        "No complete native driver assigned; requirement remains open"
+      ]
+    },
+    {
+      "id": "progression.skipped_decreases",
+      "layer": "native ARM execution",
+      "oracle": "Functional D-2312 coverage: native growth beyond80/88 on cap100; skipped Koga remains55 despite later badges; closing the gap refreshes the next entry cap while existing battle keeps its frozen cap. No downlevel, banking or redistribution. No selected late-row or constant100 completion claims.",
+      "driver": "native_composites.py",
+      "requirement": "Functional D-2312 coverage: native growth beyond80/88 on cap100; skipped Koga remains55 despite later badges; closing the gap refreshes the next entry cap while existing battle keeps its frozen cap. No downlevel, banking or redistribution. No selected late-row or constant100 completion claims.",
+      "risk": "Unvalidated native behavior: progression.skipped_decreases",
+      "proof_layers": [
+        "source-bound native constituent executions",
+        "independently replayed composite oracle"
+      ],
+      "exclusions": [
+        "Each required constituent must pass with current binding; host-only evidence is insufficient"
+      ]
+    },
+    {
+      "id": "items.restricted",
+      "layer": "native ARM execution",
+      "oracle": "Visible list + native denied Potion; usable berries/flutes effects work, held-only/field-only entries stay unavailable.",
+      "driver": "native_items.py",
+      "requirement": "Visible list + native denied Potion; usable berries/flutes effects work, held-only/field-only entries stay unavailable.",
+      "risk": "Unvalidated native behavior: items.restricted",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.no_effect",
+      "layer": "native ARM execution",
+      "oracle": "HP/status/PP/revival no-effect cases keep native message/consumption/turn semantics.",
+      "driver": "native_items.py",
+      "requirement": "HP/status/PP/revival no-effect cases keep native message/consumption/turn semantics.",
+      "risk": "Unvalidated native behavior: items.no_effect",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.remembered",
+      "layer": "native ARM execution",
+      "oracle": "Stale remembered item denied via native list+lookup; invalid IDs do not hit metadata.",
+      "driver": "native_composites.py",
+      "requirement": "Stale remembered item denied via native list+lookup; invalid IDs do not hit metadata.",
+      "risk": "Unvalidated native behavior: items.remembered",
+      "proof_layers": [
+        "source-bound native constituent executions",
+        "independently replayed composite oracle"
+      ],
+      "exclusions": [
+        "Each required constituent must pass with current binding; host-only evidence is insufficient"
+      ]
+    },
+    {
+      "id": "items.accept",
+      "layer": "native ARM execution",
+      "oracle": "Native Use callback restricts before effect/turn/inventory mutation; cancel state13 actually exits.",
+      "driver": "native_items_gates.py",
+      "requirement": "Native Use callback restricts before effect/turn/inventory mutation; cancel state13 actually exits.",
+      "risk": "Unvalidated native behavior: items.accept",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.backstop_item",
+      "layer": "native ARM execution",
+      "oracle": "Stale item at first installed backstop cancels; native command/turn/inventory unchanged.",
+      "driver": "native_items_gates.py",
+      "requirement": "Stale item at first installed backstop cancels; native command/turn/inventory unchanged.",
+      "risk": "Unvalidated native behavior: items.backstop_item",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.backstop_target",
+      "layer": "native ARM execution",
+      "oracle": "Stale selected target path at second backstop cancels/reopens; no unintended item or turn.",
+      "driver": "native_items_gates.py",
+      "requirement": "Stale selected target path at second backstop cancels/reopens; no unintended item or turn.",
+      "risk": "Unvalidated native behavior: items.backstop_target",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.doubles_slot1",
+      "layer": "native ARM execution",
+      "oracle": "First local doubles slot chooses/cancels/reopens while other pending action remains intact.",
+      "driver": "native_composites.py",
+      "requirement": "First local doubles slot chooses/cancels/reopens while other pending action remains intact.",
+      "risk": "Unvalidated native behavior: items.doubles_slot1",
+      "proof_layers": [
+        "source-bound native constituent executions",
+        "independently replayed composite oracle"
+      ],
+      "exclusions": [
+        "Each required constituent must pass with current binding; host-only evidence is insufficient"
+      ]
+    },
+    {
+      "id": "items.doubles_slot2",
+      "layer": "native ARM execution",
+      "oracle": "Second local doubles slot chooses/cancels/backtracks while first action remains intact.",
+      "driver": "native_composites.py",
+      "requirement": "Second local doubles slot chooses/cancels/backtracks while first action remains intact.",
+      "risk": "Unvalidated native behavior: items.doubles_slot2",
+      "proof_layers": [
+        "source-bound native constituent executions",
+        "independently replayed composite oracle"
+      ],
+      "exclusions": [
+        "Each required constituent must pass with current binding; host-only evidence is insufficient"
+      ]
+    },
+    {
+      "id": "items.contexts",
+      "layer": "native ARM execution",
+      "oracle": "Actual wild/held/NPC/partner/tutorial paths retain native rules; only local trainer Bag is changed.",
+      "driver": null,
+      "requirement": "Actual wild/held/NPC/partner/tutorial paths retain native rules; only local trainer Bag is changed.",
+      "risk": "Unvalidated native behavior: items.contexts",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance",
+        "No complete native driver assigned; requirement remains open"
+      ]
+    },
+    {
+      "id": "items.reopen_pagination",
+      "layer": "native ARM execution",
+      "oracle": "Repeated native Bag opening, last-used and every relevant category/page; no overflow/duplicate entries.",
+      "driver": null,
+      "requirement": "Repeated native Bag opening, last-used and every relevant category/page; no overflow/duplicate entries.",
+      "risk": "Unvalidated native behavior: items.reopen_pagination",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance",
+        "No complete native driver assigned; requirement remains open"
+      ]
+    },
+    {
+      "id": "runtime.ordinary_0",
+      "layer": "native ARM execution",
+      "oracle": "Actual entry setup.flags=0x0, setup18C zero; provider, owner and epoch positively validated.",
+      "driver": "native_entries.py",
+      "requirement": "Actual entry setup.flags=0x0, setup18C zero; provider, owner and epoch positively validated.",
+      "risk": "Unvalidated native behavior: runtime.ordinary_0",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.ordinary_1",
+      "layer": "native ARM execution",
+      "oracle": "Actual entry setup.flags=0x1, setup18C zero; provider, owner and epoch positively validated.",
+      "driver": "native_items.py",
+      "requirement": "Actual entry setup.flags=0x1, setup18C zero; provider, owner and epoch positively validated.",
+      "risk": "Unvalidated native behavior: runtime.ordinary_1",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.ordinary_3",
+      "layer": "native ARM execution",
+      "oracle": "Actual entry setup.flags=0x3, setup18C zero; provider, owner and epoch positively validated.",
+      "driver": "native_composites.py",
+      "requirement": "Actual entry setup.flags=0x3, setup18C zero; provider, owner and epoch positively validated.",
+      "risk": "Unvalidated native behavior: runtime.ordinary_3",
+      "proof_layers": [
+        "source-bound native constituent executions",
+        "independently replayed composite oracle"
+      ],
+      "exclusions": [
+        "Each required constituent must pass with current binding; host-only evidence is insufficient"
+      ]
+    },
+    {
+      "id": "runtime.ordinary_13",
+      "layer": "native ARM execution",
+      "oracle": "Actual entry setup.flags=0x13, setup18C zero; provider, owner and epoch positively validated.",
+      "driver": "native_entries.py",
+      "requirement": "Actual entry setup.flags=0x13, setup18C zero; provider, owner and epoch positively validated.",
+      "risk": "Unvalidated native behavior: runtime.ordinary_13",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.ordinary_4a",
+      "layer": "native ARM execution",
+      "oracle": "Actual entry setup.flags=0x4a, setup18C zero; provider, owner and epoch positively validated.",
+      "driver": "native_entries.py",
+      "requirement": "Actual entry setup.flags=0x4a, setup18C zero; provider, owner and epoch positively validated.",
+      "risk": "Unvalidated native behavior: runtime.ordinary_4a",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.ordinary_4b",
+      "layer": "native ARM execution",
+      "oracle": "Actual entry setup.flags=0x4b, setup18C zero; provider, owner and epoch positively validated.",
+      "driver": "native_entries.py",
+      "requirement": "Actual entry setup.flags=0x4b, setup18C zero; provider, owner and epoch positively validated.",
+      "risk": "Unvalidated native behavior: runtime.ordinary_4b",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.ordinary_100",
+      "layer": "native ARM execution",
+      "oracle": "Actual entry setup.flags=0x100, setup18C zero; provider, owner and epoch positively validated.",
+      "driver": "native_entries.py",
+      "requirement": "Actual entry setup.flags=0x100, setup18C zero; provider, owner and epoch positively validated.",
+      "risk": "Unvalidated native behavior: runtime.ordinary_100",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.exclude_replay",
+      "layer": "native ARM execution",
+      "oracle": "Actual replay entry constructor trace; policy bypasses despite familiar battle flags; original behavior preserved.",
+      "driver": null,
+      "requirement": "Actual replay entry constructor trace; policy bypasses despite familiar battle flags; original behavior preserved.",
+      "risk": "Unvalidated native behavior: runtime.exclude_replay",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance",
+        "No complete native driver assigned; requirement remains open"
+      ]
+    },
+    {
+      "id": "runtime.exclude_facility",
+      "layer": "native ARM execution",
+      "oracle": "Actual facility entry constructor trace; policy bypasses despite familiar battle flags; original behavior preserved.",
+      "driver": null,
+      "requirement": "Actual facility entry constructor trace; policy bypasses despite familiar battle flags; original behavior preserved.",
+      "risk": "Unvalidated native behavior: runtime.exclude_facility",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance",
+        "No complete native driver assigned; requirement remains open"
+      ]
+    },
+    {
+      "id": "runtime.exclude_special",
+      "layer": "native ARM execution",
+      "oracle": "Actual special entry constructor trace; policy bypasses despite familiar battle flags; original behavior preserved.",
+      "driver": "native_special.py",
+      "requirement": "Actual special entry constructor trace; policy bypasses despite familiar battle flags; original behavior preserved.",
+      "risk": "Unvalidated native behavior: runtime.exclude_special",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_18",
+      "layer": "native ARM execution",
+      "oracle": "Item18 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item18 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_18",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_19",
+      "layer": "native ARM execution",
+      "oracle": "Item19 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item19 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_19",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_20",
+      "layer": "native ARM execution",
+      "oracle": "Item20 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item20 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_20",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_21",
+      "layer": "native ARM execution",
+      "oracle": "Item21 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item21 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_21",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_22",
+      "layer": "native ARM execution",
+      "oracle": "Item22 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item22 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_22",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_23",
+      "layer": "native ARM execution",
+      "oracle": "Item23 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item23 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_23",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_24",
+      "layer": "native ARM execution",
+      "oracle": "Item24 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item24 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_24",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_25",
+      "layer": "native ARM execution",
+      "oracle": "Item25 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item25 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_25",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_27",
+      "layer": "native ARM execution",
+      "oracle": "Item27 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item27 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_27",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_28",
+      "layer": "native ARM execution",
+      "oracle": "Item28 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item28 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_28",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_29",
+      "layer": "native ARM execution",
+      "oracle": "Item29 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item29 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_29",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_34",
+      "layer": "native ARM execution",
+      "oracle": "Item34 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item34 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_34",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_35",
+      "layer": "native ARM execution",
+      "oracle": "Item35 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item35 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_35",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_37",
+      "layer": "native ARM execution",
+      "oracle": "Item37 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item37 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_37",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_38",
+      "layer": "native ARM execution",
+      "oracle": "Item38 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item38 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_38",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_39",
+      "layer": "native ARM execution",
+      "oracle": "Item39 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item39 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_39",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_40",
+      "layer": "native ARM execution",
+      "oracle": "Item40 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item40 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_40",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_41",
+      "layer": "native ARM execution",
+      "oracle": "Item41 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item41 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_41",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_42",
+      "layer": "native ARM execution",
+      "oracle": "Item42 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item42 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_42",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "items.addition_54",
+      "layer": "native ARM execution",
+      "oracle": "Item54 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "driver": "native_items.py",
+      "requirement": "Item54 native ALL list/use/effect/quantity/turn/target positive and restricted negative from same candidate/source-bound fixture; no host-forced outcome.",
+      "risk": "Unvalidated native behavior: items.addition_54",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "progression.fixture_prefix",
+      "layer": "native ARM execution",
+      "driver": "native_progression.py",
+      "oracle": "Explicit pre-entry fixture: badge0 complete yields20. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "requirement": "Explicit pre-entry fixture: badge0 complete yields20. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "risk": "Unvalidated native behavior: progression.fixture_prefix",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "progression.fixture_erika-prewin",
+      "layer": "native ARM execution",
+      "driver": "native_progression.py",
+      "oracle": "Explicit pre-entry fixture: badges0..2 + pre-win1173 without1220 yields38. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "requirement": "Explicit pre-entry fixture: badges0..2 + pre-win1173 without1220 yields38. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "risk": "Unvalidated native behavior: progression.fixture_erika-prewin",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "progression.fixture_erika-win",
+      "layer": "native ARM execution",
+      "driver": "native_progression.py",
+      "oracle": "Explicit pre-entry fixture: same prefix with1220 before badge3 yields55. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "requirement": "Explicit pre-entry fixture: same prefix with1220 before badge3 yields55. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "risk": "Unvalidated native behavior: progression.fixture_erika-win",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "progression.fixture_skipped-koga",
+      "layer": "native ARM execution",
+      "driver": "native_progression.py",
+      "oracle": "Explicit pre-entry fixture: all later badge inputs complete but badge5 missing yields55. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "requirement": "Explicit pre-entry fixture: all later badge inputs complete but badge5 missing yields55. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "risk": "Unvalidated native behavior: progression.fixture_skipped-koga",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "progression.fixture_plateau-81",
+      "layer": "native ARM execution",
+      "driver": "native_progression.py",
+      "oracle": "Explicit pre-entry fixture: first seven Kanto completions allow native EXP gain above80 at cap100. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "requirement": "Explicit pre-entry fixture: first seven Kanto completions allow native EXP gain above80 at cap100. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "risk": "Unvalidated native behavior: progression.fixture_plateau-81",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "progression.fixture_plateau-89",
+      "layer": "native ARM execution",
+      "driver": "native_progression.py",
+      "oracle": "Explicit pre-entry fixture: completed Kanto/Falkner/Bugsy/Whitney prefix allows native EXP gain above88 at cap100. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "requirement": "Explicit pre-entry fixture: completed Kanto/Falkner/Bugsy/Whitney prefix allows native EXP gain above88 at cap100. Require exact native badge/flag callbacks and ownership, snapshot cap, actual two-fighter KO, raw/final EXP, EV, native boolean/deferred, messages/application/cache/backing and full lifecycle. Not victory-script evidence.",
+      "risk": "Unvalidated native behavior: progression.fixture_plateau-89",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.caprise_no_banking",
+      "layer": "native ARM execution",
+      "driver": "native_caprise.py",
+      "oracle": "Two native wild KOs with exact party and inventory continuity. Positive native lead award discarded at cap12; only badge0 changes between battles. Cap20 applies only new native requests, never prior rejected EXP. Other fighter/bench awards remain native; native EV requests and final backing EVs match each KO, PP carries forward. Does not satisfy aggregate/multi-opponent/changed-participation cases.",
+      "requirement": "Two native wild KOs with exact party and inventory continuity. Positive native lead award discarded at cap12; only badge0 changes between battles. Cap20 applies only new native requests, never prior rejected EXP. Other fighter/bench awards remain native; native EV requests and final backing EVs match each KO, PP carries forward. Does not satisfy aggregate/multi-opponent/changed-participation cases.",
+      "risk": "Unvalidated native behavior: growth.caprise_no_banking",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "runtime.next_cap",
+      "layer": "native ARM execution",
+      "driver": "native_caprise.py",
+      "oracle": "One cold boot, complete begin/free generations across two real battles. Native reader callbacks capture12 then20 after explicit badge-only pre-entry input; each snapshot stays frozen throughout its battle. No artificial mid-battle progression edit or claim of victory-script execution; root address reuse recorded if observed.",
+      "requirement": "One cold boot, complete begin/free generations across two real battles. Native reader callbacks capture12 then20 after explicit badge-only pre-entry input; each snapshot stays frozen throughout its battle. No artificial mid-battle progression edit or claim of victory-script execution; root address reuse recorded if observed.",
+      "risk": "Unvalidated native behavior: runtime.next_cap",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.multiko_participation",
+      "layer": "native ARM execution",
+      "driver": "native_multiko.py",
+      "oracle": "Actual trainer6 singles two-opponent Cap OFF/ON pair, same typed pre-entry inputs. Native participant lists13:{1,2},14:{2}; fighter3 always benched. Bind per-opponent native calculation, engine aggregate EXP/EV/marker arithmetic, observed reward-pass groups, original eligibility/deferred, final clamp/messages/application/cache/backing. Native EV totals and other recipients unchanged. No within-battle input resets or participation/outcome edits. Does not prove simultaneous KOs or all exclusion permutations. Four-battle Share ON/OFF x Cap OFF/ON matrix. Share OFF per-opponent benched EXP and EV applications zero; raw native EV yield preserved, original EV eligibility/skip branch and battle-mon storage traced; participant native records/EV preserved against Share ON control; cap never redistributes or removes participant EV.",
+      "requirement": "Actual trainer6 singles two-opponent Cap OFF/ON pair, same typed pre-entry inputs. Native participant lists13:{1,2},14:{2}; fighter3 always benched. Bind per-opponent native calculation, engine aggregate EXP/EV/marker arithmetic, observed reward-pass groups, original eligibility/deferred, final clamp/messages/application/cache/backing. Native EV totals and other recipients unchanged. No within-battle input resets or participation/outcome edits. Does not prove simultaneous KOs or all exclusion permutations. Four-battle Share ON/OFF x Cap OFF/ON matrix. Share OFF per-opponent benched EXP and EV applications zero; raw native EV yield preserved, original EV eligibility/skip branch and battle-mon storage traced; participant native records/EV preserved against Share ON control; cap never redistributes or removes participant EV.",
+      "risk": "Unvalidated native behavior: growth.multiko_participation",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "progression.fixture_gapclosure",
+      "layer": "native ARM execution",
+      "driver": "native_edges.py",
+      "oracle": "Same-party two battles: native cap55 at badgesFFDF despite later badges; only Koga badge bit5 changes between battles toFFFF, next native cap100 awards only the new native request. Raw party/inventory continuity; no real victory-script claim.",
+      "requirement": "Same-party two battles: native cap55 at badgesFFDF despite later badges; only Koga badge bit5 changes between battles toFFFF, next native cap100 awards only the new native request. Raw party/inventory continuity; no real victory-script claim.",
+      "risk": "Unvalidated native behavior: progression.fixture_gapclosure",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    },
+    {
+      "id": "growth.other_curve_partial",
+      "layer": "native ARM execution",
+      "driver": "native_edges.py",
+      "oracle": "Candidate species1 growth table differs from species19. Typed valid level11 EXP=T12-7, actual two-fighter wild KO Caps OFF/ON controls: native species threshold, message/application7, both EXP views and level12, original boolean/deferred/raw and native EV preserved.",
+      "requirement": "Candidate species1 growth table differs from species19. Typed valid level11 EXP=T12-7, actual two-fighter wild KO Caps OFF/ON controls: native species threshold, message/application7, both EXP views and level12, original boolean/deferred/raw and native EV preserved.",
+      "risk": "Unvalidated native behavior: growth.other_curve_partial",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance"
+      ]
+    }
+  ],
+  "optional_research": [
+    {
+      "id": "progression.clair",
+      "layer": "static research; optional native story integration",
+      "oracle": "Clair209 versus Rising Badge fallback and optional full Clair/Tianyuan story execution. No functional cap transition exists after seven Kanto completions under D-2312; never infer completion from constant100."
+    },
+    {
+      "id": "progression.selected_late_rows",
+      "layer": "static research; optional native story integration",
+      "oracle": "Guide order, raw gym maxima80/88/etc and skipped Morty row retained as independent research facts. Shipping resolver exposes cap only; no selected-row instrumentation or native row-selection gate."
+    }
+  ],
+  "user_excluded_native": [
+    {
+      "id": "runtime.exclude_link",
+      "layer": "native ARM execution",
+      "oracle": "Actual link entry constructor trace; policy bypasses despite familiar battle flags; original behavior preserved.",
+      "driver": null,
+      "requirement": "Actual link entry constructor trace; policy bypasses despite familiar battle flags; original behavior preserved.",
+      "risk": "Unvalidated native behavior: runtime.exclude_link",
+      "proof_layers": [
+        "native ARM execution",
+        "source-bound observations and oracle"
+      ],
+      "exclusions": [
+        "Host tests alone do not establish native acceptance",
+        "No complete native driver assigned; requirement remains open"
+      ],
+      "decision": "D-2327",
+      "reason": "User explicitly excludes multiplayer/link testing from RC7 public release; no runtime acceptance claim."
+    }
+  ]
+}

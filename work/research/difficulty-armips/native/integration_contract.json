@@ -1,0 +1,116 @@
+{
+  "format": 1,
+  "source_overrides": {
+    "work/research/difficulty-armips/native/options.c": {
+      "sha256": "89223e6106fa4805246cdaa2b2553295ce15c79491fadbda116dd0b9201fea1d",
+      "reason": "RC7 public-prep visual review found blank native footer labels on direct held-L entry. Load original overlay50 message8/7 into the original footer windows with original placement/color; no ordinary preview or gameplay/settings change.",
+      "history": [
+        {
+          "sha256": "3230099f6103b132ed6bc2893f0e6c5d65a9c44fa6bcfbb92bb60c3707e45c1c",
+          "reason": "Integration changes only CAP help to explicitly state Candy and Day Care unchanged; native Candy deferred under D-2304. Original pin retained in options-source-pins.json."
+        },
+        {
+          "sha256": "a0d290ffbc9b927213f2c0b6c8a48664956ef57fe75f60269097f6dbb072c46f",
+          "reason": "Parent-authorized bounded Share help correction only: OFF blocks benched EXP and EVs.; Level caps still apply. CAP help Candy and Day Care unchanged. is retained under D-2304/D-2307. No logic changes; prior override retained in history."
+        },
+        {
+          "sha256": "460fbd8285473a9d82561fe9108a6d792975676f5d77d1b3a2f0268daef2d76b",
+          "reason": "Parent-authorized native cursor fix: move sprite hook to final BG0 enable; custom hides outline and sprites; ordinary Options forwards original BG toggle. See research/options-cursor-fix.md."
+        },
+        {
+          "sha256": "2126c87e5a61685f551922c381992021493f479e5a91f64236d45a546d62f99c",
+          "reason": "D-2312/user-authorized CAP help only: Gym-based cap. Never decreases. Second line Candy and Day Care unchanged. and existing cursor fix preserved."
+        },
+        {
+          "sha256": "ef56a907a388c50d7f166e2930a7dd48fec68e1cde11ec664f1ef69449e645ee",
+          "reason": "Explicit user request: two actual Options pages with visible footer arrows, preserved drafts, shared Confirm/Back and owned native footer window. Sanitized host checks passed; current native acceptance pending."
+        },
+        {
+          "sha256": "e1fbe3f9a77ef725a0b1c3de20aa616beec2c7b50145c8bfb7dc282b33f5fff3",
+          "reason": "User requested actual native Options pages (2026-10-11): retain native footer text/buttons and red row cursor, use original row spacing on Difficulty. Focused prototype validation; full release acceptance pending."
+        },
+        {
+          "sha256": "4ab1d59789c4354d1ea24434055e60e03e407990081a91c06dcaa037d70d0952",
+          "reason": "User-requested native row pages: Difficulty owns native 0x54-byte rows and six choice Strings, uses original overlay50 row renderer and choice update routine. Native footer/cursor retained; focused validation pending."
+        }
+      ]
+    },
+    "work/research/difficulty-armips/native/options.h": {
+      "sha256": "2f1f111d1dbeeda9d0179473b20819ef7e24539215dbde9eff3c5ec59b024c6b",
+      "reason": "Parent-authorized native cursor fix: move sprite hook to final BG0 enable; custom hides outline and sprites; ordinary Options forwards original BG toggle. See research/options-cursor-fix.md.",
+      "history": [
+        {
+          "sha256": "a57a96b6f26b1469166999e86fc3c1cb19b0a03f0d4e45da4821766503572572",
+          "reason": "Original native Options source pin before cursor fix."
+        }
+      ]
+    },
+    "work/research/difficulty-armips/native/options.asm": {
+      "sha256": "5dfdc6cf7fdf2b735e99f3a3706219c2ad790179699bfb3b0465d43865590d01",
+      "reason": "Parent-authorized native cursor fix: move sprite hook to final BG0 enable; custom hides outline and sprites; ordinary Options forwards original BG toggle. See research/options-cursor-fix.md.",
+      "history": [
+        {
+          "sha256": "6af62973f3ab9aade1b43b44b4d04c22e523fbb2449f85b33a8f5a5a2574f02b",
+          "reason": "Original native Options source pin before cursor fix."
+        }
+      ]
+    },
+    "work/research/difficulty-armips/native/options_hooks.json": {
+      "sha256": "6370b4ac73568dfc95b83bc1c92497500bf17d5699e703e396a7a8fd5d04d8d0",
+      "reason": "Parent-authorized native cursor fix: move sprite hook to final BG0 enable; custom hides outline and sprites; ordinary Options forwards original BG toggle. See research/options-cursor-fix.md.",
+      "history": [
+        {
+          "sha256": "4e7b6ab41504bcbeb07f3bb5f915190e0a47bff8b76273925d7bbbf01bef0452",
+          "reason": "Original native Options source pin before cursor fix."
+        }
+      ]
+    },
+    "work/research/difficulty-armips/compatibility.json": {
+      "sha256": "ff5bffc2b007f7c35907a2c5564f1280b008eaf69114bd4d2e110008d23184b6",
+      "reason": "Reviewed RC7 input: all hook/Options/ITCM and dependency bytes unchanged; whole-file changes attributed to enabled production patches."
+    },
+    "work/tools/text_speed_patch.py": {
+      "sha256": "833852baf233d4d82fa8be430438a643ce08cf5ca0616ddb209f8f1422e2a1e1",
+      "reason": "Production compatible-fix verifier added; native TEXT SPEED sources and payload unchanged."
+    }
+  },
+  "interactive_contract": {
+    "setup_control_offset": "0x18C",
+    "constructor_zero": "02050C50..58",
+    "replay_sets_bit_0x10": "0203054C..5C",
+    "setup_save_offset": "0x1C0",
+    "save_constructor_binding": "02051250..52",
+    "published_save_reader": "02001195",
+    "options_reader": "02029349",
+    "accepted_flags_at_control_zero": [
+      0,
+      1,
+      3,
+      19,
+      74,
+      75,
+      256
+    ],
+    "additional_exact_pair": {
+      "flags": 0,
+      "control": 8
+    },
+    "scripted_wild_setter": "02050448..58, caller0204352A..3A, constructor return02050433",
+    "classification_seam": "after original02215D15, before02214CA6; bit8 already set before entry",
+    "frozen_after_entry": true,
+    "evidence": "research/runtime-classifier.md",
+    "excluded": "all other flags/control pairs; including replay0/18h, special control1, tutorial flags400h, link4, facility80h"
+  },
+  "field_candy_provider": "not installed; no unproved/stub field provider ships",
+  "cap_contract": {
+    "decision": "D-2312",
+    "selection": "first_unfinished_gym_in_guide_order",
+    "effective_cap": "running_maximum_of_actual_gym_maxima_through_selected_row",
+    "completed_all_gyms_cap": 100,
+    "skipped_gyms": "later completions cannot bypass an earlier gap or raise its cap",
+    "erika_completion": "badge3 OR flag1220",
+    "clair_completion": "badge15 OR flag209",
+    "scope": "gym-only battle EXP; Candy and Day Care unchanged",
+    "persistent_high_water_mark": false
+  }
+}

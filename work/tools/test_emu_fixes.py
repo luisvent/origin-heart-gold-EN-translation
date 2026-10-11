@@ -5,6 +5,7 @@ import struct
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import emu_fixes as F  # noqa: E402
@@ -269,8 +270,8 @@ class Judges(unittest.TestCase):
             if fx.startswith("gfx-"):
                 self.assertTrue(all((sc, fx) in F.CROP_CHECKS for sc in scs), fx)
         # the pinned-clock scenarios are crop scenarios (independent of what is approved or still pending), plus
-        # safari, whose encounter depends on the RNG
-        self.assertLessEqual(set(F.CLOCKS) - {"safari"}, {sc for (sc, fx) in F.CROP_CHECKS})
+        # safari encounters and the native Heal Bell fixture, whose setup depends on the RNG
+        self.assertLessEqual(set(F.CLOCKS) - {"safari", "healbell"}, {sc for (sc, fx) in F.CROP_CHECKS})
         self.assertEqual(F.CLOCKS["safari"], F.PINNED_CLOCK)
 
     def test_pending_crop_judge(self):
@@ -709,6 +710,166 @@ class ControlProvenance(unittest.TestCase):
                 self.assertIn("rom.sha1 differs", F.control_problems(c, "namelen", applied, "t")[0])
             with tempfile.TemporaryDirectory() as td:
                 self.assertIn("missing", F.control_problems(Path(td), "namelen", applied, "t")[0])
+
+
+class ClosedWildFixture(unittest.TestCase):
+    class Harness:
+        def __init__(self):
+            self.frames = 0
+            self.permanent = False
+        def read(self, address, size):
+            assert size == 136
+            return bytes([int(self.permanent or (self.frames == 0 and address == 2))]) * size
+        def step(self, count):
+            assert count == 1
+            self.frames += count
+        def write(self, *args):
+            raise AssertionError("record-state validation must not write")
+
+    @staticmethod
+    def strict(raw):
+        if raw[0]:
+            raise ValueError("record open or corrupt")
+        return raw
+
+    def test_waits_for_all_native_copies_to_close(self):
+        import emu_harness as E
+        h = self.Harness()
+        with patch.object(E, "encode_pokemon", side_effect=self.strict):
+            self.assertEqual(F.closed_wild_fixture_copies(h, 9, lambda h, pid: [1, 2]), [1, 2])
+        self.assertEqual(h.frames, 1)
+
+    def test_invalid_native_record_is_never_repaired_or_edited(self):
+        import emu_harness as E
+        h = self.Harness(); h.permanent = True
+        with patch.object(E, "encode_pokemon", side_effect=self.strict):
+            with self.assertRaisesRegex(RuntimeError, "no record was edited"):
+                F.closed_wild_fixture_copies(h, 9, lambda h, pid: [1, 2])
+        self.assertEqual(h.frames, 60)
+
+    def test_missing_native_copy_cannot_pass(self):
+        h = self.Harness()
+        with self.assertRaisesRegex(RuntimeError, "did not close"):
+            F.closed_wild_fixture_copies(h, 9, lambda h, pid: [])
+        self.assertEqual(h.frames, 60)
+
+
+class HealBellFixture(unittest.TestCase):
+    class Harness:
+        def __init__(self):
+            self.party = 0x02010000
+            self.records = {self.party + 8 + 236 * i: bytes([i]) * 236 for i in range(6)}
+            self.generated_slot = 5
+            self.generations = 0
+            self.writes = []
+
+        def array(self, _):
+            return self.party
+
+        def generate_pokemon(self, species, level):
+            assert (species, level) == (129, 60)
+            self.generations += 1
+            self.records[self.party + 8 + 236 * 5] = bytes([64 + self.generations]) * 236
+
+        def read(self, address, size):
+            assert size == 236
+            return self.records[address]
+
+        def write(self, address, raw):
+            self.writes.append(address)
+            self.records[address] = raw
+
+    def test_entry_fixture_rejects_battle_or_foreign_party_before_writes(self):
+        h = self.Harness()
+        h.in_field = lambda: False
+        with self.assertRaisesRegex(RuntimeError, "outside the field"):
+            F.install_healbell_entry_fixture(h, [])
+        h.in_field = lambda: True
+        with self.assertRaisesRegex(RuntimeError, "ownership mismatch"):
+            F.install_healbell_entry_fixture(h, [(h.party + 4, h.party + 8 + 236, bytes(236))])
+        self.assertEqual(h.writes, [])
+
+    def test_entry_fixture_validates_all_native_records_before_any_write(self):
+        import emu_harness as E
+        h = self.Harness()
+        h.in_field = lambda: True
+        rows = [(h.party, h.party + 8 + 236 * slot, bytes([slot]) * 236) for slot in F.HEALBELL_BENCH]
+        def strict(raw, **fields):
+            if raw[0] == 3:
+                raise ValueError("native checksum mismatch")
+            return raw
+        with patch.object(E, "encode_pokemon", side_effect=strict):
+            with self.assertRaisesRegex(ValueError, "checksum mismatch"):
+                F.install_healbell_entry_fixture(h, rows)
+        self.assertEqual(h.writes, [])
+
+    def test_entry_fixture_applies_each_status_to_its_validated_native_record(self):
+        import emu_harness as E
+        h = self.Harness()
+        h.in_field = lambda: True
+        rows = [(h.party, h.party + 8 + 236 * slot, bytes([slot]) * 236) for slot in F.HEALBELL_BENCH]
+        def strict(raw, **fields):
+            self.assertEqual(fields, {"status": F.HEALBELL_BENCH[raw[0]]})
+            return raw
+        with patch.object(E, "encode_pokemon", side_effect=strict):
+            hashes = F.install_healbell_entry_fixture(h, rows)
+        self.assertEqual(len(hashes), 3)
+        self.assertEqual(h.writes, [row[1] for row in rows])
+
+    def test_invalid_seed_bench_is_discarded_without_repair_or_swap(self):
+        import emu_harness as E
+        h = self.Harness()
+        checked = []
+
+        def strict(raw):
+            checked.append(raw)
+            if raw[0] < 64:
+                raise ValueError("invalid historical seed; cannot repair")
+            return raw
+
+        with patch.object(E, "encode_pokemon", side_effect=strict):
+            F.prepare_healbell_bench(h)
+        self.assertEqual(len(checked), 3)
+        self.assertEqual(h.writes, [h.party + 8 + 236 * i for i in F.HEALBELL_BENCH])
+        for index, slot in enumerate(F.HEALBELL_BENCH, 65):
+            self.assertEqual(h.records[h.party + 8 + 236 * slot], bytes([index]) * 236)
+        self.assertEqual(h.records[h.party + 8], bytes(236))
+        self.assertEqual(h.records[h.party + 8 + 236 * 4], bytes([4]) * 236)
+
+    def test_invalid_native_output_cannot_write_a_bench_slot(self):
+        import emu_harness as E
+        h = self.Harness()
+        with patch.object(E, "encode_pokemon", side_effect=ValueError("native checksum mismatch")):
+            with self.assertRaisesRegex(ValueError, "checksum mismatch"):
+                F.prepare_healbell_bench(h)
+        self.assertEqual(h.writes, [])
+
+    def test_changed_native_source_cannot_write_a_bench_slot(self):
+        import emu_harness as E
+        h = self.Harness()
+
+        def changed(raw):
+            h.records[h.party + 8 + 236 * 5] = bytes([99]) * 236
+            return raw
+
+        with patch.object(E, "encode_pokemon", side_effect=changed):
+            with self.assertRaisesRegex(RuntimeError, "changed before copying"):
+                F.prepare_healbell_bench(h)
+        self.assertEqual(h.writes, [])
+
+    def test_late_invalid_native_output_leaves_all_bench_slots_untouched(self):
+        import emu_harness as E
+        h = self.Harness()
+
+        def strict(raw):
+            if raw[0] == 67:
+                raise ValueError("third native record invalid")
+            return raw
+
+        with patch.object(E, "encode_pokemon", side_effect=strict):
+            with self.assertRaisesRegex(ValueError, "third native record invalid"):
+                F.prepare_healbell_bench(h)
+        self.assertEqual(h.writes, [])
 
 
 if __name__ == "__main__":

@@ -1,0 +1,58 @@
+[
+  {
+    "file": "overlay9.bin",
+    "offset": "0x7568",
+    "address": "0x21ec308",
+    "expect": "8af682f8",
+    "target": "DG_ItemList",
+    "kind": "bl"
+  },
+  {
+    "file": "overlay9.bin",
+    "offset": "0x74c6",
+    "address": "0x21ec266",
+    "expect": "8af65bfc",
+    "target": "DG_ItemRemembered",
+    "kind": "bl"
+  },
+  {
+    "file": "overlay9.bin",
+    "offset": "0x64c4",
+    "address": "0x21eb264",
+    "expect": "00f018f8",
+    "target": "DG_ItemAccept",
+    "kind": "bl"
+  },
+  {
+    "file": "overlay9.bin",
+    "offset": "0x6918",
+    "address": "0x21eb6b8",
+    "expect": "fff7eefd",
+    "target": "DG_ItemAccept",
+    "kind": "bl"
+  },
+  {
+    "file": "overlay14.bin",
+    "offset": "0x22f8",
+    "address": "0x2202ad8",
+    "expect": "0f8b002f",
+    "target": "DG_ItemCommitBag",
+    "kind": "bl"
+  },
+  {
+    "file": "overlay14.bin",
+    "offset": "0x2410",
+    "address": "0x2202bf0",
+    "expect": "517b0629",
+    "target": "DG_ItemCommitTarget",
+    "kind": "bl"
+  },
+  {
+    "file": "overlay14.bin",
+    "offset": "0x210e0",
+    "address": "0x022218c0",
+    "expect": "54f6a6fd",
+    "target": "DG_ItemEffectAttr",
+    "kind": "bl"
+  }
+]
