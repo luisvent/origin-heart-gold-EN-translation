@@ -3,29 +3,36 @@
 All notable changes to the English translation of 起源心金 (Pokémon Origin HeartGold) v4.0.3.
 Patches apply to **Pokémon HeartGold (USA)**, CRC32 `C180A0E9`.
 
-## [Unreleased]
+## [1.0.0-rc7] - 2026-10-11
 
-RC7 source preparation: 13 additional enabled fixes on RC6. The previously validated build contains 11; the new combined build remains pending. Difficulty source is retained as opt-in research and is not installed by the standard builder.
+Release candidate. Public native validation remains incomplete; multiplayer testing is excluded from its validation scope (D-2330). Hardware and Delta remain untested.
+
+### Added
+- A second Options page with three independent difficulty settings:
+  - **ITEMS — LIMITED / ALL:** LIMITED restricts the player's Bag in trainer battles to berries and flutes. ALL enables the expanded battle-item selection. Held items retain their original rules.
+  - **SHARE — ON / OFF:** OFF stops benched Pokémon from receiving shared EXP and EVs.
+  - **CAP — OFF / ON:** ON limits battle EXP using gym progression. Caps do not decrease as gyms are completed. Pokémon already above the cap remain usable; rejected EXP is not saved for later. Rare Candy and Day Care retain their original behavior.
+- Updated startup notices with translation credits, release version and project information; removed the QR promotion and unsupported permission claim.
 
 ### Fixed
-- Honey Gather can now find one Honey after an eligible battle and put it directly in the Bag. The Pokémon must hold no item; its chance rises from 5% at levels 1–10 to 50% at levels 91–100. The original hack skipped Honey Gather entirely. User-approved repair (D-2324/D-2325).
-- Post-battle item collection only reports an award when the Bag accepts it. This also prevents Pickup from claiming an item when its stack or pocket is full; its existing odds and rewards are unchanged (D-2326).
-- Lugia entrance animation state bounds prevent the Whirl Islands callback crash.
-- Double Battle D-pad targeting reaches eligible foes and allies when adjacent slots are empty.
-- Exhausted player moves fall back to native Struggle when FIGHT is selected.
-- Rock Tunnel corner-child and Pokémon Tower Magcargo defeats use native whiteout recovery.
-- Healing playback skips a Pokémon switched out by Roar instead of animating a missing HP bar.
-- Cute Charm applies infatuation, battle party screens synchronize status, and fainting waits for HP drain.
-- Reviewed battle-message callers select the correct side and prefix.
-- Pryce checks the party's weather-changing Abilities instead of excluding 28 species. The current user request enables this previously parked fix.
+- **Lugia's entrance:** fixed the animation crash after Lawrence's first battle in Whirl Islands.
+- **Double Battle targeting:** improved initial target selection and D-pad navigation between eligible opponents and allies. CANCEL stays selected when chosen.
+- **Struggle:** selecting FIGHT now uses Struggle when every known move has zero PP.
+- **Rock Tunnel:** losing to the corner child trainer now triggers the normal blackout instead of black screens.
+- **Pokémon Tower:** losing to Magcargo now triggers the normal blackout instead of a broken immediate retry.
+- **Healing HP bars:** corrected healing playback when the affected Pokémon has switched out.
+- **Cute Charm:** now applies infatuation instead of displaying “fell in love” without the effect.
+- **Party status displays:** in-battle party screens reflect newly inflicted and cured conditions, including Heal Bell and Aromatherapy cures.
+- **Fainting animations:** Pokémon knocked out by multi-hit moves wait for their HP bar to finish draining.
+- **Battle messages:** “The wild” and “The foe's” prefixes match the Pokémon named in the message.
+- **Pryce's challenge:** checks actual weather-changing Abilities instead of rejecting Pokémon by species.
+- **Honey Gather:** restored post-battle Honey collection. Honey Gather and Pickup only report an award when it was successfully added to the Bag.
 
-### Preparation notes
-- Honey Gather, startup content-warning notices and opt-in difficulty source are integrated locally; [current checks and remaining blockers](work/notes/rc7_source_integration_20261010.md). No combined ROM has been rebuilt for this source integration.
-- Expedition progress, the Ho-Oh panel/Silver marker, and the Mt. Mortar invalid-flag patches are disabled by user decision D-2321; RC7 preserves the Chinese behavior.
-- Damage hit sound and faint cry patches are excluded by user request.
-- The Saffron move-relearner crash was reproduced in Bradam's NoBigText patch, not this translation; no new Saffron fix is included.
-- Combined checks, artifact fingerprints and runtime limits are recorded in [the RC7 integration report](work/notes/rc7_release_prep_20261010.md).
-- Earlier Lugia-only RC7 artifacts remain separate and are not the combined prep build.
+### Release notes
+- Apply the xdelta to clean **Pokémon HeartGold (USA)**, CRC32 **`C180A0E9`**. Back up your save and load the battery save when updating, rather than an old savestate. ROMs and saves are never distributed.
+- The standard builder produces the 47-fix baseline. Opt-in difficulty is installed separately with `work/research/difficulty-armips/build.py --enable-difficulty`; see its documentation. The rc7 candidate includes difficulty.
+- Baseline strict validation passed all 11 stages with 1,133 tests and zero skips. Independent difficulty recompilation and 53 negative checks passed. The packaged xdelta independently decoded to candidate SHA-256 `81ec4501ef92c01872e97fc61d1e763c84cb1e7fcb92164ed1aa1623e1b9ec39`. These checks do not establish a complete native acceptance pass.
+- Expedition progress, Ho-Oh/Silver marker and Mt. Mortar flag changes remain disabled; hit-sound and faint-cry changes are excluded.
 
 ## [1.0.0-rc6] - 2026-10-09
 

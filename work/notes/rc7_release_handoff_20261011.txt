@@ -1,0 +1,51 @@
+RC7 validation and release handoff — 2026-10-11
+
+Candidate ROM SHA-256: 014a78590a41d1d215ad5ffe9c77dd548b764624514636f1af9faca8284bc43c
+Patch SHA-256: 8826833c61758a634247970cff465f6bad0b52f499c6ec1742e3a9fe861fee99
+Source: retained release/rc7-prep checkout; current difficulty installation receipt.
+Source ROM: clean USA HeartGold CRC32 C180A0E9.
+
+PASS: all 11 strict baseline gate stages; 1055 tool + 43 docs + 35 site tests,
+zero skips; pinned tools, declared assembly/listings, USA references, expected
+hashes and byte-identical baseline ROM/xdelta repeat builds.
+PASS: independent baseline artifact checker (fresh text export, graphics/code/data).
+PASS: independent difficulty fresh recompilation, logical preservation and all
+53 corruption/overlap/bounds negative rejections for this exact candidate.
+PASS: 216 difficulty host/static tests, zero errors/failures/skips.
+PASS: independently decode packaged xdelta and compare exact candidate SHA-256.
+
+Native coverage limitations:
+Earlier 101/102 native jobs and 72/80 requirements apply to an earlier Options
+payload. Roamer fixture failed to establish its encounter (inconclusive).
+Missing/incomplete areas: frozen control, Erika routes, item contexts, item reopen
+pagination, ordinary level-100 behavior, replay/link/facility exclusions.
+The current full native requirement gate is incomplete; hardware/Delta untested.
+
+Before public release:
+1. Update native suite cursor/touch expectations for the final Options UI and
+   run acceptance against this exact candidate; preserve old evidence.
+2. Complete the roamer fixture and eight missing/incomplete native coverage areas.
+3. Require the complete native gate to pass; repackage if ROM bytes change.
+4. Publish only the xdelta/ZIP and metadata, never ROMs, saves or build inputs.
+
+Evidence (local, not included in ZIP):
+work/build/rc7-release-prep-checkout/work/build/rc7-final-20261011.log
+work/build/rc7-release-prep-checkout/work/build/rc7-final-artifact/
+work/build/rc7-release-prep-checkout/work/build/rc7-final-difficulty-verification/
+work/build/rc7-release-prep-checkout/work/build/rc7-final-difficulty-host-restored.log
+work/build/rc7-rerun-20261011/RESULTS.md
+
+The older work/release/v1.0.0-rc7 package is Lugia-only; it was preserved and
+must not be confused with this candidate. Nothing was published.
+
+Current Options row/choice diagnostic: an initial probe used an unsupported
+register accessor; the corrected probe reached Confirm then rejected an ordinary
+menu row as a difficulty row. It does not establish a passed renderer oracle.
+The missing seed fixture was recovered from a local snapshot with exact SHA-256
+b3aca10747cd0f1adc3d5852a50dddaaa36ed8680f5ba04012cfe3110faad90f.
+
+PASS: fresh current-candidate Options settings smoke: page switches retain both
+drafts, no early commit, Cancel discards both drafts, Confirm commits both,
+and unrelated setting bits are preserved. This bounded smoke does not satisfy
+the complete native suite or renderer/choice-row diagnostic.
+Evidence: work/build/rc7-rerun-20261011/native-row-pages/settings-only-final/report.json

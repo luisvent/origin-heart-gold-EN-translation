@@ -1,0 +1,48 @@
+RC7 public release preparation — 2026-10-11 (in progress)
+
+User scope: include difficulty and finish validation. Multiplayer/link validation
+is excluded by explicit user decision D-2330; no runtime acceptance claim for it.
+All local acceptance requirements remain, including replay and facility exclusions.
+
+Retained source checkout: work/build/rc7-release-prep-checkout (release/rc7-prep).
+Earlier final-prep playtest package: ROM014a7859..., not the revised candidate.
+Current revised candidate SHA-256:
+81ec4501ef92c01872e97fc61d1e763c84cb1e7fcb92164ed1aa1623e1b9ec39
+
+Changes this pass:
+- Correct native Options test row pitch, touch-choice positions and footer layout.
+  Difficulty deliberately uses native row rendering; title/background previews
+  remain prohibited, and both draft/save assertions remain mandatory.
+- Correct the Route37 roaming fixture's copied Route1 map/tile loop. Fresh bound
+  native constructor/field-return validation passed before the footer revision.
+- Full UI replay passed input/save/reset assertions, but manual visual review
+  found blank Confirm/Quit labels on direct held-L entry. This was not accepted
+  as visual validation. Fix reads original native message8/7 into existing
+  windows with original position/color, without ordinary preview calls.
+- Focused ASan/UBSan shipping-C tests passed after the footer fix.
+- Revised guarded install/reopen and independent fresh recompilation passed,
+  including all53 corruption/bounds/overlap negative checks.
+
+Current full implemented matrix runs under the checkout's
+work/build/rc7-public-comprehensive.log and difficulty-v2/tests/native-suites/.
+It includes102 local native jobs and79 required cases after multiplayer exclusion.
+Six local requirements still need supplemental drivers/evidence:
+frozen control; Erika story routes; native item contexts; Bag reopen/pagination;
+recorded replay exclusion; facility exclusion.
+
+Nothing published. Existing game data stays ignored; no downloads.
+
+Updated current-candidate package: work/release/v1.0.0-rc7-public-prep/.
+Xdelta independently reapplied to clean USA source and candidate SHA256 matched.
+Patch SHA256: 58ad3592908a423980177583aa4b42d9cc31e9fa0e393e6b3d41f2205e476f29.
+ZIP integrity/all file checksums verified; no ROM/save entries.
+Native Options/save/cold/new, growth matrix, early progression cases, grass,
+trainer variants and corrected roamer have passed on candidate81ec4501...
+All five current focus PNGs visually reviewed and attestation recorded.
+Supplemental maximum Bag probe: three reopenings, all populated categories/pages
+reached, exact lists/quantities and unchanged battle/inventory state. Restricted
+mode still running; last-used coverage must bind to complete matrix evidence.
+Frozen-control probe observed actual control0->8 before capture; no subsequent
+setup18C write was observed, so it does NOT close frozen-control requirement.
+Single-player replay/facility fixture path requested; multiplayer remains excluded.
+Full matrix and actual Erika story probe still running. No complete gate claim.

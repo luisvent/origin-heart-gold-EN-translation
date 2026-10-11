@@ -31,6 +31,7 @@
 - [Route 32: "Should people eat Pokémon?" (Leftovers or Sharp Beak)](#route-32-should-people-eat-pokémon-leftovers-or-sharp-beak)
 - [Route 32 Pokémon Center: the storm patients and the injured Igglybuff (missable; before Route 33)](#route-32-pokémon-center-the-storm-patients-and-the-injured-igglybuff-missable-before-route-33)
 - [Route 32: the Quagsire's revenge (only if you took the Wooper's Poké Ball by force)](#route-32-the-quagsires-revenge-only-if-you-took-the-woopers-poké-ball-by-force)
+- [Ruins of Alph: blocked grass — how to reach Silver and the Kabuto chamber](#ruins-of-alph-blocked-grass--how-to-reach-silver-and-the-kabuto-chamber)
 - [Ruins of Alph: the missing Molly (story chapter; how to move it along)](#ruins-of-alph-the-missing-molly-story-chapter-how-to-move-it-along)
 - [Ruins of Alph: the girl who saw her own face (→ Rock Incense)](#ruins-of-alph-the-girl-who-saw-her-own-face--rock-incense)
 - [Ruins of Alph: small extras](#ruins-of-alph-small-extras)
@@ -481,6 +482,13 @@ What the game actually checks is a fixed list of non-Fire species. It covers eve
 
 *Source:* script file 232 (coord trigger script 23, fires while var 0x40a7 = 2; L11838–L13681: WildBattle 195 Lv. 50, TakeItem 2/3/4 ×10, then var 0x40a7 = 1), file 51 L4297–L4308 (sets 0x40a7 = 2 if flag 1974 is set). TakeItem with fewer than requested removes nothing (Bag_TakeItem 0x02076AA4 returns 0 when the slot quantity is too low). Trigger strip ≈468–470,387; woman ≈470,385.
 
+## Ruins of Alph: blocked grass — how to reach Silver and the Kabuto chamber
+<!-- quest: kind=main -->
+
+**Can't get past the grass to reach Silver?** That green patch is solid scenery. Go south around the large ruin, then north along its eastern side and west toward the Kabuto chamber door. Follow the [four-step route with screenshots](08-ruins-of-alph-silver.md).
+
+If Silver isn't inside, speak to the Research Center assistant and ask both Gold and Crystal about Molly, as described below.
+
 ## Ruins of Alph: the missing Molly (story chapter; how to move it along)
 <!-- quest: kind=main -->
 
@@ -489,7 +497,7 @@ What the game actually checks is a fixed list of non-Fire species. It covers eve
 **Who gets it / when:** after the Sprout Tower story (Gold and Crystal appear at the ruins then). It's the main story, but a few steps are easy to miss:
 1. **Research Center:** talk to the assistant by the entrance. Molly, Prof. Hale's 6-year-old daughter, has vanished.
 2. **Ask Gold** (a few steps north-west of the Research Center door) **and Crystal** (south of the small building in the middle of the ruins) about Molly. Answer Yes to "Ask … about Molly?" for **both**. Only then does Silver appear in the north-east (Kabuto) chamber.
-3. **Kabuto chamber:** battle **Silver**. The Unown drop everyone into a dead end (chamber layout: [Ruins of Alph: the four stone panels and the chamber walls](13-dungeons-and-common.md#ruins-of-alph-the-four-stone-panels-and-the-chamber-walls-continues-cherrygrove-city-to-azalea-towns-ruins-of-alph-entries)).
+3. **Kabuto chamber:** battle **Silver**. If the grass blocks your approach, follow the [route with screenshots](08-ruins-of-alph-silver.md). The Unown drop everyone into a dead end (chamber layout: [Ruins of Alph: the four stone panels and the chamber walls](13-dungeons-and-common.md#ruins-of-alph-the-four-stone-panels-and-the-chamber-walls-continues-cherrygrove-city-to-azalea-towns-ruins-of-alph-entries)).
 4. **"Right, Idol?"** Escape Rope, Dig and Fly all fail. Keep choosing until the new option **"I don't know either"** appears, and pick it. Molly and Entei appear → battle **Entei**. Then **touch the statue** on the right (Yes).
 5. **Dream world:** Molly's clone battles you. Then help your three friends, each in a **Multi Battle**: Silver (north), Gold (middle), Crystal (south). The staircase to the sky stays shut ("Let's wait until everyone's here") until all three are won.
 6. Climb the steps: Entei attacks. Your party is fully healed once, then you fight **two Double Battles** in a row, both against **Entei's team**, sent out two at a time. Molly agrees to leave.

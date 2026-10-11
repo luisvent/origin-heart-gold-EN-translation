@@ -27,4 +27,3 @@ def play_battle(session, trace, run):
     session.checkpoint(run['name']+'-finished', run)
     validate_positive(run)
     trace.run = None
-

@@ -159,16 +159,22 @@ Gifts both sides get ([Vermilion City: after the construction-site clash](02-pew
 Save before you board, and follow the steps below in this order.
 
 **How it works:**
+
 1. Battle the old man in the main hall ("Ha ha, here it comes! A Trainer who dares to challenge this old boy!"). Win or lose, it counts, but a loss whites you out to the top of the hall. Don't talk to Blue yet.
-2. Talk to the girl. Her Teddiursa won't eat the ship's food and she asks you to get **Honey** from the kitchen.
-3. The cook on B1F has Honey but has run out of salt. He asks for salt in exchange. (He only asks once the girl has asked you for Honey; before that he just mutters about the salt.)
-4. Get one **Shoal Salt**:
-   - the merchant in the main hall sells it for **$1500** (his shop is open from the start; see below);
-   - the merchant in the north-west rooms (lower-right cabin) sells one for **$6000** ("four times the price"), only after the cook has asked;
-   - the old street merchant in Vermilion sells it for $2,000 before you board;
-   - any Honey you already carry also works: the girl only checks that you have Honey, so you can skip the salt step entirely.
-5. Give the Shoal Salt to the cook → **Honey**.
-6. Give the Honey to the girl ("Give away the Honey?" → Yes). The party is announced, and her grandfather gives you a **Water Stone** on the way to the hall.
+2. Talk to the girl in the first north-west cabin. Her Teddiursa won't eat the ship's food, so she asks you to find **Honey**. What happens next depends on what you have in your Bag:
+
+   **If you have Honey:** she offers the choice "Give away the Honey?". Choose Yes to give it to her. If you decline, she continues waiting for Honey; talk to her again when you're ready to give it.
+
+   **If you don't have Honey:** visit the cook in the B1F kitchen. Once the girl has asked for Honey, he explains that he has Honey but needs salt, and offers an exchange. Before you've spoken to her, he only mutters about the missing salt.
+
+   **If you already have Shoal Salt:** the cook asks to exchange it for Honey. Accept, then return to the girl and give her the Honey. If you decline the exchange, you can return to him later.
+
+   **If you don't have Shoal Salt:** buy one from the merchant in the main hall for **$1500**, or from the merchant in the north-west rooms (lower-right cabin) for **$6000** after the cook has asked. You can also bring salt bought before boarding from Vermilion's old street merchant for **$2000**. Exchange one Shoal Salt with the cook for Honey, then return to the girl and choose Yes to give it to her.
+
+3. Both Honey branches lead to the same scene: Teddiursa eats, the girl thanks you, and the party is announced. Her grandfather gives you a **Water Stone** on the way to the hall. This sequence is the same for every starter.
+4. Return to the main hall for [the party battles and the missing Teddiursa](#ss-anne-the-party-battles-and-the-missing-teddiursa).
+
+After the Honey delivery, the girl thanks you whenever you speak to her. The cook also changes to saying he can make delicious dishes with the Shoal Salt. He says this even if you gave the girl Honey you already carried and never exchanged salt with him: his dialogue follows the completed Honey request. This inconsistency is present in the original Chinese game and doesn't require another salt delivery.
 
 **Reward:** **Water Stone** from the grandfather.
 

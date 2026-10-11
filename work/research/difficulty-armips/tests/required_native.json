@@ -1235,7 +1235,7 @@
         "Host tests alone do not establish native acceptance",
         "No complete native driver assigned; requirement remains open"
       ],
-      "decision": "D-2327",
+      "decision": "D-2330",
       "reason": "User explicitly excludes multiplayer/link testing from RC7 public release; no runtime acceptance claim."
     }
   ]

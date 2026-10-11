@@ -138,3 +138,6 @@ work/save-core/node_modules
 
 # Local reference directory may be linked into isolated release-prep worktrees.
 /work/translate/ref
+
+# Local catalogue contains third-party promotional images and reference text.
+/work/rom-ideas/

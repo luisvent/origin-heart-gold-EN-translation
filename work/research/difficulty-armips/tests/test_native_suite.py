@@ -106,7 +106,7 @@ class SuiteTests(unittest.TestCase):
         m=json.loads((SOURCE/'tests/required_native.json').read_text())
         self.assertEqual(len(m['cases']),79)
         self.assertEqual([r['id'] for r in m['user_excluded_native']],['runtime.exclude_link'])
-        self.assertEqual(m['user_excluded_native'][0]['decision'],'D-2327')
+        self.assertEqual(m['user_excluded_native'][0]['decision'],'D-2330')
         self.assertEqual(next(r for r in m['cases'] if r['id']=='ui.page_navigation')['driver'],'native_ui.py')
         for r in m['cases']:
             for k in ('requirement','risk','proof_layers','exclusions'):self.assertIn(k,r)
