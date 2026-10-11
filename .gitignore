@@ -88,7 +88,7 @@ Thumbs.db
 *~
 
 # Translations of the hack author's own spreadsheets: keep local until the authors (Alex / 雁南飞TB) agree to publication.
-/work/docs/author_notes/
+/work/docs/author_notes
 
 # --- Generated files that rebuild from the repo alone --------------------------
 # See README.md "Generated files" for the commands.
