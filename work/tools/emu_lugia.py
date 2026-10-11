@@ -17,11 +17,6 @@ import hashlib
 import json
 from pathlib import Path
 
-import ndspy.narc
-import ndspy.rom
-
-import emu_harness as E
-
 SCRIPT_SHA256 = "df4d62fcd84657d7d1d54c4d512c757d89e0e8c4065751815adc4f9527c12a49"
 SAVE_SHA256 = "6dcb4b9acd82a7dc349e3d7432445fb10f2c9d9dd52d51f08c86b9dd5f86f04d"
 BATTLE_SKIPS = ((469, 494), (881, 906), (1270, 1295))
@@ -47,6 +42,12 @@ def scene_passes(report, expect):
 
 
 def run(rom, sav, out, expect):
+    # Only native execution needs ROM parsing and the emulator harness. Keep the
+    # scene oracle importable by the standard-library-only portable test gate.
+    import ndspy.narc
+    import ndspy.rom
+    import emu_harness as E
+
     rom, sav, out = (Path(p).resolve() for p in (rom, sav, out))
     build_root = Path(__file__).resolve().parents[1] / "build"
     if not out.is_relative_to(build_root.resolve()) or out == build_root.resolve():

@@ -1,5 +1,7 @@
 """Reject incomplete or misleading Lugia scene evidence."""
 import copy
+import os
+import subprocess
 import unittest
 import sys
 from pathlib import Path
@@ -10,6 +12,25 @@ from emu_lugia import scene_passes
 
 
 class SceneOracle(unittest.TestCase):
+    def test_import_without_native_dependencies(self):
+        code = """
+import sys
+class BlockNative:
+    def find_spec(self, fullname, path=None, target=None):
+        if fullname.split('.')[0] in {'ndspy', 'emu_harness'}:
+            raise ImportError('native dependency imported: ' + fullname)
+sys.meta_path.insert(0, BlockNative())
+from emu_lugia import scene_passes
+assert callable(scene_passes)
+"""
+        result = subprocess.run(
+            [sys.executable, "-S", "-c", code],
+            cwd=Path(__file__).resolve().parents[2],
+            env={**os.environ, "PYTHONPATH": str(Path(__file__).resolve().parent)},
+            capture_output=True, text=True,
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+
     def setUp(self):
         self.fixed = {"story_var": 8, "in_field": True, "position": (244, 18, 27),
                       "exceptions": {"data_aborts": 0, "prefetch_aborts": 0, "undefined": 0}}

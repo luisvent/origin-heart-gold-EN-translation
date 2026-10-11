@@ -19,6 +19,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 NATIVE_RUNNER_TESTS = TOOLS.parent / "research" / "save_core"
 NATIVE_TESTS = {
+    "test_emu_battle_heal.TiedToFix.test_chinese_rom_is_original": "Chinese ROM",
     "test_emu_reflection.AgainstTheFix.test_resolver_is_the_chinese_roms": "Chinese ROM",
     "test_emu_reflection.AgainstTheFix.test_assembled_fix_changes_one_byte": "Chinese ROM and armips",
     "test_emu_texture_bounds.AgainstTheFix.test_routine_is_the_chinese_roms": "Chinese ROM",
