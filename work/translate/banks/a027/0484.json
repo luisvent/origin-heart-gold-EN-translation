@@ -1141,10 +1141,10 @@
   {
    "id": 141,
    "zh": "哇,你那个是向尾喵尾巴！{SCROLL}请问你能送给我吗？{NEWLINE}我的向尾喵可喜欢那个了！",
-   "en": "Wow, that’s a Skitty tail you’ve got!{SCROLL}Could you give it to me, please? My{NEWLINE}Skitty loves those!",
+   "en": "Wow, that’s a Fluffy Tail you’ve got!{SCROLL}Could you give it to me, please? My{NEWLINE}Skitty loves those!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "Names the item as the Bag does (zh 向尾喵尾巴 describes the 玲珑猫尾 item); user-approved D-1496 deviation, D-2405."
   },
   {
    "id": 142,
