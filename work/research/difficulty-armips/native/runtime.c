@@ -38,8 +38,14 @@ uint32_t dg_runtime_ordinary(uint32_t flags, uint32_t control) {
      * do not mask 8 out of other modes. See runtime-classifier.md. */
     if (control == 8u) return flags == 0u;
     if (control != 0u) return 0;
+    /* 0x801: script TrainerBattle with nonzero third operand (a story battle
+     * the player may lose; the script has its own loss branch). Handler
+     * 02048BAE..DA passes that byte as constructor stack arg0; 02050798..A2
+     * ORs 0x800 only on the single-trainer path, so 0x801 is the only value
+     * it can produce. Exact value; 0x800 is not masked out of other modes. */
     switch (flags) {
     case 0: case 1: case 3: case 0x13: case 0x4A: case 0x4B: case 0x100:
+    case 0x801:
         return 1;
     default: return 0;
     }

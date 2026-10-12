@@ -149,8 +149,10 @@ bitmask. The following values have current CN constructor evidence:
 | `0x04A` | Hack wild doubles: ov2 `0x02247124–2C` and `0x0224713A–42` |
 | `0x04B` | Two opponents plus NPC partner: `0x02050782–8E` |
 | `0x100` | Wild constructor branch ov2 `0x02247094–9E`; also explicitly grouped with wild0/4A by native outcome handler `0x020509D2–DE` |
+| `0x801` | Loss-allowed story trainer battle: script `TrainerBattle` with a nonzero third operand; one trainer in `0x02050798–A2` with that argument nonzero (added 2026-10-12, see below) |
 
-Allow only those values in this candidate. For item restrictions also require
+Allow only those values in this candidate (each with control0; scripted wild
+also flags0/control8, see runtime-classifier.md). For item restrictions also require
 bit0 (trainer), local owner0 and the native command/target eligibility checks.
 Growth keeps the native reward veto `flags & 0x2A4` as a redundant defense.
 Do not reject ordinary doubles based on root+0 being1: that is the double flag,
@@ -161,10 +163,31 @@ bit0x80, Safari0x20, the constructor at `0x02050DD0` producing0x1000, the
 constructor at `0x02050DF4` producing0x200, and the special constructor at
 `0x02050E08` producing0x400. Do not infer their semantics from vanilla names;
 in current CN ov2 the contest branch calls `0x02050DD0` and produces0x1000.
-Unknown upper bits must not be stripped. In particular **0x801 remains excluded**:
-`0x02050798–A2` adds0x800 for a separate nonzero stack argument, but this audit
-has not established that argument's gameplay policy. Likewise raw0x2/0xB are
-not silently added merely because their bits seem familiar.
+Unknown upper bits must not be stripped. Raw0x2/0xB are not silently added
+merely because their bits seem familiar.
+
+**0x801 (added 2026-10-12).** This audit first left0x801 excluded because the
+meaning of the stack argument behind `0x02050798–A2` was not established. It is
+now: script command213 `TrainerBattle` (handler `0x02048B64`) reads its third
+operand as a byte at `0x02048BAE` and stores it as constructor stack arg0 at
+`0x02048BDA`; the constructor `0x02050768` ORs `1<<11` into flags only on the
+single-trainer path (`0x02050798–A2`: no second opponent). The two-opponent
+paths (0x13/0x4B) and same-trainer doubles (3) never test it. Every other caller
+passes arg0=0: `MultiBattle` (`0x02048C4E–50` stores constant0; its last byte
+is stack arg1, which only clears setup byte0x1CD/0x1CE at `0x020507D6–F4`) and
+command223 (`0x02048ED8–DA`). So0x801 is the only value this bit can produce.
+The scripts that use it are story battles the player may lose: e.g. Pewter
+City Blue (file748 @2481, `TrainerBattle 535,0,1,0`) checks `CheckBattleWon`
+and continues the scene on a loss instead of `WhiteOut`. All60 CN uses are
+single-trainer with third operand1 and fourth operand0. The four `MultiBattle`
+commands whose last byte is1 (file111) still white out on a loss and get plain
+0x4B. Native trace on candidate81ec4501: Pewter Blue arg1 gives setup flags
+0x801/control0 and a full ordinary save/options binding, yet the snapshot was
+not published, so Cap ON and Share OFF were silently ignored (lead 104/118/152/102
+EXP above cap, benched Pidgey 95/99/103/65 with Share OFF). The classifier now
+accepts exactly0x801 at control0; no other value carrying0x800, and no control
+variant of it, is accepted. Native rewards in these battles are not vetoed by
+`flags & 0x2A4`.
 
 This is an implementable conservative classifier backed by native constructors.
 Actual link/facility/replay entry fixtures must confirm the snapshot is disallowed;

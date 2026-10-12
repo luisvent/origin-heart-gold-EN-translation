@@ -53,10 +53,32 @@
       "start": "0x2214c50",
       "end": "0x2214cb8",
       "sha256": "75896bf7ef14711d474f57ae0b94bfff5af378caa7d94bbf69e8ef4ded634eca"
+    },
+    {
+      "label": "TrainerBattle handler: third operand byte to constructor stack arg0",
+      "image": "arm9",
+      "start": "0x2048b64",
+      "end": "0x2048bf8",
+      "sha256": "5d5649ca311101362e5fd359a34d859d84f934e16e339bd0d9c40e763de6df9e"
+    },
+    {
+      "label": "MultiBattle handler: constant0 stack arg0, last byte is arg1",
+      "image": "arm9",
+      "start": "0x2048bf8",
+      "end": "0x2048c6a",
+      "sha256": "27529a7b9f56544eb78c89ea1c862f6a8ec386326629a54e86b9f51c3cb7cd9b"
+    },
+    {
+      "label": "trainer constructor: 0x800 only on single-trainer path",
+      "image": "arm9",
+      "start": "0x2050768",
+      "end": "0x2050818",
+      "sha256": "1b098bb3099cacf0c84560b0d20afeeb781b477ed30f350838c7bc8d97b9ff8e"
     }
   ],
   "static_report": {
     "work/build/difficulty-v2/integration-impl/runtime-classifier-evidence.json": "18278fe0db78fa3f5b34392f57ef9d38c5ddf0416ef726d17610bdb4048c9499"
   },
-  "scope": "positive scripted-wild0/control8 caller evidence, not a random-encounter or completed reward proof"
+  "scope": "positive scripted-wild0/control8 caller evidence, not a random-encounter or completed reward proof",
+  "loss_allowed_scope": "2026-10-12: the three trainer ranges above are identical in untouched CN and the published rc7 candidate 81ec4501ef92c01872e97fc61d1e763c84cb1e7fcb92164ed1aa1623e1b9ec39; native trace of Pewter Blue TrainerBattle 535,0,1,0 showed flags0x801/control0. See runtime-classifier.md, loss-allowed section."
 }

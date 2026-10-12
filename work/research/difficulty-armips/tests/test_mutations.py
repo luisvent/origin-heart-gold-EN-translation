@@ -60,6 +60,12 @@ class DriverMutationTests(unittest.TestCase):
     def test_runtime_control8_overbroad_acceptance_rejected(self):
         self.check_mutant('runtime',['runtime','caps','settings'],['DG_RUNTIME_HOST_TEST','DG_CAPS_HOST_TEST'],'runtime',
                          'if (control == 8u) return flags == 0u;', 'if (control == 8u) return 1;')
+    def test_runtime_loss_allowed_trainer_bypass_rejected(self):
+        self.check_mutant('runtime',['runtime','caps','settings'],['DG_RUNTIME_HOST_TEST','DG_CAPS_HOST_TEST'],'runtime',
+                         '    case 0x801:\n', '',case='runtime-loss-allowed-bypass')
+    def test_runtime_loss_bit_masked_everywhere_rejected(self):
+        self.check_mutant('runtime',['runtime','caps','settings'],['DG_RUNTIME_HOST_TEST','DG_CAPS_HOST_TEST'],'runtime',
+                         'switch (flags) {', 'switch (flags & ~0x800u) {',case='runtime-loss-bit-masked')
     def test_revival_wrong_attribute_rejected(self):
         self.check_mutant('items',['items','policy'],['DG_ITEMS_HOST_TEST'],'items',
                          'attr != 38u', 'attr != 23u',case='revival-attribute')

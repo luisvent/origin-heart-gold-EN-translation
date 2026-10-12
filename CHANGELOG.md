@@ -14,6 +14,9 @@ Merged into develop on 2026-10-12 at the user's request as separate patches with
 - **battle-faint-cry (D-2341):** a Pokémon that faints cries again, in the low, drawn-out faint cry, and makes the falling sound as it slides off the screen, on both sides (as in HeartGold).
 - **battle-hit-sound (D-2342):** a move that deals damage plays the hit sound again, louder when super effective and softer when not very effective (as in HeartGold). One-hit KO moves and hits on a substitute are still silent.
 
+### Fixed
+- **Difficulty settings in story battles you're allowed to lose:** CAP and SHARE now also apply in battles where the story continues even if you lose, such as Blue in Pewter City before Brock's Gym. Before, these battles ignored both settings: Pokémon could gain EXP above the level cap, and benched Pokémon still got EXP with SHARE OFF. ITEMS LIMITED now also applies in these battles, as in every other trainer battle. Losing them still continues the story as before.
+
 ## [1.0.0-rc7] - 2026-10-11
 
 Release candidate. Public native validation remains incomplete; multiplayer testing is excluded from its validation scope (D-2330). Hardware and Delta remain untested.

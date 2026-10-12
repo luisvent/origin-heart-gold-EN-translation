@@ -89,8 +89,10 @@
       19,
       74,
       75,
-      256
+      256,
+      2049
     ],
+    "loss_allowed_trainer": "2049 = 0x801: TrainerBattle third operand nonzero (handler02048BAE..DA to stack arg0), constructor02050798..A2 ORs0x800 on the single-trainer path only; native Pewter Blue trace flags0x801/control0",
     "additional_exact_pair": {
       "flags": 0,
       "control": 8
@@ -99,7 +101,7 @@
     "classification_seam": "after original02215D15, before02214CA6; bit8 already set before entry",
     "frozen_after_entry": true,
     "evidence": "research/runtime-classifier.md",
-    "excluded": "all other flags/control pairs; including replay0/18h, special control1, tutorial flags400h, link4, facility80h"
+    "excluded": "all other flags/control pairs; including replay0/18h, special control1, tutorial flags400h, link4, facility80h, and every other value carrying0x800"
   },
   "field_candy_provider": "not installed; no unproved/stub field provider ships",
   "cap_contract": {

@@ -41,6 +41,11 @@ to cancel. Defaults are **Berries/flutes, Share ON, Cap OFF**. Apply changes RAM
   wild battles and field use retain native behavior.
 - **Share OFF:** blocks benched Pokémon from shared EXP **and EVs**. It does not
   bypass caps or native eligibility for participants.
+- **Battles covered:** wild battles and ordinary trainer battles, including
+  story battles the player is allowed to lose (script `TrainerBattle` with a
+  nonzero third operand, setup flags `0x801`, e.g. Blue in Pewter City).
+  Link, facility, Safari, replay, tutorial and other special modes keep native
+  behaviour. See [runtime-classifier.md](research/runtime-classifier.md).
 - **Cap ON:** limits newly awarded battle EXP at the final per-recipient award.
   Rejected EXP is neither redistributed nor banked. Existing levels/EXP and EV
   awards are not reduced. Caps follow the first unfinished gym in guide order:

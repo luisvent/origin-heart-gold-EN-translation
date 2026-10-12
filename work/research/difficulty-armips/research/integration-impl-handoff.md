@@ -106,7 +106,9 @@ already completed later rows. Adding completion predicates cannot lower the cap.
 No badge-count approximation, persistent high-water mark, downlevel or writes.
 Clair completion remains flag/badge-based even though both sides now cap at100.
 
-Ordinary flags at control0 use EXACT values `0,1,3,13h,4Ah,4Bh,100h`.
+Ordinary flags at control0 use EXACT values `0,1,3,13h,4Ah,4Bh,100h,801h`.
+801h (loss-allowed story `TrainerBattle`, third operand nonzero) was added
+2026-10-12; see runtime-classifier.md.
 The subsequent native review establishes one additional exact pair: **flags0,
 control8**, the scripted WildBattle path. Handler `0204352A..3A` passes implicit
 argument5=1, separately from form argument6; caller `02050448..58` ORs8 before

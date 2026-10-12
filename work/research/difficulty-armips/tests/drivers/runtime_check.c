@@ -26,12 +26,13 @@ static void fixture(uint32_t flags,uint32_t control,uint32_t policy){
 }
 int main(void){
  assert(!dg_growth_snapshot());
- unsigned allowed[]={0,1,3,0x13,0x4a,0x4b,0x100};
- for(unsigned f=0;f<65536;++f){unsigned want=0;for(unsigned i=0;i<7;++i)want|=f==allowed[i];
+ /* 0x801 = loss-allowed TrainerBattle (script third operand nonzero). */
+ unsigned allowed[]={0,1,3,0x13,0x4a,0x4b,0x100,0x801};
+ for(unsigned f=0;f<65536;++f){unsigned want=0;for(unsigned i=0;i<8;++i)want|=f==allowed[i];
   assert(dg_runtime_ordinary(f,0)==want);assert(!dg_runtime_ordinary(f,0x10));assert(!dg_runtime_ordinary(f,1));assert(dg_runtime_ordinary(f,8)==(f==0));}
  /* Exact control whitelist, including replay of scripted wild (8|10h),
   * tutorial/special1, unknown bits, and no expansion to trainer/double8. */
- for(unsigned control=0;control<65536;++control)for(unsigned i=0;i<7;++i)
+ for(unsigned control=0;control<65536;++control)for(unsigned i=0;i<8;++i)
   assert(dg_runtime_ordinary(allowed[i],control)==(control==0 || (control==8 && i==0)));
  for(unsigned bit=16;bit<32;++bit){
   assert(!dg_runtime_ordinary(0,1u<<bit));assert(!dg_runtime_ordinary(0,8u|(1u<<bit)));
@@ -71,8 +72,8 @@ int main(void){
  assert(dg_cap_resolve(0xffffu&~(1u<<11),0,0)==100);
  assert(dg_cap_resolve(0x7fff,0,0)==100);assert(dg_cap_resolve(0x7fff,0,1)==100);
  badges=erika=clair=0;
- for(unsigned i=0;i<8;++i)for(unsigned p=0;p<8;++p){
-  unsigned flags=i==7?0:allowed[i],control=i==7?8:0;
+ for(unsigned i=0;i<9;++i)for(unsigned p=0;p<8;++p){
+  unsigned flags=i==8?0:allowed[i],control=i==8?8:0;
   fixture(flags,0,p);
   /* Native scripted path: constructor returns0, caller ORs8 BEFORE begin.
    * Original begin publishes the root but does not change setup control. */
@@ -92,7 +93,16 @@ int main(void){
  fixture(0x400,8,7);dg_battle_begin();assert(!dg_growth_snapshot());
  fixture(4,8,7);dg_battle_begin();assert(!dg_growth_snapshot());
  fixture(0x80,8,7);dg_battle_begin();assert(!dg_growth_snapshot());
- fixture(0x801,0,7);dg_battle_begin();assert(!dg_growth_snapshot());
+ /* Loss-allowed 0x801 is accepted only as that exact value with control0:
+  * no other 0x800 combination, no control8/replay/special variant. */
+ fixture(0x801,8,7);dg_battle_begin();assert(!dg_growth_snapshot());
+ fixture(0x801,0x10,7);dg_battle_begin();assert(!dg_growth_snapshot());
+ fixture(0x801,1,7);dg_battle_begin();assert(!dg_growth_snapshot());
+ {unsigned other[]={0x800,0x802,0x803,0x809,0x811,0x813,0x821,0x841,0x84a,0x84b,0x881,0x900,0x901,0xa01,0xc01,0x1801,0x8801,0x10801};
+  for(unsigned i=0;i<sizeof other/sizeof other[0];++i){
+   assert(!dg_runtime_ordinary(other[i],0));fixture(other[i],0,7);dg_battle_begin();assert(!dg_growth_snapshot());}}
+ fixture(0x801,0,7);dg_battle_begin();assert(dg_growth_snapshot() && dg_growth_snapshot()->flags==7);
+ w32(setup,0x1);assert(!dg_growth_snapshot()); /* frozen exact setup flags */
  fixture(1,0,7);w32(setup+0x1c0,save+4);dg_battle_begin();assert(!dg_growth_snapshot());
  fixture(1,0,7);w16(opts+2,0);dg_battle_begin();assert(!dg_growth_snapshot());
  fixture(1,0,7);dg_battle_begin();assert(dg_growth_snapshot());save+=4;assert(!dg_growth_snapshot());save-=4;assert(!dg_growth_snapshot());
@@ -106,13 +116,13 @@ int main(void){
  assert(dg_runtime_ram(0x02000000,4,4));assert(dg_runtime_ram(0x023dbffc,4,4));
  assert(!dg_runtime_ram(0x023dc000,4,4));assert(!dg_runtime_ram(0x01fffffc,4,4));
  for(unsigned bit=9;bit<32;bit++)assert(!dg_runtime_ordinary(1u<<bit,0));
- for(unsigned i=0;i<7;i++){fixture(allowed[i],0x10,7);dg_battle_begin();assert(!dg_growth_snapshot());}
+ for(unsigned i=0;i<8;i++){fixture(allowed[i],0x10,7);dg_battle_begin();assert(!dg_growth_snapshot());}
  fixture(1,0,7);w16(opts+2,dg_settings_merge(0x5544,7));dg_battle_begin();assert(dg_growth_snapshot());
  unsigned epoch=dg_growth_snapshot()->epoch;w32(0x02255bac,root+4);assert(!dg_growth_snapshot());w32(0x02255bac,root);assert(!dg_growth_snapshot());
  fixture(1,0,7);dg_battle_begin();assert(dg_growth_snapshot()->epoch!=epoch);
  w32(setup+0x1c0,save+4);assert(!dg_growth_snapshot());w32(setup+0x1c0,save);assert(!dg_growth_snapshot());
  fixture(1,0,7);dg_battle_begin();dg_runtime_invalidate();assert(!dg_growth_snapshot());
- assert(reads && frees==64);
+ assert(reads && frees==72);
  /* Every guide-route transition reaches a fresh native-entry snapshot;
   * progression changes never mutate the currently frozen battle cap. */
  badges=erika=clair=0;
@@ -125,5 +135,5 @@ int main(void){
   assert(s && s->epoch!=old_epoch && s->cap_level==(i==15?100:caps[i+1]));
  }
  dg_runtime_invalidate();
- puts("PASS shipping runtime/caps: 262144 cap states and save-reader cases, 4718592 monotonic completion edges, flag equivalence/skipped gyms/former drops, 262144 flags/control plus 458752 exact control cases, 64 policy/context lifecycles including scripted-wild0/8, replay0/18h and special/link/facility negatives, reuse/freeze/invalidation/native-free/bounds negatives");
+ puts("PASS shipping runtime/caps: 262144 cap states and save-reader cases, 4718592 monotonic completion edges, flag equivalence/skipped gyms/former drops, 262144 flags/control plus 524288 exact control cases, 72 policy/context lifecycles including loss-allowed trainer0x801 and scripted-wild0/8, other0x800 combinations rejected, replay0/18h and special/link/facility negatives, reuse/freeze/invalidation/native-free/bounds negatives");
 }
