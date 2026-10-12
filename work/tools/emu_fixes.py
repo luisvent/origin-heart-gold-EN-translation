@@ -92,6 +92,11 @@ COVERAGE = {
 }
 # fix id -> why no scenario of this command covers it (honest gaps; see work/notes/emu_harness.md)
 UNCOVERED = {
+    "overworld-pokemon-sprites": "No scenario in this unified runner; emu_overworld_sprites.py (run separately) shows the "
+                                 "Pewter Jigglypuff and the Lighthouse Ampharos on the "
+                                 "Chinese ROM, a build without the fix and the fixed build; test_overworld_pokemon_sprites.py "
+                                 "pins every changed sprite id and that no vanilla Pokemon id is left; see "
+                                 "work/notes/overworld-pokemon-sprite-mismatch_fix.md.",
     "honey-gather": "Dedicated emu_honey_gather.py checks native rewards and Bag insertion; run separately.",
     "startup-content-warning": "Dedicated emu_startup_warning.py captures the native startup screens; run separately.",
     "zero-pp-struggle": "No scenario in this unified runner; emu_struggle.py separately verifies paired "
