@@ -26,6 +26,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`gfx-type-icons`](#gfx-type-icons) | graphics | yes | – | Type and contest icons (USA art; FAIRY from hg-engine) |
 | [`gfx-weather-banners`](#gfx-weather-banners) | graphics | yes | – | Battle weather banners |
 | [`gfx-yes-no-buttons`](#gfx-yes-no-buttons) | graphics | yes | – | Touch-screen YES/NO buttons |
+| [`blank-player-name`](#blank-player-name) | narc | yes | – | Fill the player-name buffer a script's message actually reads |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
@@ -729,6 +730,54 @@ New: the USA member: YES / NO.
 **USA cross-checks** (`[[us_ref]]`, each checked against the USA ROM by `usref.py`, `check.py --full`):
 
 - `a/1/5/2` #2, #3, #4, #5, #6, #7, #8, #9 = the same members as the Chinese ROM (decompressed): Screens #2-9 of a/1/5/2 (LZ10) decompress to the USA ones, so the USA sheet #1 fits them
+
+## blank-player-name
+
+**Fill the player-name buffer a script's message actually reads**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2335, D-2336, D-2337, D-2338, D-2339
+- Source: `work/patches/blank-player-name/fix.toml`
+
+**Why (the Chinese hack):**
+
+Two scripts of the hack show a message whose text starts with or contains the player's
+name tag, but the name was never put in the buffer that tag reads, so the name comes out
+empty (Chinese ROM and our build alike). (1) Dragon's Den, Clair's photo offer (a/0/1/2
+member 111 entry 4, message a027/0127 #29): BufferPlayersName is issued for buffer 0, the
+message reads {VAR:0103:1} (buffer 1). (2) Pallet Town, the photographer's first line
+(member 733 entry 1, message a027/0439 #20): the message reads {VAR:0103:0} but the
+script issues BufferPlayersName [0] only after it (before message #29). Each script run
+starts with empty buffers, so the first line shows no name. (3) Route 2, Brock's "found you here" line (member 171 entry 4, message a027/0315 #26,
+three branches) has the same order problem as (2). Buffers do not survive from one script
+to the next (emulator), so nothing else fills them. Reproduced in the emulator on the
+Chinese ROM (name missing in all three) and fixed on patched ROMs.
+
+**What (old → new):**
+
+Member 111: change the one argument byte of BufferPlayersName at 213 from buffer 0 to
+buffer 1 (offset 215, 00 -> 01). Member 733: inside the 10 bytes at 1026..1035, move the
+3-byte BufferPlayersName [0] in front of NPCMsg 20 / WaitButton / CloseMsg (a rotation:
+same commands, same total size, nothing after 1036 moves; the only jump into the block,
+GoToIf at 257 -> 1026, now lands on the buffer command). NPCMsg 29 afterwards still has
+its buffer. Member 171: the same rotation at 463, 1457 and 1565 (halfword-aligned ranges start at 462, 1456, 1564), with the moved ApplyMovement's relative operand lowered by 3 so it still points at the same absolute target (BufferPlayersName moves in front of NPCMsg 26;
+the 17 bytes between shift up by 3). All members keep their size and every other byte. The members' original
+SHA-1 and the expected bytes guard the edit.
+
+**Evidence:**
+
+- work/notes/blank-player-name_fix.md
+- work/tools/test_blank_player_name.py
+
+**Touches:**
+
+- `a/0/1/2` #111 +0xD6 `dragons-den-clair-buffer`: `0x0000` → `0x0100` (member SHA-1 `9ffc32934a5c`): BufferPlayersName at 213: argument (byte 215) 0 -> 1, the buffer {VAR:0103:1} of message 127#29 reads.
+- `a/0/1/2` #733 +0x402 `pallet-photographer-buffer-order`: `002D 3214 3500 BE00 0000` → `00BE 2D00 1400 0032 0035` (member SHA-1 `767093c73dc8`): 1026..1035: NPCMsg 20, WaitButton, CloseMsg, BufferPlayersName [0] -> BufferPlayersName [0], NPCMsg 20, WaitButton, CloseMsg.
+- `a/0/1/2` #171 +0x1ce `brock-route2-buffer-order-1`: `2D00 1A00 0032 0035 005E 00FF 070E 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 0B00 0007 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 480 moves in front of NPCMsg at 463; the 17 bytes between shift up by 3 and the relative operand of the ApplyMovement among them is lowered by 3 (same absolute target); same size, no jump target inside.
+- `a/0/1/2` #171 +0x5b0 `brock-route2-buffer-order-2`: `2D00 1A00 0032 0035 005E 00FF 02E8 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 E500 0002 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 1474 moves in front of NPCMsg at 1457; the 17 bytes between shift up by 3 and the relative operand of the ApplyMovement among them is lowered by 3 (same absolute target); same size, no jump target inside.
+- `a/0/1/2` #171 +0x61c `brock-route2-buffer-order-3`: `2D00 1A00 0032 0035 005E 00FF 02C0 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 BD00 0002 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 1582 moves in front of NPCMsg at 1565; the 17 bytes between shift up by 3 and the relative operand of the ApplyMovement among them is lowered by 3 (same absolute target); same size, no jump target inside.
 
 ## expedition-completed-progress
 
