@@ -102,8 +102,8 @@ class OverworldPokemonCriesTests(unittest.TestCase):
                 p = n
         return out
 
-    def test_fix_is_enabled_and_has_no_text(self):
-        self.assertTrue(self.fix["enabled"])
+    def test_fix_is_disabled_and_has_no_text(self):
+        self.assertFalse(self.fix["enabled"])  # switched off at merge (Status paragraph in fix.toml)
         self.assertNotIn("string", self.fix)
         self.assertEqual(len(self.fix["narc_bytes"]), 23)
 

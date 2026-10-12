@@ -158,7 +158,7 @@ teleport to the door, out and back in, walk next to the Pokemon; case `pewter-ta
 Screenshots (game data, not committed): `<scratchpad>/ow/shots/pewter_talk_cn_develop_fixed3.png` and `lighthouse_cn_develop_fixed3.png`
 (Chinese ROM | develop | fixed). Cry fix, same harness, case `cianwood-talk` (Cianwood Pokemon Center Unown, text box "Unown: Uuuu-now!" unchanged): PlayCry species 180 (Flaaffy) on the Chinese ROM -> 201 (Unown) on the fixed build. A second live object could not be reached (the Vermilion Fan Club Pichu wanders; the Goldenrod Dept Store 6F, Ecruteak PC and Route 32 attempts did not reach the Pokemon), so the other 28 are covered by `test_overworld_pokemon_cries.py`. Not shown on screen: the other 35 objects (data test only); the Department Store basement teleport crashes the
 emulator on all three ROMs. Tests: `work/tools/test_overworld_pokemon_sprites.py` (every changed id, only sprite bytes change, no vanilla id
-left in 994..1046 except Herdier, Palpitoad and the silent objects), `test_overworld_pokemon_cries.py` (enabled cry fix: every in-scope object's cry equals its drawn species after the fix, out-of-scope cries unchanged, no text in the fix).
+left in 994..1046 except Herdier, Palpitoad and the silent objects), `test_overworld_pokemon_cries.py` (cry fix, switched off at merge: every in-scope object's cry equals its drawn species after the fix, out-of-scope cries unchanged, no text in the fix).
 `check.py` fast: registry, fixes-md, asm-synth pass; remaining ruff / test failures exist on develop (fixes.py E501, test_script_insert F841,
 test_honey_gather needs armips on PATH). `expected.toml` is not updated (record at merge).
 
