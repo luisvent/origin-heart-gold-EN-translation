@@ -100,6 +100,7 @@ class Collector(Thumb):
         raise AssertionError("collector did not return")
 
 
+@unittest.skipUnless(ROM.exists() and ROM.stat().st_size > 100_000_000, "needs local Chinese ROM")
 class HoneyGatherTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
