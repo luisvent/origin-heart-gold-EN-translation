@@ -41,6 +41,7 @@ REL_OPS = {22, 23, 24, 25, 26, 28, 29, 225, 94}   # GoTo ObjectGoTo BGGoTo Direc
 # commands with a 4-byte operand that is a plain immediate (money, coins, bank balance, LoadWord)
 IMM4_OPS = {5, 110, 111, 112, 532, 794}
 MOVE_END = 0xFE
+JUMP_OPS = {22, 28}   # GoTo, GoToIf: the only relative operands an inserted block may carry, inside the block
 
 
 class ScriptInsertError(Exception):
@@ -181,16 +182,25 @@ class Layout:
 
 
 def check_block(block: bytes):
-    """The inserted bytes must be whole commands with no relative operand (nothing in them points anywhere)."""
+    """The inserted bytes must be whole commands. A relative operand is allowed only on GoTo / GoToIf and only when it
+    stays inside the block (a target on one of its commands, or exactly at its end, which is the command the block was
+    put in front of): such an offset is the same wherever the block lands, so nothing needs relocating. Calls, movement
+    and jumps out of the block are refused (they would point at something the insertion moves)."""
+    starts, ends = [], []
     pc = 0
     while pc < len(block):
         d = decode_at(block, pc)
         if d is None:
             raise ScriptInsertError(f"inserted bytes at {pc} are not a whole known command")
-        kind = operand_kind(d[0], d[1])
-        if kind == "rel":
-            raise ScriptInsertError("inserted bytes must not contain jumps or movement (relative operands)")
+        starts.append(pc)
+        ends.append((pc, d))
         pc = d[2]
+    starts = set(starts) | {len(block)}
+    for pc, d in ends:
+        if operand_kind(d[0], d[1]) == "rel":
+            if d[0] not in JUMP_OPS or d[2] + d[1][-1] not in starts:
+                raise ScriptInsertError("inserted bytes must not contain jumps out of the block, calls or movement "
+                                        "(relative operands)")
 
 
 def insert(data: bytes, inserts) -> bytes:

@@ -29,6 +29,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`blank-player-name`](#blank-player-name) | narc | **no** | – | Fill the player-name buffer a script's message actually reads |
 | [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
+| [`giovanni-hotspring-loss`](#giovanni-hotspring-loss) | narc | yes | – | White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
@@ -921,6 +922,48 @@ unchanged. No global counter remap or backward save restoration.
 **Touches:**
 
 - `a/0/1/2` #962 +0x88 `completed-leader-condition`: `0x3601` → `0x3604` (member SHA-1 `33cb77c9032d`): Condition byte136: equality1 -> unsigned >=4; following displacement byte137=36 is pinned and unchanged.
+
+## giovanni-hotspring-loss
+
+**White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2346, D-2347
+- Source: `work/patches/giovanni-hotspring-loss/fix.toml`
+
+**Why (the Chinese hack):**
+
+Mt. Silver hot-spring map (zone 65, script file a/0/1/2 member 844, script 3: Lance and Lorelei, then Giovanni,
+trigger step at 23,139 with var 0x40A2 = 8). After the line "You wish to know? Then ask with your strength!" the
+script runs TrainerBattle 701,701,0,0 (a double battle, no loss allowed), CheckBattleWon, CompareVarToValue 0 and
+GoToIf equal -> L1890. L1890 is the hot spring's "The warm spring water washes over you" block (heal, "After the hot
+spring, <player> rested on Mt. Silver for a while longer", warp to map 384, var 0x4110 = 5). The member has no
+WhiteOut at all. On a loss the engine does not restore the field, so the first message of L1890 never opens: the
+game ends on a black or garbage screen (CPU on a bad address) on the Chinese ROM and on rc7, as the Rock Tunnel
+corner child (D-2300) and the Pokemon Tower Magcargo did. Setting the "allow loss" option bytes of the battle
+(1,0 or 1,1) does not help: the same blank screen follows.
+
+**What (old → new):**
+
+One [[script_insert]]: in front of the GoToIf at offset 819 (the loss branch) put GoToIf not-equal (win) over a
+new WhiteOut / ReleaseAll / End. A win jumps over them to the original GoToIf, which does not jump either, so the
+win path is byte-for-byte the old one. A loss (or draw: CheckBattleWon returns 0 for both) falls into the native
+whiteout: heal, Pokemon Center, field restored, and the scene can be tried again. Nothing is removed. The hot-spring
+healing block at L1890 stays, still used by the hot spring's own stage 4 (var 0x4110 = 4). The member grows by 13
+bytes. Not a restoration of the author's heal-and-continue idea: no setting of the battle's option bytes lets that
+branch run, and whiteout is what every other loss branch in the hack does (D-2300, D-2306 and this fix).
+
+**Evidence:**
+
+- work/notes/giovanni-hotspring-loss_fix.md
+- work/notes/giovanni-hotspring-and-route3_investigation.md
+- work/tools/test_giovanni_hotspring_loss.py
+
+**Touches:**
+
+- `a/0/1/2` #844 +0x333 `giovanni-loss-whiteout`: insert `1C 00 05 06 00 00 00 DB 00 61 00 02 00` before `1C 00 01 28 04 00 00` (member SHA-1 `09942d22e903`): GoToIf = (loss) at 819 -> L1890. Inserted before it: GoToIf != +6 (win skips), WhiteOut, ReleaseAll, End. Compare result (var 0x800C) is still the active comparison at the skipped-to GoToIf.
 
 ## hooh-panel-silver-marker
 
