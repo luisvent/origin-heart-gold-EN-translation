@@ -108,7 +108,7 @@ No. In the original hack these newer moves have no sound effect: Electro Ball, S
 
 ### Can I turn off the shared EXP, or set a level cap?
 
-Not in this translation. Your whole party shares EXP and EVs automatically and there is no setting for it ([details](../mechanics/#automatic-exp-and-ev-sharing)). There are no level caps.
+Yes, from rc7. The original hack has neither: your whole party shares EXP and EVs automatically ([details](../mechanics/#automatic-exp-and-ev-sharing)). The English patch adds two optional settings on the second Options page: **SHARE** (turn it OFF so benched Pokémon get no EXP or EVs) and **CAP** (a level cap). They start at SHARE ON and CAP OFF, the original behaviour. The cap follows your Gym progress; see [Difficulty settings](../difficulty/) for how to turn them on and when the cap goes up.
 
 ## Training your Pokémon
 

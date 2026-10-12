@@ -51,6 +51,7 @@ export default defineConfig({
             { label: "Save editor", link: "/save-editor/" },
             { label: "How to use this guide", slug: "about" },
             { label: "Mechanics and controls", slug: "mechanics" },
+            { label: "Difficulty settings", slug: "difficulty" },
             { label: "Camera and widescreen codes", slug: "camera-codes" },
           ],
         },
