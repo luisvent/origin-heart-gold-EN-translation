@@ -33,7 +33,7 @@ uint32_t dg_items_test_native_accept(void *u){assert((uintptr_t)u==UI);accepts++
 static void seed(unsigned item){dg_items_test_write16(ARGS+0x18,item);dg_items_test_write8(ARGS+0x1a,2);writes=0;attrs=counts=accepts=0;}
 static void reset(void){memset(ram,0,sizeof ram);set32(0x02255bac,ROOT);set32(ROOT+0x10,SETUP);set32(SETUP,1);set32(SETUP+0x108,BAG);set32(SETUP+0xf8,TRAINER_INFO);set32(UI,ARGS);set32(ARGS,TRAINER_INFO);set32(ARGS+4,BAG);set32(ARGS+8,5);set32(CTRL+0x5c8,ARGS);set32(CTRL+0x584,0x02019000);set32(CTRL+0x588,0x0201a000);ram[CTRL-BASE+0x599]=1;memset(ram+0x1a000,0xa5,24);snap=(DG_GrowthSnapshot){0,42,1,ROOT,1};present=1;count_result=7;accept_result=9;seed(17);}
 static unsigned expanded(unsigned i){switch(i){case 18:case 19:case 20:case 21:case 22:case 27:case 42:case 54:return 8;case 23:return 12;case 24:case 25:case 28:case 29:case 34:case 35:case 37:return 4;case 38:case 39:case 40:case 41:return 16;default:return 0;}}
-static unsigned expected(unsigned i,unsigned flags){if(!i||i>790)return 0;return flags&4?masks[i]|expanded(i):((i>=149&&i<=212)||(i>=65&&i<=67)?masks[i]:0);}
+static unsigned expected(unsigned i,unsigned flags){if(!i||i>790)return 0;return flags&4?masks[i]|expanded(i):masks[i];}
 static void only_cancel(void){for(unsigned i=0;i<sizeof ram;i++)if(i!=ARGS-BASE+0x18&&i!=ARGS-BASE+0x19&&i!=ARGS-BASE+0x1a)assert(before[i]==ram[i]);assert(dg_items_test_read16(ARGS+0x18)==0&&dg_items_test_read8(ARGS+0x1a)==4);}
 
 #define MON1 0x02020000u
@@ -136,7 +136,7 @@ int main(void){
   assert(dg_items_test_read32(p[1]+0x168)==0);
   for(unsigned flags=0;flags<8;flags++) {
    snap.flags=flags;
-   assert(dg_bag_item_attr(17,13,5,(void*)(uintptr_t)p[4])==((flags&4)?4u:0u));
+   assert(dg_bag_item_attr(17,13,5,(void*)(uintptr_t)p[4])==4u);
    assert(dg_bag_item_attr(18,13,5,(void*)(uintptr_t)p[4])==((flags&4)?8u:0u));
   }
  }
@@ -167,13 +167,13 @@ int main(void){
   seed(item);assert(dg_bag_commit_target((void*)CTRL,(void*)TARGET)==(allow?0:6));
  }
  reset();count_result=0;assert(dg_bag_remembered((void*)BAG,149,1,5,(void*)UI)==0&&attrs==0&&counts==1);
- reset();memcpy(before,ram,sizeof ram);assert(dg_bag_accept((void*)UI)==13);only_cancel();
- reset();memcpy(before,ram,sizeof ram);assert(dg_bag_commit_item((void*)ARGS)==0);only_cancel();
- reset();memcpy(before,ram,sizeof ram);assert(dg_bag_commit_target((void*)CTRL,(void*)TARGET)==6);only_cancel();
+ reset();seed(18);memcpy(before,ram,sizeof ram);assert(dg_bag_accept((void*)UI)==13);only_cancel();
+ reset();seed(18);memcpy(before,ram,sizeof ram);assert(dg_bag_commit_item((void*)ARGS)==0);only_cancel();
+ reset();seed(18);memcpy(before,ram,sizeof ram);assert(dg_bag_commit_target((void*)CTRL,(void*)TARGET)==6);only_cancel();
  reset();ram[TARGET-BASE+0xd]=6;assert(dg_bag_commit_target((void*)CTRL,(void*)TARGET)==6&&writes==0&&attrs==0);
  reset();ram[CTRL-BASE+2]=1;assert(dg_bag_commit_target((void*)CTRL,(void*)TARGET)==0&&writes==0&&attrs==0);
  for(unsigned i=0;i<2;i++){reset();seed(i?65535:0);assert(dg_bag_accept((void*)UI)==13&&attrs==0&&accepts==0);seed(i?65535:0);assert(dg_bag_remembered((void*)BAG,i?65535:0,1,5,(void*)UI)==0&&attrs==0&&counts==0);}
  /* Category capacity from actual CN metadata, independent bit->category map. */
- for(unsigned mode=0;mode<3;mode++){unsigned totals[5]={0};unsigned map[5]={2,3,0,1,0};for(unsigned i=1;i<=790;i++){unsigned m=mode==0?masks[i]:expected(i,mode==1?4:0);assert((m&20)!=20);for(unsigned b=0;b<5;b++)if(m&(1u<<b))totals[map[b]]++;}const unsigned want[3][5]={{11,10,25,10,0},{23,19,25,10,0},{3,10,0,0,0}};assert(!memcmp(totals,want[mode],sizeof totals));}
+ for(unsigned mode=0;mode<3;mode++){unsigned totals[5]={0};unsigned map[5]={2,3,0,1,0};for(unsigned i=1;i<=790;i++){unsigned m=mode==0?masks[i]:expected(i,mode==1?4:0);assert((m&20)!=20);for(unsigned b=0;b<5;b++)if(m&(1u<<b))totals[map[b]]++;}const unsigned want[3][5]={{11,10,25,10,0},{23,19,25,10,0},{11,10,25,10,0}};assert(!memcmp(totals,want[mode],sizeof totals));}
  puts("PASS shipping C: 524288 list cases, all item/flag gates, native delegation, context fallbacks, cancel-only writes, sentinels, inventory, CN category capacities; 524288 revival attribute gates, local/foreign identities, read-only lifecycle checks");
 }

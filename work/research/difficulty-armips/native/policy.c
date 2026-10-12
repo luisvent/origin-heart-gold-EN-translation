@@ -35,9 +35,7 @@ uint32_t dg_item_battle_mask(uint32_t item_id, uint32_t original_mask,
     if (items_all != 0u) {
         return all_mask;
     }
-    if ((item_id >= 149u && item_id <= 212u) ||
-        (item_id >= 65u && item_id <= 67u)) {
-        return original_mask;
-    }
-    return 0u;
+    /* DEFAULT preserves the untouched Chinese hack's item metadata. */
+    (void)item_id;
+    return original_mask;
 }

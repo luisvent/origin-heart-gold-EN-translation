@@ -45,9 +45,9 @@ uint32_t dg_exp_eligible(uint32_t native_eligible, uint32_t participated,
  * the player's Bag action in a trainer battle. Outside that context return
  * original_mask exactly, including wild/field uses, held items and opponent AI.
  *
- * Within that context, restricted mode retains original_mask only for berry
- * IDs 149..212 and battle flute IDs 65..67, inclusive; every other ID returns
- * zero. This allowlist never grants a use absent from original_mask.
+ * Within that context, DEFAULT returns original_mask exactly, preserving the
+ * untouched Chinese hack's permissions for every item. Invalid IDs remain
+ * the caller's responsibility.
  *
  * ALL mode returns all_mask exactly. The caller must derive and validate it
  * from the actual expanded ordinary battle-use metadata for this item; it is

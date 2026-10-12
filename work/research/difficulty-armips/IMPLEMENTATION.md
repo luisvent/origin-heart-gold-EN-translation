@@ -32,11 +32,11 @@ production build does not install this feature.
 Hold **L while opening Options from the field menu** to select DIFFICULTY.
 Normal entry retains all seven ordinary Options, including TEXT SPEED. Use
 D-pad/touch to choose ITEMS, SHARE and CAP; select APPLY or CANCEL, or press B
-to cancel. Defaults are **Berries/flutes, Share ON, Cap OFF**. Apply changes RAM;
+to cancel. Defaults are **DEFAULT (Chinese item permissions), Share ON, Cap OFF**. Apply changes RAM;
 **save normally to persist**. Cancel discards the draft; no automatic save occurs.
 
-- **Items:** `Berries/flutes` restricts the player's trainer-battle Bag to eligible
-  berries/battle flutes; `All` enables the expanded ordinary item set. Native
+- **ITEMS IN BATTLE (D-2412):** `DEFAULT` preserves the untouched Chinese hack's
+  item permissions; `ALL` enables the existing expanded ordinary item set. Native
   validity, targeting and special-mode exclusions remain. Held items, NPC use,
   wild battles and field use retain native behavior.
 - **Share OFF:** blocks benched Pokémon from shared EXP **and EVs**, except a

@@ -2,8 +2,8 @@
   "format": 1,
   "source_overrides": {
     "work/research/difficulty-armips/native/options.c": {
-      "sha256": "89223e6106fa4805246cdaa2b2553295ce15c79491fadbda116dd0b9201fea1d",
-      "reason": "RC7 public-prep visual review found blank native footer labels on direct held-L entry. Load original overlay50 message8/7 into the original footer windows with original placement/color; no ordinary preview or gameplay/settings change.",
+      "sha256": "1f732fe8931c4af87890cb1976f5884843751cc40f22ebf9cafb5d3020d95182",
+      "reason": "User request 2026-10-12: DEFAULT preserves untouched Chinese item permissions; ALL expansion unchanged. Menu uses ITEMS IN BATTLE and choice-specific help.",
       "history": [
         {
           "sha256": "3230099f6103b132ed6bc2893f0e6c5d65a9c44fa6bcfbb92bb60c3707e45c1c",
@@ -32,6 +32,10 @@
         {
           "sha256": "4ab1d59789c4354d1ea24434055e60e03e407990081a91c06dcaa037d70d0952",
           "reason": "User-requested native row pages: Difficulty owns native 0x54-byte rows and six choice Strings, uses original overlay50 row renderer and choice update routine. Native footer/cursor retained; focused validation pending."
+        },
+        {
+          "sha256": "89223e6106fa4805246cdaa2b2553295ce15c79491fadbda116dd0b9201fea1d",
+          "reason": "RC7 public-prep visual review found blank native footer labels on direct held-L entry. Load original overlay50 message8/7 into the original footer windows with original placement/color; no ordinary preview or gameplay/settings change."
         }
       ]
     },
@@ -80,6 +84,16 @@
     "work/research/difficulty-armips/native/growth.h": {
       "sha256": "d528efded0db9299a142a571e792d2645b90f7da80434c8c7f9341c863a46f5b",
       "reason": "Exp. Share fix (D-2403, amends D-2301): with SHARE OFF a local recipient holding an Exp. Share (item 216) keeps the native bench share; dg_growth_share_enabled takes the recipient BattleMon (r4 via the DG_Share stub)."
+    },
+    "work/research/difficulty-armips/native/policy.c": {
+      "sha256": "dda8e6e0d08a4fb52c596f1dca97d6bfc2234bb2e8e4f60d3e5fa42940ab0762",
+      "reason": "User request 2026-10-12: DEFAULT preserves untouched Chinese item permissions; ALL expansion unchanged. Menu uses ITEMS IN BATTLE and choice-specific help.",
+      "history": []
+    },
+    "work/research/difficulty-armips/native/policy.h": {
+      "sha256": "ad859d842772dbe6961180aaadd999ac5e628992d0137557c7888ba4b5179015",
+      "reason": "User request 2026-10-12: DEFAULT preserves untouched Chinese item permissions; ALL expansion unchanged. Menu uses ITEMS IN BATTLE and choice-specific help.",
+      "history": []
     }
   },
   "interactive_contract": {

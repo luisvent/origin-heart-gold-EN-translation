@@ -138,7 +138,7 @@ static void release_page_rows(void) {
     }
 }
 static void load_page_rows(void *d) {
-    static const char *const choices[6]={"LIMITED","ALL","ON","OFF","OFF","ON"};
+    static const char *const choices[6]={"DEFAULT","ALL","ON","OFF","OFF","ON"};
     static const uint8_t bits[3]={DG_ITEMS_ALL,DG_SHARE_OFF,DG_CAP_ON};
     for (unsigned i=0;i<6;++i) page.choices[i]=0;
     for (unsigned i=0;i<6;++i) {
@@ -221,7 +221,12 @@ static void refresh_focus(void *d) {
     fill(d,0x54,0xff);
     const char *first="Apply changes. Save to keep them.";
     const char *second="Cancel discards changes.";
-    if (page.focus==0) { first="LIMITED: only berries and flutes."; second="Player Bag only. Held items unchanged."; }
+    if (page.focus==0) {
+        first=(page.txn.draft_flags & DG_ITEMS_ALL)?
+            "ALL: enables healing/status/PP items.":
+            "DEFAULT: original Chinese hack rules.";
+        second="Trainer Bag only. Held items unchanged.";
+    }
     if (page.focus==1) { first="OFF blocks benched EXP and EVs."; second="Level caps still apply."; }
     if (page.focus==2) { first="Gym-based cap. Never decreases."; second="Candy and Day Care unchanged."; }
     if (page.fault) { first="Settings changed. Cancel and reopen."; second="No difficulty changes applied."; }
@@ -244,7 +249,7 @@ void dg_menu_draw(void *d) {
     }
     fill(d,0x34,0); fill(d,0x44,0x22); fill(d,0x54,0xff);
     text(d,0x34,2,5,"DIFFICULTY",0x000f0200u);
-    static const char *const names[3]={"ITEMS","SHARE","CAP"};
+    static const char *const names[3]={"ITEMS IN BATTLE","SHARE","CAP"};
     for (unsigned r=0;r<3;++r) {
         text(d,0x44,4,5+20*r,names[r],NORMAL);
         native_row(d,r);

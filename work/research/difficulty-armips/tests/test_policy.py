@@ -94,9 +94,8 @@ class CompiledPolicyTests(unittest.TestCase):
 
     def test_item_permissions_all_ids_and_context_differentials(self):
         for item in range(65536):
-            allowed = 65 <= item <= 67 or 149 <= item <= 212
             for context, all_items in itertools.product((0, 1), repeat=2):
-                expected = 0xA5 if not context else (0x5A if all_items else (0xA5 if allowed else 0))
+                expected = 0x5A if context and all_items else 0xA5
                 self.assertEqual(self.lib.dg_item_battle_mask(item, 0xA5, 0x5A, context, all_items),
                                  expected, (item, context, all_items))
 
