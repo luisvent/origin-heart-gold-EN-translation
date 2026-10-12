@@ -136,6 +136,10 @@ UNCOVERED = {
                                "that the decode is the original plus the inserted commands with every relative "
                                "operand on the same target; sampled scenes were run in an emulator on the Chinese "
                                "ROM and the patched ROM (see work/notes/blank-player-name-batch_fix.md).",
+    "blank-player-name-class-c": "No scenario in this unified runner (disabled fix). test_blank_player_name_class_c.py "
+                                 "checks the five inserts on the Chinese ROM's members; every site was run in an "
+                                 "emulator on the Chinese ROM, the patched ROM, rc7 and rc7 plus the fix (see "
+                                 "work/notes/blank-player-name-class-c_fix.md).",
     "romance-mail-mismatch": "No scenario in this unified runner (disabled fix). test_romance_mail_mismatch.py "
                              "pins the three byte edits against the Chinese ROM's scripts; see "
                              "work/notes/romance_mail_mismatch_fix.md.",

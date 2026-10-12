@@ -1,0 +1,75 @@
+id = "blank-player-name-class-c"
+title = "Fill the player-name buffer before 5 more messages that read it (loan Pidgeot, Oak's Pikachu, Hitmonlee/Hitmonchan)"
+kind = "narc"
+enabled = false
+decisions = ["D-2345", "D-2352", "D-2353", "D-2354"]
+requires = []
+why = """
+A message tag {VAR:0103:n} prints message-buffer n, and every script run starts with empty buffers, so a script
+has to put the player's name into buffer n (BufferPlayersName n) before the message. blank-player-name-batch left
+15 sites alone ("class C") because a native command it could not decode lies on the path before the message and
+might fill the buffer. Decoding those commands in the Chinese arm9 and running each path in the emulator on the
+Chinese ROM shows that, for 5 sites, none of them does: GiveLoanMon (Route 36 gardener's Pidgeot) leaves buffer 0
+empty ("... got Pidgeot back!"), and ScrCmd_452 (the Pokemon picture window in Prof. Oak's Pikachu offer and in the
+Hitmonlee/Hitmonchan offers) fills no message buffer either, so the line reads blank on the Chinese ROM and on our
+build alike (work/notes/blank-player-name-class-c_fix.md).
+"""
+what = """
+Each [[script_insert]] puts the 3-byte command BufferPlayersName 0 (BE 00 00) in front of the message that reads
+buffer 0 (scriptinsert.py relocates every offset the member stores and keeps the movement blocks aligned, see
+blank-player-name-batch). Status: disabled, like the two earlier blank-player-name fixes.
+"""
+evidence = [
+  "work/notes/blank-player-name-class-c_fix.md",
+  "work/tools/test_blank_player_name_class_c.py",
+]
+
+[[script_insert]]
+id = "m115-5832"
+narc = "a/0/1/2"
+member = 115
+offset = "0x16c8"
+expect = "2D 00 9F"
+insert = "BE 00 00"
+member_sha1 = ["69ab5e0940015f50d06a9c0a26aebcefe3c7c377"]
+notes = "NPCMsg 159 (a027/0130) reads {VAR:0103:0}; script 11 (the Route 36 gardener, loan Pidgeot returned) never fills buffer 0: GiveLoanMon fills no message buffer (emulator: blank on the Chinese ROM)."
+
+[[script_insert]]
+id = "m738-2030"
+narc = "a/0/1/2"
+member = 738
+offset = "0x7ee"
+expect = "2D 00 2C"
+insert = "BE 00 00"
+member_sha1 = ["6c37a6302a013b6e0a566e8888da4d1236ba8258"]
+notes = "NPCMsg 44 (a027/0444) reads {VAR:0103:0}; script 9 (Prof. Oak, Pikachu offer) never fills buffer 0: ScrCmd_452 fills no message buffer (emulator: blank on the Chinese ROM)."
+
+[[script_insert]]
+id = "m738-2088"
+narc = "a/0/1/2"
+member = 738
+offset = "0x828"
+expect = "2D 00 2C"
+insert = "BE 00 00"
+member_sha1 = ["6c37a6302a013b6e0a566e8888da4d1236ba8258"]
+notes = "NPCMsg 44 (a027/0444) reads {VAR:0103:0}; same offer as m738-2030, other branch."
+
+[[script_insert]]
+id = "m829-2407"
+narc = "a/0/1/2"
+member = 829
+offset = "0x967"
+expect = "2D 00 51"
+insert = "BE 00 00"
+member_sha1 = ["c19ec3061f93f2216d2ef94f75338065e020303e"]
+notes = "NPCMsg 81 (a027/0525) reads {VAR:0103:0}; script 11 (Hitmonlee offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM)."
+
+[[script_insert]]
+id = "m829-2543"
+narc = "a/0/1/2"
+member = 829
+offset = "0x9ef"
+expect = "2D 00 56"
+insert = "BE 00 00"
+member_sha1 = ["c19ec3061f93f2216d2ef94f75338065e020303e"]
+notes = "NPCMsg 86 (a027/0525) reads {VAR:0103:0}; script 12 (Hitmonchan offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM)."

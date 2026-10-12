@@ -28,6 +28,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`gfx-yes-no-buttons`](#gfx-yes-no-buttons) | graphics | yes | – | Touch-screen YES/NO buttons |
 | [`blank-player-name`](#blank-player-name) | narc | **no** | – | Fill the player-name buffer a script's message actually reads |
 | [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
+| [`blank-player-name-class-c`](#blank-player-name-class-c) | narc | **no** | – | Fill the player-name buffer before 5 more messages that read it (loan Pidgeot, Oak's Pikachu, Hitmonlee/Hitmonchan) |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
 | [`giovanni-hotspring-loss`](#giovanni-hotspring-loss) | narc | yes | – | White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
@@ -888,6 +889,46 @@ native command that may fill the buffer is on the path): see work/notes/blank-pl
 - `a/0/1/2` #964 +0x45b `m964-1115`: insert `BE 00 00` before `2D 00 26` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 38 (a027/0338) reads {VAR:0103:0}; script 4 never fills buffer 0 before it.
 - `a/0/1/2` #964 +0x9c6 `m964-2502`: insert `BE 00 00` before `2D 00 16` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
 
+## blank-player-name-class-c
+
+**Fill the player-name buffer before 5 more messages that read it (loan Pidgeot, Oak's Pikachu, Hitmonlee/Hitmonchan)**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2345, D-2352, D-2353, D-2354
+- Source: `work/patches/blank-player-name-class-c/fix.toml`
+
+**Why (the Chinese hack):**
+
+A message tag {VAR:0103:n} prints message-buffer n, and every script run starts with empty buffers, so a script
+has to put the player's name into buffer n (BufferPlayersName n) before the message. blank-player-name-batch left
+15 sites alone ("class C") because a native command it could not decode lies on the path before the message and
+might fill the buffer. Decoding those commands in the Chinese arm9 and running each path in the emulator on the
+Chinese ROM shows that, for 5 sites, none of them does: GiveLoanMon (Route 36 gardener's Pidgeot) leaves buffer 0
+empty ("... got Pidgeot back!"), and ScrCmd_452 (the Pokemon picture window in Prof. Oak's Pikachu offer and in the
+Hitmonlee/Hitmonchan offers) fills no message buffer either, so the line reads blank on the Chinese ROM and on our
+build alike (work/notes/blank-player-name-class-c_fix.md).
+
+**What (old → new):**
+
+Each [[script_insert]] puts the 3-byte command BufferPlayersName 0 (BE 00 00) in front of the message that reads
+buffer 0 (scriptinsert.py relocates every offset the member stores and keeps the movement blocks aligned, see
+blank-player-name-batch). Status: disabled, like the two earlier blank-player-name fixes.
+
+**Evidence:**
+
+- work/notes/blank-player-name-class-c_fix.md
+- work/tools/test_blank_player_name_class_c.py
+
+**Touches:**
+
+- `a/0/1/2` #115 +0x16c8 `m115-5832`: insert `BE 00 00` before `2D 00 9F` (member SHA-1 `69ab5e094001`): NPCMsg 159 (a027/0130) reads {VAR:0103:0}; script 11 (the Route 36 gardener, loan Pidgeot returned) never fills buffer 0: GiveLoanMon fills no message buffer (emulator: blank on the Chinese ROM).
+- `a/0/1/2` #738 +0x7ee `m738-2030`: insert `BE 00 00` before `2D 00 2C` (member SHA-1 `6c37a6302a01`): NPCMsg 44 (a027/0444) reads {VAR:0103:0}; script 9 (Prof. Oak, Pikachu offer) never fills buffer 0: ScrCmd_452 fills no message buffer (emulator: blank on the Chinese ROM).
+- `a/0/1/2` #738 +0x828 `m738-2088`: insert `BE 00 00` before `2D 00 2C` (member SHA-1 `6c37a6302a01`): NPCMsg 44 (a027/0444) reads {VAR:0103:0}; same offer as m738-2030, other branch.
+- `a/0/1/2` #829 +0x967 `m829-2407`: insert `BE 00 00` before `2D 00 51` (member SHA-1 `c19ec3061f93`): NPCMsg 81 (a027/0525) reads {VAR:0103:0}; script 11 (Hitmonlee offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM).
+- `a/0/1/2` #829 +0x9ef `m829-2543`: insert `BE 00 00` before `2D 00 56` (member SHA-1 `c19ec3061f93`): NPCMsg 86 (a027/0525) reads {VAR:0103:0}; script 12 (Hitmonchan offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM).
+
 ## expedition-completed-progress
 
 **Preserve beasts eligibility when revisiting the completed expedition leader**
@@ -933,7 +974,7 @@ unchanged. No global counter remap or backward save restoration.
 - Kind: narc
 - Enabled: yes
 - Requires: nothing
-- Decisions: D-2348, D-2349
+- Decisions: D-2354, D-2349
 - Source: `work/patches/giovanni-hotspring-loss/fix.toml`
 
 **Why (the Chinese hack):**
