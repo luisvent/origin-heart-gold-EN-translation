@@ -1,0 +1,57 @@
+id = "romance-mail-mismatch"
+title = "Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line"
+kind = "narc"
+enabled = true
+decisions = ["D-2332", "D-2333"]
+requires = []
+why = """
+Pallet Town house, player's Cynthia partner (flag 2144). Her mail branches check for
+Snow Mail (item 144) but the TakeItem that follows removes a different mail: the 2F PC
+love letter (script file 843, offset 2438) takes Heart Mail (143), and the 1F "Rest in
+my room" path (file 842, offset 8417) takes Bubble Mail (139). Because the player holds
+Snow Mail, nothing is consumed, or the wrong mail (Heart Mail, Yellow's) is lost.
+Separately, in the 1F Cynthia branch that has the rest option, choosing "I'm busy"
+(file 842, offset 7161) shows Misty's line (msg 212) instead of Cynthia's (msg 218),
+which every other Cynthia fall-through (offsets 7228 and 8389) uses.
+"""
+what = """
+Three byte edits in a/0/1/2: file 842 offset 7163 NPCMsg argument 212 -> 218; file 842
+offset 8419 and file 843 offset 2440 TakeItem item 139/143 -> 144 (the item the same
+branch just verified with HasItem). Nothing else changes. The Misty love-letter branch
+in file 843 (check 137, take 139) is deliberately left alone: which item was intended is
+a judgment (D-2333, open question).
+"""
+evidence = [
+  "work/notes/romance_mail_mismatch_fix.md",
+  "work/tools/test_romance_mail_mismatch.py",
+]
+
+[[narc_bytes]]
+id = "cynthia-busy-line"
+narc = "a/0/1/2"
+member = 842
+offset = "0x1BFA"
+expect = "0xD400"
+new = "0xDA00"
+member_sha1 = "c811958246ecc311c12b378318a569152f61e509"
+notes = "NPCMsg at 7161: argument byte at 7163, 212 (Misty) -> 218 (Cynthia); halfword spans 7162-7163."
+
+[[narc_bytes]]
+id = "cynthia-rest-takeitem"
+narc = "a/0/1/2"
+member = 842
+offset = "0x20E2"
+expect = "0x8B00"
+new = "0x9000"
+member_sha1 = "c811958246ecc311c12b378318a569152f61e509"
+notes = "TakeItem at 8417: item Bubble Mail 139 -> Snow Mail 144 (HasItem 144 at 7063). Item halfword at 8419-8420 is odd-aligned, so the entry covers 8418-8419 as [00 8B] -> [00 90]."
+
+[[narc_bytes]]
+id = "cynthia-letter-takeitem"
+narc = "a/0/1/2"
+member = 843
+offset = "0x988"
+expect = "0x008F"
+new = "0x0090"
+member_sha1 = "65483f87ab1c4dc5ead06d6c501f4345142ea255"
+notes = "TakeItem at 2438: item Heart Mail 143 -> Snow Mail 144 (HasItem 144 at 1318)."
