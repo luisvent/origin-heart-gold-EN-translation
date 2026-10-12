@@ -1,6 +1,6 @@
 # Blackthorn Move Tutor teaches Flail instead of Play Rough (fix `tutor-blackthorn-play-rough`)
 
-**Status: disabled** (`enabled = false`). Reviewed (approved); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only tutor-blackthorn-play-rough`. A tester xdelta (rc7 plus this fix) is available on request.
+**Status: disabled** (`enabled = false`). Reviewed (approved with notes); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only tutor-blackthorn-play-rough`. A tester xdelta (rc7 plus this fix) is available on request.
 
 Findings D-1305 (hack bug), D-2356 (this fix). Source of truth: the untouched Chinese ROM (`work/rom/origin_v4.0.3_cn.nds`).
 Investigation: `work/notes/tutor-wrong-moves_investigation.md`.

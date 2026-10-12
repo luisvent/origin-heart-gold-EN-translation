@@ -22,7 +22,7 @@ empty second slot's index as a pointer (DeSmuME: broken ally, blank screen; melo
 
 Status: disabled. A scripted Double Battle that starts with fewer than two Pokémon in the party becomes a Single
 Battle instead of freezing (Department Store 6F and about 130 other sites). Reviewed by a separate reviewer
-(approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard
+(approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard
 build keeps the Chinese behaviour and builds this only on request (build.py --only double-battle-single-fallback). A
 tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/double-battle-single-fallback_fix.md.
 """

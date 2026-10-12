@@ -13,7 +13,7 @@ notice (a read from address 0 returns 0 there), which is why the earlier emulato
 A player report (Manic Emulator, iOS) matches. The untouched Chinese ROM does the same, so this is a hack bug.
 
 Status: disabled. Answering Yes to the Pallet Town photographer while no Pokémon in the party can fight no longer
-freezes the game: he gives his usual decline reply instead. Reviewed by a separate reviewer (approved). Merged into
+freezes the game: he gives his usual decline reply instead. Reviewed by a separate reviewer (approved with notes). Merged into
 develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
 behaviour and builds this only on request (build.py --only photographer-no-healthy-mon). A tester xdelta (rc7 plus
 this fix) is available on request. Notes: work/notes/photographer-no-healthy-mon_fix.md.

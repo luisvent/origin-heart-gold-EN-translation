@@ -15,7 +15,7 @@ Hitmonlee/Hitmonchan offers) fills no message buffer either, so the line reads b
 build alike (work/notes/blank-player-name-class-c_fix.md).
 
 Status: disabled. The player's name is no longer blank in five more lines (the Route 36 gardener's "got Pidgeot back"
-line, Prof. Oak's Pikachu offer, the Hitmonlee and Hitmonchan offers). Reviewed by a separate reviewer (approved).
+line, Prof. Oak's Pikachu offer, the Hitmonlee and Hitmonchan offers). Reviewed by a separate reviewer (approved with notes).
 Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps
 the Chinese behaviour and builds this only on request (build.py --only blank-player-name-class-c). A tester xdelta
 (rc7 plus this fix) is available on request. Notes: work/notes/blank-player-name-class-c_fix.md.

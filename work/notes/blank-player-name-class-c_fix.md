@@ -1,6 +1,6 @@
 # blank-player-name-class-c (2026-10-12)
 
-**Status: disabled** (`enabled = false`). Reviewed (approved); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only blank-player-name-class-c`. A tester xdelta (rc7 plus this fix) is available on request.
+**Status: disabled** (`enabled = false`). Reviewed (approved with notes); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only blank-player-name-class-c`. A tester xdelta (rc7 plus this fix) is available on request.
 
 Fix id `blank-player-name-class-c` (`work/patches/blank-player-name-class-c/fix.toml`), follow-up of `blank-player-name-batch` (D-2343..D-2345; this note answers D-2345). Everything was derived from the Chinese ROM
 (`work/rom/origin_v4.0.3_cn.nds`, sha256 4807ab2c...95c8); nothing from the Spanish patch.

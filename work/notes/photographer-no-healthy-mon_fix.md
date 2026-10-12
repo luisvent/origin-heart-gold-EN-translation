@@ -1,6 +1,6 @@
 # photographer-no-healthy-mon fix (2026-10-12)
 
-**Status: disabled** (`enabled = false`). Reviewed (approved); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only photographer-no-healthy-mon`. A tester xdelta (rc7 plus this fix) is available on request.
+**Status: disabled** (`enabled = false`). Reviewed (approved with notes); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only photographer-no-healthy-mon`. A tester xdelta (rc7 plus this fix) is available on request.
 
 Fix id `photographer-no-healthy-mon` (`work/patches/photographer-no-healthy-mon/fix.toml`), decision D-2347. Authority: user 2026-10-12 ("lets create a fix in a worktree",
 D-1337 no longer blocks fixes). Investigation: `photographer-no-healthy-mon_investigation.md`.

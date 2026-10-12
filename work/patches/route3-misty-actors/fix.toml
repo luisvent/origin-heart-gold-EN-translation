@@ -18,7 +18,7 @@ I'm so sorry" talk is held with an empty field. (Seen in the emulator with the s
 var 0x4086 = 0, which is the game's own state between the Viridian Blue scene and the forest scene.)
 
 Status: disabled. Misty and her Gyarados are shown in the Route 3 scene even when the Viridian Forest request was
-skipped, instead of the scene playing with an empty field. Reviewed by a separate reviewer (approved). Merged into
+skipped, instead of the scene playing with an empty field. Reviewed by a separate reviewer (approved with notes). Merged into
 develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
 behaviour and builds this only on request (build.py --only route3-misty-actors). A tester xdelta (rc7 plus this fix)
 is available on request. Notes: work/notes/route3-misty-actors_fix.md.

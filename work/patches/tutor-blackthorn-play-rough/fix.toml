@@ -14,7 +14,7 @@ and the English build (D-1305: 175 written on both the free-slot and the forget-
 names 抓狂 / Flail). The same script already teaches Draco Meteor (434) correctly.
 
 Status: disabled. The Blackthorn Move Tutor teaches Play Rough, the move the hack's own sheet lists, instead of Flail.
-Reviewed by a separate reviewer (approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
 user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
 tutor-blackthorn-play-rough). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/tutor-
 blackthorn-play-rough_fix.md.

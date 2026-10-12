@@ -1,6 +1,6 @@
 # double-battle-single-fallback (2026-10-12)
 
-**Status: disabled** (`enabled = false`). Reviewed (approved); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only double-battle-single-fallback`. A tester xdelta (rc7 plus this fix) is available on request.
+**Status: disabled** (`enabled = false`). Reviewed (approved with notes); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only double-battle-single-fallback`. A tester xdelta (rc7 plus this fix) is available on request.
 
 Fix `work/patches/double-battle-single-fallback/`, decision D-2358,
 related D-1559 (the Department Store finding). Authority: user 2026-10-12, "Lets replace [the Department Store check] and build a
