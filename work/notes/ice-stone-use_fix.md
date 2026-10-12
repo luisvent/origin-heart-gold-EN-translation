@@ -96,7 +96,7 @@ Scale had simply been left without its use bytes, like the other eight. The fix 
 | Item | Obtainable? | Where |
 |---|---|---|
 | Ice Stone (606) | yes | Celadon Department Store 2F shop, 3000 (docs `items.md`, site `items.json`: shop source) |
-| Dragon Scale (235) | yes | Dragon's Den (gift, and bought 2500 from the shrine cleaner, bank 0127 #42-47), Route 12 and Route 35 item balls; wild held item of Horsea (116), Seadra (117), Dratini line (147-149), Dratini line and Chinchou-type species per `a/0/0/2` held-item slots: 116, 117, 147, 148, 149, 230 |
+| Dragon Scale (235) | yes | Dragon's Den (gift, and bought 2500 from the shrine cleaner, bank 0127 #42-47), Route 12 and Route 35 item balls; wild held item of Horsea (116), Seadra (117), Dratini, Dragonair, Dragonite (147-149) and Kingdra (230) per the `a/0/0/2` held-item slots |
 | Cracked Pot, Galarica Cuff, Galarica Wreath, Sweet Apple, Tart Apple, Auspicious Armor, Malicious Armor | **no** | the reviewed list `work/tools/site/items_not_in_game.json` (two independent passes, 2026-10-05, `availability_audit.md`): no gift, shop, item ball, hidden item, prize, Pickup, held item or engine reward. Re-checked today on the Chinese ROM for wild held items (`a/0/0/2`), hidden items and trainer held items: none of the seven appears; D-1493 also records Tart/Sweet Apple as sourceless |
 
 So with the fix only the Ice Stone and the Dragon Scale change anything a player can do; the other seven become usable
