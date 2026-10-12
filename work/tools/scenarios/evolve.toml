@@ -1,8 +1,8 @@
 id = "evolve"
-description = "D-1485 / D-1486: Rare Candy evolutions at a pinned time: Petilil + Black Belt by day, then Sun Stone; Rockruff's form by time"
+description = "D-1486: Rare Candy evolutions at a pinned time: Petilil + Black Belt at night (no evolution); Rockruff's form by time (the daytime Petilil case is petilil.toml, D-2331)"
 refs = ["D-1485", "D-1486"]
 # Generator Pokemon (party slot 6), Rare Candy through Bag -> Medicine -> Use (the game's own level-up and
-# evolution path). Cases may replace these steps (petilil_day adds a Sun Stone through Bag -> Items -> Use).
+# evolution path).
 steps = [
   "gen:${species},${level},${item}",
   "candy:@gen",
@@ -23,29 +23,6 @@ name = "lycanroc_form"
 addr = 0x02074B0E
 read = "u8@r2"
 sig = "f9f72ffa"
-
-[[case]]
-id = "petilil_day"
-description = "Black Belt by day: form-1 Petilil; the Sun Stone then gives Lilligant form 1 (Hisuian)"
-start = { clock = "2026-10-09T12:00:00", pockets = { medicine = [[50, 99]], items = [[80, 5]] } }
-steps = [
-  "gen:548,10,241",
-  "candy:@gen",
-  { observe = "after_candy", party = "@gen", fields = ["species", "form", "item", "level"] },
-  "s:after_candy",
-  "pocket:items",
-  "use:0,@gen",
-  { observe = "after_stone", party = "@gen", fields = ["species", "form", "item", "level"] },
-  "s:after_stone",
-  "summary:@gen",
-  "s:summary",
-]
-expect = [
-  { obs = "after_candy.species", equals = 548 },
-  { obs = "after_candy.form", equals = 1 },
-  { obs = "after_stone.species", equals = 549 },
-  { obs = "after_stone.form", equals = 1 },
-]
 
 [[case]]
 id = "petilil_night"

@@ -52,6 +52,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`namelen`](#namelen) | code | yes | – | Name lengths: US limits (7 characters for trainers, 10 for Pokémon) |
 | [`naming-keyboard`](#naming-keyboard) | code | yes | – | English naming keyboard: ABC page first, pinyin IME off |
 | [`overworld-texture-frame-bounds`](#overworld-texture-frame-bounds) | code | yes | – | Overworld objects: a texture frame the texture does not have no longer crashes (Rocket HQ freeze) |
+| [`petilil-hisuian-lilligant`](#petilil-hisuian-lilligant) | code | yes | – | Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil) |
 | [`pryce-weather-rule`](#pryce-weather-rule) | code | yes | – | Pryce's Glacier Badge rule checks the party's Abilities (no weather-changing Ability), not 28 species |
 | [`safari-no-wild-double`](#safari-no-wild-double) | code | yes | – | Safari Zone: wild encounters are single battles again (no frozen double battle) |
 | [`startup-content-warning`](#startup-content-warning) | code | yes | – | New Game: mature-content warning first, remove QQ promotion |
@@ -5065,6 +5066,105 @@ being bound to texture parameters read from address 0.
 .area 2
     expect16 0xD208             ; bhs ObjTex_SetTexture_NoTexture
     bhs     ObjTex_SetTexture_Return
+.endarea
+
+.close
+```
+
+</details>
+
+## petilil-hisuian-lilligant
+
+**Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil)**
+
+- Kind: code
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2331
+- Source: `work/patches/petilil-hisuian-lilligant/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: a Petilil that levels up holding a Black Belt in the daytime is meant to become Hisuian Lilligant (the
+hack's own record, and the author's sheet: Lilligant form 1, 'holding Black Belt, by day'). It 'evolves' into
+Petilil instead ('Petilil evolved into Petilil', the Black Belt is used up) and stays a form-1 Petilil; only a
+Sun Stone then makes it Hisuian Lilligant. The untouched Chinese ROM does the same (hack finding D-1485,
+observed in the emulator 2026-10-05), so this is a bug of the hack.
+
+Status: D-1337 said hack bugs are reported, not fixed; the user lifted that on 2026-10-12 ('We are way past this
+point since the Chinese rom contains too many bugs.. So lets create a fix in a worktree', D-2331).
+
+Technical: Petilil's evolution record 1 in a/0/3/4 (method 18, parameter 241 = Black Belt) names the target
+1361, the hack's own 'Hisuian Lilligant' form-species id. The evolution scene's setup (0x02074048) turns the ids
+from 1026 up into a base species plus form 1 (SetMonData FORM = 1, then the species goes to the scene). For 1361
+it loads 548 ('movs r5, #0x89; lsls r5, r5, #2'), which is Petilil; Lilligant is 549 (Petilil's Sun Stone record
+names 549).
+
+**What (old → new):**
+
+Old: the case for the id 1361 sets the evolved species to 548 (Petilil) and the form to 1.
+
+New: it sets 549 (Lilligant) and the form 1, i.e. Hisuian Lilligant. The five halfwords at 0x02074148 are
+rebuilt ('lsls r5, r1, #2; adds r5, #0x65' with r1 = 0x70 instead of 'movs r5, #0x89; lsls r5, r5, #2'): the same
+10 bytes, the same SetMonData call and branch. Nothing else changes; the hack's other form ids (Alolan Raichu,
+Alolan Exeggutor, Alolan Marowak, Galarian Weezing) are untouched. The evolution-moves fix's call at 0x02074BD4
+is a different address and still runs for the new species (Hisuian Lilligant is offered its level-0 moves).
+
+**Evidence:**
+
+- D-2331: the user-approved fix; D-1485: the hack finding (Petilil + Black Belt by day becomes a form-1 Petilil; observed on the Chinese ROM)
+- User 2026-10-12: 'We are way past this point since the Chinese rom contains too many bugs.. So lets create a fix in a worktree'
+- work/notes/petilil-hisuian-lilligant_fix.md: the decode of the setup routine, the data, the fix and the emulator runs
+- Runtime: emu_harness.py fixes --case petilil-hisuian-lilligant (scenario petilil-evo: Petilil Lv 10 holding a Black Belt at 12:00 and a Rare Candy, on the build and on one without this fix; work/notes/emu_harness.md 'Fix scenarios')
+
+**Touches:**
+
+- `arm9+0x74148` (RAM 0x02074148) `petilil-black-belt-species`: 10 bytes, was `2589 1C38 2170 AA09 … (5 halfwords)`
+
+**Disassembly snapshot:** [`petilil-hisuian-lilligant.listing`](petilil-hisuian-lilligant/petilil-hisuian-lilligant.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write petilil-hisuian-lilligant`)
+
+**Source** (`work/patches/petilil-hisuian-lilligant/petilil-hisuian-lilligant.asm`, armips; the new bytes):
+
+<details>
+<summary>petilil-hisuian-lilligant.asm</summary>
+
+```asm
+; petilil-hisuian-lilligant - Petilil holding a Black Belt, levelling up by day, evolves into Hisuian Lilligant. D-2331.
+; Why and what: fix.toml next to this file; overview work/patches/FIXES.md; work/notes/petilil-hisuian-lilligant_fix.md.
+; The hack finding this answers: D-1485.
+;
+; The evolution scene's setup (0x02074048; r5 = the target species the evolution record names) decodes the hack's
+; form-species ids (1025 and up, 'Hisuian Lilligant' 1361) into a base species and sets the form byte with
+; SetMonData(mon, FORM, &1). Petilil's Black Belt record names 1361; the decoder returns 548 (Petilil)
+; for it: 'movs r5, #0x89 ; lsls r5, r5, #2' = 548, one too low. Lilligant is 549 (Petilil's own Sun Stone record
+; names 549), so the Pokemon 'evolved' into a form-1 Petilil and only a Sun Stone made it Hisuian Lilligant.
+;
+; 548 -> 549 needs one more instruction than the two the hack used, so the five halfwords are rebuilt without
+; changing the length or the call: r1 (the FORM field number 0x70, which the call needs anyway) is also the
+; base of the species, 0x70 * 4 + 0x65 = 549. Nothing else changes: the call (bl 0x0206DF70 at 0x02074152),
+; its arguments (r0 = mon, r1 = 0x70, r2 = &form) and the branch that follows are the hack's.
+
+.nds
+.thumb
+.include "../include/guards.inc"
+
+.definelabel EvolutionSetup_Hisuian_Lilligant, 0x02074148   ; the case for the id 1361
+
+.open "arm9.bin", 0x02000000
+
+.org EvolutionSetup_Hisuian_Lilligant
+.area 10
+    expect16_at 0x00, 0x2589        ; movs  r5, #0x89
+    expect16_at 0x02, 0x1C38        ; adds  r0, r7, #0
+    expect16_at 0x04, 0x2170        ; movs  r1, #0x70
+    expect16_at 0x06, 0xAA09        ; add   r2, sp, #0x24
+    expect16_at 0x08, 0x00AD        ; lsls  r5, r5, #2
+    ; 0x0A: bl 0x0206DF70 (SetMonData) and the 'b' after it stay
+    add     r0, r7, #0              ; r0 = mon
+    mov     r1, #0x70               ; r1 = FORM field
+    add     r2, sp, #0x24           ; r2 = &form (1, set at 0x020740AE)
+    lsl     r5, r1, #2              ; 0x70 * 4 = 448
+    add     r5, #0x65               ; 448 + 101 = 549: Lilligant (the hack had 548: Petilil)
 .endarea
 
 .close

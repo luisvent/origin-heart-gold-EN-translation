@@ -86,6 +86,7 @@ COVERAGE = {
     "safari-no-wild-double": ("safari",),
     "type-change-message": ("typechange",),
     "trade-evolutions-levelup": ("trade-evo",),
+    "petilil-hisuian-lilligant": ("petilil-evo",),
 }
 # fix id -> why no scenario of this command covers it (honest gaps; see work/notes/emu_harness.md)
 UNCOVERED = {
@@ -213,6 +214,11 @@ TRADE_EVO_CASES = {
     "gurdurr": (533, 39, 534, 533),     # Gurdurr Lv 39 -> 40: Conkeldurr with the fix, Gurdurr without
     "roggenrola": (524, 24, 525, 525),  # Roggenrola Lv 24 -> 25: Boldore on both (the hack's own level-up record)
 }
+# petilil-hisuian-lilligant (fix.toml [[code]], arm9 0x74148): Petilil Lv 10 holding a Black Belt (241) at 12:00, one
+# Rare Candy. Species/form/ability after the evolution with the fix (Hisuian Lilligant: 549, form 1, Hustle 55) and
+# without it (the hack: 548 = Petilil, form 1).
+PETILIL_EVO = {"species": 548, "level": 10, "item": 241, "candy": 50,
+               "fixed": {"species": 549, "form": 1, "ability": 55}, "original": {"species": 548, "form": 1}}
 # antipiracy (antipiracy.listing): the six DS Protect entry points in overlay 114 and their genuine values
 ANTIPIRACY_ENTRIES = {0x02263A64: 0, 0x02263B4C: 1, 0x02263C34: 0, 0x02263D1C: 1, 0x02263E04: 0, 0x02263ECC: 1}
 def _fix_expect_bytes(fix_id, region_id):
@@ -808,6 +814,33 @@ def observe_trade_evo(h):
                        "after": {k: after[k] for k in ("species", "level", "checksum_ok")},
                        "screenshot": str(shot)}
     return {"cases": cases}
+
+
+def observe_petilil_evo(h):
+    """Petilil Lv 10 holding a Black Belt (clock pinned to 12:00, CLOCKS), one move (Tackle: the evolution moves are
+    learned without a question), one Rare Candy from the bag, A through the level-up and the evolution scene; then
+    the Pokemon (species, form, held item, ability, level, checksum)."""
+    import emu_harness as E
+    c = PETILIL_EVO
+    h.generate_pokemon(c["species"], level=c["level"], item=c["item"])
+    slot = h.generated_slot
+    h.edit_party_mon(slot, moves=[TACKLE_MOVE, 0, 0, 0])
+    before = mon_details(h.read(h.array(E.ARR_PARTY) + 8 + 236 * slot, 236))
+    h.bag_put_first(c["candy"], 1, "medicine")
+    h.open_bag()
+    h.bag_pocket("medicine")
+    h.touch(*E.BAG_SLOTS[0], frames=12, after=60)
+    h.touch(*E.BAG_USE, frames=12, after=60)
+    h.touch(*E.PARTY_SLOTS[slot], frames=12, after=120)
+    for _ in range(30):
+        h.press("A", after=90)
+    h.step(300)
+    shot = h.screenshot("petilil_evo")
+    after = mon_details(h.read(h.array(E.ARR_PARTY) + 8 + 236 * slot, 236))
+    for _ in range(3):
+        h.press("B", after=120)
+    keys = ("species", "form", "item", "ability", "level", "checksum_ok")
+    return {"before": {k: before[k] for k in keys}, "after": {k: after[k] for k in keys}, "screenshot": str(shot)}
 
 
 def observe_font(h):
@@ -1652,12 +1685,14 @@ SCENARIOS = {
     "safari": ("route1_path_2mons.sav", SAFARI_GRASS, observe_safari, False),
     "typechange": ("full_bag_6mons.sav", None, observe_typechange, False),
     "trade-evo": ("full_bag_6mons.sav", None, observe_trade_evo, False),
+    "petilil-evo": ("full_bag_6mons.sav", None, observe_petilil_evo, False),
 }
 # scenarios that run with the clock pinned (weekday on the Pokegear, repeatable RNG); the older ones keep the host
 # clock so that their approved crops stay as they were taken
 PINNED_CLOCK = (2026, 10, 9, 12)    # Friday 12:00
 CLOCKS = {sc: PINNED_CLOCK for sc in ("bag", "dex", "card", "pokegear", "save", "summary-status", "battle-status",
                                       "pokeathlon")}
+CLOCKS["petilil-evo"] = PINNED_CLOCK    # outcome depends on the time of day (no crop: see CROP_CHECKS)
 # safari: its outcome depends on the game's RNG; without the pinned clock the Safari case walked 240 steps without an
 # encounter on some host times
 CLOCKS["safari"] = PINNED_CLOCK
@@ -2154,6 +2189,19 @@ def judge_trade_evo(scenario, obs, ref=None):
     return _state(fixed, original, why)
 
 
+def judge_petilil_evo(scenario, obs, ref=None):
+    """The candy was used (level +1, valid checksum, form 1 either way); 'fixed': Hisuian Lilligant (549, form 1, the
+    form's ability Hustle, Black Belt used up); 'original': the hack's Petilil (548, form 1)."""
+    b, a, c = obs["before"], obs["after"], PETILIL_EVO
+    sane = (b["species"] == c["species"] and b["level"] == c["level"] and a["level"] == c["level"] + 1
+            and a["checksum_ok"] and a["form"] == 1)
+    why = {"species": [b["species"], a["species"]], "form": a["form"], "ability": a["ability"], "item": a["item"],
+           "level": [b["level"], a["level"]], "checksum_ok": a["checksum_ok"]}
+    fixed = sane and a["species"] == c["fixed"]["species"] and a["ability"] == c["fixed"]["ability"] and a["item"] == 0
+    original = sane and a["species"] == c["original"]["species"]
+    return _state(fixed, original, why)
+
+
 def run_battle_heal(rom, expect, sav_dir, out):
     """emu_battle_heal.py (Maxie's second wave: healing playback for a Pokemon Roar dragged out) on one ROM:
     --expect original on a control, fixed on the ROM under test."""
@@ -2219,6 +2267,7 @@ def judge_multihit(scenario, obs, ref=None):
 JUDGES[("msgload", "msgload")] = judge_msgload
 JUDGES.update({k: crop_judge(*v) for k, v in CROP_CHECKS.items()})
 JUDGES[("trade-evo", "trade-evolutions-levelup")] = judge_trade_evo
+JUDGES[("petilil-evo", "petilil-hisuian-lilligant")] = judge_petilil_evo
 JUDGES[("multihit-ko", "faint-waits-for-hp-bar")] = judge_multihit
 # checks across the two runs of a fix (fixed ROM, control), after both judged right
 PAIR_CHECKS = {("ivev", "ivev-panel"): pair_ivev, ("pcbox", "pcbox-name-width"): pair_pcbox}

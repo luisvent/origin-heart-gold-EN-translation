@@ -270,8 +270,8 @@ class Judges(unittest.TestCase):
             if fx.startswith("gfx-"):
                 self.assertTrue(all((sc, fx) in F.CROP_CHECKS for sc in scs), fx)
         # the pinned-clock scenarios are crop scenarios (independent of what is approved or still pending), plus
-        # safari encounters and the native Heal Bell fixture, whose setup depends on the RNG
-        self.assertLessEqual(set(F.CLOCKS) - {"safari", "healbell"}, {sc for (sc, fx) in F.CROP_CHECKS})
+        # safari encounters, the native Heal Bell fixture (setup depends on the RNG) and Petilil's daytime evolution
+        self.assertLessEqual(set(F.CLOCKS) - {"safari", "healbell", "petilil-evo"}, {sc for (sc, fx) in F.CROP_CHECKS})
         self.assertEqual(F.CLOCKS["safari"], F.PINNED_CLOCK)
 
     def test_pending_crop_judge(self):
@@ -564,6 +564,24 @@ class Judges(unittest.TestCase):
                 self.assertEqual(fixreg.halfwords(entries[species]["expect"])[0], 5, name)   # trade before
                 self.assertEqual(without_fix, species, name)
         self.assertEqual(set(entries), {s for s, *_ in F.TRADE_EVO_CASES.values()} - {524})
+
+    def test_petilil_evo(self):
+        c = F.PETILIL_EVO
+
+        def obs(state, change=None):
+            after = dict(c[state], form=1, item=0, level=c["level"] + 1, checksum_ok=True)
+            after.setdefault("ability", 34)
+            after.update(change or {})
+            return {"before": {"species": c["species"], "level": c["level"]}, "after": after}
+        self.assertEqual(F.judge_petilil_evo("petilil-evo", obs("fixed"))[0], "fixed")
+        self.assertEqual(F.judge_petilil_evo("petilil-evo", obs("original"))[0], "original")
+        # no level gained (the candy was not used): proves nothing
+        self.assertEqual(F.judge_petilil_evo("petilil-evo", obs("original", {"level": c["level"]}))[0], "unclear")
+        # Lilligant with the wrong ability, or still holding the Black Belt
+        self.assertEqual(F.judge_petilil_evo("petilil-evo", obs("fixed", {"ability": 34}))[0], "unclear")
+        self.assertEqual(F.judge_petilil_evo("petilil-evo", obs("fixed", {"item": 241}))[0], "unclear")
+        self.assertEqual(F.COVERAGE["petilil-hisuian-lilligant"], ("petilil-evo",))
+        self.assertEqual(F.CLOCKS["petilil-evo"], F.PINNED_CLOCK)
 
     def test_battle_heal(self):
         self.assertEqual(F.judge_battle_heal("battle-heal", {"expect": "fixed", "passed": True, "rc": 0})[0], "fixed")

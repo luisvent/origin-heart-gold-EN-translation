@@ -25,7 +25,7 @@ def write(d, text, name="t"):
 class ShippedScenarios(unittest.TestCase):
     def test_every_file_validates(self):
         scns = S.load_all()
-        self.assertEqual({s["id"] for s in scns}, {"unown", "palpark", "arceus", "evolve", "dex"})
+        self.assertEqual({s["id"] for s in scns}, {"unown", "palpark", "arceus", "evolve", "dex", "petilil"})
 
     def test_params_substituted_with_their_type(self):
         arceus = S.load(S.SCENARIO_DIR / "arceus.toml")
@@ -37,12 +37,12 @@ class ShippedScenarios(unittest.TestCase):
 
     def test_case_overrides_merge_over_the_top_level(self):
         evolve = S.load(S.SCENARIO_DIR / "evolve.toml")
-        day = next(c for c in evolve["cases"] if c["id"] == "petilil_day")
         night = next(c for c in evolve["cases"] if c["id"] == "petilil_night")
-        self.assertEqual(day["start"]["pockets"]["items"], [[80, 5]])
         self.assertEqual(night["start"]["pockets"]["items"], [])
         self.assertEqual(night["steps"][0], "gen:548,10,241")
-        self.assertIn("after_stone", json.dumps(day["steps"]))
+        petilil = S.load(S.SCENARIO_DIR / "petilil.toml")
+        self.assertEqual([c["id"] for c in petilil["cases"]], ["petilil_day"])
+        self.assertEqual(petilil["cases"][0]["steps"][0], "gen:548,10,241")
 
 
 class SchemaErrors(unittest.TestCase):

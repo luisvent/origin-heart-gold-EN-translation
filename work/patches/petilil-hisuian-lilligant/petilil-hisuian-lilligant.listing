@@ -1,0 +1,21 @@
+; petilil-hisuian-lilligant - disassembly snapshot of petilil-hisuian-lilligant.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write petilil-hisuian-lilligant   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: petilil-hisuian-lilligant.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== arm9+0x74148 (RAM 0x02074148), 10 bytes, thumb: petilil-black-belt-species
+  02074142  F7F9 FF15  bl #0x206df70
+  02074146  E01B       b #0x2074180
+- 02074148  2589       movs r5, #0x89
+- 0207414A  1C38       adds r0, r7, #0
+- 0207414C  2170       movs r1, #0x70
+- 0207414E  AA09       add r2, sp, #0x24
+- 02074150  00AD       lsls r5, r5, #2
++ 02074148  1C38       adds r0, r7, #0
++ 0207414A  2170       movs r1, #0x70
++ 0207414C  AA09       add r2, sp, #0x24
++ 0207414E  008D       lsls r5, r1, #2
++ 02074150  3565       adds r5, #0x65
+  02074152  F7F9 FF0D  bl #0x206df70
