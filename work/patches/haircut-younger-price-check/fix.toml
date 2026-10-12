@@ -1,0 +1,23 @@
+id = "haircut-younger-price-check"
+title = "Pokemon Salon: the younger Haircut Brother checks for $300, the price he names and takes"
+kind = "narc"
+enabled = true
+decisions = ["D-2366", "D-2367"]
+requires = []
+why = """Pokemon Salon (script file 94, text bank 0115). The younger Haircut Brother advertises $300 (#17) and takes 300 (SubMoneyImmediate 0x12C at @2912) but first checks HasEnoughMoneyImmediate 500 (@2806), so a player with $300-$499 is told they cannot pay for a service that costs $300. The older brother checks 500 and takes 500 (@2547/@2653). In the US game the younger brother checks and charges $300."""
+what = """One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 2806, 500 -> 300. No other byte changes. The older brother (500/500) is untouched."""
+evidence = [
+  "work/notes/haircut_younger_price_check_fix.md",
+  "work/notes/haircut_younger_price_check_investigation.md",
+  "work/tools/test_haircut_younger_price_check.py",
+]
+
+[[narc_bytes]]
+id = "younger-brother-money-check"
+narc = "a/0/1/2"
+member = 94
+offset = "0xAFA"
+expect = "0x01F4"
+new = "0x012C"
+member_sha1 = "e5ef4eca32dc14427bc4459e7f9975b1e778b766"
+notes = "HasEnoughMoneyImmediate at 2806: u32 amount at 2810 (500 -> 300); SubMoneyImmediate 300 at 2912; text bank 115 #17 says $300 (the older brother's #10 says $500 and checks 500 at 2547)."
