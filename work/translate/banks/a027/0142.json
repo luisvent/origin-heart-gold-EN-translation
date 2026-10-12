@@ -1073,10 +1073,10 @@
   {
    "id": 133,
    "zh": "我原来以为{NEWLINE}信号光线是照亮洞穴的技能,{CLEAR}所以就让我的精灵们拼命练习,{CLEAR}结果到最后却发现{CLEAR}闪光才是照亮洞穴的技能。{CLEAR}不过也多亏了最近的练习,{CLEAR}我已经熟练掌握{CLEAR}让精灵学会信号光线的方法了。{CLEAR}如果你肯给我一个黑暗球的话,{CLEAR}我就可以教会你的精灵信号光线。{SCROLL}怎么样,要学吗？{SCROLL}",
-   "en": "I thought Signal Beam was the move that{NEWLINE}lights up caves, so I had my Pokémon{CLEAR}practice it like crazy.{SCROLL}In the end, I found out Flash is the{NEWLINE}move that lights up caves!{SCROLL}Still, thanks to all that practice, I’ve{NEWLINE}mastered teaching Signal Beam.{SCROLL}If you give me one Dusk Ball, I can{NEWLINE}teach your Pokémon Signal Beam.{SCROLL}So, how about it? Want to learn it?{SCROLL}",
+   "en": "I thought Signal Beam was the move that{NEWLINE}lights up caves, so I had my Pokémon{CLEAR}practice it like crazy.{SCROLL}In the end, I found out Flash is the{NEWLINE}move that lights up caves!{SCROLL}Still, thanks to all that practice, I’ve{NEWLINE}mastered teaching Pollen Puff.{SCROLL}If you give me one Dusk Ball, I can{NEWLINE}teach your Pokémon Pollen Puff.{SCROLL}So, how about it? Want to learn it?{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "Signal Beam tutor, fee: 1 Dusk Ball (黑暗球)."
+   "notes": "Signal Beam tutor, fee: 1 Dusk Ball (黑暗球). | D-1496 user-approved 2026-10-12: names Pollen Puff to match the v4 script (Chinese dialogue is stale 信号光线); finding D-2361"
   },
   {
    "id": 134,
@@ -1105,10 +1105,10 @@
   {
    "id": 137,
    "zh": "抱歉……这个精灵{NEWLINE}没法记住信号光线。{SCROLL}",
-   "en": "Sorry... This Pokémon can’t learn Signal{NEWLINE}Beam.{SCROLL}",
+   "en": "Sorry... This Pokémon can’t learn{NEWLINE}Pollen Puff.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "D-1496 user-approved 2026-10-12: names Pollen Puff to match the v4 script (Chinese dialogue is stale 信号光线); finding D-2361"
   },
   {
    "id": 138,
@@ -1121,10 +1121,10 @@
   {
    "id": 139,
    "zh": "这只{VAR:0100:0}{NEWLINE}已经会信号光线了！{SCROLL}",
-   "en": "This {VAR:0100:0} already knows Signal{NEWLINE}Beam!{SCROLL}",
+   "en": "This {VAR:0100:0} already knows Pollen{NEWLINE}Puff!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "D-1496 user-approved 2026-10-12: names Pollen Puff to match the v4 script (Chinese dialogue is stale 信号光线); finding D-2361"
   },
   {
    "id": 140,
@@ -1137,26 +1137,26 @@
   {
    "id": 141,
    "zh": "{VAR:0101:0}学会了信号光线！",
-   "en": "{VAR:0101:0} learned Signal Beam!",
+   "en": "{VAR:0101:0} learned Pollen Puff!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "D-1496 user-approved 2026-10-12: names Pollen Puff to match the v4 script (Chinese dialogue is stale 信号光线); finding D-2361"
   },
   {
    "id": 142,
    "zh": "这样一来{NEWLINE}你的{VAR:0100:0}{CLEAR}已经学会信号光线了！{SCROLL}那么按照约定,{NEWLINE}1个黑暗球我拿走了。",
-   "en": "And with that, your {VAR:0100:0} has{NEWLINE}learned Signal Beam!{SCROLL}As we agreed, I’ll take one Dusk Ball.",
+   "en": "And with that, your {VAR:0100:0} has{NEWLINE}learned Pollen Puff!{SCROLL}As we agreed, I’ll take one Dusk Ball.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "D-1496 user-approved 2026-10-12: names Pollen Puff to match the v4 script (Chinese dialogue is stale 信号光线); finding D-2361"
   },
   {
    "id": 143,
    "zh": "{VAR:0101:0}想要记住{NEWLINE}新的信号光线……！{SCROLL}但是{VAR:0101:0}{NEWLINE}已经记住4个技能了！{SCROLL}为了学习信号光线{NEWLINE}要让它忘记其他技能吗？{VAR:0200:0}",
-   "en": "{VAR:0101:0} wants to learn Signal{NEWLINE}Beam...!{SCROLL}But {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}Should it forget a move{NEWLINE}to learn Signal Beam?{VAR:0200:0}",
+   "en": "{VAR:0101:0} wants to learn Pollen{NEWLINE}Puff...!{SCROLL}But {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}Should it forget a move{NEWLINE}to learn Pollen Puff?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page) | D-1496 user-approved 2026-10-12: names Pollen Puff to match the v4 script (Chinese dialogue is stale 信号光线); finding D-2361"
   },
   {
    "id": 144,
@@ -1177,10 +1177,10 @@
   {
    "id": 146,
    "zh": "你是要放弃{NEWLINE}让它记住信号光线吗？{VAR:0200:0}",
-   "en": "Give up on teaching it Signal Beam?{VAR:0200:0}",
+   "en": "Give up on teaching it Pollen Puff?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "D-1496 user-approved 2026-10-12: names Pollen Puff to match the v4 script (Chinese dialogue is stale 信号光线); finding D-2361"
   }
  ]
 }

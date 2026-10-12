@@ -16,6 +16,6 @@
 
 [build]
 nontext_sha1 = "281c9588f76280037df6c20d7953582b90bd76c2"
-text_sha1 = "9a966e98dead0f6ca52d11b31f20e37c34530b6b"
-rom_sha1 = "7ebeaee81a0232b70d5b2a434a2d52fb22a97ea2"
-xdelta_sha1 = "e7dc27dc200c98c7ddf8326362ae2b2458a83a17"
+text_sha1 = "8ec9b6e21cc5039a9b19a1ba0ccb7b22636f01fb"
+rom_sha1 = "2eb830877a7524bd27a1bc4ce35a0364fd5717a8"
+xdelta_sha1 = "68c896d1d4f6383d4c1f4164790a5a07d3798387"

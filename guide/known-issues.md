@@ -337,9 +337,9 @@ These entries can freeze the game, cost you something, or close a quest or battl
 
 ### Rock Tunnel Signal Beam tutor
 
-**The Rock Tunnel tutor who asks for a Dusk Ball teaches Pollen Puff, not Signal Beam.** He's the Trainer who thought Signal Beam lights up caves. Every line says Signal Beam, but your Pokémon learns Pollen Puff (a Bug-type special move, 90 power). He takes one Dusk Ball either way. Tested in an emulator: with three moves and with four, the Pokémon learned Pollen Puff, and one Dusk Ball was taken.
+**The Rock Tunnel tutor who asks for a Dusk Ball teaches Pollen Puff, and the English now says so.** He's the Trainer who thought Signal Beam lights up caves (that joke is unchanged). In the Chinese hack every line still says Signal Beam, but your Pokémon learns Pollen Puff (a Bug-type special move, 90 power). In this translation his offer, the learn, thanks, forget and give-up lines all name Pollen Puff, so the text matches what you get. This is a deliberate, user-approved change from the Chinese dialogue. He takes one Dusk Ball either way. Tested in an emulator on the Chinese ROM: with three moves and with four, the Pokémon learned Pollen Puff, and one Dusk Ball was taken.
 
-*Source:* file 129 script 25 (object 33): `MonHasMove`/`SetMonMove` use move 676 (Pollen Puff) at L4277, L5194 and L5360; the text (142#133–#146) says 信号光线 (Signal Beam, move 324); `TakeItem 13` (Dusk Ball) at L5241 and L5484 (D-1338; `emu_harness.py hackbugs --case tutor`).
+*Source:* file 129 script 25 (object 33): `MonHasMove`/`SetMonMove` use move 676 (Pollen Puff) at L4277, L5194 and L5360; the Chinese text (142#133–#146) says 信号光线 (Signal Beam, move 324); `TakeItem 13` (Dusk Ball) at L5241 and L5484 (D-1338, D-2361, D-2386; `emu_harness.py hackbugs --case tutor`).
 
 ### Rock Tunnel corner kid loss
 
