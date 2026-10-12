@@ -181,6 +181,13 @@ class Synthetic(unittest.TestCase):
             SI.insert(d, [(info["pc_m"], cmd("Call", 0))])                # only GoTo / GoToIf may jump inside
         with self.assertRaises(SI.ScriptInsertError):
             SI.insert(d, [(info["pc_m"], cmd("ApplyMovement", 255, 0))])  # no movement
+            SI.insert(d, [(info["pc_m"], cmd("GoTo", 5))])                # a jump out of the insert
+        with self.assertRaises(SI.ScriptInsertError):
+            SI.insert(d, [(info["pc_m"], cmd("Call", 0))])                # a call in the insert
+        with self.assertRaises(SI.ScriptInsertError):
+            SI.insert(d, [(info["pc_m"], cmd("GoTo", -7))])               # a jump back out of the insert
+        # a jump that stays inside the block (here: over the next command, to the block's end) is fine
+        SI.insert(d, [(info["pc_m"], cmd("GoToIf", 5, len(cmd("End"))) + cmd("End"))])
         bad = bytearray(d)
         bad[-4] = 0x7F                                                    # break the movement block marker
         with self.assertRaises(SI.ScriptInsertError):
