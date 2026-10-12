@@ -1,0 +1,90 @@
+id = "ss-anne-softlock"
+title = "Open the S.S. Anne voyage in its pre-party state so the party can always start"
+kind = "narc"
+enabled = true
+decisions = ["D-1549", "D-2347"]
+requires = []
+why = """
+D-1549: the S.S. Anne scripts (a/0/1/2 members 156, 157, 161) are written for a voyage that starts with flag 1440
+SET: it is the hide flag of the 14 party guests and the hall shop, the Captain's HM01 branch (member 157, script 5,
+CheckFlag 1440 / GoToIf [0]) and the pre-party lines of Archie, Blue, the old boy and the guests all hang on it, and
+the party start (157 @550, 161 @1901) clears it. Nothing sets it before the hijack (156 @6350): the new-game init
+(member 842) does not, and the harbor sailor (member 155) sets only 554/555 and clears 235/556. So the first voyage
+always runs in the 'party already started' state: the Captain says so and gives no HM01 (253#62), the old boy and Blue
+run their party branches, which set flag 1424 ('met the Captain', old boy) and 1423 ('Honey given', Blue) on their
+own. The party is announced only inside the Honey hand-over (161 @1524: 1424 must already be set) or the Captain's
+speech (157 @514); with the Honey given first, or Blue fought first, flag 1423 is set and 1424 clear, nothing
+re-checks, the hall trigger stays silent and the gangway sailor never leaves: the player is stuck aboard.
+
+Reproduction (investigation 2026-10-12, DeSmuME, individually, no forced flags except what boarding itself needs):
+untouched Chinese ROM, released rc7 and a built English control behave identically. Only the Vermilion arrival flags
+and the Honey in the Bag were set by hand; boarding, the arrival scene, the Captain's speech and the NPC walk-ups were
+played with the old 'vqueue ssanne_story' recipe (git 2e6fe55^, restored into scratch). Leaving the ship before the
+party is impossible. Orders that trap the player: Honey given to the girl before the old boy's party branch, or Blue
+talked to first. Safe orders: the old boy first, or the Captain first. A trapped game has var 0x40A4 = 0, flag 1423 set,
+1424 clear, the hall trigger silent and the gangway sailor still at (24,17).
+
+Flag and variable key (all in a/0/1/2 scripts): 1440 = pre-party 'hide guests / Captain gives HM01' flag (the flag this
+fix sets); 1423 = Blue's pre-party lines done / Honey handed over (set by Blue at 156 @4524 and by the Honey hand-over);
+1424 = 'met the Captain' (set by the old boy at 156 @4622 and by the Captain at 157 @202); 235, 554, 555, 556 = harbor
+sailor bookkeeping flags (member 155); 0x40A4 = S.S. Anne party progress variable (3 = party started and running).
+Where the flag is written or tested across the whole archive (own decoder, reviewer-confirmed): the ONLY SetFlag 1440 is
+156 @6350 (the hijack); clears are at 157 @550 and 161 @1901; tests are at 157 @124 and 156 @714, 1023, 1068, 1098,
+1159; all of them jump away when the flag is clear, so a clear flag means 'party already started'. HM01 is given only in
+member 157; 81 and 191 only check for it. So the Chinese first voyage never gives HM01.
+"""
+what = """
+Set flag 1440 when the player boards, before the hall map loads. In the harbor sailor's script (member 155, script 1),
+the instruction at offset 152 is CheckFlag 235, which can never be true (ClearFlag 235 ran at offset 117 and nothing
+sets it in between), so the GoToIf [1, 151] after it is never taken. Replace that CheckFlag (4 bytes) with SetFlag
+1440: the next instruction is unchanged and, as before, is not taken, because the compare register still holds the
+CompareVarToValue result from offset 139. Same size, no offset shifts, no jump into the bytes. The branch for
+players who already hold the Soul Badge (the new S.S. Anne) jumps away before offset 152 and is untouched.
+The voyage then follows the order the scripts were written for: guests hidden until the party starts, the Captain
+gives HM01 and sets 1424, the Honey hand-over sets 1423, and whichever comes second announces the party (Honey
+second: 161 @1524; Captain second: 157 @514), in any order, with the old boy and Blue in their pre-party lines
+until then.
+
+BEHAVIOUR CHANGES versus the Chinese hack (D-1002 says the Chinese behaviour is the reference unless it is a bug; the
+user was asked and chose to merge this fix DISABLED, 2026-10-12, so testers can judge the changes):
+  1. The Captain gives HM01 (Cut) on the first voyage and sets flag 1424, instead of saying the party has already
+     started (253#62) and giving nothing.
+  2. The 14 party guests and the hall shop are hidden until the party starts (emulator: 14 guests visible on the Chinese
+     ROM, 0 with the fix).
+  3. The old boy and Blue say their pre-party lines without battling (old boy message 19) until the party starts; the
+     battles come after it.
+  4. The party starts from whichever of the Captain's speech and the Honey hand-over comes second.
+  5. The Honey-first and Blue-first traps are gone. The Water Stone, the grandfather and Archie's hall speech still
+     happen.
+The new Captain's 'has HM01' branch suggests this is the intended design, but that is an inference, not proof.
+
+KNOWN EDGE CASE (low severity, reviewer-found): re-boarding AFTER the party has started (for example after a whiteout
+aboard) sets 1440 again. Guests and the shop vanish again and the Captain offers HM01 again (the +420 bag change is shown
+again); 1424 is set again; var 0x40A4 stays 3 and the party still proceeds. The Chinese ROM does nothing in that case
+(its Chinese comparison could not be run: the harness hit 'pocket full'). The gangway sailor normally prevents
+re-boarding mid-party.
+
+TO UNDO: set enabled = false (or build with --without ss-anne-softlock), or change the 4 bytes at member 155 offset
+0x98 back to 0020 00EB.
+"""
+evidence = [
+  "work/notes/ss-anne-softlock_investigation.md",
+  "work/notes/ss-anne-softlock_fix.md",
+  "work/tools/test_ss_anne_softlock.py (6 tests; also checks that the member_sha1 and expect guards reject a changed source)",
+  "Fix commit 8697fb4 (fixer: investigation + paired emulator runs); review 2026-10-12: APPROVED WITH NOTES (separate reviewer, own decoder over every a/0/1/2 member, patched a copy of the Chinese ROM itself)",
+  "Emulator, Chinese ROM: Honey first ends stuck (var 0x40A4 = 0, hall trigger silent, gangway sailor still at 24,17); old boy first starts the party",
+  "Emulator, Chinese ROM + fix and English build + fix: five orders all end with var 0x40A4 = 3 and the hall trigger running: old boy first, Blue first, Captain first, Captain then Blue then old boy, Honey then Captain; reviewer's own orders: leaving and re-boarding before the party keeps flags 1423/1424/1440 and the party still starts. Boarding writes 1440 once, at pc 0x204f8b6",
+  "Scratch run folders (not in the repo): scratchpad inv/ss-anne-softlock/ run2 CN, run3 rc7, run6 CN+fix, run7 EN fix, run8 EN control; review folder review/ss-anne-softlock/",
+  "NOT VERIFIED: the party and hijack scenes after Archie's hall speech; rescuing saves that are already stuck aboard (the fix acts at boarding only); the 'Soul Badge' label for CheckBadge 4 at member 155 offset 145 (an assumption; the branch jumps away before offset 152 either way); the new-S.S.-Anne branch itself; hardware; expected.toml hashes are not updated (the merge step runs check.py --full --update-expected if this fix is enabled in the standard build). The harness 'honey_first' variant crashes on the fixed ROM because it waits for an old-boy battle that no longer happens before the party (harness limit; 'honey_then_captain' covers the same order).",
+  "Merge status: merged DISABLED like the other 2026-10-12 fixes (user decision: a disabled merge is harmless); tester xdelta on request. Decision D-2347 collides with the photographer fix's id and is renumbered at merge.",
+]
+
+[[narc_bytes]]
+id = "boarding-sets-prep-party-flag"
+narc = "a/0/1/2"
+member = 155
+offset = "0x98"
+expect = "0020 00EB"
+new = "001E 05A0"
+member_sha1 = "6baec9e7c3df7d64b3917f48b4ecd6a4cc04950a"
+notes = "CheckFlag 235 (dead: ClearFlag 235 ran at 117) becomes SetFlag 1440; the GoToIf after it stays and is never taken, as before."
