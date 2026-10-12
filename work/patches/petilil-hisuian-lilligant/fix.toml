@@ -1,0 +1,44 @@
+id = "petilil-hisuian-lilligant"
+title = "Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil)"
+kind = "code"
+enabled = true
+decisions = ["D-2334"]
+requires = []
+asm = "petilil-hisuian-lilligant.asm"
+why = """
+Players: a Petilil that levels up holding a Black Belt in the daytime is meant to become Hisuian Lilligant (the
+hack's own record, and the author's sheet: Lilligant form 1, 'holding Black Belt, by day'). It 'evolves' into
+Petilil instead ('Petilil evolved into Petilil', the Black Belt is used up) and stays a form-1 Petilil; only a
+Sun Stone then makes it Hisuian Lilligant. The untouched Chinese ROM does the same (hack finding D-1485,
+observed in the emulator 2026-10-05), so this is a bug of the hack.
+
+Status: D-1337 said hack bugs are reported, not fixed; the user lifted that on 2026-10-12 ('We are way past this
+point since the Chinese rom contains too many bugs.. So lets create a fix in a worktree', D-2334).
+
+Technical: Petilil's evolution record 1 in a/0/3/4 (method 18, parameter 241 = Black Belt) names the target
+1361, the hack's own 'Hisuian Lilligant' form-species id. The evolution scene's setup (0x02074048) turns the ids
+from 1026 up into a base species plus form 1 (SetMonData FORM = 1, then the species goes to the scene). For 1361
+it loads 548 ('movs r5, #0x89; lsls r5, r5, #2'), which is Petilil; Lilligant is 549 (Petilil's Sun Stone record
+names 549).
+"""
+what = """
+Old: the case for the id 1361 sets the evolved species to 548 (Petilil) and the form to 1.
+New: it sets 549 (Lilligant) and the form 1, i.e. Hisuian Lilligant. The five halfwords at 0x02074148 are
+rebuilt ('lsls r5, r1, #2; adds r5, #0x65' with r1 = 0x70 instead of 'movs r5, #0x89; lsls r5, r5, #2'): the same
+10 bytes, the same SetMonData call and branch. Nothing else changes; the hack's other form ids (Alolan Raichu,
+Alolan Exeggutor, Alolan Marowak, Galarian Weezing) are untouched. The evolution-moves fix's call at 0x02074BD4
+is a different address and still runs for the new species (Hisuian Lilligant is offered its level-0 moves).
+"""
+evidence = [
+  "D-2334: the user-approved fix; D-1485: the hack finding (Petilil + Black Belt by day becomes a form-1 Petilil; observed on the Chinese ROM)",
+  "User 2026-10-12: 'We are way past this point since the Chinese rom contains too many bugs.. So lets create a fix in a worktree'",
+  "work/notes/petilil-hisuian-lilligant_fix.md: the decode of the setup routine, the data, the fix and the emulator runs",
+  "Runtime: emu_harness.py fixes --case petilil-hisuian-lilligant (scenario petilil-evo: Petilil Lv 10 holding a Black Belt at 12:00 and a Rare Candy, on the build and on one without this fix; work/notes/emu_harness.md 'Fix scenarios')",
+]
+
+[[code]]
+id = "petilil-black-belt-species"
+file = "arm9"
+offset = "0x74148"
+expect = "2589 1C38 2170 AA09 00AD"
+notes = "Evolution scene setup, case for the form-species id 1361: species 548 (Petilil) -> 549 (Lilligant); the form 1 is written by the SetMonData call that follows."
