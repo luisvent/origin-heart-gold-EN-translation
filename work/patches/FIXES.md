@@ -29,6 +29,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`blank-player-name`](#blank-player-name) | narc | **no** | – | Fill the player-name buffer a script's message actually reads |
 | [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
+| [`gamecorner-500-coins`](#gamecorner-500-coins) | narc | yes | – | Game Corner: the raised-price '500 coins for $50000' option gives 500 coins, not 50 |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
@@ -921,6 +922,35 @@ unchanged. No global counter remap or backward save restoration.
 **Touches:**
 
 - `a/0/1/2` #962 +0x88 `completed-leader-condition`: `0x3601` → `0x3604` (member SHA-1 `33cb77c9032d`): Condition byte136: equality1 -> unsigned >=4; following displacement byte137=36 is pinned and unchanged.
+
+## gamecorner-500-coins
+
+**Game Corner: the raised-price '500 coins for $50000' option gives 500 coins, not 50**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-1415, D-2346
+- Source: `work/patches/gamecorner-500-coins/fix.toml`
+
+**Why (the Chinese hack):**
+
+Goldenrod Game Corner clerk (script file 903, text bank 0591). After the magnet cheater scene the clerk's menu is raised (#94 '50 coins for $5000', #95 '500 coins for $50000'). The $5000 option (L7501) checks and gives 50 coins; the $50000 option (L7575) checks $50000 and takes it (SubMoneyImmediate 50000 at 7617) but its CheckGiveCoins (7596) and GiveCoins (7623) both use 50. The player pays ten times the price for a tenth of the coins. The normal menu (L3657/L3731) gives 50 for $500 and 500 for $5000, so 500 is the intended count. Observed in the emulator on the Chinese ROM and rc7 (D-1415).
+
+**What (old → new):**
+
+Two operands: the coin count in the CheckGiveCoins at 7596 and in the GiveCoins at 7623, 50 -> 500. The money check and charge (50000) are untouched. No other byte changes.
+
+**Evidence:**
+
+- work/notes/gamecorner_500_coins_fix.md
+- work/notes/gamecorner_500_coins_investigation.md
+- work/tools/test_gamecorner_500_coins.py
+
+**Touches:**
+
+- `a/0/1/2` #903 +0x1DB0 `coins-check`: `0x0032` → `0x01F4` (member SHA-1 `b18925a2b274`): CheckGiveCoins at 7596: u16 coin count at 7600 (50 -> 500).
+- `a/0/1/2` #903 +0x1DC8 `coins-give`: `3200 7600` → `F400 7601` (member SHA-1 `b18925a2b274`): GiveCoins at 7623: u16 coin count at 7625-7626 (50 -> 500); the entry covers 7624-7627 because the count is odd-aligned. Bytes 7624 and 7627 are unchanged.
 
 ## hooh-panel-silver-marker
 
