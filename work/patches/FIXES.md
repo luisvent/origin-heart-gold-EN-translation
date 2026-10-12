@@ -29,6 +29,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`blank-player-name`](#blank-player-name) | narc | **no** | – | Fill the player-name buffer a script's message actually reads |
 | [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
+| [`fortune-ideal-price-check`](#fortune-ideal-price-check) | narc | yes | – | Goldenrod fortune-teller: the ideal-Pokemon reading checks for $10000, the price she names and takes |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
@@ -921,6 +922,34 @@ unchanged. No global counter remap or backward save restoration.
 **Touches:**
 
 - `a/0/1/2` #962 +0x88 `completed-leader-condition`: `0x3601` → `0x3604` (member SHA-1 `33cb77c9032d`): Condition byte136: equality1 -> unsigned >=4; following displacement byte137=36 is pinned and unchanged.
+
+## fortune-ideal-price-check
+
+**Goldenrod fortune-teller: the ideal-Pokemon reading checks for $10000, the price she names and takes**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-1545, D-2346
+- Source: `work/patches/fortune-ideal-price-check/fix.toml`
+
+**Why (the Chinese hack):**
+
+Goldenrod Fortune House (script file 895, script 1, text bank 0583). The text says each reading costs $10000 (#0, #8, #9) and the love reading checks $10000 (L334, L612). The 'My ideal Pokemon' branch (L215) checks only HasEnoughMoneyImmediate 300 (@228), then gives the evolution item and runs SubMoneyImmediate 10000 (@313; Rhyperior/Chansey variants @537/@589). With $300-$9999 the player gets the reading and item and is left with $0, and the 'not enough money' message #9 can only appear below $300. Observed in the emulator on the Chinese ROM and rc7 ($5000 -> $0).
+
+**What (old → new):**
+
+One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 228, 300 -> 10000 (the price her own text, the love branch and the SubMoneyImmediate use). No other byte changes. The not-enough-money branch (L484, message #9) already exists and already says $10000. The love branch touch-menu issue (D-1546) is not part of this fix.
+
+**Evidence:**
+
+- work/notes/fortune_ideal_price_check_fix.md
+- work/notes/fortune_ideal_price_check_investigation.md
+- work/tools/test_fortune_ideal_price_check.py
+
+**Touches:**
+
+- `a/0/1/2` #895 +0xE8 `ideal-reading-money-check`: `0x012C` → `0x2710` (member SHA-1 `ece7490e327a`): HasEnoughMoneyImmediate at 228: u32 amount at 232 (300 -> 10000); SubMoneyImmediate 10000 at 313 and the text (#0, #8, #9) already say $10000.
 
 ## hooh-panel-silver-marker
 
