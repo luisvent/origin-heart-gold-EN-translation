@@ -16,7 +16,7 @@ Stuck on a quest? The [quest guide](https://originheartgold.github.io/origin-hea
 
 Can't find a Pokémon? The [Pokédex](https://originheartgold.github.io/origin-heart-gold-EN-translation/pokemon/) lists each species' level-up, TM, tutor and Egg moves, how it evolves, where to find it, and more.
 
-**Status: release candidate (v1.0.0-rc6).** All 67,078 translatable strings are in English and pass the automated checks. The event scripts have been audited (softlocks, trades, gifts, passwords; see [CHANGELOG.md](CHANGELOG.md)), and game documentation generated from the ROM's own data is in [work/docs/](work/docs/README.md). Please report anything odd.
+**Status: release candidate (v1.0.0-rc7).** All 67,078 translatable strings are in English and pass the automated checks. The event scripts have been audited (softlocks, trades, gifts, passwords; see [CHANGELOG.md](CHANGELOG.md)), and game documentation generated from the ROM's own data is in [work/docs/](work/docs/README.md). Please report anything odd.
 
 ## How it works
 
