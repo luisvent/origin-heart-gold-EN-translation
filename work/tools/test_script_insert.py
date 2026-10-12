@@ -174,11 +174,35 @@ class Synthetic(unittest.TestCase):
         with self.assertRaises(SI.ScriptInsertError):
             SI.insert(d, [(info["pc_m"], b"\xBE")])                       # not a whole command
         with self.assertRaises(SI.ScriptInsertError):
-            SI.insert(d, [(info["pc_m"], cmd("GoTo", 0))])                # a jump in the insert
+            SI.insert(d, [(info["pc_m"], cmd("GoTo", 100))])              # a jump out of the insert
+        with self.assertRaises(SI.ScriptInsertError):
+            SI.insert(d, [(info["pc_m"], cmd("GoTo", -4))])               # ... or into the middle of a command
+        with self.assertRaises(SI.ScriptInsertError):
+            SI.insert(d, [(info["pc_m"], cmd("Call", 0))])                # only GoTo / GoToIf may jump inside
+        with self.assertRaises(SI.ScriptInsertError):
+            SI.insert(d, [(info["pc_m"], cmd("ApplyMovement", 255, 0))])  # no movement
         bad = bytearray(d)
         bad[-4] = 0x7F                                                    # break the movement block marker
         with self.assertRaises(SI.ScriptInsertError):
             SI.insert(bytes(bad), [(info["pc_m"], BUF)])
+
+    def test_jump_inside_the_insert_is_kept_as_written(self):
+        # CompareVarToValue; GoToIf != over a block of two commands (the shape of a guard); the rest is untouched
+        d, info = self.script()
+        skipped = cmd("NPCMsg", 9) + cmd("End")
+        blk = cmd("CompareVarToValue", 0x800C, 0) + cmd("GoToIf", 5, len(skipped)) + skipped
+        new, where = SI.insert_ex(d, [(info["pc_m"], blk)])
+        at = where[info["pc_m"]]
+        self.assertEqual(new[at:at + len(blk)], blk)                       # the insert is copied verbatim
+        _, ins = R.disasm(new)
+        gi = at + len(cmd("CompareVarToValue", 0, 0))
+        self.assertEqual(ins[gi][3], at + len(blk))                         # the jump lands on the original NPCMsg
+        self.assertEqual(ins[at + len(blk)][0], OPN["NPCMsg"])
+        # a jump to the block's own end (rel 0) is accepted too; the original script's pointers still resolve
+        SI.insert(d, [(info["pc_m"], cmd("GoTo", 0) + cmd("End"))])
+        v0, _, _ = identity_view(d)
+        v1, _, _ = identity_view(new)
+        self.assertEqual(len(v1), len(v0) + 4)                              # four inserted commands, none lost
 
     def test_unknown_four_byte_operand_refused(self):
         d = build_member([cmd("ScrCmd_705", 1, 2), cmd("NPCMsg", 1), cmd("End")])

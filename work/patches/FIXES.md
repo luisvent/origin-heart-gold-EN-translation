@@ -32,6 +32,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
+| [`photographer-no-healthy-mon`](#photographer-no-healthy-mon) | narc | **no** | – | Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene) |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
@@ -1033,6 +1034,57 @@ Route1's separate7286 marker remains deferred pending safe old-save compatibilit
 **Touches:**
 
 - `a/0/1/2` #962 +0x71D `departure-invalid-set-noop`: `0x116D` → `0x0000` (member SHA-1 `33cb77c9032d`): SetFlag at1819: operand4461 ->0; native SetFlag0 makes no persisted write.
+
+## photographer-no-healthy-mon
+
+**Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene)**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2346
+- Source: `work/patches/photographer-no-healthy-mon/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: talking to Cameron, the photographer in Pallet Town, and answering Yes while no Pokémon in the party can
+fight (no Pokémon at all, as at the start of the game before the starter, or only Eggs and fainted Pokémon) starts the
+photo scene, and on real hardware (and in melonDS) the game freezes with black screens as the scene starts. The
+photo scene looks up the party's lead Pokémon and reads it without checking that there is one. DeSmuME does not
+notice (a read from address 0 returns 0 there), which is why the earlier emulator test with an empty party passed.
+A player report (Manic Emulator, iOS) matches. The untouched Chinese ROM does the same, so this is a hack bug.
+
+Status: disabled. Not merged. The standard build leaves it out (the Chinese behaviour is kept) and it is built only
+on request (build.py --only photographer-no-healthy-mon). A third-party patch (Speedoption, and the Spanish one
+derived from it) has the same guard.
+
+**What (old → new):**
+
+a/0/1/2 member 733, script 7 (the photographer), is edited with one [[script_insert]] in front of the
+PhotoAlbumIsFull command (offset 136), i.e. after Yes was answered and before anything else happens. The inserted
+39 bytes are: CountAliveMons 0x800C, 6 (the native counter: current HP > 0 and not an Egg; 6 skips no slot);
+CompareVarToValue 0x800C, 0; GoToIf (not equal) over the next 20 bytes; and a copy of the existing decline reply
+(the 20 bytes at 851: GetStdMsgNaix, MsgBoxExtern 5 "Aren't you a shy one?", WaitButton, CloseMsg, ReleaseAll, End).
+With at least one healthy Pokémon the jump skips the copy and the original script (album check, photo) runs
+unchanged; with none, the player gets the decline reply and the scene ends before the photo. Nothing is removed and
+no text is added: the reply is the one the player gets for answering No. scriptinsert.py relocates the header slots,
+every relative operand and the movement blocks (the member grows by 39 bytes plus one byte of alignment). The edit
+is independent of the blank-player-name fix's bytes in the same member (1026..1035); the insert accepts the member
+before and after them.
+Tool change: scriptinsert.check_block now accepts a GoTo / GoToIf inside an inserted block when it lands on a command
+inside the block or just after it (the operand is then the same wherever the block goes); every other relative
+operand and movement are still refused.
+
+**Evidence:**
+
+- work/notes/photographer-no-healthy-mon_fix.md
+- work/notes/photographer-no-healthy-mon_investigation.md
+- work/tools/test_photographer_no_healthy_mon.py
+- work/tools/test_script_insert.py
+
+**Touches:**
+
+- `a/0/1/2` #733 +0x88 `pallet-photographer-alive-guard`: insert `65 01 0C 80 06 00 11 00 0C 80 00 00 1C 00 05 14 00 00 00 B6 01 02 00 0C 80 B8 01 0C 80 05 00 32 00 35 00 61 00 02 00` before `6A 02 0C 80` (member SHA-1 `767093c73dc8` or `e8b6b81fe765`): In front of PhotoAlbumIsFull (136): CountAliveMons 0x800C,6; Compare 0; GoToIf != over the copy of the decline reply (GetStdMsgNaix, MsgBoxExtern 5, WaitButton, CloseMsg, ReleaseAll, End).
 
 ## rock-tunnel-corner-loss
 

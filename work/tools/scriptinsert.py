@@ -16,7 +16,8 @@ block, and returns the new member. It fails (ScriptInsertError) instead of guess
   * bytes the decoder does not explain (neither a command reached from an entry, a movement block, nor a run of
     commands that decodes cleanly to the end of its gap),
   * a command with a 4-byte operand that is not known to be a relative offset or a plain immediate,
-  * an inserted block that is not whole commands.
+  * an inserted block that is not whole commands, or has a relative operand other than a GoTo / GoToIf that
+    stays inside the block (or lands just after it).
 
 Targets that point exactly at an insertion point land on the inserted bytes (so every path to the command runs the
 inserted ones first). Movement blocks keep their position modulo 4 (the generator aligns them to 4): zero padding
@@ -41,6 +42,7 @@ REL_OPS = {22, 23, 24, 25, 26, 28, 29, 225, 94}   # GoTo ObjectGoTo BGGoTo Direc
 # commands with a 4-byte operand that is a plain immediate (money, coins, bank balance, LoadWord)
 IMM4_OPS = {5, 110, 111, 112, 532, 794}
 MOVE_END = 0xFE
+INTRA_JUMP_OPS = {22, 28}   # GoTo, GoToIf: allowed inside an inserted block when they land inside it or just after it
 
 
 class ScriptInsertError(Exception):
@@ -181,16 +183,28 @@ class Layout:
 
 
 def check_block(block: bytes):
-    """The inserted bytes must be whole commands with no relative operand (nothing in them points anywhere)."""
-    pc = 0
+    """The inserted bytes must be whole commands. Movement and Call are refused. A GoTo or GoToIf is allowed when
+    its operand lands on the start of a command inside the block or exactly at the block's end (the command the
+    insert sits in front of): such an operand is the same wherever the block goes, so nothing is relocated.
+    A jump that leaves the block would need relocating and is refused."""
+    cmds, pc = [], 0
     while pc < len(block):
         d = decode_at(block, pc)
         if d is None:
             raise ScriptInsertError(f"inserted bytes at {pc} are not a whole known command")
-        kind = operand_kind(d[0], d[1])
-        if kind == "rel":
-            raise ScriptInsertError("inserted bytes must not contain jumps or movement (relative operands)")
+        cmds.append((pc, d))
+        operand_kind(d[0], d[1])
         pc = d[2]
+    starts = {at for at, _ in cmds} | {len(block)}
+    for at, (op, args, nx) in cmds:
+        if operand_kind(op, args) != "rel":
+            continue
+        if op not in INTRA_JUMP_OPS:
+            raise ScriptInsertError("inserted bytes must not contain movement or a command with a relative operand "
+                                    "other than GoTo / GoToIf")
+        if nx + args[-1] not in starts:
+            raise ScriptInsertError(f"the jump in the inserted bytes at {at} must land on a command inside them or "
+                                    f"just after them (lands on {nx + args[-1]} of {len(block)})")
 
 
 def insert(data: bytes, inserts) -> bytes:
