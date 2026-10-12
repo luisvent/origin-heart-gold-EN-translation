@@ -5,9 +5,7 @@
     python3 work/tools/site/patch_manifest.py v1.0.0-rc5 --site   # also serve it from site/public/patch/ locally
     python3 work/tools/site/patch_manifest.py --none              # local preview of the "no patch" fallback
 
-Upload latest.json with the release, before or when you publish it:
-    gh release create v1.0.0-rc5 --prerelease work/release/v1.0.0-rc5/{*.xdelta,README.txt,latest.json}
-    gh release upload v1.0.0-rc5 work/release/v1.0.0-rc5/latest.json      # for a release that already exists
+Attach latest.json to the release next to the .xdelta, before or when you publish it (web UI; see RELEASING.md).
 
 The site workflow downloads the highest-version release's latest.json and the .xdelta it names, checks the SHA-1 and
 serves both from the website (browsers can't fetch GitHub release assets cross-origin). A release without

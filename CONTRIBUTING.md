@@ -104,6 +104,10 @@ the ROM; changing the GitHub release tag does not update it. Preserve the layout
 and control tags, run bank QA, rebuild the ROM/patch and expected hashes, and check
 the startup screenshots with `work/tools/emu_startup_warning.py` before publishing.
 
+## Releasing
+
+See [RELEASING.md](RELEASING.md): half local (ROM build), half CI (draft release from the pushed tag), published through the web UI of the developer account, not `gh`.
+
 ## The guide website
 
 The quest guide (`guide/*.md`) and the generated game docs are published as a website from `site/`. See [site/README.md](site/README.md) for how it is built and how to write guide entries.

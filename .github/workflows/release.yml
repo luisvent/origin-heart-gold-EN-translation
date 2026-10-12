@@ -1,0 +1,48 @@
+# Create the GitHub release for a pushed version tag (v1.0.0-rc8, v1.0.0, ...) as a DRAFT.
+# The patch itself cannot be built here: it needs the USA and Chinese ROMs, which never leave the maintainer's
+# machine. So CI checks the tag against the repository and prepares the notes; the maintainer then uploads the
+# locally built files and publishes the draft (CONTRIBUTING.md → Releasing). Publishing triggers site.yml,
+# which redeploys /patch/ with the new xdelta.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write   # create the draft release
+
+jobs:
+  draft:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check the tag and write the release notes
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          version="${TAG#v}"
+          # Notes = the CHANGELOG section "## [<version>] - ..." up to the next "## [".
+          awk -v v="## [$version]" 'index($0, v) == 1 {on=1; next} /^## \[/ {on=0} on' CHANGELOG.md > "$RUNNER_TEMP/notes.md"
+          if ! grep -q '[^[:space:]]' "$RUNNER_TEMP/notes.md"; then
+            echo "::error::CHANGELOG.md has no section '## [$version]'"; exit 1
+          fi
+          # The startup warning embeds the version in the ROM: it must match an RC tag.
+          if [[ "$version" =~ -rc([0-9]+)$ ]]; then
+            want="Current version: 4.0.3-RC${BASH_REMATCH[1]}"
+            grep -q "$want" work/translate/banks/a027/0816.json \
+              || { echo "::error::a027/0816.json string 4 does not say '$want'"; exit 1; }
+          fi
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+      - name: Create the draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 && { echo "Release $TAG exists; leaving it alone."; exit 0; }
+          gh release create "$TAG" --draft --verify-tag --title "$VERSION" \
+            --notes-file "$RUNNER_TEMP/notes.md" --repo "$GITHUB_REPOSITORY"
