@@ -28,6 +28,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`gfx-yes-no-buttons`](#gfx-yes-no-buttons) | graphics | yes | – | Touch-screen YES/NO buttons |
 | [`blank-player-name`](#blank-player-name) | narc | **no** | – | Fill the player-name buffer a script's message actually reads |
 | [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
+| [`evolution-items-use`](#evolution-items-use) | narc | yes | – | Items that evolve a Pokémon when used (Ice Stone, Cracked Pot, Galarica Cuff/Wreath, apples, armors, Dragon Scale) get the Bag's Use entry |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
@@ -883,6 +884,57 @@ native command that may fill the buffer is on the path): see work/notes/blank-pl
 - `a/0/1/2` #964 +0x379 `m964-889`: insert `BE 00 00` before `2D 00 16` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
 - `a/0/1/2` #964 +0x45b `m964-1115`: insert `BE 00 00` before `2D 00 26` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 38 (a027/0338) reads {VAR:0103:0}; script 4 never fills buffer 0 before it.
 - `a/0/1/2` #964 +0x9c6 `m964-2502`: insert `BE 00 00` before `2D 00 16` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
+
+## evolution-items-use
+
+**Items that evolve a Pokémon when used (Ice Stone, Cracked Pot, Galarica Cuff/Wreath, apples, armors, Dragon Scale) get the Bag's Use entry**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2346
+- Source: `work/patches/evolution-items-use/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: the Ice Stone has no USE button in the Bag, so the six Pokémon that evolve with it (Mr. Mime, Crabrawler,
+Cetoddle, Darumaka, Alolan Sandshrew and Vulpix) cannot evolve; the Fire, Water, Thunder, Leaf, Sun, Moon, Shiny,
+Dusk and Dawn Stones all have it. The untouched Chinese ROM has the same gap, so it is a data error of the hack
+(an evolution item whose item record lacks the field-use data), reported by a player (Discord #bugs 'Ice stone
+unusable'). The same gap is in eight more items that evolution records of the hack name as 'use item'
+(method 7): Cracked Pot (Sinistea), Galarica Cuff and Wreath (Slowpoke), Sweet and Tart Apple (Applin),
+Auspicious and Malicious Armor (Charcadet) and Dragon Scale (Exeggcute, which the hack evolves with it by use).
+
+Technical: the item table a/0/1/7 has one 34-byte record per item. Bytes 10..15 hold the Bag/party use data
+(field use function, battle use function, party use flags). The stones have 14 00 01 00 00 08 there; the nine
+items above have zeros. The fix copies those six bytes from the Fire Stone record; the price, hold effect, pocket
+and everything else stay. Evolution records (a/0/3/4) are untouched: they already name these items with method 7.
+
+**What (old → new):**
+
+Old: the nine items open the Bag menu with TRASH / GIVE / MOVE only; their evolutions can never happen.
+
+New: they show USE like the Fire Stone; used on a Pokémon that evolves with the item it evolves, otherwise the
+game says it would have no effect.
+
+**Evidence:**
+
+- Discord #bugs 'Ice stone unusable': 'there is no use option for ice stone, all other stones tested can be used'
+- emu_harness.py, DeSmuME, 2026-10-12: Bag > Items > Ice Stone shows no USE on the build before the fix and on the untouched Chinese ROM; Fire Stone shows USE
+- Runtime: emu_harness.py fixes --case evolution-items-use (scenario stone-use: one Pokémon per item, the item selected in the Bag, USE, the Pokémon; the build evolves all of them, the --without build only the Fire Stone control, work/notes/emu_harness.md 'Fix scenarios')
+- work/notes/ice-stone-use_fix.md: the records, the audit of every evolution item, the emulator runs before and after
+
+**Touches:**
+
+- `a/0/1/7` #606 +0xA `ice-stone-use`: `0000 0000 0000` → `0014 0001 0800` (member SHA-1 `bdf4daae7b8f`): Ice Stone (item 606): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Mr. Mime, Alolan Sandshrew and Vulpix, Cetoddle, Darumaka (6 records).
+- `a/0/1/7` #624 +0xA `cracked-pot-use`: `0000 0000 0000` → `0014 0001 0800` (member SHA-1 `6df0adbc18e8`): Cracked Pot (item 624): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Sinistea.
+- `a/0/1/7` #631 +0xA `galarica-cuff-use`: `0000 0000 0000` → `0014 0001 0800` (member SHA-1 `bdf4daae7b8f`): Galarica Cuff (item 631): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Slowpoke.
+- `a/0/1/7` #633 +0xA `galarica-wreath-use`: `0000 0000 0000` → `0014 0001 0800` (member SHA-1 `bdf4daae7b8f`): Galarica Wreath (item 633): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Slowpoke.
+- `a/0/1/7` #641 +0xA `sweet-apple-use`: `0000 0000 0000` → `0014 0001 0800` (member SHA-1 `19e84da36d30`): Sweet Apple (item 641): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Applin.
+- `a/0/1/7` #642 +0xA `tart-apple-use`: `0000 0000 0000` → `0014 0001 0800` (member SHA-1 `19e84da36d30`): Tart Apple (item 642): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Applin.
+- `a/0/1/7` #646 +0xA `auspicious-armor-use`: `0000 0000 0000` → `0014 0001 0800` (member SHA-1 `bdf4daae7b8f`): Auspicious Armor (item 646): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Charcadet.
+- `a/0/1/7` #653 +0xA `malicious-armor-use`: `0000 0000 0000` → `0014 0001 0800` (member SHA-1 `bdf4daae7b8f`): Malicious Armor (item 653): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Charcadet.
+- `a/0/1/7` #235 +0xA `dragon-scale-use`: `0000 0000 0000` → `0014 0001 0800` (member SHA-1 `2d12ae76712c`): Dragon Scale (item 235): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Exeggcute.
 
 ## expedition-completed-progress
 

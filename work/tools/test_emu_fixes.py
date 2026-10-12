@@ -587,6 +587,42 @@ class Judges(unittest.TestCase):
                 self.assertEqual(without_fix, species, name)
         self.assertEqual(set(entries), {s for s, *_ in F.TRADE_EVO_CASES.values()} - {524})
 
+    def test_stone_use(self):
+        def obs(state, change=None):
+            cases = {}
+            for name, (species, level, _, with_fix, without_fix) in F.STONE_USE_CASES.items():
+                after = with_fix if state == "fixed" else without_fix
+                cases[name] = {"before": {"species": species, "level": level, "checksum_ok": True},
+                               "after": {"species": after, "level": level, "checksum_ok": True,
+                                         "form": F.STONE_USE_FORM.get(name, 0) if state == "fixed" else 0}}
+            for (name, key), value in (change or {}).items():
+                cases[name]["after"][key] = value
+            return {"cases": cases}
+        self.assertEqual(F.judge_stone_use("stone-use", obs("fixed"))[0], "fixed")
+        self.assertEqual(F.judge_stone_use("stone-use", obs("original"))[0], "original")
+        # the Fire Stone control did not evolve: the bag / evolution path did not run, proves nothing
+        self.assertEqual(F.judge_stone_use("stone-use", obs("original", {("fire_stone", "species"): 37}))[0],
+                         "unclear")
+        # only the Ice Stone was fixed
+        self.assertEqual(F.judge_stone_use("stone-use", obs("fixed", {("cracked_pot", "species"): 854}))[0],
+                         "unclear")
+        # Exeggutor without the Alolan form (the Leaf Stone result) is not the Dragon Scale evolution
+        self.assertEqual(F.judge_stone_use("stone-use", obs("fixed", {("dragon_scale", "form"): 0}))[0], "unclear")
+        self.assertEqual(F.COVERAGE["evolution-items-use"], ("stone-use",))
+
+    def test_stone_use_cases_follow_the_fix(self):
+        # every fixed item record is exercised by a case, and the evolution table already names it (method 7)
+        entries = {e["member"]: e for e in REGISTRY["evolution-items-use"]["narc_bytes"]}
+        for name, (species, level, item, with_fix, without_fix) in F.STONE_USE_CASES.items():
+            if name == "fire_stone":
+                self.assertNotIn(item, entries)      # the control keeps its own record
+                continue
+            self.assertIn(item, entries, name)
+            self.assertEqual(fixreg.halfwords(entries[item]["expect"]), [0, 0, 0], name)
+            self.assertEqual(fixreg.halfwords(entries[item]["new"]), [0x14, 0x01, 0x0800], name)
+            self.assertEqual(without_fix, species, name)
+        self.assertEqual(set(entries), {i for _, _, i, _, _ in F.STONE_USE_CASES.values()} - {82})
+
     def test_petilil_evo(self):
         c = F.PETILIL_EVO
 
