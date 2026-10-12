@@ -45,6 +45,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`route3-misty-actors`](#route3-misty-actors) | narc | **no** | – | Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped |
+| [`safari-zone-closed`](#safari-zone-closed) | narc | **no** | – | Safari Zone closed: the gate counters show a closed notice and the doors lead nowhere |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
 | [`ss-anne-softlock`](#ss-anne-softlock) | narc | **no** | – | Open the S.S. Anne voyage in its pre-party state so the party can always start |
 | [`ssanne-tm-price-check`](#ssanne-tm-price-check) | narc | **no** | – | S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken |
@@ -1678,6 +1679,52 @@ removed and no text is added. The member grows by 27 bytes (plus up to 3 zero by
 **Touches:**
 
 - `a/0/1/2` #175 +0x493 `route3-misty-actors-prefix`: insert `20 00 17 05 1C 00 00 10 00 00 00 1F 00 17 05 64 00 1C 00 64 00 09 00 64 00 08 00` before `49 00 DC 05` (member SHA-1 `551b5d1d65f4`): Script 17 entry (PlaySE 1500 at 1171). Inserted: CheckFlag 1303; GoToIf < +16 (flag clear: skip); ClearFlag 1303; ShowPerson 28, 9, 8. The header slot of script 17 lands on the inserted CheckFlag.
+
+## safari-zone-closed
+
+**Safari Zone closed: the gate counters show a closed notice and the doors lead nowhere**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2407
+- Source: `work/patches/safari-zone-closed/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: the Safari Zone is unfinished in the Chinese hack (a hack developer says it opens in version 4.1) and
+entering it gives placeholder encounters. User decision 2026-10-12 (Shishio, Discord #bugs 'current state of
+safari zone'): close it for now. The Chinese ROM lets you pay at the gate counters (a/0/1/2 member 119, scripts
+2 and 5; script 4 is the Link counter, script 1 the information counter) and also has two plain door warps in the
+gate hall (zone 173, events a/0/3/2 member 167) to the Safari Zone map 357.
+
+Status: disabled. Merged into develop on 2026-10-12 at the user's request as a switched-off patch: the standard build leaves it out (the Chinese behaviour is kept) and it is built only on request (build.py --only safari-zone-closed). The notice text sits in the dead string a027/0133#46, which no script uses while the fix is off.
+
+**What (old → new):**
+
+Four [[script_insert]] entries put one block in front of the first command after FacePlayer of scripts 1, 2, 4
+and 5: NPCMsg 46 (message a027/0133#46, an unused Object Arrangement line whose English is now the closed notice), WaitButton, CloseMsg, ReleaseAll, End. The
+counter then never reaches the entry path. Two [[narc_bytes]] entries move the two door warps from (5,2) and
+(19,2) to (0,0), a wall corner nobody can reach, so no tile of the hall leads to map 357. Not changed: variable
+0x4057 (Baoba's tests stay where they are, so the Geodude test cannot be finished while the zone is closed), any
+flag, Baoba's text, the exit/return scripts (7, 8), the Area Customizer scripts (3, 6), the Link information
+script 12, the Dratini gift, the Fuchsia gym.
+
+**Evidence:**
+
+- work/notes/safari-zone-closed_fix.md
+- User decision 2026-10-12: option A (close everything; counters incl. the Link variant and the two door warps)
+- D-2407: the notice text (a027/0133#46 repurposed: the message pipeline cannot add ids)
+- work/tools/test_safari_zone_closed.py
+
+**Touches:**
+
+- `a/0/3/2` #167 +0x16c `door-warp-left`: `0005 0002` → `0000 0000` (member SHA-1 `e5c688347587`): Warp event (5,2) -> map 357 moved to (0,0).
+- `a/0/3/2` #167 +0x178 `door-warp-right`: `0013 0002` → `0000 0000` (member SHA-1 `e5c688347587`): Warp event (19,2) -> map 357 moved to (0,0).
+- `a/0/1/2` #119 +0x227 `counter-info-closed`: insert `2D 00 2E 32 00 35 00 61 00 02 00` before `11 00 57 40` (member SHA-1 `82b12a70edab`): Script 1 (information counter, 'Welcome, Owner! Should I explain the Safari Zone?'): closed notice after FacePlayer.
+- `a/0/1/2` #119 +0x245 `counter-pay-closed`: insert `2D 00 2E 32 00 35 00 61 00 02 00` before `11 00 57 40` (member SHA-1 `82b12a70edab`): Script 2 (pay counter, ends in Warp 357 at 2173/2445/4187): closed notice after FacePlayer.
+- `a/0/1/2` #119 +0x343 `counter-link-closed`: insert `2D 00 2E 32 00 35 00 61 00 02 00` before `11 00 57 40` (member SHA-1 `82b12a70edab`): Script 4 (Safari Zone Link reception counter): closed notice after FacePlayer.
+- `a/0/1/2` #119 +0x382 `counter-friend-closed`: insert `2D 00 2E 32 00 35 00 61 00 02 00` before `11 00 57 40` (member SHA-1 `82b12a70edab`): Script 5 (friend's Safari Zone counter, ends in Warp 357 at 2955/4793): closed notice after FacePlayer.
 
 ## sibling-ribbon-freeze
 

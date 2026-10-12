@@ -32,6 +32,7 @@ Merged into develop on 2026-10-12 at the user's request as separate patches with
 - **overworld-pokemon-sprites (D-2395, D-2396, D-2398):** 37 stationary overworld Pokémon (the Pewter Jigglypuff, the Lighthouse Ampharos, the Machoke in the Goldenrod basement and others) are drawn as the species their Chinese text and cry name instead of a Generation 5 species. Every object needs a visual recheck before 4.1.0 (list in `work/notes/overworld-pokemon-sprite-mismatch_fix.md`).
 - **overworld-pokemon-cries (D-2398 to D-2400):** 29 stationary overworld Pokémon whose label and sprite agree cry as that species (Route 6 Cloyster, Route 43 Sentrets, Cerulean Gym Seels and others).
 - **trainer-abilities (D-2401, D-2402):** 54 trainer Pokémon get the ability their held item and moves are built around (Toxic Orb Gliscor and Breloom: Poison Heal; Flame Orb Raticate, Hariyama and Machamp: Guts; Heat Rock Ninetales and Torkoal: Drought; Damp Rock Pelipper: Drizzle; Petrel's Life Orb Nidoking: Sheer Force). This changes trainer difficulty, so it is off by default.
+- **safari-zone-closed (D-2407; open question D-2408):** the four Safari Zone gate counters show a "closed for now" notice and the two gate-hall door warps lead nowhere, so the unfinished Safari Zone cannot be entered. Off by default; Baoba's Geodude test cannot be finished while it is on.
 
 ### Fixed
 - **Route 21 Lairon (D-2398):** the Pokémon in the Mr. Mime barrier scene is Lairon, as the Chinese text says (可多拉), not Onix: lines a027/0732#18 and #19.

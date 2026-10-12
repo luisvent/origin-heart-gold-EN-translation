@@ -102,6 +102,9 @@ UNCOVERED = {
                                "records the PlayCry species of a Pokemon Center Unown (180 on the Chinese ROM, 201 fixed); "
                                "test_overworld_pokemon_cries.py checks the cry of all 29 objects against their drawn species; see "
                                "work/notes/overworld-pokemon-sprite-mismatch_fix.md.",
+    "safari-zone-closed": "No scenario in this unified runner; emu_safari_closed.py separately walks to the gate "
+                          "counters and the two door tiles on a build with and without the fix, and "
+                          "test_safari_zone_closed.py checks the script and warp bytes without the emulator.",
     "honey-gather": "Dedicated emu_honey_gather.py checks native rewards and Bag insertion; run separately.",
     "startup-content-warning": "Dedicated emu_startup_warning.py captures the native startup screens; run separately.",
     "zero-pp-struggle": "No scenario in this unified runner; emu_struggle.py separately verifies paired "
