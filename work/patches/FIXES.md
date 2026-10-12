@@ -30,16 +30,16 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
 | [`blank-player-name-class-c`](#blank-player-name-class-c) | narc | **no** | – | Fill the player-name buffer before 5 more messages that read it (loan Pidgeot, Oak's Pikachu, Hitmonlee/Hitmonchan) |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
-| [`giovanni-hotspring-loss`](#giovanni-hotspring-loss) | narc | yes | – | White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring |
+| [`giovanni-hotspring-loss`](#giovanni-hotspring-loss) | narc | **no** | – | White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
 | [`photographer-no-healthy-mon`](#photographer-no-healthy-mon) | narc | **no** | – | Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene) |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
-| [`route3-misty-actors`](#route3-misty-actors) | narc | yes | – | Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped |
+| [`route3-misty-actors`](#route3-misty-actors) | narc | **no** | – | Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
-| [`ss-anne-softlock`](#ss-anne-softlock) | narc | yes | – | Open the S.S. Anne voyage in its pre-party state so the party can always start |
+| [`ss-anne-softlock`](#ss-anne-softlock) | narc | **no** | – | Open the S.S. Anne voyage in its pre-party state so the party can always start |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`tutor-blackthorn-play-rough`](#tutor-blackthorn-play-rough) | narc | **no** | – | Blackthorn Move Tutor teaches Play Rough, as it says (not Flail) |
 | [`tutor-saffron-volt-switch`](#tutor-saffron-volt-switch) | narc | **no** | – | Saffron Dojo tutor teaches Volt Switch on every path (not Charge) |
@@ -55,7 +55,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`battle-party-status-sync`](#battle-party-status-sync) | code | yes | – | In-battle party screen: status conditions show as they are now (Heal Bell, Aromatherapy, statuses gained in battle) |
 | [`bulbasaur-reflection-boundary`](#bulbasaur-reflection-boundary) | code | yes | – | Following Pokémon: Bulbasaur's reflection in water no longer reads a NULL graphics pointer (black screen over water) |
 | [`cute-charm-infatuation`](#cute-charm-infatuation) | code | yes | – | Battle: Cute Charm infatuates the attacker (the 'fell in love!' line no longer prints without effect) |
-| [`double-battle-single-fallback`](#double-battle-single-fallback) | code | yes | – | A scripted Double Battle with fewer than two Pokémon becomes a Single Battle (no freeze) |
+| [`double-battle-single-fallback`](#double-battle-single-fallback) | code | **no** | – | A scripted Double Battle with fewer than two Pokémon becomes a Single Battle (no freeze) |
 | [`double-battle-targeting`](#double-battle-targeting) | code | yes | – | Double battles: escape the D-pad target cursor trap after a foe position becomes empty |
 | [`evolution-moves`](#evolution-moves) | code | yes | – | Evolution: an evolved Pokémon is offered its evolution moves (Crobat Cross Poison, Charizard Air Slash, Gyarados Bite) |
 | [`faint-waits-for-hp-bar`](#faint-waits-for-hp-bar) | code | yes | – | Battle: a Pokémon knocked out by a multi-hit move faints after its HP bar has drained (the bar no longer jumps back and vanishes) |
@@ -899,7 +899,7 @@ native command that may fill the buffer is on the path): see work/notes/blank-pl
 - Kind: narc
 - Enabled: no
 - Requires: nothing
-- Decisions: D-2345, D-2352, D-2353, D-2354
+- Decisions: D-2345, D-2353, D-2354, D-2355
 - Source: `work/patches/blank-player-name-class-c/fix.toml`
 
 **Why (the Chinese hack):**
@@ -913,11 +913,17 @@ empty ("... got Pidgeot back!"), and ScrCmd_452 (the Pokemon picture window in P
 Hitmonlee/Hitmonchan offers) fills no message buffer either, so the line reads blank on the Chinese ROM and on our
 build alike (work/notes/blank-player-name-class-c_fix.md).
 
+Status: disabled. The player's name is no longer blank in five more lines (the Route 36 gardener's "got Pidgeot back"
+line, Prof. Oak's Pikachu offer, the Hitmonlee and Hitmonchan offers). Reviewed by a separate reviewer (approved).
+Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps
+the Chinese behaviour and builds this only on request (build.py --only blank-player-name-class-c). A tester xdelta
+(rc7 plus this fix) is available on request. Notes: work/notes/blank-player-name-class-c_fix.md.
+
 **What (old → new):**
 
 Each [[script_insert]] puts the 3-byte command BufferPlayersName 0 (BE 00 00) in front of the message that reads
 buffer 0 (scriptinsert.py relocates every offset the member stores and keeps the movement blocks aligned, see
-blank-player-name-batch). Status: disabled, like the two earlier blank-player-name fixes.
+blank-player-name-batch).
 
 **Evidence:**
 
@@ -975,9 +981,9 @@ unchanged. No global counter remap or backward save restoration.
 **White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
-- Decisions: D-2348, D-2349
+- Decisions: D-2349, D-2350
 - Source: `work/patches/giovanni-hotspring-loss/fix.toml`
 
 **Why (the Chinese hack):**
@@ -991,6 +997,12 @@ WhiteOut at all. On a loss the engine does not restore the field, so the first m
 game ends on a black or garbage screen (CPU on a bad address) on the Chinese ROM and on rc7, as the Rock Tunnel
 corner child (D-2300) and the Pokemon Tower Magcargo did. Setting the "allow loss" option bytes of the battle
 (1,0 or 1,1) does not help: the same blank screen follows.
+
+Status: disabled. Losing to Giovanni at the Mt. Silver hot spring is a normal whiteout instead of a freeze on a black
+screen. Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate,
+switched-off patch by the user's decision: the standard build keeps the Chinese behaviour and builds this only on
+request (build.py --only giovanni-hotspring-loss). A tester xdelta (rc7 plus this fix) is available on request. Notes:
+work/notes/giovanni-hotspring-loss_fix.md.
 
 **What (old → new):**
 
@@ -1131,7 +1143,7 @@ Route1's separate7286 marker remains deferred pending safe old-save compatibilit
 - Kind: narc
 - Enabled: no
 - Requires: nothing
-- Decisions: D-2357
+- Decisions: D-2347
 - Source: `work/patches/photographer-no-healthy-mon/fix.toml`
 
 **Why (the Chinese hack):**
@@ -1143,9 +1155,11 @@ photo scene looks up the party's lead Pokémon and reads it without checking tha
 notice (a read from address 0 returns 0 there), which is why the earlier emulator test with an empty party passed.
 A player report (Manic Emulator, iOS) matches. The untouched Chinese ROM does the same, so this is a hack bug.
 
-Status: disabled. Not merged. The standard build leaves it out (the Chinese behaviour is kept) and it is built only
-on request (build.py --only photographer-no-healthy-mon). A third-party patch (Speedoption, and the Spanish one
-derived from it) has the same guard.
+Status: disabled. Answering Yes to the Pallet Town photographer while no Pokémon in the party can fight no longer
+freezes the game: he gives his usual decline reply instead. Reviewed by a separate reviewer (approved). Merged into
+develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
+behaviour and builds this only on request (build.py --only photographer-no-healthy-mon). A tester xdelta (rc7 plus
+this fix) is available on request. Notes: work/notes/photographer-no-healthy-mon_fix.md.
 
 **What (old → new):**
 
@@ -1260,9 +1274,9 @@ a judgment (D-2333, open question).
 **Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
-- Decisions: D-2350, D-2351
+- Decisions: D-2351, D-2352
 - Source: `work/patches/route3-misty-actors/fix.toml`
 
 **Why (the Chinese hack):**
@@ -1278,6 +1292,12 @@ still 0. The trigger then plays on the Chinese ROM and on rc7 with no Misty and 
 Stop, Gyarados!" and "Gyarados: Gy-a-ra!" come from nobody, the battle starts from thin air, and the whole "Misty:
 I'm so sorry" talk is held with an empty field. (Seen in the emulator with the state forced to flag 1303 set and
 var 0x4086 = 0, which is the game's own state between the Viridian Blue scene and the forest scene.)
+
+Status: disabled. Misty and her Gyarados are shown in the Route 3 scene even when the Viridian Forest request was
+skipped, instead of the scene playing with an empty field. Reviewed by a separate reviewer (approved). Merged into
+develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
+behaviour and builds this only on request (build.py --only route3-misty-actors). A tester xdelta (rc7 plus this fix)
+is available on request. Notes: work/notes/route3-misty-actors_fix.md.
 
 **What (old → new):**
 
@@ -1355,9 +1375,9 @@ whole-member SHA-1 and the expected bytes guard each edit.
 **Open the S.S. Anne voyage in its pre-party state so the party can always start**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
-- Decisions: D-1549, D-2358
+- Decisions: D-1549, D-2348
 - Source: `work/patches/ss-anne-softlock/fix.toml`
 
 **Why (the Chinese hack):**
@@ -1389,6 +1409,13 @@ Where the flag is written or tested across the whole archive (own decoder, revie
 156 @6350 (the hijack); clears are at 157 @550 and 161 @1901; tests are at 157 @124 and 156 @714, 1023, 1068, 1098,
 1159; all of them jump away when the flag is clear, so a clear flag means 'party already started'. HM01 is given only in
 member 157; 81 and 191 only check for it. So the Chinese first voyage never gives HM01.
+
+Status: disabled. Boarding the S.S. Anne sets the flag that lets the party start in every order of events, so the
+first voyage can no longer leave the player stuck aboard; the behaviour changes are listed in work/notes/ss-anne-
+softlock_fix.md. Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a
+separate, switched-off patch by the user's decision: the standard build keeps the Chinese behaviour and builds this
+only on request (build.py --only ss-anne-softlock). A tester xdelta (rc7 plus this fix) is available on request.
+Notes: work/notes/ss-anne-softlock_fix.md.
 
 **What (old → new):**
 
@@ -1434,8 +1461,8 @@ TO UNDO: set enabled = false (or build with --without ss-anne-softlock), or chan
 - Emulator, Chinese ROM: Honey first ends stuck (var 0x40A4 = 0, hall trigger silent, gangway sailor still at 24,17); old boy first starts the party
 - Emulator, Chinese ROM + fix and English build + fix: five orders all end with var 0x40A4 = 3 and the hall trigger running: old boy first, Blue first, Captain first, Captain then Blue then old boy, Honey then Captain; reviewer's own orders: leaving and re-boarding before the party keeps flags 1423/1424/1440 and the party still starts. Boarding writes 1440 once, at pc 0x204f8b6
 - Scratch run folders (not in the repo): scratchpad inv/ss-anne-softlock/ run2 CN, run3 rc7, run6 CN+fix, run7 EN fix, run8 EN control; review folder review/ss-anne-softlock/
-- NOT VERIFIED: the party and hijack scenes after Archie's hall speech; rescuing saves that are already stuck aboard (the fix acts at boarding only); the 'Soul Badge' label for CheckBadge 4 at member 155 offset 145 (an assumption; the branch jumps away before offset 152 either way); the new-S.S.-Anne branch itself; hardware; expected.toml hashes are not updated (the merge step runs check.py --full --update-expected if this fix is enabled in the standard build). The harness 'honey_first' variant crashes on the fixed ROM because it waits for an old-boy battle that no longer happens before the party (harness limit; 'honey_then_captain' covers the same order).
-- Merge status: merged DISABLED like the other 2026-10-12 fixes (user decision: a disabled merge is harmless); tester xdelta on request. Decision D-2358 collides with the photographer fix's id and is renumbered at merge.
+- NOT VERIFIED: the party and hijack scenes after Archie's hall speech; rescuing saves that are already stuck aboard (the fix acts at boarding only); the 'Soul Badge' label for CheckBadge 4 at member 155 offset 145 (an assumption; the branch jumps away before offset 152 either way); the new-S.S.-Anne branch itself; hardware; The harness 'honey_first' variant crashes on the fixed ROM because it waits for an old-boy battle that no longer happens before the party (harness limit; 'honey_then_captain' covers the same order).
+- Merge status: merged DISABLED like the other 2026-10-12 fixes (user decision: a disabled merge is harmless); tester xdelta on request.
 
 **Touches:**
 
@@ -1500,7 +1527,7 @@ Linking Cord (635) stay as the hack has them.
 - Kind: narc
 - Enabled: no
 - Requires: nothing
-- Decisions: D-1305, D-2355
+- Decisions: D-1305, D-2356
 - Source: `work/patches/tutor-blackthorn-play-rough/fix.toml`
 
 **Why (the Chinese hack):**
@@ -1513,8 +1540,11 @@ uses move 175, the id v3 gave Play Rough. v4 moved Play Rough to its own id 583 
 and the English build (D-1305: 175 written on both the free-slot and the forget-a-move path, and the summary screen
 names 抓狂 / Flail). The same script already teaches Draco Meteor (434) correctly.
 
-Status: disabled. A separate, switched-off patch, like the other 2026-10-12 hack-bug fixes: the standard build
-keeps the Chinese behaviour; build it with build.py --only tutor-blackthorn-play-rough.
+Status: disabled. The Blackthorn Move Tutor teaches Play Rough, the move the hack's own sheet lists, instead of Flail.
+Reviewed by a separate reviewer (approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+tutor-blackthorn-play-rough). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/tutor-
+blackthorn-play-rough_fix.md.
 
 **What (old → new):**
 
@@ -1544,7 +1574,7 @@ edit.
 - Kind: narc
 - Enabled: no
 - Requires: nothing
-- Decisions: D-1347, D-2356
+- Decisions: D-1347, D-2357
 - Source: `work/patches/tutor-saffron-volt-switch/fix.toml`
 
 **Why (the Chinese hack):**
@@ -1558,8 +1588,11 @@ Pokemon with four moves that answers 'no' to the first forget prompt and 'yes' t
 taught, Charge as well. Observed in the emulator on the Chinese ROM and the English build (D-1347: 3 moves ->
 268, 4 moves -> 521, 10000 taken on both).
 
-Status: disabled. A separate, switched-off patch, like the other 2026-10-12 hack-bug fixes: the standard build
-keeps the Chinese behaviour; build it with build.py --only tutor-saffron-volt-switch.
+Status: disabled. The Saffron Dojo tutor teaches Volt Switch on every path instead of Charge on some of them. Reviewed
+by a separate reviewer (approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's
+decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only tutor-
+saffron-volt-switch). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/tutor-saffron-
+volt-switch_fix.md.
 
 **What (old → new):**
 
@@ -4443,9 +4476,9 @@ checks, the message, every other ability and status.
 **A scripted Double Battle with fewer than two Pokémon becomes a Single Battle (no freeze)**
 
 - Kind: code
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
-- Decisions: D-2357
+- Decisions: D-2358
 - Source: `work/patches/double-battle-single-fallback/fix.toml`
 
 **Why (the Chinese hack):**
@@ -4455,14 +4488,20 @@ the shoppers who object to the blind man's Poochyena; also Yellow's Singles opti
 script sites that check nothing). The double starts with a broken ally (a junk name, level and status) and a blank screen at
 FIGHT. The untouched Chinese ROM does the same (hack finding D-1559).
 
-Status: D-1337 no longer blocks fixes (user 2026-10-12: 'We are way past this point since the Chinese rom contains too many
-bugs.. So lets create a fix in a worktree'). D-2357 is the user's choice of this general fix (2026-10-12: 'Lets replace [the
+Authority: D-1337 no longer blocks fixes (user 2026-10-12: 'We are way past this point since the Chinese rom contains too many
+bugs.. So lets create a fix in a worktree'). D-2358 is the user's choice of this general fix (2026-10-12: 'Lets replace [the
 Department Store check] and build a downgrade to single battle like the Spanish patch.').
 
 Technical: ScrCmd_TrainerBattle (command 213) and MultiBattle (562) call the battle setup at 0x02050768, which picks the battle
 type (1 single, 3 double with one trainer twice, 0x13 double with two trainers, 0x4B multi with a partner) and calls
 BattleSetup_New(11, type). Nothing there looks at the party. With a party count below two the battle init (overlay 14) reads the
 empty second slot's index as a pointer (DeSmuME: broken ally, blank screen; melonDS: data abort at 0x022167B4).
+
+Status: disabled. A scripted Double Battle that starts with fewer than two Pokémon in the party becomes a Single
+Battle instead of freezing (Department Store 6F and about 130 other sites). Reviewed by a separate reviewer
+(approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard
+build keeps the Chinese behaviour and builds this only on request (build.py --only double-battle-single-fallback). A
+tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/double-battle-single-fallback_fix.md.
 
 **What (old → new):**
 
@@ -4478,7 +4517,7 @@ Two edits: the 8 bytes at 0x020507A4 call a hook; the hook (40 bytes) lives in t
 
 **Evidence:**
 
-- D-2357: the user's decision; D-1559: the finding (Department Store 6F)
+- D-2358: the user's decision; D-1559: the finding (Department Store 6F)
 - work/notes/double-battle-single-fallback_fix.md: the code, the multi-trainer decision, the emulator runs before and after
 - Runtime: work/tools/test_emu_double_battle_single_fallback.py (DeSmuME and melonDS)
 
@@ -4496,7 +4535,7 @@ Two edits: the 8 bytes at 0x020507A4 call a hook; the hook (40 bytes) lives in t
 
 ```asm
 ; double-battle-single-fallback - a scripted Double Battle with fewer than two Pokemon in the party becomes a
-; Single Battle (no frozen battle). D-2357 (user decision 2026-10-12); answers the hack finding D-1559
+; Single Battle (no frozen battle). D-2358 (user decision 2026-10-12); answers the hack finding D-1559
 ; (Department Store 6F and the other scripted doubles).
 ; Why and what: fix.toml next to this file; overview work/patches/FIXES.md;
 ; work/notes/double-battle-single-fallback_fix.md.

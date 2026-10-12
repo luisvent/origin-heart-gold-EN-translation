@@ -1,7 +1,8 @@
 # Saffron Dojo tutor teaches Charge instead of Volt Switch (fix `tutor-saffron-volt-switch`)
 
-**Status: disabled** (`enabled = false`). A separate, switched-off patch; built only on request
-(`build.py --only tutor-saffron-volt-switch`). Findings D-1347 (hack bug), D-2356 (this fix). Source of truth: the
+**Status: disabled** (`enabled = false`). Reviewed (approved); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only tutor-saffron-volt-switch`. A tester xdelta (rc7 plus this fix) is available on request.
+
+Findings D-1347 (hack bug), D-2357 (this fix). Source of truth: the
 untouched Chinese ROM. Investigation: `work/notes/tutor-wrong-moves_investigation.md`.
 
 ## Cause

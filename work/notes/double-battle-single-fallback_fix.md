@@ -1,6 +1,8 @@
 # double-battle-single-fallback (2026-10-12)
 
-Fix `work/patches/double-battle-single-fallback/`, decision D-2357 (the id may collide with other branches: the merge step renumbers),
+**Status: disabled** (`enabled = false`). Reviewed (approved); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only double-battle-single-fallback`. A tester xdelta (rc7 plus this fix) is available on request.
+
+Fix `work/patches/double-battle-single-fallback/`, decision D-2358,
 related D-1559 (the Department Store finding). Authority: user 2026-10-12, "Lets replace [the Department Store check] and build a
 downgrade to single battle like the Spanish patch." This replaces the per-battle `department-store-double-one-mon` guard (that branch is
 untouched). Nothing was copied from the Spanish ROM: the code below is derived from the Chinese arm9.

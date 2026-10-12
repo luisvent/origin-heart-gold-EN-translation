@@ -1,8 +1,8 @@
 id = "double-battle-single-fallback"
 title = "A scripted Double Battle with fewer than two Pokémon becomes a Single Battle (no freeze)"
 kind = "code"
-enabled = true
-decisions = ["D-2357"]
+enabled = false
+decisions = ["D-2358"]
 requires = []
 asm = "double-battle-single-fallback.asm"
 why = """
@@ -11,14 +11,20 @@ the shoppers who object to the blind man's Poochyena; also Yellow's Singles opti
 script sites that check nothing). The double starts with a broken ally (a junk name, level and status) and a blank screen at
 FIGHT. The untouched Chinese ROM does the same (hack finding D-1559).
 
-Status: D-1337 no longer blocks fixes (user 2026-10-12: 'We are way past this point since the Chinese rom contains too many
-bugs.. So lets create a fix in a worktree'). D-2357 is the user's choice of this general fix (2026-10-12: 'Lets replace [the
+Authority: D-1337 no longer blocks fixes (user 2026-10-12: 'We are way past this point since the Chinese rom contains too many
+bugs.. So lets create a fix in a worktree'). D-2358 is the user's choice of this general fix (2026-10-12: 'Lets replace [the
 Department Store check] and build a downgrade to single battle like the Spanish patch.').
 
 Technical: ScrCmd_TrainerBattle (command 213) and MultiBattle (562) call the battle setup at 0x02050768, which picks the battle
 type (1 single, 3 double with one trainer twice, 0x13 double with two trainers, 0x4B multi with a partner) and calls
 BattleSetup_New(11, type). Nothing there looks at the party. With a party count below two the battle init (overlay 14) reads the
 empty second slot's index as a pointer (DeSmuME: broken ally, blank screen; melonDS: data abort at 0x022167B4).
+
+Status: disabled. A scripted Double Battle that starts with fewer than two Pokémon in the party becomes a Single
+Battle instead of freezing (Department Store 6F and about 130 other sites). Reviewed by a separate reviewer
+(approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard
+build keeps the Chinese behaviour and builds this only on request (build.py --only double-battle-single-fallback). A
+tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/double-battle-single-fallback_fix.md.
 """
 what = """
 Old: type 3 / 0x13 whatever the party.
@@ -31,7 +37,7 @@ Two edits: the 8 bytes at 0x020507A4 call a hook; the hook (40 bytes) lives in t
 (0x02048EC8), which battled trainer 1 and which no script of the hack uses.
 """
 evidence = [
-  "D-2357: the user's decision; D-1559: the finding (Department Store 6F)",
+  "D-2358: the user's decision; D-1559: the finding (Department Store 6F)",
   "work/notes/double-battle-single-fallback_fix.md: the code, the multi-trainer decision, the emulator runs before and after",
   "Runtime: work/tools/test_emu_double_battle_single_fallback.py (DeSmuME and melonDS)",
 ]

@@ -2,7 +2,7 @@ id = "tutor-saffron-volt-switch"
 title = "Saffron Dojo tutor teaches Volt Switch on every path (not Charge)"
 kind = "narc"
 enabled = false
-decisions = ["D-1347", "D-2356"]
+decisions = ["D-1347", "D-2357"]
 requires = []
 why = """
 D-1347: the Saffron Fighting Dojo master (a/0/1/2 member 829) sells the lesson 'Loose, Lively, Springy, Shaky
@@ -14,8 +14,11 @@ Pokemon with four moves that answers 'no' to the first forget prompt and 'yes' t
 taught, Charge as well. Observed in the emulator on the Chinese ROM and the English build (D-1347: 3 moves ->
 268, 4 moves -> 521, 10000 taken on both).
 
-Status: disabled. A separate, switched-off patch, like the other 2026-10-12 hack-bug fixes: the standard build
-keeps the Chinese behaviour; build it with build.py --only tutor-saffron-volt-switch.
+Status: disabled. The Saffron Dojo tutor teaches Volt Switch on every path instead of Charge on some of them. Reviewed
+by a separate reviewer (approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's
+decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only tutor-
+saffron-volt-switch). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/tutor-saffron-
+volt-switch_fix.md.
 """
 what = """
 Three two-byte edits in member 829, 010C -> 0209 (268 -> 521): the free-slot SetMonMove (pc 6368), and, on the

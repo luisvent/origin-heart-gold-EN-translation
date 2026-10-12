@@ -1,7 +1,9 @@
 # route3-misty-actors: fix notes (2026-10-12)
 
-Cause and evidence: work/notes/giovanni-hotspring-and-route3_investigation.md, section 2. Decisions D-2350 (finding,
-resolved), D-2351 (fix). Cosmetic: the scene finishes either way; without the fix it is played with an empty field.
+**Status: disabled** (`enabled = false`). Reviewed (approved); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only route3-misty-actors`. A tester xdelta (rc7 plus this fix) is available on request.
+
+Cause and evidence: work/notes/giovanni-hotspring-and-route3_investigation.md, section 2. Decisions D-2351 (finding,
+resolved), D-2352 (fix). Cosmetic: the scene finishes either way; without the fix it is played with an empty field.
 
 ## Change
 

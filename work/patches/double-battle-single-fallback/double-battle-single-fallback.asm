@@ -1,5 +1,5 @@
 ; double-battle-single-fallback - a scripted Double Battle with fewer than two Pokemon in the party becomes a
-; Single Battle (no frozen battle). D-2357 (user decision 2026-10-12); answers the hack finding D-1559
+; Single Battle (no frozen battle). D-2358 (user decision 2026-10-12); answers the hack finding D-1559
 ; (Department Store 6F and the other scripted doubles).
 ; Why and what: fix.toml next to this file; overview work/patches/FIXES.md;
 ; work/notes/double-battle-single-fallback_fix.md.

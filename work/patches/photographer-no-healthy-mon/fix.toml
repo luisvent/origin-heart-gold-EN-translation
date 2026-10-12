@@ -2,7 +2,7 @@ id = "photographer-no-healthy-mon"
 title = "Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene)"
 kind = "narc"
 enabled = false
-decisions = ["D-2346"]
+decisions = ["D-2347"]
 requires = []
 why = """
 Players: talking to Cameron, the photographer in Pallet Town, and answering Yes while no Pokémon in the party can
@@ -12,9 +12,11 @@ photo scene looks up the party's lead Pokémon and reads it without checking tha
 notice (a read from address 0 returns 0 there), which is why the earlier emulator test with an empty party passed.
 A player report (Manic Emulator, iOS) matches. The untouched Chinese ROM does the same, so this is a hack bug.
 
-Status: disabled. Not merged. The standard build leaves it out (the Chinese behaviour is kept) and it is built only
-on request (build.py --only photographer-no-healthy-mon). A third-party patch (Speedoption, and the Spanish one
-derived from it) has the same guard.
+Status: disabled. Answering Yes to the Pallet Town photographer while no Pokémon in the party can fight no longer
+freezes the game: he gives his usual decline reply instead. Reviewed by a separate reviewer (approved). Merged into
+develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
+behaviour and builds this only on request (build.py --only photographer-no-healthy-mon). A tester xdelta (rc7 plus
+this fix) is available on request. Notes: work/notes/photographer-no-healthy-mon_fix.md.
 """
 what = """
 a/0/1/2 member 733, script 7 (the photographer), is edited with one [[script_insert]] in front of the

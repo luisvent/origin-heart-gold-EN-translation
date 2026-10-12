@@ -1,8 +1,8 @@
 id = "giovanni-hotspring-loss"
 title = "White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring"
 kind = "narc"
-enabled = true
-decisions = ["D-2348", "D-2349"]
+enabled = false
+decisions = ["D-2349", "D-2350"]
 requires = []
 why = """
 Mt. Silver hot-spring map (zone 65, script file a/0/1/2 member 844, script 3: Lance and Lorelei, then Giovanni,
@@ -14,6 +14,12 @@ WhiteOut at all. On a loss the engine does not restore the field, so the first m
 game ends on a black or garbage screen (CPU on a bad address) on the Chinese ROM and on rc7, as the Rock Tunnel
 corner child (D-2300) and the Pokemon Tower Magcargo did. Setting the "allow loss" option bytes of the battle
 (1,0 or 1,1) does not help: the same blank screen follows.
+
+Status: disabled. Losing to Giovanni at the Mt. Silver hot spring is a normal whiteout instead of a freeze on a black
+screen. Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate,
+switched-off patch by the user's decision: the standard build keeps the Chinese behaviour and builds this only on
+request (build.py --only giovanni-hotspring-loss). A tester xdelta (rc7 plus this fix) is available on request. Notes:
+work/notes/giovanni-hotspring-loss_fix.md.
 """
 what = """
 One [[script_insert]]: in front of the GoToIf at offset 819 (the loss branch) put GoToIf not-equal (win) over a

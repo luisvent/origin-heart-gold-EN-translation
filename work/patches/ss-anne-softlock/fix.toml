@@ -1,8 +1,8 @@
 id = "ss-anne-softlock"
 title = "Open the S.S. Anne voyage in its pre-party state so the party can always start"
 kind = "narc"
-enabled = true
-decisions = ["D-1549", "D-2347"]
+enabled = false
+decisions = ["D-1549", "D-2348"]
 requires = []
 why = """
 D-1549: the S.S. Anne scripts (a/0/1/2 members 156, 157, 161) are written for a voyage that starts with flag 1440
@@ -32,6 +32,13 @@ Where the flag is written or tested across the whole archive (own decoder, revie
 156 @6350 (the hijack); clears are at 157 @550 and 161 @1901; tests are at 157 @124 and 156 @714, 1023, 1068, 1098,
 1159; all of them jump away when the flag is clear, so a clear flag means 'party already started'. HM01 is given only in
 member 157; 81 and 191 only check for it. So the Chinese first voyage never gives HM01.
+
+Status: disabled. Boarding the S.S. Anne sets the flag that lets the party start in every order of events, so the
+first voyage can no longer leave the player stuck aboard; the behaviour changes are listed in work/notes/ss-anne-
+softlock_fix.md. Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a
+separate, switched-off patch by the user's decision: the standard build keeps the Chinese behaviour and builds this
+only on request (build.py --only ss-anne-softlock). A tester xdelta (rc7 plus this fix) is available on request.
+Notes: work/notes/ss-anne-softlock_fix.md.
 """
 what = """
 Set flag 1440 when the player boards, before the hall map loads. In the harbor sailor's script (member 155, script 1),
@@ -75,8 +82,8 @@ evidence = [
   "Emulator, Chinese ROM: Honey first ends stuck (var 0x40A4 = 0, hall trigger silent, gangway sailor still at 24,17); old boy first starts the party",
   "Emulator, Chinese ROM + fix and English build + fix: five orders all end with var 0x40A4 = 3 and the hall trigger running: old boy first, Blue first, Captain first, Captain then Blue then old boy, Honey then Captain; reviewer's own orders: leaving and re-boarding before the party keeps flags 1423/1424/1440 and the party still starts. Boarding writes 1440 once, at pc 0x204f8b6",
   "Scratch run folders (not in the repo): scratchpad inv/ss-anne-softlock/ run2 CN, run3 rc7, run6 CN+fix, run7 EN fix, run8 EN control; review folder review/ss-anne-softlock/",
-  "NOT VERIFIED: the party and hijack scenes after Archie's hall speech; rescuing saves that are already stuck aboard (the fix acts at boarding only); the 'Soul Badge' label for CheckBadge 4 at member 155 offset 145 (an assumption; the branch jumps away before offset 152 either way); the new-S.S.-Anne branch itself; hardware; expected.toml hashes are not updated (the merge step runs check.py --full --update-expected if this fix is enabled in the standard build). The harness 'honey_first' variant crashes on the fixed ROM because it waits for an old-boy battle that no longer happens before the party (harness limit; 'honey_then_captain' covers the same order).",
-  "Merge status: merged DISABLED like the other 2026-10-12 fixes (user decision: a disabled merge is harmless); tester xdelta on request. Decision D-2347 collides with the photographer fix's id and is renumbered at merge.",
+  "NOT VERIFIED: the party and hijack scenes after Archie's hall speech; rescuing saves that are already stuck aboard (the fix acts at boarding only); the 'Soul Badge' label for CheckBadge 4 at member 155 offset 145 (an assumption; the branch jumps away before offset 152 either way); the new-S.S.-Anne branch itself; hardware; The harness 'honey_first' variant crashes on the fixed ROM because it waits for an old-boy battle that no longer happens before the party (harness limit; 'honey_then_captain' covers the same order).",
+  "Merge status: merged DISABLED like the other 2026-10-12 fixes (user decision: a disabled merge is harmless); tester xdelta on request.",
 ]
 
 [[narc_bytes]]

@@ -1,6 +1,6 @@
 # Pidgeot loan investigation (2026-10-12)
 
-Verdict: REPRODUCED, JUDGMENT NEEDED (question D-2359, related D-1392 / D-1552). No fix written.
+Verdict: REPRODUCED, JUDGMENT NEEDED (question D-2360, related D-1392 / D-1552). No fix written.
 
 ## What happens
 Viridian Forest flower lady, file 115 script 11. Lending: party menu pick (L4827) -> `ReturnLoanMon` (L7012) removes that party slot. Return after flag 2404: L5794 `GiveLoanMon 6 20 75` (L5818) adds a fresh Pidgeot from trade record 6. The queue text "replaces one of the player's Pokemon" is inaccurate: only the lent Pidgeot is destroyed. A species check (18) means no other Pokemon can be picked; the lend is refused with a one-Pokemon party; the return is refused with a full party (msg 158, L7001).

@@ -1,6 +1,7 @@
 # S.S. Anne party softlock: fix `ss-anne-softlock`
 
-Status: enabled in fix.toml (the merge step decides). 2026-10-12, agent ss-anne-softlock. D-1549, D-2347.
+**Status: disabled** (`enabled = false`). Reviewed (approved with notes); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only ss-anne-softlock`. A tester xdelta (rc7 plus this fix) is available on request.
+
 Investigation and evidence: `work/notes/ss-anne-softlock_investigation.md`.
 
 ## Fix

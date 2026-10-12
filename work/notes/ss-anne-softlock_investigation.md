@@ -1,7 +1,7 @@
 # S.S. Anne party softlock: investigation (2026-10-12, agent ss-anne-softlock)
 
 Verdict: **REPRODUCED** (natural play path, real boarding and real NPC walk-ups; only positioning uses the harness warp).
-Fix: `ss-anne-softlock` (`work/notes/ss-anne-softlock_fix.md`). Register: D-1549 (resolved earlier, same finding), D-2347.
+Fix: `ss-anne-softlock` (`work/notes/ss-anne-softlock_fix.md`). Register: D-1549 (resolved earlier, same finding), D-2348.
 The "superseded by later emulator findings" wording in the notes refers to D-1549's own settled answer (2026-10-06), which
 replaced the earlier guess that the Captain starts the party; nothing in the notes says the trap is not real.
 

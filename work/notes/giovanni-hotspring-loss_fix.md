@@ -1,7 +1,9 @@
 # giovanni-hotspring-loss: fix notes (2026-10-12)
 
-Cause, evidence and runs: work/notes/giovanni-hotspring-and-route3_investigation.md, section 1. Decisions D-2348
-(finding, resolved), D-2349 (fix).
+**Status: disabled** (`enabled = false`). Reviewed (approved with notes); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only giovanni-hotspring-loss`. A tester xdelta (rc7 plus this fix) is available on request.
+
+Cause, evidence and runs: work/notes/giovanni-hotspring-and-route3_investigation.md, section 1. Decisions D-2349
+(finding, resolved), D-2350 (fix).
 
 ## Change
 

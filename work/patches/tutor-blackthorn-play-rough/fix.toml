@@ -2,7 +2,7 @@ id = "tutor-blackthorn-play-rough"
 title = "Blackthorn Move Tutor teaches Play Rough, as it says (not Flail)"
 kind = "narc"
 enabled = false
-decisions = ["D-1305", "D-2355"]
+decisions = ["D-1305", "D-2356"]
 requires = []
 why = """
 D-1305: the Blackthorn Move Tutor (a/0/1/2 member 944, house tutor of Blackthorn City) promises Play Rough in every
@@ -13,8 +13,11 @@ uses move 175, the id v3 gave Play Rough. v4 moved Play Rough to its own id 583 
 and the English build (D-1305: 175 written on both the free-slot and the forget-a-move path, and the summary screen
 names 抓狂 / Flail). The same script already teaches Draco Meteor (434) correctly.
 
-Status: disabled. A separate, switched-off patch, like the other 2026-10-12 hack-bug fixes: the standard build
-keeps the Chinese behaviour; build it with build.py --only tutor-blackthorn-play-rough.
+Status: disabled. The Blackthorn Move Tutor teaches Play Rough, the move the hack's own sheet lists, instead of Flail.
+Reviewed by a separate reviewer (approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+tutor-blackthorn-play-rough). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/tutor-
+blackthorn-play-rough_fix.md.
 """
 what = """
 Four two-byte edits in member 944, 00AF -> 0247 (175 -> 583): the 'already knows it?' check (MonHasMove), the

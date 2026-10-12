@@ -1,8 +1,8 @@
 id = "route3-misty-actors"
 title = "Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped"
 kind = "narc"
-enabled = true
-decisions = ["D-2350", "D-2351"]
+enabled = false
+decisions = ["D-2351", "D-2352"]
 requires = []
 why = """
 Route 3 (zone 11, script file a/0/1/2 member 175): the step trigger at x 1149, z 119-123 (var 0x4086 = 0) runs
@@ -16,6 +16,12 @@ still 0. The trigger then plays on the Chinese ROM and on rc7 with no Misty and 
 Stop, Gyarados!" and "Gyarados: Gy-a-ra!" come from nobody, the battle starts from thin air, and the whole "Misty:
 I'm so sorry" talk is held with an empty field. (Seen in the emulator with the state forced to flag 1303 set and
 var 0x4086 = 0, which is the game's own state between the Viridian Blue scene and the forest scene.)
+
+Status: disabled. Misty and her Gyarados are shown in the Route 3 scene even when the Viridian Forest request was
+skipped, instead of the scene playing with an empty field. Reviewed by a separate reviewer (approved). Merged into
+develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
+behaviour and builds this only on request (build.py --only route3-misty-actors). A tester xdelta (rc7 plus this fix)
+is available on request. Notes: work/notes/route3-misty-actors_fix.md.
 """
 what = """
 One [[script_insert]]: in front of the first command of script 17 (PlaySE at 1171) put CheckFlag 1303 / GoToIf
