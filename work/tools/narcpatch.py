@@ -20,6 +20,13 @@ hack's) and the bytes at offset are expect; it then writes new and keeps every o
 size. The entries of one member must agree on member_sha1; their byte ranges must not overlap (fixes.py's
 overlap check: key "<narc>#<member>", byte ranges; a [[graphics]] op on the same member overlaps all of it).
 verify() re-reads every patched member of the written ROM (its SHA-1 after the stage).
+
+[[script_insert]] entries (scriptinsert.py) put whole commands in front of a command of an event-script member and
+relocate every offset the member stores, so the member grows. They run after the [[narc_bytes]] entries, on the
+member as it stands then; member_sha1 is the list of SHA-1s accepted at that point (the hack's member, and the member
+after the [[narc_bytes]] of a fix that is meant to combine with the insert). expect pins the command at offset.
+Rows of [[narc_bytes]] entries in a member that got inserts are marked "relocated": verify() then checks the member's
+SHA-1 only, because a relative operand inside their bytes was legitimately rewritten.
 """
 from __future__ import annotations
 
@@ -33,6 +40,7 @@ sys.path.insert(0, str(TOOLS))
 
 import fixes as fixreg  # noqa: E402
 import msgtool as m  # noqa: E402
+import scriptinsert as si  # noqa: E402
 
 
 class NarcPatchError(Exception):
@@ -79,11 +87,55 @@ def apply(get_file, set_file, fixes) -> list:
         files[e["member"]] = bytes(data)
         rows.append({"fix": e["fix"], "id": e["id"], "narc": e["narc"], "member": e["member"], "offset": off,
                      "old": old.hex(), "new": new.hex()})
+    insert_rows, touched = _apply_inserts(get_file, narcs, fixes)
+    for r in rows:                                  # a relative operand inside these bytes may have been rewritten
+        if (r["narc"], r["member"]) in touched:
+            r["relocated"] = True
+    rows += insert_rows
     for path, n in narcs.items():
         set_file(path, n.build())
     for r in rows:
         r["sha1"] = hashlib.sha1(narcs[r["narc"]].files[r["member"]]).hexdigest()
     return rows
+
+
+def _apply_inserts(get_file, narcs, fixes):
+    """The [[script_insert]] entries of `fixes`, applied to the (already narc_bytes-patched) members in `narcs`.
+    Returns (report rows, the set of (narc, member) that grew)."""
+    entries = fixreg.script_insert_entries(fixes)
+    groups = {}
+    for e in entries:
+        groups.setdefault((e["narc"], e["member"]), []).append(e)
+    rows = []
+    for (path, member), es in groups.items():
+        if path not in narcs:
+            narcs[path] = m.Narc.parse(get_file(path))
+        files = narcs[path].files
+        label = f"fix {es[0]['fix']} [[script_insert]] ({path} #{member})"
+        if not 0 <= member < len(files):
+            raise NarcPatchError(f"{label}: the NARC has {len(files)} members")
+        cur = files[member]
+        got = hashlib.sha1(cur).hexdigest()
+        offs = []
+        for e in es:
+            elabel = f"fix {e['fix']} [[script_insert]] {e['id']} ({path} #{member})"
+            if got not in e["member_sha1"]:
+                raise NarcPatchError(f"{elabel}: member SHA-1 is {got}, expected one of {', '.join(e['member_sha1'])} "
+                                     f"(not the hack's member; recheck the fix)")
+            off, want = fixreg._int(e["offset"]), fixreg.hexbytes(e["expect"])
+            if bytes(cur[off:off + len(want)]) != want:
+                raise NarcPatchError(f"{elabel}: bytes at {off:#x} are {bytes(cur[off:off + len(want)]).hex(' ')}, "
+                                     f"expected {want.hex(' ')}")
+            offs.append((off, fixreg.hexbytes(e["insert"])))
+        try:
+            new, where = si.insert_ex(bytes(cur), offs)
+        except si.ScriptInsertError as ex:
+            raise NarcPatchError(f"{label}: {ex}") from ex
+        files[member] = new
+        for e, (off, blk) in zip(es, offs, strict=True):
+            rows.append({"fix": e["fix"], "id": e["id"], "narc": path, "member": member, "offset": where[off],
+                         "old": "", "new": blk.hex(), "kind": "script_insert"})
+    return rows, {(r["narc"], r["member"]) for r in rows}
 
 
 def verify(get_file, report) -> str:
@@ -95,6 +147,10 @@ def verify(get_file, report) -> str:
         data = narcs[r["narc"]].files[r["member"]]
         new = bytes.fromhex(r["new"])
         got = hashlib.sha1(data).hexdigest()
-        if got != r["sha1"] or data[r["offset"]:r["offset"] + len(new)] != new:
+        if r.get("relocated"):                      # a script_insert moved this entry's bytes: the member's SHA-1 pins them
+            new, at = b"", 0
+        else:
+            at = r["offset"]
+        if got != r["sha1"] or data[at:at + len(new)] != new:
             raise AssertionError(f"narc_bytes {r['narc']} #{r['member']} ({r['id']}): {got} != {r['sha1']}")
     return f"ok ({len(report)} entries, {len({(r['narc'], r['member']) for r in report})} members)"

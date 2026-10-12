@@ -29,7 +29,8 @@ Pipeline
               work/notes/graphics_inventory.md
   3b'. narc   narcpatch.apply(): the narc fixes' [[narc_bytes]] entries - a few bytes inside game-data NARC
               members (trade-evolutions-levelup: Boldore / Gurdurr evolution records in a/0/3/4), each only
-              when the member still has its recorded SHA-1 and the bytes are the expected ones
+              when the member still has its recorded SHA-1 and the bytes are the expected ones; then the
+              [[script_insert]] entries (commands inserted into event-script members, offsets relocated)
   3c. hardcoded  asmpatch.apply(): the selected strings, data and code fixes (outfit-chooser-strings,
               namelen, naming-keyboard, msgload, pcbox-name-width, ivev-panel, antipiracy, text-speed,
               overworld-texture-frame-bounds, bulbasaur-reflection-boundary, battle-message-error-marker,
@@ -47,7 +48,7 @@ Pipeline
               every bank decodes and re-encodes identically, the exported text is what the ROM holds);
               every compressed-bank name fits its buffer and decompresses to the English;
               glyphs/widths equal the US ones; every patched graphics member is what the stage wrote;
-              every [[narc_bytes]] member is what stage 3b' wrote;
+              every [[narc_bytes]] / [[script_insert]] member is what stage 3b' wrote;
               every hardcoded string/pointer/overlay size and code region is what stage 3c wrote;
               text speed: payload, ITCM layout, overlays 50/92 and its runtime contract (text_speed_patch.verify)
   6. patch    xdelta3 -e -9 -S lzma -s BASE TARGET work/build/Origin_HeartGold_v4.0.3_EN_wip.xdelta,

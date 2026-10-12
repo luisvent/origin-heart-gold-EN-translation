@@ -1,0 +1,565 @@
+id = "blank-player-name-batch"
+title = "Fill the player-name buffer before the messages that read it (53 more places)"
+kind = "narc"
+enabled = false
+decisions = ["D-2343", "D-2344", "D-2345"]
+requires = []
+why = """
+A message tag {VAR:0103:n} prints message-buffer n, and every script run starts with empty buffers, so a
+script has to put the player's name into buffer n (BufferPlayersName n) before the message. In 53 places of
+the event scripts (a/0/1/2, 36 members) no command fills that buffer on any path to the message (a decoder
+walks every path of every entry, follows Call and CallStd into the standard scripts, and treats every native
+command it cannot decode as a possible filler), so the name comes out empty on the Chinese ROM and on our build
+alike ("You're League Champion , aren't you?"). Seen in the emulator on the Chinese ROM (blank) and fixed on
+the patched ROM: the Route 1 kid (member 168, script 5), the Route 30 woman (member 228) and a sample of
+other members (work/notes/blank-player-name-batch_fix.md). Follow-up of blank-player-name, which fixed the
+three places that needed no inserted command.
+
+Status: disabled, like blank-player-name: merged as a separate switched-off patch; the standard build keeps
+the Chinese behaviour; build it with build.py --only blank-player-name-batch (tester xdeltas on request).
+It combines with blank-player-name (member 171 accepts both member hashes) and does not repeat its sites.
+"""
+what = """
+Each [[script_insert]] puts the 3-byte command BufferPlayersName n (BE 00 nn) in front of the first message
+that reads buffer n, i.e. just in time. scriptinsert.py relocates what the member stores as offsets: the
+header slots, the relative operand of every GoTo/Call/GoToIf/CallIf/ObjectGoTo/BGGoTo/DirectionGoTo/
+GoToIfTrainerDefeated/ApplyMovement (a target exactly at the insertion point lands on the inserted command), and
+it keeps every movement block at its position modulo 4 with zero padding. The member grows by 3 bytes (plus up
+to 3 padding bytes per movement block); the build refuses unless the member hash and the bytes at the offset
+are the expected ones, and refuses to guess on bytes the decoder cannot explain. Not fixed (class C, a
+native command that may fill the buffer is on the path): see work/notes/blank-player-name-batch_fix.md.
+"""
+evidence = [
+  "work/notes/blank-player-name-batch_fix.md",
+  "work/tools/test_script_insert.py",
+]
+
+[[script_insert]]
+id = "m22-984"
+narc = "a/0/1/2"
+member = 22
+offset = "0x3d8"
+expect = "2D 00 2B"
+insert = "BE 00 00"
+member_sha1 = ["33204d96b6f53a4507740b0a2a0ef8d8ef0a3f9f"]
+notes = "NPCMsg 43 (a027/0057) reads {VAR:0103:0}; script 12 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m25-3659"
+narc = "a/0/1/2"
+member = 25
+offset = "0xe4b"
+expect = "84 00 AD B0"
+insert = "BE 00 00"
+member_sha1 = ["e6fb9561f50fd4a591c2607ccd51eebb733bd3e1"]
+notes = "GenderMsgBox 173, 176 (a027/0060) reads {VAR:0103:0}; script 40 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m31-1230"
+narc = "a/0/1/2"
+member = 31
+offset = "0x4ce"
+expect = "2D 00 61"
+insert = "BE 00 00"
+member_sha1 = ["1518a000d04afc2144ee9f534c8d3a1ef83da6f4"]
+notes = "NPCMsg 97 (a027/0065) reads {VAR:0103:0}; script 26 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m31-3579"
+narc = "a/0/1/2"
+member = 31
+offset = "0xdfb"
+expect = "2D 00 61"
+insert = "BE 00 00"
+member_sha1 = ["1518a000d04afc2144ee9f534c8d3a1ef83da6f4"]
+notes = "NPCMsg 97 (a027/0065) reads {VAR:0103:0}; script 26 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m55-1515"
+narc = "a/0/1/2"
+member = 55
+offset = "0x5eb"
+expect = "2D 00 11"
+insert = "BE 00 00"
+member_sha1 = ["31dac176af50bb739c38ea69e05d575c4ed22a54"]
+notes = "NPCMsg 17 (a027/0084) reads {VAR:0103:0}; script 3 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m103-100"
+narc = "a/0/1/2"
+member = 103
+offset = "0x64"
+expect = "2D 00 03"
+insert = "BE 00 00"
+member_sha1 = ["d132044e0aef64efe56d2a51c225941c0ce3fd3e"]
+notes = "NPCMsg 3 (a027/0122) reads {VAR:0103:0}; script 3 never fills buffer 0 before it (script not bound to a map event)."
+
+[[script_insert]]
+id = "m109-842"
+narc = "a/0/1/2"
+member = 109
+offset = "0x34a"
+expect = "2D 00 32"
+insert = "BE 00 00"
+member_sha1 = ["ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"]
+notes = "NPCMsg 50 (a027/0448) reads {VAR:0103:0}; script 12 never fills buffer 0 before it (script not bound to a map event)."
+
+[[script_insert]]
+id = "m109-1462"
+narc = "a/0/1/2"
+member = 109
+offset = "0x5b6"
+expect = "2D 00 5E"
+insert = "BE 00 00"
+member_sha1 = ["ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"]
+notes = "NPCMsg 94 (a027/0121) reads {VAR:0103:0}; script 17 never fills buffer 0 before it (script not bound to a map event)."
+
+[[script_insert]]
+id = "m109-2278"
+narc = "a/0/1/2"
+member = 109
+offset = "0x8e6"
+expect = "2D 00 65"
+insert = "BE 00 00"
+member_sha1 = ["ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"]
+notes = "NPCMsg 101 (a027/0448) reads {VAR:0103:0}; script 19 never fills buffer 0 before it (script not bound to a map event)."
+
+[[script_insert]]
+id = "m109-2726"
+narc = "a/0/1/2"
+member = 109
+offset = "0xaa6"
+expect = "2D 00 78"
+insert = "BE 00 00"
+member_sha1 = ["ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"]
+notes = "NPCMsg 120 (a027/0446) reads {VAR:0103:0}; script 22 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m109-3794"
+narc = "a/0/1/2"
+member = 109
+offset = "0xed2"
+expect = "2D 00 8C"
+insert = "BE 00 00"
+member_sha1 = ["ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"]
+notes = "NPCMsg 140 (a027/0121) reads {VAR:0103:0}; script 25 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m109-3821"
+narc = "a/0/1/2"
+member = 109
+offset = "0xeed"
+expect = "2D 00 7D"
+insert = "BE 00 00"
+member_sha1 = ["ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"]
+notes = "NPCMsg 125 (a027/0446) reads {VAR:0103:0}; script 26 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m109-3848"
+narc = "a/0/1/2"
+member = 109
+offset = "0xf08"
+expect = "2D 00 7F"
+insert = "BE 00 00"
+member_sha1 = ["ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"]
+notes = "NPCMsg 127 (a027/0446) reads {VAR:0103:0}; script 27 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m109-3875"
+narc = "a/0/1/2"
+member = 109
+offset = "0xf23"
+expect = "2D 00 7E"
+insert = "BE 00 00"
+member_sha1 = ["ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"]
+notes = "NPCMsg 126 (a027/0446) reads {VAR:0103:0}; script 28 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m109-4440"
+narc = "a/0/1/2"
+member = 109
+offset = "0x1158"
+expect = "2D 00 5B"
+insert = "BE 00 00"
+member_sha1 = ["ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"]
+notes = "NPCMsg 91 (a027/0448) reads {VAR:0103:0}; script 14 never fills buffer 0 before it (script not bound to a map event)."
+
+[[script_insert]]
+id = "m110-5790"
+narc = "a/0/1/2"
+member = 110
+offset = "0x169e"
+expect = "2D 00 59"
+insert = "BE 00 00"
+member_sha1 = ["85e110e0d1064506805b26f3b212990c4998b911"]
+notes = "NPCMsg 89 (a027/0126) reads {VAR:0103:0}; script 25 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m119-1635"
+narc = "a/0/1/2"
+member = 119
+offset = "0x663"
+expect = "2D 00 68"
+insert = "BE 00 00"
+member_sha1 = ["82b12a70edab7ae79ae2ec3ef58dbf00241a2253"]
+notes = "NPCMsg 104 (a027/0133) reads {VAR:0103:0}; script 11 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m156-617"
+narc = "a/0/1/2"
+member = 156
+offset = "0x269"
+expect = "84 00 0D 0E"
+insert = "BE 00 00"
+member_sha1 = ["7c14f8ff3a5fea4efc675ca0ab155ffbb12e9404"]
+notes = "GenderMsgBox 13, 14 (a027/0252) reads {VAR:0103:0}; script 12 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m168-265"
+narc = "a/0/1/2"
+member = 168
+offset = "0x109"
+expect = "84 00 08 09"
+insert = "BE 00 00"
+member_sha1 = ["2b32089d594baff7844c629378bf545770d47f16"]
+notes = "GenderMsgBox 8, 9 (a027/0312) reads {VAR:0103:0}; script 5 never fills buffer 0 before it (script not bound to a map event)."
+
+[[script_insert]]
+id = "m169-395"
+narc = "a/0/1/2"
+member = 169
+offset = "0x18b"
+expect = "2D 00 0F"
+insert = "BE 00 00"
+member_sha1 = ["c3757a45603874389eb1a70d9cb7828792f377ad"]
+notes = "NPCMsg 15 (a027/0313) reads {VAR:0103:0}; script 4 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m171-304"
+narc = "a/0/1/2"
+member = 171
+offset = "0x130"
+expect = "2D 00 26"
+insert = "BE 00 00"
+member_sha1 = ["43275c7fcd428781cbdc5c7f93e19e10c4824114", "421b1055a4a32a23eb4f2fca126fc9aacfb9b3b0"]
+notes = "NPCMsg 38 (a027/0315) reads {VAR:0103:0}; script 3 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m171-1283"
+narc = "a/0/1/2"
+member = 171
+offset = "0x503"
+expect = "2D 00 1F"
+insert = "BE 00 00"
+member_sha1 = ["43275c7fcd428781cbdc5c7f93e19e10c4824114", "421b1055a4a32a23eb4f2fca126fc9aacfb9b3b0"]
+notes = "NPCMsg 31 (a027/0315) reads {VAR:0103:0}; script 3 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m196-925"
+narc = "a/0/1/2"
+member = 196
+offset = "0x39d"
+expect = "2D 00 16"
+insert = "BE 00 00"
+member_sha1 = ["a7c818e078c32f75c0898e4f9998d0cc5bc514fa"]
+notes = "NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 12 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m196-1011"
+narc = "a/0/1/2"
+member = 196
+offset = "0x3f3"
+expect = "2D 00 16"
+insert = "BE 00 00"
+member_sha1 = ["a7c818e078c32f75c0898e4f9998d0cc5bc514fa"]
+notes = "NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 13 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m216-347"
+narc = "a/0/1/2"
+member = 216
+offset = "0x15b"
+expect = "84 00 03 02"
+insert = "BE 00 00"
+member_sha1 = ["10ea15359e24be05d40e1b2ffb9e649c8274a311"]
+notes = "GenderMsgBox 2, 3 (a027/0356) reads {VAR:0103:0}; script 10 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m228-264"
+narc = "a/0/1/2"
+member = 228
+offset = "0x108"
+expect = "84 00 10 11"
+insert = "BE 00 00"
+member_sha1 = ["be6169dc8d01a8012a4cb73ebfd00316d5c265c0"]
+notes = "GenderMsgBox 16, 17 (a027/0369) reads {VAR:0103:0}; script 3 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m734-956"
+narc = "a/0/1/2"
+member = 734
+offset = "0x3bc"
+expect = "2D 00 21"
+insert = "BE 00 00"
+member_sha1 = ["9fa08ee08c252c0a7275eb6e3a8cff27befe0c8a"]
+notes = "NPCMsg 33 (a027/0440) reads {VAR:0103:0}; script 1 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m741-136"
+narc = "a/0/1/2"
+member = 741
+offset = "0x88"
+expect = "84 00 16 17"
+insert = "BE 00 00"
+member_sha1 = ["fd39601d2fa7be8293acc954796a5a91ab8be05b"]
+notes = "GenderMsgBox 22, 23 (a027/0447) reads {VAR:0103:0}; script 1 never fills buffer 0 before it (script not bound to a map event)."
+
+[[script_insert]]
+id = "m741-454"
+narc = "a/0/1/2"
+member = 741
+offset = "0x1c6"
+expect = "84 00 16 17"
+insert = "BE 00 00"
+member_sha1 = ["fd39601d2fa7be8293acc954796a5a91ab8be05b"]
+notes = "GenderMsgBox 22, 23 (a027/0447) reads {VAR:0103:0}; script 7 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m753-3485"
+narc = "a/0/1/2"
+member = 753
+offset = "0xd9d"
+expect = "2D 00 21"
+insert = "BE 00 00"
+member_sha1 = ["395272f9f421e64764ce130597084caa9eb4e7dc"]
+notes = "NPCMsg 33 (a027/0457) reads {VAR:0103:0}; script 16 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m782-2488"
+narc = "a/0/1/2"
+member = 782
+offset = "0x9b8"
+expect = "2D 00 C7"
+insert = "BE 00 00"
+member_sha1 = ["95a79ebefb84fde01b642969dfce81819dcee6af"]
+notes = "NPCMsg 199 (a027/0483) reads {VAR:0103:0}; script 10 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m783-1196"
+narc = "a/0/1/2"
+member = 783
+offset = "0x4ac"
+expect = "2D 00 85"
+insert = "BE 00 00"
+member_sha1 = ["80e94b3887bee7b90462174caf63c3b6e6ae221f"]
+notes = "NPCMsg 133 (a027/0484) reads {VAR:0103:0}; script 27 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m783-1769"
+narc = "a/0/1/2"
+member = 783
+offset = "0x6e9"
+expect = "2D 00 AB"
+insert = "BE 00 00"
+member_sha1 = ["80e94b3887bee7b90462174caf63c3b6e6ae221f"]
+notes = "NPCMsg 171 (a027/0484) reads {VAR:0103:0}; script 45 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m821-486"
+narc = "a/0/1/2"
+member = 821
+offset = "0x1e6"
+expect = "2D 00 46"
+insert = "BE 00 00"
+member_sha1 = ["926039030074271df7cc9966dc54d1693b6a306f"]
+notes = "NPCMsg 70 (a027/0519) reads {VAR:0103:0}; script 10 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m840-3342"
+narc = "a/0/1/2"
+member = 840
+offset = "0xd0e"
+expect = "2D 00 0E"
+insert = "BE 00 00"
+member_sha1 = ["310201deeef5a9e238876eaa951168551f35eb5b"]
+notes = "NPCMsg 14 (a027/0535) reads {VAR:0103:0}; script 14 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m842-9599"
+narc = "a/0/1/2"
+member = 842
+offset = "0x257f"
+expect = "2D 00 AF"
+insert = "BE 00 00"
+member_sha1 = ["c811958246ecc311c12b378318a569152f61e509", "a19a053cd11035aca76742c12476e6a50117d5ab"]
+notes = "NPCMsg 175 (a027/0537) reads {VAR:0103:0}; script 2 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m855-86"
+narc = "a/0/1/2"
+member = 855
+offset = "0x56"
+expect = "84 00 02 03"
+insert = "BE 00 00"
+member_sha1 = ["7993505d66bdf070a017b85dec811ed1076d37c9"]
+notes = "GenderMsgBox 2, 3 (a027/0549) reads {VAR:0103:0}; script 3 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m856-462"
+narc = "a/0/1/2"
+member = 856
+offset = "0x1ce"
+expect = "84 00 37 38"
+insert = "BE 00 00"
+member_sha1 = ["983aaddcdd0a3790837997c9843fbaa9ff6d0b3e"]
+notes = "GenderMsgBox 55, 56 (a027/0550) reads {VAR:0103:0}; script 13 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m865-190"
+narc = "a/0/1/2"
+member = 865
+offset = "0xbe"
+expect = "2D 00 04"
+insert = "BE 00 00"
+member_sha1 = ["12341728117d08038bd75301e54bcc9a5081ac48"]
+notes = "NPCMsg 4 (a027/0558) reads {VAR:0103:0}; script 3 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m871-465"
+narc = "a/0/1/2"
+member = 871
+offset = "0x1d1"
+expect = "2D 00 2C"
+insert = "BE 00 00"
+member_sha1 = ["a1a42048a48f031354076d60a27ed4ae98505b66"]
+notes = "NPCMsg 44 (a027/0563) reads {VAR:0103:0}; script 9 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m881-227"
+narc = "a/0/1/2"
+member = 881
+offset = "0xe3"
+expect = "2D 00 05"
+insert = "BE 00 00"
+member_sha1 = ["2b2e3b221748002782f725fc31e59a0d071f0346"]
+notes = "NPCMsg 5 (a027/0572) reads {VAR:0103:0}; script 2 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m883-510"
+narc = "a/0/1/2"
+member = 883
+offset = "0x1fe"
+expect = "2D 00 0E"
+insert = "BE 00 00"
+member_sha1 = ["c81f10338e0253e356f5a40b52800cfc04036906"]
+notes = "NPCMsg 14 (a027/0574) reads {VAR:0103:0}; script 1 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m900-2379"
+narc = "a/0/1/2"
+member = 900
+offset = "0x94b"
+expect = "2D 00 17"
+insert = "BE 00 00"
+member_sha1 = ["41d3d47c69f43cd14617dad1ca53341a4f8eab9f"]
+notes = "NPCMsg 23 (a027/0588) reads {VAR:0103:0}; script 8 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m907-3093"
+narc = "a/0/1/2"
+member = 907
+offset = "0xc15"
+expect = "84 00 10 11"
+insert = "BE 00 00"
+member_sha1 = ["947e58cfc55504a65d2d97e9824fa660c3e24709"]
+notes = "GenderMsgBox 16 (a027/0595) reads {VAR:0103:0}; script 14 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m918-13740"
+narc = "a/0/1/2"
+member = 918
+offset = "0x35ac"
+expect = "2D 00 08"
+insert = "BE 00 00"
+member_sha1 = ["77c82f82153abbddae9c2008422ecf7b0d8b7e45"]
+notes = "NPCMsg 8 (a027/0605) reads {VAR:0103:0}; script 4 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m923-793"
+narc = "a/0/1/2"
+member = 923
+offset = "0x319"
+expect = "2D 00 17"
+insert = "BE 00 00"
+member_sha1 = ["44f4263ff5a83bc1e2471fe6c31e9190671489d3"]
+notes = "NPCMsg 23 (a027/0608) reads {VAR:0103:0}; script 8 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m933-3478"
+narc = "a/0/1/2"
+member = 933
+offset = "0xd96"
+expect = "84 00 66 67"
+insert = "BE 00 00"
+member_sha1 = ["47cbc384e02c47e1bf3e6b96f4ccf1c89507e1d7"]
+notes = "GenderMsgBox 102, 103 (a027/0616) reads {VAR:0103:0}; script 5 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m942-308"
+narc = "a/0/1/2"
+member = 942
+offset = "0x134"
+expect = "2D 00 07"
+insert = "BE 00 00"
+member_sha1 = ["9dc3c1648f31b32477bad40915248bdc9fcd7b9c"]
+notes = "NPCMsg 7 (a027/0624) reads {VAR:0103:0}; script 4 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m964-572"
+narc = "a/0/1/2"
+member = 964
+offset = "0x23c"
+expect = "2D 00 1B"
+insert = "BE 00 00"
+member_sha1 = ["b1c4f5ed78cd8d830dbaabb5cfc4645c728afff0"]
+notes = "NPCMsg 27 (a027/0338) reads {VAR:0103:0}; script 11 never fills buffer 0 before it (script not bound to a map event)."
+
+[[script_insert]]
+id = "m964-680"
+narc = "a/0/1/2"
+member = 964
+offset = "0x2a8"
+expect = "2D 00 21"
+insert = "BE 00 00"
+member_sha1 = ["b1c4f5ed78cd8d830dbaabb5cfc4645c728afff0"]
+notes = "NPCMsg 33 (a027/0338) reads {VAR:0103:0}; script 3 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m964-889"
+narc = "a/0/1/2"
+member = 964
+offset = "0x379"
+expect = "2D 00 16"
+insert = "BE 00 00"
+member_sha1 = ["b1c4f5ed78cd8d830dbaabb5cfc4645c728afff0"]
+notes = "NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 3 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m964-1115"
+narc = "a/0/1/2"
+member = 964
+offset = "0x45b"
+expect = "2D 00 26"
+insert = "BE 00 00"
+member_sha1 = ["b1c4f5ed78cd8d830dbaabb5cfc4645c728afff0"]
+notes = "NPCMsg 38 (a027/0338) reads {VAR:0103:0}; script 4 never fills buffer 0 before it."
+
+[[script_insert]]
+id = "m964-2502"
+narc = "a/0/1/2"
+member = 964
+offset = "0x9c6"
+expect = "2D 00 16"
+insert = "BE 00 00"
+member_sha1 = ["b1c4f5ed78cd8d830dbaabb5cfc4645c728afff0"]
+notes = "NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 3 never fills buffer 0 before it."

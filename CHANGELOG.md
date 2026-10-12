@@ -13,9 +13,13 @@ Merged into develop on 2026-10-12 at the user's request as separate patches with
 - **blank-player-name (D-2335 to D-2339; open question D-2340):** the player's name is no longer blank in Clair's photo offer, the Pallet Town photographer's first line and Brock's Route 2 lines.
 - **battle-faint-cry (D-2341):** a Pokémon that faints cries again, in the low, drawn-out faint cry, and makes the falling sound as it slides off the screen, on both sides (as in HeartGold).
 - **battle-hit-sound (D-2342):** a move that deals damage plays the hit sound again, louder when super effective and softer when not very effective (as in HeartGold). One-hit KO moves and hits on a substitute are still silent.
+- **blank-player-name-batch (D-2343 to D-2345):** the player's name is no longer blank in 53 more script lines (Route 1 kid, Route 30 woman, Misty, "League Champion ..." greetings, received-Pokémon lines and others); adds a BufferPlayersName command in front of each message (built on request: `build.py --only blank-player-name-batch`). 15 positions with undecodable native commands are left alone and listed in `work/notes/blank-player-name-batch_fix.md`.
 
 ### Fixed
 - **Difficulty settings in story battles you're allowed to lose:** CAP and SHARE now also apply in battles where the story continues even if you lose, such as Blue in Pewter City before Brock's Gym. Before, these battles ignored both settings: Pokémon could gain EXP above the level cap, and benched Pokémon still got EXP with SHARE OFF. The ITEMS setting now also applies in these battles, as in every other trainer battle: with LIMITED (the default), you can only use berries and flutes from the Bag there. Losing them still continues the story as before.
+
+### Added (tools)
+- New fix kind `[[script_insert]]` (`work/tools/scriptinsert.py`, `narcpatch.py`, `fixes.py`): inserts a command into a script member and relocates its offsets; used by blank-player-name-batch. Covered by `work/tools/test_script_insert.py`.
 
 ## [1.0.0-rc7] - 2026-10-11
 
