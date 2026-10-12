@@ -49,6 +49,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`ss-anne-softlock`](#ss-anne-softlock) | narc | **no** | – | Open the S.S. Anne voyage in its pre-party state so the party can always start |
 | [`ssanne-tm-price-check`](#ssanne-tm-price-check) | narc | **no** | – | S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
+| [`trainer-abilities`](#trainer-abilities) | narc | **no** | – | Give trainer Pokémon the ability their held item and moves need (54 slots) |
 | [`tutor-blackthorn-play-rough`](#tutor-blackthorn-play-rough) | narc | **no** | – | Blackthorn Move Tutor teaches Play Rough, as it says (not Flail) |
 | [`tutor-saffron-volt-switch`](#tutor-saffron-volt-switch) | narc | **no** | – | Saffron Dojo tutor teaches Volt Switch on every path (not Charge) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
@@ -1911,6 +1912,104 @@ Linking Cord (635) stay as the hack has them.
 
 - `a/0/3/4` #525 +0x0 `boldore-evolution`: `0005 0000 020E` → `0004 0023 020E` (member SHA-1 `4cd8fb7ba6dc`): Boldore record 0: trade (method 5) -> level up (method 4) at Lv 35 (0x23); target 526 Gigalith unchanged.
 - `a/0/3/4` #533 +0x0 `gurdurr-evolution`: `0005 0000 0216` → `0004 0028 0216` (member SHA-1 `fe6ee29b1f6e`): Gurdurr record 0: trade (method 5) -> level up (method 4) at Lv 40 (0x28); target 534 Conkeldurr unchanged.
+
+## trainer-abilities
+
+**Give trainer Pokémon the ability their held item and moves need (54 slots)**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2401, D-2402, D-1002
+- Source: `work/patches/trainer-abilities/fix.toml`
+
+**Why (the Chinese hack):**
+
+Each trainer Pokémon record (a/0/5/6, 28 bytes) stores an explicit ability id that the party loader applies after
+creating the Pokémon. In 54 slots the stored id is the species' default slot although the item and moves of the
+same record are built around another ability: Toxic Orb Gliscor with Hyper Cutter and Toxic Orb Breloom with
+Technician (poisoned every turn, no Poison Heal), Flame Orb Raticate/Hariyama/Machamp without Guts, Heat Rock
+Ninetales and Torkoal without Drought, Damp Rock Pelipper with Keen Eye, Petrel's early Life Orb Nidokings
+without Sheer Force. The Chinese ROM stores the same ids (the data is byte-identical), so this is the hack's
+unfinished data, not a regression of our build. The hack's later teams for the same characters and species
+(Petrel, Archie, Maxie, Lawrence, Karen, Sammy, Kiyo) already carry the intended ability.
+
+Status: disabled. This changes early-game and late-game trainer difficulty (for example Rival Blue's Flame Orb Rattata
+and Raticate gain Guts), so it is merged into develop on 2026-10-12 as a separate, switched-off patch at the user's
+request: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+trainer-abilities). All 54 entries were re-checked against the Chinese ROM at merge (member SHA-1 and original ability
+halfword). Notes: work/notes/trainer-abilities_fix.md.
+
+**What (old → new):**
+
+Rewrite only the stored ability halfword (record offset +4) of 54 slots; the ability slot byte, species, item,
+moves, EVs and every other slot are untouched. A slot is changed only when (a) it holds Toxic Orb or Flame Orb and
+the species has exactly one ability that uses the status (Poison Heal, Guts, Flare Boost, Marvel Scale), (b) it is
+a Pelipper with Damp Rock and no Rain Dance, (c) it is a Ninetales or Torkoal with Heat Rock and no Sunny Day, or
+(d) it is Executive Petrel's Life Orb Nidoking (later teams of the same set use Sheer Force). Ambiguous slots are
+listed in D-2402 and not changed. Each entry pins the original member by SHA-1 and the original bytes.
+
+**Evidence:**
+
+- work/notes/trainer-abilities_fix.md
+- work/tools/test_trainer_abilities.py
+
+**Touches:**
+
+- `a/0/5/6` #10 +0x58 `t10-s3-flare-boost`: `0x006A` → `0x008A` (member SHA-1 `476db47e957f`): Rich Boy Howard #4 Drifblim Lv82 holds Flame Orb: ability Aftermath -> Flare Boost.
+- `a/0/5/6` #56 +0x3C `t56-s2-guts`: `0x0032` → `0x003E` (member SHA-1 `d6b93f235563`): Team Rocket Grunt #3 Raticate Lv64 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #61 +0x58 `t61-s3-guts`: `0x0032` → `0x003E` (member SHA-1 `5448aba09138`): Rival Blue #4 Rattata Lv14 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #71 +0x20 `t71-s1-poison-heal`: `0x0034` → `0x005A` (member SHA-1 `c4400f890c9f`): Officer Felix #2 Gliscor Lv65 holds Toxic Orb: ability Hyper Cutter -> Poison Heal.
+- `a/0/5/6` #94 +0x58 `t94-s3-poison-heal`: `0x0034` → `0x005A` (member SHA-1 `f13849dea207`): Battle Girl Rika #4 Gliscor Lv65 holds Toxic Orb: ability Hyper Cutter -> Poison Heal.
+- `a/0/5/6` #99 +0x3C `t99-s2-poison-heal`: `0x0065` → `0x005A` (member SHA-1 `fbe101fe87a4`): Karate King Walt #3 Breloom Lv64 holds Toxic Orb: ability Technician -> Poison Heal.
+- `a/0/5/6` #104 +0x4 `t104-s0-guts`: `0x0059` → `0x003E` (member SHA-1 `6032b634faf8`): Black Belt Ryan #1 Hariyama Lv64 holds Flame Orb: ability Iron Fist -> Guts.
+- `a/0/5/6` #140 +0x3C `t140-s2-poison-heal`: `0x0065` → `0x005A` (member SHA-1 `9232fc9363ba`): Karate King Kazu #3 Breloom Lv23 holds Toxic Orb: ability Technician -> Poison Heal.
+- `a/0/5/6` #141 +0x3C `t141-s2-guts`: `0x0032` → `0x003E` (member SHA-1 `1ccb23dca0c9`): Rival Blue #3 Raticate Lv23 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #155 +0x3C `t155-s2-guts`: `0x0059` → `0x003E` (member SHA-1 `82e5da8b66fb`): Sage Zhishen #3 Hariyama Lv24 holds Flame Orb: ability Iron Fist -> Guts.
+- `a/0/5/6` #156 +0x4 `t156-s0-guts`: `0x0032` → `0x003E` (member SHA-1 `d9cfda1bfb2e`): Gentleman Norris #1 Raticate Lv24 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #193 +0x4 `t193-s0-drought`: `0x0012` → `0x0046` (member SHA-1 `0f44950f89fd`): Firebreather Chong #1 Ninetales Lv26 holds Heat Rock: ability Flash Fire -> Drought.
+- `a/0/5/6` #230 +0x4 `t230-s0-sheer-force`: `0x0026` → `0x007D` (member SHA-1 `a60e860e07e9`): Executive Petrel #1 Nidoking Lv40 holds Life Orb: ability Poison Point -> Sheer Force.
+- `a/0/5/6` #233 +0x58 `t233-s3-poison-heal`: `0x0034` → `0x005A` (member SHA-1 `3e793f793b5c`): Veteran Bailey #4 Gliscor Lv65 holds Toxic Orb: ability Hyper Cutter -> Poison Heal.
+- `a/0/5/6` #234 +0x4 `t234-s0-drizzle`: `0x0033` → `0x0002` (member SHA-1 `a8d5c562ff54`): Fisherman Mick #1 Pelipper Lv28 holds Damp Rock: ability Keen Eye -> Drizzle.
+- `a/0/5/6` #238 +0x4 `t238-s0-drought`: `0x0049` → `0x0046` (member SHA-1 `df678ede6e21`): Firebreather Stellan #1 Torkoal Lv32 holds Heat Rock: ability White Smoke -> Drought.
+- `a/0/5/6` #251 +0x3C `t251-s2-marvel-scale`: `0x0038` → `0x003F` (member SHA-1 `7b6c944cc810`): Team Rocket Grunt #3 Milotic Lv64 holds Flame Orb: ability Cute Charm -> Marvel Scale.
+- `a/0/5/6` #284 +0x4 `t284-s0-guts`: `0x0032` → `0x003E` (member SHA-1 `e3590cb372c0`): Team Rocket Grunt #1 Raticate Lv64 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #304 +0x3C `t304-s2-guts`: `0x0050` → `0x003E` (member SHA-1 `f2d4eeecf26f`): Battle Girl Tina #3 Machoke Lv33 holds Flame Orb: ability Steadfast -> Guts.
+- `a/0/5/6` #330 +0x20 `t330-s1-guts`: `0x0050` → `0x003E` (member SHA-1 `7445a22f40e8`): Karate King Sheldon #2 Machamp Lv65 holds Flame Orb: ability Steadfast -> Guts.
+- `a/0/5/6` #335 +0x3C `t335-s2-guts`: `0x0050` → `0x003E` (member SHA-1 `2fb6974f9f9a`): Shady Guy Bunta #3 Machamp Lv50 holds Flame Orb: ability Steadfast -> Guts.
+- `a/0/5/6` #356 +0x20 `t356-s1-poison-heal`: `0x0065` → `0x005A` (member SHA-1 `376d9fecb726`): Lass Danni #2 Breloom Lv38 holds Toxic Orb: ability Technician -> Poison Heal.
+- `a/0/5/6` #364 +0x4 `t364-s0-drizzle`: `0x0033` → `0x0002` (member SHA-1 `98841bb9ff0a`): Fisherman Nate #1 Pelipper Lv49 holds Damp Rock: ability Keen Eye -> Drizzle.
+- `a/0/5/6` #403 +0x20 `t403-s1-poison-heal`: `0x0034` → `0x005A` (member SHA-1 `ef9b39357e97`): Team Rocket Tanaka #2 Gliscor Lv63 holds Toxic Orb: ability Hyper Cutter -> Poison Heal.
+- `a/0/5/6` #407 +0x20 `t407-s1-drizzle`: `0x0033` → `0x0002` (member SHA-1 `214383c538d9`): Team Rocket Grunt #2 Pelipper Lv64 holds Damp Rock: ability Keen Eye -> Drizzle.
+- `a/0/5/6` #433 +0x4 `t433-s0-drought`: `0x0049` → `0x0046` (member SHA-1 `2866d58fb18e`): Shady Guy Arthur #1 Torkoal Lv36 holds Heat Rock: ability White Smoke -> Drought.
+- `a/0/5/6` #445 +0x20 `t445-s1-poison-heal`: `0x0034` → `0x005A` (member SHA-1 `544445153698`): unnamed #2 Gliscor Lv50 holds Toxic Orb: ability Hyper Cutter -> Poison Heal.
+- `a/0/5/6` #446 +0x4 `t446-s0-sheer-force`: `0x0026` → `0x007D` (member SHA-1 `361e2bc4ecd7`): Executive Petrel #1 Nidoking Lv50 holds Life Orb: ability Poison Point -> Sheer Force.
+- `a/0/5/6` #449 +0x4 `t449-s0-drizzle`: `0x0033` → `0x0002` (member SHA-1 `e25805a288e4`): unnamed #1 Pelipper Lv50 holds Damp Rock: ability Keen Eye -> Drizzle.
+- `a/0/5/6` #450 +0x4 `t450-s0-drought`: `0x0012` → `0x0046` (member SHA-1 `898bda60d728`): Executive Maxie #1 Ninetales Lv50 holds Heat Rock: ability Flash Fire -> Drought.
+- `a/0/5/6` #450 +0x3C `t450-s2-drought`: `0x004B` → `0x0046` (member SHA-1 `898bda60d728`): Executive Maxie #3 Torkoal Lv50 holds Heat Rock: ability Shell Armor -> Drought.
+- `a/0/5/6` #475 +0x4 `t475-s0-guts`: `0x0032` → `0x003E` (member SHA-1 `1c70af281c99`): Picnicker Heather #1 Raticate Lv45 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #516 +0x20 `t516-s1-guts`: `0x0032` → `0x003E` (member SHA-1 `36efd90eaf3d`): Rival Blue #2 Rattata Lv18 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #522 +0x3C `t522-s2-guts`: `0x0032` → `0x003E` (member SHA-1 `fb7c5f8bda00`): Rival Blue #3 Raticate Lv26 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #560 +0x20 `t560-s1-poison-heal`: `0x0034` → `0x005A` (member SHA-1 `08cc1d402250`): Bird Keeper Finch #2 Gliscor Lv72 holds Toxic Orb: ability Hyper Cutter -> Poison Heal.
+- `a/0/5/6` #573 +0x20 `t573-s1-guts`: `0x0059` → `0x003E` (member SHA-1 `e1d1e238d4d6`): Team Rocket Grunt #2 Hariyama Lv63 holds Flame Orb: ability Iron Fist -> Guts.
+- `a/0/5/6` #581 +0x4 `t581-s0-poison-heal`: `0x0065` → `0x005A` (member SHA-1 `6374ee1ad389`): Picnicker Cece #1 Breloom Lv57 holds Toxic Orb: ability Technician -> Poison Heal.
+- `a/0/5/6` #584 +0x20 `t584-s1-drought`: `0x0012` → `0x0046` (member SHA-1 `2c69b52662c4`): Youngster Elvin #2 Ninetales Lv57 holds Heat Rock: ability Flash Fire -> Drought.
+- `a/0/5/6` #624 +0x4 `t624-s0-drought`: `0x0049` → `0x0046` (member SHA-1 `ba2ae955c9bf`): Executive Maxie #1 Torkoal Lv73 holds Heat Rock: ability White Smoke -> Drought.
+- `a/0/5/6` #625 +0x3C `t625-s2-drought`: `0x0012` → `0x0046` (member SHA-1 `a0cce955a174`): unnamed #3 Ninetales Lv74 holds Heat Rock: ability Flash Fire -> Drought.
+- `a/0/5/6` #654 +0x4 `t654-s0-poison-heal`: `0x001B` → `0x005A` (member SHA-1 `2afd982723f9`): Black Belt Doyle #1 Breloom Lv72 holds Toxic Orb: ability Effect Spore -> Poison Heal.
+- `a/0/5/6` #663 +0x4 `t663-s0-drizzle`: `0x0033` → `0x0002` (member SHA-1 `892ef8a17167`): Sailor Stuart #1 Pelipper Lv71 holds Damp Rock: ability Keen Eye -> Drizzle.
+- `a/0/5/6` #664 +0x58 `t664-s3-poison-heal`: `0x0034` → `0x005A` (member SHA-1 `7ec2b70db902`): Ace Trainer Macy #4 Gliscor Lv65 holds Toxic Orb: ability Hyper Cutter -> Poison Heal.
+- `a/0/5/6` #690 +0x20 `t690-s1-poison-heal`: `0x0065` → `0x005A` (member SHA-1 `76b0c400f1f0`): Super Nerd Eugene #2 Breloom Lv58 holds Toxic Orb: ability Technician -> Poison Heal.
+- `a/0/5/6` #693 +0x4 `t693-s0-drought`: `0x0012` → `0x0046` (member SHA-1 `be78f5ccd8eb`): Scientist Hayden #1 Ninetales Lv59 holds Heat Rock: ability Flash Fire -> Drought.
+- `a/0/5/6` #698 +0x4 `t698-s0-drought`: `0x0012` → `0x0046` (member SHA-1 `47636996a7bd`): Super Nerd Eric #1 Ninetales Lv62 holds Heat Rock: ability Flash Fire -> Drought.
+- `a/0/5/6` #741 +0x4 `t741-s0-drizzle`: `0x0033` → `0x0002` (member SHA-1 `ef77e77f3aac`): Sailor Thor #1 Pelipper Lv65 holds Damp Rock: ability Keen Eye -> Drizzle.
+- `a/0/5/6` #829 +0x20 `t829-s1-guts`: `0x0059` → `0x003E` (member SHA-1 `742b485320c6`): Karate King Seamus #2 Hariyama Lv63 holds Flame Orb: ability Iron Fist -> Guts.
+- `a/0/5/6` #834 +0x20 `t834-s1-guts`: `0x0032` → `0x003E` (member SHA-1 `02cbca341671`): Team Rocket Grunt #2 Raticate Lv64 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #855 +0x4 `t855-s0-drought`: `0x0012` → `0x0046` (member SHA-1 `9b5cec403bad`): Aroma Lady April #1 Ninetales Lv62 holds Heat Rock: ability Flash Fire -> Drought.
+- `a/0/5/6` #856 +0x20 `t856-s1-guts`: `0x0032` → `0x003E` (member SHA-1 `2002e4a48e15`): Guitarist Zenith #2 Raticate Lv63 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #947 +0x4 `t947-s0-drizzle`: `0x0033` → `0x0002` (member SHA-1 `deea03693823`): Fisherman Barrett #1 Pelipper Lv62 holds Damp Rock: ability Keen Eye -> Drizzle.
+- `a/0/5/6` #970 +0x20 `t970-s1-guts`: `0x0032` → `0x003E` (member SHA-1 `417ea0b662ea`): Rival Blue #2 Raticate Lv23 holds Flame Orb: ability Run Away -> Guts.
+- `a/0/5/6` #984 +0x4 `t984-s0-drizzle`: `0x0033` → `0x0002` (member SHA-1 `28668f5cd679`): Executive Archie #1 Pelipper Lv72 holds Damp Rock: ability Keen Eye -> Drizzle.
 
 ## tutor-blackthorn-play-rough
 
