@@ -635,7 +635,7 @@ class Synthetic(unittest.TestCase):
     @needs_armips
     def test_every_source_assembles_without_the_rom(self):
         summary = A.synthetic(ARMIPS)
-        self.assertIn(f"{len(ASM_FIXES) + 5} armips fixes assembled without the ROM", summary)
+        self.assertIn(f"{len(ASM_FIXES) + 6} armips fixes assembled without the ROM", summary)
 
 
 @needs_armips
@@ -676,7 +676,7 @@ class RealFixes(unittest.TestCase):
 
     def test_every_armips_fix_has_a_source(self):
         expected = sorted((*ASM_FIXES, "honey-gather", "petilil-hisuian-lilligant", "startup-content-warning",
-                           "battle-faint-cry", "battle-hit-sound"))
+                           "battle-faint-cry", "battle-hit-sound", "double-battle-single-fallback"))
         self.assertEqual(sorted(f["id"] for f in A.asm_fixes(self.fixes.values())), expected)
 
     def test_antipiracy_stubs(self):
