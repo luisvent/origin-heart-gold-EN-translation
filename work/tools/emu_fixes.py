@@ -86,6 +86,7 @@ COVERAGE = {
     "safari-no-wild-double": ("safari",),
     "type-change-message": ("typechange",),
     "trade-evolutions-levelup": ("trade-evo",),
+    "evolution-items-use": ("stone-use",),
     "petilil-hisuian-lilligant": ("petilil-evo",),
     "battle-faint-cry": ("faintcry",),
     "battle-hit-sound": ("hitsound",),
@@ -253,6 +254,22 @@ TRADE_EVO_CASES = {
     "gurdurr": (533, 39, 534, 533),     # Gurdurr Lv 39 -> 40: Conkeldurr with the fix, Gurdurr without
     "roggenrola": (524, 24, 525, 525),  # Roggenrola Lv 24 -> 25: Boldore on both (the hack's own level-up record)
 }
+# evolution-items-use (fix.toml [[narc_bytes]], a/0/1/7): the Items-pocket item is used on a party Pokemon that
+# evolves with it. case: (species, level, item, species after with the fix, species after without it). The Fire Stone
+# (Vulpix) is the control: it has the Bag's USE entry on every ROM, so it evolves on both.
+STONE_USE_CASES = {
+    "fire_stone": (37, 20, 82, 38, 38),         # Vulpix + Fire Stone -> Ninetales on both builds (control)
+    "ice_stone": (739, 20, 606, 740, 739),      # Crabrawler + Ice Stone -> Crabominable
+    "cracked_pot": (854, 20, 624, 855, 854),    # Sinistea + Cracked Pot -> Polteageist
+    "galarica_cuff": (1050, 20, 631, 80, 1050),  # Slowpoke + Galarica Cuff -> Slowbro
+    "galarica_wreath": (1050, 20, 633, 199, 1050),  # Slowpoke + Galarica Wreath -> Slowking
+    "sweet_apple": (840, 20, 641, 842, 840),    # Applin + Sweet Apple -> Appletun
+    "tart_apple": (840, 20, 642, 841, 840),     # Applin + Tart Apple -> Flapple
+    "auspicious_armor": (935, 20, 646, 936, 935),  # Charcadet + Auspicious Armor -> Armarouge
+    "malicious_armor": (935, 20, 653, 937, 935),   # Charcadet + Malicious Armor -> Ceruledge
+    "dragon_scale": (102, 20, 235, 103, 102),   # Exeggcute + Dragon Scale -> Exeggutor, form 1 (record target 1057)
+}
+STONE_USE_FORM = {"dragon_scale": 1}            # the form after the evolution with the fix (Exeggutor 103, form 1)
 # petilil-hisuian-lilligant (fix.toml [[code]], arm9 0x74148): Petilil Lv 10 holding a Black Belt (241) at 12:00, one
 # Rare Candy. Species/form/ability after the evolution with the fix (Hisuian Lilligant: 549, form 1, Hustle 55) and
 # without it (the hack: 548 = Petilil, form 1).
@@ -885,6 +902,38 @@ def observe_trade_evo(h):
         cases[name] = {"before": {k: before[k] for k in ("species", "level", "checksum_ok")},
                        "after": {k: after[k] for k in ("species", "level", "checksum_ok")},
                        "screenshot": str(shot)}
+    return {"cases": cases}
+
+
+def observe_stone_use(h):
+    """STONE_USE_CASES one after another (full_bag_6mons.sav): create the Pokemon with the hack's generator, put
+    the item first in the Items pocket, open the Bag, select it and take a screenshot of the item menu, then tap
+    USE (a tap where USE would be does nothing on a ROM without it), the Pokemon and A through the evolution scene;
+    then read the Pokemon (species, level, checksum)."""
+    import emu_harness as E
+    cases = {}
+    for name, (species, level, item, _, _) in STONE_USE_CASES.items():
+        h.generate_pokemon(species, level=level)
+        slot = h.generated_slot
+        h.edit_party_mon(slot, moves=[TACKLE_MOVE, 0, 0, 0])
+        before = mon_details(h.read(h.array(E.ARR_PARTY) + 8 + 236 * slot, 236))
+        h.bag_put_first(item, 1, "items")
+        h.open_bag()
+        h.touch(*E.BAG_SLOTS[0], frames=12, after=60)
+        menu = h.screenshot(f"stone_use_{name}_menu")
+        h.touch(*E.BAG_USE, frames=12, after=60)
+        h.touch(*E.PARTY_SLOTS[slot], frames=12, after=120)
+        h.step(800)                         # the evolution scene, if any
+        for _ in range(4):                  # 'evolved into ...' messages
+            h.press("A", after=120)
+        h.step(300)
+        shot = h.screenshot(f"stone_use_{name}")
+        after = mon_details(h.read(h.array(E.ARR_PARTY) + 8 + 236 * slot, 236))
+        for _ in range(4):                  # back to the field
+            h.press("B", after=120)
+        cases[name] = {"before": {k: before[k] for k in ("species", "level", "checksum_ok")},
+                       "after": {k: after[k] for k in ("species", "form", "level", "checksum_ok")},
+                       "menu": str(menu), "screenshot": str(shot)}
     return {"cases": cases}
 
 
@@ -1902,6 +1951,7 @@ SCENARIOS = {
     "safari": ("route1_path_2mons.sav", SAFARI_GRASS, observe_safari, False),
     "typechange": ("full_bag_6mons.sav", None, observe_typechange, False),
     "trade-evo": ("full_bag_6mons.sav", None, observe_trade_evo, False),
+    "stone-use": ("full_bag_6mons.sav", None, observe_stone_use, False),
     "petilil-evo": ("full_bag_6mons.sav", None, observe_petilil_evo, False),
     "faintcry": ("full_bag_6mons.sav", None, observe_faintcry, False),
     "hitsound": ("full_bag_6mons.sav", None, observe_hitsound, False),
@@ -2484,6 +2534,23 @@ def judge_trade_evo(scenario, obs, ref=None):
     return _state(fixed, original, why)
 
 
+def judge_stone_use(scenario, obs, ref=None):
+    """Every case kept its level (a stone gives no level) with a valid checksum, and the Fire Stone control evolved
+    (the Bag, the party menu and the evolution path work on this ROM); 'fixed': every item evolved its Pokemon;
+    'original': only the Fire Stone did (the other items have no USE entry)."""
+    cases, why, fixed, original = obs["cases"], {}, True, True
+    for name, (species, level, _, with_fix, without_fix) in STONE_USE_CASES.items():
+        c = cases[name]
+        before, after = c["before"], c["after"]
+        sane = before["species"] == species and before["level"] == level and after["level"] == level \
+            and after["checksum_ok"]
+        why[name] = {"species": [before["species"], after["species"]], "form": after.get("form"),
+                     "checksum_ok": after["checksum_ok"]}
+        fixed &= sane and after["species"] == with_fix and after.get("form", 0) == STONE_USE_FORM.get(name, 0)
+        original &= sane and after["species"] == without_fix
+    return _state(fixed, original, why)
+
+
 def judge_petilil_evo(scenario, obs, ref=None):
     """The candy was used (level +1, valid checksum, form 1 either way); 'fixed': Hisuian Lilligant (549, form 1, the
     form's ability Hustle, Black Belt used up); 'original': the hack's Petilil (548, form 1)."""
@@ -2562,6 +2629,7 @@ def judge_multihit(scenario, obs, ref=None):
 JUDGES[("msgload", "msgload")] = judge_msgload
 JUDGES.update({k: crop_judge(*v) for k, v in CROP_CHECKS.items()})
 JUDGES[("trade-evo", "trade-evolutions-levelup")] = judge_trade_evo
+JUDGES[("stone-use", "evolution-items-use")] = judge_stone_use
 JUDGES[("petilil-evo", "petilil-hisuian-lilligant")] = judge_petilil_evo
 JUDGES[("multihit-ko", "faint-waits-for-hp-bar")] = judge_multihit
 # checks across the two runs of a fix (fixed ROM, control), after both judged right

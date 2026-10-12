@@ -1,0 +1,126 @@
+id = "evolution-items-use"
+title = "Items that evolve a Pokémon when used (Ice Stone, Cracked Pot, Galarica Cuff/Wreath, apples, armors, Dragon Scale) get the Bag's Use entry"
+kind = "narc"
+enabled = false
+decisions = ["D-2392"]
+requires = []
+why = """
+Players: the Ice Stone has no USE button in the Bag, so the six Pokémon that evolve with it (Mr. Mime, Crabrawler,
+Cetoddle, Darumaka, Alolan Sandshrew and Vulpix) cannot evolve; the Fire, Water, Thunder, Leaf, Sun, Moon, Shiny,
+Dusk and Dawn Stones all have it. The untouched Chinese ROM has the same gap, so it is a data error of the hack
+(an evolution item whose item record lacks the field-use data), reported by a player (Discord #bugs 'Ice stone
+unusable'). The same gap is in eight more items that evolution records of the hack name as 'use item'
+(method 7): Cracked Pot (Sinistea), Galarica Cuff and Wreath (Slowpoke), Sweet and Tart Apple (Applin),
+Auspicious and Malicious Armor (Charcadet) and Dragon Scale (Exeggcute, which the hack evolves with it by use).
+
+Technical: the item table a/0/1/7 has one 34-byte record per item. Bytes 10..15 hold the Bag/party use data
+(field use function, battle use function, party use flags). The stones have 14 00 01 00 00 08 there; the nine
+items above have zeros. The fix copies those six bytes from the Fire Stone record; the price, hold effect, pocket
+and everything else stay. Evolution records (a/0/3/4) are untouched: they already name these items with method 7.
+
+Status: disabled. Reviewed against the Chinese ROM at merge (the nine records read all zeros at bytes 10..15, the
+member SHA-1 guards match). Merged into develop on 2026-10-12 as a separate, switched-off patch at the user's request:
+the standard build keeps the Chinese behaviour and builds this only on request (build.py --only evolution-items-use).
+Notes: work/notes/ice-stone-use_fix.md.
+"""
+what = """
+Old: the nine items open the Bag menu with TRASH / GIVE / MOVE only; their evolutions can never happen.
+New: they show USE like the Fire Stone; used on a Pokémon that evolves with the item it evolves, otherwise the
+game says it would have no effect.
+"""
+evidence = [
+  "Discord #bugs 'Ice stone unusable': 'there is no use option for ice stone, all other stones tested can be used'",
+  "emu_harness.py, DeSmuME, 2026-10-12: Bag > Items > Ice Stone shows no USE on the build before the fix and on the untouched Chinese ROM; Fire Stone shows USE",
+  "Runtime: emu_harness.py fixes --case evolution-items-use (scenario stone-use: one Pokémon per item, the item selected in the Bag, USE, the Pokémon; the build evolves all of them, the --without build only the Fire Stone control, work/notes/emu_harness.md 'Fix scenarios')",
+  "work/notes/ice-stone-use_fix.md: the records, the audit of every evolution item, the emulator runs before and after",
+]
+
+[[narc_bytes]]
+id = "ice-stone-use"
+narc = "a/0/1/7"
+member = 606
+offset = "0xA"
+expect = "0000 0000 0000"
+new = "0014 0001 0800"
+member_sha1 = "bdf4daae7b8fdeca41841d946c32ed8e60fa9b4d"
+notes = "Ice Stone (item 606): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Mr. Mime, Alolan Sandshrew and Vulpix, Cetoddle, Darumaka (6 records)."
+
+[[narc_bytes]]
+id = "cracked-pot-use"
+narc = "a/0/1/7"
+member = 624
+offset = "0xA"
+expect = "0000 0000 0000"
+new = "0014 0001 0800"
+member_sha1 = "6df0adbc18e8b0913eceecd810b411143b43e9e5"
+notes = "Cracked Pot (item 624): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Sinistea."
+
+[[narc_bytes]]
+id = "galarica-cuff-use"
+narc = "a/0/1/7"
+member = 631
+offset = "0xA"
+expect = "0000 0000 0000"
+new = "0014 0001 0800"
+member_sha1 = "bdf4daae7b8fdeca41841d946c32ed8e60fa9b4d"
+notes = "Galarica Cuff (item 631): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Slowpoke."
+
+[[narc_bytes]]
+id = "galarica-wreath-use"
+narc = "a/0/1/7"
+member = 633
+offset = "0xA"
+expect = "0000 0000 0000"
+new = "0014 0001 0800"
+member_sha1 = "bdf4daae7b8fdeca41841d946c32ed8e60fa9b4d"
+notes = "Galarica Wreath (item 633): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Slowpoke."
+
+[[narc_bytes]]
+id = "sweet-apple-use"
+narc = "a/0/1/7"
+member = 641
+offset = "0xA"
+expect = "0000 0000 0000"
+new = "0014 0001 0800"
+member_sha1 = "19e84da36d3023cb3e7d77796b81561a636e29bf"
+notes = "Sweet Apple (item 641): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Applin."
+
+[[narc_bytes]]
+id = "tart-apple-use"
+narc = "a/0/1/7"
+member = 642
+offset = "0xA"
+expect = "0000 0000 0000"
+new = "0014 0001 0800"
+member_sha1 = "19e84da36d3023cb3e7d77796b81561a636e29bf"
+notes = "Tart Apple (item 642): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Applin."
+
+[[narc_bytes]]
+id = "auspicious-armor-use"
+narc = "a/0/1/7"
+member = 646
+offset = "0xA"
+expect = "0000 0000 0000"
+new = "0014 0001 0800"
+member_sha1 = "bdf4daae7b8fdeca41841d946c32ed8e60fa9b4d"
+notes = "Auspicious Armor (item 646): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Charcadet."
+
+[[narc_bytes]]
+id = "malicious-armor-use"
+narc = "a/0/1/7"
+member = 653
+offset = "0xA"
+expect = "0000 0000 0000"
+new = "0014 0001 0800"
+member_sha1 = "bdf4daae7b8fdeca41841d946c32ed8e60fa9b4d"
+notes = "Malicious Armor (item 653): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Charcadet."
+
+[[narc_bytes]]
+id = "dragon-scale-use"
+narc = "a/0/1/7"
+member = 235
+offset = "0xA"
+expect = "0000 0000 0000"
+new = "0014 0001 0800"
+member_sha1 = "2d12ae76712cac6fd713bc03fa9dc18d0470b699"
+notes = "Dragon Scale (item 235): field/battle/party use bytes 14 00 01 00 00 08 as on the Fire Stone; evolves Exeggcute."
