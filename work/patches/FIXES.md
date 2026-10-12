@@ -36,6 +36,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
+| [`tutor-saffron-volt-switch`](#tutor-saffron-volt-switch) | narc | **no** | – | Saffron Dojo tutor teaches Volt Switch on every path (not Charge) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
 | [`antipiracy`](#antipiracy) | code | yes | – | Real hardware: the six DS Protect entry points return the genuine-cart values |
@@ -1216,6 +1217,50 @@ Linking Cord (635) stay as the hack has them.
 
 - `a/0/3/4` #525 +0x0 `boldore-evolution`: `0005 0000 020E` → `0004 0023 020E` (member SHA-1 `4cd8fb7ba6dc`): Boldore record 0: trade (method 5) -> level up (method 4) at Lv 35 (0x23); target 526 Gigalith unchanged.
 - `a/0/3/4` #533 +0x0 `gurdurr-evolution`: `0005 0000 0216` → `0004 0028 0216` (member SHA-1 `fe6ee29b1f6e`): Gurdurr record 0: trade (method 5) -> level up (method 4) at Lv 40 (0x28); target 534 Conkeldurr unchanged.
+
+## tutor-saffron-volt-switch
+
+**Saffron Dojo tutor teaches Volt Switch on every path (not Charge)**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-1347, D-2346
+- Source: `work/patches/tutor-saffron-volt-switch/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-1347: the Saffron Fighting Dojo master (a/0/1/2 member 829) sells the lesson 'Loose, Lively, Springy, Shaky
+Lightning Whip' (a027/0525 #61-#72, 10000 yen) and the hack author's item sheet lists it as Volt Switch (row
+554, 伏特替换, Saffron Dojo, 10000). The script's four-move path teaches move 521 (Volt Switch), but the other
+paths still use 268, the id v3 gave Volt Switch; in v4 268 is Charge (Electric status move, Sp. Def +1). So a
+Pokemon with a free move slot pays 10000 and learns Charge, while one with four moves learns Volt Switch. A
+Pokemon with four moves that answers 'no' to the first forget prompt and 'yes' to the retry is shown, and then
+taught, Charge as well. Observed in the emulator on the Chinese ROM and the English build (D-1347: 3 moves ->
+268, 4 moves -> 521, 10000 taken on both).
+
+Status: disabled. A separate, switched-off patch, like the other 2026-10-12 hack-bug fixes: the standard build
+keeps the Chinese behaviour; build it with build.py --only tutor-saffron-volt-switch.
+
+**What (old → new):**
+
+Three two-byte edits in member 829, 010C -> 0209 (268 -> 521): the free-slot SetMonMove (pc 6368), and, on the
+retry path (pc 6641), the move shown by PokemonSummaryScreen (pc 6680) and the SetMonMove after the forget
+confirmation (pc 6748). Same size, no offset moves; fee, flags and messages are untouched. The main path
+(summary at 4369, SetMonMove at 4437) and the Counter lesson in the same script already use the right ids.
+Guards: whole-member SHA-1 and the expected bytes of each edit.
+
+**Evidence:**
+
+- work/notes/tutor-saffron-volt-switch_fix.md
+- work/notes/tutor-wrong-moves_investigation.md
+- work/tools/test_tutor_saffron_volt_switch.py
+
+**Touches:**
+
+- `a/0/1/2` #829 +0x18e6 `dojo-setmonmove-free`: `0x010C` → `0x0209` (member SHA-1 `c19ec3061f93`): SetMonMove slot, free slot, 268 -> 521 at pc 6368 (operand at +6): the pupil has fewer than four moves.
+- `a/0/1/2` #829 +0x1a1d `dojo-summary-retry`: `0x010C` → `0x0209` (member SHA-1 `c19ec3061f93`): PokemonSummaryScreen 1, slot, 268 -> 521 at pc 6680 (operand at +5): retry path after 'no' to the first forget prompt.
+- `a/0/1/2` #829 +0x1a62 `dojo-setmonmove-retry`: `0x010C` → `0x0209` (member SHA-1 `c19ec3061f93`): SetMonMove slot, chosen move, 268 -> 521 at pc 6748 (operand at +6): retry path.
 
 ## outfit-chooser-strings
 
