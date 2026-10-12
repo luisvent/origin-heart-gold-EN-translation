@@ -29,6 +29,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`blank-player-name`](#blank-player-name) | narc | **no** | – | Fill the player-name buffer a script's message actually reads |
 | [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
+| [`haircut-younger-price-check`](#haircut-younger-price-check) | narc | yes | – | Pokemon Salon: the younger Haircut Brother checks for $300, the price he names and takes |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
@@ -921,6 +922,34 @@ unchanged. No global counter remap or backward save restoration.
 **Touches:**
 
 - `a/0/1/2` #962 +0x88 `completed-leader-condition`: `0x3601` → `0x3604` (member SHA-1 `33cb77c9032d`): Condition byte136: equality1 -> unsigned >=4; following displacement byte137=36 is pinned and unchanged.
+
+## haircut-younger-price-check
+
+**Pokemon Salon: the younger Haircut Brother checks for $300, the price he names and takes**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2346, D-2347
+- Source: `work/patches/haircut-younger-price-check/fix.toml`
+
+**Why (the Chinese hack):**
+
+Pokemon Salon (script file 94, text bank 0115). The younger Haircut Brother advertises $300 (#17) and takes 300 (SubMoneyImmediate 0x12C at @2912) but first checks HasEnoughMoneyImmediate 500 (@2806), so a player with $300-$499 is told they cannot pay for a service that costs $300. The older brother checks 500 and takes 500 (@2547/@2653). In the US game the younger brother checks and charges $300.
+
+**What (old → new):**
+
+One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 2806, 500 -> 300. No other byte changes. The older brother (500/500) is untouched.
+
+**Evidence:**
+
+- work/notes/haircut_younger_price_check_fix.md
+- work/notes/haircut_younger_price_check_investigation.md
+- work/tools/test_haircut_younger_price_check.py
+
+**Touches:**
+
+- `a/0/1/2` #94 +0xAFA `younger-brother-money-check`: `0x01F4` → `0x012C` (member SHA-1 `e5ef4eca32dc`): HasEnoughMoneyImmediate at 2806: u32 amount at 2810 (500 -> 300); SubMoneyImmediate 300 at 2912; text bank 115 #17 says $300 (the older brother's #10 says $500 and checks 500 at 2547).
 
 ## hooh-panel-silver-marker
 
