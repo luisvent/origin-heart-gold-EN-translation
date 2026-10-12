@@ -33,6 +33,7 @@ Merged into develop on 2026-10-12 at the user's request as separate patches with
 - **overworld-pokemon-cries (D-2398 to D-2400):** 29 stationary overworld Pokémon whose label and sprite agree cry as that species (Route 6 Cloyster, Route 43 Sentrets, Cerulean Gym Seels and others).
 - **trainer-abilities (D-2401, D-2402):** 54 trainer Pokémon get the ability their held item and moves are built around (Toxic Orb Gliscor and Breloom: Poison Heal; Flame Orb Raticate, Hariyama and Machamp: Guts; Heat Rock Ninetales and Torkoal: Drought; Damp Rock Pelipper: Drizzle; Petrel's Life Orb Nidoking: Sheer Force). This changes trainer difficulty, so it is off by default.
 - **safari-zone-closed (D-2407; open question D-2408):** the four Safari Zone gate counters show a "closed for now" notice and the two gate-hall door warps lead nowhere, so the unfinished Safari Zone cannot be entered. Off by default; Baoba's Geodude test cannot be finished while it is on.
+- **reward-qty (D-2409, D-2411):** a reward of more than one item (the Viridian Academy's 2 Ultra Balls and 162 other gifts of 2 to 20 items) says how many ('Obtained Ultra Ball x2!') instead of reading as a single item. Off by default.
 
 ### Fixed
 - **Route 21 Lairon (D-2398):** the Pokémon in the Mr. Mime barrier scene is Lairon, as the Chinese text says (可多拉), not Onix: lines a027/0732#18 and #19.
