@@ -93,7 +93,7 @@ class DoubleBattleSingleFallback(unittest.TestCase):
         try:
             armips = asmpatch.find_armips()
         except asmpatch.AsmError:
-            raise unittest.SkipTest("needs armips")
+            raise unittest.SkipTest("needs armips") from None
         cls.patched = asmpatch.assemble([cls.fix], {"arm9": cls.native}, armips)[0]["arm9"]
 
     def run_type(self, image, n, t1, t2, partner=0, flag=0):
