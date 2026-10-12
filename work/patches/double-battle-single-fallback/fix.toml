@@ -1,0 +1,51 @@
+id = "double-battle-single-fallback"
+title = "A scripted Double Battle with fewer than two Pokémon becomes a Single Battle (no freeze)"
+kind = "code"
+enabled = true
+decisions = ["D-2346"]
+requires = []
+asm = "double-battle-single-fallback.asm"
+why = """
+Players: a Double Battle that a script starts while the party holds only one Pokémon freezes the game (Department Store 6F,
+the shoppers who object to the blind man's Poochyena; also Yellow's Singles option, Chuck, the 786/787 pair and about 130 other
+script sites that check nothing). The double starts with a broken ally (a junk name, level and status) and a blank screen at
+FIGHT. The untouched Chinese ROM does the same (hack finding D-1559).
+
+Status: D-1337 no longer blocks fixes (user 2026-10-12: 'We are way past this point since the Chinese rom contains too many
+bugs.. So lets create a fix in a worktree'). D-2346 is the user's choice of this general fix (2026-10-12: 'Lets replace [the
+Department Store check] and build a downgrade to single battle like the Spanish patch.').
+
+Technical: ScrCmd_TrainerBattle (command 213) and MultiBattle (562) call the battle setup at 0x02050768, which picks the battle
+type (1 single, 3 double with one trainer twice, 0x13 double with two trainers, 0x4B multi with a partner) and calls
+BattleSetup_New(11, type). Nothing there looks at the party. With a party count below two the battle init (overlay 14) reads the
+empty second slot's index as a pointer (DeSmuME: broken ally, blank screen; melonDS: data abort at 0x022167B4).
+"""
+what = """
+Old: type 3 / 0x13 whatever the party.
+New: right before BattleSetup_New, when the type is 3 or 0x13 and the party holds fewer than two Pokémon (party count, not the
+number able to fight), the type becomes 1 and trainer 2 becomes 0: a Single Battle against trainer 1. Unchanged: parties of two or
+more (also one healthy Pokémon next to a fainted one or an Egg, which the engine plays as before), the multi battle with a partner
+(0x4B: the partner is the ally), single battles, and every other BattleSetup_New caller (wild encounters, link, facilities).
+Trainer 2 of a two-trainer double is not fought; the scripts set both trainers' defeated flags after the battle themselves.
+Two edits: the 8 bytes at 0x020507A4 call a hook; the hook (40 bytes) lives in the handler of script command 223
+(0x02048EC8), which battled trainer 1 and which no script of the hack uses.
+"""
+evidence = [
+  "D-2346: the user's decision; D-1559: the finding (Department Store 6F)",
+  "work/notes/double-battle-single-fallback_fix.md: the code, the multi-trainer decision, the emulator runs before and after",
+  "Runtime: work/tools/test_emu_double_battle_single_fallback.py (DeSmuME and melonDS)",
+]
+
+[[code]]
+id = "double-battle-single-fallback-hook"
+file = "arm9"
+offset = "0x48EC8"
+expect = "B510 B084 1C04 3080 6800 2118 F7F6 FDAA 2200 9200 9201 210B 9102 9003 6F60 2101 1C13 F007 FC3D 2001 B004 BD10"
+notes = "ScrCmd 223 handler (battles trainer 1; no script uses command 223): replaced by the 44-byte hook that downgrades a double with fewer than two Pokémon to a single and then calls BattleSetup_New(11, type)."
+
+[[code]]
+id = "double-battle-single-fallback-call"
+file = "arm9"
+offset = "0x507A4"
+expect = "200B 1C21 F000 FA44"
+notes = "Battle setup 0x02050768: 'movs r0,#0xB; adds r1,r4,#0; bl BattleSetup_New' becomes 'bl hook; nop; nop'. The asm also guards, read-only, the setup's entry and the command table slot."

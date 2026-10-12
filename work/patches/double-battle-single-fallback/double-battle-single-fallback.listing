@@ -1,0 +1,76 @@
+; double-battle-single-fallback - disassembly snapshot of double-battle-single-fallback.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write double-battle-single-fallback   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: double-battle-single-fallback.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== arm9+0x48EC8 (RAM 0x02048EC8), 44 bytes, thumb: double-battle-single-fallback-hook
+  02048EC4  BD38       pop {r3, r4, r5, pc}
+  02048EC6  0000       movs r0, r0
+- 02048EC8  B510       push {r4, lr}
+- 02048ECA  B084       sub sp, #0x10
+- 02048ECC  1C04       adds r4, r0, #0
+- 02048ECE  3080       adds r0, #0x80
+- 02048ED0  6800       ldr r0, [r0]
+- 02048ED2  2118       movs r1, #0x18
+- 02048ED4  F7F6 FDAA  bl #0x203fa2c
+- 02048ED8  2200       movs r2, #0
+- 02048EDA  9200       str r2, [sp]
+- 02048EDC  9201       str r2, [sp, #4]
+- 02048EDE  210B       movs r1, #0xb
+- 02048EE0  9102       str r1, [sp, #8]
+- 02048EE2  9003       str r0, [sp, #0xc]
+- 02048EE4  6F60       ldr r0, [r4, #0x74]
+- 02048EE6  2101       movs r1, #1
+- 02048EE8  1C13       adds r3, r2, #0
+- 02048EEA  F007 FC3D  bl #0x2050768  ; BattleSetup_Trainer
+- 02048EEE  2001       movs r0, #1
+- 02048EF0  B004       add sp, #0x10
+- 02048EF2  BD10       pop {r4, pc}
++ 02048EC8  4675       mov r5, lr
++ 02048ECA  2042       movs r0, #0x42
++ 02048ECC  4020       ands r0, r4
++ 02048ECE  2802       cmp r0, #2
++ 02048ED0  D109       bne #0x2048ee6  ; @@go
++ 02048ED2  9803       ldr r0, [sp, #0xc]
++ 02048ED4  68C0       ldr r0, [r0, #0xc]
++ 02048ED6  F02A FBC1  bl #0x207365c  ; SaveArray_Party_Get
++ 02048EDA  F02A FA5D  bl #0x2073398  ; Party_GetCount
++ 02048EDE  2802       cmp r0, #2
++ 02048EE0  DA01       bge #0x2048ee6  ; @@go
++ 02048EE2  2401       movs r4, #1
++ 02048EE4  2600       movs r6, #0
++ 02048EE6  200B       movs r0, #0xb
++ 02048EE8  1C21       adds r1, r4, #0
++ 02048EEA  F007 FEA3  bl #0x2050c34  ; BattleSetup_New
++ 02048EEE  4728       bx r5
++ 02048EF0  46C0       mov r8, r8
++ 02048EF2  46C0       mov r8, r8
+  02048EF4  B510       push {r4, lr}
+  02048EF6  1C04       adds r4, r0, #0
+
+== arm9+0x50768 (RAM 0x02050768), 18 bytes, thumb: read-only guard (the source checks these bytes and writes none of them)
+  02050768  B5F8       push {r3, r4, r5, r6, r7, lr}
+  0205076A  B084       sub sp, #0x10
+  0205076C  9001       str r0, [sp, #4]
+  0205076E  1C0F       adds r7, r1, #0
+  02050770  1C16       adds r6, r2, #0
+  02050772  9302       str r3, [sp, #8]
+  02050774  F7FF F9AE  bl #0x204fad4
+  02050778  9003       str r0, [sp, #0xc]
+
+== arm9+0x507A4 (RAM 0x020507A4), 8 bytes, thumb: double-battle-single-fallback-call
+  020507A0  02E0       lsls r0, r4, #0xb
+  020507A2  4304       orrs r4, r0
+- 020507A4  200B       movs r0, #0xb
+- 020507A6  1C21       adds r1, r4, #0
+- 020507A8  F000 FA44  bl #0x2050c34  ; BattleSetup_New
++ 020507A4  F7F8 FB90  bl #0x2048ec8  ; ScrCmd_223
++ 020507A8  46C0       mov r8, r8
++ 020507AA  46C0       mov r8, r8
+  020507AC  9903       ldr r1, [sp, #0xc]
+  020507AE  1C05       adds r5, r0, #0
+
+== read-only checks at absolute addresses (expect32_abs): the bytes there, unchanged
+  020F7CB8  02048EC9 (ScrCmd_223+1)
