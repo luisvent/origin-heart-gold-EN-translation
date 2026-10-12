@@ -1,0 +1,50 @@
+id = "photographer-no-healthy-mon"
+title = "Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene)"
+kind = "narc"
+enabled = false
+decisions = ["D-2346"]
+requires = []
+why = """
+Players: talking to Cameron, the photographer in Pallet Town, and answering Yes while no Pokémon in the party can
+fight (no Pokémon at all, as at the start of the game before the starter, or only Eggs and fainted Pokémon) starts the
+photo scene, and on real hardware (and in melonDS) the game freezes with black screens as the scene starts. The
+photo scene looks up the party's lead Pokémon and reads it without checking that there is one. DeSmuME does not
+notice (a read from address 0 returns 0 there), which is why the earlier emulator test with an empty party passed.
+A player report (Manic Emulator, iOS) matches. The untouched Chinese ROM does the same, so this is a hack bug.
+
+Status: disabled. Not merged. The standard build leaves it out (the Chinese behaviour is kept) and it is built only
+on request (build.py --only photographer-no-healthy-mon). A third-party patch (Speedoption, and the Spanish one
+derived from it) has the same guard.
+"""
+what = """
+a/0/1/2 member 733, script 7 (the photographer), is edited with one [[script_insert]] in front of the
+PhotoAlbumIsFull command (offset 136), i.e. after Yes was answered and before anything else happens. The inserted
+39 bytes are: CountAliveMons 0x800C, 6 (the native counter: current HP > 0 and not an Egg; 6 skips no slot);
+CompareVarToValue 0x800C, 0; GoToIf (not equal) over the next 20 bytes; and a copy of the existing decline reply
+(the 20 bytes at 851: GetStdMsgNaix, MsgBoxExtern 5 "Aren't you a shy one?", WaitButton, CloseMsg, ReleaseAll, End).
+With at least one healthy Pokémon the jump skips the copy and the original script (album check, photo) runs
+unchanged; with none, the player gets the decline reply and the scene ends before the photo. Nothing is removed and
+no text is added: the reply is the one the player gets for answering No. scriptinsert.py relocates the header slots,
+every relative operand and the movement blocks (the member grows by 39 bytes plus one byte of alignment). The edit
+is independent of the blank-player-name fix's bytes in the same member (1026..1035); the insert accepts the member
+before and after them.
+Tool change: scriptinsert.check_block now accepts a GoTo / GoToIf inside an inserted block when it lands on a command
+inside the block or just after it (the operand is then the same wherever the block goes); every other relative
+operand and movement are still refused.
+"""
+evidence = [
+  "work/notes/photographer-no-healthy-mon_fix.md",
+  "work/notes/photographer-no-healthy-mon_investigation.md",
+  "work/tools/test_photographer_no_healthy_mon.py",
+  "work/tools/test_script_insert.py",
+]
+
+[[script_insert]]
+id = "pallet-photographer-alive-guard"
+narc = "a/0/1/2"
+member = 733
+offset = "0x88"
+expect = "6A 02 0C 80"
+insert = "65 01 0C 80 06 00 11 00 0C 80 00 00 1C 00 05 14 00 00 00 B6 01 02 00 0C 80 B8 01 0C 80 05 00 32 00 35 00 61 00 02 00"
+member_sha1 = ["767093c73dc8534eed921e7bcdd14f0db554eea0", "e8b6b81fe765babea218af99e44c3f3bf226a556"]
+notes = "In front of PhotoAlbumIsFull (136): CountAliveMons 0x800C,6; Compare 0; GoToIf != over the copy of the decline reply (GetStdMsgNaix, MsgBoxExtern 5, WaitButton, CloseMsg, ReleaseAll, End)."
