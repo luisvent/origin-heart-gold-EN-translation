@@ -42,6 +42,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`ss-anne-softlock`](#ss-anne-softlock) | narc | yes | – | Open the S.S. Anne voyage in its pre-party state so the party can always start |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`tutor-blackthorn-play-rough`](#tutor-blackthorn-play-rough) | narc | **no** | – | Blackthorn Move Tutor teaches Play Rough, as it says (not Flail) |
+| [`tutor-saffron-volt-switch`](#tutor-saffron-volt-switch) | narc | **no** | – | Saffron Dojo tutor teaches Volt Switch on every path (not Charge) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
 | [`antipiracy`](#antipiracy) | code | yes | – | Real hardware: the six DS Protect entry points return the genuine-cart values |
@@ -975,7 +976,7 @@ unchanged. No global counter remap or backward save restoration.
 - Kind: narc
 - Enabled: yes
 - Requires: nothing
-- Decisions: D-2354, D-2349
+- Decisions: D-2348, D-2349
 - Source: `work/patches/giovanni-hotspring-loss/fix.toml`
 
 **Why (the Chinese hack):**
@@ -1129,7 +1130,7 @@ Route1's separate7286 marker remains deferred pending safe old-save compatibilit
 - Kind: narc
 - Enabled: no
 - Requires: nothing
-- Decisions: D-2349
+- Decisions: D-2346
 - Source: `work/patches/photographer-no-healthy-mon/fix.toml`
 
 **Why (the Chinese hack):**
@@ -1355,7 +1356,7 @@ whole-member SHA-1 and the expected bytes guard each edit.
 - Kind: narc
 - Enabled: yes
 - Requires: nothing
-- Decisions: D-1549, D-2349
+- Decisions: D-1549, D-2347
 - Source: `work/patches/ss-anne-softlock/fix.toml`
 
 **Why (the Chinese hack):**
@@ -1371,6 +1372,23 @@ own. The party is announced only inside the Honey hand-over (161 @1524: 1424 mus
 speech (157 @514); with the Honey given first, or Blue fought first, flag 1423 is set and 1424 clear, nothing
 re-checks, the hall trigger stays silent and the gangway sailor never leaves: the player is stuck aboard.
 
+Reproduction (investigation 2026-10-12, DeSmuME, individually, no forced flags except what boarding itself needs):
+untouched Chinese ROM, released rc7 and a built English control behave identically. Only the Vermilion arrival flags
+and the Honey in the Bag were set by hand; boarding, the arrival scene, the Captain's speech and the NPC walk-ups were
+played with the old 'vqueue ssanne_story' recipe (git 2e6fe55^, restored into scratch). Leaving the ship before the
+party is impossible. Orders that trap the player: Honey given to the girl before the old boy's party branch, or Blue
+talked to first. Safe orders: the old boy first, or the Captain first. A trapped game has var 0x40A4 = 0, flag 1423 set,
+1424 clear, the hall trigger silent and the gangway sailor still at (24,17).
+
+Flag and variable key (all in a/0/1/2 scripts): 1440 = pre-party 'hide guests / Captain gives HM01' flag (the flag this
+fix sets); 1423 = Blue's pre-party lines done / Honey handed over (set by Blue at 156 @4524 and by the Honey hand-over);
+1424 = 'met the Captain' (set by the old boy at 156 @4622 and by the Captain at 157 @202); 235, 554, 555, 556 = harbor
+sailor bookkeeping flags (member 155); 0x40A4 = S.S. Anne party progress variable (3 = party started and running).
+Where the flag is written or tested across the whole archive (own decoder, reviewer-confirmed): the ONLY SetFlag 1440 is
+156 @6350 (the hijack); clears are at 157 @550 and 161 @1901; tests are at 157 @124 and 156 @714, 1023, 1068, 1098,
+1159; all of them jump away when the flag is clear, so a clear flag means 'party already started'. HM01 is given only in
+member 157; 81 and 191 only check for it. So the Chinese first voyage never gives HM01.
+
 **What (old → new):**
 
 Set flag 1440 when the player boards, before the hall map loads. In the harbor sailor's script (member 155, script 1),
@@ -1384,11 +1402,39 @@ gives HM01 and sets 1424, the Honey hand-over sets 1423, and whichever comes sec
 second: 161 @1524; Captain second: 157 @514), in any order, with the old boy and Blue in their pre-party lines
 until then.
 
+BEHAVIOUR CHANGES versus the Chinese hack (D-1002 says the Chinese behaviour is the reference unless it is a bug; the
+user was asked and chose to merge this fix DISABLED, 2026-10-12, so testers can judge the changes):
+  1. The Captain gives HM01 (Cut) on the first voyage and sets flag 1424, instead of saying the party has already
+     started (253#62) and giving nothing.
+  2. The 14 party guests and the hall shop are hidden until the party starts (emulator: 14 guests visible on the Chinese
+     ROM, 0 with the fix).
+  3. The old boy and Blue say their pre-party lines without battling (old boy message 19) until the party starts; the
+     battles come after it.
+  4. The party starts from whichever of the Captain's speech and the Honey hand-over comes second.
+  5. The Honey-first and Blue-first traps are gone. The Water Stone, the grandfather and Archie's hall speech still
+     happen.
+The new Captain's 'has HM01' branch suggests this is the intended design, but that is an inference, not proof.
+
+KNOWN EDGE CASE (low severity, reviewer-found): re-boarding AFTER the party has started (for example after a whiteout
+aboard) sets 1440 again. Guests and the shop vanish again and the Captain offers HM01 again (the +420 bag change is shown
+again); 1424 is set again; var 0x40A4 stays 3 and the party still proceeds. The Chinese ROM does nothing in that case
+(its Chinese comparison could not be run: the harness hit 'pocket full'). The gangway sailor normally prevents
+re-boarding mid-party.
+
+TO UNDO: set enabled = false (or build with --without ss-anne-softlock), or change the 4 bytes at member 155 offset
+0x98 back to 0020 00EB.
+
 **Evidence:**
 
 - work/notes/ss-anne-softlock_investigation.md
 - work/notes/ss-anne-softlock_fix.md
-- work/tools/test_ss_anne_softlock.py
+- work/tools/test_ss_anne_softlock.py (6 tests; also checks that the member_sha1 and expect guards reject a changed source)
+- Fix commit 8697fb4 (fixer: investigation + paired emulator runs); review 2026-10-12: APPROVED WITH NOTES (separate reviewer, own decoder over every a/0/1/2 member, patched a copy of the Chinese ROM itself)
+- Emulator, Chinese ROM: Honey first ends stuck (var 0x40A4 = 0, hall trigger silent, gangway sailor still at 24,17); old boy first starts the party
+- Emulator, Chinese ROM + fix and English build + fix: five orders all end with var 0x40A4 = 3 and the hall trigger running: old boy first, Blue first, Captain first, Captain then Blue then old boy, Honey then Captain; reviewer's own orders: leaving and re-boarding before the party keeps flags 1423/1424/1440 and the party still starts. Boarding writes 1440 once, at pc 0x204f8b6
+- Scratch run folders (not in the repo): scratchpad inv/ss-anne-softlock/ run2 CN, run3 rc7, run6 CN+fix, run7 EN fix, run8 EN control; review folder review/ss-anne-softlock/
+- NOT VERIFIED: the party and hijack scenes after Archie's hall speech; rescuing saves that are already stuck aboard (the fix acts at boarding only); the 'Soul Badge' label for CheckBadge 4 at member 155 offset 145 (an assumption; the branch jumps away before offset 152 either way); the new-S.S.-Anne branch itself; hardware; expected.toml hashes are not updated (the merge step runs check.py --full --update-expected if this fix is enabled in the standard build). The harness 'honey_first' variant crashes on the fixed ROM because it waits for an old-boy battle that no longer happens before the party (harness limit; 'honey_then_captain' covers the same order).
+- Merge status: merged DISABLED like the other 2026-10-12 fixes (user decision: a disabled merge is harmless); tester xdelta on request. Decision D-2347 collides with the photographer fix's id and is renumbered at merge.
 
 **Touches:**
 
@@ -1481,7 +1527,7 @@ edit.
 
 - work/notes/tutor-blackthorn-play-rough_fix.md
 - work/notes/tutor-wrong-moves_investigation.md
-- work/tools/test_tutor_move_fixes.py
+- work/tools/test_tutor_blackthorn_play_rough.py
 
 **Touches:**
 
@@ -1489,6 +1535,50 @@ edit.
 - `a/0/1/2` #944 +0xd8b `blackthorn-setmonmove-free`: `0x00AF` → `0x0247` (member SHA-1 `9c0d1c894a8c`): SetMonMove party slot, free slot, 175 -> 583 at pc 3461 (operand at +6): the pupil has fewer than four moves.
 - `a/0/1/2` #944 +0xde4 `blackthorn-summary`: `0x00AF` → `0x0247` (member SHA-1 `9c0d1c894a8c`): PokemonSummaryScreen 1, slot, 175 -> 583 at pc 3551 (operand at +5): the summary of the forget-a-move path shows the new move.
 - `a/0/1/2` #944 +0xe29 `blackthorn-setmonmove-replace`: `0x00AF` → `0x0247` (member SHA-1 `9c0d1c894a8c`): SetMonMove slot, chosen move, 175 -> 583 at pc 3619 (operand at +6): the forget-a-move path.
+
+## tutor-saffron-volt-switch
+
+**Saffron Dojo tutor teaches Volt Switch on every path (not Charge)**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-1347, D-2356
+- Source: `work/patches/tutor-saffron-volt-switch/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-1347: the Saffron Fighting Dojo master (a/0/1/2 member 829) sells the lesson 'Loose, Lively, Springy, Shaky
+Lightning Whip' (a027/0525 #61-#72, 10000 yen) and the hack author's item sheet lists it as Volt Switch (row
+554, 伏特替换, Saffron Dojo, 10000). The script's four-move path teaches move 521 (Volt Switch), but the other
+paths still use 268, the id v3 gave Volt Switch; in v4 268 is Charge (Electric status move, Sp. Def +1). So a
+Pokemon with a free move slot pays 10000 and learns Charge, while one with four moves learns Volt Switch. A
+Pokemon with four moves that answers 'no' to the first forget prompt and 'yes' to the retry is shown, and then
+taught, Charge as well. Observed in the emulator on the Chinese ROM and the English build (D-1347: 3 moves ->
+268, 4 moves -> 521, 10000 taken on both).
+
+Status: disabled. A separate, switched-off patch, like the other 2026-10-12 hack-bug fixes: the standard build
+keeps the Chinese behaviour; build it with build.py --only tutor-saffron-volt-switch.
+
+**What (old → new):**
+
+Three two-byte edits in member 829, 010C -> 0209 (268 -> 521): the free-slot SetMonMove (pc 6368), and, on the
+retry path (pc 6641), the move shown by PokemonSummaryScreen (pc 6680) and the SetMonMove after the forget
+confirmation (pc 6748). Same size, no offset moves; fee, flags and messages are untouched. The main path
+(summary at 4369, SetMonMove at 4437) and the Counter lesson in the same script already use the right ids.
+Guards: whole-member SHA-1 and the expected bytes of each edit.
+
+**Evidence:**
+
+- work/notes/tutor-saffron-volt-switch_fix.md
+- work/notes/tutor-wrong-moves_investigation.md
+- work/tools/test_tutor_saffron_volt_switch.py
+
+**Touches:**
+
+- `a/0/1/2` #829 +0x18e6 `dojo-setmonmove-free`: `0x010C` → `0x0209` (member SHA-1 `c19ec3061f93`): SetMonMove slot, free slot, 268 -> 521 at pc 6368 (operand at +6): the pupil has fewer than four moves.
+- `a/0/1/2` #829 +0x1a1d `dojo-summary-retry`: `0x010C` → `0x0209` (member SHA-1 `c19ec3061f93`): PokemonSummaryScreen 1, slot, 268 -> 521 at pc 6680 (operand at +5): retry path after 'no' to the first forget prompt.
+- `a/0/1/2` #829 +0x1a62 `dojo-setmonmove-retry`: `0x010C` → `0x0209` (member SHA-1 `c19ec3061f93`): SetMonMove slot, chosen move, 268 -> 521 at pc 6748 (operand at +6): retry path.
 
 ## outfit-chooser-strings
 
