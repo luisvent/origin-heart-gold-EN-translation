@@ -1,0 +1,255 @@
+id = "overworld-pokemon-cries"
+title = "Stationary overworld Pokemon cry as the species their label and sprite show"
+kind = "narc"
+enabled = false
+decisions = ["D-2398", "D-2399", "D-2400"]
+requires = []
+why = """
+The cry of 29 stationary overworld Pokemon is another species than the one their Chinese speaker label names and their sprite draws
+(Route 6 Cloyster cries Magmortar, Route 43 Sentrets cry Smoochum, Cerulean Gym Seels cry Goldeen; Herdier plays 791 and Palpitoad 820,
+exactly 284 above their real ids 507 and 536). User decision 2026-10-12 (D-2398): where label and sprite agree, the cry follows them;
+text is never changed by this fix. Not touched: Kirk's Sylveon, the S.S. Aqua Bulbasaur, Viridian Doduo, Pokeathlon Pidgey, the
+Route 21 Lairon (cry plays Onix, D-2400) and the silent objects (open questions, D-2399). RECHECK WHEN 4.1.0 RELEASES: every object in
+work/notes/overworld-pokemon-sprite-mismatch_fix.md must be looked at again in the game (4.1.0 may change sprites or cries).
+
+Status: disabled. Merged into develop on 2026-10-12 as a separate, switched-off patch at the user's request: the standard
+build keeps the Chinese behaviour and builds this only on request (build.py --only overworld-pokemon-cries). The byte guards
+(member SHA-1 and expected value of every entry) were re-checked against the Chinese ROM at merge. Notes:
+work/notes/overworld-pokemon-sprite-mismatch_fix.md.
+"""
+what = """
+Replace the species argument of 23 PlayCry commands (first halfword of the command's two arguments, form 0 kept) in a/0/1/2 with the
+national dex id of the drawn and labelled species; they serve 29 object events (Slowpoke Well Slowbros, Cerulean Gym Seels, Route 43
+Sentrets, Red's house Butterfrees and Sinjoh Shiftry share scripts). Nothing else in those scripts changes; no text changes.
+"""
+evidence = ["work/notes/overworld-pokemon-sprite-mismatch_fix.md", "work/tools/test_overworld_pokemon_cries.py"]
+
+[[narc_bytes]]
+id = "m184-o562-zone14-obj17"
+narc = "a/0/1/2"
+member = 184
+offset = "0x232"
+expect = "0x01D3"
+new = "0x005B"
+member_sha1 = "3ae60539568df18c10cb55961c0c1bbde36bf7ff"
+notes = "PlayCry species 467 -> 91 (zone 14 object 17)."
+
+[[narc_bytes]]
+id = "m218-o596-zone30-obj11"
+narc = "a/0/1/2"
+member = 218
+offset = "0x254"
+expect = "0x0099"
+new = "0x0098"
+member_sha1 = "16ecc85b564a61c5d844afe8dfd65f62b4e17726"
+notes = "PlayCry species 153 -> 152 (zone 30 object 11)."
+
+[[narc_bytes]]
+id = "m232-o636-zone36-obj2"
+narc = "a/0/1/2"
+member = 232
+offset = "0x27C"
+expect = "0x019B"
+new = "0x019A"
+member_sha1 = "cbfa146b2875982a6f57ca895d4823298607f1cb"
+notes = "PlayCry species 411 -> 410 (zone 36 object 2)."
+
+[[narc_bytes]]
+id = "m254-o276-zone45-obj7"
+narc = "a/0/1/2"
+member = 254
+offset = "0x114"
+expect = "0x00EE"
+new = "0x00A1"
+member_sha1 = "e8c7dbb47148fed5423095074636a0c21a53a179"
+notes = "PlayCry species 238 -> 161 (zone 45 object 7)."
+
+[[narc_bytes]]
+id = "m254-o955-zone45-obj7"
+narc = "a/0/1/2"
+member = 254
+offset = "0x3BB"
+expect = "0x00EE"
+new = "0x00A1"
+member_sha1 = "e8c7dbb47148fed5423095074636a0c21a53a179"
+notes = "PlayCry species 238 -> 161 (zone 45 object 7)."
+
+[[narc_bytes]]
+id = "m739-o1122-zone50-obj14"
+narc = "a/0/1/2"
+member = 739
+offset = "0x462"
+expect = "0x0013"
+new = "0x00BA"
+member_sha1 = "6842f68657395508e7e22974632cedde3d7bf603"
+notes = "PlayCry species 19 -> 186 (zone 50 object 14)."
+
+[[narc_bytes]]
+id = "m872-o568-zone75-obj10"
+narc = "a/0/1/2"
+member = 872
+offset = "0x238"
+expect = "0x00DE"
+new = "0x009A"
+member_sha1 = "1162a695c2514d63c260506b706eaf8e87b32c32"
+notes = "PlayCry species 222 -> 154 (zone 75 object 10)."
+
+[[narc_bytes]]
+id = "m872-o780-zone75-obj21"
+narc = "a/0/1/2"
+member = 872
+offset = "0x30C"
+expect = "0x00D6"
+new = "0x0116"
+member_sha1 = "1162a695c2514d63c260506b706eaf8e87b32c32"
+notes = "PlayCry species 214 -> 278 (zone 75 object 21)."
+
+[[narc_bytes]]
+id = "m919-o489-zone81-obj11"
+narc = "a/0/1/2"
+member = 919
+offset = "0x1E9"
+expect = "0x009D"
+new = "0x009C"
+member_sha1 = "b25ecdb32e0d113e2bf6d05448afee6acf245445"
+notes = "PlayCry species 157 -> 156 (zone 81 object 11)."
+
+[[narc_bytes]]
+id = "m925-o612-zone84-obj14"
+narc = "a/0/1/2"
+member = 925
+offset = "0x264"
+expect = "0x00AC"
+new = "0x0010"
+member_sha1 = "423dc6e35ed0a96f4f2a67e753d070665c6cd7a3"
+notes = "PlayCry species 172 -> 16 (zone 84 object 14)."
+
+[[narc_bytes]]
+id = "m60-o503-zone177-obj35"
+narc = "a/0/1/2"
+member = 60
+offset = "0x1F7"
+expect = "0x004F"
+new = "0x0050"
+member_sha1 = "899d1629f4a23767a46ae38df5c6cf394b9332b2"
+notes = "PlayCry species 79 -> 80 (zone 177 object 35)."
+
+[[narc_bytes]]
+id = "m109-o2722-zone178-obj16"
+narc = "a/0/1/2"
+member = 109
+offset = "0xAA2"
+expect = "0x0009"
+new = "0x0003"
+member_sha1 = "ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"
+notes = "PlayCry species 9 -> 3 (zone 178 object 16)."
+
+[[narc_bytes]]
+id = "m901-o1333-zone196-obj17"
+narc = "a/0/1/2"
+member = 901
+offset = "0x535"
+expect = "0x00D4"
+new = "0x002E"
+member_sha1 = "51893628db37f6d6806528cc9ca645bfeac5b31e"
+notes = "PlayCry species 212 -> 46 (zone 196 object 17)."
+
+[[narc_bytes]]
+id = "m875-o144-zone236-obj8"
+narc = "a/0/1/2"
+member = 875
+offset = "0x90"
+expect = "0x00B4"
+new = "0x00C9"
+member_sha1 = "1747b5e571fe33e07a3d96182a92a1fe47cbc3f8"
+notes = "PlayCry species 180 -> 201 (zone 236 object 8)."
+
+[[narc_bytes]]
+id = "m780-o409-zone362-obj9"
+narc = "a/0/1/2"
+member = 780
+offset = "0x199"
+expect = "0x0014"
+new = "0x00AC"
+member_sha1 = "0fc17826cc60784a28e438dd134d1275cbd35432"
+notes = "PlayCry species 20 -> 172 (zone 362 object 9)."
+
+[[narc_bytes]]
+id = "m789-o301-zone372-obj8"
+narc = "a/0/1/2"
+member = 789
+offset = "0x12D"
+expect = "0x0044"
+new = "0x01BE"
+member_sha1 = "9edd14e3950aab1dd5dcd09a05002411f794bb08"
+notes = "PlayCry species 68 -> 446 (zone 372 object 8)."
+
+[[narc_bytes]]
+id = "m797-o127-zone379-obj2"
+narc = "a/0/1/2"
+member = 797
+offset = "0x7F"
+expect = "0x029E"
+new = "0x00D2"
+member_sha1 = "19ac029bd9343070c3ae23ee7c9cc3d5a6ea4675"
+notes = "PlayCry species 670 -> 210 (zone 379 object 2)."
+
+[[narc_bytes]]
+id = "m837-o152-zone404-obj2"
+narc = "a/0/1/2"
+member = 837
+offset = "0x98"
+expect = "0x0334"
+new = "0x0218"
+member_sha1 = "66ab663c02e618d4af01d4b2e6f0545a40faad6c"
+notes = "PlayCry species 820 -> 536 (zone 404 object 2)."
+
+[[narc_bytes]]
+id = "m758-o1207-zone427-obj38"
+narc = "a/0/1/2"
+member = 758
+offset = "0x4B7"
+expect = "0x0076"
+new = "0x0056"
+member_sha1 = "7de7f86ed009d746e14c4964f5d6e02afe28a464"
+notes = "PlayCry species 118 -> 86 (zone 427 object 38)."
+
+[[narc_bytes]]
+id = "m761-o577-zone429-obj9"
+narc = "a/0/1/2"
+member = 761
+offset = "0x241"
+expect = "0x0317"
+new = "0x01FB"
+member_sha1 = "ce9916d723fb875aa1dcbbf920d1d02b3dc5d1d3"
+notes = "PlayCry species 791 -> 507 (zone 429 object 9)."
+
+[[narc_bytes]]
+id = "m55-o324-zone492-obj12"
+narc = "a/0/1/2"
+member = 55
+offset = "0x144"
+expect = "0x00D9"
+new = "0x014F"
+member_sha1 = "31dac176af50bb739c38ea69e05d575c4ed22a54"
+notes = "PlayCry species 217 -> 335 (zone 492 object 12)."
+
+[[narc_bytes]]
+id = "m55-o613-zone492-obj16"
+narc = "a/0/1/2"
+member = 55
+offset = "0x265"
+expect = "0x014A"
+new = "0x0113"
+member_sha1 = "31dac176af50bb739c38ea69e05d575c4ed22a54"
+notes = "PlayCry species 330 -> 275 (zone 492 object 16)."
+
+[[narc_bytes]]
+id = "m734-o799-zone503-obj15"
+narc = "a/0/1/2"
+member = 734
+offset = "0x31F"
+expect = "0x0147"
+new = "0x000C"
+member_sha1 = "9fa08ee08c252c0a7275eb6e3a8cff27befe0c8a"
+notes = "PlayCry species 327 -> 12 (zone 503 object 15)."

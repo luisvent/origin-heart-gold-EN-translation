@@ -1,0 +1,406 @@
+id = "overworld-pokemon-sprites"
+title = "Draw stationary overworld Pokemon as the species their Chinese text and cry name"
+kind = "narc"
+enabled = false
+decisions = ["D-2395", "D-2396", "D-2398"]
+requires = []
+why = """
+Overworld Pokemon objects (the Jigglypuff in the Pewter Pokemon Center, the Machoke in the Goldenrod Department Store basement, the
+Ampharos in the Olivine Lighthouse, the Pokeathlon Dome participants, ...) keep the sprite ids of the vanilla game: ids 994..1046 are
+vanilla's NPC-Pokemon sprites in dex order (Butterfree 994 ... Jigglypuff 1004 ... Machoke 1014 ... Ampharos 1031 ... Kyogre 1043; read
+from the USA ROM's own objects and scripts). The hack's overworld sprite table (data/pokemon_overworld_info.narc + arm9 0x0206900C) uses
+ids 428..1894 for the following Pokemon, sprite id = 428 + the table's base offset of the species (Bulbasaur 428, Jigglypuff 468), so
+the vanilla ids now draw Generation 5 species (994 = Victini, 1004 = Patrat, 1014 = Simisear, 1031 = Audino, 1043 = Venipede). The
+Chinese ROM draws the same wrong sprites: the Pokemon beside the man who talks about Jigglypuff says and cries Jigglypuff but is a
+Patrat. Rule (user decision 2026-10-12, D-2398): the sprites follow the Chinese text and cry; text and cry are not changed.
+RECHECK WHEN 4.1.0 RELEASES: every object in work/notes/overworld-pokemon-sprite-mismatch_fix.md (section "Recheck when 4.1.0
+releases") must be looked at again in the game, because 4.1.0 may change the sprites.
+
+Status: disabled. Merged into develop on 2026-10-12 as a separate, switched-off patch at the user's request: the standard
+build keeps the Chinese behaviour and builds this only on request (build.py --only overworld-pokemon-sprites). The byte guards
+(member SHA-1 and expected value of every entry) were re-checked against the Chinese ROM at merge. Notes:
+work/notes/overworld-pokemon-sprite-mismatch_fix.md.
+"""
+what = """
+Replace the sprite id of 37 object events with the following-Pokemon sprite id of the species the object's Chinese text and cry name
+(428 + base offset from the table): the vanilla NPC-Pokemon ids 994..1046 whose speaker label and cry agree (Jigglypuff, Machoke,
+Ampharos, Pikachu, Slowbro, the Pokeathlon and Safari warden Pokemon, Kyogre, Abra, ...), the second Indigo Plateau Metagross
+(Tyranitar 709, same script as the Metagross objects drawn 837), Kirk's Sylveon (Leafeon 946; its cry disagrees with its label: label
+wins, needs user check) and the S.S. Aqua Bulbasaur (Ivysaur 429; label and sound say Bulbasaur, cry says Ivysaur: needs user check).
+Only the 2-byte sprite id changes; position, flag, script, movement and facing stay. Silent objects (Mount Moon Clefairy, Moomoo
+Farm Miltank, Pokeathlon Poliwrath) and the Route 21 Lairon are not changed. Text and cries are not touched.
+"""
+evidence = [
+  "work/notes/overworld-pokemon-sprite-mismatch_fix.md",
+  "work/tools/test_overworld_pokemon_sprites.py",
+]
+
+[[narc_bytes]]
+id = "ev179-obj2-jigglypuff"
+narc = "a/0/3/2"
+member = 179
+offset = "0x86"
+expect = "0x03EC"
+new = "0x01D4"
+member_sha1 = "7b1794a40c743f59f164070053143b11274c2505"
+notes = "Goldenrod Radio Tower 2F: object 2 sprite 1004 -> 468 (Jigglypuff)."
+
+[[narc_bytes]]
+id = "ev193-obj1-machoke"
+narc = "a/0/3/2"
+member = 193
+offset = "0x3E"
+expect = "0x03F6"
+new = "0x01F0"
+member_sha1 = "f8fe3f17f873f35673d8584afd25bddfd1a17e32"
+notes = "Goldenrod Department Store basement: object 1 sprite 1014 -> 496 (Machoke)."
+
+[[narc_bytes]]
+id = "ev193-obj2-machoke"
+narc = "a/0/3/2"
+member = 193
+offset = "0x5E"
+expect = "0x03F6"
+new = "0x01F0"
+member_sha1 = "f8fe3f17f873f35673d8584afd25bddfd1a17e32"
+notes = "Goldenrod Department Store basement: object 2 sprite 1014 -> 496 (Machoke)."
+
+[[narc_bytes]]
+id = "ev193-obj3-machoke"
+narc = "a/0/3/2"
+member = 193
+offset = "0x7E"
+expect = "0x03F6"
+new = "0x01F0"
+member_sha1 = "f8fe3f17f873f35673d8584afd25bddfd1a17e32"
+notes = "Goldenrod Department Store basement: object 3 sprite 1014 -> 496 (Machoke)."
+
+[[narc_bytes]]
+id = "ev211-obj1-ampharos"
+narc = "a/0/3/2"
+member = 211
+offset = "0x2A"
+expect = "0x0407"
+new = "0x0264"
+member_sha1 = "0bd84f0bbc4f3bb40bf480bdae7a2011863b008f"
+notes = "Olivine Lighthouse light room: object 1 sprite 1031 -> 612 (Ampharos)."
+
+[[narc_bytes]]
+id = "ev211-obj2-ampharos"
+narc = "a/0/3/2"
+member = 211
+offset = "0x4A"
+expect = "0x0407"
+new = "0x0264"
+member_sha1 = "0bd84f0bbc4f3bb40bf480bdae7a2011863b008f"
+notes = "Olivine Lighthouse light room: object 2 sprite 1031 -> 612 (Ampharos)."
+
+[[narc_bytes]]
+id = "ev240-obj8-pikachu"
+narc = "a/0/3/2"
+member = 240
+offset = "0x146"
+expect = "0x03E7"
+new = "0x01C5"
+member_sha1 = "83a35b3dc3465bf644434b5c45432e3b6c4fd00a"
+notes = "Battle Tower: object 8 sprite 999 -> 453 (Pikachu)."
+
+[[narc_bytes]]
+id = "ev240-obj9-pikachu"
+narc = "a/0/3/2"
+member = 240
+offset = "0x166"
+expect = "0x03E7"
+new = "0x01C5"
+member_sha1 = "83a35b3dc3465bf644434b5c45432e3b6c4fd00a"
+notes = "Battle Tower: object 9 sprite 999 -> 453 (Pikachu)."
+
+[[narc_bytes]]
+id = "ev247-obj5-slowbro"
+narc = "a/0/3/2"
+member = 247
+offset = "0xBE"
+expect = "0x03F8"
+new = "0x01FD"
+member_sha1 = "5fc5b0ab9182c0abc6de18bb5535b043a1d10396"
+notes = "Battle Frontier Battle Hall: object 5 sprite 1016 -> 509 (Slowbro)."
+
+[[narc_bytes]]
+id = "ev251-obj4-meowth"
+narc = "a/0/3/2"
+member = 251
+offset = "0x116"
+expect = "0x03F0"
+new = "0x01E1"
+member_sha1 = "0b88457118959550d6c2b6f88517ca4f5d596761"
+notes = "Pokeathlon Dome lobby: object 4 sprite 1008 -> 481 (Meowth)."
+
+[[narc_bytes]]
+id = "ev251-obj6-psyduck"
+narc = "a/0/3/2"
+member = 251
+offset = "0x156"
+expect = "0x03F2"
+new = "0x01E3"
+member_sha1 = "0b88457118959550d6c2b6f88517ca4f5d596761"
+notes = "Pokeathlon Dome lobby: object 6 sprite 1010 -> 483 (Psyduck)."
+
+[[narc_bytes]]
+id = "ev251-obj7-slowpoke"
+narc = "a/0/3/2"
+member = 251
+offset = "0x176"
+expect = "0x03F7"
+new = "0x01FC"
+member_sha1 = "0b88457118959550d6c2b6f88517ca4f5d596761"
+notes = "Pokeathlon Dome lobby: object 7 sprite 1015 -> 508 (Slowpoke)."
+
+[[narc_bytes]]
+id = "ev251-obj8-oddish"
+narc = "a/0/3/2"
+member = 251
+offset = "0x196"
+expect = "0x03EE"
+new = "0x01D8"
+member_sha1 = "0b88457118959550d6c2b6f88517ca4f5d596761"
+notes = "Pokeathlon Dome lobby: object 8 sprite 1006 -> 472 (Oddish)."
+
+[[narc_bytes]]
+id = "ev251-obj12-slowbro"
+narc = "a/0/3/2"
+member = 251
+offset = "0x216"
+expect = "0x03F8"
+new = "0x01FD"
+member_sha1 = "0b88457118959550d6c2b6f88517ca4f5d596761"
+notes = "Pokeathlon Dome lobby: object 12 sprite 1016 -> 509 (Slowbro)."
+
+[[narc_bytes]]
+id = "ev251-obj14-machop"
+narc = "a/0/3/2"
+member = 251
+offset = "0x256"
+expect = "0x03F5"
+new = "0x01EF"
+member_sha1 = "0b88457118959550d6c2b6f88517ca4f5d596761"
+notes = "Pokeathlon Dome lobby: object 14 sprite 1013 -> 495 (Machop)."
+
+[[narc_bytes]]
+id = "ev251-obj15-farfetchd"
+narc = "a/0/3/2"
+member = 251
+offset = "0x276"
+expect = "0x03F9"
+new = "0x0200"
+member_sha1 = "0b88457118959550d6c2b6f88517ca4f5d596761"
+notes = "Pokeathlon Dome lobby: object 15 sprite 1017 -> 512 (Farfetchd)."
+
+[[narc_bytes]]
+id = "ev253-obj15-rattata"
+narc = "a/0/3/2"
+member = 253
+offset = "0x1EA"
+expect = "0x03E4"
+new = "0x01BF"
+member_sha1 = "eafbb99e9ee5836785a8773283dc01662acd7369"
+notes = "Pokeathlon Dome 2F: object 15 sprite 996 -> 447 (Rattata)."
+
+[[narc_bytes]]
+id = "ev253-obj16-butterfree"
+narc = "a/0/3/2"
+member = 253
+offset = "0x20A"
+expect = "0x03E2"
+new = "0x01B8"
+member_sha1 = "eafbb99e9ee5836785a8773283dc01662acd7369"
+notes = "Pokeathlon Dome 2F: object 16 sprite 994 -> 440 (Butterfree)."
+
+[[narc_bytes]]
+id = "ev253-obj17-machop"
+narc = "a/0/3/2"
+member = 253
+offset = "0x22A"
+expect = "0x03F5"
+new = "0x01EF"
+member_sha1 = "eafbb99e9ee5836785a8773283dc01662acd7369"
+notes = "Pokeathlon Dome 2F: object 17 sprite 1013 -> 495 (Machop)."
+
+[[narc_bytes]]
+id = "ev255-obj4-rattata"
+narc = "a/0/3/2"
+member = 255
+offset = "0x166"
+expect = "0x03E4"
+new = "0x01BF"
+member_sha1 = "8a34f176a387b83e7b2c53da3c0127b19e6f2464"
+notes = "Pokeathlon Solidarity room: object 4 sprite 996 -> 447 (Rattata)."
+
+[[narc_bytes]]
+id = "ev255-obj6-zubat"
+narc = "a/0/3/2"
+member = 255
+offset = "0x1A6"
+expect = "0x03ED"
+new = "0x01D6"
+member_sha1 = "8a34f176a387b83e7b2c53da3c0127b19e6f2464"
+notes = "Pokeathlon Solidarity room: object 6 sprite 1005 -> 470 (Zubat)."
+
+[[narc_bytes]]
+id = "ev256-obj5-abra"
+narc = "a/0/3/2"
+member = 256
+offset = "0x1AE"
+expect = "0x03F4"
+new = "0x01EC"
+member_sha1 = "82f9fcb6e293d140ad2605e5a80c3d5634de95e2"
+notes = "Pokeathlon Trust room: object 5 sprite 1012 -> 492 (Abra)."
+
+[[narc_bytes]]
+id = "ev256-obj6-dratini"
+narc = "a/0/3/2"
+member = 256
+offset = "0x1CE"
+expect = "0x0403"
+new = "0x0240"
+member_sha1 = "82f9fcb6e293d140ad2605e5a80c3d5634de95e2"
+notes = "Pokeathlon Trust room: object 6 sprite 1027 -> 576 (Dratini)."
+
+[[narc_bytes]]
+id = "ev257-obj3-dodrio"
+narc = "a/0/3/2"
+member = 257
+offset = "0xE2"
+expect = "0x03FA"
+new = "0x0202"
+member_sha1 = "44304004771f28f07d887f06e5d25e8b0debb2b4"
+notes = "Pokeathlon Potential room: object 3 sprite 1018 -> 514 (Dodrio)."
+
+[[narc_bytes]]
+id = "ev271-obj3-abra"
+narc = "a/0/3/2"
+member = 271
+offset = "0x6A"
+expect = "0x03F4"
+new = "0x01EC"
+member_sha1 = "7ebb68380d5f3bfcf85bb94a1413ac60b116cb02"
+notes = "Pokemon League entrance: object 3 sprite 1012 -> 492 (Abra)."
+
+[[narc_bytes]]
+id = "ev428-obj5-jigglypuff"
+narc = "a/0/3/2"
+member = 428
+offset = "0xBE"
+expect = "0x03EC"
+new = "0x01D4"
+member_sha1 = "55f177dfeddded85b30ba5ba9a3aae58cc31cc59"
+notes = "Pewter Pokemon Center: object 5 sprite 1004 -> 468 (Jigglypuff)."
+
+[[narc_bytes]]
+id = "ev436-obj1-aipom"
+narc = "a/0/3/2"
+member = 436
+offset = "0x2A"
+expect = "0x0409"
+new = "0x026D"
+member_sha1 = "93ae10253fd140fbb3d0ff728d22f21b47739d83"
+notes = "Safari Zone warden house: object 1 sprite 1033 -> 621 (Aipom)."
+
+[[narc_bytes]]
+id = "ev436-obj2-aipom"
+narc = "a/0/3/2"
+member = 436
+offset = "0x4A"
+expect = "0x0409"
+new = "0x026D"
+member_sha1 = "93ae10253fd140fbb3d0ff728d22f21b47739d83"
+notes = "Safari Zone warden house: object 2 sprite 1033 -> 621 (Aipom)."
+
+[[narc_bytes]]
+id = "ev436-obj3-aipom"
+narc = "a/0/3/2"
+member = 436
+offset = "0x6A"
+expect = "0x0409"
+new = "0x026D"
+member_sha1 = "93ae10253fd140fbb3d0ff728d22f21b47739d83"
+notes = "Safari Zone warden house: object 3 sprite 1033 -> 621 (Aipom)."
+
+[[narc_bytes]]
+id = "ev449-obj2-rattata"
+narc = "a/0/3/2"
+member = 449
+offset = "0x4A"
+expect = "0x03E4"
+new = "0x01BF"
+member_sha1 = "0fc67600a2c48a64fe9fbba03192e64a7ea3983c"
+notes = "Viridian north-east house: object 2 sprite 996 -> 447 (Rattata)."
+
+[[narc_bytes]]
+id = "ev449-obj3-spearow"
+narc = "a/0/3/2"
+member = 449
+offset = "0x6A"
+expect = "0x03E5"
+new = "0x01C1"
+member_sha1 = "0fc67600a2c48a64fe9fbba03192e64a7ea3983c"
+notes = "Viridian north-east house: object 3 sprite 997 -> 449 (Spearow)."
+
+[[narc_bytes]]
+id = "ev475-obj3-abra"
+narc = "a/0/3/2"
+member = 475
+offset = "0x6A"
+expect = "0x03F4"
+new = "0x01EC"
+member_sha1 = "60908985f23e61f652be713fe6fdaa23af3c5182"
+notes = "Sinjoh Ruins cabin: object 3 sprite 1012 -> 492 (Abra)."
+
+[[narc_bytes]]
+id = "ev477-obj0-kyogre"
+narc = "a/0/3/2"
+member = 477
+offset = "0xA"
+expect = "0x0413"
+new = "0x034B"
+member_sha1 = "b2deafe9cb891ea1c6251b654013b48df051cfa7"
+notes = "Embedded Tower Kyogre room: object 0 sprite 1043 -> 843 (Kyogre)."
+
+[[narc_bytes]]
+id = "ev82-obj27-metagross"
+narc = "a/0/3/2"
+member = 82
+offset = "0x36A"
+expect = "0x02C5"
+new = "0x0345"
+member_sha1 = "5560adae1ab62e08d1e141b4a93d9c87b5669b59"
+notes = "Indigo Plateau Metagross object (zone 85): object 27 sprite 709 -> 837 (Metagross)."
+
+[[narc_bytes]]
+id = "ev188-obj27-metagross"
+narc = "a/0/3/2"
+member = 188
+offset = "0x392"
+expect = "0x02C5"
+new = "0x0345"
+member_sha1 = "1d424b772bc10c8ec9a37b0e51b5dbd526a0b550"
+notes = "Indigo Plateau Metagross object (zone 195): object 27 sprite 709 -> 837 (Metagross)."
+
+[[narc_bytes]]
+id = "ev218-obj8-sylveon"
+narc = "a/0/3/2"
+member = 218
+offset = "0x10A"
+expect = "0x03B2"
+new = "0x04B0"
+member_sha1 = "1a27507d921675fb3d5ddac2efaa00f309d2232d"
+notes = "Kirk's house (Cianwood): object 8 sprite 946 -> 1200 (Sylveon)."
+
+[[narc_bytes]]
+id = "ev299-obj28-bulbasaur"
+narc = "a/0/3/2"
+member = 299
+offset = "0x38A"
+expect = "0x01AD"
+new = "0x01AC"
+member_sha1 = "6f6f891ef943d8af5f5d7a014e20f270c2b29239"
+notes = "S.S. Aqua 1F north-west rooms: object 28 sprite 429 -> 428 (Bulbasaur)."
