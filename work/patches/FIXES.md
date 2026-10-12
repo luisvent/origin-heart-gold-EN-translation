@@ -36,6 +36,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`photographer-no-healthy-mon`](#photographer-no-healthy-mon) | narc | **no** | – | Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene) |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
+| [`route3-misty-actors`](#route3-misty-actors) | narc | yes | – | Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
 | [`ss-anne-softlock`](#ss-anne-softlock) | narc | yes | – | Open the S.S. Anne voyage in its pre-party state so the party can always start |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
@@ -1209,6 +1210,50 @@ a judgment (D-2333, open question).
 - `a/0/1/2` #842 +0x1BFA `cynthia-busy-line`: `0xD400` → `0xDA00` (member SHA-1 `c811958246ec`): NPCMsg at 7161: argument byte at 7163, 212 (Misty) -> 218 (Cynthia); halfword spans 7162-7163.
 - `a/0/1/2` #842 +0x20E2 `cynthia-rest-takeitem`: `0x8B00` → `0x9000` (member SHA-1 `c811958246ec`): TakeItem at 8417: item Bubble Mail 139 -> Snow Mail 144 (HasItem 144 at 7063). Item halfword at 8419-8420 is odd-aligned, so the entry covers 8418-8419 as [00 8B] -> [00 90].
 - `a/0/1/2` #843 +0x988 `cynthia-letter-takeitem`: `0x008F` → `0x0090` (member SHA-1 `65483f87ab1c`): TakeItem at 2438: item Heart Mail 143 -> Snow Mail 144 (HasItem 144 at 1318).
+
+## route3-misty-actors
+
+**Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2350, D-2351
+- Source: `work/patches/route3-misty-actors/fix.toml`
+
+**Why (the Chinese hack):**
+
+Route 3 (zone 11, script file a/0/1/2 member 175): the step trigger at x 1149, z 119-123 (var 0x4086 = 0) runs
+script 17, the Gyarados battle and the "Comfort Misty?" talk. Its actors, Misty (object 9), the Gyarados (28) and
+Misty's second object (8), have flag 1303 as their hide flag, and the script moves, speaks to and hides them
+without ever showing them. Flag 1303 is set early by the first-hour scenes (Route 22 / Pallet / Viridian: members
+212, 738, 739) and cleared, together with var 0x4086 = 0, only by Misty's Viridian Forest scene (member 115, the
+Poke Ball she dropped, offset 5497/5529). That forest scene starts only when you talk to Misty and agree to help;
+the forest path runs around her, so a player who walks on reaches Route 3 with flag 1303 still set and var 0x4086
+still 0. The trigger then plays on the Chinese ROM and on rc7 with no Misty and no Gyarados on the map: "Misty:
+Stop, Gyarados!" and "Gyarados: Gy-a-ra!" come from nobody, the battle starts from thin air, and the whole "Misty:
+I'm so sorry" talk is held with an empty field. (Seen in the emulator with the state forced to flag 1303 set and
+var 0x4086 = 0, which is the game's own state between the Viridian Blue scene and the forest scene.)
+
+**What (old → new):**
+
+One [[script_insert]]: in front of the first command of script 17 (PlaySE at 1171) put CheckFlag 1303 / GoToIf
+not set over ClearFlag 1303 + ShowPerson 28 + ShowPerson 9 + ShowPerson 8. With the flag clear (the normal case:
+the forest scene was done) nothing runs and the scene is byte-for-byte the old one. With it set, the actors are
+revealed first, exactly where the map would have put them with the flag clear, and the flag is cleared as the
+forest scene would have done. The scene itself sets 1303 again at its end (both answers), as before. Nothing is
+removed and no text is added. The member grows by 27 bytes (plus up to 3 zero bytes keeping its movement blocks
+4-aligned).
+
+**Evidence:**
+
+- work/notes/route3-misty-actors_fix.md
+- work/notes/giovanni-hotspring-and-route3_investigation.md
+- work/tools/test_route3_misty_actors.py
+
+**Touches:**
+
+- `a/0/1/2` #175 +0x493 `route3-misty-actors-prefix`: insert `20 00 17 05 1C 00 00 10 00 00 00 1F 00 17 05 64 00 1C 00 64 00 09 00 64 00 08 00` before `49 00 DC 05` (member SHA-1 `551b5d1d65f4`): Script 17 entry (PlaySE 1500 at 1171). Inserted: CheckFlag 1303; GoToIf < +16 (flag clear: skip); ClearFlag 1303; ShowPerson 28, 9, 8. The header slot of script 17 lands on the inserted CheckFlag.
 
 ## sibling-ribbon-freeze
 

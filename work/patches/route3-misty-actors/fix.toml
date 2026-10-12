@@ -1,0 +1,43 @@
+id = "route3-misty-actors"
+title = "Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped"
+kind = "narc"
+enabled = true
+decisions = ["D-2350", "D-2351"]
+requires = []
+why = """
+Route 3 (zone 11, script file a/0/1/2 member 175): the step trigger at x 1149, z 119-123 (var 0x4086 = 0) runs
+script 17, the Gyarados battle and the "Comfort Misty?" talk. Its actors, Misty (object 9), the Gyarados (28) and
+Misty's second object (8), have flag 1303 as their hide flag, and the script moves, speaks to and hides them
+without ever showing them. Flag 1303 is set early by the first-hour scenes (Route 22 / Pallet / Viridian: members
+212, 738, 739) and cleared, together with var 0x4086 = 0, only by Misty's Viridian Forest scene (member 115, the
+Poke Ball she dropped, offset 5497/5529). That forest scene starts only when you talk to Misty and agree to help;
+the forest path runs around her, so a player who walks on reaches Route 3 with flag 1303 still set and var 0x4086
+still 0. The trigger then plays on the Chinese ROM and on rc7 with no Misty and no Gyarados on the map: "Misty:
+Stop, Gyarados!" and "Gyarados: Gy-a-ra!" come from nobody, the battle starts from thin air, and the whole "Misty:
+I'm so sorry" talk is held with an empty field. (Seen in the emulator with the state forced to flag 1303 set and
+var 0x4086 = 0, which is the game's own state between the Viridian Blue scene and the forest scene.)
+"""
+what = """
+One [[script_insert]]: in front of the first command of script 17 (PlaySE at 1171) put CheckFlag 1303 / GoToIf
+not set over ClearFlag 1303 + ShowPerson 28 + ShowPerson 9 + ShowPerson 8. With the flag clear (the normal case:
+the forest scene was done) nothing runs and the scene is byte-for-byte the old one. With it set, the actors are
+revealed first, exactly where the map would have put them with the flag clear, and the flag is cleared as the
+forest scene would have done. The scene itself sets 1303 again at its end (both answers), as before. Nothing is
+removed and no text is added. The member grows by 27 bytes (plus up to 3 zero bytes keeping its movement blocks
+4-aligned).
+"""
+evidence = [
+  "work/notes/route3-misty-actors_fix.md",
+  "work/notes/giovanni-hotspring-and-route3_investigation.md",
+  "work/tools/test_route3_misty_actors.py",
+]
+
+[[script_insert]]
+id = "route3-misty-actors-prefix"
+narc = "a/0/1/2"
+member = 175
+offset = "0x493"
+expect = "49 00 DC 05"
+insert = "20 00 17 05 1C 00 00 10 00 00 00 1F 00 17 05 64 00 1C 00 64 00 09 00 64 00 08 00"
+member_sha1 = ["551b5d1d65f48702793ac12cc37547b761b1dae8"]
+notes = "Script 17 entry (PlaySE 1500 at 1171). Inserted: CheckFlag 1303; GoToIf < +16 (flag clear: skip); ClearFlag 1303; ShowPerson 28, 9, 8. The header slot of script 17 lands on the inserted CheckFlag."
