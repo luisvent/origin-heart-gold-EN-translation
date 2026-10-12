@@ -181,7 +181,7 @@ These entries can freeze the game, cost you something, or close a quest or battl
 
 ### S.S. Anne TM price
 
-**The S.S. Anne ship shop's TM checks for $400 but takes $4,000.** With $400–$3,999 you can still buy it, and your money drops to $0 (tested in an emulator: $1,000 → $0, $5,000 → $1,000). The menu says "TM63" (the Chinese too), but you get **TM21 Frustration**. Have at least $4,000 before buying.
+**The S.S. Anne ship shop's TM checks for $400 but takes $4,000.** With $400–$3,999 you can still buy it, and your money drops to $0 (tested in an emulator: $1,000 → $0, $5,000 → $1,000). The menu says "TM63" (the Chinese too), but you get **TM21 Frustration**. Have at least $4,000 before buying. A separate tester patch fixes this, so the shop refuses you below $4,000; the standard patch keeps the original behaviour.
 
 *Source:* file 156 L4328 `HasEnoughMoneyImmediate 400`, L4349 `SubMoneyImmediate 4000`; bank 252#31 ("Frustration TM63, $4000"); item 348.
 
@@ -799,7 +799,7 @@ These entries can freeze the game, cost you something, or close a quest or battl
 
 ### Haircut Brother's price
 
-**The younger Haircut Brother needs $500 but charges $300.** In the US game he checks and charges $300; the hack raised only the check. Have $500 on you.
+**The younger Haircut Brother needs $500 but charges $300.** In the US game he checks and charges $300; the hack raised only the check. Have $500 on you. A separate tester patch fixes this, so $300 is enough; the standard patch keeps the original behaviour.
 
 *Source:* file 94 L2806 (`HasEnoughMoneyImmediate 500`) / L2912 (`SubMoneyImmediate 300`).
 
@@ -841,7 +841,7 @@ These entries can freeze the game, cost you something, or close a quest or battl
 
 ### Fortune-teller's price
 
-**The fortune-teller's ideal-Pokémon reading checks for $300 but charges $10,000.** With $300–$9,999 you still get the item, and your money drops to $0. Have $10,000 before asking. Tested in an emulator: $5,000 → $0 with the item; $20,000 → $10,000. If you ask for a love reading without $10,000, she turns you down and the touch menu on the bottom screen stays hidden; you can still walk and press X for the menu. Cosmetic.
+**The fortune-teller's ideal-Pokémon reading checks for $300 but charges $10,000.** With $300–$9,999 you still get the item, and your money drops to $0. Have $10,000 before asking. A separate tester patch fixes the money check, so she turns you down below $10,000; the standard patch keeps the original behaviour. Tested in an emulator: $5,000 → $0 with the item; $20,000 → $10,000. If you ask for a love reading without $10,000, she turns you down and the touch menu on the bottom screen stays hidden; you can still walk and press X for the menu. Cosmetic.
 
 *Source:* file 895 L228 `HasEnoughMoneyImmediate 300`; `SubMoneyImmediate 10000` at L313/L537/L589. Love reading: L323 → L484 without `TouchscreenMenuShow` (D-1546).
 
@@ -895,7 +895,7 @@ These entries can freeze the game, cost you something, or close a quest or battl
 
 ### Game Corner 500-coin option
 
-**At the raised Game Corner price, "500 coins for $50000" gives only 50 coins.** Choose "50 coins for $5000" instead, as often as you need. Tested in an emulator: $60,000 → $10,000 for 50 coins; the $5,000 option gives the same 50 coins.
+**At the raised Game Corner price, "500 coins for $50000" gives only 50 coins.** Choose "50 coins for $5000" instead, as often as you need. A separate tester patch fixes this, so the option gives 500 coins; the standard patch keeps the original behaviour. Tested: $60,000 → $10,000 for 50 coins; the $5,000 option gives the same 50 coins.
 
 *Source:* file 903 L6374–L6455 (menu 94/95) → L7575: `HasEnoughMoneyImmediate 50000`, `SubMoneyImmediate 50000`, `GiveCoins 50` (L7596–L7623) (D-1415).
 

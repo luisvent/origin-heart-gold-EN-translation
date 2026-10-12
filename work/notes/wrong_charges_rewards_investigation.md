@@ -1,6 +1,6 @@
 # Wrong charges / rewards (queue rank 15), investigation 2026-10-12
 
-Slug wrong-charges-rewards. Method: static scan of every script member in a/0/1/2 (`/private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/wrong-charges-rewards/scan.py`: a money/coin check followed by a different charge/gift, and charges with no check; dumps with work/tools/docs/scriptdump.py), then py-desmume, one case per process, on the untouched Chinese ROM (sha256 4807ab2c...95c8), testers/rc7.nds, and rc7 + fix. Recipes: the retired 2026-10-06 verification recipes (git 2e6fe55^, emu_guide0813 / emu_hackbugs) plus `/private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/wrong-charges-rewards/run.py`; raw JSON in /private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/wrong-charges-rewards/out.
+Slug wrong-charges-rewards. Method: static scan of every script member in a/0/1/2 ((scratch path omitted): a money/coin check followed by a different charge/gift, and charges with no check; dumps with work/tools/docs/scriptdump.py), then py-desmume, one case per process, on the untouched Chinese ROM (sha256 4807ab2c...95c8), testers/rc7.nds, and rc7 + fix. Recipes: the retired 2026-10-06 verification recipes (git 2e6fe55^, emu_guide0813 / emu_hackbugs) plus (scratch path omitted); raw JSON in (scratch path omitted)
 
 ## Processed (5 of the budget of 8)
 | # | finding | verdict | where |

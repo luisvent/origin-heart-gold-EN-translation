@@ -1,10 +1,16 @@
 id = "haircut-younger-price-check"
 title = "Pokemon Salon: the younger Haircut Brother checks for $300, the price he names and takes"
 kind = "narc"
-enabled = true
+enabled = false
 decisions = ["D-2366", "D-2367"]
 requires = []
-why = """Pokemon Salon (script file 94, text bank 0115). The younger Haircut Brother advertises $300 (#17) and takes 300 (SubMoneyImmediate 0x12C at @2912) but first checks HasEnoughMoneyImmediate 500 (@2806), so a player with $300-$499 is told they cannot pay for a service that costs $300. The older brother checks 500 and takes 500 (@2547/@2653). In the US game the younger brother checks and charges $300."""
+why = """Pokemon Salon (script file 94, text bank 0115). The younger Haircut Brother advertises $300 (#17) and takes 300 (SubMoneyImmediate 0x12C at @2912) but first checks HasEnoughMoneyImmediate 500 (@2806), so a player with $300-$499 is told they cannot pay for a service that costs $300. The older brother checks 500 and takes 500 (@2547/@2653). In the US game the younger brother checks and charges $300.
+
+Status: disabled. The younger Haircut Brother accepts the $300 he charges, instead of refusing a player with $300 to $499.
+Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+haircut-younger-price-check). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/haircut_younger_price_check_fix.md.
+"""
 what = """One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 2806, 500 -> 300. No other byte changes. The older brother (500/500) is untouched."""
 evidence = [
   "work/notes/haircut_younger_price_check_fix.md",

@@ -211,8 +211,8 @@ member = 156
 offset = "0x269"
 expect = "84 00 0D 0E"
 insert = "BE 00 00"
-member_sha1 = ["7c14f8ff3a5fea4efc675ca0ab155ffbb12e9404"]
-notes = "GenderMsgBox 13, 14 (a027/0252) reads {VAR:0103:0}; script 12 never fills buffer 0 before it."
+member_sha1 = ["7c14f8ff3a5fea4efc675ca0ab155ffbb12e9404", "eed182a4532fce39637da59ed2b1c49fa5a8c5b9"]
+notes = "GenderMsgBox 13, 14 (a027/0252) reads {VAR:0103:0}; script 12 never fills buffer 0 before it. The second hash is member 156 after ssanne-tm-price-check."
 
 [[script_insert]]
 id = "m168-265"

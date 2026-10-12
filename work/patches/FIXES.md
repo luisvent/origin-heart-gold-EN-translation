@@ -30,7 +30,10 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
 | [`blank-player-name-class-c`](#blank-player-name-class-c) | narc | **no** | – | Fill the player-name buffer before 5 more messages that read it (loan Pidgeot, Oak's Pikachu, Hitmonlee/Hitmonchan) |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
+| [`fortune-ideal-price-check`](#fortune-ideal-price-check) | narc | **no** | – | Goldenrod fortune-teller: the ideal-Pokemon reading checks for $10000, the price she names and takes |
+| [`gamecorner-500-coins`](#gamecorner-500-coins) | narc | **no** | – | Game Corner: the raised-price '500 coins for $50000' option gives 500 coins, not 50 |
 | [`giovanni-hotspring-loss`](#giovanni-hotspring-loss) | narc | **no** | – | White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring |
+| [`haircut-younger-price-check`](#haircut-younger-price-check) | narc | **no** | – | Pokemon Salon: the younger Haircut Brother checks for $300, the price he names and takes |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
@@ -40,6 +43,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`route3-misty-actors`](#route3-misty-actors) | narc | **no** | – | Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
 | [`ss-anne-softlock`](#ss-anne-softlock) | narc | **no** | – | Open the S.S. Anne voyage in its pre-party state so the party can always start |
+| [`ssanne-tm-price-check`](#ssanne-tm-price-check) | narc | **no** | – | S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`tutor-blackthorn-play-rough`](#tutor-blackthorn-play-rough) | narc | **no** | – | Blackthorn Move Tutor teaches Play Rough, as it says (not Flail) |
 | [`tutor-saffron-volt-switch`](#tutor-saffron-volt-switch) | narc | **no** | – | Saffron Dojo tutor teaches Volt Switch on every path (not Charge) |
@@ -855,7 +859,7 @@ native command that may fill the buffer is on the path): see work/notes/blank-pl
 - `a/0/1/2` #109 +0x1158 `m109-4440`: insert `BE 00 00` before `2D 00 5B` (member SHA-1 `ee51a2ffe00c`): NPCMsg 91 (a027/0448) reads {VAR:0103:0}; script 14 never fills buffer 0 before it (script not bound to a map event).
 - `a/0/1/2` #110 +0x169e `m110-5790`: insert `BE 00 00` before `2D 00 59` (member SHA-1 `85e110e0d106`): NPCMsg 89 (a027/0126) reads {VAR:0103:0}; script 25 never fills buffer 0 before it.
 - `a/0/1/2` #119 +0x663 `m119-1635`: insert `BE 00 00` before `2D 00 68` (member SHA-1 `82b12a70edab`): NPCMsg 104 (a027/0133) reads {VAR:0103:0}; script 11 never fills buffer 0 before it.
-- `a/0/1/2` #156 +0x269 `m156-617`: insert `BE 00 00` before `84 00 0D 0E` (member SHA-1 `7c14f8ff3a5f`): GenderMsgBox 13, 14 (a027/0252) reads {VAR:0103:0}; script 12 never fills buffer 0 before it.
+- `a/0/1/2` #156 +0x269 `m156-617`: insert `BE 00 00` before `84 00 0D 0E` (member SHA-1 `7c14f8ff3a5f` or `eed182a4532f`): GenderMsgBox 13, 14 (a027/0252) reads {VAR:0103:0}; script 12 never fills buffer 0 before it. The second hash is member 156 after ssanne-tm-price-check.
 - `a/0/1/2` #168 +0x109 `m168-265`: insert `BE 00 00` before `84 00 08 09` (member SHA-1 `2b32089d594b`): GenderMsgBox 8, 9 (a027/0312) reads {VAR:0103:0}; script 5 never fills buffer 0 before it (script not bound to a map event).
 - `a/0/1/2` #169 +0x18b `m169-395`: insert `BE 00 00` before `2D 00 0F` (member SHA-1 `c3757a456038`): NPCMsg 15 (a027/0313) reads {VAR:0103:0}; script 4 never fills buffer 0 before it.
 - `a/0/1/2` #171 +0x130 `m171-304`: insert `BE 00 00` before `2D 00 26` (member SHA-1 `43275c7fcd42` or `421b1055a4a3`): NPCMsg 38 (a027/0315) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
@@ -914,7 +918,7 @@ Hitmonlee/Hitmonchan offers) fills no message buffer either, so the line reads b
 build alike (work/notes/blank-player-name-class-c_fix.md).
 
 Status: disabled. The player's name is no longer blank in five more lines (the Route 36 gardener's "got Pidgeot back"
-line, Prof. Oak's Pikachu offer, the Hitmonlee and Hitmonchan offers). Reviewed by a separate reviewer (approved).
+line, Prof. Oak's Pikachu offer, the Hitmonlee and Hitmonchan offers). Reviewed by a separate reviewer (approved with notes).
 Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps
 the Chinese behaviour and builds this only on request (build.py --only blank-player-name-class-c). A tester xdelta
 (rc7 plus this fix) is available on request. Notes: work/notes/blank-player-name-class-c_fix.md.
@@ -976,6 +980,73 @@ unchanged. No global counter remap or backward save restoration.
 
 - `a/0/1/2` #962 +0x88 `completed-leader-condition`: `0x3601` → `0x3604` (member SHA-1 `33cb77c9032d`): Condition byte136: equality1 -> unsigned >=4; following displacement byte137=36 is pinned and unchanged.
 
+## fortune-ideal-price-check
+
+**Goldenrod fortune-teller: the ideal-Pokemon reading checks for $10000, the price she names and takes**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-1545, D-2362
+- Source: `work/patches/fortune-ideal-price-check/fix.toml`
+
+**Why (the Chinese hack):**
+
+Goldenrod Fortune House (script file 895, script 1, text bank 0583). The text says each reading costs $10000 (#0, #8, #9) and the love reading checks $10000 (L334, L612). The 'My ideal Pokemon' branch (L215) checks only HasEnoughMoneyImmediate 300 (@228), then gives the evolution item and runs SubMoneyImmediate 10000 (@313; Rhyperior/Chansey variants @537/@589). With $300-$9999 the player gets the reading and item and is left with $0, and the 'not enough money' message #9 can only appear below $300. Observed in the emulator on the Chinese ROM and rc7 ($5000 -> $0).
+
+Status: disabled. The Goldenrod fortune teller's ideal-Pokémon reading now checks for the $10,000 she names and charges, so a player with less is refused instead of losing everything.
+Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+fortune-ideal-price-check). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/fortune_ideal_price_check_fix.md.
+
+**What (old → new):**
+
+One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 228, 300 -> 10000 (the price her own text, the love branch and the SubMoneyImmediate use). No other byte changes. The not-enough-money branch (L484, message #9) already exists and already says $10000. The love branch touch-menu issue (D-1546) is not part of this fix.
+
+**Evidence:**
+
+- work/notes/fortune_ideal_price_check_fix.md
+- work/notes/fortune_ideal_price_check_investigation.md
+- work/tools/test_fortune_ideal_price_check.py
+
+**Touches:**
+
+- `a/0/1/2` #895 +0xE8 `ideal-reading-money-check`: `0x012C` → `0x2710` (member SHA-1 `ece7490e327a`): HasEnoughMoneyImmediate at 228: u32 amount at 232 (300 -> 10000); SubMoneyImmediate 10000 at 313 and the text (#0, #8, #9) already say $10000.
+
+## gamecorner-500-coins
+
+**Game Corner: the raised-price '500 coins for $50000' option gives 500 coins, not 50**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-1415, D-2365
+- Source: `work/patches/gamecorner-500-coins/fix.toml`
+
+**Why (the Chinese hack):**
+
+Goldenrod Game Corner clerk (script file 903, text bank 0591). After the magnet cheater scene the clerk's menu is raised (#94 '50 coins for $5000', #95 '500 coins for $50000'). The $5000 option (L7501) checks and gives 50 coins; the $50000 option (L7575) checks $50000 and takes it (SubMoneyImmediate 50000 at 7617) but its CheckGiveCoins (7596) and GiveCoins (7623) both use 50. The player pays ten times the price for a tenth of the coins. The normal menu (L3657/L3731) gives 50 for $500 and 500 for $5000, so 500 is the intended count. Observed in the emulator on the Chinese ROM and rc7 (D-1415).
+
+Status: disabled. At the raised Game Corner price, "500 coins for $50000" gives 500 coins instead of 50.
+Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+gamecorner-500-coins). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/gamecorner_500_coins_fix.md.
+
+**What (old → new):**
+
+Two operands: the coin count in the CheckGiveCoins at 7596 and in the GiveCoins at 7623, 50 -> 500. The money check and charge (50000) are untouched. No other byte changes.
+
+**Evidence:**
+
+- work/notes/gamecorner_500_coins_fix.md
+- work/notes/gamecorner_500_coins_investigation.md
+- work/tools/test_gamecorner_500_coins.py
+
+**Touches:**
+
+- `a/0/1/2` #903 +0x1DB0 `coins-check`: `0x0032` → `0x01F4` (member SHA-1 `b18925a2b274`): CheckGiveCoins at 7596: u16 coin count at 7600 (50 -> 500).
+- `a/0/1/2` #903 +0x1DC8 `coins-give`: `3200 7600` → `F400 7601` (member SHA-1 `b18925a2b274`): GiveCoins at 7623: u16 coin count at 7625-7626 (50 -> 500); the entry covers 7624-7627 because the count is odd-aligned. Bytes 7624 and 7627 are unchanged.
+
 ## giovanni-hotspring-loss
 
 **White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring**
@@ -1023,6 +1094,39 @@ branch run, and whiteout is what every other loss branch in the hack does (D-230
 **Touches:**
 
 - `a/0/1/2` #844 +0x333 `giovanni-loss-whiteout`: insert `1C 00 05 06 00 00 00 DB 00 61 00 02 00` before `1C 00 01 28 04 00 00` (member SHA-1 `09942d22e903`): GoToIf = (loss) at 819 -> L1890. Inserted before it: GoToIf != +6 (win skips), WhiteOut, ReleaseAll, End. Compare result (var 0x800C) is still the active comparison at the skipped-to GoToIf.
+
+## haircut-younger-price-check
+
+**Pokemon Salon: the younger Haircut Brother checks for $300, the price he names and takes**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2366, D-2367
+- Source: `work/patches/haircut-younger-price-check/fix.toml`
+
+**Why (the Chinese hack):**
+
+Pokemon Salon (script file 94, text bank 0115). The younger Haircut Brother advertises $300 (#17) and takes 300 (SubMoneyImmediate 0x12C at @2912) but first checks HasEnoughMoneyImmediate 500 (@2806), so a player with $300-$499 is told they cannot pay for a service that costs $300. The older brother checks 500 and takes 500 (@2547/@2653). In the US game the younger brother checks and charges $300.
+
+Status: disabled. The younger Haircut Brother accepts the $300 he charges, instead of refusing a player with $300 to $499.
+Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+haircut-younger-price-check). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/haircut_younger_price_check_fix.md.
+
+**What (old → new):**
+
+One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 2806, 500 -> 300. No other byte changes. The older brother (500/500) is untouched.
+
+**Evidence:**
+
+- work/notes/haircut_younger_price_check_fix.md
+- work/notes/haircut_younger_price_check_investigation.md
+- work/tools/test_haircut_younger_price_check.py
+
+**Touches:**
+
+- `a/0/1/2` #94 +0xAFA `younger-brother-money-check`: `0x01F4` → `0x012C` (member SHA-1 `e5ef4eca32dc`): HasEnoughMoneyImmediate at 2806: u32 amount at 2810 (500 -> 300); SubMoneyImmediate 300 at 2912; text bank 115 #17 says $300 (the older brother's #10 says $500 and checks 500 at 2547).
 
 ## hooh-panel-silver-marker
 
@@ -1156,7 +1260,7 @@ notice (a read from address 0 returns 0 there), which is why the earlier emulato
 A player report (Manic Emulator, iOS) matches. The untouched Chinese ROM does the same, so this is a hack bug.
 
 Status: disabled. Answering Yes to the Pallet Town photographer while no Pokémon in the party can fight no longer
-freezes the game: he gives his usual decline reply instead. Reviewed by a separate reviewer (approved). Merged into
+freezes the game: he gives his usual decline reply instead. Reviewed by a separate reviewer (approved with notes). Merged into
 develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
 behaviour and builds this only on request (build.py --only photographer-no-healthy-mon). A tester xdelta (rc7 plus
 this fix) is available on request. Notes: work/notes/photographer-no-healthy-mon_fix.md.
@@ -1294,7 +1398,7 @@ I'm so sorry" talk is held with an empty field. (Seen in the emulator with the s
 var 0x4086 = 0, which is the game's own state between the Viridian Blue scene and the forest scene.)
 
 Status: disabled. Misty and her Gyarados are shown in the Route 3 scene even when the Viridian Forest request was
-skipped, instead of the scene playing with an empty field. Reviewed by a separate reviewer (approved). Merged into
+skipped, instead of the scene playing with an empty field. Reviewed by a separate reviewer (approved with notes). Merged into
 develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
 behaviour and builds this only on request (build.py --only route3-misty-actors). A tester xdelta (rc7 plus this fix)
 is available on request. Notes: work/notes/route3-misty-actors_fix.md.
@@ -1468,6 +1572,39 @@ TO UNDO: set enabled = false (or build with --without ss-anne-softlock), or chan
 
 - `a/0/1/2` #155 +0x98 `boarding-sets-prep-party-flag`: `0020 00EB` → `001E 05A0` (member SHA-1 `6baec9e7c3df`): CheckFlag 235 (dead: ClearFlag 235 ran at 117) becomes SetFlag 1440; the GoToIf after it stays and is never taken, as before.
 
+## ssanne-tm-price-check
+
+**S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2363, D-2364
+- Source: `work/patches/ssanne-tm-price-check/fix.toml`
+
+**Why (the Chinese hack):**
+
+S.S. Anne ship shop (script file 156, text bank 0252). Menu line #31 sells the Frustration TM for $4000 and the purchase at @4349 takes 4000 (SubMoneyImmediate 0xFA0), but the check before it (@4328) is HasEnoughMoneyImmediate 400. With $400-$3999 the player buys it anyway and ends with $0. The sibling entries check exactly what they take (Shoal Salt 1500/1500, Liechi and Ganlon Berry 800/800). Observed in the emulator on the Chinese ROM and rc7.
+
+Status: disabled. The S.S. Anne shop checks for the $4,000 the Frustration TM costs, so a player with $400 to $3,999 is refused instead of buying it and ending with $0.
+Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+ssanne-tm-price-check). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/ssanne_tm_price_check_fix.md.
+
+**What (old → new):**
+
+One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 4328, 400 -> 4000. The menu's 'TM63' label (the TM is item 348, TM21) is a separate text matter and is untouched. No other byte changes.
+
+**Evidence:**
+
+- work/notes/ssanne_tm_price_check_fix.md
+- work/notes/ssanne_tm_price_check_investigation.md
+- work/tools/test_ssanne_tm_price_check.py
+
+**Touches:**
+
+- `a/0/1/2` #156 +0x10EC `tm-money-check`: `0x0190` → `0x0FA0` (member SHA-1 `7c14f8ff3a5f`): HasEnoughMoneyImmediate at 4328: u32 amount at 4332 (400 -> 4000); SubMoneyImmediate 4000 at 4349; menu text bank 252 #31 says $4000.
+
 ## trade-evolutions-levelup
 
 **Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed)**
@@ -1541,7 +1678,7 @@ and the English build (D-1305: 175 written on both the free-slot and the forget-
 names 抓狂 / Flail). The same script already teaches Draco Meteor (434) correctly.
 
 Status: disabled. The Blackthorn Move Tutor teaches Play Rough, the move the hack's own sheet lists, instead of Flail.
-Reviewed by a separate reviewer (approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
 user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
 tutor-blackthorn-play-rough). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/tutor-
 blackthorn-play-rough_fix.md.
@@ -4499,7 +4636,7 @@ empty second slot's index as a pointer (DeSmuME: broken ally, blank screen; melo
 
 Status: disabled. A scripted Double Battle that starts with fewer than two Pokémon in the party becomes a Single
 Battle instead of freezing (Department Store 6F and about 130 other sites). Reviewed by a separate reviewer
-(approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard
+(approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard
 build keeps the Chinese behaviour and builds this only on request (build.py --only double-battle-single-fallback). A
 tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/double-battle-single-fallback_fix.md.
 

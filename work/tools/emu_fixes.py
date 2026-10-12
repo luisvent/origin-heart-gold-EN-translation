@@ -146,6 +146,10 @@ UNCOVERED = {
     "tutor-blackthorn-play-rough": "No scenario in this unified runner (disabled fix). test_tutor_blackthorn_play_rough.py pins the four byte edits on member 944 (see work/notes/tutor-blackthorn-play-rough_fix.md).",
     "tutor-saffron-volt-switch": "No scenario in this unified runner (disabled fix). test_tutor_saffron_volt_switch.py pins the three byte edits on member 829 (see work/notes/tutor-saffron-volt-switch_fix.md).",
     "double-battle-single-fallback": "No scenario in this unified runner (disabled fix). test_double_battle_single_fallback.py pins the hook bytes; DeSmuME and melonDS runs are in work/notes/double-battle-single-fallback_fix.md.",
+    "fortune-ideal-price-check": "No scenario in this unified runner (disabled fix). test_fortune_ideal_price_check.py pins the operand edit on member 895; the script was run in DeSmuME on the Chinese ROM, rc7 and rc7 plus the fix (see work/notes/fortune_ideal_price_check_investigation.md).",
+    "ssanne-tm-price-check": "No scenario in this unified runner (disabled fix). test_ssanne_tm_price_check.py pins the operand edit on member 156; the script was run in DeSmuME on the Chinese ROM, rc7 and rc7 plus the fix (see work/notes/ssanne_tm_price_check_investigation.md).",
+    "gamecorner-500-coins": "No scenario in this unified runner (disabled fix). test_gamecorner_500_coins.py pins the operand edit on member 903; the script was run in DeSmuME on the Chinese ROM, rc7 and rc7 plus the fix (see work/notes/gamecorner_500_coins_investigation.md).",
+    "haircut-younger-price-check": "No scenario in this unified runner (disabled fix). test_haircut_younger_price_check.py pins the operand edit on member 94; the script was run in DeSmuME on the Chinese ROM, rc7 and rc7 plus the fix (see work/notes/haircut_younger_price_check_investigation.md).",
     "romance-mail-mismatch": "No scenario in this unified runner (disabled fix). test_romance_mail_mismatch.py "
                              "pins the three byte edits against the Chinese ROM's scripts; see "
                              "work/notes/romance_mail_mismatch_fix.md.",

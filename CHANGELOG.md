@@ -22,7 +22,11 @@ Merged into develop on 2026-10-12 at the user's request as separate patches with
 - **tutor-blackthorn-play-rough (D-2356):** the Blackthorn Move Tutor teaches Play Rough instead of Flail.
 - **tutor-saffron-volt-switch (D-2357):** the Saffron Dojo tutor teaches Volt Switch on every path instead of Charge on some of them.
 - **double-battle-single-fallback (D-2358, D-2359):** a scripted Double Battle that starts with fewer than two Pokémon in the party becomes a Single Battle instead of freezing (Department Store 6F and about 130 other sites).
-- Open questions without a fix: Pidgeot loan (D-2360) and the Rock Tunnel tutor's Signal Beam / Pollen Puff mismatch (D-2361) wait for the user's choice.
+- Open questions without a fix: Pidgeot loan (D-2360) and the Rock Tunnel tutor's Signal Beam / Pollen Puff mismatch (D-2361), and the Sprout Tower monks' offering with no money check (D-2368), wait for the user's choice.
+- **fortune-ideal-price-check (D-2362):** the Goldenrod fortune teller's ideal-Pokémon reading checks for the $10,000 she charges, so a player with $300 to $9,999 is refused instead of left with $0.
+- **ssanne-tm-price-check (D-2364):** the S.S. Anne shop checks for the $4,000 the Frustration TM costs, so a player with $400 to $3,999 is refused instead of ending with $0.
+- **gamecorner-500-coins (D-2365):** at the raised Game Corner price, "500 coins for $50000" gives 500 coins instead of 50.
+- **haircut-younger-price-check (D-2367):** the younger Haircut Brother accepts the $300 he charges instead of refusing a player with $300 to $499.
 
 ### Fixed
 - **Difficulty settings in story battles you're allowed to lose:** CAP and SHARE now also apply in battles where the story continues even if you lose, such as Blue in Pewter City before Brock's Gym. Before, these battles ignored both settings: Pokémon could gain EXP above the level cap, and benched Pokémon still got EXP with SHARE OFF. The ITEMS setting now also applies in these battles, as in every other trainer battle: with LIMITED (the default), you can only use berries and flutes from the Bag there. Losing them still continues the story as before.

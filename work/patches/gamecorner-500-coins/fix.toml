@@ -1,10 +1,16 @@
 id = "gamecorner-500-coins"
 title = "Game Corner: the raised-price '500 coins for $50000' option gives 500 coins, not 50"
 kind = "narc"
-enabled = true
+enabled = false
 decisions = ["D-1415", "D-2365"]
 requires = []
-why = """Goldenrod Game Corner clerk (script file 903, text bank 0591). After the magnet cheater scene the clerk's menu is raised (#94 '50 coins for $5000', #95 '500 coins for $50000'). The $5000 option (L7501) checks and gives 50 coins; the $50000 option (L7575) checks $50000 and takes it (SubMoneyImmediate 50000 at 7617) but its CheckGiveCoins (7596) and GiveCoins (7623) both use 50. The player pays ten times the price for a tenth of the coins. The normal menu (L3657/L3731) gives 50 for $500 and 500 for $5000, so 500 is the intended count. Observed in the emulator on the Chinese ROM and rc7 (D-1415)."""
+why = """Goldenrod Game Corner clerk (script file 903, text bank 0591). After the magnet cheater scene the clerk's menu is raised (#94 '50 coins for $5000', #95 '500 coins for $50000'). The $5000 option (L7501) checks and gives 50 coins; the $50000 option (L7575) checks $50000 and takes it (SubMoneyImmediate 50000 at 7617) but its CheckGiveCoins (7596) and GiveCoins (7623) both use 50. The player pays ten times the price for a tenth of the coins. The normal menu (L3657/L3731) gives 50 for $500 and 500 for $5000, so 500 is the intended count. Observed in the emulator on the Chinese ROM and rc7 (D-1415).
+
+Status: disabled. At the raised Game Corner price, "500 coins for $50000" gives 500 coins instead of 50.
+Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+gamecorner-500-coins). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/gamecorner_500_coins_fix.md.
+"""
 what = """Two operands: the coin count in the CheckGiveCoins at 7596 and in the GiveCoins at 7623, 50 -> 500. The money check and charge (50000) are untouched. No other byte changes."""
 evidence = [
   "work/notes/gamecorner_500_coins_fix.md",

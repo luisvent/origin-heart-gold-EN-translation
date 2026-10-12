@@ -1,10 +1,16 @@
 id = "ssanne-tm-price-check"
 title = "S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken"
 kind = "narc"
-enabled = true
+enabled = false
 decisions = ["D-2363", "D-2364"]
 requires = []
-why = """S.S. Anne ship shop (script file 156, text bank 0252). Menu line #31 sells the Frustration TM for $4000 and the purchase at @4349 takes 4000 (SubMoneyImmediate 0xFA0), but the check before it (@4328) is HasEnoughMoneyImmediate 400. With $400-$3999 the player buys it anyway and ends with $0. The sibling entries check exactly what they take (Shoal Salt 1500/1500, Liechi and Ganlon Berry 800/800). Observed in the emulator on the Chinese ROM and rc7."""
+why = """S.S. Anne ship shop (script file 156, text bank 0252). Menu line #31 sells the Frustration TM for $4000 and the purchase at @4349 takes 4000 (SubMoneyImmediate 0xFA0), but the check before it (@4328) is HasEnoughMoneyImmediate 400. With $400-$3999 the player buys it anyway and ends with $0. The sibling entries check exactly what they take (Shoal Salt 1500/1500, Liechi and Ganlon Berry 800/800). Observed in the emulator on the Chinese ROM and rc7.
+
+Status: disabled. The S.S. Anne shop checks for the $4,000 the Frustration TM costs, so a player with $400 to $3,999 is refused instead of buying it and ending with $0.
+Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
+user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
+ssanne-tm-price-check). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/ssanne_tm_price_check_fix.md.
+"""
 what = """One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 4328, 400 -> 4000. The menu's 'TM63' label (the TM is item 348, TM21) is a separate text matter and is untouched. No other byte changes."""
 evidence = [
   "work/notes/ssanne_tm_price_check_fix.md",
