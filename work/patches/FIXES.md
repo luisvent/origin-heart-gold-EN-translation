@@ -30,6 +30,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
 | [`blank-player-name-class-c`](#blank-player-name-class-c) | narc | **no** | – | Fill the player-name buffer before 5 more messages that read it (loan Pidgeot, Oak's Pikachu, Hitmonlee/Hitmonchan) |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
+| [`forest-of-time-sammy-guard`](#forest-of-time-sammy-guard) | narc | **no** | – | Forest of Time: the Sammy arrival and Marauder scenes only run while the Sammy chapter is active (the Ilex bug hunt no longer triggers or overwrites them) |
 | [`fortune-ideal-price-check`](#fortune-ideal-price-check) | narc | **no** | – | Goldenrod fortune-teller: the ideal-Pokemon reading checks for $10000, the price she names and takes |
 | [`gamecorner-500-coins`](#gamecorner-500-coins) | narc | **no** | – | Game Corner: the raised-price '500 coins for $50000' option gives 500 coins, not 50 |
 | [`giovanni-hotspring-loss`](#giovanni-hotspring-loss) | narc | **no** | – | White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring |
@@ -979,6 +980,53 @@ unchanged. No global counter remap or backward save restoration.
 **Touches:**
 
 - `a/0/1/2` #962 +0x88 `completed-leader-condition`: `0x3601` → `0x3604` (member SHA-1 `33cb77c9032d`): Condition byte136: equality1 -> unsigned >=4; following displacement byte137=36 is pinned and unchanged.
+
+## forest-of-time-sammy-guard
+
+**Forest of Time: the Sammy arrival and Marauder scenes only run while the Sammy chapter is active (the Ilex bug hunt no longer triggers or overwrites them)**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2370, D-2371, D-2300
+- Source: `work/patches/forest-of-time-sammy-guard/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-1581 / D-1429. Var 0x4099 is the Ilex Forest bug hunt's progress marker (file 92: 2 from Bugsy's Honey, 3/4/5 during
+the hunt, 5 = every rock done, reset to 2 at the reward, which needs 5) and also the Sammy chapter's progress (file 52:
+3 arrival, 4, 5 upper forest, 6 finished). The Forest of Time (zone 327, a door in Ilex Forest with no condition) has
+two coordinate triggers on that var with no check that the Sammy chapter is running: 0x4099 = 3 at the entrance
+clearing runs script 1 (the arrival scene, with Sammy, Celebi and the ranger absent because their hide flag 1120 is
+still set, then 0x4099 = 4), and 0x4099 = 5 at the top of the maze runs script 3 (the Marauder scene and battle, ending
+with 0x4099 = 6 and flag 2110 set). In the middle of the hunt both fire for the wrong chapter. The first moves the hunt's
+marker from 3 to 4, which swaps which rock the hunt treats as the last one. The second, at 5 (every rock done, before the
+player goes back to Bugsy), plays the whole Marauder scene and leaves 0x4099 = 6: Bugsy's closing talk, the reward
+and the reset to 2 need 5, so the hunt can never be finished (Bugsy keeps saying 'leave the Pokemon near this rock to
+me'), and the Sammy chapter is marked finished (flag 2110) before it began.
+
+Status: disabled, awaiting review (fix/shared-progress-losses). Notes: work/notes/forest-of-time-sammy-guard_fix.md.
+
+**What (old → new):**
+
+Two [[script_insert]]s, one in front of each of the two scenes' first command: CheckFlag 2105 / GoToIf set over an
+End. Flag 2105 is the Sammy chapter's own 'active' flag: the ranger's Sammy scene sets it (file 92 @5364) immediately
+before it writes 0x4099 = 3 (@5372) and only the finale (file 52 @2401) clears it; its only other uses are the ranger's
+hide flag in Ilex Forest. So in the real Sammy chapter 2105 is set at both scenes and they play exactly as before. In
+the bug hunt it is clear and the two scenes end at once: nothing is shown, nothing is written, the hunt's marker is
+untouched. Nothing is removed and no content is invented. The maze copy of Ilex Forest (file 106, bounces at 0x4099 =
+2 and 4) is left alone.
+
+**Evidence:**
+
+- work/notes/forest-of-time-sammy-guard_fix.md
+- work/notes/shared-progress-losses_investigation.md
+- work/tools/test_forest_of_time_sammy_guard.py
+
+**Touches:**
+
+- `a/0/1/2` #52 +0x22 `arrival-scene-guard`: insert `20 00 39 08 1C 00 01 02 00 00 00 02 00` before `61 02 60 00` (member SHA-1 `d8049a084f62`): Script 1 entry (ScrCmd_609 at 34, then LockAll). Inserted: CheckFlag 2105; GoToIf set -> over the End; End. Flag 2105 clear (the bug hunt) ends the script before anything is locked or written.
+- `a/0/1/2` #52 +0x1b5 `marauder-scene-guard`: insert `20 00 39 08 1C 00 01 02 00 00 00 02 00` before `61 02 60 00` (member SHA-1 `d8049a084f62`): Script 3 entry (ScrCmd_609 at 437, then LockAll). Same guard in front of the Marauder scene.
 
 ## fortune-ideal-price-check
 
