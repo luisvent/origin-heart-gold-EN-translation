@@ -23,7 +23,7 @@ the Chinese behaviour and builds this only on request (build.py --only blank-pla
 what = """
 Each [[script_insert]] puts the 3-byte command BufferPlayersName 0 (BE 00 00) in front of the message that reads
 buffer 0 (scriptinsert.py relocates every offset the member stores and keeps the movement blocks aligned, see
-blank-player-name-batch).
+blank-player-name-batch). The two member 829 sites also accept the member after tutor-saffron-volt-switch (its byte edits run first; the offsets are unchanged).
 """
 evidence = [
   "work/notes/blank-player-name-class-c_fix.md",
@@ -67,7 +67,7 @@ member = 829
 offset = "0x967"
 expect = "2D 00 51"
 insert = "BE 00 00"
-member_sha1 = ["c19ec3061f93f2216d2ef94f75338065e020303e"]
+member_sha1 = ["c19ec3061f93f2216d2ef94f75338065e020303e", "5ceca3369f9241d187a3ca3818479527746fc517"]
 notes = "NPCMsg 81 (a027/0525) reads {VAR:0103:0}; script 11 (Hitmonlee offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM)."
 
 [[script_insert]]
@@ -77,5 +77,5 @@ member = 829
 offset = "0x9ef"
 expect = "2D 00 56"
 insert = "BE 00 00"
-member_sha1 = ["c19ec3061f93f2216d2ef94f75338065e020303e"]
+member_sha1 = ["c19ec3061f93f2216d2ef94f75338065e020303e", "5ceca3369f9241d187a3ca3818479527746fc517"]
 notes = "NPCMsg 86 (a027/0525) reads {VAR:0103:0}; script 12 (Hitmonchan offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM)."

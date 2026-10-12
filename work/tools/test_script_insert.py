@@ -85,7 +85,6 @@ def make_script():
         m = cmd("NPCMsg", 5)
         c_len = len(cmd("ApplyMovement", 255, 0))
         d_len = len(cmd("GoTo", 0))
-        parts_len = len(a) + b_len + len(m) + c_len + d_len + len(cmd("End"))
         hdr_len = 6
         base = hdr_len
         pc_b = base + len(a)

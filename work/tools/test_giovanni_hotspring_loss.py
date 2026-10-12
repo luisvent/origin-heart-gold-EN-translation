@@ -74,7 +74,6 @@ class GiovanniHotSpringLossTests(unittest.TestCase):
         pcs0 = sorted(ins0)
         pcs1 = [p for p in sorted(ins1) if not 819 <= p < 819 + GROWTH]
         self.assertEqual(len(pcs0), len(pcs1))
-        idx1 = {p: i for i, p in enumerate(sorted(ins1))}
         new_of = dict(zip(pcs0, pcs1))
         for p0 in pcs0:
             op, a0, n0, _ = ins0[p0]

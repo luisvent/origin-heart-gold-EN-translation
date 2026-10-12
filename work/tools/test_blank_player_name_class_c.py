@@ -87,6 +87,21 @@ class RealMembers(unittest.TestCase):
         for m in SITES:
             self.assertEqual(a[m], solo[m])
 
+    def test_with_tutor_saffron_volt_switch_on_member_829(self):
+        # the Saffron tutor's byte edits (same size) run first; the two member 829 inserts accept the edited member
+        sid = "tutor-saffron-volt-switch"
+        a = self.patched(sid, FIX_ID)
+        b = self.patched(FIX_ID, sid)
+        self.assertEqual(a, b)
+        tutor_only = self.patched(sid)[829]
+        want = SI.insert(tutor_only, [(o, bytes.fromhex("BE0000")) for o in SITES[829]])
+        self.assertEqual(a[829], want)
+        SI.Layout(a[829])
+        R.disasm(a[829])                                    # decodes cleanly
+        self.assertEqual(a[829].count(bytes.fromhex("0902")) - self.before[829].count(bytes.fromhex("0902")), 3)
+        for m in (115, 738):
+            self.assertEqual(a[m], self.patched(FIX_ID)[m])
+
     def test_guard_refuses_another_member(self):
         store = {"a/0/1/2": self.archive}
         fx = copy.deepcopy(self.fix)

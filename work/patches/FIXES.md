@@ -923,7 +923,7 @@ the Chinese behaviour and builds this only on request (build.py --only blank-pla
 
 Each [[script_insert]] puts the 3-byte command BufferPlayersName 0 (BE 00 00) in front of the message that reads
 buffer 0 (scriptinsert.py relocates every offset the member stores and keeps the movement blocks aligned, see
-blank-player-name-batch).
+blank-player-name-batch). The two member 829 sites also accept the member after tutor-saffron-volt-switch (its byte edits run first; the offsets are unchanged).
 
 **Evidence:**
 
@@ -935,8 +935,8 @@ blank-player-name-batch).
 - `a/0/1/2` #115 +0x16c8 `m115-5832`: insert `BE 00 00` before `2D 00 9F` (member SHA-1 `69ab5e094001`): NPCMsg 159 (a027/0130) reads {VAR:0103:0}; script 11 (the Route 36 gardener, loan Pidgeot returned) never fills buffer 0: GiveLoanMon fills no message buffer (emulator: blank on the Chinese ROM).
 - `a/0/1/2` #738 +0x7ee `m738-2030`: insert `BE 00 00` before `2D 00 2C` (member SHA-1 `6c37a6302a01`): NPCMsg 44 (a027/0444) reads {VAR:0103:0}; script 9 (Prof. Oak, Pikachu offer) never fills buffer 0: ScrCmd_452 fills no message buffer (emulator: blank on the Chinese ROM).
 - `a/0/1/2` #738 +0x828 `m738-2088`: insert `BE 00 00` before `2D 00 2C` (member SHA-1 `6c37a6302a01`): NPCMsg 44 (a027/0444) reads {VAR:0103:0}; same offer as m738-2030, other branch.
-- `a/0/1/2` #829 +0x967 `m829-2407`: insert `BE 00 00` before `2D 00 51` (member SHA-1 `c19ec3061f93`): NPCMsg 81 (a027/0525) reads {VAR:0103:0}; script 11 (Hitmonlee offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM).
-- `a/0/1/2` #829 +0x9ef `m829-2543`: insert `BE 00 00` before `2D 00 56` (member SHA-1 `c19ec3061f93`): NPCMsg 86 (a027/0525) reads {VAR:0103:0}; script 12 (Hitmonchan offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM).
+- `a/0/1/2` #829 +0x967 `m829-2407`: insert `BE 00 00` before `2D 00 51` (member SHA-1 `c19ec3061f93` or `5ceca3369f92`): NPCMsg 81 (a027/0525) reads {VAR:0103:0}; script 11 (Hitmonlee offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM).
+- `a/0/1/2` #829 +0x9ef `m829-2543`: insert `BE 00 00` before `2D 00 56` (member SHA-1 `c19ec3061f93` or `5ceca3369f92`): NPCMsg 86 (a027/0525) reads {VAR:0103:0}; script 12 (Hitmonchan offer) never fills buffer 0: ScrCmd_452/453 fill no message buffer (emulator: blank on the Chinese ROM).
 
 ## expedition-completed-progress
 
@@ -4519,7 +4519,7 @@ Two edits: the 8 bytes at 0x020507A4 call a hook; the hook (40 bytes) lives in t
 
 - D-2358: the user's decision; D-1559: the finding (Department Store 6F)
 - work/notes/double-battle-single-fallback_fix.md: the code, the multi-trainer decision, the emulator runs before and after
-- Runtime: work/tools/test_emu_double_battle_single_fallback.py (DeSmuME and melonDS)
+- Runtime: DeSmuME and melonDS runs before and after, recorded in work/notes/double-battle-single-fallback_fix.md (no runner in the repo)
 
 **Touches:**
 

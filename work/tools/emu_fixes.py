@@ -140,6 +140,12 @@ UNCOVERED = {
                                  "checks the five inserts on the Chinese ROM's members; every site was run in an "
                                  "emulator on the Chinese ROM, the patched ROM, rc7 and rc7 plus the fix (see "
                                  "work/notes/blank-player-name-class-c_fix.md).",
+    "photographer-no-healthy-mon": "No scenario in this unified runner (disabled fix). test_photographer_no_healthy_mon.py pins the insert on the Chinese ROM's member 733; the scene was run in melonDS and DeSmuME (see work/notes/photographer-no-healthy-mon_fix.md).",
+    "giovanni-hotspring-loss": "No scenario in this unified runner (disabled fix). test_giovanni_hotspring_loss.py pins the insert on member 844; the loss was run in DeSmuME on rc7 plus the fix (see work/notes/giovanni-hotspring-loss_fix.md).",
+    "route3-misty-actors": "No scenario in this unified runner (disabled fix). test_route3_misty_actors.py pins the insert on member 175; the scene was run in DeSmuME with the state forced (see work/notes/route3-misty-actors_fix.md).",
+    "tutor-blackthorn-play-rough": "No scenario in this unified runner (disabled fix). test_tutor_blackthorn_play_rough.py pins the four byte edits on member 944 (see work/notes/tutor-blackthorn-play-rough_fix.md).",
+    "tutor-saffron-volt-switch": "No scenario in this unified runner (disabled fix). test_tutor_saffron_volt_switch.py pins the three byte edits on member 829 (see work/notes/tutor-saffron-volt-switch_fix.md).",
+    "double-battle-single-fallback": "No scenario in this unified runner (disabled fix). test_double_battle_single_fallback.py pins the hook bytes; DeSmuME and melonDS runs are in work/notes/double-battle-single-fallback_fix.md.",
     "romance-mail-mismatch": "No scenario in this unified runner (disabled fix). test_romance_mail_mismatch.py "
                              "pins the three byte edits against the Chinese ROM's scripts; see "
                              "work/notes/romance_mail_mismatch_fix.md.",

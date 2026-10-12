@@ -39,7 +39,7 @@ Two edits: the 8 bytes at 0x020507A4 call a hook; the hook (40 bytes) lives in t
 evidence = [
   "D-2358: the user's decision; D-1559: the finding (Department Store 6F)",
   "work/notes/double-battle-single-fallback_fix.md: the code, the multi-trainer decision, the emulator runs before and after",
-  "Runtime: work/tools/test_emu_double_battle_single_fallback.py (DeSmuME and melonDS)",
+  "Runtime: DeSmuME and melonDS runs before and after, recorded in work/notes/double-battle-single-fallback_fix.md (no runner in the repo)",
 ]
 
 [[code]]

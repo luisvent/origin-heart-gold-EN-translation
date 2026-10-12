@@ -90,7 +90,11 @@ class DoubleBattleSingleFallback(unittest.TestCase):
     def setUpClass(cls):
         cls.native = hardcoded.RomView(msgtool.load_rom(str(ROM))).get("arm9")
         cls.fix = next(f for f in fixes.load_all() if f["id"] == "double-battle-single-fallback")
-        cls.patched = asmpatch.assemble([cls.fix], {"arm9": cls.native}, asmpatch.find_armips())[0]["arm9"]
+        try:
+            armips = asmpatch.find_armips()
+        except asmpatch.AsmError:
+            raise unittest.SkipTest("needs armips")
+        cls.patched = asmpatch.assemble([cls.fix], {"arm9": cls.native}, armips)[0]["arm9"]
 
     def run_type(self, image, n, t1, t2, partner=0, flag=0):
         s = Setup(bytes(image), n, t1, t2, partner, flag)
