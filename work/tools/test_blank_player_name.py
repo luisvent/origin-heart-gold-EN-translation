@@ -15,6 +15,16 @@ import romdata as R
 BUFFER, NPCMSG = 190, 45
 
 
+RELATIVE_OPS = {22, 23, 24, 25, 26, 28, 29, 225, 94}  # GoTo family, Call, ApplyMovement: operand = offset from the instruction end
+
+
+def absolute_targets(ins):
+    """Sorted (name, non-relative args, absolute target) of every instruction with a relative operand."""
+    return sorted(
+        (R.cmds()[op][0], tuple(args[:-1]), nxt + args[-1]) for op, args, nxt, _ in ins.values() if op in RELATIVE_OPS
+    )
+
+
 def ops(ins):
     return {pc: (R.cmds()[v[0]][0], v[1]) for pc, v in ins.items()}
 
@@ -61,6 +71,21 @@ class BlankPlayerNameTests(unittest.TestCase):
             self.assertEqual(b[msg][0], BUFFER)
             self.assertEqual(b[msg + 3][:2], (NPCMSG, [26]))
             self.assertEqual(self.before[171][buf + 3:buf + 5], self.after[171][buf + 3:buf + 5])
+
+    def test_every_relative_operand_keeps_its_absolute_target(self):
+        for m in (111, 171, 733):
+            _, a = R.disasm(self.before[m])
+            _, b = R.disasm(self.after[m])
+            self.assertEqual(len(a), len(b))
+            self.assertEqual(absolute_targets(a), absolute_targets(b), m)
+        # Brock's three branches: the ApplyMovement that moved 3 bytes still ends at the same place
+        _, a = R.disasm(self.before[171])
+        _, b = R.disasm(self.after[171])
+        for old, new in ((470, 473), (1464, 1467), (1572, 1575)):
+            self.assertEqual(a[old][0], 94)
+            self.assertEqual(b[new][0], 94)
+            self.assertEqual(a[old][2] + a[old][1][1], b[new][2] + b[new][1][1])
+            self.assertEqual(a[old][1][0], b[new][1][0])
 
     def test_entry_tables_unchanged(self):
         for m in (111, 171, 733):

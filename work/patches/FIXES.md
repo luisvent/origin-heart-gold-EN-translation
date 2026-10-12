@@ -759,7 +759,7 @@ buffer 1 (offset 215, 00 -> 01). Member 733: inside the 10 bytes at 1026..1035, 
 3-byte BufferPlayersName [0] in front of NPCMsg 20 / WaitButton / CloseMsg (a rotation:
 same commands, same total size, nothing after 1036 moves; the only jump into the block,
 GoToIf at 257 -> 1026, now lands on the buffer command). NPCMsg 29 afterwards still has
-its buffer. Member 171: the same rotation at 463, 1457 and 1565 (BufferPlayersName moves in front of NPCMsg 26;
+its buffer. Member 171: the same rotation at 463, 1457 and 1565 (halfword-aligned ranges start at 462, 1456, 1564), with the moved ApplyMovement's relative operand lowered by 3 so it still points at the same absolute target (BufferPlayersName moves in front of NPCMsg 26;
 the 17 bytes between shift up by 3). All members keep their size and every other byte. The members' original
 SHA-1 and the expected bytes guard the edit.
 
@@ -772,9 +772,9 @@ SHA-1 and the expected bytes guard the edit.
 
 - `a/0/1/2` #111 +0xD6 `dragons-den-clair-buffer`: `0x0000` → `0x0100` (member SHA-1 `9ffc32934a5c`): BufferPlayersName at 213: argument (byte 215) 0 -> 1, the buffer {VAR:0103:1} of message 127#29 reads.
 - `a/0/1/2` #733 +0x402 `pallet-photographer-buffer-order`: `002D 3214 3500 BE00 0000` → `00BE 2D00 1400 0032 0035` (member SHA-1 `767093c73dc8`): 1026..1035: NPCMsg 20, WaitButton, CloseMsg, BufferPlayersName [0] -> BufferPlayersName [0], NPCMsg 20, WaitButton, CloseMsg.
-- `a/0/1/2` #171 +0x1ce `brock-route2-buffer-order-1`: `2D00 1A00 0032 0035 005E 00FF 070E 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 0E00 0007 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 480 moves in front of NPCMsg at 463; the 17 bytes between shift up by 3; same size, no jump target inside.
-- `a/0/1/2` #171 +0x5b0 `brock-route2-buffer-order-2`: `2D00 1A00 0032 0035 005E 00FF 02E8 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 E800 0002 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 1474 moves in front of NPCMsg at 1457; the 17 bytes between shift up by 3; same size, no jump target inside.
-- `a/0/1/2` #171 +0x61c `brock-route2-buffer-order-3`: `2D00 1A00 0032 0035 005E 00FF 02C0 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 C000 0002 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 1582 moves in front of NPCMsg at 1565; the 17 bytes between shift up by 3; same size, no jump target inside.
+- `a/0/1/2` #171 +0x1ce `brock-route2-buffer-order-1`: `2D00 1A00 0032 0035 005E 00FF 070E 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 0B00 0007 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 480 moves in front of NPCMsg at 463; the 17 bytes between shift up by 3 and the relative operand of the ApplyMovement among them is lowered by 3 (same absolute target); same size, no jump target inside.
+- `a/0/1/2` #171 +0x5b0 `brock-route2-buffer-order-2`: `2D00 1A00 0032 0035 005E 00FF 02E8 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 E500 0002 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 1474 moves in front of NPCMsg at 1457; the 17 bytes between shift up by 3 and the relative operand of the ApplyMovement among them is lowered by 3 (same absolute target); same size, no jump target inside.
+- `a/0/1/2` #171 +0x61c `brock-route2-buffer-order-3`: `2D00 1A00 0032 0035 005E 00FF 02C0 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 BD00 0002 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 1582 moves in front of NPCMsg at 1565; the 17 bytes between shift up by 3 and the relative operand of the ApplyMovement among them is lowered by 3 (same absolute target); same size, no jump target inside.
 
 ## expedition-completed-progress
 

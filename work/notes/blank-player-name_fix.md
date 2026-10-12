@@ -16,12 +16,12 @@ the name into exactly buffer n before the message. Three scripts do not:
 ## Fix (same size, same offsets)
 - 111: byte 215 00 -> 01.
 - 733: bytes 1026..1035 rotated: Buffer, NPCMsg 20, WaitButton, CloseMsg (the only jump into the block, GoToIf at 257, targets 1026 and now lands on the buffer command; NPCMsg 29 at 1036 untouched).
-- 171: the same rotation (22 bytes incl. alignment) at 462, 1456, 1564; no jump target inside the moved ranges.
+- 171: the same rotation (22 bytes incl. alignment) at 462, 1456, 1564; no jump target inside the moved ranges. The ApplyMovement [255, n] inside the rotated block moves 3 bytes later and its relative operand (offset from the instruction end) is lowered by 3 (1806->1803, 744->741, 704->701), so it still ends at 2284 / 2216 / 2284. (First commit 47a3db1 forgot this; fixed in the follow-up commit.)
 Guards: member SHA-1 + expected bytes (narcpatch). English text: the EN strings keep the tags (0127#29 "Oh, {VAR:0103:1}, ...", 0439#20 "{VAR:0103:0}, choosing ...", 0315#26), so the EN build had the same blank (", choosing the hard road"); nothing to change in text.
 
 ## Verification
 - Static: scripts decoded with romdata.disasm; unit test work/tools/test_blank_player_name.py (6 tests, bytes, structure, guards); test_narcpatch OK.
-- Emulator (DeSmuME via emu_harness `run_script(file=, index=, msg_bank=)`, fresh save with flags 408,1288 set / 768,1088 clear for 733): Chinese ROM shows the line with no name (111, 733, 171 all three-page capture of the first page); the patched Chinese ROM and the patched EN build show "Shishio" (player name) in 111, 733 (CN and EN), 171 (CN). The script was started with run_script (no walking to the NPC), so object/map-event conditions were not exercised. 171's other two branches (1457, 1565) and the EN build for 171 not run; they are byte-identical rotations.
+- Emulator (DeSmuME via emu_harness `run_script(file=, index=, msg_bank=)`, fresh save with flags 408,1288 set / 768,1088 clear for 733): Chinese ROM shows the line with no name (111, 733, 171 all three-page capture of the first page); the patched Chinese ROM and the patched EN build show "Shishio" (player name) in 111, 733 (CN and EN), 171 (CN). The script was started with run_script (no walking to the NPC), so object/map-event conditions were not exercised. 171, all three branches (player at 5,6 / 4,5 / 5,4 of zone 417 with run_script, 15 A presses and 200 frames): patched ROM shows the name on page 1 and the full two-screen frame after the scene is identical to the Chinese ROM in each branch (a negative control with the first, wrong patch differs). The player's coordinates read the same before and after in every run, so movement was judged by the final frame only. The EN build for 171 was not run.
 - NOT verified: the walk-up play-through, other branches, 881 (see below).
 
 ## Other cases (not fixed)
