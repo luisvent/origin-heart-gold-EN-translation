@@ -38,9 +38,9 @@ Dragon Scale intended?). It is fixed like the rest because the hack's own record
 
 ## Fix
 
-`work/patches/evolution-items-use/fix.toml` (kind narc, 9 `[[narc_bytes]]` entries, enabled): bytes 10..15 of the
+`work/patches/evolution-items-use/fix.toml` (kind narc, 9 `[[narc_bytes]]` entries, disabled at merge: see the Status paragraph in fix.toml): bytes 10..15 of the
 nine item records `00 00 00 00 00 00` -> `14 00 01 00 00 08`; each only when the member still has the recorded SHA-1.
-Decision D-2392. `expected.toml` re-recorded (`check.py --full --update-expected`).
+Decision D-2392. `expected.toml` is unchanged at merge (the fix is switched off).
 
 ## Proof (DeSmuME, scenario `stone-use`, `emu_harness.py fixes --case evolution-items-use`)
 
