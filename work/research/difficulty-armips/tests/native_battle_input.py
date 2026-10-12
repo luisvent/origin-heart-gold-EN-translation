@@ -31,6 +31,7 @@ class BattleInput:
     def __init__(self, session, trace, run):
         self.s, self.h, self.trace, self.run = session, session.h, trace, run
         self.index = 0
+        self.roster_ids = tuple(range(1, run.get('slots', 3)+1)) + (13,)
 
     def state(self, allow_absent_ui=False, raw=None):
         h = self.h

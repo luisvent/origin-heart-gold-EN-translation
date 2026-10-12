@@ -9,10 +9,12 @@
 #define ROOT 0x02280000u
 #define SETUP 0x02290000u
 #define MON 0x022A0000u
+#define BACKING 0x022B0000u
 static uint8_t ram[0x400000], saved[0x400000];
 static DG_GrowthSnapshot snap;
 static uint32_t present, eligible, award, defer, ceiling, gate, resolves, thresholds, natives, snapshots;
 static uintptr_t resolved;
+static uint32_t held, item_calls;
 static const uint32_t raw[4]={13,26,1,0xABCDEF12};
 static void w32(uintptr_t p,uint32_t v){assert(p>=BASE&&p<=BASE+sizeof(ram)-4);memcpy(ram+(p-BASE),&v,4);}
 uint8_t dg_growth_test_read8(uintptr_t p){assert(p>=BASE&&p<BASE+sizeof(ram));return ram[p-BASE];}
@@ -20,6 +22,7 @@ uint16_t dg_growth_test_read16(uintptr_t p){assert(p>=BASE&&p<=BASE+sizeof(ram)-
 uint32_t dg_growth_test_read32(uintptr_t p){assert(p>=BASE&&p<=BASE+sizeof(ram)-4);uint32_t v;memcpy(&v,ram+(p-BASE),4);return v;}
 const DG_GrowthSnapshot *dg_growth_snapshot(void){++snapshots;return present?&snap:0;}
 uint32_t dg_growth_test_native_share(void){return 7;}
+uint32_t dg_growth_test_native_mon_item(uintptr_t backing,uint32_t field,uint32_t arg){assert(backing==BACKING&&field==6&&arg==0);++item_calls;return held;}
 uint32_t dg_growth_test_native_reward_allowed(void){return gate;}
 uintptr_t dg_growth_test_native_resolve(uint32_t id){assert(id>=1&&id<=6);++resolves;return resolved;}
 uint32_t dg_growth_test_native_threshold(uint32_t species,uint32_t level){assert(species==4&&level==snap.cap_level);++thresholds;return ceiling;}
@@ -29,7 +32,7 @@ uint32_t dg_growth_test_native_eligible(uint32_t *amount,uint32_t *deferred,void
 static void reset(void){
  memset(ram,0,sizeof ram);snap=(DG_GrowthSnapshot){DG_CAP_ON,12,1,ROOT,1};present=gate=1;eligible=7;award=26;defer=0xDEADBEEF;ceiling=100;resolved=MON;
  w32(0x02255BAC,ROOT);w32(ROOT+0x10,SETUP);w32(MON,4);ram[MON-BASE+0x14]=1;w32(MON+0x18,90);
- natives=resolves=thresholds=snapshots=0;
+ natives=resolves=thresholds=snapshots=item_calls=0;held=0;w32(MON+0x10,BACKING);
 }
 static void check(uintptr_t mon,uint32_t want,uint32_t lookups){
  uint32_t a=0xBAD,b=0xBAD;memcpy(saved,ram,sizeof ram);DG_GrowthSnapshot ss=snap;uint32_t rr[4];memcpy(rr,raw,sizeof rr);
@@ -55,7 +58,27 @@ int main(void){
  }
  reset();eligible=0;check(MON,26,0);assert(!snapshots);
  reset();award=0;check(MON,0,0);assert(!snapshots);
- for(unsigned f=0;f<8;f++){reset();snap.flags=f;assert(dg_growth_share_enabled()==!(f&DG_SHARE_OFF));}
- reset();present=0;assert(dg_growth_share_enabled()==7);reset();gate=0;assert(dg_growth_share_enabled()==7);
- puts("PASS growth shipping wrappers: original-first/nonboolean result/deferred/raw preservation; partial/zero/overlevel/u32; all256 IDs; 17 guard bypasses; share fallback. EV callsite verified separately; no gameplay claim.");
+ /* SHARE ON never reads the item. SHARE OFF still shares for a local recipient
+  * holding an Exp. Share (216), for any CAP flag value, and for no one else. */
+ for(unsigned f=0;f<8;f++)for(unsigned it=0;it<3;it++){
+  reset();snap.flags=f;held=it==1?216:it==2?217:0;
+  assert(dg_growth_share_enabled(MON)==((f&DG_SHARE_OFF)==0||held==216));
+  assert(item_calls==((f&DG_SHARE_OFF)?1:0));
+ }
+ /* SHARE ON accepts any argument (including garbage): the original getter ignored it. */
+ reset();snap.flags=0;assert(dg_growth_share_enabled(0)==1&&dg_growth_share_enabled(0xFFFFFFFF)==1&&!item_calls);
+ /* SHARE OFF with an unverifiable recipient never reaches the item read. */
+ for(unsigned bad=0;bad<9;bad++){
+  reset();snap.flags=DG_SHARE_OFF;held=216;uintptr_t mon=MON;
+  switch(bad){case 0:mon=0;break;case 1:mon=MON+1;break;case 2:mon=0x023FFFF0;break;case 3:ram[MON-BASE+0x14]=0;break;
+   case 4:ram[MON-BASE+0x14]=7;break;case 5:resolved+=4;break;case 6:w32(MON+0x10,0);break;case 7:w32(MON+0x10,BACKING+1);break;
+   case 8:w32(MON+0x10,0x023FFFF0);break;}
+  assert(dg_growth_share_enabled(mon)==0);assert(!item_calls);
+ }
+ /* Owner/id gate: only IDs 1..6 that the resolver maps back to this BattleMon. */
+ for(unsigned id=0;id<256;id++){reset();snap.flags=DG_SHARE_OFF;held=216;ram[MON-BASE+0x14]=id;
+  assert(dg_growth_share_enabled(MON)==(id>=1&&id<=6));}
+ reset();present=0;assert(dg_growth_share_enabled(MON)==7);reset();gate=0;assert(dg_growth_share_enabled(MON)==7);
+ reset();snap.flags=DG_SHARE_OFF;held=0;present=0;assert(dg_growth_share_enabled(MON)==7&&!item_calls);
+ puts("PASS growth shipping wrappers: original-first/nonboolean result/deferred/raw preservation; partial/zero/overlevel/u32; all256 IDs; 17 guard bypasses; share fallback; SHARE OFF keeps the share only for an Exp. Share holder. EV callsite verified separately; no gameplay claim.");
 }

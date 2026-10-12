@@ -243,7 +243,13 @@ later native modifiers. The formula/rounding/modifiers stay upstream and intact.
 There is no new participant count, party division, pool or redistribution step.
 Two participants each keep **their own native award**, not a new equal split.
 A capped fighter must not be removed from participation to enlarge anyone else's
-award. Held Exp. Share is not an override of the global OFF predicate here.
+award. **Amended (D-2403, amends D-2301; user decision 2026-10-12):** with Share OFF a
+local recipient holding Exp. Share (item 216) keeps the native bench share: the
+SHARE wrapper is now recipient aware (`dg_growth_share_enabled(battle_mon)`; the
+DG_Share stub passes the per-recipient routine's r4 in r0, and the held item is
+read with `0x0206D848(backing, 6, 0)` like Lucky Egg at `0x02228A18`). Its EXP and
+EVs equal Share ON and the per-recipient cap clamp still applies; non-holders
+stay at zero. The item is read only with Share OFF and a verified local ID 1..6.
 
 `0x022288E8` calculates a temporary six-entry reward array for one defeated
 opponent, then accumulates into the caller's array. EXP is u32 at each entry+0,

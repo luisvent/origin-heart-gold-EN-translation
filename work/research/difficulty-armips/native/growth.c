@@ -4,12 +4,14 @@
 #define DG_BATTLE_ROOT_SLOT ((uintptr_t)0x02255BACu)
 #define DG_RAM_START ((uintptr_t)0x02000000u)
 #define DG_RAM_END ((uintptr_t)0x02400000u)
+#define DG_ITEM_EXP_SHARE 216u
 
 #ifdef DG_GROWTH_HOST_TEST
 #define read8 dg_growth_test_read8
 #define read16 dg_growth_test_read16
 #define read32 dg_growth_test_read32
 #define native_share dg_growth_test_native_share
+#define native_mon_item dg_growth_test_native_mon_item
 #define native_reward_allowed dg_growth_test_native_reward_allowed
 #define native_resolve dg_growth_test_native_resolve
 #define native_threshold dg_growth_test_native_threshold
@@ -32,6 +34,10 @@ static uint32_t read32(uintptr_t address)
 
 /* Actual native Thumb callees, not stubs or a global EXP setter. */
 #define native_share ((uint32_t (*)(void))(uintptr_t)0x022157C1u)
+/* 0x0206D848 GetMonData(Pokemon *, field, void *): field 6 = held item. The
+ * same call reads Lucky Egg at 0x02228A18 in the per-recipient routine. */
+#define native_mon_item \
+    ((uint32_t (*)(uintptr_t, uint32_t, uint32_t))(uintptr_t)0x0206D849u)
 #define native_reward_allowed ((uint32_t (*)(void))(uintptr_t)0x02215A79u)
 #define native_resolve ((uintptr_t (*)(uint32_t))(uintptr_t)0x022151BDu)
 #define native_threshold \
@@ -77,14 +83,33 @@ static const DG_GrowthSnapshot *validated_snapshot(void)
     return snapshot;
 }
 
-uint32_t dg_growth_share_enabled(void)
+uint32_t dg_growth_share_enabled(uintptr_t battle_mon)
 {
     const DG_GrowthSnapshot *snapshot = validated_snapshot();
+    uint32_t id;
+    uintptr_t backing;
 
     if (snapshot == 0) {
         return native_share();
     }
-    return (snapshot->flags & DG_SHARE_OFF) == 0u;
+    if ((snapshot->flags & DG_SHARE_OFF) == 0u) {
+        return 1u;
+    }
+    /* SHARE OFF: only a local recipient holding an Exp. Share keeps the
+     * native bench share (D-2346, amends D-2301). Anything unverifiable
+     * stays off, exactly as before. */
+    if (!ram_words(battle_mon, 0x1Cu)) {
+        return 0u;
+    }
+    id = read8(battle_mon + 0x14u);
+    if (id < 1u || id > 6u || native_resolve(id) != battle_mon) {
+        return 0u;
+    }
+    backing = (uintptr_t)read32(battle_mon + 0x10u);
+    if (!ram_words(backing, 236u)) {
+        return 0u;
+    }
+    return native_mon_item(backing, 6u, 0u) == DG_ITEM_EXP_SHARE;
 }
 
 uint32_t dg_growth_eligible(uint32_t *amount, uint32_t *deferred,

@@ -140,8 +140,8 @@ def build(stage):
     item_base = BASE+len(image)
     options_base = item_base+ITEM_STUB_BYTES
     runtime_base = options_base+72
-    require(runtime_base+160 <= LIMIT, 'combined resident exceeds 16KiB reservation')
-    for filename, size in [('options-stubs.bin', 72), ('runtime-stubs.bin', 160)]:
+    require(runtime_base+176 <= LIMIT, 'combined resident exceeds 16KiB reservation')
+    for filename, size in [('options-stubs.bin', 72), ('runtime-stubs.bin', 176)]:
         (stage/filename).write_bytes(bytes(size))
     definitions = ['-definelabel', 'ITEM_STUB_BASE', hex(item_base),
                    '-definelabel', 'DG_ITEMS_PATCH_HOOKS', '1']
@@ -161,7 +161,7 @@ def build(stage):
         emitted.update(asm_symbols(stage/f'{name}.sym'))
     spans = [('item_stubs.bin', item_base, ITEM_STUB_BYTES, 'dg_itemstubsstart', 'dg_itemstubsend'),
              ('options-stubs.bin', options_base, 72, 'dg_optionsstubsstart', 'dg_optionsstubsend'),
-             ('runtime-stubs.bin', runtime_base, 160, 'dg_runtimestubsstart', 'dg_runtimestubsend')]
+             ('runtime-stubs.bin', runtime_base, 176, 'dg_runtimestubsstart', 'dg_runtimestubsend')]
     for filename, base, size, start, end in spans:
         raw = (stage/filename).read_bytes()
         require(len(raw) == size and emitted[start] == base and emitted[end] == base+size,

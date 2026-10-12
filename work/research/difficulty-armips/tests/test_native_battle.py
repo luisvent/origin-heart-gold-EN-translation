@@ -9,7 +9,7 @@ from unittest.mock import patch
 from support import SOURCE, scratch, sha256
 from evidence import validate_native, write_json
 from native_battle_helpers import NativeSession
-from native_battle_oracles import compare_caps, validate_run, root_reuse
+from native_battle_oracles import compare_caps, validate_run, root_reuse, holder_verdict
 
 
 class NativeBattleFrameworkTests(unittest.TestCase):
@@ -263,3 +263,30 @@ class NativeBattleFrameworkTests(unittest.TestCase):
             with self.subTest(epoch=invalid),self.assertRaises(AssertionError):root_reuse(bad)
         rows[1]['events'][0]['generation']=0
         with self.assertRaises(AssertionError):root_reuse(rows)  # illicit reset at wrap
+
+
+class ExpShareHolderOracleTests(unittest.TestCase):
+    """The holder verdict accepts exactly the fixed behaviour (D-2403) and the rc7 baseline."""
+    @staticmethod
+    def run_with(exp, ev3=0):
+        mon = lambda e, v: dict(exp=e, evs=[0, 0, 0, v, 0, 0])
+        return dict(before=[mon(1728, 0), mon(512, 0), mon(1725, 0)], after=[mon(1900, 1), mon(700, 1), mon(1725+exp, ev3)])
+
+    def runs(self, holder_off=95, holder_cap=3, plain_off=0):
+        return {'share-on-holder': self.run_with(95, 1), 'share-off-holder': self.run_with(holder_off, 1 if holder_off else 0),
+                'share-off-plain': self.run_with(plain_off, 1 if plain_off else 0),
+                'share-off-cap-holder': self.run_with(holder_cap, 1 if holder_cap else 0),
+                'share-off-cap-plain': self.run_with(0)}
+
+    def test_fixed_behaviour_passes_and_baseline_behaviour_fails_it(self):
+        failed, gains = holder_verdict(self.runs(), 'fixed')
+        self.assertEqual(failed, []); self.assertEqual(gains['share-off-holder'], (95, [0, 0, 0, 1, 0, 0]))
+        baseline = self.runs(holder_off=0, holder_cap=0)
+        self.assertTrue(holder_verdict(baseline, 'fixed')[0])
+        self.assertEqual(holder_verdict(baseline, 'baseline')[0], [])
+
+    def test_each_regression_is_caught(self):
+        self.assertTrue(holder_verdict(self.runs(plain_off=95), 'fixed')[0])    # non-holder shares with SHARE OFF
+        self.assertTrue(holder_verdict(self.runs(holder_off=40), 'fixed')[0])   # holder gets another amount
+        self.assertTrue(holder_verdict(self.runs(holder_cap=95), 'fixed')[0])   # CAP clamp lost for the holder
+        self.assertTrue(holder_verdict(self.runs(holder_cap=0), 'fixed')[0])    # holder blocked by CAP completely

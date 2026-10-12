@@ -62,9 +62,9 @@ In practice, **the cap stops limiting you once you've beaten Sabrina** (with eve
 In the original hack your whole party shares the EXP from every battle: the Pokémon that took part get the full amount, and Pokémon that stayed on the bench get half (see [Mechanics and controls](../mechanics/#automatic-exp-and-ev-sharing)).
 
 - **SHARE ON** (the default) keeps that sharing.
-- **SHARE OFF** gives **benched Pokémon no EXP and no EVs**. Only the Pokémon that took part in the battle gain anything, and each one still gets the same amount as before: switching sharing off doesn't hand the bench's share to the Pokémon that fought.
-- Holding an **Exp. Share** doesn't get round SHARE OFF.
-- With **CAP ON** too, the Pokémon that took part still stop at the cap.
+- **SHARE OFF** gives **benched Pokémon no EXP and no EVs**, except a Pokémon holding an Exp. Share (see below). Only the Pokémon that took part in the battle gain anything, and each one still gets the same amount as before: switching sharing off doesn't hand the bench's share to the Pokémon that fought.
+- A Pokémon **holding an Exp. Share** still shares with SHARE OFF: it gets the same EXP and EVs as it would with SHARE ON, whether or not it took part. The other benched Pokémon get nothing. (In rc7 itself SHARE OFF also switched the item off; see Known issue.)
+- With **CAP ON** too, the Pokémon that took part, and an Exp. Share holder, still stop at the cap.
 
 ## Battle items (ITEMS)
 
@@ -82,6 +82,8 @@ In rc7, **CAP** and **SHARE OFF** don't apply in story battles you're allowed to
 - Several Team Rocket Executive and Giovanni battles, the Celadon Restaurant challengers and the Slowpoke Well battle against Jessie and James
 
 This is fixed for the next release after rc7: these battles will follow all three settings, including ITEMS LIMITED, and losing them will still continue the story.
+
+Also in rc7, **SHARE OFF switches off a held Exp. Share too**, so the holder gets nothing when it sits on the bench. This is fixed for the next release after rc7: the holder will share as with SHARE ON, and everyone else on the bench still gets nothing.
 
 <details class="tech" data-pagefind-ignore="all">
 <summary>Technical source (implementation and research files)</summary>

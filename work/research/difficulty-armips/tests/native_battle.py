@@ -14,8 +14,8 @@ import traceback
 from support import ROOT, OUTPUT, sha256
 from evidence import write_json, utc
 from native_ui import candidate_binding
-from native_battle_helpers import NativeSession, registers, party_summary, prepare_templates, install_fixture, capture_failure, prepare_opponent, native_free_callsite
-from native_battle_oracles import require, validate_run, compare_caps, compare_share, root_reuse
+from native_battle_helpers import NativeSession, registers, party_summary, prepare_templates, install_fixture, capture_failure, prepare_opponent, native_free_callsite, TrainerLaunch, TRAINER_SINGLES, TRAINER_DOUBLES
+from native_battle_oracles import require, validate_run, compare_caps, compare_share, validate_double, holder_verdict, root_reuse
 from emu_harness import Harness, decode_pokemon
 from native_battle_input import BattleInput, mon_state
 
@@ -24,6 +24,7 @@ class BattleTrace:
     def __init__(self, session):
         self.s, self.h, self.run = session, session.h, None
         self.pending = None
+        self.recipient = None
         self.free_scope = None
         self.free_site = native_free_callsite(session)
         for name in ('dg_battle_begin', 'dg_battle_root_free', 'dg_growth_eligible', 'dg_growth_share_enabled'):
@@ -117,6 +118,7 @@ class BattleTrace:
     def calculate(self):
         if self.run is None: return
         _, mon, opponent = registers(self.h)[:3]
+        self.recipient = self.h.u8(mon+0x14)
         count = self.h.u8(opponent+0x1f1)
         require(count <= 6, 'unexpected participation list length')
         self.event('calculate', id=self.h.u8(mon+0x14), mon=mon, opponent=opponent,
@@ -125,7 +127,11 @@ class BattleTrace:
 
     def dg_growth_share_enabled(self):
         if self.run is not None:
-            self.s.returned(lambda: self.event('share', result=registers(self.h)[0]))
+            # Recipient comes from the native routine's own argument (set in
+            # calculate); the installed C also receives its BattleMon in r0.
+            arg = registers(self.h)[0]
+            row = dict(id=self.recipient, arg_mon=arg, arg_id=self.h.u8(arg+0x14) if 0x02000000 <= arg < 0x023DC000 else None)
+            self.s.returned(lambda: self.event('share', result=registers(self.h)[0], **row))
 
     def dg_growth_eligible(self):
         if self.run is None: return
@@ -195,10 +201,58 @@ class BattleTrace:
         self.event('ev', id=r[0], values=r[1:4]+[self.h.u32(r[13]+i) for i in (0, 4, 8)])
 
 
-def play_battle(session, trace, run):
+def play_double(session, trace, run, launcher):
+    """Doubles: fighter1 Swift (hits both foes), fighter2 Splash, repeated until the field."""
+    from emu_harness import BATTLE_BUTTONS, MOVE_BUTTONS, script_bytes
     h = session.h
     trace.run = run
-    run['opponent'] = prepare_opponent(session,trace,run)
+    launcher.arm(run, (1, 3), 3)
+    h.run_script(program=script_bytes(('LockAll',), ('TrainerBattle', TRAINER_DOUBLES, TRAINER_DOUBLES, 0, 0),
+                                      ('ReleaseAll',), ('End',)))
+    require(h.wait_screen('battle_menu', 1800), 'doubles constructor did not reach command menu')
+    session.checkpoint(run['name']+'-menu', run)
+    snap = trace.snapshot()
+    require(snap['allowed'] == 1 and snap['epoch'] > 0 and snap['cap'] == run.get('expected_cap', 12) and
+            snap['flags'] == run['flags'], 'installed native entry did not publish the expected snapshot')
+    commands = 0
+    for _ in range(400):
+        if h.in_field():
+            break
+        if h.on_screen('battle_menu'):
+            h.step(20)
+            if not h.on_screen('battle_menu'):
+                continue
+            slot = commands % 2          # 0: fighter1 Swift, 1: fighter2 Splash
+            session.touch(*BATTLE_BUTTONS['fight'], after=60)
+            session.touch(*MOVE_BUTTONS[slot], after=80)
+            run.setdefault('commands', []).append(dict(frame=h.frame, actor=slot+1, move=(129, 150)[slot]))
+            commands += 1
+            require(commands <= 12, 'doubles battle did not end within twelve commands')
+            for _ in range(30):
+                if not h.on_screen('battle_menu'): break
+                h.step(10)
+        else:
+            h.step(15)
+            if _ % 8 == 7:
+                session.press('A', after=0)
+    require(h.in_field(), 'doubles battle did not return to the field')
+    h.step(900)
+    party = h.array(2)
+    run.update(after=party_summary(h), final_snapshot=trace.snapshot(),
+               after_raw=[h.read(party+8+236*i, 236).hex() for i in range(3)])
+    session.checkpoint(run['name']+'-finished', run)
+    validate_double(run)
+    trace.run = None
+
+
+def play_battle(session, trace, run, launcher=None):
+    h = session.h
+    trace.run = run
+    if run.get('kind', 'wild') == 'wild':
+        run['opponent'] = prepare_opponent(session,trace,run)
+    else:
+        launcher.arm(run, (1,), 1)
+        h.trainer_battle(TRAINER_SINGLES)
     require(h.wait_screen('battle_menu', 1800), 'wild constructor did not reach command menu')
     session.checkpoint(run['name']+'-menu', run)
     # Fail on missing accepted entry before consuming any battle inputs.
@@ -210,7 +264,9 @@ def play_battle(session, trace, run):
     inputs.switch()
     require(inputs.move(0,82,2,'dragon-1')=='field', 'native attack did not KO the pre-entry HP1 opponent')
     h.step(180)
-    run.update(after=party_summary(h), final_snapshot=trace.snapshot())
+    party = h.array(2)
+    run.update(after=party_summary(h), final_snapshot=trace.snapshot(),
+               after_raw=[h.read(party+8+236*i, 236).hex() for i in range(run.get('slots', 3))])
     session.checkpoint(run['name']+'-finished', run)
     validate_run(run)
     trace.run = None
@@ -220,7 +276,11 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--receipt', type=Path, default=ROOT/'work/build/difficulty-v2/integration-impl/receipt.json')
     p.add_argument('--out', type=Path, default=OUTPUT/'native-tests/battle')
-    p.add_argument('--scope', choices=('pair', 'matrix'), default='pair')
+    p.add_argument('--scope', choices=('pair', 'matrix', 'holder'), default='pair')
+    p.add_argument('--kind', choices=('wild', 'trainer', 'double'), default='wild',
+                   help='holder scope: wild encounter, singles trainer battle or doubles trainer battle')
+    p.add_argument('--expect', choices=('fixed', 'baseline'), default='fixed',
+                   help='holder scope: expected SHARE OFF behaviour of an Exp. Share holder')
     args = p.parse_args()
     if Path.cwd().resolve() != ROOT: p.error('Run from repository root')
     if sys.flags.optimize: p.error('Assertions must remain enabled')
@@ -246,34 +306,60 @@ def main():
             session.boot(); session.checkpoint('cold-field', dict(snapshot=trace.snapshot()))
             templates = prepare_templates(session)
             specs = [('zero-off', 0, False), ('zero-on', 2, False)]
+            launcher = TrainerLaunch(session, trace, templates) if args.kind in ('trainer', 'double') else None
+            benches = ((8, 0),)
+            holder_runs = {}
+            if args.scope == 'holder':
+                # One level-11 bench slot 3 EXP below the cap-12 threshold; it holds an
+                # Exp. Share (216) or nothing. Only the SHARE/CAP flags and the item differ.
+                specs = [('share-on-holder', 0, False, 216), ('share-off-holder', 1, False, 216),
+                         ('share-off-plain', 1, False, 0), ('share-off-cap-holder', 3, False, 216),
+                         ('share-off-cap-plain', 3, False, 0)]
             if args.scope == 'matrix':
                 specs += [('share-off-cap-off', 1, False), ('share-off-cap-on', 3, False),
                           ('partial-off', 0, True), ('partial-on', 2, True)]
-            for name, flags, partial in specs:
+            for spec in specs:
+                name, flags, partial = spec[:3]
+                if args.scope == 'holder':
+                    benches = ((11, spec[3]),)
                 options = session.options(flags)
-                fixture = install_fixture(session, templates, partial)
+                fixture = install_fixture(session, templates, partial, benches,
+                                          ([129, 150, 0, 0], [20, 40, 0, 0]) if args.kind == 'double' else None)
                 run = dict(name=name, flags=flags, threshold=fixture['threshold'], fixture=fixture,
                            options=options, before=party_summary(h), events=[])
+                if args.scope == 'holder':
+                    run.update(kind=args.kind, bench_item=spec[3], holders=[3] if spec[3] and args.expect == 'fixed' else [])
+                    holder_runs[name] = run
                 result['battles'].append(run); flush()
-                try: play_battle(session, trace, run)
+                try:
+                    if args.kind == 'double': play_double(session, trace, run, launcher)
+                    else: play_battle(session, trace, run, launcher)
                 finally: flush()
-            zero_off, zero_on = result['battles'][:2]
-            compare_caps(zero_off, zero_on)
-            passed = ['runtime.begin_free', 'growth.two_participants',
-                      'growth.zero_messages', 'growth.bench_share_on']
-            # The native grass entry driver owns ordinary_0; this scripted
-            # control8 fixture does not claim that distinct requirement.
-            # A real positive bench control is mandatory even in pair mode.
-            require(zero_on['after'][2]['exp'] > zero_on['before'][2]['exp'], 'bench ON EXP absent')
-            require(any(b > a for a, b in zip(zero_on['before'][2]['evs'], zero_on['after'][2]['evs'])),
-                    'bench ON EV absent')
-            if args.scope == 'matrix':
-                share_off, share_cap, partial_off, partial_on = result['battles'][2:]
-                compare_caps(share_off, share_cap)
-                compare_share(zero_off, share_off); compare_share(zero_on, share_cap)
-                compare_caps(partial_off, partial_on, partial=True)
-                passed += ['growth.bench_share_off', 'growth.partial_messages']
-            if root_reuse(result['battles']): passed.append('runtime.root_reuse')
+            if args.scope == 'holder':
+                failed, gains = holder_verdict(holder_runs, args.expect)
+                result['holder_gains'] = gains; result['holder_failed'] = failed; result['holder_expect'] = args.expect
+                print('HOLDER', args.expect, gains, failed, flush=True)
+                require(not failed, 'holder verdict failed: ' + '; '.join(failed))
+                passed = []   # reported under holder_*; not a required_native.json case
+            else:
+                zero_off, zero_on = result['battles'][:2]
+                compare_caps(zero_off, zero_on)
+                passed = ['runtime.begin_free', 'growth.two_participants',
+                          'growth.zero_messages', 'growth.bench_share_on']
+                # The native grass entry driver owns ordinary_0; this scripted
+                # control8 fixture does not claim that distinct requirement.
+                # A real positive bench control is mandatory even in pair mode.
+                require(zero_on['after'][2]['exp'] > zero_on['before'][2]['exp'], 'bench ON EXP absent')
+                require(any(b > a for a, b in zip(zero_on['before'][2]['evs'], zero_on['after'][2]['evs'])),
+                        'bench ON EV absent')
+                if args.scope == 'matrix':
+                    share_off, share_cap, partial_off, partial_on = result['battles'][2:]
+                    compare_caps(share_off, share_cap)
+                    compare_share(zero_off, share_off); compare_share(zero_on, share_cap)
+                    compare_caps(partial_off, partial_on, partial=True)
+                    passed += ['growth.bench_share_off', 'growth.partial_messages']
+            if args.scope == 'holder': pass
+            elif root_reuse(result['battles']): passed.append('runtime.root_reuse')
             else: result['cases']['runtime.root_reuse'] = dict(status='incomplete', reason='no observed same-root reuse with changed settings')
             result['overlay_address_reuse'] = session.reused_addresses
             session.resident()

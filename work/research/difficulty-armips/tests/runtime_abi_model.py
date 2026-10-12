@@ -47,7 +47,9 @@ def check_adapters():
                     elif m=='bx':v=value(ops[0]);t=bool(v&1);nextpc=v&~1
                     elif m=='blx':
                         assert value(ops[0])==report['elf_labels'][target]
-                        assert regs[13]%8==0 and regs[:4]==initial[:4]
+                        # DG_Share passes the caller's r4 (the recipient BattleMon) as C argument 0.
+                        want=[initial[4]]+initial[1:4] if stub=='dg_share' else initial[:4]
+                        assert regs[13]%8==0 and regs[:4]==want
                         calls+=1
                         for r in (0,1,2,3,12,14):regs[r]=0xBAD00000+r
                         regs[0]=output

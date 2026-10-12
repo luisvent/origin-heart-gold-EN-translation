@@ -54,7 +54,8 @@ def lifecycle(run):
 def validate_run(run):
     """One completed, ordinary wild battle with exactly two local participants."""
     before, after = run['before'], run['after']
-    require(len(before) == len(after) == 3, 'fixture must retain all three party slots')
+    slots = run.get('slots', 3); holders = set(run.get('holders', ()))
+    require(len(before) == len(after) == slots, 'fixture must retain all party slots')
     for mon in before + after:
         require(mon['checksum_ok'] and not mon['bad_egg'], 'invalid party checksum/egg')
     lifecycle(run)
@@ -80,14 +81,16 @@ def validate_run(run):
     require(snap['flags'] == run['flags'], 'Options flags were not captured')
     ctx = captured[0]['context']
     constructors = events(run, 'constructor')
+    # Scripted WildBattle: constructor flags0/control0, caller ORs control 8 before entry.
+    # Script TrainerBattle (singles): flags1/control0 from the trainer constructor.
+    kind = run.get('kind', 'wild')
+    lr, cflags, ccontrol = {'wild': (0x02050433, 0, 8), 'trainer': (0x020507AD, 1, 0)}[kind]
     require(len(constructors) == 1 and constructors[0]['setup'] == ctx['setup'] and
-            constructors[0]['flags'] == 0 and constructors[0]['control'] == 0,
-            'real ordinary0 setup constructor missing')
-    # This fixture uses script WildBattle, not random encounters: constructor0
-    # returns via02050433, whose caller ORs8 before entering the battle overlay.
-    require(constructors[0]['lr'] == 0x02050433 and ctx['flags'] == 0 and
-            ctx['control'] == 8 and ctx['save'] == ctx['published_save'],
-            'actual scripted-wild0/control8 caller/save identity mismatch')
+            constructors[0]['flags'] == cflags and constructors[0]['control'] == 0,
+            'real ordinary setup constructor missing')
+    require(constructors[0]['lr'] == lr and ctx['flags'] == cflags and
+            ctx['control'] == ccontrol and ctx['save'] == ctx['published_save'],
+            f'actual {kind} caller/save identity mismatch')
     require(ctx['root'] == snap['root'] and ctx['setup'] == captured[0]['setup_owner'] and
             ctx['save'] == captured[0]['save_owner'] and captured[0]['generation'] == snap['epoch'],
             'snapshot provider owner/epoch mismatch')
@@ -104,12 +107,15 @@ def validate_run(run):
             order.index('opponent_hp_fixture')<order.index('begin'), 'HP input was not prepared before battle entry')
     require({tuple(sorted(e['participants'])) for e in calculations} == {(1, 2)},
             'engine did not record exactly fighters1/2; bench must never participate')
-    require({e['id'] for e in calculations} >= {1, 2, 3}, 'native roster calculation incomplete')
+    require({e['id'] for e in calculations} >= set(range(1, slots+1)), 'native roster calculation incomplete')
     share = events(run, 'share')
-    require(share and all(e['result'] == (0 if run['flags'] & 1 else 1) for e in share),
+    # SHARE OFF keeps the native share only for a recipient holding Exp. Share.
+    require(share and all(e['result'] == (0 if run['flags'] & 1 and e.get('id') not in holders else 1) for e in share),
             'installed native share wrapper not observed or wrong result')
+    require({e.get('id') for e in share} >= set(range(3, slots+1)),
+            'share wrapper must be observed for every benched recipient')
     elig = events(run, 'eligible')
-    require({e['id'] for e in elig if e['phase'] == 'first'} >= {1, 2, 3},
+    require({e['id'] for e in elig if e['phase'] == 'first'} >= set(range(1, slots+1)),
             'first-pass native eligibility missing')
     for e in elig:
         require(e['raw_before'] == e['raw_after'], 'late wrapper changed raw reward')
@@ -122,9 +128,9 @@ def validate_run(run):
         else:
             want = e['native_amount']
         require(e['amount'] == want, 'wrong final native recipient amount')
-    for i in (1, 2, 3):
+    for i in range(1, slots+1):
         ev = [e for e in events(run, 'ev') if e['id'] == i]
-        require(len(ev) == (0 if i == 3 and run['flags'] & 1 else 1), 'native EV eligibility mismatch')
+        require(len(ev) == (0 if i >= 3 and i not in holders and run['flags'] & 1 else 1), 'native EV eligibility mismatch')
         if ev:
             require(order.index('ev') < order.index('eligible'), 'EV pass must precede late EXP clamp')
         applications = awards(run, 'apply', i)
@@ -175,7 +181,7 @@ def compare_caps(off, on, partial=False):
     else:
         require(not awards(on, 'message', 1), 'zero cap emitted positive EXP message')
         require(on['after'][0]['level'] == on['before'][0]['level'], 'zero cap changed level')
-    for i in (1, 2, 3):
+    for i in range(1, off.get('slots', 3)+1):
         require(ev_delta(off, i-1) == ev_delta(on, i-1), 'cap suppressed/changed native EVs')
         if i < 3:
             require(any(v > 0 for v in ev_delta(on, i-1)), 'fighter EV positive control missing')
@@ -218,3 +224,95 @@ def root_reuse(runs):
         previous[snap['root']] = snap
         previous_end = end
     return observed
+
+
+def bench_gain(run):
+    """(EXP gain, EV gain list) of the bench slot (party index 2) of one completed run."""
+    return (run['after'][2]['exp'] - run['before'][2]['exp'], ev_delta(run, 2))
+
+
+def holder_verdict(runs, expect='fixed'):
+    """Exp. Share holder vs non-holder bench under SHARE OFF/ON and CAP OFF/ON.
+
+    `runs` maps a name to a completed run; every run has one bench slot (party
+    index 2) that either holds an Exp. Share (run['bench_item'] == 216) or not.
+    expect='fixed': SHARE OFF still shares with the holder (same EXP and EVs as
+    SHARE ON, CAP clamp applied), never with the non-holder.
+    expect='baseline': the rc7 behaviour (SHARE OFF shares with nobody).
+    Returns the list of failed checks (empty when all hold) and the gains table.
+    """
+    gains = {name: bench_gain(run) for name, run in runs.items()}
+    failed = []
+    def check(ok, text):
+        if not ok: failed.append(text)
+    on = gains.get('share-on-holder')
+    check(on is not None and on[0] > 3 and any(v > 0 for v in on[1]), 'SHARE ON holder control gets no EXP/EV')
+    off_h, off_n = gains.get('share-off-holder'), gains.get('share-off-plain')
+    check(off_n == (0, [0]*6), 'SHARE OFF non-holder bench received EXP or EVs')
+    if expect == 'fixed':
+        check(off_h == on, 'SHARE OFF holder does not get the SHARE ON EXP and EVs')
+        cap_h, cap_n = gains.get('share-off-cap-holder'), gains.get('share-off-cap-plain')
+        check(cap_h is not None and cap_h[0] == 3 and cap_h[1] == off_h[1],
+              'CAP did not clamp the holder to the cap threshold (3 EXP) with unchanged EVs')
+        check(cap_n == (0, [0]*6), 'CAP + SHARE OFF non-holder received EXP or EVs')
+    else:
+        check(off_h == (0, [0]*6), 'baseline: SHARE OFF holder unexpectedly shares')
+    return failed, gains
+
+
+def validate_double(run):
+    """Doubles (script TrainerBattle 6,6, setup flags 3): lifecycle, snapshot and per-recipient wrapper results.
+
+    Reward accounting is outcome based (party EXP/EV before/after plus the final
+    per-recipient amounts): two KOs in one turn are accumulated by the engine
+    before its EXP passes, so the single-KO per-event ledger of validate_run
+    does not apply.
+    """
+    before, after = run['before'], run['after']
+    slots = len(before)
+    require(slots == len(after) == 3, 'doubles fixture must retain three party slots')
+    for mon in before + after:
+        require(mon['checksum_ok'] and not mon['bad_egg'], 'invalid party checksum/egg')
+    holders = set(run.get('holders', ()))
+    begin, captured = events(run, 'begin'), events(run, 'captured')
+    free, original_free = events(run, 'free'), events(run, 'original_free')
+    require(len(begin) == len(captured) == len(free) == len(original_free) == 1,
+            'need exactly one installed begin/capture/free/original free')
+    snap, ctx = captured[0]['snapshot'], captured[0]['context']
+    require(snap['allowed'] == 1 and snap['epoch'] > 0 and snap['cap'] == run.get('expected_cap', 12) and
+            snap['flags'] == run['flags'], 'doubles snapshot missing/wrong settings')
+    constructors = events(run, 'constructor')
+    require(len(constructors) == 1 and constructors[0]['flags'] == 3 and constructors[0]['control'] == 0 and
+            constructors[0]['lr'] == 0x020507AD and ctx['flags'] == 3 and ctx['control'] == 0 and
+            ctx['setup'] == constructors[0]['setup'] and ctx['save'] == ctx['published_save'],
+            'doubles setup is not flags3/control0 from the trainer constructor')
+    require(run['final_snapshot'] == original_free[0]['snapshot'] == dict(flags=0, cap=0, allowed=0, root=0, epoch=0),
+            'snapshot not invalidated at teardown')
+    require(not events(run, 'exception'), 'native CPU exception')
+    fixture = events(run, 'opponent_hp_fixture')
+    require(len(fixture) == 1 and fixture[0]['phase']['begin_observed'] is False and
+            [e['name'] for e in run['events']].index('opponent_hp_fixture') < [e['name'] for e in run['events']].index('begin'),
+            'enemy HP fixture not prepared before battle entry')
+    calcs = events(run, 'calculate')
+    require(len(calcs) >= 2 * slots and {e['id'] for e in calcs} == set(range(1, slots+1)) and
+            all(e['opponent_hp'] == 0 for e in calcs), 'expected one reward calculation per recipient per defeated foe')
+    require(all(set(e['participants']) == {1, 2} for e in calcs), 'both local actives must be the participants')
+    share = events(run, 'share')
+    require(len(share) == len(calcs), 'one share wrapper call per calculation')
+    for e in share:
+        want = 0 if run['flags'] & 1 and e['id'] not in holders else 1
+        require(e['result'] == want and e['arg_id'] in (None, e['id']), f"share result for recipient {e['id']}: {e['result']} != {want}")
+    for e in events(run, 'eligible'):
+        require(e['raw_before'] == e['raw_after'] and e['native_deferred'] == e['deferred'] and
+                e['native_result'] == e['result'], 'late wrapper changed raw reward/deferred/result')
+        if e['native_amount'] and run['flags'] & 2:
+            want = min(e['native_amount'], max(0, e['threshold'] - e['cache_before']))
+        else:
+            want = e['native_amount']
+        require(e['amount'] == want, 'wrong final recipient amount')
+    for i in (1, 2, 3):
+        gained = after[i-1]['exp'] - before[i-1]['exp']
+        applied = sum(awards(run, 'apply', i))
+        require(gained == applied, f'slot{i}: party EXP gain {gained} != applied {applied}')
+    require(after[0]['exp'] > before[0]['exp'] or run['flags'] & 2, 'fighter1 positive control missing')
+    require(any(v > 0 for v in ev_delta(run, 1)), 'fighter2 EV positive control missing')
