@@ -4,7 +4,6 @@ import sys,datetime,json,argparse,struct
 from pathlib import Path
 sys.path.insert(0,'/Users/simonvergauwen/Developer/poke/work/tools')
 import emu_harness as E
-from PIL import ImageChops
 p=argparse.ArgumentParser();p.add_argument('--rom');p.add_argument('--out');p.add_argument('--emulator',default='melonds')
 p.add_argument('--pages',type=int,default=7);p.add_argument('--apply',action='store_true')
 a=p.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=True)

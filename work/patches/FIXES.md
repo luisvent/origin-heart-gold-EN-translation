@@ -1005,7 +1005,11 @@ player goes back to Bugsy), plays the whole Marauder scene and leaves 0x4099 = 6
 and the reset to 2 need 5, so the hunt can never be finished (Bugsy keeps saying 'leave the Pokemon near this rock to
 me'), and the Sammy chapter is marked finished (flag 2110) before it began.
 
-Status: disabled, awaiting review (fix/shared-progress-losses). Notes: work/notes/forest-of-time-sammy-guard_fix.md.
+Status: disabled. The Forest of Time's Sammy arrival and Marauder scenes only run while the Sammy chapter is active, so
+the Ilex bug hunt no longer triggers or overwrites them. Reviewed by a separate reviewer (approved with notes). Merged into
+develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
+behaviour and builds this only on request (build.py --only forest-of-time-sammy-guard). A tester xdelta (rc7 plus this
+fix) is available on request. Notes: work/notes/forest-of-time-sammy-guard_fix.md.
 
 **What (old → new):**
 

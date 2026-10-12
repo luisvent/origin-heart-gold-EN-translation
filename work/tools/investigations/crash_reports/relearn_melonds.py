@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Saffron relearner on melonDS (no hooks): teleport into the house, generate mons, talk to NPC, pick party slot, watch for ARM9 aborts / black screens."""
-import sys, os, json, datetime, argparse
+import sys, json, datetime, argparse
 from pathlib import Path
 sys.path.insert(0, '/Users/simonvergauwen/Developer/poke/work/tools')
 import emu_harness as E

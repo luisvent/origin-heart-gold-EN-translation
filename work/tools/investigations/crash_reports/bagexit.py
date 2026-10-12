@@ -4,7 +4,6 @@ import sys,datetime,json,argparse,random
 from pathlib import Path
 sys.path.insert(0,'/Users/simonvergauwen/Developer/poke/work/tools')
 import emu_harness as E
-from PIL import ImageChops
 p=argparse.ArgumentParser();p.add_argument('--rom');p.add_argument('--out');p.add_argument('--emulator',default='desmume')
 p.add_argument('--battles',type=int,default=3);p.add_argument('--trials',type=int,default=20);p.add_argument('--seed',type=int,default=1)
 a=p.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=True)

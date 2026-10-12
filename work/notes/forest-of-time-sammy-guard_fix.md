@@ -1,8 +1,8 @@
 # forest-of-time-sammy-guard: fix notes (2026-10-12)
 
-**Status: disabled** (`enabled = false`), not merged; a reviewer comes first. Build only on request:
-`build.py --only forest-of-time-sammy-guard`. Cause, emulator evidence and what is not verified:
-work/notes/shared-progress-losses_investigation.md (D-1581 section). Finding D-1581 (open), D-1429.
+**Status: disabled** (`enabled = false`). Reviewed by a separate reviewer (approved with notes); merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision. The standard build keeps the Chinese behaviour; build it with `build.py --only forest-of-time-sammy-guard`. A tester xdelta (rc7 plus this fix) is available on request. Cause, emulator evidence and what is not verified: work/notes/shared-progress-losses_investigation.md (D-1581 section). Finding D-1581 (open), D-1429.
+
+Reviewer's notes (kept, not fixed): the ranger's talk script (@616/@635 of file 92) checks only 0x40A2 == 17 and flag 2110, not 0x4099, so a player in the middle of the hunt who talks to the ranger gets flag 2105 set and 0x4099 rewritten to 3, which the guard then lets through. That is out of scope for this fix and untested. The "pixel-identical over 84 frames" claim below was only partly reproduced by the reviewer: 2 of 3 sample frames matched, the third differed by 11x20 px of ambient sprite animation.
 
 ## Change
 
