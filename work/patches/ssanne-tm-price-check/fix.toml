@@ -1,0 +1,23 @@
+id = "ssanne-tm-price-check"
+title = "S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken"
+kind = "narc"
+enabled = true
+decisions = ["D-2346", "D-2347"]
+requires = []
+why = """S.S. Anne ship shop (script file 156, text bank 0252). Menu line #31 sells the Frustration TM for $4000 and the purchase at @4349 takes 4000 (SubMoneyImmediate 0xFA0), but the check before it (@4328) is HasEnoughMoneyImmediate 400. With $400-$3999 the player buys it anyway and ends with $0. The sibling entries check exactly what they take (Shoal Salt 1500/1500, Liechi and Ganlon Berry 800/800). Observed in the emulator on the Chinese ROM and rc7."""
+what = """One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 4328, 400 -> 4000. The menu's 'TM63' label (the TM is item 348, TM21) is a separate text matter and is untouched. No other byte changes."""
+evidence = [
+  "work/notes/ssanne_tm_price_check_fix.md",
+  "work/notes/ssanne_tm_price_check_investigation.md",
+  "work/tools/test_ssanne_tm_price_check.py",
+]
+
+[[narc_bytes]]
+id = "tm-money-check"
+narc = "a/0/1/2"
+member = 156
+offset = "0x10EC"
+expect = "0x0190"
+new = "0x0FA0"
+member_sha1 = "7c14f8ff3a5fea4efc675ca0ab155ffbb12e9404"
+notes = "HasEnoughMoneyImmediate at 4328: u32 amount at 4332 (400 -> 4000); SubMoneyImmediate 4000 at 4349; menu text bank 252 #31 says $4000."

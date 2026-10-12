@@ -35,6 +35,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
+| [`ssanne-tm-price-check`](#ssanne-tm-price-check) | narc | yes | – | S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
@@ -1164,6 +1165,34 @@ whole-member SHA-1 and the expected bytes guard each edit.
 - `a/0/1/2` #934 +0x1615 `ribbon-invalid-opcode-934`: `0x07D9` → `0x0000` (member SHA-1 `666ac8c4b686`): Lake of Rage sibling: command 2009 after PlayFanfare 20 at 5649 -> Noop; CloseMsg/ReleaseAll/End follow at 5655.
 - `a/0/1/2` #937 +0xae0 `ribbon-invalid-opcode-937`: `0x07D9` → `0x0000` (member SHA-1 `684407c8bb29`): Blackthorn sibling: command 2009 after PlayFanfare 20 at 2780 -> Noop; CloseMsg/ReleaseAll/End follow at 2786.
 - `a/0/1/2` #958 +0x436 `ribbon-invalid-opcode-958`: `0x07D9` → `0x0000` (member SHA-1 `921decbbe676`): Route 40 sibling: command 2009 after PlayFanfare 20 at 1074 -> Noop; CloseMsg/ReleaseAll/End follow at 1080.
+
+## ssanne-tm-price-check
+
+**S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2346, D-2347
+- Source: `work/patches/ssanne-tm-price-check/fix.toml`
+
+**Why (the Chinese hack):**
+
+S.S. Anne ship shop (script file 156, text bank 0252). Menu line #31 sells the Frustration TM for $4000 and the purchase at @4349 takes 4000 (SubMoneyImmediate 0xFA0), but the check before it (@4328) is HasEnoughMoneyImmediate 400. With $400-$3999 the player buys it anyway and ends with $0. The sibling entries check exactly what they take (Shoal Salt 1500/1500, Liechi and Ganlon Berry 800/800). Observed in the emulator on the Chinese ROM and rc7.
+
+**What (old → new):**
+
+One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 4328, 400 -> 4000. The menu's 'TM63' label (the TM is item 348, TM21) is a separate text matter and is untouched. No other byte changes.
+
+**Evidence:**
+
+- work/notes/ssanne_tm_price_check_fix.md
+- work/notes/ssanne_tm_price_check_investigation.md
+- work/tools/test_ssanne_tm_price_check.py
+
+**Touches:**
+
+- `a/0/1/2` #156 +0x10EC `tm-money-check`: `0x0190` → `0x0FA0` (member SHA-1 `7c14f8ff3a5f`): HasEnoughMoneyImmediate at 4328: u32 amount at 4332 (400 -> 4000); SubMoneyImmediate 4000 at 4349; menu text bank 252 #31 says $4000.
 
 ## trade-evolutions-levelup
 
