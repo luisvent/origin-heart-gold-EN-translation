@@ -23,6 +23,7 @@ def region_ram(fix_id, region_id):
 
 
 class Coverage(unittest.TestCase):
+
     def test_every_fix_is_covered_or_listed(self):
         self.assertEqual(set(F.COVERAGE) | set(F.UNCOVERED), set(REGISTRY))
         self.assertFalse(set(F.COVERAGE) & set(F.UNCOVERED))
@@ -65,6 +66,7 @@ class Addresses(unittest.TestCase):
                             ("PlaySEWithPan", F.PLAYSE_PAN)):
             self.assertRegex(asm, rf"\.definelabel {label},\s+0x{addr:08X}")
         self.assertEqual((F.FAINT_CRY_MODE, F.FAINT_PAN, F.SEQ_POKE_DEAD3), (5, 117, 1795))
+
     def test_hit_sound_hooks_follow_the_region(self):
         self.assertEqual(F.HIT_STEP0, region_ram("battle-hit-sound", "battle-hit-sound-step0"))
         self.assertEqual(F.HIT_STEP0 - F.HIT_ACTION, 0x1E)      # the handler's entry, read-only guard of the asm
@@ -154,6 +156,7 @@ class Addresses(unittest.TestCase):
 
 
 class Helpers(unittest.TestCase):
+
     def test_decode_and_codes(self):
         raw = bytes.fromhex("2b012c01ffff2d01")
         self.assertEqual(F.decode(raw), "AB")
@@ -227,6 +230,7 @@ PCBOX_ORIGINAL = {"name_window_width": 7, "ink_columns_x120_127": 0, "template":
 
 
 class Judges(unittest.TestCase):
+
     def test_namelen(self):
         self.assertEqual(F.judge_namelen("naming", NAMING["fixed"])[0], "fixed")
         self.assertEqual(F.judge_namelen("naming", NAMING["no-namelen"])[0], "original")
@@ -693,6 +697,7 @@ class Judges(unittest.TestCase):
         self.assertNotIn("pryce-weather-rule", F.disabled_fixes())
         self.assertIn("pryce", F.select("all"))
         self.assertEqual(F.select("pryce-weather-rule"), {"pryce": ["pryce-weather-rule"]})
+
     def test_faintcry(self):
         def obs(sound=True, pan_sign=1, dead=True):
             out, frame = {}, 1000
@@ -725,6 +730,7 @@ class Judges(unittest.TestCase):
         self.assertEqual(F._faint_windows([(1, 13, 0), (2, 13, 0), (3, 13, 1), (9, 13, 5), (20, 1, 0), (21, 1, 1)]),
                          [{"battler": 13, "start": 1, "end": 9, "states": [[0, 1], [1, 3], [5, 9]]},
                           {"battler": 1, "start": 20, "end": 21, "states": [[0, 20], [1, 21]]}])
+
     def test_hitsound(self):
         def obs(sound, started=1):
             out = {}

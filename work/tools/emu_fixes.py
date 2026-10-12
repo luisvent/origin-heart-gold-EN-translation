@@ -266,6 +266,8 @@ HIT_FOES = {   # case: (lead move slot, wild species, its level, its moves, expe
 HIT_LEAD = (25, 50, [33, 85])                  # Pikachu Lv50: Tackle, Thunderbolt
 # antipiracy (antipiracy.listing): the six DS Protect entry points in overlay 114 and their genuine values
 ANTIPIRACY_ENTRIES = {0x02263A64: 0, 0x02263B4C: 1, 0x02263C34: 0, 0x02263D1C: 1, 0x02263E04: 0, 0x02263ECC: 1}
+
+
 def _fix_expect_bytes(fix_id, region_id):
     """A [[code]] region's expect (halfwords) as the bytes in memory (little-endian per halfword)."""
     import tomllib
@@ -1242,6 +1244,8 @@ def observe_battle_references(h):
     return {"turns": turns, "nature_power_next": after, "turns2": turns2, "infatuation": infat[:3],
             "used_battlers": sorted(names), "screenshot": shot_np,
             "screenshot_attract": str(h.screenshot("battle_references_attract"))}
+
+
 def observe_safari(h):
     """The hack's random wild double forced (rand() % 4 == 0) on grass encounters from one saved state: a normal
     one on Route 1 and one in the Safari Zone (entered with the gate's commands, SAFARI_ENTER). Per case: the setup's
@@ -1698,6 +1702,8 @@ def observe_pryce(h):
         decoded = [(m["species"], m["checksum_ok"]) for m in h.party()]
         out[name] = {"verdict": verdict, "messages": msgs, "presses": presses, "party": decoded}
         h.step(60)
+
+
 def observe_faintcry(h):
     """Pokemon faint in five battles: a wild foe, the player's Pokemon, both at once (Explosion), a trainer's
     team and a double battle (Chuck, two foes to one Surf). Logged: every Faint_Run call (frame, battler,
@@ -1803,6 +1809,9 @@ def _faint_windows(runs):
             if w["states"][-1][0] != state:
                 w["states"].append([state, frame])
         prev = state
+    return out
+
+
 def observe_hitsound(h):
     """Pikachu Lv50 (Tackle, Thunderbolt) against three scripted wild Pokemon that only know Splash, one turn
     each, then RUN: every command-8 call (step 0) with its effectiveness class, and every sequence the game
@@ -2220,6 +2229,8 @@ def judge_pryce(scenario, obs, ref=None):
     fixed = all(why[n] == f for n, (_m, f, _o) in PRYCE_CASES.items())
     original = all(why[n] == o for n, (_m, _f, o) in PRYCE_CASES.items())
     return _state(fixed, original, why)
+
+
 def judge_faintcry(scenario, obs, ref=None):
     """fixed: every case shows its expected faints, and each faint (a Faint_Run window) plays one faint-mode cry
     (mode 5, volume 127, heap 5, no delay; species as expected) in the frame state 0 ends, whose start is seen
@@ -2256,6 +2267,8 @@ def judge_faintcry(scenario, obs, ref=None):
         why[case] = {"faints": len(wins), "faint_cries": [(x["species"], x["pan"]) for x in cries],
                      "faint_sounds": [x["pan"] for x in dead], "expected": want, "turns": c.get("turns")}
     return _state(fixed_ok, original_ok, why)
+
+
 def judge_hitsound(scenario, obs, ref=None):
     """fixed: in every case each damage action has the expected class and its hit sound starts (PlaySE's start
     returns 1) in the same frame; original: damage actions of every class and no hit sound (1788-1790) at all."""
