@@ -35,6 +35,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
+| [`ss-anne-softlock`](#ss-anne-softlock) | narc | yes | – | Open the S.S. Anne voyage in its pre-party state so the party can always start |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
@@ -1164,6 +1165,52 @@ whole-member SHA-1 and the expected bytes guard each edit.
 - `a/0/1/2` #934 +0x1615 `ribbon-invalid-opcode-934`: `0x07D9` → `0x0000` (member SHA-1 `666ac8c4b686`): Lake of Rage sibling: command 2009 after PlayFanfare 20 at 5649 -> Noop; CloseMsg/ReleaseAll/End follow at 5655.
 - `a/0/1/2` #937 +0xae0 `ribbon-invalid-opcode-937`: `0x07D9` → `0x0000` (member SHA-1 `684407c8bb29`): Blackthorn sibling: command 2009 after PlayFanfare 20 at 2780 -> Noop; CloseMsg/ReleaseAll/End follow at 2786.
 - `a/0/1/2` #958 +0x436 `ribbon-invalid-opcode-958`: `0x07D9` → `0x0000` (member SHA-1 `921decbbe676`): Route 40 sibling: command 2009 after PlayFanfare 20 at 1074 -> Noop; CloseMsg/ReleaseAll/End follow at 1080.
+
+## ss-anne-softlock
+
+**Open the S.S. Anne voyage in its pre-party state so the party can always start**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-1549, D-2346
+- Source: `work/patches/ss-anne-softlock/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-1549: the S.S. Anne scripts (a/0/1/2 members 156, 157, 161) are written for a voyage that starts with flag 1440
+SET: it is the hide flag of the 14 party guests and the hall shop, the Captain's HM01 branch (member 157, script 5,
+CheckFlag 1440 / GoToIf [0]) and the pre-party lines of Archie, Blue, the old boy and the guests all hang on it, and
+the party start (157 @550, 161 @1901) clears it. Nothing sets it before the hijack (156 @6350): the new-game init
+(member 842) does not, and the harbor sailor (member 155) sets only 554/555 and clears 235/556. So the first voyage
+always runs in the 'party already started' state: the Captain says so and gives no HM01 (253#62), the old boy and Blue
+run their party branches, which set flag 1424 ('met the Captain', old boy) and 1423 ('Honey given', Blue) on their
+own. The party is announced only inside the Honey hand-over (161 @1524: 1424 must already be set) or the Captain's
+speech (157 @514); with the Honey given first, or Blue fought first, flag 1423 is set and 1424 clear, nothing
+re-checks, the hall trigger stays silent and the gangway sailor never leaves: the player is stuck aboard.
+
+**What (old → new):**
+
+Set flag 1440 when the player boards, before the hall map loads. In the harbor sailor's script (member 155, script 1),
+the instruction at offset 152 is CheckFlag 235, which can never be true (ClearFlag 235 ran at offset 117 and nothing
+sets it in between), so the GoToIf [1, 151] after it is never taken. Replace that CheckFlag (4 bytes) with SetFlag
+1440: the next instruction is unchanged and, as before, is not taken, because the compare register still holds the
+CompareVarToValue result from offset 139. Same size, no offset shifts, no jump into the bytes. The branch for
+players who already hold the Soul Badge (the new S.S. Anne) jumps away before offset 152 and is untouched.
+The voyage then follows the order the scripts were written for: guests hidden until the party starts, the Captain
+gives HM01 and sets 1424, the Honey hand-over sets 1423, and whichever comes second announces the party (Honey
+second: 161 @1524; Captain second: 157 @514), in any order, with the old boy and Blue in their pre-party lines
+until then.
+
+**Evidence:**
+
+- work/notes/ss-anne-softlock_investigation.md
+- work/notes/ss-anne-softlock_fix.md
+- work/tools/test_ss_anne_softlock.py
+
+**Touches:**
+
+- `a/0/1/2` #155 +0x98 `boarding-sets-prep-party-flag`: `0020 00EB` → `001E 05A0` (member SHA-1 `6baec9e7c3df`): CheckFlag 235 (dead: ClearFlag 235 ran at 117) becomes SetFlag 1440; the GoToIf after it stays and is never taken, as before.
 
 ## trade-evolutions-levelup
 

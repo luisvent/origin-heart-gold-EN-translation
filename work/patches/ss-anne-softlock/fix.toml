@@ -1,0 +1,45 @@
+id = "ss-anne-softlock"
+title = "Open the S.S. Anne voyage in its pre-party state so the party can always start"
+kind = "narc"
+enabled = true
+decisions = ["D-1549", "D-2346"]
+requires = []
+why = """
+D-1549: the S.S. Anne scripts (a/0/1/2 members 156, 157, 161) are written for a voyage that starts with flag 1440
+SET: it is the hide flag of the 14 party guests and the hall shop, the Captain's HM01 branch (member 157, script 5,
+CheckFlag 1440 / GoToIf [0]) and the pre-party lines of Archie, Blue, the old boy and the guests all hang on it, and
+the party start (157 @550, 161 @1901) clears it. Nothing sets it before the hijack (156 @6350): the new-game init
+(member 842) does not, and the harbor sailor (member 155) sets only 554/555 and clears 235/556. So the first voyage
+always runs in the 'party already started' state: the Captain says so and gives no HM01 (253#62), the old boy and Blue
+run their party branches, which set flag 1424 ('met the Captain', old boy) and 1423 ('Honey given', Blue) on their
+own. The party is announced only inside the Honey hand-over (161 @1524: 1424 must already be set) or the Captain's
+speech (157 @514); with the Honey given first, or Blue fought first, flag 1423 is set and 1424 clear, nothing
+re-checks, the hall trigger stays silent and the gangway sailor never leaves: the player is stuck aboard.
+"""
+what = """
+Set flag 1440 when the player boards, before the hall map loads. In the harbor sailor's script (member 155, script 1),
+the instruction at offset 152 is CheckFlag 235, which can never be true (ClearFlag 235 ran at offset 117 and nothing
+sets it in between), so the GoToIf [1, 151] after it is never taken. Replace that CheckFlag (4 bytes) with SetFlag
+1440: the next instruction is unchanged and, as before, is not taken, because the compare register still holds the
+CompareVarToValue result from offset 139. Same size, no offset shifts, no jump into the bytes. The branch for
+players who already hold the Soul Badge (the new S.S. Anne) jumps away before offset 152 and is untouched.
+The voyage then follows the order the scripts were written for: guests hidden until the party starts, the Captain
+gives HM01 and sets 1424, the Honey hand-over sets 1423, and whichever comes second announces the party (Honey
+second: 161 @1524; Captain second: 157 @514), in any order, with the old boy and Blue in their pre-party lines
+until then.
+"""
+evidence = [
+  "work/notes/ss-anne-softlock_investigation.md",
+  "work/notes/ss-anne-softlock_fix.md",
+  "work/tools/test_ss_anne_softlock.py",
+]
+
+[[narc_bytes]]
+id = "boarding-sets-prep-party-flag"
+narc = "a/0/1/2"
+member = 155
+offset = "0x98"
+expect = "0020 00EB"
+new = "001E 05A0"
+member_sha1 = "6baec9e7c3df7d64b3917f48b4ecd6a4cc04950a"
+notes = "CheckFlag 235 (dead: ClearFlag 235 ran at 117) becomes SetFlag 1440; the GoToIf after it stays and is never taken, as before."

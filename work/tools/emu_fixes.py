@@ -122,6 +122,11 @@ UNCOVERED = {
                              "with this fix: all seven siblings end at End with no invalid opcode. test_sibling_"
                              "ribbon_freeze.py pins the bytes and decodes the scripts; see "
                              "work/notes/sibling_ribbon_freeze_fix.md.",
+    "ss-anne-softlock": "No scenario in this unified runner; the one-off vqueue 'ssanne_story' recipe (removed from "
+                        "develop, 2e6fe55^) was rerun on 2026-10-12 from a scratch copy of the tools: real boarding, "
+                        "arrival scene, Captain's speech, talk-to-NPC orders (old boy / Honey / Blue / Captain) on the "
+                        "Chinese ROM, rc7, a built control and the built fix. See "
+                        "work/notes/ss-anne-softlock_fix.md.",
     "blank-player-name": "No scenario in this unified runner (disabled fix). test_blank_player_name.py pins the "
                          "bytes and decodes the scripts; the Dragon's Den, Pallet and Route 2 lines were "
                          "reproduced in an emulator on the Chinese ROM and the patched ROM (see "
