@@ -11,7 +11,7 @@
   "edits": [
     {"file":"arm9.bin","address":"0x020D1970","size":4,"before":"00003e02","after":"00c03d02","purpose":"reserve resident memory below ARM7 startup/backup"}
   ],
-  "stubs": {"size":160,"alignment":4,"file":"runtime-stubs.bin"},
+  "stubs": {"size":176,"alignment":4,"file":"runtime-stubs.bin"},
   "candy": "deferred under D-2304: stable field-menu ownership through delayed effect not established",
   "day_care": "skipped under D-2304; native behavior unchanged"
 }

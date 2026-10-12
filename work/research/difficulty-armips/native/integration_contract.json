@@ -72,6 +72,14 @@
     "work/tools/text_speed_patch.py": {
       "sha256": "833852baf233d4d82fa8be430438a643ce08cf5ca0616ddb209f8f1422e2a1e1",
       "reason": "Production compatible-fix verifier added; native TEXT SPEED sources and payload unchanged."
+    },
+    "work/research/difficulty-armips/native/growth.c": {
+      "sha256": "8ad06856d95238d3f19fa5d0fcb5c969241f83d4576ef5bd5d8dde0c60a45889",
+      "reason": "Exp. Share fix (D-2346, amends D-2301): with SHARE OFF a local recipient holding an Exp. Share (item 216) keeps the native bench share; dg_growth_share_enabled takes the recipient BattleMon (r4 via the DG_Share stub)."
+    },
+    "work/research/difficulty-armips/native/growth.h": {
+      "sha256": "d528efded0db9299a142a571e792d2645b90f7da80434c8c7f9341c863a46f5b",
+      "reason": "Exp. Share fix (D-2346, amends D-2301): with SHARE OFF a local recipient holding an Exp. Share (item 216) keeps the native bench share; dg_growth_share_enabled takes the recipient BattleMon (r4 via the DG_Share stub)."
     }
   },
   "interactive_contract": {

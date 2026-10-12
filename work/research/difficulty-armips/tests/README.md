@@ -864,3 +864,13 @@ personal/growth/stat tables. This avoids a second unrelated post-battle evolutio
 and move-learning sequence; native gameplay timeouts and reward checks are unchanged.
 The level20 lead remains Rattata and may evolve naturally. Preserved reports still
 need matching final source hashes to count as current native evidence.
+
+## Exp. Share holder with SHARE OFF (D-2346)
+
+`native_battle.py --scope holder --kind wild|trainer|double --expect fixed|baseline` runs five battles per kind
+(SHARE ON holder control; SHARE OFF holder and plain bench; SHARE OFF + CAP ON holder and plain bench) with one
+level-11 bench slot 3 EXP below the cap-12 threshold that holds an Exp. Share (216) or nothing, and decides with
+`holder_verdict`: the holder must get the SHARE ON EXP and EVs (clamped to 3 EXP under CAP), the plain bench nothing.
+`--expect baseline` encodes the rc7 behaviour (SHARE OFF shares with nobody) and is meant for a build without the fix.
+The oracle itself is unit tested in `test_native_battle.py` (`ExpShareHolderOracleTests`); `drivers/growth_check.c`
+covers `dg_growth_share_enabled(battle_mon)` on the host.

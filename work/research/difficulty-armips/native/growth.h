@@ -26,8 +26,11 @@ const DG_GrowthSnapshot *dg_growth_snapshot(void);
 
 /* Overlay 14 BL 0x022289EA (original ec f7 e9 fe -> 0x022157C0).
  * Native participation/formula logic controls BOTH bench EXP and bench EVs.
+ * battle_mon is the recipient BattleMon (the per-recipient routine's r4, passed
+ * in r0 by the DG_Share stub; the original getter ignores its arguments).
+ * SHARE OFF still returns 1 for a local recipient holding an Exp. Share (216).
  */
-uint32_t dg_growth_share_enabled(void);
+uint32_t dg_growth_share_enabled(uintptr_t battle_mon);
 
 /* Overlay 14 BL 0x0221F778 (ff f7 b8 ff) and 0x0221F83E (ff f7 55 ff).
  * Both replace calls to 0x0221F6EC with its exact r0-r3 ABI. Original native
@@ -52,6 +55,7 @@ uint8_t dg_growth_test_read8(uintptr_t address);
 uint16_t dg_growth_test_read16(uintptr_t address);
 uint32_t dg_growth_test_read32(uintptr_t address);
 uint32_t dg_growth_test_native_share(void);
+uint32_t dg_growth_test_native_mon_item(uintptr_t backing, uint32_t field, uint32_t arg);
 uint32_t dg_growth_test_native_reward_allowed(void);
 uintptr_t dg_growth_test_native_resolve(uint32_t id);
 uint32_t dg_growth_test_native_threshold(uint32_t species, uint32_t level);

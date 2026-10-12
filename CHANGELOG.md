@@ -16,6 +16,7 @@ Merged into develop on 2026-10-12 at the user's request as separate patches with
 - **blank-player-name-batch (D-2343 to D-2345):** the player's name is no longer blank in 53 more script lines (Route 1 kid, Route 30 woman, Misty, "League Champion ..." greetings, received-Pokémon lines and others); adds a BufferPlayersName command in front of each message (built on request: `build.py --only blank-player-name-batch`). 15 positions with undecodable native commands are left alone and listed in `work/notes/blank-player-name-batch_fix.md`.
 
 ### Fixed
+- **Exp. Share item with SHARE OFF (D-2346):** turning SHARE OFF no longer switches off the Exp. Share item. A Pokémon holding an Exp. Share keeps its normal bench share (same EXP and EVs as SHARE ON, CAP still applies); other benched Pokémon still get nothing. Reported on Discord (#bugs).
 - **Difficulty settings in story battles you're allowed to lose:** CAP and SHARE now also apply in battles where the story continues even if you lose, such as Blue in Pewter City before Brock's Gym. Before, these battles ignored both settings: Pokémon could gain EXP above the level cap, and benched Pokémon still got EXP with SHARE OFF. The ITEMS setting now also applies in these battles, as in every other trainer battle: with LIMITED (the default), you can only use berries and flutes from the Bag there. Losing them still continues the story as before.
 
 ### Added (tools)

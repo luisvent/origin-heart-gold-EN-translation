@@ -39,8 +39,9 @@ to cancel. Defaults are **Berries/flutes, Share ON, Cap OFF**. Apply changes RAM
   berries/battle flutes; `All` enables the expanded ordinary item set. Native
   validity, targeting and special-mode exclusions remain. Held items, NPC use,
   wild battles and field use retain native behavior.
-- **Share OFF:** blocks benched Pokémon from shared EXP **and EVs**. It does not
-  bypass caps or native eligibility for participants.
+- **Share OFF:** blocks benched Pokémon from shared EXP **and EVs**, except a
+  Pokémon holding an Exp. Share (216), which keeps the ordinary bench share (D-2346).
+  It does not bypass caps or native eligibility for participants.
 - **Battles covered:** wild battles and ordinary trainer battles, including
   story battles the player is allowed to lose (script `TrainerBattle` with a
   nonzero third operand, setup flags `0x801`, e.g. Blue in Pewter City).
