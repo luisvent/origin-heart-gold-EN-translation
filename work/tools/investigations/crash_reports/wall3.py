@@ -2,12 +2,12 @@
 """PC wallpaper stress by RAM: live storage wallpaper array (24 bytes) set to value ranges, PC > Organize boxes, page through all 24 boxes with the title arrow; abort/black checks (melonDS)."""
 import sys,datetime,json,argparse,struct
 from pathlib import Path
-sys.path.insert(0,'/Users/simonvergauwen/Developer/poke/work/tools')
+sys.path.insert(0,__import__('pathlib').Path(__file__).resolve().parents[2])
 import emu_harness as E
 p=argparse.ArgumentParser();p.add_argument('--rom');p.add_argument('--out');p.add_argument('--emulator',default='melonds')
 p.add_argument('--rounds',default='0,24,32,40,255')
 a=p.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
-sav='/Users/simonvergauwen/Developer/poke/work/build/memcheck/full_bag_6mons.sav'
+sav=str(__import__('pathlib').Path(__file__).resolve().parents[3]/'build/memcheck/full_bag_6mons.sav')
 sig=bytes(range(16))+bytes(range(8));rep=[]
 with E.start_at(69,4,9,rom=a.rom,sav=sav,out=out,clock=datetime.datetime(2026,10,9,12),emulator=a.emulator) as h:
     h.step(60)

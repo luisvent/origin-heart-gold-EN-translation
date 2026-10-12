@@ -8,7 +8,7 @@ replaced the earlier guess that the Captain starts the party; nothing in the not
 ## Method
 
 The one-off recipe `emu_vqueue.py ssanne_story` was removed from develop (2e6fe55); restored from git 2e6fe55^ into a scratch
-copy of the tools (`/private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/ss-anne-softlock/oldrepo`, `oldrepo2` with extra variants), run individually (py-desmume, one case per run):
+copy of the tools (`<scratch>`, `oldrepo2` with extra variants), run individually (py-desmume, one case per run):
 
     EMU_HARNESS_DATA=$PWD/work .venv/bin/python $S/oldrepo/work/tools/emu_harness.py vqueue --case ssanne_story \
         --lang cn|en [--rom-cn|--rom-en ROM] --out DIR

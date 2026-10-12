@@ -11,7 +11,7 @@ at (8,14) script 4 (a027/0514#2 "凯西『A——bra!"). 1012 is the Gen 5 range
 ## Emulator (py-desmume, each ROM run singly)
 Harness: emu_harness.py drive --map 300 --x 10 --y 16 flag:223=0 warp:300,8,15,0 w200 UP/30 A/30 ... with save work/build/memcheck/full_bag_6mons.sav.
 Without flag:223=0 the hall NPCs (appearance flag 223) are hidden in this save, so the reproduction is under forced state; the natural flag state
-was not established. Screens: /private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/league-teleport/h_cn/drive/{a,b,c}_cn.png, /private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/league-teleport/h_en/drive/*_en.png, pairs pair_{a,b,c}.png. Chinese ROM and rc7 both show a green Simisage
+was not established. Screens: <scratch> <scratch> pairs pair_{a,b,c}.png. Chinese ROM and rc7 both show a green Simisage
 beside the man, text box "凯西『A——bra!" / "Abra: A-bra!". English text is a correct translation; the sprite is the hack's.
 
 ## Not verified

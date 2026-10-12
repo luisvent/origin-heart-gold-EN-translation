@@ -2,12 +2,12 @@
 """PC box wallpaper picker: Organize Boxes > box title > Wallpaper; touch every thumbnail on every page (previews load the wallpaper resources), then apply each (更换壁纸/CHANGE) and re-check. Abort/hang/black checks (melonDS) per step."""
 import sys,datetime,json,argparse,struct
 from pathlib import Path
-sys.path.insert(0,'/Users/simonvergauwen/Developer/poke/work/tools')
+sys.path.insert(0,__import__('pathlib').Path(__file__).resolve().parents[2])
 import emu_harness as E
 p=argparse.ArgumentParser();p.add_argument('--rom');p.add_argument('--out');p.add_argument('--emulator',default='melonds')
 p.add_argument('--pages',type=int,default=7);p.add_argument('--apply',action='store_true')
 a=p.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
-sav='/Users/simonvergauwen/Developer/poke/work/build/memcheck/full_bag_6mons.sav'
+sav=str(__import__('pathlib').Path(__file__).resolve().parents[3]/'build/memcheck/full_bag_6mons.sav')
 THUMBS=[60,105,150,198];rep=[]
 def sig(h):
     im=h.emu.screenshot().convert('RGB').crop((0,192+60,170,384-30));return im.tobytes()

@@ -2,12 +2,12 @@
 """Silph Co. elevator (map 445, natural entry script, no run_script): per (flag 1208, flag 1366, start floor) boot into the elevator, choose each destination by touch, ride, report arrival map and responsiveness."""
 import sys,datetime,json,argparse,time
 from pathlib import Path
-sys.path.insert(0,'/Users/simonvergauwen/Developer/poke/work/tools')
+sys.path.insert(0,__import__('pathlib').Path(__file__).resolve().parents[2])
 import emu_harness as E
 p=argparse.ArgumentParser();p.add_argument('--rom');p.add_argument('--out');p.add_argument('--starts',default='0,1,2,3,4,5,6');p.add_argument('--dests',default='0,1,2,3,4,5,6')
 p.add_argument('--f1208',type=int,default=0);p.add_argument('--f1366',type=int,default=1);p.add_argument('--emulator',default='desmume')
 a=p.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
-sav='/Users/simonvergauwen/Developer/poke/work/build/memcheck/full_bag_6mons.sav'
+sav=str(__import__('pathlib').Path(__file__).resolve().parents[3]/'build/memcheck/full_bag_6mons.sav')
 POS=[(64,19),(190,19),(64,66),(190,66),(64,114),(190,114),(190,162)]
 rep=[]
 for s in [int(x) for x in a.starts.split(',')]:

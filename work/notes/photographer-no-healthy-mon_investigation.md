@@ -21,7 +21,7 @@ fight (HP > 0 and not an Egg)? A third-party patch (Speedoption; the Spanish one
   walk try at the end, `arm9_abort()` and `hang_report(120)` on melonDS. The player stands in front of Cameron, so this is
   the real talk path (no script injection).
 - ROMs: untouched Chinese (sha256 4807ab2c...95c8, 536,870,912 bytes, checked), rc7 (b16f81be...10df).
-- Driver and logs (scratch, not committed): `/private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/double-one-mon-and-photographer/photo2.py`, results in `/private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/double-one-mon-and-photographer/out/b-*` (before the fix) and `/private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/double-one-mon-and-photographer/out/c-*` (with the fix).
+- Driver and logs (scratch, not committed): `<scratch>`, results in `<scratch>` (before the fix) and `<scratch>` (with the fix).
 
 ## Results before the fix
 | ROM | emulator | healthy lead | no Pokémon | lead fainted | lead an Egg |

@@ -2,12 +2,12 @@
 """Quick battle-Bag exit: in a wild battle touch BAG, wait d frames (2..60), press B (or touch back); check the battle menu returns, no abort/hang. Several battles."""
 import sys,datetime,json,argparse,random
 from pathlib import Path
-sys.path.insert(0,'/Users/simonvergauwen/Developer/poke/work/tools')
+sys.path.insert(0,__import__('pathlib').Path(__file__).resolve().parents[2])
 import emu_harness as E
 p=argparse.ArgumentParser();p.add_argument('--rom');p.add_argument('--out');p.add_argument('--emulator',default='desmume')
 p.add_argument('--battles',type=int,default=3);p.add_argument('--trials',type=int,default=20);p.add_argument('--seed',type=int,default=1)
 a=p.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
-sav='/Users/simonvergauwen/Developer/poke/work/build/memcheck/full_bag_6mons.sav'
+sav=str(__import__('pathlib').Path(__file__).resolve().parents[3]/'build/memcheck/full_bag_6mons.sav')
 random.seed(a.seed);rep=[];BAG=(36,165)
 def is_pocket(h):
     r,g,bl=h.emu.screenshot().convert('RGB').getpixel((236,192+178))

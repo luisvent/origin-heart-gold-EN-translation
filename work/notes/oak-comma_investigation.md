@@ -3,7 +3,7 @@
 Verdict: REPRODUCED (forced script start, named player). The player's name is NOT the cause: the save's player is "Shishio" (visible in the
 start menu in every screenshot) and the slot still prints blank.
 
-Method: scratch /private/tmp/claude-501/-Users-simonvergauwen-Developer-poke/c8491cb6-81cf-412e-b864-3295209437a7/scratchpad/inv/oak-comma/oak1.py, DeSmuME, map 505 (6,12), flags 1288/106 clear, run_script(file=738, index=8, msg_bank=444), A through the pages.
+Method: scratch <scratch> DeSmuME, map 505 (6,12), flags 1288/106 clear, run_script(file=738, index=8, msg_bank=444), A through the pages.
 - Untouched Chinese ROM (sha256 4807ab2c...95c8): cn/p1.png reads "但是因为你来的实在太晚了": the {VAR:0103:0} slot between 因为 and 你 is blank, although
   the menu shows the name Shishio. So the Chinese hack itself prints nothing there; the Chinese reads fine without it, the English wrapped the blank in commas.
 - Released rc7 (testers/rc7.nds): rc7/p1.png "But you were so late, , that my" (double comma), menu shows Shishio.

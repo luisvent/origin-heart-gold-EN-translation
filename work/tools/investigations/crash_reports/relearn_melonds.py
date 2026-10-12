@@ -2,7 +2,7 @@
 """Saffron relearner on melonDS (no hooks): teleport into the house, generate mons, talk to NPC, pick party slot, watch for ARM9 aborts / black screens."""
 import sys, json, datetime, argparse
 from pathlib import Path
-sys.path.insert(0, '/Users/simonvergauwen/Developer/poke/work/tools')
+sys.path.insert(0, __import__('pathlib').Path(__file__).resolve().parents[2])
 import emu_harness as E
 p=argparse.ArgumentParser();p.add_argument('--rom');p.add_argument('--out');p.add_argument('--emulator',default='melonds')
 p.add_argument('--cases',default='gallade,gardevoir,ninetales,mewtwo,gallade');p.add_argument('--premenu',default='bag')

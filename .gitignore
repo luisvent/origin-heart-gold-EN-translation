@@ -141,3 +141,5 @@ work/save-core/node_modules
 
 # Local catalogue contains third-party promotional images and reference text.
 /work/rom-ideas/
+work/save-editor/src/ui/.impeccable/
+work/.venv
