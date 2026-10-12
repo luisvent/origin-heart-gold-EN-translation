@@ -801,7 +801,11 @@ def approve(from_dir, crops=(), baselines=(), all_pending=False, by="", crops_pa
         raise ApproveError("nothing recorded:\n" + "\n".join(probs))
     stamp = time.strftime("%Y-%m-%d %H:%M")
     done = []
-    run_name = str(Path(from_dir).resolve())
+    run_path = Path(from_dir).resolve()
+    try:                                    # $HOME/... so committed records don't name this machine's user
+        run_name = "$HOME/" + run_path.relative_to(Path.home()).as_posix()
+    except ValueError:
+        run_name = str(run_path)
     for ap in plan:
         if ap["kind"] == "crop":
             crop_data["approved"][ap["key"]] = {
