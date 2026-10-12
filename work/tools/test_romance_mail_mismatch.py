@@ -1,6 +1,5 @@
 """Verify the Cynthia romance-scene repair: three byte edits, branch structure otherwise untouched."""
 
-import copy
 import sys
 import unittest
 from pathlib import Path

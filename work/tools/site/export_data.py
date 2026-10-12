@@ -566,7 +566,7 @@ def export(ctx):
 
     # ---- static / gift Pokémon and trades
     acquisition_sources = PA.sources(ctx, G, R, zone_area, file_areas)
-    acquisition_notes = PA.load_notes()
+    PA.load_notes()   # called for its check only: it raises on a duplicate acquisition note
     static_q = collections.defaultdict(list)
     for source in G.acquisition_sources(ctx):
         kind, sp, fm, lv, f = (source[k] for k in ('kind', 'species', 'form', 'level', 'file'))

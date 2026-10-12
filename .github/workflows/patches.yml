@@ -49,6 +49,10 @@ jobs:
         run: |
           npm --prefix work/save-editor ci
           npm --prefix work/save-editor run build
+      # qa.py's glossary lint tells English words from near-miss Pokémon names with /usr/share/dict/words (macOS
+      # ships it, the runner image does not); test_qa.test_glossary_name needs it.
+      - name: Install the word list
+        run: sudo apt-get install -y --no-install-recommends wamerican
       - uses: actions/setup-python@v5
         with:
           # the validated environment of requirements-runtime.txt
@@ -66,13 +70,14 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ~/armips
-          key: armips-${{ env.ARMIPS_COMMIT }}-ubuntu-24.04-${{ runner.arch }}
+          key: armips-${{ env.ARMIPS_COMMIT }}-nofortify-ubuntu-24.04-${{ runner.arch }}
       # v0.11.0 is untested with this image's GCC (13+), which no longer pulls <cstdint> in through other
-      # standard headers; `-include cstdint` is the usual workaround for such older sources and harmless otherwise.
+      # standard headers (<cstdint> for the fixed-width types, <limits> for std::numeric_limits in
+      # Core/ExpressionFunctions.cpp); `-include` is the usual workaround for such older sources and harmless otherwise.
       - name: Build armips v0.11.0 from source
         if: steps.armips.outputs.cache-hit != 'true'
         env:
-          CXXFLAGS: -include cstdint
+          CXXFLAGS: -include cstdint -include limits -U_FORTIFY_SOURCE
         run: |
           src="$RUNNER_TEMP/armips-src"
           git init -q "$src" && cd "$src"
