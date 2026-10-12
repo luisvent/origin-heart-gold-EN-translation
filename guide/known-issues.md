@@ -1353,11 +1353,25 @@ These entries can freeze the game, cost you something, or close a quest or battl
 - **[Volt Tackle](/moves/volt-tackle/)** does no recoil damage (Double-Edge still does).
 - **[Blast Burn](/moves/blast-burn/)** doesn't need a recharge turn; you can act again on the next turn (Hyper Beam still needs one). Frenzy Plant, Hydro Cannon and Rock Wrecker use the same move data, but weren't tried.
 - **[Lunar Dance](/moves/lunar-dance/)** doesn't make the user faint; it raises the user's Speed and Sp. Atk instead.
-- **[Bounce](/moves/bounce/)** attacks on the turn you choose it; the user doesn't spring up first (Fly still takes two turns). Its description still says two turns.
+- **[Bounce](/moves/bounce/)** attacks on the turn you choose it; the user doesn't spring up first (Fly still takes two turns). Its description still says two turns. See "One-turn and two-turn moves" below for the full list.
 
 *Source:* D-1319 (Volt Tackle: recoil effect, recoil value 0), D-1318 (Blast Burn, Hydro Cannon, Frenzy Plant, Rock Wrecker: recharge effect without the recharge flag), D-1311 (Lunar Dance: Sp. Atk/Speed +1 fields). Emulator (`emu_harness.py hackbugs --case move`, both ROMs): a Lv. 100 user against a wild Pokémon; Volt Tackle KO'd a Magikarp with no HP lost (Double-Edge cost 4 HP); after Blast Burn the next command menu came after one Blissey attack, after Hyper Beam after two; Lunar Dance printed "Speed rose" and "Sp. Atk rose" and the user stayed in.
 
 *Source (Bounce):* D-1350 (charge flag clear; description 0738#340 stale). Emulator (`emu_harness.py vqueue --case probe`, both ROMs): Bounce printed "used Bounce!", no "sprang up" message (1#734) and no miss, and the command menu came back every turn; Fly printed "flew up high" (1#714) and hit on the next turn.
+
+### One-turn and two-turn moves
+
+**The hack turned a few moves that take two turns in the official games into one-turn moves, and the move descriptions are not always up to date.** The Chinese hack does the same; it is intended design, not an English-patch change. Tested in an emulator (Chinese ROM and English build, same result), a Lv. 100 user against a wild Shuckle that used Splash, then Protect:
+
+- **One turn (attacks as soon as you choose it):**
+  - **[Bounce](/moves/bounce/)**. The description still says "turn 1 ... turn 2". There is no turn in the air, so a foe that uses Protect before you blocks it on the turn you choose it.
+  - **[Razor Wind](/moves/razor-wind/)**, **[Skull Bash](/moves/skull-bash/)** and **[Sky Attack](/moves/sky-attack/)**. Their descriptions already say so.
+- **Two turns (a charge turn, then the attack), as in the official games:** [Fly](/moves/fly/), [Dig](/moves/dig/), [Dive](/moves/dive/), [Solar Beam](/moves/solar-beam/), [Solar Blade](/moves/solar-blade/), [Shadow Force](/moves/shadow-force/), [Phantom Force](/moves/phantom-force/), [Freeze Shock](/moves/freeze-shock/), [Ice Burn](/moves/ice-burn/), [Geomancy](/moves/geomancy/), [Meteor Beam](/moves/meteor-beam/) and [Electro Shot](/moves/electro-shot/). With Fly, Dig, Dive, Solar Beam, Solar Blade, Freeze Shock and Ice Burn, a foe's Protect on the charge turn does not stop the charge, but it does block the attack turn. Shadow Force and Phantom Force got through Protect in the test.
+- **Not tested:** [Sky Drop](/moves/sky-drop/) (it did nothing against the test Pokémon).
+
+Bide, which also lasts two turns, works as in the official games.
+
+*Source:* D-1350 (Bounce: charge flag clear, description 0738#340 stale; Razor Wind, Skull Bash and Sky Attack have the same flag clear and one-turn descriptions). The other twelve moves keep the charge flag. Emulator (scripted wild battle, one move on each side, every battle message logged): Bounce, Razor Wind, Skull Bash and Sky Attack took one foe action per command; the two-turn moves took two before the command menu came back, with their charge message (Fly 1#714, Dig 1#726, Dive 1#722, Solar Beam and Solar Blade 1#746) on the first. With the foe using Protect, Bounce was blocked at once ("protected itself", same turn); Fly, Dig, Dive, Solar Beam and Solar Blade charged and were blocked on the second turn. Full results: work/notes/two-turn-moves-docs_fix.md.
 
 ### Battle messages that name the wrong thing
 
