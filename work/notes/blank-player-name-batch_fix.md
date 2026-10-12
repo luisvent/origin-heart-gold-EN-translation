@@ -60,3 +60,19 @@ header slots hit the same commands, every member still decodes with no unexplain
 together with `blank-player-name` member 171 gets both and keeps its movement blocks.
 
 ## Emulator (see the report at the end of this file)
+
+Method: DeSmuME via emu_harness `run_script(file=, index=, msg_bank=)` (no walking; the player stands near a warp/object of the
+script's own map), Chinese ROM vs the Chinese ROM with the fix applied (narcpatch on the original a/0/1/2), 4 pages, then 10 more
+A presses and an end frame plus the player's map/x/y/direction. 15 entries were run; in all 15 the player's position and
+direction are identical before and after. The name appears (blank before, "Shishio" after) in 9 members:
+168 (Route 1 kid, unbound script 5), 228 (Route 30 woman), 216 (Misty at the festival; 13.8 kB member, the pages after it and
+the end frame are the same apart from animation noise), 741 (Viridian Gym entry), 855, 169, 156 (Blue on the S.S. Anne), 865
+and 31 ("League Champion Shishio?"). In the other 6 runs the tagged line was not within the 4 captured pages (frames identical,
+nothing proved). Member 168's end frame is a battle in both runs, one effect message apart (timing of the A presses). The
+English build (rc7 plus the fix, same member hashes) was run for 168 and 228: "Oh! It's Big Bro Shishio from town!" and
+"You're Shishio from Pallet Town," (blank before). `ScrCmd_609` was vetted on members 196 and 169 (blank name after it). A
+probe of member 736 (Daisy) showed the name already there, so its natives fill it: left out (class C).
+NOT verified: the walk-up path to each NPC (map-event conditions), most branches, the other ~40 sites, the effect of the extra
+padding bytes on a real console (the movement blocks keep their 4-byte alignment).
+Disk/tools: not run: `check.py --full` (needs a full build). `check.py --fast` passes registry, FIXES.md and asm-synth; its unit
+test step fails here only because work/save-core/dist is not built (same on develop).
