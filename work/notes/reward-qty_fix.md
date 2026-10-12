@@ -50,10 +50,9 @@ fanfare and pocket message), so everything after the quantity message is as befo
 by `CallIf`, so one change fixes 2033 and 2008. `work/tools/test_reward_qty.py` checks this with a small interpreter over the
 disassembly (key item and one-item gifts have identical traces, quantities 2/5/10 show #66 with BufferInt slot 1).
 
-Message #66 is the existing line (a027/0038, so far unused), text not changed: `Obtained {VAR:0108:0}{NEWLINE}x{VAR:0133:1}!` for
+Message #66 is the existing line (a027/0038, so far unused); the only text change is the added "the" (user choice 2026-10-13, D-1496), so it matches #25: `Obtained the {VAR:0108:0}{NEWLINE}x{VAR:0133:1}!` for
 zh `{VAR:0108:0}　{VAR:0133:1}{NEWLINE}入手！`. {VAR:0108:0} is the item name (slot 0), {VAR:0133:1} the number buffered by
-`BufferInt` into slot 1; the screenshot shows 'Obtained Ultra Ball / x2!'. No new bank text, so the text hash of the default
-build does not change (the fix is disabled).
+`BufferInt` into slot 1; the screenshot (taken before the wording change) shows 'Obtained Ultra Ball / x2!'; the shipped text now reads 'Obtained the Ultra Ball / x2!'. The fix adds no new bank string, but the edited #66 moved the default build's text hash (expected.toml re-recorded).
 
 Not changed: the pocket message (`#88`, 'put the Ultra Ball in the POKé BALLS Pocket'; the US game uses the plural name there
 too, the hack has no plural command), the bag-full behaviour (the std scripts never check space; the callers do, or do not:

@@ -156,7 +156,7 @@ class RewardQtyTests(unittest.TestCase):
         repo = HERE.parent.parent
         bank = json.loads((repo / "work/translate/banks/a027/0038.json").read_text(encoding="utf-8"))
         row = next(s for s in bank["strings"] if s["id"] == MSG_QTY)
-        self.assertEqual(row["en"], "Obtained {VAR:0108:0}{NEWLINE}x{VAR:0133:1}!")
+        self.assertEqual(row["en"], "Obtained the {VAR:0108:0}{NEWLINE}x{VAR:0133:1}!")
         self.assertIn("{VAR:0108:0}", row["zh"])
         self.assertIn("{VAR:0133:1}", row["zh"])
 

@@ -534,10 +534,10 @@
   {
    "id": 66,
    "zh": "{VAR:0108:0}　{VAR:0133:1}{NEWLINE}入手！",
-   "en": "Obtained {VAR:0108:0}{NEWLINE}x{VAR:0133:1}!",
+   "en": "Obtained the {VAR:0108:0}{NEWLINE}x{VAR:0133:1}!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position, flags fullwidth_chars"
+   "notes": "v3 TM: 1 source(s), same position, flags fullwidth_chars; wording: 'the' added to match #25 (user choice 2026-10-13, D-1496; finding D-2409). US uses plural item name, not available in the hack"
   },
   {
    "id": 67,
