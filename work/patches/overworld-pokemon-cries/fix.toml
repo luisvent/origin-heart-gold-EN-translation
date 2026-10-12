@@ -1,20 +1,21 @@
 id = "overworld-pokemon-cries"
-title = "Superseded: make stationary overworld Pokemon cry as the species that is drawn"
+title = "Stationary overworld Pokemon cry as the species their label and sprite show"
 kind = "narc"
-enabled = false
-decisions = ["D-2349", "D-2350"]
+enabled = true
+decisions = ["D-2349", "D-2350", "D-2351"]
 requires = []
 why = """
-Disabled and superseded (user decision 2026-10-12, second ruling, D-2349): the Chinese text and cries were right and the sprites were wrong, so the sprites are corrected (fix overworld-pokemon-sprites) and the cries stay as the Chinese ROM has them. Kept as the record of the cry analysis.
-Stationary overworld Pokemon are drawn with the hack's following-Pokemon sprite of the species the sprite id names, but many scripts
-still play the cry of another species (the vanilla species of that object, or a wrong id: Herdier plays 791, Palpitoad 820). User
-decision 2026-10-12 (D-2349): text and cry follow the DRAWN sprite. RECHECK WHEN 4.1.0 RELEASES: every object in
-work/notes/overworld-pokemon-sprite-mismatch_fix.md (section "Recheck when 4.1.0 releases") must be looked at again, because 4.1.0
-may change the sprites; if it does, the text (35 changed strings in a027) and these cries have to follow the new sprites.
+The cry of 29 stationary overworld Pokemon is another species than the one their Chinese speaker label names and their sprite draws
+(Route 6 Cloyster cries Magmortar, Route 43 Sentrets cry Smoochum, Cerulean Gym Seels cry Goldeen; Herdier plays 791 and Palpitoad 820,
+exactly 284 above their real ids 507 and 536). User decision 2026-10-12 (D-2349): where label and sprite agree, the cry follows them;
+text is never changed by this fix. Not touched: Kirk's Sylveon, the S.S. Aqua Bulbasaur, Viridian Doduo, Pokeathlon Pidgey, the
+Route 21 Lairon (cry plays Onix, D-2351) and the silent objects (open questions, D-2350). RECHECK WHEN 4.1.0 RELEASES: every object in
+work/notes/overworld-pokemon-sprite-mismatch_fix.md must be looked at again in the game (4.1.0 may change sprites or cries).
 """
 what = """
-Replace the species argument of 54 PlayCry commands (the first halfword of the command's two arguments, form 0 kept) in a/0/1/2 with the
-national dex id of the drawn species. Nothing else in those scripts changes; the English text changes are ordinary string edits.
+Replace the species argument of 23 PlayCry commands (first halfword of the command's two arguments, form 0 kept) in a/0/1/2 with the
+national dex id of the drawn and labelled species; they serve 29 object events (Slowpoke Well Slowbros, Cerulean Gym Seels, Route 43
+Sentrets, Red's house Butterfrees and Sinjoh Shiftry share scripts). Nothing else in those scripts changes; no text changes.
 """
 evidence = ["work/notes/overworld-pokemon-sprite-mismatch_fix.md", "work/tools/test_overworld_pokemon_cries.py"]
 
@@ -129,14 +130,14 @@ member_sha1 = "899d1629f4a23767a46ae38df5c6cf394b9332b2"
 notes = "PlayCry species 79 -> 80 (zone 177 object 35)."
 
 [[narc_bytes]]
-id = "m30-o117-zone186-obj2"
+id = "m109-o2722-zone178-obj16"
 narc = "a/0/1/2"
-member = 30
-offset = "0x75"
-expect = "0x0027"
-new = "0x01F8"
-member_sha1 = "3d286c12c18e200c6214c0672204c7f613aef4d3"
-notes = "PlayCry species 39 -> 504 (zone 186 object 2)."
+member = 109
+offset = "0xAA2"
+expect = "0x0009"
+new = "0x0003"
+member_sha1 = "ee51a2ffe00c2e79c7c365d303d76efaa1f7522e"
+notes = "PlayCry species 9 -> 3 (zone 178 object 16)."
 
 [[narc_bytes]]
 id = "m901-o1333-zone196-obj17"
@@ -149,26 +150,6 @@ member_sha1 = "51893628db37f6d6806528cc9ca645bfeac5b31e"
 notes = "PlayCry species 212 -> 46 (zone 196 object 17)."
 
 [[narc_bytes]]
-id = "m95-o215-zone200-obj3"
-narc = "a/0/1/2"
-member = 95
-offset = "0xD7"
-expect = "0x0043"
-new = "0x0202"
-member_sha1 = "bdb1fb5d4041000d2b900b86b83a7ad5e5108bdb"
-notes = "PlayCry species 67 -> 514 (zone 200 object 3)."
-
-[[narc_bytes]]
-id = "m877-o739-zone232-obj8"
-narc = "a/0/1/2"
-member = 877
-offset = "0x2E3"
-expect = "0x01C9"
-new = "0x01D6"
-member_sha1 = "1674be546b1b21be5ea7172ca4f3f13dae89d30a"
-notes = "PlayCry species 457 -> 470 (zone 232 object 8)."
-
-[[narc_bytes]]
 id = "m875-o144-zone236-obj8"
 narc = "a/0/1/2"
 member = 875
@@ -177,166 +158,6 @@ expect = "0x00B4"
 new = "0x00C9"
 member_sha1 = "1747b5e571fe33e07a3d96182a92a1fe47cbc3f8"
 notes = "PlayCry species 180 -> 201 (zone 236 object 8)."
-
-[[narc_bytes]]
-id = "m69-o5297-zone265-obj9"
-narc = "a/0/1/2"
-member = 69
-offset = "0x14B1"
-expect = "0x0019"
-new = "0x01F3"
-member_sha1 = "f4ea8839934fd8180e4cd8af6863ddf7e25d0d18"
-notes = "PlayCry species 25 -> 499 (zone 265 object 9)."
-
-[[narc_bytes]]
-id = "m85-o2567-zone276-obj5"
-narc = "a/0/1/2"
-member = 85
-offset = "0xA07"
-expect = "0x0050"
-new = "0x0204"
-member_sha1 = "b86c5dcd3c57a545d05e79e8d0dda4b71d500278"
-notes = "PlayCry species 80 -> 516 (zone 276 object 5)."
-
-[[narc_bytes]]
-id = "m122-o261-zone280-obj4"
-narc = "a/0/1/2"
-member = 122
-offset = "0x105"
-expect = "0x0034"
-new = "0x01FC"
-member_sha1 = "96be5a73fe4ea0f368869a4fb5f1473619ff7133"
-notes = "PlayCry species 52 -> 508 (zone 280 object 4)."
-
-[[narc_bytes]]
-id = "m122-o521-zone280-obj6"
-narc = "a/0/1/2"
-member = 122
-offset = "0x209"
-expect = "0x0036"
-new = "0x01FE"
-member_sha1 = "96be5a73fe4ea0f368869a4fb5f1473619ff7133"
-notes = "PlayCry species 54 -> 510 (zone 280 object 6)."
-
-[[narc_bytes]]
-id = "m122-o467-zone280-obj7"
-narc = "a/0/1/2"
-member = 122
-offset = "0x1D3"
-expect = "0x004F"
-new = "0x0203"
-member_sha1 = "96be5a73fe4ea0f368869a4fb5f1473619ff7133"
-notes = "PlayCry species 79 -> 515 (zone 280 object 7)."
-
-[[narc_bytes]]
-id = "m122-o215-zone280-obj8"
-narc = "a/0/1/2"
-member = 122
-offset = "0xD7"
-expect = "0x002B"
-new = "0x01FA"
-member_sha1 = "96be5a73fe4ea0f368869a4fb5f1473619ff7133"
-notes = "PlayCry species 43 -> 506 (zone 280 object 8)."
-
-[[narc_bytes]]
-id = "m122-o375-zone280-obj12"
-narc = "a/0/1/2"
-member = 122
-offset = "0x177"
-expect = "0x0050"
-new = "0x0204"
-member_sha1 = "96be5a73fe4ea0f368869a4fb5f1473619ff7133"
-notes = "PlayCry species 80 -> 516 (zone 280 object 12)."
-
-[[narc_bytes]]
-id = "m122-o421-zone280-obj14"
-narc = "a/0/1/2"
-member = 122
-offset = "0x1A5"
-expect = "0x0042"
-new = "0x0201"
-member_sha1 = "96be5a73fe4ea0f368869a4fb5f1473619ff7133"
-notes = "PlayCry species 66 -> 513 (zone 280 object 14)."
-
-[[narc_bytes]]
-id = "m122-o494-zone280-obj15"
-narc = "a/0/1/2"
-member = 122
-offset = "0x1EE"
-expect = "0x0053"
-new = "0x0205"
-member_sha1 = "96be5a73fe4ea0f368869a4fb5f1473619ff7133"
-notes = "PlayCry species 83 -> 517 (zone 280 object 15)."
-
-[[narc_bytes]]
-id = "m124-o1734-zone282-obj15"
-narc = "a/0/1/2"
-member = 124
-offset = "0x6C6"
-expect = "0x0013"
-new = "0x01F0"
-member_sha1 = "2e1609228232f0dc6394993fa13bd4607a4db00e"
-notes = "PlayCry species 19 -> 496 (zone 282 object 15)."
-
-[[narc_bytes]]
-id = "m124-o1850-zone282-obj16"
-narc = "a/0/1/2"
-member = 124
-offset = "0x73A"
-expect = "0x000C"
-new = "0x01EE"
-member_sha1 = "2e1609228232f0dc6394993fa13bd4607a4db00e"
-notes = "PlayCry species 12 -> 494 (zone 282 object 16)."
-
-[[narc_bytes]]
-id = "m124-o1792-zone282-obj17"
-narc = "a/0/1/2"
-member = 124
-offset = "0x700"
-expect = "0x0042"
-new = "0x0201"
-member_sha1 = "2e1609228232f0dc6394993fa13bd4607a4db00e"
-notes = "PlayCry species 66 -> 513 (zone 282 object 17)."
-
-[[narc_bytes]]
-id = "m125-o277-zone284-obj4"
-narc = "a/0/1/2"
-member = 125
-offset = "0x115"
-expect = "0x0013"
-new = "0x01F0"
-member_sha1 = "a49660104805b0157153e1c0ba3d68a74c547e42"
-notes = "PlayCry species 19 -> 496 (zone 284 object 4)."
-
-[[narc_bytes]]
-id = "m125-o304-zone284-obj6"
-narc = "a/0/1/2"
-member = 125
-offset = "0x130"
-expect = "0x0029"
-new = "0x01F9"
-member_sha1 = "a49660104805b0157153e1c0ba3d68a74c547e42"
-notes = "PlayCry species 41 -> 505 (zone 284 object 6)."
-
-[[narc_bytes]]
-id = "m126-o262-zone285-obj6"
-narc = "a/0/1/2"
-member = 126
-offset = "0x106"
-expect = "0x0093"
-new = "0x020F"
-member_sha1 = "1a123682f15dfc70f1f53a43657bc235e2c389c6"
-notes = "PlayCry species 147 -> 527 (zone 285 object 6)."
-
-[[narc_bytes]]
-id = "m816-o203-zone300-obj3"
-narc = "a/0/1/2"
-member = 816
-offset = "0xCB"
-expect = "0x003F"
-new = "0x0200"
-member_sha1 = "aeb530c9ecda4c683cccb4c62b1ef1721627e96d"
-notes = "PlayCry species 63 -> 512 (zone 300 object 3)."
 
 [[narc_bytes]]
 id = "m780-o409-zone362-obj9"
@@ -399,46 +220,6 @@ member_sha1 = "ce9916d723fb875aa1dcbbf920d1d02b3dc5d1d3"
 notes = "PlayCry species 791 -> 507 (zone 429 object 9)."
 
 [[narc_bytes]]
-id = "m751-o233-zone475-obj5"
-narc = "a/0/1/2"
-member = 751
-offset = "0xE9"
-expect = "0x0027"
-new = "0x01F8"
-member_sha1 = "923f5e2a3483e5785ebe46376dc04c85bd53aa90"
-notes = "PlayCry species 39 -> 504 (zone 475 object 5)."
-
-[[narc_bytes]]
-id = "m811-o47-zone483-obj1"
-narc = "a/0/1/2"
-member = 811
-offset = "0x2F"
-expect = "0x00BE"
-new = "0x0215"
-member_sha1 = "b60b5d6ef2cd6656a0713c3a334dc6a2c424d65e"
-notes = "PlayCry species 190 -> 533 (zone 483 object 1)."
-
-[[narc_bytes]]
-id = "m811-o74-zone483-obj2"
-narc = "a/0/1/2"
-member = 811
-offset = "0x4A"
-expect = "0x00BE"
-new = "0x0215"
-member_sha1 = "b60b5d6ef2cd6656a0713c3a334dc6a2c424d65e"
-notes = "PlayCry species 190 -> 533 (zone 483 object 2)."
-
-[[narc_bytes]]
-id = "m811-o101-zone483-obj3"
-narc = "a/0/1/2"
-member = 811
-offset = "0x65"
-expect = "0x00BE"
-new = "0x0215"
-member_sha1 = "b60b5d6ef2cd6656a0713c3a334dc6a2c424d65e"
-notes = "PlayCry species 190 -> 533 (zone 483 object 3)."
-
-[[narc_bytes]]
 id = "m55-o324-zone492-obj12"
 narc = "a/0/1/2"
 member = 55
@@ -459,26 +240,6 @@ member_sha1 = "31dac176af50bb739c38ea69e05d575c4ed22a54"
 notes = "PlayCry species 330 -> 275 (zone 492 object 16)."
 
 [[narc_bytes]]
-id = "m744-o120-zone497-obj2"
-narc = "a/0/1/2"
-member = 744
-offset = "0x78"
-expect = "0x0013"
-new = "0x01F0"
-member_sha1 = "85c8184b97cc6fb1924cba085a583bd7728878b3"
-notes = "PlayCry species 19 -> 496 (zone 497 object 2)."
-
-[[narc_bytes]]
-id = "m744-o93-zone497-obj3"
-narc = "a/0/1/2"
-member = 744
-offset = "0x5D"
-expect = "0x0015"
-new = "0x01F1"
-member_sha1 = "85c8184b97cc6fb1924cba085a583bd7728878b3"
-notes = "PlayCry species 21 -> 497 (zone 497 object 3)."
-
-[[narc_bytes]]
 id = "m734-o799-zone503-obj15"
 narc = "a/0/1/2"
 member = 734
@@ -487,73 +248,3 @@ expect = "0x0147"
 new = "0x000C"
 member_sha1 = "9fa08ee08c252c0a7275eb6e3a8cff27befe0c8a"
 notes = "PlayCry species 327 -> 12 (zone 503 object 15)."
-
-[[narc_bytes]]
-id = "m132-o918-zone523-obj3"
-narc = "a/0/1/2"
-member = 132
-offset = "0x396"
-expect = "0x003F"
-new = "0x0200"
-member_sha1 = "c6aeee999cfb71c920e67277ffa85e0055acbe2f"
-notes = "PlayCry species 63 -> 512 (zone 523 object 3)."
-
-[[narc_bytes]]
-id = "m66-o2729-zone225-obj2"
-narc = "a/0/1/2"
-member = 66
-offset = "0xAA9"
-expect = "0x00B5"
-new = "0x0213"
-member_sha1 = "08597262eee052cdfb27ef7caec7e7fd8b904980"
-notes = "PlayCry species 181 -> 531 (zone 225 object 2)."
-
-[[narc_bytes]]
-id = "m66-o3399-zone225-obj2"
-narc = "a/0/1/2"
-member = 66
-offset = "0xD47"
-expect = "0x00B5"
-new = "0x0213"
-member_sha1 = "08597262eee052cdfb27ef7caec7e7fd8b904980"
-notes = "PlayCry species 181 -> 531 (zone 225 object 2)."
-
-[[narc_bytes]]
-id = "m66-o3332-zone225-obj2"
-narc = "a/0/1/2"
-member = 66
-offset = "0xD04"
-expect = "0x00B5"
-new = "0x0213"
-member_sha1 = "08597262eee052cdfb27ef7caec7e7fd8b904980"
-notes = "PlayCry species 181 -> 531 (zone 225 object 2)."
-
-[[narc_bytes]]
-id = "m127-o1058-zone286-obj3"
-narc = "a/0/1/2"
-member = 127
-offset = "0x422"
-expect = "0x0055"
-new = "0x0206"
-member_sha1 = "e12e56df26f3e4a4813f16a97325e0e9202537a3"
-notes = "PlayCry species 85 -> 518 (zone 286 object 3)."
-
-[[narc_bytes]]
-id = "m957-o262-zone93-obj15"
-narc = "a/0/1/2"
-member = 957
-offset = "0x106"
-expect = "0x005F"
-new = "0x0131"
-member_sha1 = "927aaff60277b82955aa2f9af66f78b8a8b68369"
-notes = "PlayCry species 95 -> 305 (zone 93 object 15)."
-
-[[narc_bytes]]
-id = "m957-o612-zone93-obj15"
-narc = "a/0/1/2"
-member = 957
-offset = "0x264"
-expect = "0x005F"
-new = "0x0131"
-member_sha1 = "927aaff60277b82955aa2f9af66f78b8a8b68369"
-notes = "PlayCry species 95 -> 305 (zone 93 object 15)."

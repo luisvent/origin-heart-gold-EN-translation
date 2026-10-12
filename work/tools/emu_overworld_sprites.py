@@ -35,6 +35,7 @@ CASES = {
     "pewter": (475, 8, 18, "DOWN", "UP", 6, 15),
     "lighthouse": (225, 9, 9, "DOWN", "UP", 9, 9),
     "pewter-talk": (475, 8, 18, "DOWN", "UP", 5, 14),   # also talks to the Pokemon: text box and PlayCry species
+    "cianwood-talk": (236, 8, 18, "DOWN", "UP", 10, 14),                  # Pokemon Center Unown (cry Flaaffy -> Unown)
 }
 PLAYCRY_CALL = 0x020487F0   # arm9: `bl` to the cry player inside the PlayCry script command; r1 = species, r2 = form
 
@@ -59,7 +60,7 @@ def default_sav() -> str:
 
 def run_case(rom: str, sav: str, out: Path, name: str) -> dict:
     from emu_harness import Harness, SaveFile
-    zone, px, pz, leave, enter, tx, tz = CASES[name]
+    zone, px, pz, leave, enter, tx, tz, *face = CASES[name]
     sf = SaveFile(sav)
     sf.place_player(zone, px, pz, leave)
     with tempfile.TemporaryDirectory(dir=out) as tmp:
@@ -79,7 +80,7 @@ def run_case(rom: str, sav: str, out: Path, name: str) -> dict:
             cries = []
             if name.endswith("-talk"):
                 h.on_exec(PLAYCRY_CALL, lambda m: cries.append(m.reg.r1))
-                h.walk("UP", 1)         # blocked by the Pokemon: only turns
+                h.walk(face[0] if face else "UP", 1)         # blocked by the Pokemon: only turns
                 h.press("A", frames=6)
                 h.step(150)
             shot = h.screenshot(name)

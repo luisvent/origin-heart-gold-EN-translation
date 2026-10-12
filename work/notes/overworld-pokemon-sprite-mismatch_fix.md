@@ -9,9 +9,12 @@ a Patrat; the Ampharos in the Olivine Lighthouse is drawn as an Audino. Branch `
 
 1. First: change the sprite ids (fix `overworld-pokemon-sprites`, commit ab420ca).
 2. Then: do not change sprites, text and cry follow the sprite (fix `overworld-pokemon-cries`, 35 English strings, commit de59b87).
-3. Final, after a user report: the text and cry were right and the sprites are wrong. Sprites follow the Chinese text and cry; text and
+3. After a user report: the text and cry were right and the sprites are wrong. Sprites follow the Chinese text and cry; text and
    cries stay exactly as the Chinese ROM has them. This commit restores ruling 1 (re-enabled and re-scoped) and disables ruling 2
-   (`overworld-pokemon-cries` kept, `enabled = false`; its 35 string edits reverted, nothing deleted).
+   (`overworld-pokemon-cries` kept, its 35 string edits reverted, nothing deleted).
+4. Last: where label and sprite agree but the cry disagrees (29 objects), the CRY is fixed (fix `overworld-pokemon-cries` re-enabled and
+   re-scoped to exactly those cry edits, no text). Open questions stay unchanged: Sylveon, S.S. Aqua Bulbasaur, Viridian Doduo, Pokeathlon Pidgey,
+   Route 21, the silent objects.
 
 Rules used: (1) sprite = the species the Chinese speaker label and the cry agree on; (2) where label and cry disagree the Chinese label
 decides and the object is listed "needs user check"; where the text itself is ambiguous (nickname, sound word that fits two species)
@@ -20,12 +23,14 @@ or silent the sprite is left; (3) species-neutral objects are only changed when 
 ## What changed in this build compared with the Chinese ROM
 
 * Fix `overworld-pokemon-sprites` (enabled, 37 `[[narc_bytes]]` in `a/0/3/2`, member SHA-1 guarded): only the 2-byte sprite id of 37
-  object events changes (table below). Position, flag, script, movement, facing, text and cries are the Chinese ROM's.
+  object events changes (table below). Position, flag, script, movement, facing and text are the Chinese ROM's.
 * English text: exactly one correction, a027/0732#18 "Onix, smash through Mr. Mime's barrier ..." -> "Lairon, ..." and #19 "Onix: Oooo-ni!"
   -> "Lairon: Laaa-ro!" (Route 21): the Chinese says 可多拉 = Lairon and the sprite is already Lairon; the English was a mistranslation
   (D-1496 style, text only, from the Chinese; the sound word is the Chinese 'Laaa-ro'). The two PlayCry of that script still play Onix
   (95) as in the Chinese ROM: finding D-2351.
-* Nothing else (no other string, no cry, no other sprite).
+* Fix `overworld-pokemon-cries` (enabled, 23 `[[narc_bytes]]` in `a/0/1/2`, no `[[string]]`): the species argument of 23 PlayCry commands, serving
+  29 objects (table below), is set to the drawn and labelled species (Herdier 791 -> 507, Palpitoad 820 -> 536 included).
+* Nothing else (no other string, no other cry, no other sprite).
 
 ## The 37 sprite changes (the list to re-verify visually for 4.1.0)
 
@@ -78,50 +83,49 @@ following-Pokemon table (id = 428 + base offset in `data/pokemon_overworld_info.
 Palpitoad 1036) and missed the rest. The Indigo Plateau Metagross object 27 (zones 85 and 195; Tyranitar 709) is hidden by flag 1366 and
 shares script 25 with the Metagross objects drawn 837: label and cry both Metagross.
 
-## Needs user check (not changed unless the Note column above says so)
+## The 29 cry changes (label and sprite agree, the cry was another species)
+
+User decision: the cry follows the label and the drawn sprite. Nickname rows (Megaree = Meganium, Peeko = Wingull, Exbo = Quilava) and Victory Road 2F
+object 16 (plain talker: its Chinese label 妙蛙花 is Venusaur and it is drawn Venusaur; the Blastoise cry is the odd one) are included. Objects that
+share a script share the edits (Route 43 Sentrets, Slowpoke Well Slowbros, Cerulean Gym Seels, Sinjoh Shiftry, Red's house Butterfrees).
+
+| Map | Event member / object | Drawn sprite | Chinese label (a027 bank#id) | Cry old -> new | Script member@offset (PlayCry species) |
+|---|---|---|---|---|---|
+| Route 6 (zone 14) | ev 11 / obj 17 | 520 Cloyster | 铁甲贝 (327#40) | Magmortar -> Cloyster | m184@0x232 |
+| Route 26 (zone 30) | ev 27 / obj 11 | 581 Chikorita | 菊草叶 (358#21) | Bayleef -> Chikorita | m218@0x254 |
+| Route 32 (zone 36) | ev 33 / obj 2 | 874 Shieldon | 铁面龙 (373#29) | Bastiodon -> Shieldon | m232@0x27C |
+| Route 43 (zone 45) | ev 42 / obj 5 | 591 Sentret | 尾立 (394#13) | Smoochum -> Sentret | m254@0x114, m254@0x3BB |
+| Route 43 (zone 45) | ev 42 / obj 7 | 591 Sentret | 尾立 (394#13) | Smoochum -> Sentret | m254@0x114, m254@0x3BB |
+| Viridian (zone 50) | ev 47 / obj 14 | 617 Politoed | 牛蛙君 (445#25) | Rattata -> Politoed | m739@0x462 |
+| Cianwood (zone 75) | ev 72 / obj 10 | 583 Meganium | 大竹蹦 (564#15) | Corsola -> Meganium | m872@0x238 |
+| Cianwood (zone 75) | ev 72 / obj 21 | 739 Wingull | 小皮 (564#45) | Heracross -> Wingull | m872@0x30C |
+| Ecruteak Pokecenter 1F (zone 81) | ev 78 / obj 11 | 586 Quilava | 爆太郎 (606#17) | Typhlosion -> Quilava | m919@0x1E9 |
+| Ecruteak Dowsing Machine House (zone 84) | ev 81 / obj 14 | 444 Pidgey | 波波 (610#40) | Pichu -> Pidgey | m925@0x264 |
+| Slowpoke Well B1F (zone 177) | ev 170 / obj 23 | 509 Slowbro | 呆河马 (89#122) | Slowpoke -> Slowbro | m60@0x1F7 |
+| Slowpoke Well B1F (zone 177) | ev 170 / obj 33 | 509 Slowbro | 呆河马 (89#122) | Slowpoke -> Slowbro | m60@0x1F7 |
+| Slowpoke Well B1F (zone 177) | ev 170 / obj 34 | 509 Slowbro | 呆河马 (89#122) | Slowpoke -> Slowbro | m60@0x1F7 |
+| Slowpoke Well B1F (zone 177) | ev 170 / obj 35 | 509 Slowbro | 呆河马 (89#122) | Slowpoke -> Slowbro | m60@0x1F7 |
+| Victory Road 2F (zone 178) | ev 171 / obj 16 | 430 Venusaur | 妙蛙花 (448#120) | Blastoise -> Venusaur | m109@0xAA2 |
+| Goldenrod Department Store 6F (zone 196) | ev 189 / obj 17 | 475 Paras | 派拉斯 (589#5) | Scizor -> Paras | m901@0x535 |
+| Cianwood Pokecenter 1F (zone 236) | ev 222 / obj 8 | 659 Unown | 未知图腾 (567#8) | Flaaffy -> Unown | m875@0x90 |
+| Vermilion Pokemon Fan Club (zone 362) | ev 319 / obj 9 | 602 Pichu | 皮丘 (481#20) | Raticate -> Pichu | m780@0x199 |
+| Celadon Department Store 3F (zone 372) | ev 329 / obj 8 | 920 Munchlax | 刚比兽 (489#9) | Machamp -> Munchlax | m789@0x12D |
+| Celadon Condominiums Roof (zone 379) | ev 336 / obj 2 | 670 Granbull | 布鲁皇 (497#5) | Floette -> Granbull | m797@0x7F |
+| Saffron Copycat House 1F (zone 404) | ev 361 / obj 2 | 1036 Palpitoad | 蓝蟾蜍 (532#3) | Greedent -> Palpitoad | m837@0x98 |
+| Cerulean Gym (zone 427) | ev 382 / obj 10 | 515 Seel | 小海狮 (462#49) | Goldeen -> Seel | m758@0x4B7 |
+| Cerulean Gym (zone 427) | ev 382 / obj 38 | 515 Seel | 小海狮 (462#49) | Goldeen -> Seel | m758@0x4B7 |
+| Cerulean North House (zone 429) | ev 384 / obj 9 | 1007 Herdier | 哈约克 (464#38) | Solgaleo -> Herdier | m761@0x241 |
+| Ruins Of Alph Underground Hall Sinjoh Event 2 (zone 492) | ev 444 / obj 12 | 796 Zangoose | 猫鼬斩 (84#20) | Ursaring -> Zangoose | m55@0x144 |
+| Ruins Of Alph Underground Hall Sinjoh Event 2 (zone 492) | ev 444 / obj 14 | 736 Shiftry | 狡猾天狗 (84#61) | Flygon -> Shiftry | m55@0x265 |
+| Ruins Of Alph Underground Hall Sinjoh Event 2 (zone 492) | ev 444 / obj 16 | 736 Shiftry | 狡猾天狗 (84#61) | Flygon -> Shiftry | m55@0x265 |
+| Pallet Town Reds House 1F (zone 503) | ev 455 / obj 2 | 440 Butterfree | 巴大蝴 (440#73) | Spinda -> Butterfree | m734@0x31F |
+| Pallet Town Reds House 1F (zone 503) | ev 455 / obj 15 | 440 Butterfree | 巴大蝴 (440#73) | Spinda -> Butterfree | m734@0x31F |
+
+## Needs user check (open questions; nothing changed except the Sylveon and Bulbasaur sprites)
 
 ### Changed although label and cry disagree (label decided)
 
-* Kirk's house (zone 232, events 218 / object 8): label Sylveon (仙子精灵), cry Lumineon (457), was drawn Leafeon -> now Sylveon.
-* S.S. Aqua 1F north-west rooms (zone 328, events 299 / object 28): label Bulbasaur (妙蛙种子, sound Bul-ba), cry Ivysaur (2), was drawn
-  Ivysaur -> now Bulbasaur.
-
-### Label agrees with the sprite, the cry disagrees (29 objects, sprite and cry left as the Chinese ROM has them)
-
-Rule (2) lets the label decide, and the sprite already is the label's species, so nothing changes; the cry stays. Nickname rows (Megaree,
-Peeko, Exbo) have species-neutral text: sprite left, cry disagrees.
-
-| Map | Event member / object | Sprite (unchanged) | Chinese text species | Cry species | Sprite chosen |
-|---|---|---|---|---|---|
-| Route 6 (zone 14) | ev 11 / obj 17 | 520 Cloyster | Cloyster | Magmortar | unchanged (sprite agrees with the text) |
-| Route 26 (zone 30) | ev 27 / obj 11 | 581 Chikorita | Chikorita | Bayleef | unchanged (sprite agrees with the text) |
-| Route 32 (zone 36) | ev 33 / obj 2 | 874 Shieldon | Shieldon | Bastiodon | unchanged (sprite agrees with the text) |
-| Route 43 (zone 45) | ev 42 / obj 5 | 591 Sentret | Sentret | Smoochum | unchanged (sprite agrees with the text) |
-| Route 43 (zone 45) | ev 42 / obj 7 | 591 Sentret | Sentret | Smoochum | unchanged (sprite agrees with the text) |
-| Viridian (zone 50) | ev 47 / obj 14 | 617 Politoed | Politoed | Rattata | unchanged (sprite agrees with the text) |
-| Cianwood (zone 75) | ev 72 / obj 10 | 583 Meganium | (nickname) | Corsola | unchanged: nickname text is species-neutral, sprite left; needs user check |
-| Cianwood (zone 75) | ev 72 / obj 21 | 739 Wingull | (nickname) | Heracross | unchanged: nickname text is species-neutral, sprite left; needs user check |
-| Ecruteak Pokecenter 1F (zone 81) | ev 78 / obj 11 | 586 Quilava | (nickname) | Typhlosion | unchanged: nickname text is species-neutral, sprite left; needs user check |
-| Ecruteak Dowsing Machine House (zone 84) | ev 81 / obj 14 | 444 Pidgey | Pidgey | Pichu | unchanged (sprite agrees with the text) |
-| Slowpoke Well B1F (zone 177) | ev 170 / obj 23 | 509 Slowbro | Slowbro | Slowpoke | unchanged (sprite agrees with the text) |
-| Slowpoke Well B1F (zone 177) | ev 170 / obj 33 | 509 Slowbro | Slowbro | Slowpoke | unchanged (sprite agrees with the text) |
-| Slowpoke Well B1F (zone 177) | ev 170 / obj 34 | 509 Slowbro | Slowbro | Slowpoke | unchanged (sprite agrees with the text) |
-| Slowpoke Well B1F (zone 177) | ev 170 / obj 35 | 509 Slowbro | Slowbro | Slowpoke | unchanged (sprite agrees with the text) |
-| Victory Road 2F (zone 178) | ev 171 / obj 16 | 430 Venusaur | Venusaur | Blastoise | unchanged (sprite agrees with the text) |
-| Goldenrod Department Store 6F (zone 196) | ev 189 / obj 17 | 475 Paras | Paras | Scizor | unchanged (sprite agrees with the text) |
-| Cianwood Pokecenter 1F (zone 236) | ev 222 / obj 8 | 659 Unown | Unown | Flaaffy | unchanged (sprite agrees with the text) |
-| Vermilion Pokemon Fan Club (zone 362) | ev 319 / obj 9 | 602 Pichu | Pichu | Raticate | unchanged (sprite agrees with the text) |
-| Celadon Department Store 3F (zone 372) | ev 329 / obj 8 | 920 Munchlax | Munchlax | Machamp | unchanged (sprite agrees with the text) |
-| Celadon Condominiums Roof (zone 379) | ev 336 / obj 2 | 670 Granbull | Granbull | Floette | unchanged (sprite agrees with the text) |
-| Saffron Copycat House 1F (zone 404) | ev 361 / obj 2 | 1036 Palpitoad | Palpitoad | Greedent | unchanged (sprite agrees with the text) |
-| Cerulean Gym (zone 427) | ev 382 / obj 10 | 515 Seel | Seel | Goldeen | unchanged (sprite agrees with the text) |
-| Cerulean Gym (zone 427) | ev 382 / obj 38 | 515 Seel | Seel | Goldeen | unchanged (sprite agrees with the text) |
-| Cerulean North House (zone 429) | ev 384 / obj 9 | 1007 Herdier | Herdier | Solgaleo | unchanged (sprite agrees with the text) |
-| Ruins Of Alph Underground Hall Sinjoh Event 2 (zone 492) | ev 444 / obj 12 | 796 Zangoose | Zangoose | Ursaring | unchanged (sprite agrees with the text) |
-| Ruins Of Alph Underground Hall Sinjoh Event 2 (zone 492) | ev 444 / obj 14 | 736 Shiftry | Shiftry | Flygon | unchanged (sprite agrees with the text) |
-| Ruins Of Alph Underground Hall Sinjoh Event 2 (zone 492) | ev 444 / obj 16 | 736 Shiftry | Shiftry | Flygon | unchanged (sprite agrees with the text) |
-| Pallet Town Reds House 1F (zone 503) | ev 455 / obj 2 | 440 Butterfree | Butterfree | Spinda | unchanged (sprite agrees with the text) |
-| Pallet Town Reds House 1F (zone 503) | ev 455 / obj 15 | 440 Butterfree | Butterfree | Spinda | unchanged (sprite agrees with the text) |
+See "Facts for Discord" below. Their cries are NOT changed (open).
 
 ### Label disagrees with sprite and cry, text ambiguous: sprite left
 
@@ -134,7 +138,6 @@ Peeko, Exbo) have species-neutral text: sprite left, cry disagrees.
   Square Clefairy event x6 (events 465 objects 0-5, drawn Samurott 1003), Moomoo Farm house x5 (events 201 objects 1,3,4,5,6, Tympole
   1035), Pokeathlon Dome Poliwrath x2 (events 251 and 253, object 1, 1011).
 * Route 21 Lairon (events 90 / object 15, 766): text and sprite are Lairon, cry plays Onix (D-2351).
-* Victory Road 2F object 16 (events 171, Venusaur drawn, label Venusaur, cry Blastoise): fake-Red scene, not a plain stationary Pokemon.
 * Cutscene actors whose scripts move several actors (Slowpoke Well Gold/Crystal, Team Rocket HQ B2F Pryce/Green) are not stationary
   Pokemon objects.
 
@@ -153,9 +156,9 @@ teleport to the door, out and back in, walk next to the Pokemon; case `pewter-ta
 | fixed build | Jigglypuff | Jigglypuff: Buli, buli! (text unchanged) | 39 (unchanged) | Ampharos |
 
 Screenshots (game data, not committed): `<scratchpad>/ow/shots/pewter_talk_cn_develop_fixed3.png` and `lighthouse_cn_develop_fixed3.png`
-(Chinese ROM | develop | fixed). Not shown on screen: the other 35 objects (data test only); the Department Store basement teleport crashes the
+(Chinese ROM | develop | fixed). Cry fix, same harness, case `cianwood-talk` (Cianwood Pokemon Center Unown, text box "Unown: Uuuu-now!" unchanged): PlayCry species 180 (Flaaffy) on the Chinese ROM -> 201 (Unown) on the fixed build. A second live object could not be reached (the Vermilion Fan Club Pichu wanders; the Goldenrod Dept Store 6F, Ecruteak PC and Route 32 attempts did not reach the Pokemon), so the other 28 are covered by `test_overworld_pokemon_cries.py`. Not shown on screen: the other 35 objects (data test only); the Department Store basement teleport crashes the
 emulator on all three ROMs. Tests: `work/tools/test_overworld_pokemon_sprites.py` (every changed id, only sprite bytes change, no vanilla id
-left in 994..1046 except Herdier, Palpitoad and the silent objects), `test_overworld_pokemon_cries.py` (the disabled cry fix's bytes).
+left in 994..1046 except Herdier, Palpitoad and the silent objects), `test_overworld_pokemon_cries.py` (enabled cry fix: every in-scope object's cry equals its drawn species after the fix, out-of-scope cries unchanged, no text in the fix).
 `check.py` fast: registry, fixes-md, asm-synth pass; remaining ruff / test failures exist on develop (fixes.py E501, test_script_insert F841,
 test_honey_gather needs armips on PATH). `expected.toml` is not updated (record at merge).
 
@@ -165,8 +168,24 @@ test_honey_gather needs armips on PATH). `expected.toml` is not updated (record 
 
 - [ ] all 37 rows of the table above (map, events member / object and the sprite-id offset are given there)
 - [ ] Kirk's Sylveon and the S.S. Aqua Bulbasaur (label vs cry disagree)
-- [ ] the 29 cry-mismatch objects (cry still wrong in the Chinese ROM; is the cry fixed in 4.1.0?)
+- [ ] the 29 cry-fixed objects (table above): listen to each cry; if 4.1.0 already fixes it, drop the row
 - [ ] Viridian Doduo/Dodrio and Pokeathlon Pidgey/Pidgeotto (ambiguous text)
 - [ ] silent objects still wrong: Mount Moon Clefairy x6, Moomoo Farm x5, Pokeathlon Poliwrath x2
 - [ ] Route 21 Lairon (English corrected, cry still Onix), Victory Road 2F object 16
-- [ ] the disabled `overworld-pokemon-cries` fix (cries follow sprites) is the alternative if 4.1.0 keeps the old sprites
+
+## Facts for Discord: Sylveon and S.S. Aqua Bulbasaur
+
+**Sylveon (Cianwood City, Kirk's house, the "three Eevee brothers" house).** Object: the Pokemon at x 36 / z 37 (events 218, object 8, script 10), next
+to the Eevee-quiz brother (object 7). Text when you talk to it (a027/0568#108): zh `仙子精灵『Syyy——veo！` = "Sylveon: Syyy-veo!", with the cry playing as it
+speaks. The cry species in the script is 457, which is Lumineon (Sylveon would be 700). Sprite on the Chinese ROM: Leafeon (id 946; the neighbouring Glaceon
+object uses 947); this build draws a Sylveon (id 1200). The brother's quiz prize text (a027/0568#106) also says "Sylveon is the most recently discovered form of
+Eevee. Hardly any Trainers own one" (zh `仙子精灵是最新发现的伊布形态,几乎没有训练家拥有这只精灵`), so the house really means a Sylveon. Odd one out: sprite and
+cry. The label (text, sound word and the brother's line) agree on Sylveon; the Leafeon sprite and the Lumineon cry are two separate wrong values that do not
+agree with each other either. Fixed in this build: the sprite only; the cry still plays Lumineon (open question).
+
+**S.S. Aqua Bulbasaur (S.S. Anne hijack scene, 1F north-west rooms).** The Chinese says 圣安努号 (S.S. Anne). Object: events 299, object 28 (script 29), at x 19 /
+z 41 beside object 27, Green (小蓝; a027/0255#54 "Green: Once I make sure it's safe here, I'll come help you"). Text (a027/0255#56): zh `妙蛙种子『Bul——ba！` =
+"Bulbasaur: Bul-ba!". Cry species in the script: 2 (Ivysaur). Sprite on the Chinese ROM: Ivysaur (id 429); now Bulbasaur (id 428). Here sprite and cry agree
+(Ivysaur) against the label and its sound word (both Bulbasaur), so by count the text is the odd one; but one wrong word in a text line is also the easiest
+slip to make, and nothing in the data (Green has no species line here) settles it. Under the user rule (label decides) the sprite became Bulbasaur; the cry still
+plays Ivysaur (open question). If sprite plus cry should be the authority instead, drop entry ev299-obj28 from `overworld-pokemon-sprites`.
