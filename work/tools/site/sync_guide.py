@@ -240,7 +240,7 @@ def rewrite_links(text, depth):
         return '](%s%s)' % (url, anchor)
     # pictures sit beside the generated pages (see sync_images); Astro needs the explicit ./
     text = re.sub(r'\]\(images/', '](./images/', text)
-    text = re.sub(r'\]\(((?:\d+-[a-z0-9-]+|known-issues|README)\.md)(#[^)]*)?\)', repl, text)
+    text = re.sub(r'\]\(((?:\d+-[a-z0-9-]+|known-issues|hidden-items|README)\.md)(#[^)]*)?\)', repl, text)
     # site reference pages: "[Move tutors](/tutors/)" means the site root, whatever the base path is.
     # Guide pages sit at /guide/ (README, depth 0) or /guide/<page>/ (depth 1).
     root = '../' * (depth + 1)
@@ -250,15 +250,17 @@ def rewrite_links(text, depth):
 def sync_images(check):
     """Mirror guide/images/ into OUT/images/. Returns the names that changed."""
     out = os.path.join(OUT, 'images')
-    want = sorted(os.listdir(IMAGES)) if os.path.isdir(IMAGES) else []
-    have = set(os.listdir(out)) if os.path.isdir(out) else set()
+    def listing(root):
+        return sorted(os.path.relpath(os.path.join(d, f), root) for d, _, fs in os.walk(root) for f in fs) if os.path.isdir(root) else []
+    want = listing(IMAGES)
+    have = set(listing(out))
     changed = []
     for n in want:
         src, dst = os.path.join(IMAGES, n), os.path.join(out, n)
         if n not in have or not filecmp.cmp(src, dst, shallow=False):
             changed.append('images/' + n)
             if not check:
-                os.makedirs(out, exist_ok=True)
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
                 shutil.copyfile(src, dst + '.tmp')
                 os.replace(dst + '.tmp', dst)
     for n in sorted(have - set(want)):
@@ -422,14 +424,14 @@ def convert(fn, src, areas, shared_ids=(), report=None, force_mdx=False):
             meta = next(metas)
             where = 'guide/%s: %s' % (fn, h)
             tags = apply_meta(heading_tags(h), meta, where)
-            if slug not in ('index', 'known-issues') and 'kind' not in tags:
+            if slug not in ('index', 'known-issues', 'hidden-items') and 'kind' not in tags:
                 raise SystemExit('%s: add quest metadata with kind=main or kind=side' % where)
             attrs = ['data-%s="%s"' % (k, html.escape(','.join(v) if isinstance(v, list) else v if isinstance(v, str) else 'yes', quote=True)) for k, v in sorted(tags.items())]
             if meta.get('id'):
                 attrs.append('data-quest-id="%s"' % html.escape(meta['id'], quote=True))
             if gh_slug(h) in shared_ids:
                 attrs.append('data-legacy-shared="yes"')
-            in_quest = slug not in ('index', 'known-issues')
+            in_quest = slug not in ('index', 'known-issues', 'hidden-items')
             if in_quest:
                 body += ['<section class="quest" %s>' % ' '.join(attrs) if attrs else '<section class="quest">', '']
             body.append(ln)
@@ -458,6 +460,8 @@ def convert(fn, src, areas, shared_ids=(), report=None, force_mdx=False):
         fm += ['  label: Overview']
     if fn == 'known-issues.md':
         fm += ['  label: Known issues']
+    if fn == 'hidden-items.md':
+        fm += ['  label: Hidden items']
     fm += ['source: guide/%s' % fn, 'editUrl: false', '---', '']
     text = text.strip('\n') + '\n'
     if not (solvers or force_mdx):
@@ -488,7 +492,7 @@ def main(argv=None):
     # so a tick on one of these can't be told apart and is not carried over (see site/public/ohg.js).
     pages_of, quest_ids = {}, {}
     for fn, src in srcs.items():
-        if page_slug(fn) in ('index', 'known-issues'):
+        if page_slug(fn) in ('index', 'known-issues', 'hidden-items'):
             continue
         for h, meta in quest_headings(src):
             pages_of.setdefault(gh_slug(h), set()).add(fn)
