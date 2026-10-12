@@ -355,6 +355,27 @@ class RealMembers(unittest.TestCase):
         for m in (111, 733):
             self.assertEqual(files[m], solo[m])
 
+
+    def test_with_all_overlapping_fixes(self):
+        """romance-mail-mismatch (842), blank-player-name (111/171/733) and the batch together. narc_bytes entries
+        run first, then the inserts, whatever the order in the fix list."""
+        ids = ["romance-mail-mismatch", "blank-player-name", "blank-player-name-batch"]
+        both, _ = self.patched(*ids)
+        rev, _ = self.patched(*reversed(ids))
+        self.assertEqual(both, rev)
+        solo, _ = self.patched("blank-player-name-batch")
+        rom_only, _ = self.patched("romance-mail-mismatch")
+        for m in (842, 843, 111, 171, 733):
+            SI.Layout(both[m])
+        v_solo, _, _ = identity_view(solo[842])
+        v_both, _, _ = identity_view(both[842])
+        v_rom, _, _ = identity_view(rom_only[842])
+        self.assertEqual(len(v_both), len(v_rom) + 1)           # the batch's one insert on top of the romance edits
+        self.assertEqual(len(v_both), len(v_solo) + (len(v_rom) - len(identity_view(self.before[842])[0])))
+        self.assertEqual(sorted(x[2][1] for x in v_both if x[0] == 94), sorted(x[2][1] for x in v_rom if x[0] == 94))
+        self.assertEqual(both[843], rom_only[843])
+        self.assertEqual([i for i in range(len(both)) if both[i] != self.before[i] and i not in {m["member"] for m in self.batch["script_insert"]} | {111, 171, 733, 842, 843}], [])
+
     def test_only_guards_refuse_other_roms(self):
         store = {"a/0/1/2": self.archive}
         fx = copy.deepcopy(self.batch)

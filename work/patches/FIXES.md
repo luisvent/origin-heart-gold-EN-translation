@@ -863,7 +863,7 @@ native command that may fill the buffer is on the path): see work/notes/blank-pl
 - `a/0/1/2` #783 +0x6e9 `m783-1769`: insert `BE 00 00` before `2D 00 AB` (member SHA-1 `80e94b3887be`): NPCMsg 171 (a027/0484) reads {VAR:0103:0}; script 45 never fills buffer 0 before it.
 - `a/0/1/2` #821 +0x1e6 `m821-486`: insert `BE 00 00` before `2D 00 46` (member SHA-1 `926039030074`): NPCMsg 70 (a027/0519) reads {VAR:0103:0}; script 10 never fills buffer 0 before it.
 - `a/0/1/2` #840 +0xd0e `m840-3342`: insert `BE 00 00` before `2D 00 0E` (member SHA-1 `310201deeef5`): NPCMsg 14 (a027/0535) reads {VAR:0103:0}; script 14 never fills buffer 0 before it.
-- `a/0/1/2` #842 +0x257f `m842-9599`: insert `BE 00 00` before `2D 00 AF` (member SHA-1 `c811958246ec`): NPCMsg 175 (a027/0537) reads {VAR:0103:0}; script 2 never fills buffer 0 before it.
+- `a/0/1/2` #842 +0x257f `m842-9599`: insert `BE 00 00` before `2D 00 AF` (member SHA-1 `c811958246ec` or `a19a053cd110`): NPCMsg 175 (a027/0537) reads {VAR:0103:0}; script 2 never fills buffer 0 before it.
 - `a/0/1/2` #855 +0x56 `m855-86`: insert `BE 00 00` before `84 00 02 03` (member SHA-1 `7993505d66bd`): GenderMsgBox 2, 3 (a027/0549) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
 - `a/0/1/2` #856 +0x1ce `m856-462`: insert `BE 00 00` before `84 00 37 38` (member SHA-1 `983aaddcdd0a`): GenderMsgBox 55, 56 (a027/0550) reads {VAR:0103:0}; script 13 never fills buffer 0 before it.
 - `a/0/1/2` #865 +0xbe `m865-190`: insert `BE 00 00` before `2D 00 04` (member SHA-1 `12341728117d`): NPCMsg 4 (a027/0558) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.

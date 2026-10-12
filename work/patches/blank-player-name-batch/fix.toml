@@ -391,7 +391,7 @@ member = 842
 offset = "0x257f"
 expect = "2D 00 AF"
 insert = "BE 00 00"
-member_sha1 = ["c811958246ecc311c12b378318a569152f61e509"]
+member_sha1 = ["c811958246ecc311c12b378318a569152f61e509", "a19a053cd11035aca76742c12476e6a50117d5ab"]
 notes = "NPCMsg 175 (a027/0537) reads {VAR:0103:0}; script 2 never fills buffer 0 before it."
 
 [[script_insert]]
