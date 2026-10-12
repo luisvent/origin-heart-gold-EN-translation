@@ -36,6 +36,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
+| [`tutor-blackthorn-play-rough`](#tutor-blackthorn-play-rough) | narc | **no** | – | Blackthorn Move Tutor teaches Play Rough, as it says (not Flail) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
 | [`antipiracy`](#antipiracy) | code | yes | – | Real hardware: the six DS Protect entry points return the genuine-cart values |
@@ -1216,6 +1217,50 @@ Linking Cord (635) stay as the hack has them.
 
 - `a/0/3/4` #525 +0x0 `boldore-evolution`: `0005 0000 020E` → `0004 0023 020E` (member SHA-1 `4cd8fb7ba6dc`): Boldore record 0: trade (method 5) -> level up (method 4) at Lv 35 (0x23); target 526 Gigalith unchanged.
 - `a/0/3/4` #533 +0x0 `gurdurr-evolution`: `0005 0000 0216` → `0004 0028 0216` (member SHA-1 `fe6ee29b1f6e`): Gurdurr record 0: trade (method 5) -> level up (method 4) at Lv 40 (0x28); target 534 Conkeldurr unchanged.
+
+## tutor-blackthorn-play-rough
+
+**Blackthorn Move Tutor teaches Play Rough, as it says (not Flail)**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-1305, D-2346
+- Source: `work/patches/tutor-blackthorn-play-rough/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-1305: the Blackthorn Move Tutor (a/0/1/2 member 944, house tutor of Blackthorn City) promises Play Rough in every
+line (a027/0626 #58-#68, 'the Fairy-type move Play Rough', 'super effective against Dragon types, helps at the
+Gym') and the hack author's own item sheet lists it (row 585, 嘻闹, Blackthorn, free). The script, though, still
+uses move 175, the id v3 gave Play Rough. v4 moved Play Rough to its own id 583 and made 175 Flail again
+(Normal, variable power), so the player pays nothing and gets Flail. Observed in the emulator on the Chinese ROM
+and the English build (D-1305: 175 written on both the free-slot and the forget-a-move path, and the summary screen
+names 抓狂 / Flail). The same script already teaches Draco Meteor (434) correctly.
+
+Status: disabled. A separate, switched-off patch, like the other 2026-10-12 hack-bug fixes: the standard build
+keeps the Chinese behaviour; build it with build.py --only tutor-blackthorn-play-rough.
+
+**What (old → new):**
+
+Four two-byte edits in member 944, 00AF -> 0247 (175 -> 583): the 'already knows it?' check (MonHasMove), the
+free-slot SetMonMove, the move shown on the summary screen of the forget-a-move path (PokemonSummaryScreen), and
+the SetMonMove after the forget confirmation. Same size, no offset moves; every message, flag and the Draco
+Meteor half of the script stay as in the Chinese ROM. Guards: whole-member SHA-1 and the expected bytes of each
+edit.
+
+**Evidence:**
+
+- work/notes/tutor-blackthorn-play-rough_fix.md
+- work/notes/tutor-wrong-moves_investigation.md
+- work/tools/test_tutor_move_fixes.py
+
+**Touches:**
+
+- `a/0/1/2` #944 +0x789 `blackthorn-monhasmove`: `0x00AF` → `0x0247` (member SHA-1 `9c0d1c894a8c`): MonHasMove 0x800C, 175 -> 583 at pc 1925 (operand at +4): the 'This X already knows Play Rough' check.
+- `a/0/1/2` #944 +0xd8b `blackthorn-setmonmove-free`: `0x00AF` → `0x0247` (member SHA-1 `9c0d1c894a8c`): SetMonMove party slot, free slot, 175 -> 583 at pc 3461 (operand at +6): the pupil has fewer than four moves.
+- `a/0/1/2` #944 +0xde4 `blackthorn-summary`: `0x00AF` → `0x0247` (member SHA-1 `9c0d1c894a8c`): PokemonSummaryScreen 1, slot, 175 -> 583 at pc 3551 (operand at +5): the summary of the forget-a-move path shows the new move.
+- `a/0/1/2` #944 +0xe29 `blackthorn-setmonmove-replace`: `0x00AF` → `0x0247` (member SHA-1 `9c0d1c894a8c`): SetMonMove slot, chosen move, 175 -> 583 at pc 3619 (operand at +6): the forget-a-move path.
 
 ## outfit-chooser-strings
 
