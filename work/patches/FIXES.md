@@ -42,6 +42,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`overworld-pokemon-cries`](#overworld-pokemon-cries) | narc | **no** | – | Stationary overworld Pokemon cry as the species their label and sprite show |
 | [`overworld-pokemon-sprites`](#overworld-pokemon-sprites) | narc | **no** | – | Draw stationary overworld Pokemon as the species their Chinese text and cry name |
 | [`photographer-no-healthy-mon`](#photographer-no-healthy-mon) | narc | **no** | – | Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene) |
+| [`reward-qty`](#reward-qty) | narc | **no** | – | Reward scripts: a gift of more than one item says how many (Obtained <item> x2!), not one |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`route3-misty-actors`](#route3-misty-actors) | narc | **no** | – | Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped |
@@ -1549,6 +1550,61 @@ operand and movement are still refused.
 **Touches:**
 
 - `a/0/1/2` #733 +0x88 `pallet-photographer-alive-guard`: insert `65 01 0C 80 06 00 11 00 0C 80 00 00 1C 00 05 14 00 00 00 B6 01 02 00 0C 80 B8 01 0C 80 05 00 32 00 35 00 61 00 02 00` before `6A 02 0C 80` (member SHA-1 `767093c73dc8` or `e8b6b81fe765`): In front of PhotoAlbumIsFull (136): CountAliveMons 0x800C,6; Compare 0; GoToIf != over the copy of the decline reply (GetStdMsgNaix, MsgBoxExtern 5, WaitButton, CloseMsg, ReleaseAll, End).
+
+## reward-qty
+
+**Reward scripts: a gift of more than one item says how many (Obtained <item> x2!), not one**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2411, D-2409, D-2387
+- Source: `work/patches/reward-qty/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: every quest reward, gift and prize that goes through the hack's standard reward scripts shows 'Obtained the
+<item>!' whatever the amount. The Viridian Pokemon Academy teacher hands over 2 Ultra Balls (then one each of two
+more items) and the box reads as if you got one Ball; 163 reward sites in 64 script files give 2 to 20 of an item (Potions, Poke
+Balls, TMs, ...) and read the same way. The bag does get the right amount, only the message hides it. The US game's version of the
+routine looks at the quantity and shows a plural message for more than one; the hack dropped that branch. The
+untouched Chinese hack behaves the same (it shows 得到了X！).
+
+Technical: standard script 2033 (script file a/0/1/2 member 3, entry 34 at pc 1985) and 2008 (entry 9 at pc 1922)
+set GiveItem(item = var 0x8004, qty = var 0x8005) and then call the shared block at pc 2063, which buffers the item
+name (slot 0) and shows a027/0038#25 'Obtained the {item}!' for every pocket except 7 (key items). Key items go through
+pc 2046 (a027/0038#28 'obtained the {item}!' with a coloured name), which takes no quantity in the US game either. The US routine (member 3, entry at
+pc 2133) compares var 0x8005 with 1 at pc 2211 and, for more than one, buffers the plural item name
+(command 844 BufferItemNamePlural) before the same message. The hack's command table stops at 842, so that command
+does not exist here.
+
+Status: disabled. A separate, switched-off patch (D-2387), to be merged into develop after review: the standard build keeps
+the Chinese behaviour and builds this only on request (build.py --only reward-qty).
+
+**What (old → new):**
+
+One [[narc_bytes]] and one [[script_insert]], both in script file 3 (the std script file). The 8 bytes of the shared
+block's BufferItemName 0 / NPCMsg 25 (pc 2063) become four Noop commands. The inserted block sits right behind them,
+in front of the old GoTo (pc 2071), so both std scripts' CallIf (cond 5, not a key item) run the Noops and then it: BufferItemName 0, 0x8004; compare 0x8005
+with 1; for more than 1: BufferInt 1, 0x8005 and NPCMsg 66 (the existing, so far unused a027/0038#66 'Obtained
+{item}{NEWLINE}x{number}!', text not changed); otherwise NPCMsg 25 exactly as before. Then both paths continue at the
+old GoTo into the Wait-fanfare / pocket message part unchanged. A gift of one item shows the same message as
+before, key items are not touched, nothing about the bag, the pocket message ('put the X in the Y Pocket'), the fanfare or
+any caller changes. Not changed: the pocket message still names the single item (the US game also pluralises it; the
+hack has no plural command).
+
+**Evidence:**
+
+- work/notes/reward-qty_fix.md
+- D-2409: finding (reproduced on the Chinese ROM); D-2411: the fix
+- US ROM script file 3 entry at pc 2133: CompareVarToValue 0x8005, 1 at pc 2211
+- work/tools/test_reward_qty.py
+- work/tools/emu_reward_qty.py
+
+**Touches:**
+
+- `a/0/1/2` #3 +0x80f `old-single-message-noop`: `00C2 0400 2D80 1900` → `0000 0000 0000 0000` (member SHA-1 `760fb1ca7ff7`): Shared block of std 2033 and 2008 (pc 2063): BufferItemName 0, 0x8004 and NPCMsg 25 become four Noops; the inserted block does both jobs.
+- `a/0/1/2` #3 +0x817 `show-quantity`: insert `C2 00 00 04 80 11 00 05 80 01 00 1C 00 02 09 00 00 00 2D 00 19 16 00 08 00 00 00 C6 00 01 05 80 2D 00 42` before `16 00 00 00 00 00` (member SHA-1 `760fb1ca7ff7` or `db30c49c5894`): In front of the GoTo at pc 2071 (the Noops at 2063-2070 run first): BufferItemName 0, 0x8004; CompareVarToValue 0x8005, 1; GoToIf GT -> L2; NPCMsg 25; GoTo past L2; L2: BufferInt 1, 0x8005; NPCMsg 66. Both paths fall through into the old GoTo (to pc 2077).
 
 ## rock-tunnel-corner-loss
 

@@ -105,6 +105,9 @@ UNCOVERED = {
     "safari-zone-closed": "No scenario in this unified runner; emu_safari_closed.py separately walks to the gate "
                           "counters and the two door tiles on a build with and without the fix, and "
                           "test_safari_zone_closed.py checks the script and warp bytes without the emulator.",
+    "reward-qty": "No scenario in this unified runner; emu_reward_qty.py separately runs the Viridian Academy reward and "
+                  "other CallStd 2033/2008 gifts on a build with and without the fix, and test_reward_qty.py checks the "
+                  "script traces without the emulator.",
     "honey-gather": "Dedicated emu_honey_gather.py checks native rewards and Bag insertion; run separately.",
     "startup-content-warning": "Dedicated emu_startup_warning.py captures the native startup screens; run separately.",
     "zero-pp-struggle": "No scenario in this unified runner; emu_struggle.py separately verifies paired "
