@@ -66,3 +66,46 @@ Unit tests: `test_emu_fixes.py` (`test_stone_use`, `test_stone_use_cases_follow_
 `check.py` fast: registry, fixes-md, asm-synth, tests pass; ruff fails on `work/tools/fixes.py:1787` (E501) and
 `work/tools/test_script_insert.py:88` (F841), neither touched by this branch (present on develop e98854f).
 `check.py --full --update-expected`: everything but ruff passes.
+
+## Follow-up 2026-10-12 (Shishio's two questions)
+
+### 1. Dragon Scale -> Alolan Exeggutor: intended by the hack author
+
+Checked directly in the untouched Chinese ROM (`origin_v4.0.3_cn.nds`):
+
+- Evolution table `a/0/3/4` member 102 (Exeggcute): `(7, 85, 103)` = Leaf Stone -> Exeggutor 103, and `(7, 235, 1057)` =
+  Dragon Scale -> species 1057. Both are method 7 (use item), so both records exist.
+- Personal data `a/0/0/2`: 103 is Grass/Psychic; 1057 is Grass/Dragon with the same stats (95/120/85/45/125/85), i.e. the
+  Alolan Exeggutor typing (the hack added a dedicated entry for it).
+- In the game (harness, build and Chinese ROM): Exeggcute + Leaf Stone -> species 103 form 0; Exeggcute + Dragon Scale
+  (build with this fix) -> species 103 form 1 (the form table maps 1057 to form 1); Fire Stone does nothing.
+- The author's own documentation ties it: `work/notes/spreadsheet_crossref.md` §1.2 row 109 lists Exeggcute as
+  "Leaf Stone (Exeggutor) or Dragon Scale (Alolan Exeggutor)" (class a: the ROM differs from the sheet's "35" but the
+  Dragon Scale is a v4 addition; the v3 ROM has the Leaf Stone only, `sheet_mismatch_verification.md` §4.2 row 109);
+  `work/docs/pokemon_0001-0151.md` shows the same from the ROM. No item description or NPC text mentions it (the Dragon
+  Scale text is the plain item description and the shrine cleaner's sale, bank 0127 #42-47).
+- Pattern: the hack gives other regional forms their own trigger item instead of the vanilla stone, e.g. Pikachu +
+  Twisted Spoon (248) -> species 1034 (Electric/Psychic, Alolan Raichu typing), which the author did make usable.
+
+Conclusion: deliberate (a new record plus a new Grass/Dragon species entry); not a mix-up with the Leaf Stone. The Dragon
+Scale had simply been left without its use bytes, like the other eight. The fix stands. D-2347 can be resolved as
+"intended" if Shishio agrees (not resolved by me).
+
+### 2. Where players can get the nine items (Chinese ROM = build for these data)
+
+| Item | Obtainable? | Where |
+|---|---|---|
+| Ice Stone (606) | yes | Celadon Department Store 2F shop, 3000 (docs `items.md`, site `items.json`: shop source) |
+| Dragon Scale (235) | yes | Dragon's Den (gift, and bought 2500 from the shrine cleaner, bank 0127 #42-47), Route 12 and Route 35 item balls; wild held item of Horsea (116), Seadra (117), Dratini line (147-149), Dratini line and Chinchou-type species per `a/0/0/2` held-item slots: 116, 117, 147, 148, 149, 230 |
+| Cracked Pot, Galarica Cuff, Galarica Wreath, Sweet Apple, Tart Apple, Auspicious Armor, Malicious Armor | **no** | the reviewed list `work/tools/site/items_not_in_game.json` (two independent passes, 2026-10-05, `availability_audit.md`): no gift, shop, item ball, hidden item, prize, Pickup, held item or engine reward. Re-checked today on the Chinese ROM for wild held items (`a/0/0/2`), hidden items and trainer held items: none of the seven appears; D-1493 also records Tart/Sweet Apple as sourceless |
+
+So with the fix only the Ice Stone and the Dragon Scale change anything a player can do; the other seven become usable
+but stay unobtainable (the fix is data-correct and harmless; they matter for save-edited or cheat-given items).
+Of the Ice Stone evolutions the species themselves must also be met (not checked here, the site's species pages decide).
+
+Site/guide check (read only, nothing edited): `site/src/data/items.json` lists Ice Stone with its shop source, Dragon Scale
+with its sources, and the seven others with `unavailableReason` set; `guide/known-issues.md` line 1398 says Applin's
+apples cannot be obtained, consistent. Mismatches found: none about availability. One thing the release notes / known
+issues should mention: nothing in the guide says the Ice Stone could not be used, so no guide text goes stale; the
+Ice Stone evolutions listed on the site ("use Ice Stone") become true only with this fix (before it, they were
+impossible in play, although the site listed the stone as buyable).
