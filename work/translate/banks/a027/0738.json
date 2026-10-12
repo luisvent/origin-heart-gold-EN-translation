@@ -2726,10 +2726,10 @@
   {
    "id": 340,
    "zh": "第１回合跃入空中{NEWLINE}第２回合攻击对手。{NEWLINE}对手３０％概率麻痹。",
-   "en": "The user bounces up{NEWLINE}on turn 1 and drops{NEWLINE}on the foe on turn 2.{NEWLINE}30% chance to{NEWLINE}paralyze the foe.",
+   "en": "The user bounces up{NEWLINE}and drops on the foe{NEWLINE}in a single turn. 30%{NEWLINE}chance to paralyze{NEWLINE}the foe.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0749/340; retranslated from the hack zh (R002/R003)"
+   "notes": "US 0749/340; retranslated from the hack zh (R002/R003). English deviates from the zh (turn 1 / turn 2): Bounce is a one-turn move in the hack (charge flag clear, D-1350); user-approved fix 2026-10-12 (D-1496)"
   },
   {
    "id": 341,
