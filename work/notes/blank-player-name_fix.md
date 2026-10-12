@@ -1,6 +1,8 @@
 # blank-player-name fix (2026-10-12)
 
-Fix id `blank-player-name` (`work/patches/blank-player-name/fix.toml`), decisions D-2335..D-2340 (ids may be renumbered at merge).
+**Status: disabled** (`enabled = false`). Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch; built only on request (`build.py --only <fix-id>`), tester xdeltas exist. The standard build keeps the Chinese behaviour.
+
+Fix id `blank-player-name` (`work/patches/blank-player-name/fix.toml`), decisions D-2335..D-2340.
 Authority: user, 2026-10-12 ("we are way past this point since the Chinese rom contains too many bugs.. so lets create a fix in a worktree").
 A third-party patch only pointed at two locations; everything below was derived from the Chinese ROM.
 

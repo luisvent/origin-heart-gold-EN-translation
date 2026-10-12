@@ -1,5 +1,7 @@
 # Petilil + Black Belt by day -> Hisuian Lilligant (`petilil-hisuian-lilligant`, D-2334)
 
+**Status: disabled** (`enabled = false`). Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch; built only on request (`build.py --only <fix-id>`), tester xdeltas exist. The standard build keeps the Chinese behaviour.
+
 Fixed 2026-10-12 after the user lifted D-1337 for reproduced hack bugs ("We are way past this point since the
 Chinese rom contains too many bugs.. So lets create a fix in a worktree"). It answers the hack finding D-1485.
 

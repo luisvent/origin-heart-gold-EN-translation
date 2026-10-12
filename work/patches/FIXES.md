@@ -26,14 +26,14 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`gfx-type-icons`](#gfx-type-icons) | graphics | yes | – | Type and contest icons (USA art; FAIRY from hg-engine) |
 | [`gfx-weather-banners`](#gfx-weather-banners) | graphics | yes | – | Battle weather banners |
 | [`gfx-yes-no-buttons`](#gfx-yes-no-buttons) | graphics | yes | – | Touch-screen YES/NO buttons |
-| [`blank-player-name`](#blank-player-name) | narc | yes | – | Fill the player-name buffer a script's message actually reads |
+| [`blank-player-name`](#blank-player-name) | narc | **no** | – | Fill the player-name buffer a script's message actually reads |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
-| [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | yes | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
-| [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | yes | – | Let the seven weekday siblings finish their ribbon scene |
+| [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
+| [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
@@ -55,7 +55,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`namelen`](#namelen) | code | yes | – | Name lengths: US limits (7 characters for trainers, 10 for Pokémon) |
 | [`naming-keyboard`](#naming-keyboard) | code | yes | – | English naming keyboard: ABC page first, pinyin IME off |
 | [`overworld-texture-frame-bounds`](#overworld-texture-frame-bounds) | code | yes | – | Overworld objects: a texture frame the texture does not have no longer crashes (Rocket HQ freeze) |
-| [`petilil-hisuian-lilligant`](#petilil-hisuian-lilligant) | code | yes | – | Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil) |
+| [`petilil-hisuian-lilligant`](#petilil-hisuian-lilligant) | code | **no** | – | Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil) |
 | [`pryce-weather-rule`](#pryce-weather-rule) | code | yes | – | Pryce's Glacier Badge rule checks the party's Abilities (no weather-changing Ability), not 28 species |
 | [`safari-no-wild-double`](#safari-no-wild-double) | code | yes | – | Safari Zone: wild encounters are single battles again (no frozen double battle) |
 | [`startup-content-warning`](#startup-content-warning) | code | yes | – | New Game: mature-content warning first, remove QQ promotion |
@@ -736,7 +736,7 @@ New: the USA member: YES / NO.
 **Fill the player-name buffer a script's message actually reads**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
 - Decisions: D-2335, D-2336, D-2337, D-2338, D-2339
 - Source: `work/patches/blank-player-name/fix.toml`
@@ -754,6 +754,10 @@ starts with empty buffers, so the first line shows no name. (3) Route 2, Brock's
 three branches) has the same order problem as (2). Buffers do not survive from one script
 to the next (emulator), so nothing else fills them. Reproduced in the emulator on the
 Chinese ROM (name missing in all three) and fixed on patched ROMs.
+
+Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
+standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
+(build.py --only blank-player-name). Tester xdeltas exist (rc7 plus this fix).
 
 **What (old → new):**
 
@@ -970,7 +974,7 @@ The original entire member SHA-1 and the four expected bytes guard the edit.
 **Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
 - Decisions: D-2332, D-2333
 - Source: `work/patches/romance-mail-mismatch/fix.toml`
@@ -985,6 +989,10 @@ Snow Mail, nothing is consumed, or the wrong mail (Heart Mail, Yellow's) is lost
 Separately, in the 1F Cynthia branch that has the rest option, choosing "I'm busy"
 (file 842, offset 7161) shows Misty's line (msg 212) instead of Cynthia's (msg 218),
 which every other Cynthia fall-through (offsets 7228 and 8389) uses.
+
+Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
+standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
+(build.py --only romance-mail-mismatch). Tester xdeltas exist (rc7 plus this fix).
 
 **What (old → new):**
 
@@ -1010,7 +1018,7 @@ a judgment (D-2333, open question).
 **Let the seven weekday siblings finish their ribbon scene**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
 - Decisions: D-1331, D-1558, D-2331
 - Source: `work/patches/sibling-ribbon-freeze/fix.toml`
@@ -1026,6 +1034,10 @@ ReleaseAll and End. The ribbon is given, but the message stays on screen and the
 player stays locked in the script context until X opens the menu. These are the
 only out-of-range command ids in the whole archive. User statement 2026-10-12
 lifted D-1337 for provable hack bugs.
+
+Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
+standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
+(build.py --only sibling-ribbon-freeze). Tester xdeltas exist (rc7 plus this fix).
 
 **What (old → new):**
 
@@ -5216,7 +5228,7 @@ being bound to texture parameters read from address 0.
 **Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil)**
 
 - Kind: code
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
 - Decisions: D-2334
 - Source: `work/patches/petilil-hisuian-lilligant/fix.toml`
@@ -5237,6 +5249,10 @@ Technical: Petilil's evolution record 1 in a/0/3/4 (method 18, parameter 241 = B
 from 1026 up into a base species plus form 1 (SetMonData FORM = 1, then the species goes to the scene). For 1361
 it loads 548 ('movs r5, #0x89; lsls r5, r5, #2'), which is Petilil; Lilligant is 549 (Petilil's Sun Stone record
 names 549).
+
+Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
+standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
+(build.py --only petilil-hisuian-lilligant). Tester xdeltas exist (rc7 plus this fix).
 
 **What (old → new):**
 

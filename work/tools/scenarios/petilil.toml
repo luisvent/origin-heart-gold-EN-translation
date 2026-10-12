@@ -1,9 +1,9 @@
 id = "petilil"
-description = "D-1485 / D-2334: Petilil holding a Black Belt, Rare Candy at 12:00. The Chinese hack makes a form-1 Petilil (548); the fix makes Hisuian Lilligant (549, form 1)"
+description = "D-1485 / D-2334: Petilil holding a Black Belt, Rare Candy at 12:00. The Chinese hack makes a form-1 Petilil (548); the standard English build, with petilil-hisuian-lilligant disabled, does the same"
 refs = ["D-1485", "D-2334"]
 # Generator Petilil Lv10 with a Black Belt (241) in party slot 6, Rare Candy through Bag -> Medicine -> Use (the game's
-# own level-up and evolution path). The Pokemon keeps its generated moves: Hisuian Lilligant is offered its
-# evolution moves (evolution-moves fix), whose prompts are left open, so the held item is not compared.
+# own level-up and evolution path). petilil-hisuian-lilligant is disabled (D-2334): the standard build must match the
+# Chinese ROM (Petilil, form 1). The fixed outcome (549) is judged by the fix scenario petilil-evo (emu_fixes.py).
 steps = [
   "gen:548,10,241",
   "candy:@gen",
@@ -18,17 +18,9 @@ save = "full_bag_6mons.sav"
 clock = "2026-10-09T12:00:00"
 pockets = { medicine = [[50, 99]], items = [] }
 
-[parity.differ."after_candy.species"]
-why = "D-2334: the fix evolves into Lilligant (549); the hack's code builds 548, Petilil itself (D-1485)"
-cn = { equals = 548, note = "the hack: Petilil evolved into Petilil (form 1)" }
-en = { equals = 549, note = "the fix: Hisuian Lilligant (species 549, form 1)" }
-
-[parity.differ."after_candy.item"]
-why = "the fixed Pokemon is offered its level-0 evolution moves (evolution-moves), the scene is still open"
-
 [[case]]
 id = "petilil_day"
-description = "Black Belt by day: form-1 Petilil on the hack, Hisuian Lilligant with the fix"
+description = "Black Belt by day: form-1 Petilil on the hack and on the standard build (the fix is disabled)"
 expect = [
   { obs = "after_candy.form", equals = 1 },
   { obs = "after_candy.level", equals = 11 },

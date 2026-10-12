@@ -3,6 +3,15 @@
 All notable changes to the English translation of 起源心金 (Pokémon Origin HeartGold) v4.0.3.
 Patches apply to **Pokémon HeartGold (USA)**, CRC32 `C180A0E9`.
 
+## [Unreleased]
+
+### Disabled fixes (built on request)
+Merged into develop on 2026-10-12 at the user's request as separate patches with `enabled = false`: the standard build is byte-identical to before and keeps the Chinese behaviour. Tester xdeltas (rc7 plus the fix) exist; build one with `build.py --only <fix-id>`.
+- **sibling-ribbon-freeze (D-2331):** the seven weekday siblings' ribbon scene no longer leaves the message on screen with the player locked (invalid opcode 2009 becomes Noop).
+- **romance-mail-mismatch (D-2332; open question D-2333):** the Cynthia romance scenes in the Pallet Town house take the Snow Mail they check for, and her "I'm busy" reply shows her own line.
+- **petilil-hisuian-lilligant (D-2334):** Petilil holding a Black Belt by day evolves straight into Hisuian Lilligant instead of into another Petilil.
+- **blank-player-name (D-2335 to D-2339; open question D-2340):** the player's name is no longer blank in Clair's photo offer, the Pallet Town photographer's first line and Brock's Route 2 lines.
+
 ## [1.0.0-rc7] - 2026-10-11
 
 Release candidate. Public native validation remains incomplete; multiplayer testing is excluded from its validation scope (D-2330). Hardware and Delta remain untested.

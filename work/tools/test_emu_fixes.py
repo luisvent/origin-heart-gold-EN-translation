@@ -155,7 +155,12 @@ class Helpers(unittest.TestCase):
     def test_select(self):
         self.assertEqual(F.select("pcbox"), {"pcbox": ["pcbox-name-width"]})
         self.assertEqual(F.select("namelen"), {"naming": ["namelen"], "newgame": ["namelen"]})
-        self.assertEqual(set(F.select("all")), set(F.ALL_SCENARIOS))
+        # "all" leaves out the scenarios that only judge disabled fixes (petilil-evo: petilil-hisuian-lilligant)
+        off = F.disabled_fixes()
+        only_off = {sc for sc in F.ALL_SCENARIOS if F.scenario_fixes(sc) and set(F.scenario_fixes(sc)) <= off}
+        self.assertEqual(set(F.select("all")), set(F.ALL_SCENARIOS) - only_off)
+        self.assertIn("petilil-evo", only_off)
+        self.assertEqual(F.select("petilil-evo"), {"petilil-evo": ["petilil-hisuian-lilligant"]})
         with self.assertRaises(ValueError):
             F.select("gfx-jp-buttons")          # listed in UNCOVERED
         self.assertEqual(F.select("gfx-weather-banners"), {"battle-status": ["gfx-weather-banners"]})

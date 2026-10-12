@@ -1,5 +1,7 @@
 # Romance Mail mismatch fix (fix id `romance-mail-mismatch`)
 
+**Status: disabled** (`enabled = false`). Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch; built only on request (`build.py --only <fix-id>`), tester xdeltas exist. The standard build keeps the Chinese behaviour.
+
 Branch `fix/romance-mail-mismatch`, 2026-10-12. Decisions D-2332 (fix), D-2333 (open question, Misty branch). Authority: user 2026-10-12, "the Chinese rom contains too many bugs.. So lets create a fix in a worktree" (lifts D-1337 for provable bugs). Replaces the "documented, not fixed" status of finding D-1398 for the Cynthia part.
 
 ## Evidence (static, from the untouched Chinese ROM, decoded with `work/tools/docs/scriptdump.py 842|843`)

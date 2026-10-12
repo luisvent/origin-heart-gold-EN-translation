@@ -1,5 +1,7 @@
 # Weekday siblings' ribbon scene: invalid opcode 2009 (fix `sibling-ribbon-freeze`)
 
+**Status: disabled** (`enabled = false`). Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch; built only on request (`build.py --only <fix-id>`), tester xdeltas exist. The standard build keeps the Chinese behaviour.
+
 2026-10-12, agent sibling-ribbon-freeze. Findings D-1331 / D-1558; fix authorised by the user's statement of
 2026-10-12 (D-2331). Source of truth: the untouched Chinese ROM (`work/rom/origin_v4.0.3_cn.nds`, SHA-256
 4807ab2c...95c8), decoded with `romdata.disasm`.

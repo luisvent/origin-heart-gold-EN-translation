@@ -120,6 +120,13 @@ UNCOVERED = {
                              "with this fix: all seven siblings end at End with no invalid opcode. test_sibling_"
                              "ribbon_freeze.py pins the bytes and decodes the scripts; see "
                              "work/notes/sibling_ribbon_freeze_fix.md.",
+    "blank-player-name": "No scenario in this unified runner (disabled fix). test_blank_player_name.py pins the "
+                         "bytes and decodes the scripts; the Dragon's Den, Pallet and Route 2 lines were "
+                         "reproduced in an emulator on the Chinese ROM and the patched ROM (see "
+                         "work/notes/blank-player-name_fix.md).",
+    "romance-mail-mismatch": "No scenario in this unified runner (disabled fix). test_romance_mail_mismatch.py "
+                             "pins the three byte edits against the Chinese ROM's scripts; see "
+                             "work/notes/romance_mail_mismatch_fix.md.",
     "mortar-invalid-flag-noop": "No scenario in this unified runner; native_script_state.py executes actual "
                                 "native flag handlers in 20 bounded cases per paired build, checking SetFlag0 "
                                 "and preserved progress/Pokedex bytes. Complete scenes, map reload and native "

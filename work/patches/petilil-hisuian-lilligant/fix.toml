@@ -1,7 +1,7 @@
 id = "petilil-hisuian-lilligant"
 title = "Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil)"
 kind = "code"
-enabled = true
+enabled = false
 decisions = ["D-2334"]
 requires = []
 asm = "petilil-hisuian-lilligant.asm"
@@ -20,6 +20,10 @@ Technical: Petilil's evolution record 1 in a/0/3/4 (method 18, parameter 241 = B
 from 1026 up into a base species plus form 1 (SetMonData FORM = 1, then the species goes to the scene). For 1361
 it loads 548 ('movs r5, #0x89; lsls r5, r5, #2'), which is Petilil; Lilligant is 549 (Petilil's Sun Stone record
 names 549).
+
+Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
+standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
+(build.py --only petilil-hisuian-lilligant). Tester xdeltas exist (rc7 plus this fix).
 """
 what = """
 Old: the case for the id 1361 sets the evolved species to 548 (Petilil) and the form to 1.
