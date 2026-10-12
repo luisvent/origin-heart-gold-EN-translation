@@ -32,7 +32,8 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
-| [`overworld-pokemon-sprites`](#overworld-pokemon-sprites) | narc | yes | – | Give the stationary overworld Pokemon of vanilla maps the sprite of their own species |
+| [`overworld-pokemon-cries`](#overworld-pokemon-cries) | narc | yes | – | Stationary overworld Pokemon cry as the species that is drawn |
+| [`overworld-pokemon-sprites`](#overworld-pokemon-sprites) | narc | **no** | – | Give the stationary overworld Pokemon of vanilla maps the sprite of their own species |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
@@ -1035,18 +1036,104 @@ Route1's separate7286 marker remains deferred pending safe old-save compatibilit
 
 - `a/0/1/2` #962 +0x71D `departure-invalid-set-noop`: `0x116D` → `0x0000` (member SHA-1 `33cb77c9032d`): SetFlag at1819: operand4461 ->0; native SetFlag0 makes no persisted write.
 
+## overworld-pokemon-cries
+
+**Stationary overworld Pokemon cry as the species that is drawn**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2349, D-2350
+- Source: `work/patches/overworld-pokemon-cries/fix.toml`
+
+**Why (the Chinese hack):**
+
+Stationary overworld Pokemon are drawn with the hack's following-Pokemon sprite of the species the sprite id names, but many scripts
+still play the cry of another species (the vanilla species of that object, or a wrong id: Herdier plays 791, Palpitoad 820). User
+decision 2026-10-12 (D-2349): text and cry follow the DRAWN sprite. RECHECK WHEN 4.1.0 RELEASES: every object in
+work/notes/overworld-pokemon-sprite-mismatch_fix.md (section "Recheck when 4.1.0 releases") must be looked at again, because 4.1.0
+may change the sprites; if it does, the text (35 changed strings in a027) and these cries have to follow the new sprites.
+
+**What (old → new):**
+
+Replace the species argument of 54 PlayCry commands (the first halfword of the command's two arguments, form 0 kept) in a/0/1/2 with the
+national dex id of the drawn species. Nothing else in those scripts changes; the English text changes are ordinary string edits.
+
+**Evidence:**
+
+- work/notes/overworld-pokemon-sprite-mismatch_fix.md
+- work/tools/test_overworld_pokemon_cries.py
+
+**Touches:**
+
+- `a/0/1/2` #184 +0x232 `m184-o562-zone14-obj17`: `0x01D3` → `0x005B` (member SHA-1 `3ae60539568d`): PlayCry species 467 -> 91 (zone 14 object 17).
+- `a/0/1/2` #218 +0x254 `m218-o596-zone30-obj11`: `0x0099` → `0x0098` (member SHA-1 `16ecc85b564a`): PlayCry species 153 -> 152 (zone 30 object 11).
+- `a/0/1/2` #232 +0x27C `m232-o636-zone36-obj2`: `0x019B` → `0x019A` (member SHA-1 `cbfa146b2875`): PlayCry species 411 -> 410 (zone 36 object 2).
+- `a/0/1/2` #254 +0x114 `m254-o276-zone45-obj7`: `0x00EE` → `0x00A1` (member SHA-1 `e8c7dbb47148`): PlayCry species 238 -> 161 (zone 45 object 7).
+- `a/0/1/2` #254 +0x3BB `m254-o955-zone45-obj7`: `0x00EE` → `0x00A1` (member SHA-1 `e8c7dbb47148`): PlayCry species 238 -> 161 (zone 45 object 7).
+- `a/0/1/2` #739 +0x462 `m739-o1122-zone50-obj14`: `0x0013` → `0x00BA` (member SHA-1 `6842f6865739`): PlayCry species 19 -> 186 (zone 50 object 14).
+- `a/0/1/2` #872 +0x238 `m872-o568-zone75-obj10`: `0x00DE` → `0x009A` (member SHA-1 `1162a695c251`): PlayCry species 222 -> 154 (zone 75 object 10).
+- `a/0/1/2` #872 +0x30C `m872-o780-zone75-obj21`: `0x00D6` → `0x0116` (member SHA-1 `1162a695c251`): PlayCry species 214 -> 278 (zone 75 object 21).
+- `a/0/1/2` #919 +0x1E9 `m919-o489-zone81-obj11`: `0x009D` → `0x009C` (member SHA-1 `b25ecdb32e0d`): PlayCry species 157 -> 156 (zone 81 object 11).
+- `a/0/1/2` #925 +0x264 `m925-o612-zone84-obj14`: `0x00AC` → `0x0010` (member SHA-1 `423dc6e35ed0`): PlayCry species 172 -> 16 (zone 84 object 14).
+- `a/0/1/2` #60 +0x1F7 `m60-o503-zone177-obj35`: `0x004F` → `0x0050` (member SHA-1 `899d1629f4a2`): PlayCry species 79 -> 80 (zone 177 object 35).
+- `a/0/1/2` #30 +0x75 `m30-o117-zone186-obj2`: `0x0027` → `0x01F8` (member SHA-1 `3d286c12c18e`): PlayCry species 39 -> 504 (zone 186 object 2).
+- `a/0/1/2` #901 +0x535 `m901-o1333-zone196-obj17`: `0x00D4` → `0x002E` (member SHA-1 `51893628db37`): PlayCry species 212 -> 46 (zone 196 object 17).
+- `a/0/1/2` #95 +0xD7 `m95-o215-zone200-obj3`: `0x0043` → `0x0202` (member SHA-1 `bdb1fb5d4041`): PlayCry species 67 -> 514 (zone 200 object 3).
+- `a/0/1/2` #877 +0x2E3 `m877-o739-zone232-obj8`: `0x01C9` → `0x01D6` (member SHA-1 `1674be546b1b`): PlayCry species 457 -> 470 (zone 232 object 8).
+- `a/0/1/2` #875 +0x90 `m875-o144-zone236-obj8`: `0x00B4` → `0x00C9` (member SHA-1 `1747b5e571fe`): PlayCry species 180 -> 201 (zone 236 object 8).
+- `a/0/1/2` #69 +0x14B1 `m69-o5297-zone265-obj9`: `0x0019` → `0x01F3` (member SHA-1 `f4ea8839934f`): PlayCry species 25 -> 499 (zone 265 object 9).
+- `a/0/1/2` #85 +0xA07 `m85-o2567-zone276-obj5`: `0x0050` → `0x0204` (member SHA-1 `b86c5dcd3c57`): PlayCry species 80 -> 516 (zone 276 object 5).
+- `a/0/1/2` #122 +0x105 `m122-o261-zone280-obj4`: `0x0034` → `0x01FC` (member SHA-1 `96be5a73fe4e`): PlayCry species 52 -> 508 (zone 280 object 4).
+- `a/0/1/2` #122 +0x209 `m122-o521-zone280-obj6`: `0x0036` → `0x01FE` (member SHA-1 `96be5a73fe4e`): PlayCry species 54 -> 510 (zone 280 object 6).
+- `a/0/1/2` #122 +0x1D3 `m122-o467-zone280-obj7`: `0x004F` → `0x0203` (member SHA-1 `96be5a73fe4e`): PlayCry species 79 -> 515 (zone 280 object 7).
+- `a/0/1/2` #122 +0xD7 `m122-o215-zone280-obj8`: `0x002B` → `0x01FA` (member SHA-1 `96be5a73fe4e`): PlayCry species 43 -> 506 (zone 280 object 8).
+- `a/0/1/2` #122 +0x177 `m122-o375-zone280-obj12`: `0x0050` → `0x0204` (member SHA-1 `96be5a73fe4e`): PlayCry species 80 -> 516 (zone 280 object 12).
+- `a/0/1/2` #122 +0x1A5 `m122-o421-zone280-obj14`: `0x0042` → `0x0201` (member SHA-1 `96be5a73fe4e`): PlayCry species 66 -> 513 (zone 280 object 14).
+- `a/0/1/2` #122 +0x1EE `m122-o494-zone280-obj15`: `0x0053` → `0x0205` (member SHA-1 `96be5a73fe4e`): PlayCry species 83 -> 517 (zone 280 object 15).
+- `a/0/1/2` #124 +0x6C6 `m124-o1734-zone282-obj15`: `0x0013` → `0x01F0` (member SHA-1 `2e1609228232`): PlayCry species 19 -> 496 (zone 282 object 15).
+- `a/0/1/2` #124 +0x73A `m124-o1850-zone282-obj16`: `0x000C` → `0x01EE` (member SHA-1 `2e1609228232`): PlayCry species 12 -> 494 (zone 282 object 16).
+- `a/0/1/2` #124 +0x700 `m124-o1792-zone282-obj17`: `0x0042` → `0x0201` (member SHA-1 `2e1609228232`): PlayCry species 66 -> 513 (zone 282 object 17).
+- `a/0/1/2` #125 +0x115 `m125-o277-zone284-obj4`: `0x0013` → `0x01F0` (member SHA-1 `a49660104805`): PlayCry species 19 -> 496 (zone 284 object 4).
+- `a/0/1/2` #125 +0x130 `m125-o304-zone284-obj6`: `0x0029` → `0x01F9` (member SHA-1 `a49660104805`): PlayCry species 41 -> 505 (zone 284 object 6).
+- `a/0/1/2` #126 +0x106 `m126-o262-zone285-obj6`: `0x0093` → `0x020F` (member SHA-1 `1a123682f15d`): PlayCry species 147 -> 527 (zone 285 object 6).
+- `a/0/1/2` #816 +0xCB `m816-o203-zone300-obj3`: `0x003F` → `0x0200` (member SHA-1 `aeb530c9ecda`): PlayCry species 63 -> 512 (zone 300 object 3).
+- `a/0/1/2` #780 +0x199 `m780-o409-zone362-obj9`: `0x0014` → `0x00AC` (member SHA-1 `0fc17826cc60`): PlayCry species 20 -> 172 (zone 362 object 9).
+- `a/0/1/2` #789 +0x12D `m789-o301-zone372-obj8`: `0x0044` → `0x01BE` (member SHA-1 `9edd14e3950a`): PlayCry species 68 -> 446 (zone 372 object 8).
+- `a/0/1/2` #797 +0x7F `m797-o127-zone379-obj2`: `0x029E` → `0x00D2` (member SHA-1 `19ac029bd934`): PlayCry species 670 -> 210 (zone 379 object 2).
+- `a/0/1/2` #837 +0x98 `m837-o152-zone404-obj2`: `0x0334` → `0x0218` (member SHA-1 `66ab663c02e6`): PlayCry species 820 -> 536 (zone 404 object 2).
+- `a/0/1/2` #758 +0x4B7 `m758-o1207-zone427-obj38`: `0x0076` → `0x0056` (member SHA-1 `7de7f86ed009`): PlayCry species 118 -> 86 (zone 427 object 38).
+- `a/0/1/2` #761 +0x241 `m761-o577-zone429-obj9`: `0x0317` → `0x01FB` (member SHA-1 `ce9916d723fb`): PlayCry species 791 -> 507 (zone 429 object 9).
+- `a/0/1/2` #751 +0xE9 `m751-o233-zone475-obj5`: `0x0027` → `0x01F8` (member SHA-1 `923f5e2a3483`): PlayCry species 39 -> 504 (zone 475 object 5).
+- `a/0/1/2` #811 +0x2F `m811-o47-zone483-obj1`: `0x00BE` → `0x0215` (member SHA-1 `b60b5d6ef2cd`): PlayCry species 190 -> 533 (zone 483 object 1).
+- `a/0/1/2` #811 +0x4A `m811-o74-zone483-obj2`: `0x00BE` → `0x0215` (member SHA-1 `b60b5d6ef2cd`): PlayCry species 190 -> 533 (zone 483 object 2).
+- `a/0/1/2` #811 +0x65 `m811-o101-zone483-obj3`: `0x00BE` → `0x0215` (member SHA-1 `b60b5d6ef2cd`): PlayCry species 190 -> 533 (zone 483 object 3).
+- `a/0/1/2` #55 +0x144 `m55-o324-zone492-obj12`: `0x00D9` → `0x014F` (member SHA-1 `31dac176af50`): PlayCry species 217 -> 335 (zone 492 object 12).
+- `a/0/1/2` #55 +0x265 `m55-o613-zone492-obj16`: `0x014A` → `0x0113` (member SHA-1 `31dac176af50`): PlayCry species 330 -> 275 (zone 492 object 16).
+- `a/0/1/2` #744 +0x78 `m744-o120-zone497-obj2`: `0x0013` → `0x01F0` (member SHA-1 `85c8184b97cc`): PlayCry species 19 -> 496 (zone 497 object 2).
+- `a/0/1/2` #744 +0x5D `m744-o93-zone497-obj3`: `0x0015` → `0x01F1` (member SHA-1 `85c8184b97cc`): PlayCry species 21 -> 497 (zone 497 object 3).
+- `a/0/1/2` #734 +0x31F `m734-o799-zone503-obj15`: `0x0147` → `0x000C` (member SHA-1 `9fa08ee08c25`): PlayCry species 327 -> 12 (zone 503 object 15).
+- `a/0/1/2` #132 +0x396 `m132-o918-zone523-obj3`: `0x003F` → `0x0200` (member SHA-1 `c6aeee999cfb`): PlayCry species 63 -> 512 (zone 523 object 3).
+- `a/0/1/2` #66 +0xAA9 `m66-o2729-zone225-obj2`: `0x00B5` → `0x0213` (member SHA-1 `08597262eee0`): PlayCry species 181 -> 531 (zone 225 object 2).
+- `a/0/1/2` #66 +0xD47 `m66-o3399-zone225-obj2`: `0x00B5` → `0x0213` (member SHA-1 `08597262eee0`): PlayCry species 181 -> 531 (zone 225 object 2).
+- `a/0/1/2` #66 +0xD04 `m66-o3332-zone225-obj2`: `0x00B5` → `0x0213` (member SHA-1 `08597262eee0`): PlayCry species 181 -> 531 (zone 225 object 2).
+- `a/0/1/2` #127 +0x422 `m127-o1058-zone286-obj3`: `0x0055` → `0x0206` (member SHA-1 `e12e56df26f3`): PlayCry species 85 -> 518 (zone 286 object 3).
+- `a/0/1/2` #957 +0x106 `m957-o262-zone93-obj15`: `0x005F` → `0x0131` (member SHA-1 `927aaff60277`): PlayCry species 95 -> 305 (zone 93 object 15).
+- `a/0/1/2` #957 +0x264 `m957-o612-zone93-obj15`: `0x005F` → `0x0131` (member SHA-1 `927aaff60277`): PlayCry species 95 -> 305 (zone 93 object 15).
+
 ## overworld-pokemon-sprites
 
 **Give the stationary overworld Pokemon of vanilla maps the sprite of their own species**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
-- Decisions: D-2346, D-2347
+- Decisions: D-2346, D-2347, D-2349
 - Source: `work/patches/overworld-pokemon-sprites/fix.toml`
 
 **Why (the Chinese hack):**
 
+Disabled and superseded (user decision 2026-10-12, D-2349): the sprite ids are NOT changed; the English text and the cries follow the drawn sprite instead (fix overworld-pokemon-cries). Kept as the record of the sprite-id analysis.
 Overworld Pokemon objects (the Jigglypuff in the Pewter Pokemon Center, the Machoke in the Goldenrod Department Store
 basement, the Ampharos in the Olivine Lighthouse, the Pokeathlon Dome participants, ...) keep the sprite ids of the
 vanilla game: ids 994..1046 are vanilla's NPC-Pokemon sprites in dex order (Butterfree 994 ... Jigglypuff 1004 ...

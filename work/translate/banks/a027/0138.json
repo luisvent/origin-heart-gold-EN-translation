@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "小拉达『呼,呼ー！",
-   "en": "Rattata: Ffft!",
+   "en": "Servine: Ffft!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0140/10; modernised from US 0140#10"
+   "origin": "agent",
+   "notes": "US 0140/10; modernised from US 0140#10 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Rattata'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
   },
   {
    "id": 11,
@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "超音蝠『咔呀ー",
-   "en": "Zubat: Quuooh.",
+   "en": "Watchog: Quuooh.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0140/12; modernised from US 0140#12"
+   "origin": "agent",
+   "notes": "US 0140/12; modernised from US 0140#12 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Zubat'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
   },
   {
    "id": 13,

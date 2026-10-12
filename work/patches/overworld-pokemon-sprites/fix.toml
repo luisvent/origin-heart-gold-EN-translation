@@ -1,10 +1,11 @@
 id = "overworld-pokemon-sprites"
 title = "Give the stationary overworld Pokemon of vanilla maps the sprite of their own species"
 kind = "narc"
-enabled = true
-decisions = ["D-2346", "D-2347"]
+enabled = false
+decisions = ["D-2346", "D-2347", "D-2349"]
 requires = []
 why = """
+Disabled and superseded (user decision 2026-10-12, D-2349): the sprite ids are NOT changed; the English text and the cries follow the drawn sprite instead (fix overworld-pokemon-cries). Kept as the record of the sprite-id analysis.
 Overworld Pokemon objects (the Jigglypuff in the Pewter Pokemon Center, the Machoke in the Goldenrod Department Store
 basement, the Ampharos in the Olivine Lighthouse, the Pokeathlon Dome participants, ...) keep the sprite ids of the
 vanilla game: ids 994..1046 are vanilla's NPC-Pokemon sprites in dex order (Butterfree 994 ... Jigglypuff 1004 ...

@@ -118,18 +118,18 @@
   {
    "id": 14,
    "zh": "凯西『嘶⋯⋯{NEWLINE}⋯⋯　⋯⋯{CLEAR}⋯⋯　⋯⋯{SCROLL}好想睡觉！",
-   "en": "Abra: Sss...{NEWLINE}...{CLEAR}...{SCROLL}So sleepy!",
+   "en": "Simisage: Sss...{NEWLINE}...{CLEAR}...{SCROLL}So sleepy!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0141/14; modernised from US 0141#14 | RV039: meaning: wants to sleep, not already asleep (D-1672)"
+   "notes": "US 0141/14; modernised from US 0141#14 | RV039: meaning: wants to sleep, not already asleep (D-1672) | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Abra'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
   },
   {
    "id": 15,
    "zh": "迷你龙『卟唏！",
-   "en": "Dratini: Achoo!",
+   "en": "Woobat: Achoo!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0141/15; modernised from US 0141#15"
+   "origin": "agent",
+   "notes": "US 0141/15; modernised from US 0141#15 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Dratini'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
   }
  ]
 }

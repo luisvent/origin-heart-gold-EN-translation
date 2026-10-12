@@ -34,7 +34,9 @@ sys.path.insert(0, str(TOOLS))
 CASES = {
     "pewter": (475, 8, 18, "DOWN", "UP", 6, 15),
     "lighthouse": (225, 9, 9, "DOWN", "UP", 9, 9),
+    "pewter-talk": (475, 8, 18, "DOWN", "UP", 5, 14),   # also talks to the Pokemon: text box and PlayCry species
 }
+PLAYCRY_CALL = 0x020487F0   # arm9: `bl` to the cry player inside the PlayCry script command; r1 = species, r2 = form
 
 
 def default_sav() -> str:
@@ -74,11 +76,18 @@ def run_case(rom: str, sav: str, out: Path, name: str) -> dict:
             h.step(200)             # and back in: the map loads normally, with its objects
             arrived = h.walk_to(tx, tz)
             h.step(30)
+            cries = []
+            if name.endswith("-talk"):
+                h.on_exec(PLAYCRY_CALL, lambda m: cries.append(m.reg.r1))
+                h.walk("UP", 1)         # blocked by the Pokemon: only turns
+                h.press("A", frames=6)
+                h.step(150)
             shot = h.screenshot(name)
     from PIL import Image
     top = Image.open(shot).crop((0, 0, 256, 192))
     top.save(shot)
-    return {"case": name, "arrived": bool(arrived), "png": str(shot), "sha256": hashlib.sha256(top.tobytes()).hexdigest()}
+    return {"case": name, "arrived": bool(arrived), "png": str(shot), "sha256": hashlib.sha256(top.tobytes()).hexdigest(),
+            "playcry_species": cries}
 
 
 def diff_fraction(a: str, b: str) -> float:
