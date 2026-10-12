@@ -27,6 +27,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`gfx-weather-banners`](#gfx-weather-banners) | graphics | yes | – | Battle weather banners |
 | [`gfx-yes-no-buttons`](#gfx-yes-no-buttons) | graphics | yes | – | Touch-screen YES/NO buttons |
 | [`blank-player-name`](#blank-player-name) | narc | **no** | – | Fill the player-name buffer a script's message actually reads |
+| [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
@@ -782,6 +783,104 @@ SHA-1 and the expected bytes guard the edit.
 - `a/0/1/2` #171 +0x1ce `brock-route2-buffer-order-1`: `2D00 1A00 0032 0035 005E 00FF 070E 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 0B00 0007 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 480 moves in front of NPCMsg at 463; the 17 bytes between shift up by 3 and the relative operand of the ApplyMovement among them is lowered by 3 (same absolute target); same size, no jump target inside.
 - `a/0/1/2` #171 +0x5b0 `brock-route2-buffer-order-2`: `2D00 1A00 0032 0035 005E 00FF 02E8 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 E500 0002 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 1474 moves in front of NPCMsg at 1457; the 17 bytes between shift up by 3 and the relative operand of the ApplyMovement among them is lowered by 3 (same absolute target); same size, no jump target inside.
 - `a/0/1/2` #171 +0x61c `brock-route2-buffer-order-3`: `2D00 1A00 0032 0035 005E 00FF 02C0 0000 005F 00BE 2D00` → `BE00 0000 002D 321A 3500 5E00 FF00 BD00 0002 5F00 2D00` (member SHA-1 `43275c7fcd42`): Rotation: BufferPlayersName [0] at 1582 moves in front of NPCMsg at 1565; the 17 bytes between shift up by 3 and the relative operand of the ApplyMovement among them is lowered by 3 (same absolute target); same size, no jump target inside.
+
+## blank-player-name-batch
+
+**Fill the player-name buffer before the messages that read it (53 more places)**
+
+- Kind: narc
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2341, D-2342, D-2343
+- Source: `work/patches/blank-player-name-batch/fix.toml`
+
+**Why (the Chinese hack):**
+
+A message tag {VAR:0103:n} prints message-buffer n, and every script run starts with empty buffers, so a
+script has to put the player's name into buffer n (BufferPlayersName n) before the message. In 53 places of
+the event scripts (a/0/1/2, 36 members) no command fills that buffer on any path to the message (a decoder
+walks every path of every entry, follows Call and CallStd into the standard scripts, and treats every native
+command it cannot decode as a possible filler), so the name comes out empty on the Chinese ROM and on our build
+alike ("You're League Champion , aren't you?"). Seen in the emulator on the Chinese ROM (blank) and fixed on
+the patched ROM: the Route 1 kid (member 168, script 5), the Route 30 woman (member 228) and a sample of
+other members (work/notes/blank-player-name-batch_fix.md). Follow-up of blank-player-name, which fixed the
+three places that needed no inserted command.
+
+Status: disabled, like blank-player-name: merged as a separate switched-off patch; the standard build keeps
+the Chinese behaviour; build it with build.py --only blank-player-name-batch (tester xdeltas on request).
+It combines with blank-player-name (member 171 accepts both member hashes) and does not repeat its sites.
+
+**What (old → new):**
+
+Each [[script_insert]] puts the 3-byte command BufferPlayersName n (BE 00 nn) in front of the first message
+that reads buffer n, i.e. just in time. scriptinsert.py relocates what the member stores as offsets: the
+header slots, the relative operand of every GoTo/Call/GoToIf/CallIf/ObjectGoTo/BGGoTo/DirectionGoTo/
+GoToIfTrainerDefeated/ApplyMovement (a target exactly at the insertion point lands on the inserted command), and
+it keeps every movement block at its position modulo 4 with zero padding. The member grows by 3 bytes (plus up
+to 3 padding bytes per movement block); the build refuses unless the member hash and the bytes at the offset
+are the expected ones, and refuses to guess on bytes the decoder cannot explain. Not fixed (class C, a
+native command that may fill the buffer is on the path): see work/notes/blank-player-name-batch_fix.md.
+
+**Evidence:**
+
+- work/notes/blank-player-name-batch_fix.md
+- work/tools/test_script_insert.py
+
+**Touches:**
+
+- `a/0/1/2` #22 +0x3d8 `m22-984`: insert `BE 00 00` before `2D 00 2B` (member SHA-1 `33204d96b6f5`): NPCMsg 43 (a027/0057) reads {VAR:0103:0}; script 12 never fills buffer 0 before it.
+- `a/0/1/2` #25 +0xe4b `m25-3659`: insert `BE 00 00` before `84 00 AD B0` (member SHA-1 `e6fb9561f50f`): GenderMsgBox 173, 176 (a027/0060) reads {VAR:0103:0}; script 40 never fills buffer 0 before it.
+- `a/0/1/2` #31 +0x4ce `m31-1230`: insert `BE 00 00` before `2D 00 61` (member SHA-1 `1518a000d04a`): NPCMsg 97 (a027/0065) reads {VAR:0103:0}; script 26 never fills buffer 0 before it.
+- `a/0/1/2` #31 +0xdfb `m31-3579`: insert `BE 00 00` before `2D 00 61` (member SHA-1 `1518a000d04a`): NPCMsg 97 (a027/0065) reads {VAR:0103:0}; script 26 never fills buffer 0 before it.
+- `a/0/1/2` #55 +0x5eb `m55-1515`: insert `BE 00 00` before `2D 00 11` (member SHA-1 `31dac176af50`): NPCMsg 17 (a027/0084) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
+- `a/0/1/2` #103 +0x64 `m103-100`: insert `BE 00 00` before `2D 00 03` (member SHA-1 `d132044e0aef`): NPCMsg 3 (a027/0122) reads {VAR:0103:0}; script 3 never fills buffer 0 before it (script not bound to a map event).
+- `a/0/1/2` #109 +0x34a `m109-842`: insert `BE 00 00` before `2D 00 32` (member SHA-1 `ee51a2ffe00c`): NPCMsg 50 (a027/0448) reads {VAR:0103:0}; script 12 never fills buffer 0 before it (script not bound to a map event).
+- `a/0/1/2` #109 +0x5b6 `m109-1462`: insert `BE 00 00` before `2D 00 5E` (member SHA-1 `ee51a2ffe00c`): NPCMsg 94 (a027/0121) reads {VAR:0103:0}; script 17 never fills buffer 0 before it (script not bound to a map event).
+- `a/0/1/2` #109 +0x8e6 `m109-2278`: insert `BE 00 00` before `2D 00 65` (member SHA-1 `ee51a2ffe00c`): NPCMsg 101 (a027/0448) reads {VAR:0103:0}; script 19 never fills buffer 0 before it (script not bound to a map event).
+- `a/0/1/2` #109 +0xaa6 `m109-2726`: insert `BE 00 00` before `2D 00 78` (member SHA-1 `ee51a2ffe00c`): NPCMsg 120 (a027/0446) reads {VAR:0103:0}; script 22 never fills buffer 0 before it.
+- `a/0/1/2` #109 +0xed2 `m109-3794`: insert `BE 00 00` before `2D 00 8C` (member SHA-1 `ee51a2ffe00c`): NPCMsg 140 (a027/0121) reads {VAR:0103:0}; script 25 never fills buffer 0 before it.
+- `a/0/1/2` #109 +0xeed `m109-3821`: insert `BE 00 00` before `2D 00 7D` (member SHA-1 `ee51a2ffe00c`): NPCMsg 125 (a027/0446) reads {VAR:0103:0}; script 26 never fills buffer 0 before it.
+- `a/0/1/2` #109 +0xf08 `m109-3848`: insert `BE 00 00` before `2D 00 7F` (member SHA-1 `ee51a2ffe00c`): NPCMsg 127 (a027/0446) reads {VAR:0103:0}; script 27 never fills buffer 0 before it.
+- `a/0/1/2` #109 +0xf23 `m109-3875`: insert `BE 00 00` before `2D 00 7E` (member SHA-1 `ee51a2ffe00c`): NPCMsg 126 (a027/0446) reads {VAR:0103:0}; script 28 never fills buffer 0 before it.
+- `a/0/1/2` #109 +0x1158 `m109-4440`: insert `BE 00 00` before `2D 00 5B` (member SHA-1 `ee51a2ffe00c`): NPCMsg 91 (a027/0448) reads {VAR:0103:0}; script 14 never fills buffer 0 before it (script not bound to a map event).
+- `a/0/1/2` #110 +0x169e `m110-5790`: insert `BE 00 00` before `2D 00 59` (member SHA-1 `85e110e0d106`): NPCMsg 89 (a027/0126) reads {VAR:0103:0}; script 25 never fills buffer 0 before it.
+- `a/0/1/2` #119 +0x663 `m119-1635`: insert `BE 00 00` before `2D 00 68` (member SHA-1 `82b12a70edab`): NPCMsg 104 (a027/0133) reads {VAR:0103:0}; script 11 never fills buffer 0 before it.
+- `a/0/1/2` #156 +0x269 `m156-617`: insert `BE 00 00` before `84 00 0D 0E` (member SHA-1 `7c14f8ff3a5f`): GenderMsgBox 13, 14 (a027/0252) reads {VAR:0103:0}; script 12 never fills buffer 0 before it.
+- `a/0/1/2` #168 +0x109 `m168-265`: insert `BE 00 00` before `84 00 08 09` (member SHA-1 `2b32089d594b`): GenderMsgBox 8, 9 (a027/0312) reads {VAR:0103:0}; script 5 never fills buffer 0 before it (script not bound to a map event).
+- `a/0/1/2` #169 +0x18b `m169-395`: insert `BE 00 00` before `2D 00 0F` (member SHA-1 `c3757a456038`): NPCMsg 15 (a027/0313) reads {VAR:0103:0}; script 4 never fills buffer 0 before it.
+- `a/0/1/2` #171 +0x130 `m171-304`: insert `BE 00 00` before `2D 00 26` (member SHA-1 `43275c7fcd42` or `421b1055a4a3`): NPCMsg 38 (a027/0315) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
+- `a/0/1/2` #171 +0x503 `m171-1283`: insert `BE 00 00` before `2D 00 1F` (member SHA-1 `43275c7fcd42` or `421b1055a4a3`): NPCMsg 31 (a027/0315) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
+- `a/0/1/2` #196 +0x39d `m196-925`: insert `BE 00 00` before `2D 00 16` (member SHA-1 `a7c818e078c3`): NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 12 never fills buffer 0 before it.
+- `a/0/1/2` #196 +0x3f3 `m196-1011`: insert `BE 00 00` before `2D 00 16` (member SHA-1 `a7c818e078c3`): NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 13 never fills buffer 0 before it.
+- `a/0/1/2` #216 +0x15b `m216-347`: insert `BE 00 00` before `84 00 03 02` (member SHA-1 `10ea15359e24`): GenderMsgBox 2, 3 (a027/0356) reads {VAR:0103:0}; script 10 never fills buffer 0 before it.
+- `a/0/1/2` #228 +0x108 `m228-264`: insert `BE 00 00` before `84 00 10 11` (member SHA-1 `be6169dc8d01`): GenderMsgBox 16, 17 (a027/0369) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
+- `a/0/1/2` #734 +0x3bc `m734-956`: insert `BE 00 00` before `2D 00 21` (member SHA-1 `9fa08ee08c25`): NPCMsg 33 (a027/0440) reads {VAR:0103:0}; script 1 never fills buffer 0 before it.
+- `a/0/1/2` #741 +0x88 `m741-136`: insert `BE 00 00` before `84 00 16 17` (member SHA-1 `fd39601d2fa7`): GenderMsgBox 22, 23 (a027/0447) reads {VAR:0103:0}; script 1 never fills buffer 0 before it (script not bound to a map event).
+- `a/0/1/2` #741 +0x1c6 `m741-454`: insert `BE 00 00` before `84 00 16 17` (member SHA-1 `fd39601d2fa7`): GenderMsgBox 22, 23 (a027/0447) reads {VAR:0103:0}; script 7 never fills buffer 0 before it.
+- `a/0/1/2` #753 +0xd9d `m753-3485`: insert `BE 00 00` before `2D 00 21` (member SHA-1 `395272f9f421`): NPCMsg 33 (a027/0457) reads {VAR:0103:0}; script 16 never fills buffer 0 before it.
+- `a/0/1/2` #782 +0x9b8 `m782-2488`: insert `BE 00 00` before `2D 00 C7` (member SHA-1 `95a79ebefb84`): NPCMsg 199 (a027/0483) reads {VAR:0103:0}; script 10 never fills buffer 0 before it.
+- `a/0/1/2` #783 +0x4ac `m783-1196`: insert `BE 00 00` before `2D 00 85` (member SHA-1 `80e94b3887be`): NPCMsg 133 (a027/0484) reads {VAR:0103:0}; script 27 never fills buffer 0 before it.
+- `a/0/1/2` #783 +0x6e9 `m783-1769`: insert `BE 00 00` before `2D 00 AB` (member SHA-1 `80e94b3887be`): NPCMsg 171 (a027/0484) reads {VAR:0103:0}; script 45 never fills buffer 0 before it.
+- `a/0/1/2` #821 +0x1e6 `m821-486`: insert `BE 00 00` before `2D 00 46` (member SHA-1 `926039030074`): NPCMsg 70 (a027/0519) reads {VAR:0103:0}; script 10 never fills buffer 0 before it.
+- `a/0/1/2` #840 +0xd0e `m840-3342`: insert `BE 00 00` before `2D 00 0E` (member SHA-1 `310201deeef5`): NPCMsg 14 (a027/0535) reads {VAR:0103:0}; script 14 never fills buffer 0 before it.
+- `a/0/1/2` #842 +0x257f `m842-9599`: insert `BE 00 00` before `2D 00 AF` (member SHA-1 `c811958246ec`): NPCMsg 175 (a027/0537) reads {VAR:0103:0}; script 2 never fills buffer 0 before it.
+- `a/0/1/2` #855 +0x56 `m855-86`: insert `BE 00 00` before `84 00 02 03` (member SHA-1 `7993505d66bd`): GenderMsgBox 2, 3 (a027/0549) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
+- `a/0/1/2` #856 +0x1ce `m856-462`: insert `BE 00 00` before `84 00 37 38` (member SHA-1 `983aaddcdd0a`): GenderMsgBox 55, 56 (a027/0550) reads {VAR:0103:0}; script 13 never fills buffer 0 before it.
+- `a/0/1/2` #865 +0xbe `m865-190`: insert `BE 00 00` before `2D 00 04` (member SHA-1 `12341728117d`): NPCMsg 4 (a027/0558) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
+- `a/0/1/2` #871 +0x1d1 `m871-465`: insert `BE 00 00` before `2D 00 2C` (member SHA-1 `a1a42048a48f`): NPCMsg 44 (a027/0563) reads {VAR:0103:0}; script 9 never fills buffer 0 before it.
+- `a/0/1/2` #881 +0xe3 `m881-227`: insert `BE 00 00` before `2D 00 05` (member SHA-1 `2b2e3b221748`): NPCMsg 5 (a027/0572) reads {VAR:0103:0}; script 2 never fills buffer 0 before it.
+- `a/0/1/2` #883 +0x1fe `m883-510`: insert `BE 00 00` before `2D 00 0E` (member SHA-1 `c81f10338e02`): NPCMsg 14 (a027/0574) reads {VAR:0103:0}; script 1 never fills buffer 0 before it.
+- `a/0/1/2` #900 +0x94b `m900-2379`: insert `BE 00 00` before `2D 00 17` (member SHA-1 `41d3d47c69f4`): NPCMsg 23 (a027/0588) reads {VAR:0103:0}; script 8 never fills buffer 0 before it.
+- `a/0/1/2` #907 +0xc15 `m907-3093`: insert `BE 00 00` before `84 00 10 11` (member SHA-1 `947e58cfc555`): GenderMsgBox 16 (a027/0595) reads {VAR:0103:0}; script 14 never fills buffer 0 before it.
+- `a/0/1/2` #918 +0x35ac `m918-13740`: insert `BE 00 00` before `2D 00 08` (member SHA-1 `77c82f82153a`): NPCMsg 8 (a027/0605) reads {VAR:0103:0}; script 4 never fills buffer 0 before it.
+- `a/0/1/2` #923 +0x319 `m923-793`: insert `BE 00 00` before `2D 00 17` (member SHA-1 `44f4263ff5a8`): NPCMsg 23 (a027/0608) reads {VAR:0103:0}; script 8 never fills buffer 0 before it.
+- `a/0/1/2` #933 +0xd96 `m933-3478`: insert `BE 00 00` before `84 00 66 67` (member SHA-1 `47cbc384e02c`): GenderMsgBox 102, 103 (a027/0616) reads {VAR:0103:0}; script 5 never fills buffer 0 before it.
+- `a/0/1/2` #942 +0x134 `m942-308`: insert `BE 00 00` before `2D 00 07` (member SHA-1 `9dc3c1648f31`): NPCMsg 7 (a027/0624) reads {VAR:0103:0}; script 4 never fills buffer 0 before it.
+- `a/0/1/2` #964 +0x23c `m964-572`: insert `BE 00 00` before `2D 00 1B` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 27 (a027/0338) reads {VAR:0103:0}; script 11 never fills buffer 0 before it (script not bound to a map event).
+- `a/0/1/2` #964 +0x2a8 `m964-680`: insert `BE 00 00` before `2D 00 21` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 33 (a027/0338) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
+- `a/0/1/2` #964 +0x379 `m964-889`: insert `BE 00 00` before `2D 00 16` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
+- `a/0/1/2` #964 +0x45b `m964-1115`: insert `BE 00 00` before `2D 00 26` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 38 (a027/0338) reads {VAR:0103:0}; script 4 never fills buffer 0 before it.
+- `a/0/1/2` #964 +0x9c6 `m964-2502`: insert `BE 00 00` before `2D 00 16` (member SHA-1 `b1c4f5ed78cd`): NPCMsg 22 (a027/0338) reads {VAR:0103:0}; script 3 never fills buffer 0 before it.
 
 ## expedition-completed-progress
 

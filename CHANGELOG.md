@@ -11,6 +11,7 @@ Merged into develop on 2026-10-12 at the user's request as separate patches with
 - **romance-mail-mismatch (D-2332; open question D-2333):** the Cynthia romance scenes in the Pallet Town house take the Snow Mail they check for, and her "I'm busy" reply shows her own line.
 - **petilil-hisuian-lilligant (D-2334):** Petilil holding a Black Belt by day evolves straight into Hisuian Lilligant instead of into another Petilil.
 - **blank-player-name (D-2335 to D-2339; open question D-2340):** the player's name is no longer blank in Clair's photo offer, the Pallet Town photographer's first line and Brock's Route 2 lines.
+- **blank-player-name-batch (D-2341 to D-2343):** the player's name is no longer blank in 53 more script lines (Route 1 kid, Route 30 woman, Misty, "League Champion ..." greetings, received-Pokémon lines and others); a new `script_insert` fix op adds a BufferPlayersName command and relocates the script's offsets. 15 positions with undecodable native commands are left alone and listed in `work/notes/blank-player-name-batch_fix.md`.
 
 ## [1.0.0-rc7] - 2026-10-11
 

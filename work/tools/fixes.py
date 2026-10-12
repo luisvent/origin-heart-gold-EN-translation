@@ -68,6 +68,14 @@ fix.toml
                   (SHA-1 of the whole original member, 40 hex digits: pins its size and every other byte),
                   notes. The build refuses unless the member has member_sha1 and the bytes at offset are expect.
                   Only the replaced and written bytes are in git, never a member.
+    [[script_insert]] commands inserted into an event-script member (kind narc; scriptinsert.py, applied by
+                  narcpatch.py after the [[narc_bytes]] entries). Keys: id, narc, member, offset (hex: the
+                  start of a command, in the member as the hack ships it), expect (hex bytes: the command
+                  that starts there, 'BE 00 00'), insert (hex bytes: whole commands put in front of it),
+                  member_sha1 (list of accepted SHA-1s of the member as this stage receives it: the hack's
+                  member, and the member after another fix's [[narc_bytes]] that is meant to combine with
+                  this one), notes. Every jump/call/movement operand and header slot is relocated; the
+                  footprint is the expect range.
     [[us_ref]]    a claim about the USA ROM (any kind): id, claim, file ("arm9" | "overlayNN" in USA numbering |
                   a NARC path), address (RAM) or offset, and what is there: expect (the USA bytes, a few
                   halfwords), new (a [[code]] region of this fix: the bytes the fix writes there) or hack +
@@ -154,13 +162,14 @@ ROM_CN = WORK / "rom" / "origin_v4.0.3_cn.nds"
 KINDS = ("font", "graphics", "narc", "strings", "data", "code")       # also the stage order of the build
 ENTRY_TABLES = {"code": "code", "data": "code", "strings": "string", "narc": "narc_bytes", "graphics": "graphics",
                 "font": "font"}
-ENTRY_TABLE_NAMES = ("code", "string", "narc_bytes", "graphics", "font")
+ENTRY_TABLE_NAMES = ("code", "string", "narc_bytes", "script_insert", "graphics", "font")
+EXTRA_TABLES = {"narc": ("script_insert",)}      # entry tables a kind may use besides its main one in ENTRY_TABLES
 STRS, INTS = ("list", str), ("list", int)       # list element types
 TABLES, TABLE_MAP = ("list", dict), ("dict", dict)   # [[entries]] and [name.<key>] sub-tables
 TOP_KEYS = {"id": str, "title": str, "kind": str, "enabled": bool, "decisions": STRS, "requires": STRS,
             "why": str, "what": str, "evidence": STRS, "asm": str, "native": dict,
             "code": TABLES, "string": TABLES, "grow": TABLES, "graphics": TABLES, "font": TABLES,
-            "narc_bytes": TABLES, "us_ref": TABLES}
+            "narc_bytes": TABLES, "script_insert": TABLES, "us_ref": TABLES}
 REQUIRED_TOP = ("id", "title", "kind", "enabled", "decisions", "requires", "why", "what", "evidence")
 ASM_KINDS = ("strings", "data", "code")  # kinds whose new bytes come from an armips source
 # Python modules (work/tools/<name>.py) that validate a fix's native payload ([native] module = ...)
@@ -224,6 +233,10 @@ NARC_BYTES_KEYS = {"id": str, "narc": str, "member": int, "offset": str, "expect
                    "member_sha1": str, "notes": str}
 NARC_BYTES_REQUIRED = ("id", "narc", "member", "offset", "expect", "new", "member_sha1", "notes")
 NARC_PATH_RE = re.compile(r"[a-z0-9_]+(?:/[A-Za-z0-9_.]+)*")    # a/0/3/4, poketool/personal/evo.narc
+SCRIPT_INSERT_KEYS = {"id": str, "narc": str, "member": int, "offset": str, "expect": str, "insert": str,
+                      "member_sha1": STRS, "notes": str}
+SCRIPT_INSERT_REQUIRED = ("id", "narc", "member", "offset", "expect", "insert", "member_sha1", "notes")
+HEXBYTES_RE = re.compile(r"[0-9A-Fa-f]{2}(?: ?[0-9A-Fa-f]{2})*")
 FONT_KEYS = {"narc": str, "fonts": INTS, "codes": STRS, "source": str, "notes": str}
 FONT_REQUIRED = ("narc", "fonts", "codes", "source")
 
@@ -333,15 +346,23 @@ def halfwords(v) -> list:
     raise ValueError(f"{v!r}: write one halfword as 0xNNNN or a run as 'NNNN NNNN ...' (4 hex digits each)")
 
 
+def hexbytes(v) -> bytes:
+    """A [[script_insert]] expect/insert string ('BE 00 00' or 'BE0000') as bytes."""
+    if not isinstance(v, str) or not HEXBYTES_RE.fullmatch(v):
+        raise ValueError(f"{v!r}: write hex bytes like 'BE 00 00'")
+    return bytes.fromhex(v.replace(" ", ""))
+
+
 def _validate_entries(fx, where, problems):
     kind = fx.get("kind")
     table = ENTRY_TABLES.get(kind)
+    extra = EXTRA_TABLES.get(kind, ())
     for t in ENTRY_TABLE_NAMES:
-        if t in fx and t != table:
+        if t in fx and t != table and t not in extra:
             problems.append(f"{where}: kind {kind!r} cannot have [[{t}]] entries")
     if "grow" in fx and kind not in ASM_KINDS:
         problems.append(f"{where}: [[grow]] only belongs to kinds {', '.join(ASM_KINDS)}")
-    if table and not fx.get(table):
+    if table and not any(fx.get(t) for t in (table, *extra)):
         problems.append(f"{where}: kind {kind!r} needs at least one [[{table}]] entry")
     for i, e in enumerate(_entries(fx, "code")):
         w = f"{where} [[code]] #{i} {e.get('id', '?')}"
@@ -437,6 +458,24 @@ def _validate_entries(fx, where, problems):
         elif len(lens) == 2 and isinstance(e.get("expect"), str) and \
                 halfwords(e["expect"]) == halfwords(e["new"]):
             problems.append(f"{w}: new equals expect (the entry changes nothing)")
+    for i, e in enumerate(_entries(fx, "script_insert")):
+        w = f"{where} [[script_insert]] #{i} {e.get('id', '?')}"
+        _types(w, e, SCRIPT_INSERT_KEYS, SCRIPT_INSERT_REQUIRED, problems)
+        if isinstance(e.get("narc"), str) and (not NARC_PATH_RE.fullmatch(e["narc"]) or "/" not in e["narc"]):
+            problems.append(f"{w}: narc must be a NARC path like 'a/0/1/2'")
+        if _is(e.get("member"), int) and e["member"] < 0:
+            problems.append(f"{w}: member must be >= 0")
+        if isinstance(e.get("offset"), str) and not HEX_RE.fullmatch(e["offset"]):
+            problems.append(f"{w}: offset must be hex like '0x3d8'")
+        for k in ("expect", "insert"):
+            if isinstance(e.get(k), str) and not HEXBYTES_RE.fullmatch(e[k]):
+                problems.append(f"{w}: {k} must be hex bytes like 'BE 00 00'")
+        if _is(e.get("member_sha1"), STRS):
+            if not e["member_sha1"]:
+                problems.append(f"{w}: member_sha1 is empty")
+            for h in e["member_sha1"]:
+                if not SHA1_RE.fullmatch(h):
+                    problems.append(f"{w}: member_sha1 {h!r} must be 40 lowercase hex digits")
     for i, e in enumerate(_entries(fx, "font")):
         _types(f"{where} [[font]] #{i}", e, FONT_KEYS, FONT_REQUIRED, problems)
         for c in e.get("codes", []) if _is(e.get("codes", []), STRS) else []:
@@ -1325,7 +1364,7 @@ def validate(fixes, decisions=None, overlay_bases=None) -> list:
     # entry ids unique across all fixes
     seen = {}
     for fx in fixes:
-        for t in ("code", "string", "narc_bytes", "us_ref"):
+        for t in ("code", "string", "narc_bytes", "script_insert", "us_ref"):
             for e in _entries(fx, t):
                 if not isinstance(e.get("id"), str):
                     continue                                # reported by the type check
@@ -1544,6 +1583,9 @@ def footprint(fx) -> list:
     for e in fx.get("narc_bytes", []):
         off = _int(e["offset"])
         rows.append((f"{e['narc']}#{e['member']}", off, off + 2 * len(halfwords(e["expect"])), e["id"]))
+    for e in fx.get("script_insert", []):
+        off = _int(e["offset"])
+        rows.append((f"{e['narc']}#{e['member']}", off, off + len(hexbytes(e["expect"])), e["id"]))
     for e in fx.get("font", []):
         for fi in e["fonts"]:
             for c in e["codes"]:
@@ -1666,6 +1708,11 @@ def graphics_manifest(fixes) -> list:
     return [dict(e, fix=fx["id"]) for fx in _staged(fixes) for e in fx.get("graphics", [])]
 
 
+def script_insert_entries(fixes) -> list:
+    """[[script_insert]] entries of `fixes` (plus "fix") in build order, for narcpatch.py."""
+    return [dict(e, fix=fx["id"]) for fx in _staged(fixes) for e in fx.get("script_insert", [])]
+
+
 def narc_bytes_entries(fixes) -> list:
     """[[narc_bytes]] entries of `fixes` (plus "fix") in build order, for narcpatch.py."""
     return [dict(e, fix=fx["id"]) for fx in _staged(fixes) for e in fx.get("narc_bytes", [])]
@@ -1736,6 +1783,9 @@ def _touched(fx, bases=None) -> list:
     for e in fx.get("narc_bytes", []):
         lines.append(f"`{e['narc']}` #{e['member']} +{e['offset']} `{e['id']}`: `{e['expect']}` → `{e['new']}` "
                      f"(member SHA-1 `{e['member_sha1'][:12]}`): {e['notes']}")
+    for e in fx.get("script_insert", []):
+        lines.append(f"`{e['narc']}` #{e['member']} +{e['offset']} `{e['id']}`: insert `{e['insert']}` before `{e['expect']}` "
+                     f"(member SHA-1 {' or '.join('`' + h[:12] + '`' for h in e['member_sha1'])}): {e['notes']}")
     for e in fx.get("font", []):
         lines.append(f"`{e['narc']}` fonts {', '.join(map(str, e['fonts']))}: glyph + width of "
                      f"{', '.join(e['codes'])} from the {e['source'].upper()} ROM")

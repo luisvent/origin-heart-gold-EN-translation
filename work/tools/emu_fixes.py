@@ -124,6 +124,11 @@ UNCOVERED = {
                          "bytes and decodes the scripts; the Dragon's Den, Pallet and Route 2 lines were "
                          "reproduced in an emulator on the Chinese ROM and the patched ROM (see "
                          "work/notes/blank-player-name_fix.md).",
+    "blank-player-name-batch": "No scenario in this unified runner (disabled fix). test_script_insert.py checks the "
+                               "insert mechanism on synthetic scripts and, on every one of the 36 patched members, "
+                               "that the decode is the original plus the inserted commands with every relative "
+                               "operand on the same target; sampled scenes were run in an emulator on the Chinese "
+                               "ROM and the patched ROM (see work/notes/blank-player-name-batch_fix.md).",
     "romance-mail-mismatch": "No scenario in this unified runner (disabled fix). test_romance_mail_mismatch.py "
                              "pins the three byte edits against the Chinese ROM's scripts; see "
                              "work/notes/romance_mail_mismatch_fix.md.",
