@@ -134,6 +134,10 @@ UNCOVERED = {
     "romance-mail-mismatch": "No scenario in this unified runner (disabled fix). test_romance_mail_mismatch.py "
                              "pins the three byte edits against the Chinese ROM's scripts; see "
                              "work/notes/romance_mail_mismatch_fix.md.",
+    "trainer-abilities": "No scenario in this unified runner. test_trainer_abilities.py pins the 54 patched "
+                         "halfwords and the reported slots against the Chinese ROM; emu_trainer_abilities.py hooks "
+                         "the party loader and prints the ability the game gives each Pokemon (CN, build without "
+                         "and build with the fix); see work/notes/trainer-abilities_fix.md.",
     "mortar-invalid-flag-noop": "No scenario in this unified runner; native_script_state.py executes actual "
                                 "native flag handlers in 20 bounded cases per paired build, checking SetFlag0 "
                                 "and preserved progress/Pokedex bytes. Complete scenes, map reload and native "

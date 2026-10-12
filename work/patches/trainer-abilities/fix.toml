@@ -1,0 +1,568 @@
+id = "trainer-abilities"
+title = "Give trainer Pokémon the ability their held item and moves need (54 slots)"
+kind = "narc"
+enabled = true
+decisions = ["D-2346", "D-2347", "D-1002"]
+requires = []
+why = """
+Each trainer Pokémon record (a/0/5/6, 28 bytes) stores an explicit ability id that the party loader applies after
+creating the Pokémon. In 54 slots the stored id is the species' default slot although the item and moves of the
+same record are built around another ability: Toxic Orb Gliscor with Hyper Cutter and Toxic Orb Breloom with
+Technician (poisoned every turn, no Poison Heal), Flame Orb Raticate/Hariyama/Machamp without Guts, Heat Rock
+Ninetales and Torkoal without Drought, Damp Rock Pelipper with Keen Eye, Petrel's early Life Orb Nidokings
+without Sheer Force. The Chinese ROM stores the same ids (the data is byte-identical), so this is the hack's
+unfinished data, not a regression of our build. The hack's later teams for the same characters and species
+(Petrel, Archie, Maxie, Lawrence, Karen, Sammy, Kiyo) already carry the intended ability.
+"""
+what = """
+Rewrite only the stored ability halfword (record offset +4) of 54 slots; the ability slot byte, species, item,
+moves, EVs and every other slot are untouched. A slot is changed only when (a) it holds Toxic Orb or Flame Orb and
+the species has exactly one ability that uses the status (Poison Heal, Guts, Flare Boost, Marvel Scale), (b) it is
+a Pelipper with Damp Rock and no Rain Dance, (c) it is a Ninetales or Torkoal with Heat Rock and no Sunny Day, or
+(d) it is Executive Petrel's Life Orb Nidoking (later teams of the same set use Sheer Force). Ambiguous slots are
+listed in D-2347 and not changed. Each entry pins the original member by SHA-1 and the original bytes.
+"""
+evidence = [
+  "work/notes/trainer-abilities_fix.md",
+  "work/tools/test_trainer_abilities.py",
+]
+
+[[narc_bytes]]
+id = "t10-s3-flare-boost"
+narc = "a/0/5/6"
+member = 10
+offset = "0x58"
+expect = "0x006A"
+new = "0x008A"
+member_sha1 = "476db47e957f7dafb8a59b8e75d47210e1252400"
+notes = "Rich Boy Howard #4 Drifblim Lv82 holds Flame Orb: ability Aftermath -> Flare Boost."
+
+[[narc_bytes]]
+id = "t56-s2-guts"
+narc = "a/0/5/6"
+member = 56
+offset = "0x3C"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "d6b93f235563ffb0b45983d07ff589a662687680"
+notes = "Team Rocket Grunt #3 Raticate Lv64 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t61-s3-guts"
+narc = "a/0/5/6"
+member = 61
+offset = "0x58"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "5448aba09138d0131cb05538f91b095e95471ba4"
+notes = "Rival Blue #4 Rattata Lv14 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t71-s1-poison-heal"
+narc = "a/0/5/6"
+member = 71
+offset = "0x20"
+expect = "0x0034"
+new = "0x005A"
+member_sha1 = "c4400f890c9f369e28a3089a4d903ed61ebfcb33"
+notes = "Officer Felix #2 Gliscor Lv65 holds Toxic Orb: ability Hyper Cutter -> Poison Heal."
+
+[[narc_bytes]]
+id = "t94-s3-poison-heal"
+narc = "a/0/5/6"
+member = 94
+offset = "0x58"
+expect = "0x0034"
+new = "0x005A"
+member_sha1 = "f13849dea2073c56a8378692af7c38675bfa8ab4"
+notes = "Battle Girl Rika #4 Gliscor Lv65 holds Toxic Orb: ability Hyper Cutter -> Poison Heal."
+
+[[narc_bytes]]
+id = "t99-s2-poison-heal"
+narc = "a/0/5/6"
+member = 99
+offset = "0x3C"
+expect = "0x0065"
+new = "0x005A"
+member_sha1 = "fbe101fe87a44a7b1b3db562bb99617366446d66"
+notes = "Karate King Walt #3 Breloom Lv64 holds Toxic Orb: ability Technician -> Poison Heal."
+
+[[narc_bytes]]
+id = "t104-s0-guts"
+narc = "a/0/5/6"
+member = 104
+offset = "0x4"
+expect = "0x0059"
+new = "0x003E"
+member_sha1 = "6032b634faf8af14f15d81d91490fa200b3f4027"
+notes = "Black Belt Ryan #1 Hariyama Lv64 holds Flame Orb: ability Iron Fist -> Guts."
+
+[[narc_bytes]]
+id = "t140-s2-poison-heal"
+narc = "a/0/5/6"
+member = 140
+offset = "0x3C"
+expect = "0x0065"
+new = "0x005A"
+member_sha1 = "9232fc9363ba5ffd85aa068825f1de77fb4148ed"
+notes = "Karate King Kazu #3 Breloom Lv23 holds Toxic Orb: ability Technician -> Poison Heal."
+
+[[narc_bytes]]
+id = "t141-s2-guts"
+narc = "a/0/5/6"
+member = 141
+offset = "0x3C"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "1ccb23dca0c949513787c06a24867b1b86aef19b"
+notes = "Rival Blue #3 Raticate Lv23 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t155-s2-guts"
+narc = "a/0/5/6"
+member = 155
+offset = "0x3C"
+expect = "0x0059"
+new = "0x003E"
+member_sha1 = "82e5da8b66fb76b01620d0ef97bf6eba05986a2d"
+notes = "Sage Zhishen #3 Hariyama Lv24 holds Flame Orb: ability Iron Fist -> Guts."
+
+[[narc_bytes]]
+id = "t156-s0-guts"
+narc = "a/0/5/6"
+member = 156
+offset = "0x4"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "d9cfda1bfb2e62bee8f6a447ed77ac454ce8598b"
+notes = "Gentleman Norris #1 Raticate Lv24 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t193-s0-drought"
+narc = "a/0/5/6"
+member = 193
+offset = "0x4"
+expect = "0x0012"
+new = "0x0046"
+member_sha1 = "0f44950f89fd2d52d76d52da1c1e276beea63c2a"
+notes = "Firebreather Chong #1 Ninetales Lv26 holds Heat Rock: ability Flash Fire -> Drought."
+
+[[narc_bytes]]
+id = "t230-s0-sheer-force"
+narc = "a/0/5/6"
+member = 230
+offset = "0x4"
+expect = "0x0026"
+new = "0x007D"
+member_sha1 = "a60e860e07e9af78d32dacc6ee86dbb409ce5cdc"
+notes = "Executive Petrel #1 Nidoking Lv40 holds Life Orb: ability Poison Point -> Sheer Force."
+
+[[narc_bytes]]
+id = "t233-s3-poison-heal"
+narc = "a/0/5/6"
+member = 233
+offset = "0x58"
+expect = "0x0034"
+new = "0x005A"
+member_sha1 = "3e793f793b5c4569543f18b0a86bbcd1a21ca7a9"
+notes = "Veteran Bailey #4 Gliscor Lv65 holds Toxic Orb: ability Hyper Cutter -> Poison Heal."
+
+[[narc_bytes]]
+id = "t234-s0-drizzle"
+narc = "a/0/5/6"
+member = 234
+offset = "0x4"
+expect = "0x0033"
+new = "0x0002"
+member_sha1 = "a8d5c562ff544e8595273042fcb4124e2e5920a1"
+notes = "Fisherman Mick #1 Pelipper Lv28 holds Damp Rock: ability Keen Eye -> Drizzle."
+
+[[narc_bytes]]
+id = "t238-s0-drought"
+narc = "a/0/5/6"
+member = 238
+offset = "0x4"
+expect = "0x0049"
+new = "0x0046"
+member_sha1 = "df678ede6e21693a840469376275aa10f8364bae"
+notes = "Firebreather Stellan #1 Torkoal Lv32 holds Heat Rock: ability White Smoke -> Drought."
+
+[[narc_bytes]]
+id = "t251-s2-marvel-scale"
+narc = "a/0/5/6"
+member = 251
+offset = "0x3C"
+expect = "0x0038"
+new = "0x003F"
+member_sha1 = "7b6c944cc8102fd496c67f24ade0f046c1c4fdd6"
+notes = "Team Rocket Grunt #3 Milotic Lv64 holds Flame Orb: ability Cute Charm -> Marvel Scale."
+
+[[narc_bytes]]
+id = "t284-s0-guts"
+narc = "a/0/5/6"
+member = 284
+offset = "0x4"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "e3590cb372c0fc2bc34c64a21235002631b9b1e3"
+notes = "Team Rocket Grunt #1 Raticate Lv64 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t304-s2-guts"
+narc = "a/0/5/6"
+member = 304
+offset = "0x3C"
+expect = "0x0050"
+new = "0x003E"
+member_sha1 = "f2d4eeecf26f95e0d30f4885fad7b6f1eeb65ee4"
+notes = "Battle Girl Tina #3 Machoke Lv33 holds Flame Orb: ability Steadfast -> Guts."
+
+[[narc_bytes]]
+id = "t330-s1-guts"
+narc = "a/0/5/6"
+member = 330
+offset = "0x20"
+expect = "0x0050"
+new = "0x003E"
+member_sha1 = "7445a22f40e8c01bbb96fb9e3c8fcc63c21205d0"
+notes = "Karate King Sheldon #2 Machamp Lv65 holds Flame Orb: ability Steadfast -> Guts."
+
+[[narc_bytes]]
+id = "t335-s2-guts"
+narc = "a/0/5/6"
+member = 335
+offset = "0x3C"
+expect = "0x0050"
+new = "0x003E"
+member_sha1 = "2fb6974f9f9a3fabb3fda9cf14fa33e2a1b6be21"
+notes = "Shady Guy Bunta #3 Machamp Lv50 holds Flame Orb: ability Steadfast -> Guts."
+
+[[narc_bytes]]
+id = "t356-s1-poison-heal"
+narc = "a/0/5/6"
+member = 356
+offset = "0x20"
+expect = "0x0065"
+new = "0x005A"
+member_sha1 = "376d9fecb7267accdd0698623915c330e7566a98"
+notes = "Lass Danni #2 Breloom Lv38 holds Toxic Orb: ability Technician -> Poison Heal."
+
+[[narc_bytes]]
+id = "t364-s0-drizzle"
+narc = "a/0/5/6"
+member = 364
+offset = "0x4"
+expect = "0x0033"
+new = "0x0002"
+member_sha1 = "98841bb9ff0aa5bbe1c8b61cdc29326012af9187"
+notes = "Fisherman Nate #1 Pelipper Lv49 holds Damp Rock: ability Keen Eye -> Drizzle."
+
+[[narc_bytes]]
+id = "t403-s1-poison-heal"
+narc = "a/0/5/6"
+member = 403
+offset = "0x20"
+expect = "0x0034"
+new = "0x005A"
+member_sha1 = "ef9b39357e977c767e39e94053b73f8af3110b0e"
+notes = "Team Rocket Tanaka #2 Gliscor Lv63 holds Toxic Orb: ability Hyper Cutter -> Poison Heal."
+
+[[narc_bytes]]
+id = "t407-s1-drizzle"
+narc = "a/0/5/6"
+member = 407
+offset = "0x20"
+expect = "0x0033"
+new = "0x0002"
+member_sha1 = "214383c538d95d8677f5e00b3b70b79e831f11d4"
+notes = "Team Rocket Grunt #2 Pelipper Lv64 holds Damp Rock: ability Keen Eye -> Drizzle."
+
+[[narc_bytes]]
+id = "t433-s0-drought"
+narc = "a/0/5/6"
+member = 433
+offset = "0x4"
+expect = "0x0049"
+new = "0x0046"
+member_sha1 = "2866d58fb18e2b77395df2eca67bcf8ca0b0a596"
+notes = "Shady Guy Arthur #1 Torkoal Lv36 holds Heat Rock: ability White Smoke -> Drought."
+
+[[narc_bytes]]
+id = "t445-s1-poison-heal"
+narc = "a/0/5/6"
+member = 445
+offset = "0x20"
+expect = "0x0034"
+new = "0x005A"
+member_sha1 = "544445153698427c8043ac126940b1b2f0fa5df9"
+notes = "unnamed #2 Gliscor Lv50 holds Toxic Orb: ability Hyper Cutter -> Poison Heal."
+
+[[narc_bytes]]
+id = "t446-s0-sheer-force"
+narc = "a/0/5/6"
+member = 446
+offset = "0x4"
+expect = "0x0026"
+new = "0x007D"
+member_sha1 = "361e2bc4ecd7cea91883c25b03f4ff8037238f87"
+notes = "Executive Petrel #1 Nidoking Lv50 holds Life Orb: ability Poison Point -> Sheer Force."
+
+[[narc_bytes]]
+id = "t449-s0-drizzle"
+narc = "a/0/5/6"
+member = 449
+offset = "0x4"
+expect = "0x0033"
+new = "0x0002"
+member_sha1 = "e25805a288e4184154712d03811a595340b2ceee"
+notes = "unnamed #1 Pelipper Lv50 holds Damp Rock: ability Keen Eye -> Drizzle."
+
+[[narc_bytes]]
+id = "t450-s0-drought"
+narc = "a/0/5/6"
+member = 450
+offset = "0x4"
+expect = "0x0012"
+new = "0x0046"
+member_sha1 = "898bda60d72817e41978efba977a55ae56d7c762"
+notes = "Executive Maxie #1 Ninetales Lv50 holds Heat Rock: ability Flash Fire -> Drought."
+
+[[narc_bytes]]
+id = "t450-s2-drought"
+narc = "a/0/5/6"
+member = 450
+offset = "0x3C"
+expect = "0x004B"
+new = "0x0046"
+member_sha1 = "898bda60d72817e41978efba977a55ae56d7c762"
+notes = "Executive Maxie #3 Torkoal Lv50 holds Heat Rock: ability Shell Armor -> Drought."
+
+[[narc_bytes]]
+id = "t475-s0-guts"
+narc = "a/0/5/6"
+member = 475
+offset = "0x4"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "1c70af281c99e5cd4b8c5334f713dc5e1a5e4bc9"
+notes = "Picnicker Heather #1 Raticate Lv45 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t516-s1-guts"
+narc = "a/0/5/6"
+member = 516
+offset = "0x20"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "36efd90eaf3d29f3a4ca6f542ce0d4400eff464b"
+notes = "Rival Blue #2 Rattata Lv18 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t522-s2-guts"
+narc = "a/0/5/6"
+member = 522
+offset = "0x3C"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "fb7c5f8bda00398abafe1425d084894e62f4185a"
+notes = "Rival Blue #3 Raticate Lv26 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t560-s1-poison-heal"
+narc = "a/0/5/6"
+member = 560
+offset = "0x20"
+expect = "0x0034"
+new = "0x005A"
+member_sha1 = "08cc1d402250e1f936595cbb9e3eef61eba8cc02"
+notes = "Bird Keeper Finch #2 Gliscor Lv72 holds Toxic Orb: ability Hyper Cutter -> Poison Heal."
+
+[[narc_bytes]]
+id = "t573-s1-guts"
+narc = "a/0/5/6"
+member = 573
+offset = "0x20"
+expect = "0x0059"
+new = "0x003E"
+member_sha1 = "e1d1e238d4d6813390fc4cbb8807fb4bd987a7ea"
+notes = "Team Rocket Grunt #2 Hariyama Lv63 holds Flame Orb: ability Iron Fist -> Guts."
+
+[[narc_bytes]]
+id = "t581-s0-poison-heal"
+narc = "a/0/5/6"
+member = 581
+offset = "0x4"
+expect = "0x0065"
+new = "0x005A"
+member_sha1 = "6374ee1ad38965d20948f9967e2bfee0ae5db851"
+notes = "Picnicker Cece #1 Breloom Lv57 holds Toxic Orb: ability Technician -> Poison Heal."
+
+[[narc_bytes]]
+id = "t584-s1-drought"
+narc = "a/0/5/6"
+member = 584
+offset = "0x20"
+expect = "0x0012"
+new = "0x0046"
+member_sha1 = "2c69b52662c46675bd48f941d135d333cdcef31d"
+notes = "Youngster Elvin #2 Ninetales Lv57 holds Heat Rock: ability Flash Fire -> Drought."
+
+[[narc_bytes]]
+id = "t624-s0-drought"
+narc = "a/0/5/6"
+member = 624
+offset = "0x4"
+expect = "0x0049"
+new = "0x0046"
+member_sha1 = "ba2ae955c9bf949b948386a4b05d3d7b06f349b2"
+notes = "Executive Maxie #1 Torkoal Lv73 holds Heat Rock: ability White Smoke -> Drought."
+
+[[narc_bytes]]
+id = "t625-s2-drought"
+narc = "a/0/5/6"
+member = 625
+offset = "0x3C"
+expect = "0x0012"
+new = "0x0046"
+member_sha1 = "a0cce955a1743cdd46915a12df8f55f0e9342fdd"
+notes = "unnamed #3 Ninetales Lv74 holds Heat Rock: ability Flash Fire -> Drought."
+
+[[narc_bytes]]
+id = "t654-s0-poison-heal"
+narc = "a/0/5/6"
+member = 654
+offset = "0x4"
+expect = "0x001B"
+new = "0x005A"
+member_sha1 = "2afd982723f9600af31d9675774adbaf5d2eefd0"
+notes = "Black Belt Doyle #1 Breloom Lv72 holds Toxic Orb: ability Effect Spore -> Poison Heal."
+
+[[narc_bytes]]
+id = "t663-s0-drizzle"
+narc = "a/0/5/6"
+member = 663
+offset = "0x4"
+expect = "0x0033"
+new = "0x0002"
+member_sha1 = "892ef8a171676f167840d1d82887181c401a2405"
+notes = "Sailor Stuart #1 Pelipper Lv71 holds Damp Rock: ability Keen Eye -> Drizzle."
+
+[[narc_bytes]]
+id = "t664-s3-poison-heal"
+narc = "a/0/5/6"
+member = 664
+offset = "0x58"
+expect = "0x0034"
+new = "0x005A"
+member_sha1 = "7ec2b70db902743321dae9a0530f599a61046ca2"
+notes = "Ace Trainer Macy #4 Gliscor Lv65 holds Toxic Orb: ability Hyper Cutter -> Poison Heal."
+
+[[narc_bytes]]
+id = "t690-s1-poison-heal"
+narc = "a/0/5/6"
+member = 690
+offset = "0x20"
+expect = "0x0065"
+new = "0x005A"
+member_sha1 = "76b0c400f1f0fe1240d60de67bc9a27b00f4a3fe"
+notes = "Super Nerd Eugene #2 Breloom Lv58 holds Toxic Orb: ability Technician -> Poison Heal."
+
+[[narc_bytes]]
+id = "t693-s0-drought"
+narc = "a/0/5/6"
+member = 693
+offset = "0x4"
+expect = "0x0012"
+new = "0x0046"
+member_sha1 = "be78f5ccd8ebafacc32e0cadbafbc9be24d75294"
+notes = "Scientist Hayden #1 Ninetales Lv59 holds Heat Rock: ability Flash Fire -> Drought."
+
+[[narc_bytes]]
+id = "t698-s0-drought"
+narc = "a/0/5/6"
+member = 698
+offset = "0x4"
+expect = "0x0012"
+new = "0x0046"
+member_sha1 = "47636996a7bd3623ab57d87dd3f53dcab0304a08"
+notes = "Super Nerd Eric #1 Ninetales Lv62 holds Heat Rock: ability Flash Fire -> Drought."
+
+[[narc_bytes]]
+id = "t741-s0-drizzle"
+narc = "a/0/5/6"
+member = 741
+offset = "0x4"
+expect = "0x0033"
+new = "0x0002"
+member_sha1 = "ef77e77f3aac23ac870d0b7f21ef79fb4fef5f54"
+notes = "Sailor Thor #1 Pelipper Lv65 holds Damp Rock: ability Keen Eye -> Drizzle."
+
+[[narc_bytes]]
+id = "t829-s1-guts"
+narc = "a/0/5/6"
+member = 829
+offset = "0x20"
+expect = "0x0059"
+new = "0x003E"
+member_sha1 = "742b485320c6f91bc62f9c8d257938f43449d449"
+notes = "Karate King Seamus #2 Hariyama Lv63 holds Flame Orb: ability Iron Fist -> Guts."
+
+[[narc_bytes]]
+id = "t834-s1-guts"
+narc = "a/0/5/6"
+member = 834
+offset = "0x20"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "02cbca341671f23d483885e24b280198417bf4ee"
+notes = "Team Rocket Grunt #2 Raticate Lv64 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t855-s0-drought"
+narc = "a/0/5/6"
+member = 855
+offset = "0x4"
+expect = "0x0012"
+new = "0x0046"
+member_sha1 = "9b5cec403badd479094d653754a14d41d323fb9c"
+notes = "Aroma Lady April #1 Ninetales Lv62 holds Heat Rock: ability Flash Fire -> Drought."
+
+[[narc_bytes]]
+id = "t856-s1-guts"
+narc = "a/0/5/6"
+member = 856
+offset = "0x20"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "2002e4a48e15174cb283212f1cc4e4223ea94df8"
+notes = "Guitarist Zenith #2 Raticate Lv63 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t947-s0-drizzle"
+narc = "a/0/5/6"
+member = 947
+offset = "0x4"
+expect = "0x0033"
+new = "0x0002"
+member_sha1 = "deea036938237a76bc08ac43d05a3c9b43b3bf3a"
+notes = "Fisherman Barrett #1 Pelipper Lv62 holds Damp Rock: ability Keen Eye -> Drizzle."
+
+[[narc_bytes]]
+id = "t970-s1-guts"
+narc = "a/0/5/6"
+member = 970
+offset = "0x20"
+expect = "0x0032"
+new = "0x003E"
+member_sha1 = "417ea0b662eaff64b021753144f120a3ff59d855"
+notes = "Rival Blue #2 Raticate Lv23 holds Flame Orb: ability Run Away -> Guts."
+
+[[narc_bytes]]
+id = "t984-s0-drizzle"
+narc = "a/0/5/6"
+member = 984
+offset = "0x4"
+expect = "0x0033"
+new = "0x0002"
+member_sha1 = "28668f5cd6794bcf737208dcf4f6b7fddcce4808"
+notes = "Executive Archie #1 Pelipper Lv72 holds Damp Rock: ability Keen Eye -> Drizzle."
