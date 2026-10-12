@@ -502,10 +502,10 @@
   {
    "id": 62,
    "zh": "呆河马『⋯⋯　⋯⋯呀哒恩？",
-   "en": "Simipour: ...Slow?",
+   "en": "Slowbro: ...Slow?",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0108/62; modernised from US 0108#62 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Slowbro'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0108/62; modernised from US 0108#62"
   },
   {
    "id": 63,

@@ -23,12 +23,17 @@ EXPECT = {
     (211, 1): 181, (211, 2): 181,     # Olivine Lighthouse, "Amphy: Ammm-pha!"
     (193, 1): 67, (193, 2): 67, (193, 3): 67,   # Department Store basement Machoke
     (240, 8): 25, (240, 9): 25,       # Battle Tower Pikachu
-    (465, 0): 35, (465, 5): 35,       # Mount Moon Square Clefairy event
+    (299, 28): 1,                     # S.S. Aqua Bulbasaur (label and sound say Bulbasaur; cry disagrees: needs user check)
+    (218, 8): 700,                    # Kirk's Sylveon (label wins over the Lumineon cry: needs user check)
     (477, 0): 382,                    # Embedded Tower Kyogre
     (82, 27): 376, (188, 27): 376,    # second Metagross object, same script as the 837 ones
 }
 VANILLA_BLOCK = range(994, 1047)
-KEPT = {(384, 9): 1007, (361, 2): 1036}   # Herdier / Palpitoad: the hack's own choices (their ids are those species' follower ids)
+# Herdier / Palpitoad: the hack's own choices (their ids are those species' follower ids); the silent objects have no Chinese text or
+# cry that proves the vanilla species (Moomoo Farm 1035, Mount Moon Clefairy event 1003, Pokeathlon Poliwrath 1011): not changed.
+KEPT = {(384, 9): 1007, (361, 2): 1036, (251, 1): 1011, (253, 1): 1011}
+KEPT.update({(201, i): 1035 for i in (1, 3, 4, 5, 6)})
+KEPT.update({(465, i): 1003 for i in range(6)})
 
 
 def objects(member: bytes):

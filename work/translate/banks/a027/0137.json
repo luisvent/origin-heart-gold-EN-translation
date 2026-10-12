@@ -150,50 +150,50 @@
   {
    "id": 18,
    "zh": "小拉达『啊呼ー",
-   "en": "Servine: Ratta.",
+   "en": "Rattata: Ratta.",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0139/18; modernised from US 0139#18 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Rattata'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0139/18; modernised from US 0139#18"
   },
   {
    "id": 19,
    "zh": "小拉达『嘎哦ー",
-   "en": "Servine: Grrrr.",
+   "en": "Rattata: Grrrr.",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0139/19; modernised from US 0139#19 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Rattata'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0139/19; modernised from US 0139#19"
   },
   {
    "id": 20,
    "zh": "腕力『哦呀哦呀⋯⋯",
-   "en": "Pansear: Awwwrr...",
+   "en": "Machop: Awwwrr...",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0139/20; modernised from US 0139#20 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Machop'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0139/20; modernised from US 0139#20"
   },
   {
    "id": 21,
    "zh": "腕力『嗯嗯！",
-   "en": "Pansear: Yahhh!",
+   "en": "Machop: Yahhh!",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0139/21; modernised from US 0139#21 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Machop'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0139/21; modernised from US 0139#21"
   },
   {
    "id": 22,
    "zh": "巴大蝴『啊呼啊呼呼⋯⋯",
-   "en": "Victini: Fluttah fluttah...",
+   "en": "Butterfree: Fluttah fluttah...",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0139/22; modernised from US 0139#22 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Butterfree'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0139/22; modernised from US 0139#22"
   },
   {
    "id": 23,
    "zh": "巴大蝴『啊啊啊啊⋯⋯",
-   "en": "Victini: Bing bing!",
+   "en": "Butterfree: Bing bing!",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0139/23; modernised from US 0139#23 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Butterfree'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0139/23; modernised from US 0139#23"
   },
   {
    "id": 24,

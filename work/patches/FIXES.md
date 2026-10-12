@@ -32,8 +32,8 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
-| [`overworld-pokemon-cries`](#overworld-pokemon-cries) | narc | yes | – | Stationary overworld Pokemon cry as the species that is drawn |
-| [`overworld-pokemon-sprites`](#overworld-pokemon-sprites) | narc | **no** | – | Give the stationary overworld Pokemon of vanilla maps the sprite of their own species |
+| [`overworld-pokemon-cries`](#overworld-pokemon-cries) | narc | **no** | – | Superseded: make stationary overworld Pokemon cry as the species that is drawn |
+| [`overworld-pokemon-sprites`](#overworld-pokemon-sprites) | narc | yes | – | Draw stationary overworld Pokemon as the species their Chinese text and cry name |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
 | [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
@@ -1038,16 +1038,17 @@ Route1's separate7286 marker remains deferred pending safe old-save compatibilit
 
 ## overworld-pokemon-cries
 
-**Stationary overworld Pokemon cry as the species that is drawn**
+**Superseded: make stationary overworld Pokemon cry as the species that is drawn**
 
 - Kind: narc
-- Enabled: yes
+- Enabled: no
 - Requires: nothing
 - Decisions: D-2349, D-2350
 - Source: `work/patches/overworld-pokemon-cries/fix.toml`
 
 **Why (the Chinese hack):**
 
+Disabled and superseded (user decision 2026-10-12, second ruling, D-2349): the Chinese text and cries were right and the sprites were wrong, so the sprites are corrected (fix overworld-pokemon-sprites) and the cries stay as the Chinese ROM has them. Kept as the record of the cry analysis.
 Stationary overworld Pokemon are drawn with the hack's following-Pokemon sprite of the species the sprite id names, but many scripts
 still play the cry of another species (the vanilla species of that object, or a wrong id: Herdier plays 791, Palpitoad 820). User
 decision 2026-10-12 (D-2349): text and cry follow the DRAWN sprite. RECHECK WHEN 4.1.0 RELEASES: every object in
@@ -1123,39 +1124,36 @@ national dex id of the drawn species. Nothing else in those scripts changes; the
 
 ## overworld-pokemon-sprites
 
-**Give the stationary overworld Pokemon of vanilla maps the sprite of their own species**
+**Draw stationary overworld Pokemon as the species their Chinese text and cry name**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2346, D-2347, D-2349
 - Source: `work/patches/overworld-pokemon-sprites/fix.toml`
 
 **Why (the Chinese hack):**
 
-Disabled and superseded (user decision 2026-10-12, D-2349): the sprite ids are NOT changed; the English text and the cries follow the drawn sprite instead (fix overworld-pokemon-cries). Kept as the record of the sprite-id analysis.
-Overworld Pokemon objects (the Jigglypuff in the Pewter Pokemon Center, the Machoke in the Goldenrod Department Store
-basement, the Ampharos in the Olivine Lighthouse, the Pokeathlon Dome participants, ...) keep the sprite ids of the
-vanilla game: ids 994..1046 are vanilla's NPC-Pokemon sprites in dex order (Butterfree 994 ... Jigglypuff 1004 ...
-Machoke 1014 ... Ampharos 1031 ... Kyogre 1043; read from the USA ROM's own objects and scripts). The hack's
-overworld sprite table (data/pokemon_overworld_info.narc + arm9 0x0206900C) uses ids 428..1894 for the following
-Pokemon, sprite id = 428 + the table's base offset of the species (Bulbasaur 428, Jigglypuff 468), so the vanilla ids
-now draw Generation 5 species (994 = Victini, 1004 = Patrat, 1014 = #514 Simisear, 1031 = Audino, 1043 = Venipede).
-The Chinese ROM draws the same wrong sprites: in the Pewter Pokemon Center the Pokemon beside the girl who talks about
-Jigglypuff, and whose message and cry are Jigglypuff's, is a Patrat; in the Lighthouse the "Amphy: Ammm-pha!" Ampharos
-is an Audino. The hack's authors did retarget some objects (Machop objects of the same Department Store basement use
-495, Groudon uses 844, Herdier 1007 and Palpitoad 1036 are the follower ids of those species), but not these.
+Overworld Pokemon objects (the Jigglypuff in the Pewter Pokemon Center, the Machoke in the Goldenrod Department Store basement, the
+Ampharos in the Olivine Lighthouse, the Pokeathlon Dome participants, ...) keep the sprite ids of the vanilla game: ids 994..1046 are
+vanilla's NPC-Pokemon sprites in dex order (Butterfree 994 ... Jigglypuff 1004 ... Machoke 1014 ... Ampharos 1031 ... Kyogre 1043; read
+from the USA ROM's own objects and scripts). The hack's overworld sprite table (data/pokemon_overworld_info.narc + arm9 0x0206900C) uses
+ids 428..1894 for the following Pokemon, sprite id = 428 + the table's base offset of the species (Bulbasaur 428, Jigglypuff 468), so
+the vanilla ids now draw Generation 5 species (994 = Victini, 1004 = Patrat, 1014 = Simisear, 1031 = Audino, 1043 = Venipede). The
+Chinese ROM draws the same wrong sprites: the Pokemon beside the man who talks about Jigglypuff says and cries Jigglypuff but is a
+Patrat. Rule (user decision 2026-10-12, D-2349): the sprites follow the Chinese text and cry; text and cry are not changed.
+RECHECK WHEN 4.1.0 RELEASES: every object in work/notes/overworld-pokemon-sprite-mismatch_fix.md (section "Recheck when 4.1.0
+releases") must be looked at again in the game, because 4.1.0 may change the sprites.
 
 **What (old → new):**
 
-Replace the sprite id of every object event that still carries a vanilla NPC-Pokemon id (994..1046) and whose species is
-not the Generation 5 species the id now draws, with the following-Pokemon sprite id of the species the object is
-(428 + base offset from the table; the species comes from the object's own message speaker and PlayCry, or, for the
-silent Clefairy, Miltank and Poliwrath objects, from the USA ROM's object with the same sprite id in the same map).
-Also three objects whose id was chosen by the hack's authors and does not match their own message and cry: the second
-Metagross object of the Indigo Plateau hall (Tyranitar 709, same script as the Metagross objects 837), Kirk's Sylveon
-(Leafeon 946) and the Route 21 Onix (Lairon 766). Only the 2-byte sprite id changes; the position, flag, script, movement and
-facing of every object stay as they were. The cry ids and texts are not touched.
+Replace the sprite id of 37 object events with the following-Pokemon sprite id of the species the object's Chinese text and cry name
+(428 + base offset from the table): the vanilla NPC-Pokemon ids 994..1046 whose speaker label and cry agree (Jigglypuff, Machoke,
+Ampharos, Pikachu, Slowbro, the Pokeathlon and Safari warden Pokemon, Kyogre, Abra, ...), the second Indigo Plateau Metagross
+(Tyranitar 709, same script as the Metagross objects drawn 837), Kirk's Sylveon (Leafeon 946; its cry disagrees with its label: label
+wins, needs user check) and the S.S. Aqua Bulbasaur (Ivysaur 429; label and sound say Bulbasaur, cry says Ivysaur: needs user check).
+Only the 2-byte sprite id changes; position, flag, script, movement and facing stay. Silent objects (Mount Moon Clefairy, Moomoo
+Farm Miltank, Pokeathlon Poliwrath) and the Route 21 Lairon are not changed. Text and cries are not touched.
 
 **Evidence:**
 
@@ -1168,17 +1166,11 @@ facing of every object stay as they were. The cry ids and texts are not touched.
 - `a/0/3/2` #193 +0x3E `ev193-obj1-machoke`: `0x03F6` → `0x01F0` (member SHA-1 `f8fe3f17f873`): Goldenrod Department Store basement: object 1 sprite 1014 -> 496 (Machoke).
 - `a/0/3/2` #193 +0x5E `ev193-obj2-machoke`: `0x03F6` → `0x01F0` (member SHA-1 `f8fe3f17f873`): Goldenrod Department Store basement: object 2 sprite 1014 -> 496 (Machoke).
 - `a/0/3/2` #193 +0x7E `ev193-obj3-machoke`: `0x03F6` → `0x01F0` (member SHA-1 `f8fe3f17f873`): Goldenrod Department Store basement: object 3 sprite 1014 -> 496 (Machoke).
-- `a/0/3/2` #201 +0x2A `ev201-obj1-miltank`: `0x040B` → `0x02BE` (member SHA-1 `0ae0ca280e69`): Moomoo Farm house (Route 39): object 1 sprite 1035 -> 702 (Miltank).
-- `a/0/3/2` #201 +0x6A `ev201-obj3-miltank`: `0x040B` → `0x02BE` (member SHA-1 `0ae0ca280e69`): Moomoo Farm house (Route 39): object 3 sprite 1035 -> 702 (Miltank).
-- `a/0/3/2` #201 +0x8A `ev201-obj4-miltank`: `0x040B` → `0x02BE` (member SHA-1 `0ae0ca280e69`): Moomoo Farm house (Route 39): object 4 sprite 1035 -> 702 (Miltank).
-- `a/0/3/2` #201 +0xAA `ev201-obj5-miltank`: `0x040B` → `0x02BE` (member SHA-1 `0ae0ca280e69`): Moomoo Farm house (Route 39): object 5 sprite 1035 -> 702 (Miltank).
-- `a/0/3/2` #201 +0xCA `ev201-obj6-miltank`: `0x040B` → `0x02BE` (member SHA-1 `0ae0ca280e69`): Moomoo Farm house (Route 39): object 6 sprite 1035 -> 702 (Miltank).
 - `a/0/3/2` #211 +0x2A `ev211-obj1-ampharos`: `0x0407` → `0x0264` (member SHA-1 `0bd84f0bbc4f`): Olivine Lighthouse light room: object 1 sprite 1031 -> 612 (Ampharos).
 - `a/0/3/2` #211 +0x4A `ev211-obj2-ampharos`: `0x0407` → `0x0264` (member SHA-1 `0bd84f0bbc4f`): Olivine Lighthouse light room: object 2 sprite 1031 -> 612 (Ampharos).
 - `a/0/3/2` #240 +0x146 `ev240-obj8-pikachu`: `0x03E7` → `0x01C5` (member SHA-1 `83a35b3dc346`): Battle Tower: object 8 sprite 999 -> 453 (Pikachu).
 - `a/0/3/2` #240 +0x166 `ev240-obj9-pikachu`: `0x03E7` → `0x01C5` (member SHA-1 `83a35b3dc346`): Battle Tower: object 9 sprite 999 -> 453 (Pikachu).
 - `a/0/3/2` #247 +0xBE `ev247-obj5-slowbro`: `0x03F8` → `0x01FD` (member SHA-1 `5fc5b0ab9182`): Battle Frontier Battle Hall: object 5 sprite 1016 -> 509 (Slowbro).
-- `a/0/3/2` #251 +0xB6 `ev251-obj1-poliwrath`: `0x03F3` → `0x01EB` (member SHA-1 `0b8845711895`): Pokeathlon Dome lobby: object 1 sprite 1011 -> 491 (Poliwrath).
 - `a/0/3/2` #251 +0x116 `ev251-obj4-meowth`: `0x03F0` → `0x01E1` (member SHA-1 `0b8845711895`): Pokeathlon Dome lobby: object 4 sprite 1008 -> 481 (Meowth).
 - `a/0/3/2` #251 +0x156 `ev251-obj6-psyduck`: `0x03F2` → `0x01E3` (member SHA-1 `0b8845711895`): Pokeathlon Dome lobby: object 6 sprite 1010 -> 483 (Psyduck).
 - `a/0/3/2` #251 +0x176 `ev251-obj7-slowpoke`: `0x03F7` → `0x01FC` (member SHA-1 `0b8845711895`): Pokeathlon Dome lobby: object 7 sprite 1015 -> 508 (Slowpoke).
@@ -1186,7 +1178,6 @@ facing of every object stay as they were. The cry ids and texts are not touched.
 - `a/0/3/2` #251 +0x216 `ev251-obj12-slowbro`: `0x03F8` → `0x01FD` (member SHA-1 `0b8845711895`): Pokeathlon Dome lobby: object 12 sprite 1016 -> 509 (Slowbro).
 - `a/0/3/2` #251 +0x256 `ev251-obj14-machop`: `0x03F5` → `0x01EF` (member SHA-1 `0b8845711895`): Pokeathlon Dome lobby: object 14 sprite 1013 -> 495 (Machop).
 - `a/0/3/2` #251 +0x276 `ev251-obj15-farfetchd`: `0x03F9` → `0x0200` (member SHA-1 `0b8845711895`): Pokeathlon Dome lobby: object 15 sprite 1017 -> 512 (Farfetchd).
-- `a/0/3/2` #253 +0x2A `ev253-obj1-poliwrath`: `0x03F3` → `0x01EB` (member SHA-1 `eafbb99e9ee5`): Pokeathlon Dome 2F: object 1 sprite 1011 -> 491 (Poliwrath).
 - `a/0/3/2` #253 +0x1EA `ev253-obj15-rattata`: `0x03E4` → `0x01BF` (member SHA-1 `eafbb99e9ee5`): Pokeathlon Dome 2F: object 15 sprite 996 -> 447 (Rattata).
 - `a/0/3/2` #253 +0x20A `ev253-obj16-butterfree`: `0x03E2` → `0x01B8` (member SHA-1 `eafbb99e9ee5`): Pokeathlon Dome 2F: object 16 sprite 994 -> 440 (Butterfree).
 - `a/0/3/2` #253 +0x22A `ev253-obj17-machop`: `0x03F5` → `0x01EF` (member SHA-1 `eafbb99e9ee5`): Pokeathlon Dome 2F: object 17 sprite 1013 -> 495 (Machop).
@@ -1202,18 +1193,12 @@ facing of every object stay as they were. The cry ids and texts are not touched.
 - `a/0/3/2` #436 +0x6A `ev436-obj3-aipom`: `0x0409` → `0x026D` (member SHA-1 `93ae10253fd1`): Safari Zone warden house: object 3 sprite 1033 -> 621 (Aipom).
 - `a/0/3/2` #449 +0x4A `ev449-obj2-rattata`: `0x03E4` → `0x01BF` (member SHA-1 `0fc67600a2c4`): Viridian north-east house: object 2 sprite 996 -> 447 (Rattata).
 - `a/0/3/2` #449 +0x6A `ev449-obj3-spearow`: `0x03E5` → `0x01C1` (member SHA-1 `0fc67600a2c4`): Viridian north-east house: object 3 sprite 997 -> 449 (Spearow).
-- `a/0/3/2` #465 +0x46 `ev465-obj0-clefairy`: `0x03EB` → `0x01D0` (member SHA-1 `b796bfaa592c`): Mount Moon Square Clefairy event: object 0 sprite 1003 -> 464 (Clefairy).
-- `a/0/3/2` #465 +0x66 `ev465-obj1-clefairy`: `0x03EB` → `0x01D0` (member SHA-1 `b796bfaa592c`): Mount Moon Square Clefairy event: object 1 sprite 1003 -> 464 (Clefairy).
-- `a/0/3/2` #465 +0x86 `ev465-obj2-clefairy`: `0x03EB` → `0x01D0` (member SHA-1 `b796bfaa592c`): Mount Moon Square Clefairy event: object 2 sprite 1003 -> 464 (Clefairy).
-- `a/0/3/2` #465 +0xA6 `ev465-obj3-clefairy`: `0x03EB` → `0x01D0` (member SHA-1 `b796bfaa592c`): Mount Moon Square Clefairy event: object 3 sprite 1003 -> 464 (Clefairy).
-- `a/0/3/2` #465 +0xC6 `ev465-obj4-clefairy`: `0x03EB` → `0x01D0` (member SHA-1 `b796bfaa592c`): Mount Moon Square Clefairy event: object 4 sprite 1003 -> 464 (Clefairy).
-- `a/0/3/2` #465 +0xE6 `ev465-obj5-clefairy`: `0x03EB` → `0x01D0` (member SHA-1 `b796bfaa592c`): Mount Moon Square Clefairy event: object 5 sprite 1003 -> 464 (Clefairy).
 - `a/0/3/2` #475 +0x6A `ev475-obj3-abra`: `0x03F4` → `0x01EC` (member SHA-1 `60908985f23e`): Sinjoh Ruins cabin: object 3 sprite 1012 -> 492 (Abra).
 - `a/0/3/2` #477 +0xA `ev477-obj0-kyogre`: `0x0413` → `0x034B` (member SHA-1 `b2deafe9cb89`): Embedded Tower Kyogre room: object 0 sprite 1043 -> 843 (Kyogre).
 - `a/0/3/2` #82 +0x36A `ev82-obj27-metagross`: `0x02C5` → `0x0345` (member SHA-1 `5560adae1ab6`): Indigo Plateau Metagross object (zone 85): object 27 sprite 709 -> 837 (Metagross).
 - `a/0/3/2` #188 +0x392 `ev188-obj27-metagross`: `0x02C5` → `0x0345` (member SHA-1 `1d424b772bc1`): Indigo Plateau Metagross object (zone 195): object 27 sprite 709 -> 837 (Metagross).
 - `a/0/3/2` #218 +0x10A `ev218-obj8-sylveon`: `0x03B2` → `0x04B0` (member SHA-1 `1a27507d9216`): Kirk's house (Cianwood): object 8 sprite 946 -> 1200 (Sylveon).
-- `a/0/3/2` #90 +0x23A `ev90-obj15-onix`: `0x02FE` → `0x020C` (member SHA-1 `41d3aec0fb6b`): Route 21 Onix: object 15 sprite 766 -> 524 (Onix).
+- `a/0/3/2` #299 +0x38A `ev299-obj28-bulbasaur`: `0x01AD` → `0x01AC` (member SHA-1 `6f6f891ef943`): S.S. Aqua 1F north-west rooms: object 28 sprite 429 -> 428 (Bulbasaur).
 
 ## rock-tunnel-corner-loss
 

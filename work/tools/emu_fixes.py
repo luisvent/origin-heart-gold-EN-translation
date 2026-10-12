@@ -92,13 +92,13 @@ COVERAGE = {
 }
 # fix id -> why no scenario of this command covers it (honest gaps; see work/notes/emu_harness.md)
 UNCOVERED = {
-    "overworld-pokemon-sprites": "Disabled and superseded by overworld-pokemon-cries (D-2349); test_overworld_pokemon_sprites.py "
-                                 "still pins its bytes; see work/notes/overworld-pokemon-sprite-mismatch_fix.md.",
-    "overworld-pokemon-cries": "No scenario in this unified runner; emu_overworld_sprites.py --case pewter-talk (run separately) "
-                               "talks to the Pewter Pokemon and records the text box and the PlayCry species on the Chinese ROM, "
-                               "a build without the fix and the fixed build; test_overworld_pokemon_cries.py checks every "
-                               "stationary Pokemon's cry against its drawn sprite; see "
-                               "work/notes/overworld-pokemon-sprite-mismatch_fix.md.",
+    "overworld-pokemon-sprites": "No scenario in this unified runner; emu_overworld_sprites.py (run separately, cases pewter, "
+                                 "lighthouse, pewter-talk) shows the Pewter Jigglypuff and the Lighthouse Ampharos and the Pewter "
+                                 "text/cry on the Chinese ROM, a build without the fix and the fixed build; "
+                                 "test_overworld_pokemon_sprites.py pins every changed sprite id; see "
+                                 "work/notes/overworld-pokemon-sprite-mismatch_fix.md.",
+    "overworld-pokemon-cries": "Disabled and superseded by overworld-pokemon-sprites (D-2349); test_overworld_pokemon_cries.py "
+                               "still pins its bytes; see work/notes/overworld-pokemon-sprite-mismatch_fix.md.",
     "honey-gather": "Dedicated emu_honey_gather.py checks native rewards and Bag insertion; run separately.",
     "startup-content-warning": "Dedicated emu_startup_warning.py captures the native startup screens; run separately.",
     "zero-pp-struggle": "No scenario in this unified runner; emu_struggle.py separately verifies paired "

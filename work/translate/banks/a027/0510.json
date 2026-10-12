@@ -14,26 +14,26 @@
   {
    "id": 1,
    "zh": "长尾怪手『啪,啪呣⋯⋯",
-   "en": "Gurdurr: Pom Pom...?",
+   "en": "Aipom: Pom Pom...?",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0518/1; modernised from US 0518#1 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Aipom'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0518/1; modernised from US 0518#1"
   },
   {
    "id": 2,
    "zh": "长尾怪手『啪,啪呣！",
-   "en": "Gurdurr: Pom Pom!",
+   "en": "Aipom: Pom Pom!",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0518/2; modernised from US 0518#2 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Aipom'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0518/2; modernised from US 0518#2"
   },
   {
    "id": 3,
    "zh": "长尾怪手『啪呣呜⋯⋯",
-   "en": "Gurdurr: Pommm...",
+   "en": "Aipom: Pommm...",
    "status": "draft",
-   "origin": "agent",
-   "notes": "US 0518/3; modernised from US 0518#3 | D-2349 overworld-pokemon-sprite-mismatch: Chinese ROM speaker species was 'Aipom'; the drawn sprite is a different species, so the English follows the sprite (user decision 2026-10-12). Recheck visually at 4.1.0."
+   "origin": "us",
+   "notes": "US 0518/3; modernised from US 0518#3"
   }
  ]
 }

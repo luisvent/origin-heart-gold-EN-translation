@@ -1,10 +1,11 @@
 id = "overworld-pokemon-cries"
-title = "Stationary overworld Pokemon cry as the species that is drawn"
+title = "Superseded: make stationary overworld Pokemon cry as the species that is drawn"
 kind = "narc"
-enabled = true
+enabled = false
 decisions = ["D-2349", "D-2350"]
 requires = []
 why = """
+Disabled and superseded (user decision 2026-10-12, second ruling, D-2349): the Chinese text and cries were right and the sprites were wrong, so the sprites are corrected (fix overworld-pokemon-sprites) and the cries stay as the Chinese ROM has them. Kept as the record of the cry analysis.
 Stationary overworld Pokemon are drawn with the hack's following-Pokemon sprite of the species the sprite id names, but many scripts
 still play the cry of another species (the vanilla species of that object, or a wrong id: Herdier plays 791, Palpitoad 820). User
 decision 2026-10-12 (D-2349): text and cry follow the DRAWN sprite. RECHECK WHEN 4.1.0 RELEASES: every object in

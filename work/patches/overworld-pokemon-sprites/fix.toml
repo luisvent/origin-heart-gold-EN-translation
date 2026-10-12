@@ -1,32 +1,29 @@
 id = "overworld-pokemon-sprites"
-title = "Give the stationary overworld Pokemon of vanilla maps the sprite of their own species"
+title = "Draw stationary overworld Pokemon as the species their Chinese text and cry name"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-2346", "D-2347", "D-2349"]
 requires = []
 why = """
-Disabled and superseded (user decision 2026-10-12, D-2349): the sprite ids are NOT changed; the English text and the cries follow the drawn sprite instead (fix overworld-pokemon-cries). Kept as the record of the sprite-id analysis.
-Overworld Pokemon objects (the Jigglypuff in the Pewter Pokemon Center, the Machoke in the Goldenrod Department Store
-basement, the Ampharos in the Olivine Lighthouse, the Pokeathlon Dome participants, ...) keep the sprite ids of the
-vanilla game: ids 994..1046 are vanilla's NPC-Pokemon sprites in dex order (Butterfree 994 ... Jigglypuff 1004 ...
-Machoke 1014 ... Ampharos 1031 ... Kyogre 1043; read from the USA ROM's own objects and scripts). The hack's
-overworld sprite table (data/pokemon_overworld_info.narc + arm9 0x0206900C) uses ids 428..1894 for the following
-Pokemon, sprite id = 428 + the table's base offset of the species (Bulbasaur 428, Jigglypuff 468), so the vanilla ids
-now draw Generation 5 species (994 = Victini, 1004 = Patrat, 1014 = #514 Simisear, 1031 = Audino, 1043 = Venipede).
-The Chinese ROM draws the same wrong sprites: in the Pewter Pokemon Center the Pokemon beside the girl who talks about
-Jigglypuff, and whose message and cry are Jigglypuff's, is a Patrat; in the Lighthouse the "Amphy: Ammm-pha!" Ampharos
-is an Audino. The hack's authors did retarget some objects (Machop objects of the same Department Store basement use
-495, Groudon uses 844, Herdier 1007 and Palpitoad 1036 are the follower ids of those species), but not these.
+Overworld Pokemon objects (the Jigglypuff in the Pewter Pokemon Center, the Machoke in the Goldenrod Department Store basement, the
+Ampharos in the Olivine Lighthouse, the Pokeathlon Dome participants, ...) keep the sprite ids of the vanilla game: ids 994..1046 are
+vanilla's NPC-Pokemon sprites in dex order (Butterfree 994 ... Jigglypuff 1004 ... Machoke 1014 ... Ampharos 1031 ... Kyogre 1043; read
+from the USA ROM's own objects and scripts). The hack's overworld sprite table (data/pokemon_overworld_info.narc + arm9 0x0206900C) uses
+ids 428..1894 for the following Pokemon, sprite id = 428 + the table's base offset of the species (Bulbasaur 428, Jigglypuff 468), so
+the vanilla ids now draw Generation 5 species (994 = Victini, 1004 = Patrat, 1014 = Simisear, 1031 = Audino, 1043 = Venipede). The
+Chinese ROM draws the same wrong sprites: the Pokemon beside the man who talks about Jigglypuff says and cries Jigglypuff but is a
+Patrat. Rule (user decision 2026-10-12, D-2349): the sprites follow the Chinese text and cry; text and cry are not changed.
+RECHECK WHEN 4.1.0 RELEASES: every object in work/notes/overworld-pokemon-sprite-mismatch_fix.md (section "Recheck when 4.1.0
+releases") must be looked at again in the game, because 4.1.0 may change the sprites.
 """
 what = """
-Replace the sprite id of every object event that still carries a vanilla NPC-Pokemon id (994..1046) and whose species is
-not the Generation 5 species the id now draws, with the following-Pokemon sprite id of the species the object is
-(428 + base offset from the table; the species comes from the object's own message speaker and PlayCry, or, for the
-silent Clefairy, Miltank and Poliwrath objects, from the USA ROM's object with the same sprite id in the same map).
-Also three objects whose id was chosen by the hack's authors and does not match their own message and cry: the second
-Metagross object of the Indigo Plateau hall (Tyranitar 709, same script as the Metagross objects 837), Kirk's Sylveon
-(Leafeon 946) and the Route 21 Onix (Lairon 766). Only the 2-byte sprite id changes; the position, flag, script, movement and
-facing of every object stay as they were. The cry ids and texts are not touched.
+Replace the sprite id of 37 object events with the following-Pokemon sprite id of the species the object's Chinese text and cry name
+(428 + base offset from the table): the vanilla NPC-Pokemon ids 994..1046 whose speaker label and cry agree (Jigglypuff, Machoke,
+Ampharos, Pikachu, Slowbro, the Pokeathlon and Safari warden Pokemon, Kyogre, Abra, ...), the second Indigo Plateau Metagross
+(Tyranitar 709, same script as the Metagross objects drawn 837), Kirk's Sylveon (Leafeon 946; its cry disagrees with its label: label
+wins, needs user check) and the S.S. Aqua Bulbasaur (Ivysaur 429; label and sound say Bulbasaur, cry says Ivysaur: needs user check).
+Only the 2-byte sprite id changes; position, flag, script, movement and facing stay. Silent objects (Mount Moon Clefairy, Moomoo
+Farm Miltank, Pokeathlon Poliwrath) and the Route 21 Lairon are not changed. Text and cries are not touched.
 """
 evidence = [
   "work/notes/overworld-pokemon-sprite-mismatch_fix.md",
@@ -72,56 +69,6 @@ expect = "0x03F6"
 new = "0x01F0"
 member_sha1 = "f8fe3f17f873f35673d8584afd25bddfd1a17e32"
 notes = "Goldenrod Department Store basement: object 3 sprite 1014 -> 496 (Machoke)."
-
-[[narc_bytes]]
-id = "ev201-obj1-miltank"
-narc = "a/0/3/2"
-member = 201
-offset = "0x2A"
-expect = "0x040B"
-new = "0x02BE"
-member_sha1 = "0ae0ca280e692a398b5b80b84469d5f33fefaa15"
-notes = "Moomoo Farm house (Route 39): object 1 sprite 1035 -> 702 (Miltank)."
-
-[[narc_bytes]]
-id = "ev201-obj3-miltank"
-narc = "a/0/3/2"
-member = 201
-offset = "0x6A"
-expect = "0x040B"
-new = "0x02BE"
-member_sha1 = "0ae0ca280e692a398b5b80b84469d5f33fefaa15"
-notes = "Moomoo Farm house (Route 39): object 3 sprite 1035 -> 702 (Miltank)."
-
-[[narc_bytes]]
-id = "ev201-obj4-miltank"
-narc = "a/0/3/2"
-member = 201
-offset = "0x8A"
-expect = "0x040B"
-new = "0x02BE"
-member_sha1 = "0ae0ca280e692a398b5b80b84469d5f33fefaa15"
-notes = "Moomoo Farm house (Route 39): object 4 sprite 1035 -> 702 (Miltank)."
-
-[[narc_bytes]]
-id = "ev201-obj5-miltank"
-narc = "a/0/3/2"
-member = 201
-offset = "0xAA"
-expect = "0x040B"
-new = "0x02BE"
-member_sha1 = "0ae0ca280e692a398b5b80b84469d5f33fefaa15"
-notes = "Moomoo Farm house (Route 39): object 5 sprite 1035 -> 702 (Miltank)."
-
-[[narc_bytes]]
-id = "ev201-obj6-miltank"
-narc = "a/0/3/2"
-member = 201
-offset = "0xCA"
-expect = "0x040B"
-new = "0x02BE"
-member_sha1 = "0ae0ca280e692a398b5b80b84469d5f33fefaa15"
-notes = "Moomoo Farm house (Route 39): object 6 sprite 1035 -> 702 (Miltank)."
 
 [[narc_bytes]]
 id = "ev211-obj1-ampharos"
@@ -172,16 +119,6 @@ expect = "0x03F8"
 new = "0x01FD"
 member_sha1 = "5fc5b0ab9182c0abc6de18bb5535b043a1d10396"
 notes = "Battle Frontier Battle Hall: object 5 sprite 1016 -> 509 (Slowbro)."
-
-[[narc_bytes]]
-id = "ev251-obj1-poliwrath"
-narc = "a/0/3/2"
-member = 251
-offset = "0xB6"
-expect = "0x03F3"
-new = "0x01EB"
-member_sha1 = "0b88457118959550d6c2b6f88517ca4f5d596761"
-notes = "Pokeathlon Dome lobby: object 1 sprite 1011 -> 491 (Poliwrath)."
 
 [[narc_bytes]]
 id = "ev251-obj4-meowth"
@@ -252,16 +189,6 @@ expect = "0x03F9"
 new = "0x0200"
 member_sha1 = "0b88457118959550d6c2b6f88517ca4f5d596761"
 notes = "Pokeathlon Dome lobby: object 15 sprite 1017 -> 512 (Farfetchd)."
-
-[[narc_bytes]]
-id = "ev253-obj1-poliwrath"
-narc = "a/0/3/2"
-member = 253
-offset = "0x2A"
-expect = "0x03F3"
-new = "0x01EB"
-member_sha1 = "eafbb99e9ee5836785a8773283dc01662acd7369"
-notes = "Pokeathlon Dome 2F: object 1 sprite 1011 -> 491 (Poliwrath)."
 
 [[narc_bytes]]
 id = "ev253-obj15-rattata"
@@ -414,66 +341,6 @@ member_sha1 = "0fc67600a2c48a64fe9fbba03192e64a7ea3983c"
 notes = "Viridian north-east house: object 3 sprite 997 -> 449 (Spearow)."
 
 [[narc_bytes]]
-id = "ev465-obj0-clefairy"
-narc = "a/0/3/2"
-member = 465
-offset = "0x46"
-expect = "0x03EB"
-new = "0x01D0"
-member_sha1 = "b796bfaa592cd4afd5b6477443d9c03dd7bf059c"
-notes = "Mount Moon Square Clefairy event: object 0 sprite 1003 -> 464 (Clefairy)."
-
-[[narc_bytes]]
-id = "ev465-obj1-clefairy"
-narc = "a/0/3/2"
-member = 465
-offset = "0x66"
-expect = "0x03EB"
-new = "0x01D0"
-member_sha1 = "b796bfaa592cd4afd5b6477443d9c03dd7bf059c"
-notes = "Mount Moon Square Clefairy event: object 1 sprite 1003 -> 464 (Clefairy)."
-
-[[narc_bytes]]
-id = "ev465-obj2-clefairy"
-narc = "a/0/3/2"
-member = 465
-offset = "0x86"
-expect = "0x03EB"
-new = "0x01D0"
-member_sha1 = "b796bfaa592cd4afd5b6477443d9c03dd7bf059c"
-notes = "Mount Moon Square Clefairy event: object 2 sprite 1003 -> 464 (Clefairy)."
-
-[[narc_bytes]]
-id = "ev465-obj3-clefairy"
-narc = "a/0/3/2"
-member = 465
-offset = "0xA6"
-expect = "0x03EB"
-new = "0x01D0"
-member_sha1 = "b796bfaa592cd4afd5b6477443d9c03dd7bf059c"
-notes = "Mount Moon Square Clefairy event: object 3 sprite 1003 -> 464 (Clefairy)."
-
-[[narc_bytes]]
-id = "ev465-obj4-clefairy"
-narc = "a/0/3/2"
-member = 465
-offset = "0xC6"
-expect = "0x03EB"
-new = "0x01D0"
-member_sha1 = "b796bfaa592cd4afd5b6477443d9c03dd7bf059c"
-notes = "Mount Moon Square Clefairy event: object 4 sprite 1003 -> 464 (Clefairy)."
-
-[[narc_bytes]]
-id = "ev465-obj5-clefairy"
-narc = "a/0/3/2"
-member = 465
-offset = "0xE6"
-expect = "0x03EB"
-new = "0x01D0"
-member_sha1 = "b796bfaa592cd4afd5b6477443d9c03dd7bf059c"
-notes = "Mount Moon Square Clefairy event: object 5 sprite 1003 -> 464 (Clefairy)."
-
-[[narc_bytes]]
 id = "ev475-obj3-abra"
 narc = "a/0/3/2"
 member = 475
@@ -524,11 +391,11 @@ member_sha1 = "1a27507d921675fb3d5ddac2efaa00f309d2232d"
 notes = "Kirk's house (Cianwood): object 8 sprite 946 -> 1200 (Sylveon)."
 
 [[narc_bytes]]
-id = "ev90-obj15-onix"
+id = "ev299-obj28-bulbasaur"
 narc = "a/0/3/2"
-member = 90
-offset = "0x23A"
-expect = "0x02FE"
-new = "0x020C"
-member_sha1 = "41d3aec0fb6bc8260d87bd0a5b52a8219287af0b"
-notes = "Route 21 Onix: object 15 sprite 766 -> 524 (Onix)."
+member = 299
+offset = "0x38A"
+expect = "0x01AD"
+new = "0x01AC"
+member_sha1 = "6f6f891ef943d8af5f5d7a014e20f270c2b29239"
+notes = "S.S. Aqua 1F north-west rooms: object 28 sprite 429 -> 428 (Bulbasaur)."
