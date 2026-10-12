@@ -16,8 +16,8 @@ OUTPUT = ROOT / 'work/build/difficulty-v2/integration-impl'
 BASE, LIMIT = 0x023DC000, 0x023E0000
 ITEM_STUB_BYTES = 336
 CLANG = '/usr/bin/clang'
-LLD = '/Users/contributor/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/bin/gcc-ld/ld.lld'
-ARMIPS = '/Users/contributor/Developer/armips/build/armips'
+LLD = str(Path.home() / '.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/bin/gcc-ld/ld.lld')
+ARMIPS = str(Path.home() / 'Developer/armips/build/armips')
 MODULES = ('policy', 'settings', 'growth', 'items', 'options', 'caps', 'runtime')
 FLAGS = ['--target=arm-none-eabi', '-mcpu=arm946e-s', '-mthumb', '-Os',
          '-ffreestanding', '-fno-builtin', '-fno-unwind-tables',

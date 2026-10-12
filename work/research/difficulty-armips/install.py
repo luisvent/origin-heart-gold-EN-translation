@@ -5,6 +5,7 @@ logical sections and appends the resident autoload. No raw ROM writes in place.
 """
 from pathlib import Path
 import json
+import os
 import struct
 import sys
 import ndspy.rom
@@ -143,10 +144,11 @@ def source_tools():
             require(sha((ROOT/name).read_bytes())==expected,f'source guard {name}')
             checked[name]=pin(ROOT/name)
     for name,p in old['tools'].items():
-        require(sha(Path(p['path']).read_bytes())==p['sha256'],f'tool guard {name}')
+        # Tool paths are stored as $HOME/... so the pins work on any machine.
+        require(sha(Path(os.path.expandvars(p['path'])).read_bytes())==p['sha256'],f'tool guard {name}')
     sources={str(p.relative_to(ROOT)):pin(p) for p in sorted(SOURCE.rglob('*'))
              if p.is_file() and p.suffix in ('.py','.c','.h','.asm','.ld','.json','.toml','.md')}
-    toolpins={name:dict(pin(p['path']),version=p['version']) for name,p in old['tools'].items()}
+    toolpins={name:dict(pin(os.path.expandvars(p['path'])),version=p['version']) for name,p in old['tools'].items()}
     # Capture the real Xcode compiler and Rust linker behind the small drivers.
     import subprocess
     realclang=subprocess.check_output(['/usr/bin/xcrun','--find','clang'],cwd=ROOT,text=True).strip()

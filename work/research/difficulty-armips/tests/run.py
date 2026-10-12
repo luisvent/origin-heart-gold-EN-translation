@@ -67,7 +67,7 @@ def main():
             planned=len(jobs),completed=[],failed=[],unstarted=[j['id'] for j in jobs],jobs=jobs),indent=2))
         return 0
     OUTPUT.mkdir(parents=True,exist_ok=True)
-    os.environ.setdefault('ARMIPS','/Users/contributor/Developer/armips/build/armips')
+    os.environ.setdefault('ARMIPS',str(Path.home()/'Developer/armips/build/armips'))
     report={'format':2,'scope':'Host/static tests and explicit native acceptance gate','status':'running','started_utc':utc(),'command':[sys.executable,*sys.argv],
             'complete':False,'success':False,'native_requested':args.native,'sources_before':source_hashes()}
     path=OUTPUT/'report.json';write_json(path,report)
