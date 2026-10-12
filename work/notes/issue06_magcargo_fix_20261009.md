@@ -137,8 +137,8 @@ All commands run from repository root:
 .venv/bin/ruff check work/tools/test_magcargo_loss_whiteout.py
 python3 work/tools/fixes.py check
 python3 work/tools/fixes.py docs --out work/patches/FIXES.md
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue06/fix/without --without magcargo-loss-whiteout --no-regen-graphics --no-patch
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue06/fix/fixed --no-regen-graphics --no-patch > work/build/bugfix-sequential-20261009/issue06/fix/fixed-build.log 2>&1
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue06/fix/without --without magcargo-loss-whiteout --no-regen-graphics --no-patch
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue06/fix/fixed --no-regen-graphics --no-patch > work/build/bugfix-sequential-20261009/issue06/fix/fixed-build.log 2>&1
 .venv/bin/python work/build/bugfix-sequential-20261009/issue06/fix/pair_check.py
 .venv/bin/python -u work/build/bugfix-sequential-20261009/issue06/fix/runtime.py --rom work/build/bugfix-sequential-20261009/issue06/fix/fixed/origin_hg_v4.0.3_en_wip.nds --out work/build/bugfix-sequential-20261009/issue06/fix/runtime-loss --controlled --single --fixed
 ```

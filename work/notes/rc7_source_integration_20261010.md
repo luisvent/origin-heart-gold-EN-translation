@@ -1,11 +1,11 @@
 # RC7 bounded source integration — 2026-10-10
 
 Source integration is complete in `release/rc7-prep` at
-`/Users/contributor/Developer/poke/work/build/rc7-release-prep-checkout`.
+`$HOME/Developer/poke/work/build/rc7-release-prep-checkout`.
 This is **not a new built or release-ready candidate**. No ROM build, emulator,
 commit, publication or download was performed. The earlier RC7 build evidence
 predates these additions. All shell commands were launched from the main root
-`/Users/contributor/Developer/poke`; Git operations used `git -C`.
+`$HOME/Developer/poke`; Git operations used `git -C`.
 
 ## Exact inputs and retained work
 
@@ -108,11 +108,11 @@ Test commands:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH="$prep/work/tools" \
-ARMIPS=/Users/contributor/Developer/armips/build/armips \
+ARMIPS=$HOME/Developer/armips/build/armips \
 .venv/bin/python -m unittest -v test_emu_honey_gather test_honey_gather
 
 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH="$prep/work/tools" \
-ARMIPS=/Users/contributor/Developer/armips/build/armips \
+ARMIPS=$HOME/Developer/armips/build/armips \
 .venv/bin/python -m unittest -v \
   test_asmpatch.RealFixes.test_startup_content_warning_source_golden \
   test_asmpatch.RealFixes.test_every_armips_fix_has_a_source
@@ -127,9 +127,9 @@ PYTHONPATH="$prep/work/research/difficulty-armips/tests:$prep/work/tools" \
 
 python3 "$prep/work/tools/fixes.py" check
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python "$prep/work/tools/asmpatch.py" \
-  --armips /Users/contributor/Developer/armips/build/armips check
+  --armips $HOME/Developer/armips/build/armips check
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python "$prep/work/tools/asmpatch.py" \
-  --armips /Users/contributor/Developer/armips/build/armips \
+  --armips $HOME/Developer/armips/build/armips \
   listing --check honey-gather startup-content-warning
 python3 "$prep/work/tools/qa.py" check "$prep/work/translate/banks/a027/0816.json"
 python3 "$prep/work/tools/decisions.py" \

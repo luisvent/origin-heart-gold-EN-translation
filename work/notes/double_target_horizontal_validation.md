@@ -143,7 +143,7 @@ both rejected. Historical reports remain byte-for-byte unchanged. The ignored ar
 Run from the repository root with the existing local dependencies; no downloads:
 
 ```sh
-ARMIPS=/Users/contributor/Developer/armips/build/armips .venv/bin/python -m unittest -v work/tools/test_double_target.py work/tools/test_emu_double_target.py
+ARMIPS=$HOME/Developer/armips/build/armips .venv/bin/python -m unittest -v work/tools/test_double_target.py work/tools/test_emu_double_target.py
 SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy EMU_HARNESS_EMULATOR=desmume .venv/bin/python work/tools/emu_double_target.py --rom work/build/double-target-horizontal-validation/horizontal-cn.nds --case allyL --out work/build/double-target-horizontal-validation/repeat-cn-allyL
 SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy EMU_HARNESS_EMULATOR=desmume .venv/bin/python work/tools/emu_double_target.py --rom work/build/double-target-horizontal-validation/full/origin_hg_v4.0.3_en_wip.nds --case allyR --out work/build/double-target-horizontal-validation/repeat-en-allyR
 SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy EMU_HARNESS_EMULATOR=desmume .venv/bin/python work/tools/emu_double_target.py --rom work/build/double-target-horizontal-validation/option2-cn.nds --case allyL --expect-option2 --out work/build/double-target-horizontal-validation/repeat-old-cn-allyL

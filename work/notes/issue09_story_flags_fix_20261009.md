@@ -114,8 +114,8 @@ Run from repository root; all build/evidence artifacts remain ignored under
 .venv/bin/ruff check work/tools/test_story_flags.py
 .venv/bin/ruff format --check work/tools/test_story_flags.py
 python3 work/tools/fixes.py check
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue09/fix/without --without mortar-invalid-flag-noop --no-regen-graphics --no-patch
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue09/fix/fixed --no-regen-graphics --no-patch
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue09/fix/without --without mortar-invalid-flag-noop --no-regen-graphics --no-patch
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue09/fix/fixed --no-regen-graphics --no-patch
 .venv/bin/python work/build/bugfix-sequential-20261009/issue09/fix/pair_check.py
 .venv/bin/python work/build/bugfix-sequential-20261009/issue09/fix/matrix.py
 .venv/bin/python work/build/bugfix-sequential-20261009/issue09/fix/route_audit.py

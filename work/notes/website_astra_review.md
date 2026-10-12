@@ -1,6 +1,6 @@
 # Independent Astra review of website completion
 
-Reviewed 2026-10-09 with GPT-6 Astra at high effort. Worktree: `/Users/contributor/.codex/worktrees/website-completion/poke`, branch `codex/website-completion`, baseline `codex/website-rebase` (`3d3937c`). This is a review of the complete uncommitted website task, including new untracked implementation files. The original checkout was not modified.
+Reviewed 2026-10-09 with GPT-6 Astra at high effort. Worktree: `$HOME/.codex/worktrees/website-completion/poke`, branch `codex/website-completion`, baseline `codex/website-rebase` (`3d3937c`). This is a review of the complete uncommitted website task, including new untracked implementation files. The original checkout was not modified.
 
 > Resolution update, 2026-10-09: all six findings below have been fixed and revalidated. The original review and reproductions are preserved; see the resolution section at the end.
 
@@ -132,7 +132,7 @@ The coverage record nevertheless says `equal: true`, `status: "included"`, and `
 | Site tests against fresh output | `GUIDE_TEST_DIST=1 npm --prefix site test`: 53 passed. |
 | Save-editor tests | 54 passed using the already available local TypeScript compiler shim; no dependency installation. |
 | Deterministic generator check | `python3 work/tools/site/build.py --check`: 18 docs, 13 JSON data outputs, and 15 guide outputs unchanged. |
-| Workbook reconciliation check | Existing bundled Python/openpyxl with `reconcile_references.py --source-dir /Users/contributor/Downloads --check`: 8,074 accounted rows unchanged. Determinism does not validate the comparator's semantics. |
+| Workbook reconciliation check | Existing bundled Python/openpyxl with `reconcile_references.py --source-dir $HOME/Downloads --check`: 8,074 accounted rows unchanged. Determinism does not validate the comparator's semantics. |
 | Guide identity preservation | Compared all 13 chapter entry headings/metadata to the baseline: 367 entries, chapter counts 22/23/30/37/38/27/21/42/28/37/25/31/6, unchanged. |
 | Independent local Chromium probe | 116 assertions passed, 40 mobile theme/page checks across 20 routes, zero uncaught browser errors. External requests blocked. |
 | PDF structure and spot rendering | 238 pages, none with empty extracted text. Extracted pages 1, 2, 121, 237, 238; rendered and inspected pages 2 and 237. Contents and dense late known-issues layout are legible with no observed clipping. |

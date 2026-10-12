@@ -157,10 +157,10 @@ No install/download command runs. The directory-link spelling `/work/translate/r
 
 ```sh
 npm --prefix work/save-core run build
-MELONDS_SHIM=/Users/contributor/Developer/poke/work/build/melonds/libmelonds_shim.dylib \
-TEXT_SPEED_TEST_ROM=/Users/contributor/Developer/poke/work/build/rc7-release-prep-checkout/work/build/rc7-no-text-speed/origin_hg_v4.0.3_en_wip.nds \
+MELONDS_SHIM=$HOME/Developer/poke/work/build/melonds/libmelonds_shim.dylib \
+TEXT_SPEED_TEST_ROM=$HOME/Developer/poke/work/build/rc7-release-prep-checkout/work/build/rc7-no-text-speed/origin_hg_v4.0.3_en_wip.nds \
 .venv/bin/python work/tools/check.py --full --strict-release \
-  --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/rc7-final
+  --armips $HOME/Developer/armips/build/armips --work-dir work/build/rc7-final
 ```
 
 Final gate: **all 11 stages PASS in 97.8 seconds; 1020 tools + 43 docs + 35 site = 1098 tests, zero skips**. Logs: `work/build/rc7-final.log` and its build/repro directories. Earlier reviewed full build, strict release gate and

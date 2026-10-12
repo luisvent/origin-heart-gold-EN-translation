@@ -152,8 +152,8 @@ Run from repository root:
 .venv/bin/ruff check work/tools/native_script_state.py work/tools/test_shared_progress.py
 python3 work/tools/fixes.py check
 python3 work/tools/fixes.py docs --out work/patches/FIXES.md
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue10/fix/without --without expedition-completed-progress,hooh-panel-silver-marker --no-regen-graphics --no-patch
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue10/fix/fixed --no-regen-graphics --no-patch
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue10/fix/without --without expedition-completed-progress,hooh-panel-silver-marker --no-regen-graphics --no-patch
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue10/fix/fixed --no-regen-graphics --no-patch
 .venv/bin/python work/build/bugfix-sequential-20261009/issue10/fix/pair_check.py
 .venv/bin/python work/build/bugfix-sequential-20261009/issue10/fix/matrix.py
 ```

@@ -91,7 +91,7 @@ still need coordination before any later merge with the global register.
 Reproduce the startup capture with the existing emulator environment (no downloads):
 
 ```sh
-/Users/contributor/Developer/poke/.venv/bin/python work/tools/emu_startup_warning.py \
+$HOME/Developer/poke/.venv/bin/python work/tools/emu_startup_warning.py \
   --rom work/build/content-warning/notice-final/origin_hg_v4.0.3_en_wip.nds \
   --out work/build/content-warning/screens-notice
 ```

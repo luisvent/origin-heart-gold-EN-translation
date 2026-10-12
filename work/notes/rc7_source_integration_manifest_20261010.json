@@ -3,7 +3,7 @@
   "algorithm": "sha256",
   "entries": [
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/IMPLEMENTATION.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/IMPLEMENTATION.md",
       "target": "work/research/difficulty-armips/IMPLEMENTATION.md",
       "source_sha256": "aadd99c1760fac8adef3665c93766e09157a66fafed3e6d4e184bde19173f357",
       "mode": "copy",
@@ -11,7 +11,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/README.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/README.md",
       "target": "work/research/difficulty-armips/README.md",
       "source_sha256": "54c121c5ba8311e118899088a8f167c91b948d7306f0d7927a0d610fdde5b2f9",
       "mode": "copy",
@@ -19,7 +19,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/build.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/build.py",
       "target": "work/research/difficulty-armips/build.py",
       "source_sha256": "9aa687eeb303086d7a5db02e2425d7e05e9a800d6ba0e349c4fef16a502e1cd4",
       "mode": "copy",
@@ -27,7 +27,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/check.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/check.py",
       "target": "work/research/difficulty-armips/check.py",
       "source_sha256": "b35f016cc5afc1814ab00d7e554189bb8d08e78ab93b80167f86e17570fe8ee5",
       "mode": "copy",
@@ -35,7 +35,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/compatibility.asm",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/compatibility.asm",
       "target": "work/research/difficulty-armips/compatibility.asm",
       "source_sha256": "7100d39340ce79b66e12dd551a6cd0656036c6410140de6a8c12c5ca09a6b25f",
       "mode": "copy",
@@ -43,7 +43,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/compatibility.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/compatibility.json",
       "target": "work/research/difficulty-armips/compatibility.json",
       "source_sha256": "ca9970c214db66c2b94b35a4a843aada4c22010583dca5861ab1b17a5924bcd4",
       "mode": "copy",
@@ -51,7 +51,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/fix.toml",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/fix.toml",
       "target": "work/research/difficulty-armips/fix.toml",
       "source_sha256": "9b9097ddfb60ccf661f2a7e01baa46530584b1446b98af581aac04763da10ca2",
       "mode": "copy",
@@ -59,7 +59,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/foundation.asm",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/foundation.asm",
       "target": "work/research/difficulty-armips/foundation.asm",
       "source_sha256": "f16ebbf3c3f8072631c6e711ee97bc5532e38861ec9745f87cfa8e49d2f28b59",
       "mode": "copy",
@@ -67,7 +67,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/hooks.asm",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/hooks.asm",
       "target": "work/research/difficulty-armips/hooks.asm",
       "source_sha256": "b1b96e794d4f865c8877bec56f6585116b7320acfffcc8fc91eed44012ec3af0",
       "mode": "copy",
@@ -75,7 +75,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/install.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/install.py",
       "target": "work/research/difficulty-armips/install.py",
       "source_sha256": "ec9bdf199bfed4f454a8beb3fc8e6b374ced7e17542223334a3299bf722cba85",
       "mode": "copy",
@@ -83,7 +83,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/caps.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/caps.c",
       "target": "work/research/difficulty-armips/native/caps.c",
       "source_sha256": "234403a2635c4e01a055b37fcf47371226af0e3abcf93a771ec85bb30cb32d74",
       "mode": "copy",
@@ -91,7 +91,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/caps.h",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/caps.h",
       "target": "work/research/difficulty-armips/native/caps.h",
       "source_sha256": "0efd7d1f21549826d82e4e39a4cfb55974417b97e2d2c38e148aef858ba4535e",
       "mode": "copy",
@@ -99,7 +99,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/growth.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/growth.c",
       "target": "work/research/difficulty-armips/native/growth.c",
       "source_sha256": "242c6e783e0479f0f9ea050e2f0ce28c98691193cfa24e516240f7fe21a7c431",
       "mode": "copy",
@@ -107,7 +107,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/growth.h",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/growth.h",
       "target": "work/research/difficulty-armips/native/growth.h",
       "source_sha256": "107d2756b1fa13dca4a45c7fbf5664d979c5e9d8f7e11dcf22d9498220ea5986",
       "mode": "copy",
@@ -115,7 +115,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/integration_contract.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/integration_contract.json",
       "target": "work/research/difficulty-armips/native/integration_contract.json",
       "source_sha256": "5b96689a58e9f252ab1df5f7e19354676ae9025ab8c69c5ae19854eca1fa9798",
       "mode": "copy",
@@ -123,7 +123,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/items.asm",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/items.asm",
       "target": "work/research/difficulty-armips/native/items.asm",
       "source_sha256": "0cc641c39d1de4295e48466acdbe6e8468f4acc422241aea11251933ac5ca355",
       "mode": "copy",
@@ -131,7 +131,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/items.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/items.c",
       "target": "work/research/difficulty-armips/native/items.c",
       "source_sha256": "d0101d83d76c19f7918890d3f069cdf2c77f7cb20e75e12c31dc6438682180db",
       "mode": "copy",
@@ -139,7 +139,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/items.h",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/items.h",
       "target": "work/research/difficulty-armips/native/items.h",
       "source_sha256": "a08b943d0fc13fe58401c19f839ae58e9bb42d1b9bae9db6f3e36f150f1ab77a",
       "mode": "copy",
@@ -147,7 +147,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/items_hooks.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/items_hooks.json",
       "target": "work/research/difficulty-armips/native/items_hooks.json",
       "source_sha256": "f65456da89a21d77aeefc7c5801e36f92dbfd4e859f2d0cb4f9261fe0f38e922",
       "mode": "copy",
@@ -155,7 +155,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/link.ld",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/link.ld",
       "target": "work/research/difficulty-armips/native/link.ld",
       "source_sha256": "ce3bb288ed388241ad34452b64e35fc99b0d0dacc3e644dc53435c05c863c5d2",
       "mode": "copy",
@@ -163,7 +163,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/options.asm",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/options.asm",
       "target": "work/research/difficulty-armips/native/options.asm",
       "source_sha256": "5dfdc6cf7fdf2b735e99f3a3706219c2ad790179699bfb3b0465d43865590d01",
       "mode": "copy",
@@ -171,7 +171,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/options.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/options.c",
       "target": "work/research/difficulty-armips/native/options.c",
       "source_sha256": "2126c87e5a61685f551922c381992021493f479e5a91f64236d45a546d62f99c",
       "mode": "copy",
@@ -179,7 +179,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/options.h",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/options.h",
       "target": "work/research/difficulty-armips/native/options.h",
       "source_sha256": "2f1f111d1dbeeda9d0179473b20819ef7e24539215dbde9eff3c5ec59b024c6b",
       "mode": "copy",
@@ -187,7 +187,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/options_hooks.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/options_hooks.json",
       "target": "work/research/difficulty-armips/native/options_hooks.json",
       "source_sha256": "6370b4ac73568dfc95b83bc1c92497500bf17d5699e703e396a7a8fd5d04d8d0",
       "mode": "copy",
@@ -195,7 +195,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/policy.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/policy.c",
       "target": "work/research/difficulty-armips/native/policy.c",
       "source_sha256": "7a5e7e15bba65a0327e04ecd0b7f7e241f1390ff18117a3a90921fdfcbb42910",
       "mode": "copy",
@@ -203,7 +203,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/policy.h",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/policy.h",
       "target": "work/research/difficulty-armips/native/policy.h",
       "source_sha256": "2e79f06e4925720af05baa32dd18c1a58467a3149f2edfc25461db67426f8da0",
       "mode": "copy",
@@ -211,7 +211,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/runtime.asm",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/runtime.asm",
       "target": "work/research/difficulty-armips/native/runtime.asm",
       "source_sha256": "4e68f82af7a5fbf6f614bcd9af93bfdde4a6026f4cc4446ce101fc13242bae06",
       "mode": "copy",
@@ -219,7 +219,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/runtime.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/runtime.c",
       "target": "work/research/difficulty-armips/native/runtime.c",
       "source_sha256": "f554e0b863d359a819aed9d505198bef51f32366a1df0a9d6372da3d2a2331c2",
       "mode": "copy",
@@ -227,7 +227,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/runtime.h",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/runtime.h",
       "target": "work/research/difficulty-armips/native/runtime.h",
       "source_sha256": "dd0687586d27ffb6438be3d2b2b47b58a91da968de8d0e72eb7b8f77aa8731a8",
       "mode": "copy",
@@ -235,7 +235,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/runtime_hooks.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/runtime_hooks.json",
       "target": "work/research/difficulty-armips/native/runtime_hooks.json",
       "source_sha256": "2f4f5692d12c82875dec253f293a7f152ecb845a63711e7407ca03658157023d",
       "mode": "copy",
@@ -243,7 +243,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/settings.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/settings.c",
       "target": "work/research/difficulty-armips/native/settings.c",
       "source_sha256": "38426b761de8b54b218cb63b7192674997338228ddeed8d808e48839476c74d1",
       "mode": "copy",
@@ -251,7 +251,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/native/settings.h",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/native/settings.h",
       "target": "work/research/difficulty-armips/native/settings.h",
       "source_sha256": "e6875942402a9b792357b6f3ca23db13039a7093c41f98f75f5d693fbbb5aca0",
       "mode": "copy",
@@ -259,7 +259,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/publication.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/publication.py",
       "target": "work/research/difficulty-armips/publication.py",
       "source_sha256": "10a65a24a644951b183611d6c385d6a496e95eb6738bca3ce6890cd11d0ce12e",
       "mode": "copy",
@@ -267,7 +267,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/candy.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/candy.md",
       "target": "work/research/difficulty-armips/research/candy.md",
       "source_sha256": "8a63e88d090f5a36995224326af5cf110d2b87522c6c6cb246f965ebb24077a6",
       "mode": "copy",
@@ -275,7 +275,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/growth.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/growth.md",
       "target": "work/research/difficulty-armips/research/growth.md",
       "source_sha256": "fac674ba74044ef73472b7a9c106ddf7177e5b051aaefb59ad486aba791052ba",
       "mode": "copy",
@@ -283,7 +283,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/gym_schedule.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/gym_schedule.json",
       "target": "work/research/difficulty-armips/research/gym_schedule.json",
       "source_sha256": "30c1308197577a30681993eab66ad22a1b9d6a0b2e045ef1163228331c0792c8",
       "mode": "copy",
@@ -291,7 +291,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/integration-impl-handoff.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/integration-impl-handoff.md",
       "target": "work/research/difficulty-armips/research/integration-impl-handoff.md",
       "source_sha256": "6a323158d799a5c767edf981aa80302e533b66d9999ce76fad7e0c229932a762",
       "mode": "copy",
@@ -299,7 +299,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/integration.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/integration.md",
       "target": "work/research/difficulty-armips/research/integration.md",
       "source_sha256": "f193d50755f5f58453c9d9a693b5d9bb745ed94e5d36f8e983b3e576f3f739a9",
       "mode": "copy",
@@ -307,7 +307,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/items-binding-fix.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/items-binding-fix.md",
       "target": "work/research/difficulty-armips/research/items-binding-fix.md",
       "source_sha256": "f8869ab7877e2447e1d46e04773fd9c02e6cdcf5c19ac38164464e7070432b50",
       "mode": "copy",
@@ -315,7 +315,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/items-binding-pins.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/items-binding-pins.json",
       "target": "work/research/difficulty-armips/research/items-binding-pins.json",
       "source_sha256": "a07a9b1feec29c80338ddc8167e41b1a079c909e10fba120da52002c489cb574",
       "mode": "copy",
@@ -323,7 +323,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/items-handoff.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/items-handoff.md",
       "target": "work/research/difficulty-armips/research/items-handoff.md",
       "source_sha256": "b09007924a3b03c3662f1d075c682d4ade09f32654bc6dcfa6aec893f501ac4c",
       "mode": "copy",
@@ -331,7 +331,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/items-native-checkpoint.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/items-native-checkpoint.md",
       "target": "work/research/difficulty-armips/research/items-native-checkpoint.md",
       "source_sha256": "f933d0a4be47e16242893768e86701839f1df1ddd38cc063a99239d59f02e488",
       "mode": "copy",
@@ -339,7 +339,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/items-revival-fix.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/items-revival-fix.md",
       "target": "work/research/difficulty-armips/research/items-revival-fix.md",
       "source_sha256": "30b9ac428891b2a6e73822133fb834de9307bf881e8d03a89c329ca3c9e66b24",
       "mode": "copy",
@@ -347,7 +347,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/items-revival-pins.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/items-revival-pins.json",
       "target": "work/research/difficulty-armips/research/items-revival-pins.json",
       "source_sha256": "9f0d4fbc807ed062ff1bb38e302963dfa363a39e0586ab27f847f710f71ed330",
       "mode": "copy",
@@ -355,7 +355,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/items.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/items.md",
       "target": "work/research/difficulty-armips/research/items.md",
       "source_sha256": "8c15909551e26b4dce9d7a96247fd89e38bdb89f2326c23d30477f9cf0c77024",
       "mode": "copy",
@@ -363,7 +363,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/options-cursor-fix.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/options-cursor-fix.md",
       "target": "work/research/difficulty-armips/research/options-cursor-fix.md",
       "source_sha256": "303b53ccc9769adf618fdeb269748868c5b3ecccf5f096db9bb2750cf056e54a",
       "mode": "copy",
@@ -371,7 +371,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/options-handoff.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/options-handoff.md",
       "target": "work/research/difficulty-armips/research/options-handoff.md",
       "source_sha256": "586f3c9b067fcdfdbb4c0cfe1d36a6059e61fc123d3b0f3a4450e0a74bf22eaa",
       "mode": "copy",
@@ -379,7 +379,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/options-source-pins.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/options-source-pins.json",
       "target": "work/research/difficulty-armips/research/options-source-pins.json",
       "source_sha256": "cb400b86251df90bf5fd708316a4d8b564bc40e843ff653d47d0d44dba03a78f",
       "mode": "copy",
@@ -387,7 +387,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/progression.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/progression.md",
       "target": "work/research/difficulty-armips/research/progression.md",
       "source_sha256": "c704bf6ef374cff9faf807a439463f55b7d2e4db9741cc6a5a7fedff2e25ef3a",
       "mode": "copy",
@@ -395,7 +395,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/publication.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/publication.md",
       "target": "work/research/difficulty-armips/research/publication.md",
       "source_sha256": "dfaf9f7225fe4fb214a1dad92a0a4a401b54bd3cac29bf66a11e564f1a65043a",
       "mode": "copy",
@@ -403,7 +403,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/runtime-classifier-pins.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/runtime-classifier-pins.json",
       "target": "work/research/difficulty-armips/research/runtime-classifier-pins.json",
       "source_sha256": "cabee769105cad384c9526599cb085e8002feb3faede3c004d246af2da351053",
       "mode": "copy",
@@ -411,7 +411,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/research/runtime-classifier.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/research/runtime-classifier.md",
       "target": "work/research/difficulty-armips/research/runtime-classifier.md",
       "source_sha256": "1fc85f6086a1e8613678f902c84298f7e92887a6757782402d34aeed361f45e7",
       "mode": "copy",
@@ -419,7 +419,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/PROGRESSION_COVERAGE.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/PROGRESSION_COVERAGE.md",
       "target": "work/research/difficulty-armips/tests/PROGRESSION_COVERAGE.md",
       "source_sha256": "c2a3e9b72204f7280c7c9ad58ffd655bb196491ca8d39820b3c6c000460a706f",
       "mode": "copy",
@@ -427,7 +427,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/README.md",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/README.md",
       "target": "work/research/difficulty-armips/tests/README.md",
       "source_sha256": "19ccea44211fd73202e50ec64af8130c944df0f20261fe44bd2d4228a6a97457",
       "mode": "copy",
@@ -435,7 +435,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/candidate_tools.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/candidate_tools.py",
       "target": "work/research/difficulty-armips/tests/candidate_tools.py",
       "source_sha256": "a1b19756b8c26f3480e1b83d46bf3488a5f2d938327209b2619ce3c40639126d",
       "mode": "copy",
@@ -443,7 +443,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/compat_abi_model.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/compat_abi_model.py",
       "target": "work/research/difficulty-armips/tests/compat_abi_model.py",
       "source_sha256": "b4e84252f8ee59946253aacc39367e3cb6c62a4a484b928f70acc83e01475e18",
       "mode": "copy",
@@ -451,7 +451,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/composite_fixtures.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/composite_fixtures.py",
       "target": "work/research/difficulty-armips/tests/composite_fixtures.py",
       "source_sha256": "67f6703fb94216f6d0501a2b97b1d364a93851f9b1ee9a40068b2b6bfbac59b0",
       "mode": "copy",
@@ -459,7 +459,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/drivers/growth_check.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/drivers/growth_check.c",
       "target": "work/research/difficulty-armips/tests/drivers/growth_check.c",
       "source_sha256": "0727b5bdb409f1c8809485b103b4635896f58cf0960a827547f935ec591394ad",
       "mode": "copy",
@@ -467,7 +467,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/drivers/items_check.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/drivers/items_check.c",
       "target": "work/research/difficulty-armips/tests/drivers/items_check.c",
       "source_sha256": "872056033a7132b653be3d584a704cab7fbcfdf4ab9185f791e635d0f5f843f5",
       "mode": "copy",
@@ -475,7 +475,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/drivers/options_check.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/drivers/options_check.c",
       "target": "work/research/difficulty-armips/tests/drivers/options_check.c",
       "source_sha256": "d04b5d8f8d47d758a580775eebd773b8c298b787c827be3f5d75422caadfa64e",
       "mode": "copy",
@@ -483,7 +483,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/drivers/runtime_check.c",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/drivers/runtime_check.c",
       "target": "work/research/difficulty-armips/tests/drivers/runtime_check.c",
       "source_sha256": "d70e0b21adb23c6ef76a9ad3dee0994c5005e02a5b5d30d4cae73aab32f4a3c6",
       "mode": "copy",
@@ -491,7 +491,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/evidence.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/evidence.py",
       "target": "work/research/difficulty-armips/tests/evidence.py",
       "source_sha256": "27ae36933dd545864c7a4b16b01239e38c0ef81cc05df1993f107f620f7afcdf",
       "mode": "copy",
@@ -499,7 +499,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/items_abi_model.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/items_abi_model.py",
       "target": "work/research/difficulty-armips/tests/items_abi_model.py",
       "source_sha256": "466a1e2d99381f8cdd601d3b55de2dee5421ebcb6ee573164117b5aad43f664e",
       "mode": "copy",
@@ -507,7 +507,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_battle.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_battle.py",
       "target": "work/research/difficulty-armips/tests/native_battle.py",
       "source_sha256": "7bcad9121ad0eb639dc856e406ecf7016d060d3d4cac6d102709547f9195e726",
       "mode": "copy",
@@ -515,7 +515,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_battle_fixture.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_battle_fixture.py",
       "target": "work/research/difficulty-armips/tests/native_battle_fixture.py",
       "source_sha256": "0017762d02b193e97b6cfc95e4a893e8b1bf55bec21b6d953f5f6f3373c07744",
       "mode": "copy",
@@ -523,7 +523,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_battle_helpers.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_battle_helpers.py",
       "target": "work/research/difficulty-armips/tests/native_battle_helpers.py",
       "source_sha256": "441b646938c003667ffd3f658407033e22038f0b05bf6da2f09ff4994518407a",
       "mode": "copy",
@@ -531,7 +531,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_battle_input.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_battle_input.py",
       "target": "work/research/difficulty-armips/tests/native_battle_input.py",
       "source_sha256": "9aaad8a27e03dede5525b846312cbbe129bf477f5e962c63336cc87dd9d453b3",
       "mode": "copy",
@@ -539,7 +539,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_battle_oracles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_battle_oracles.py",
       "target": "work/research/difficulty-armips/tests/native_battle_oracles.py",
       "source_sha256": "79909aab3fab1924494fd527eb16cfae4069ed96ae218f2dd01c7cec6583a48d",
       "mode": "copy",
@@ -547,7 +547,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_caprise.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_caprise.py",
       "target": "work/research/difficulty-armips/tests/native_caprise.py",
       "source_sha256": "fd02f41a21a3337429f3f26d24ffca4eba3871bd93ae840da1329a65565c275c",
       "mode": "copy",
@@ -555,7 +555,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_caprise_fixture.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_caprise_fixture.py",
       "target": "work/research/difficulty-armips/tests/native_caprise_fixture.py",
       "source_sha256": "f2d48dc2e5069d56ea01962f53a6bf7abae98f8817b769bad57d80033c190582",
       "mode": "copy",
@@ -563,7 +563,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_caprise_oracles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_caprise_oracles.py",
       "target": "work/research/difficulty-armips/tests/native_caprise_oracles.py",
       "source_sha256": "51a74f555b114fad366811b6cad940eb9dddba47bb5376fd09bb839669affe2b",
       "mode": "copy",
@@ -571,7 +571,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_composites.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_composites.py",
       "target": "work/research/difficulty-armips/tests/native_composites.py",
       "source_sha256": "5fcc1241ae8467cae14585bf039be071f8e733e9557f52c192b6f9a67a10c340",
       "mode": "copy",
@@ -579,7 +579,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_edges.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_edges.py",
       "target": "work/research/difficulty-armips/tests/native_edges.py",
       "source_sha256": "ba3e2bec2578d570a5bba6e9f8c089363b61501d63d11ce135d99db2f68c23a3",
       "mode": "copy",
@@ -587,7 +587,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_edges_oracles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_edges_oracles.py",
       "target": "work/research/difficulty-armips/tests/native_edges_oracles.py",
       "source_sha256": "71561d77ed00ebc2cb6e8715db7982870f27a5454623fdb2c1a8b129e252fe91",
       "mode": "copy",
@@ -595,7 +595,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items.py",
       "target": "work/research/difficulty-armips/tests/native_items.py",
       "source_sha256": "5c3bb0a3241b2d4f2cf31b954e3679345ee57f7dd1861f7d666dda4779762654",
       "mode": "copy",
@@ -603,7 +603,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_cases.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_cases.py",
       "target": "work/research/difficulty-armips/tests/native_items_cases.py",
       "source_sha256": "5030538908118a355c0eb8fad77f827de936700930b6d3a337d3f59a2d04bfa3",
       "mode": "copy",
@@ -611,7 +611,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_control.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_control.py",
       "target": "work/research/difficulty-armips/tests/native_items_control.py",
       "source_sha256": "d4e92f170b22c8fc4fa5318dd36b2d97c3e15e7bac521371b649d305f5d72e41",
       "mode": "copy",
@@ -619,7 +619,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_doubles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_doubles.py",
       "target": "work/research/difficulty-armips/tests/native_items_doubles.py",
       "source_sha256": "3fbd0f707baea026cd537ff9eefd4daff7b76f16fdd365a5145bc076216947b5",
       "mode": "copy",
@@ -627,7 +627,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_evidence.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_evidence.py",
       "target": "work/research/difficulty-armips/tests/native_items_evidence.py",
       "source_sha256": "91ad967a96e165a66721b59e2a1867cd4d595f5b1f5d15cd24039df51c62d051",
       "mode": "copy",
@@ -635,7 +635,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_field.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_field.py",
       "target": "work/research/difficulty-armips/tests/native_items_field.py",
       "source_sha256": "97a7c99a8b06de77bb4820809f402ca058ef811d59ee0336b719e58ea929434e",
       "mode": "copy",
@@ -643,7 +643,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_fixture.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_fixture.py",
       "target": "work/research/difficulty-armips/tests/native_items_fixture.py",
       "source_sha256": "8a2e6aeeb07afadb6dd43021d3ad53e6a8471f80a164de738663094ecac5665e",
       "mode": "copy",
@@ -651,7 +651,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_gates.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_gates.py",
       "target": "work/research/difficulty-armips/tests/native_items_gates.py",
       "source_sha256": "6a8a0f6b9316949fc4b4b777422600a6651b96c2e024da31a5e8c68394ae2516",
       "mode": "copy",
@@ -659,7 +659,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_gates_matrix.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_gates_matrix.py",
       "target": "work/research/difficulty-armips/tests/native_items_gates_matrix.py",
       "source_sha256": "9da107b2d3b4752584d6e9684e67e42dc48673f3978a652b49bf19b0b3777f33",
       "mode": "copy",
@@ -667,7 +667,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_gates_oracles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_gates_oracles.py",
       "target": "work/research/difficulty-armips/tests/native_items_gates_oracles.py",
       "source_sha256": "a1325e53f6980d078c4732cbf7b078a0bad47a556aef1829ed9918d3d2d73724",
       "mode": "copy",
@@ -675,7 +675,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_gates_trace.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_gates_trace.py",
       "target": "work/research/difficulty-armips/tests/native_items_gates_trace.py",
       "source_sha256": "cf8b7c920349152f0755203a1b8c9619c061f35b367113a92a39433165ad30ff",
       "mode": "copy",
@@ -683,7 +683,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_matrix.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_matrix.py",
       "target": "work/research/difficulty-armips/tests/native_items_matrix.py",
       "source_sha256": "cd81e6bfc9856091e5eb1fe093d4953245f0ce1d4a55c0c32f2079e98923c600",
       "mode": "copy",
@@ -691,7 +691,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_oracles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_oracles.py",
       "target": "work/research/difficulty-armips/tests/native_items_oracles.py",
       "source_sha256": "e0ce38edfd1347bcc661bee1d8fe4f317cc609ea301595cd8026bbfb3620c4b9",
       "mode": "copy",
@@ -699,7 +699,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_persistence.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_persistence.py",
       "target": "work/research/difficulty-armips/tests/native_items_persistence.py",
       "source_sha256": "d9df75111f842de542e33a41bf07f7edcee633a1fbfd2461dae23d441c3cc740",
       "mode": "copy",
@@ -707,7 +707,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_remembered.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_remembered.py",
       "target": "work/research/difficulty-armips/tests/native_items_remembered.py",
       "source_sha256": "ed6bcec4d9a269e4d470aa707ca374aad515dd10007b6338ce79ef6c13feda01",
       "mode": "copy",
@@ -715,7 +715,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_items_trace.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_items_trace.py",
       "target": "work/research/difficulty-armips/tests/native_items_trace.py",
       "source_sha256": "94a27991495f1f3b1120e4ec6c5a5fd7aedd09f05a99eb4d1632a8ab4fe632b1",
       "mode": "copy",
@@ -723,7 +723,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_multiko.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_multiko.py",
       "target": "work/research/difficulty-armips/tests/native_multiko.py",
       "source_sha256": "a1ba32fb437d3fadd459e1eea9545eaff70972ccf72a8f5d22807accc39961cb",
       "mode": "copy",
@@ -731,7 +731,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_multiko_fixture.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_multiko_fixture.py",
       "target": "work/research/difficulty-armips/tests/native_multiko_fixture.py",
       "source_sha256": "7a7a1de878af1ceadd5c20a84496d39ace7b0e3122be7481610679447b6a5fa9",
       "mode": "copy",
@@ -739,7 +739,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_multiko_oracles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_multiko_oracles.py",
       "target": "work/research/difficulty-armips/tests/native_multiko_oracles.py",
       "source_sha256": "6bfddfd20c65e7cee238421759708e326796fc25bed9cfc16e47654e685eb6fc",
       "mode": "copy",
@@ -747,7 +747,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_multiko_trace.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_multiko_trace.py",
       "target": "work/research/difficulty-armips/tests/native_multiko_trace.py",
       "source_sha256": "b315c7dbee4b535f81eaa00b73f2b093f81db523d31f9ab3e915e3dfc07df2a4",
       "mode": "copy",
@@ -755,7 +755,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_persistence.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_persistence.py",
       "target": "work/research/difficulty-armips/tests/native_persistence.py",
       "source_sha256": "1edef2b26159684444c8b420c4c9df58887e7cd49c48d73200facfcd71e1b53a",
       "mode": "copy",
@@ -763,7 +763,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_plan.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_plan.py",
       "target": "work/research/difficulty-armips/tests/native_plan.py",
       "source_sha256": "8666e8e2e0fe09a02e2382f4ad120fab66525e1d7385c40e60c10449c555e03e",
       "mode": "copy",
@@ -771,7 +771,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_progression.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_progression.py",
       "target": "work/research/difficulty-armips/tests/native_progression.py",
       "source_sha256": "08e40812f986de51a16c7220b9c28613677986c7711596b33581774787acaea3",
       "mode": "copy",
@@ -779,7 +779,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_progression_cases.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_progression_cases.py",
       "target": "work/research/difficulty-armips/tests/native_progression_cases.py",
       "source_sha256": "208cba9d960eeb26b02a876e230afbf0623237ac6fa92fc4f83d8ddcb6466587",
       "mode": "copy",
@@ -787,7 +787,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_progression_fixture.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_progression_fixture.py",
       "target": "work/research/difficulty-armips/tests/native_progression_fixture.py",
       "source_sha256": "395cfc47796a379369c70b97310f5082121c014f12f405f6b260a6ee8c7e8569",
       "mode": "copy",
@@ -795,7 +795,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_progression_oracles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_progression_oracles.py",
       "target": "work/research/difficulty-armips/tests/native_progression_oracles.py",
       "source_sha256": "a834736bbe7b556e42b13d1ccd9b579612da135db0f0b1d28fccf4c77490e4be",
       "mode": "copy",
@@ -803,7 +803,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_suite.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_suite.py",
       "target": "work/research/difficulty-armips/tests/native_suite.py",
       "source_sha256": "7ff15a9fadf5e079dadf556b8892d4c184908ee4d39a9d26c23020951c577017",
       "mode": "copy",
@@ -811,7 +811,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_ui.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_ui.py",
       "target": "work/research/difficulty-armips/tests/native_ui.py",
       "source_sha256": "559c9da84005531e758fe936f7120ea8f55765eaabd26e795461673f30cf5bfe",
       "mode": "copy",
@@ -819,7 +819,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/native_ui_oracles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/native_ui_oracles.py",
       "target": "work/research/difficulty-armips/tests/native_ui_oracles.py",
       "source_sha256": "1c783ce751121a7ae12d5b2bfe0b4837da49cc08725fd3f6f0d0dface23cbd8e",
       "mode": "copy",
@@ -827,7 +827,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/required_native.json",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/required_native.json",
       "target": "work/research/difficulty-armips/tests/required_native.json",
       "source_sha256": "58606bcb3e2ac5fbaa5ff20790e069d2986d644080fc1413a2dbcc066f36bf27",
       "mode": "copy",
@@ -835,7 +835,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/run.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/run.py",
       "target": "work/research/difficulty-armips/tests/run.py",
       "source_sha256": "3a724a5b5385ec5f2b5fe8a7376c824c6bd1a5997a5917715a6db293c2fc4430",
       "mode": "copy",
@@ -843,7 +843,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/runtime_abi_model.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/runtime_abi_model.py",
       "target": "work/research/difficulty-armips/tests/runtime_abi_model.py",
       "source_sha256": "edd8bd2f9c5594982f83affd47e65627289e7156f674982c3083086fdc66cb57",
       "mode": "copy",
@@ -851,7 +851,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/support.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/support.py",
       "target": "work/research/difficulty-armips/tests/support.py",
       "source_sha256": "413f8364aaa2fefffcaabb2913f44e10c92f92e895a538fe30efdc93aee9d2fe",
       "mode": "copy",
@@ -859,7 +859,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_abi.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_abi.py",
       "target": "work/research/difficulty-armips/tests/test_abi.py",
       "source_sha256": "1206485412b4e3ab93fbb94712ba7164639d0b8b04f8ec594acf1b7a04d71b1b",
       "mode": "copy",
@@ -867,7 +867,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_assembly.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_assembly.py",
       "target": "work/research/difficulty-armips/tests/test_assembly.py",
       "source_sha256": "bd9b937ca2e235c9790846faa74795411bc386773cf2730c8a4036f526bf2450",
       "mode": "copy",
@@ -875,7 +875,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_data.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_data.py",
       "target": "work/research/difficulty-armips/tests/test_data.py",
       "source_sha256": "715ed374361c2bdf98c8db63eba2b288b8194c88c9b38ae784f706d1119b5ed8",
       "mode": "copy",
@@ -883,7 +883,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_framework.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_framework.py",
       "target": "work/research/difficulty-armips/tests/test_framework.py",
       "source_sha256": "423e8494c8241e93678eabcce5e11c49822b2ab97dbb4d46f4c6bbc5b40f52e7",
       "mode": "copy",
@@ -891,7 +891,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_host.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_host.py",
       "target": "work/research/difficulty-armips/tests/test_host.py",
       "source_sha256": "8dcdaf0ebe060722041ba74946e54d40245d3d8ae295b6f5e86ba4a4ca3154d1",
       "mode": "copy",
@@ -899,7 +899,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_installer.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_installer.py",
       "target": "work/research/difficulty-armips/tests/test_installer.py",
       "source_sha256": "b205ca391c629b73aa3fb974e83a045ccb68b15f48aafb90dfb5e735be940e50",
       "mode": "copy",
@@ -907,7 +907,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_item_revival.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_item_revival.py",
       "target": "work/research/difficulty-armips/tests/test_item_revival.py",
       "source_sha256": "8509461848eaba66b4ea8af4268043663b9f384fad1a280db7e66f4796a7ddac",
       "mode": "copy",
@@ -915,7 +915,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_mutations.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_mutations.py",
       "target": "work/research/difficulty-armips/tests/test_mutations.py",
       "source_sha256": "db82bf964406b3babad0ffbf67b8d6ff120d72ed8eea7e6f31d9e4c84c340900",
       "mode": "copy",
@@ -923,7 +923,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_battle.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_battle.py",
       "target": "work/research/difficulty-armips/tests/test_native_battle.py",
       "source_sha256": "42ff5d9d9a84e53437f832cabeddd26cd6e9a4994fd1af674a65c5de0d94ee0a",
       "mode": "copy",
@@ -931,7 +931,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_caprise.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_caprise.py",
       "target": "work/research/difficulty-armips/tests/test_native_caprise.py",
       "source_sha256": "5aa1a9412439e8c60baec92f7bad456241e3a075c2790e661ea0a21996ef91cd",
       "mode": "copy",
@@ -939,7 +939,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_composites.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_composites.py",
       "target": "work/research/difficulty-armips/tests/test_native_composites.py",
       "source_sha256": "8cdde80265ab8ee4ef425d36e42f4b02262e73a8ea9b52ff1e8c21c343ae2094",
       "mode": "copy",
@@ -947,7 +947,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_edges.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_edges.py",
       "target": "work/research/difficulty-armips/tests/test_native_edges.py",
       "source_sha256": "aac0bf82242ddefe8e9456fb2230bef06216d91b62d3e833777382c823617c66",
       "mode": "copy",
@@ -955,7 +955,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_free_trace.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_free_trace.py",
       "target": "work/research/difficulty-armips/tests/test_native_free_trace.py",
       "source_sha256": "eebaebadc0dfaf4d2e4ac855e7c1cabe4bdc89e413023ab0a42e234da8e83228",
       "mode": "copy",
@@ -963,7 +963,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_items.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_items.py",
       "target": "work/research/difficulty-armips/tests/test_native_items.py",
       "source_sha256": "926b28308d3ec909b58d4de44d546fe2c2081e65bd70d32b4fa75b3184fe4f27",
       "mode": "copy",
@@ -971,7 +971,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_items_control.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_items_control.py",
       "target": "work/research/difficulty-armips/tests/test_native_items_control.py",
       "source_sha256": "6ce3a6ffb93082b29133d630d1de77529188204db4ba59e3a2bf6be6decdc972",
       "mode": "copy",
@@ -979,7 +979,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_items_doubles.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_items_doubles.py",
       "target": "work/research/difficulty-armips/tests/test_native_items_doubles.py",
       "source_sha256": "37694e5d732c8e761226d24a7f957e64a1bcc5d9385918dc0219ddb5cb0fbd6f",
       "mode": "copy",
@@ -987,7 +987,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_items_field.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_items_field.py",
       "target": "work/research/difficulty-armips/tests/test_native_items_field.py",
       "source_sha256": "12588bbc6159048b9a14eebb33c099c0deb4526e0596b260f548641d1cb96274",
       "mode": "copy",
@@ -995,7 +995,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_items_gates.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_items_gates.py",
       "target": "work/research/difficulty-armips/tests/test_native_items_gates.py",
       "source_sha256": "47f8e273700d8588effb8a7c400b89723c80103e6827b9611dc735f3f8f5a0e1",
       "mode": "copy",
@@ -1003,7 +1003,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_items_next.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_items_next.py",
       "target": "work/research/difficulty-armips/tests/test_native_items_next.py",
       "source_sha256": "f03185b88b37c2f6a395da643d830b6428e550d1f1e512dbc62ed80a08b619ca",
       "mode": "copy",
@@ -1011,7 +1011,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_items_persistence.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_items_persistence.py",
       "target": "work/research/difficulty-armips/tests/test_native_items_persistence.py",
       "source_sha256": "e06c2c6cc8413684fcbc838658991f6ac83b3750e47bdcdb792703ec9150a68a",
       "mode": "copy",
@@ -1019,7 +1019,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_items_remembered.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_items_remembered.py",
       "target": "work/research/difficulty-armips/tests/test_native_items_remembered.py",
       "source_sha256": "fcc7d0746f1c720fe7e9c05e88434cce81d6bcf81f80336d764b6bf746ea9a1b",
       "mode": "copy",
@@ -1027,7 +1027,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_multiko.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_multiko.py",
       "target": "work/research/difficulty-armips/tests/test_native_multiko.py",
       "source_sha256": "9f2b360138ecabf737a653280ac14b26495764877a1637170d69668011fbcbda",
       "mode": "copy",
@@ -1035,7 +1035,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_progression.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_progression.py",
       "target": "work/research/difficulty-armips/tests/test_native_progression.py",
       "source_sha256": "cd9e3cedbda578d5da4de48f9199830841e8f9e72a2309480eccf975193d79f9",
       "mode": "copy",
@@ -1043,7 +1043,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_native_suite.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_native_suite.py",
       "target": "work/research/difficulty-armips/tests/test_native_suite.py",
       "source_sha256": "b56f2e5dc3d8e29fa2641b6198694b7d9f8c8de21feacf3813e7234c50afd13e",
       "mode": "copy",
@@ -1051,7 +1051,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_policy.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_policy.py",
       "target": "work/research/difficulty-armips/tests/test_policy.py",
       "source_sha256": "e47a2295abb6234820b78ebd0c94672ae398071cc99bee64e7f3569c6851a606",
       "mode": "copy",
@@ -1059,7 +1059,7 @@
       "target_before_sha256": null
     },
     {
-      "source": "/Users/contributor/Developer/poke/work/research/difficulty-armips/tests/test_source.py",
+      "source": "$HOME/Developer/poke/work/research/difficulty-armips/tests/test_source.py",
       "target": "work/research/difficulty-armips/tests/test_source.py",
       "source_sha256": "a8f24dc8064bab0361fcd3b053c501b291ba1c348815aae581fef4492872387d",
       "mode": "copy",

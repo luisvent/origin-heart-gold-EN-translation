@@ -44,7 +44,7 @@ Focused armips/emulator-inventory suite: **106 tests pass**. Changed-file ruff
 passes. Final command:
 
 ```sh
-.venv/bin/python work/tools/check.py --full --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/final-check-rerun
+.venv/bin/python work/tools/check.py --full --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/final-check-rerun
 ```
 
 Final full check: **998 tools + 46 docs + 36 site tests = 1080 tests, OK;

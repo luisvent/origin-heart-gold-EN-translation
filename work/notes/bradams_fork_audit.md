@@ -148,7 +148,7 @@ Existing normal saves are said to transfer, and several users confirm this. Some
 
 ## Supplied patch inspection
 
-Local file: `/Users/contributor/Downloads/Speedoption.xdelta`.
+Local file: `$HOME/Downloads/Speedoption.xdelta`.
 
 - Size: **52,584,393 bytes**.
 - SHA-256: `dea9758315c1345e13c1199268cda33517148ab98d3d27526c570b41bf3e8c4e`.

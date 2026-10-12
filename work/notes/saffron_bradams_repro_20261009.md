@@ -23,7 +23,7 @@ Which earlier release introduced or inherited the omission is not established.
 
 ## Local artifacts
 
-No download was performed. Both supplied patches remain in `/Users/contributor/Downloads/`.
+No download was performed. Both supplied patches remain in `$HOME/Downloads/`.
 
 | Artifact | SHA-256 |
 |---|---|

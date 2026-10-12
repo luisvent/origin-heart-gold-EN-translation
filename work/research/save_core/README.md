@@ -318,12 +318,12 @@ All commands run from this worktree's root. Use already-installed dependencies;
 these examples use the primary checkout's compiler and virtualenv.
 
 ```sh
-node /Users/contributor/Developer/poke/work/save-editor/node_modules/typescript/bin/tsc -p work/save-editor/tsconfig.json
+node $HOME/Developer/poke/work/save-editor/node_modules/typescript/bin/tsc -p work/save-editor/tsconfig.json
 node --test work/save-editor/tests/*.test.mjs
-PYTHONPATH=work/tools EMU_HARNESS_DATA=/Users/contributor/Developer/poke/work /Users/contributor/Developer/poke/.venv/bin/python -m unittest work/tools/test_emu_harness.py
+PYTHONPATH=work/tools EMU_HARNESS_DATA=$HOME/Developer/poke/work $HOME/Developer/poke/.venv/bin/python -m unittest work/tools/test_emu_harness.py
 python3 work/research/save_core/probe.py
-python3 work/research/save_core/probe.py --saves /Users/contributor/Developer/poke/work/build/memcheck
-node work/research/save_core/reference_probe.mjs /Users/contributor/Developer/poke/work/build/origin_hg_v4.0.3_en_wip.nds
+python3 work/research/save_core/probe.py --saves $HOME/Developer/poke/work/build/memcheck
+node work/research/save_core/reference_probe.mjs $HOME/Developer/poke/work/build/origin_hg_v4.0.3_en_wip.nds
 ```
 
 The optional probe reads only immediate `*.sav` files in the supplied directory.

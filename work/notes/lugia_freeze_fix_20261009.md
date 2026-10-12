@@ -115,7 +115,7 @@ Example diagnostic (from the repository root, with the supplied save available):
 ```sh
 .venv/bin/python work/tools/emu_lugia.py \
   --rom work/build/lugia-fix-20261009/full-fixed.nds \
-  --sav '/Users/contributor/Downloads/Pokemon - HeartGold Version (USA)-patched.sav' \
+  --sav '$HOME/Downloads/Pokemon - HeartGold Version (USA)-patched.sav' \
   --out work/build/lugia-fix-20261009/recheck --expect fixed
 ```
 

@@ -12,7 +12,7 @@ a command that writes a report under ignored `work/build/`; you read the compact
 
 ## Setup (once per worktree)
 
-Run from the worktree root with the repo venv (`/Users/contributor/Developer/poke/.venv/bin/python`, below `PY`).
+Run from the worktree root with the repo venv (`$HOME/Developer/poke/.venv/bin/python`, below `PY`).
 
 - ROMs: real directory `work/rom/` holding symlinks to the user's
   `origin_v4.0.3_cn.nds` and `Pokemon - HeartGold Version (USA).nds` (`*.nds` is ignored).

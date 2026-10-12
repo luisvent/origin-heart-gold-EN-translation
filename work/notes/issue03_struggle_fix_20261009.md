@@ -135,13 +135,13 @@ Registry check, final disassembly snapshot check and ruff checks also pass.
 Representative exact commands (all from repository root):
 
 ```sh
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue03/fix/without --without zero-pp-struggle --no-regen-graphics --no-patch
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue03/fix/fixed --no-regen-graphics --no-patch
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue03/fix/without --without zero-pp-struggle --no-regen-graphics --no-patch
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue03/fix/fixed --no-regen-graphics --no-patch
 .venv/bin/python work/tools/emu_struggle.py --rom work/build/bugfix-sequential-20261009/issue03/fix/fixed/origin_hg_v4.0.3_en_wip.nds --out work/build/bugfix-sequential-20261009/issue03/fix/runtime-fixed
 .venv/bin/python work/tools/emu_struggle.py --rom work/build/bugfix-sequential-20261009/issue03/fix/without/origin_hg_v4.0.3_en_wip.nds --out work/build/bugfix-sequential-20261009/issue03/fix/runtime-without --without --cases four-zero,one-zero,positive,enemy
 .venv/bin/python work/tools/emu_struggle.py --rom work/build/bugfix-sequential-20261009/issue03/fix/fixed/origin_hg_v4.0.3_en_wip.nds --out work/build/bugfix-sequential-20261009/issue03/fix/runtime-positive-fixed --cases positive
-ARMIPS=/Users/contributor/Developer/armips/build/armips .venv/bin/python work/tools/test_zero_pp_struggle.py
-.venv/bin/python work/tools/asmpatch.py --armips /Users/contributor/Developer/armips/build/armips listing --check zero-pp-struggle
+ARMIPS=$HOME/Developer/armips/build/armips .venv/bin/python work/tools/test_zero_pp_struggle.py
+.venv/bin/python work/tools/asmpatch.py --armips $HOME/Developer/armips/build/armips listing --check zero-pp-struggle
 ```
 
 A preliminary emulator command aborted at native startup with exit 134 inside

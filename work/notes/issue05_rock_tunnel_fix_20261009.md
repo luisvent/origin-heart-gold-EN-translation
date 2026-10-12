@@ -151,8 +151,8 @@ reports and strict closed healed/defeated snapshots, and explicitly records
 victory limits. Exact commands run from repo root (native emulator escalated):
 
 ```sh
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue05/fix/without --without rock-tunnel-corner-loss --no-regen-graphics --no-patch
-.venv/bin/python work/tools/build.py --armips /Users/contributor/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue05/fix/fixed --no-regen-graphics --no-patch
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue05/fix/without --without rock-tunnel-corner-loss --no-regen-graphics --no-patch
+.venv/bin/python work/tools/build.py --armips $HOME/Developer/armips/build/armips --work-dir work/build/bugfix-sequential-20261009/issue05/fix/fixed --no-regen-graphics --no-patch
 .venv/bin/python -m unittest work/tools/test_narcpatch.py work/tools/test_rock_tunnel_corner_loss.py
 .venv/bin/python -u work/tools/emu_rock_tunnel.py --rom work/build/bugfix-sequential-20261009/issue05/fix/fixed/origin_hg_v4.0.3_en_wip.nds --out work/build/bugfix-sequential-20261009/issue05/fix/runtime-loss2
 .venv/bin/python -u work/tools/emu_rock_tunnel.py --rom work/build/bugfix-sequential-20261009/issue05/fix/without/origin_hg_v4.0.3_en_wip.nds --out work/build/bugfix-sequential-20261009/issue05/fix/runtime-without --without

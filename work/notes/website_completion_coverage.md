@@ -402,12 +402,12 @@ bundled openpyxl runtime; all workbook reads remain bounded and read-only.
 
 ```sh
 python3 -m unittest work/tools/docs/test_gen_docs.py work/tools/docs/test_trainer_guide.py work/tools/docs/test_trainer_runtime.py work/tools/site/test_wild_held.py work/tools/site/test_safari_held.py work/tools/site/test_reference_compare.py work/tools/site/test_battle_reference.py
-/Users/contributor/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 work/tools/site/reconcile_references.py --source-dir /Users/contributor/Downloads --check
+$HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 work/tools/site/reconcile_references.py --source-dir $HOME/Downloads --check
 python3 work/tools/site/build.py --check
 GUIDE_BASE=/poke/ npm --prefix site run build
 GUIDE_TEST_DIST=1 npm --prefix site test
 python3 work/tools/site/check_site.py --base /poke/
-PLAYWRIGHT_MODULE=/Users/contributor/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs node site/tests/review-fixes-browser.mjs
+PLAYWRIGHT_MODULE=$HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs node site/tests/review-fixes-browser.mjs
 git diff --check
 ```
 
@@ -490,7 +490,7 @@ local fallback layout rather than testing remote availability. Final screenshots
 of Blast Burn, Sharpness, Salac Berry and Ursaring at desktop/mobile sizes and
 light/dark themes are in ignored `work/build/website-qa/player-reference/`. Agent
 and coordinator inspected meaningful viewports. Playwright used the pre-existing
-module at `/Users/contributor/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs`.
+module at `$HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs`.
 
 Reproducible presentation checks (run from the isolated worktree root):
 
@@ -499,8 +499,8 @@ GUIDE_BASE=/poke/ npm --prefix site run build
 GUIDE_TEST_DIST=1 npm --prefix site test
 python3 work/tools/site/check_site.py --base /poke/
 python3 work/tools/site/build.py --check
-PLAYWRIGHT_MODULE=/Users/contributor/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs node site/tests/review-fixes-browser.mjs
-PLAYWRIGHT_MODULE=/Users/contributor/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs node site/tests/player-reference-browser.mjs
+PLAYWRIGHT_MODULE=$HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs node site/tests/review-fixes-browser.mjs
+PLAYWRIGHT_MODULE=$HOME/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs node site/tests/player-reference-browser.mjs
 ```
 
 The new test fixtures initially used an overly broad zero-chance regex and an

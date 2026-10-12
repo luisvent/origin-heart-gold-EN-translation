@@ -18,22 +18,22 @@ independent verification readers. Example for the locally audited inputs:
 
 ```json
 {
-  "repo": "/Users/contributor/Developer/poke",
+  "repo": "$HOME/Developer/poke",
   "inputs": {
     "cn": {
-      "path": "/Users/contributor/Developer/poke/work/rom/origin_v4.0.3_cn.nds",
+      "path": "$HOME/Developer/poke/work/rom/origin_v4.0.3_cn.nds",
       "sha256": "4807ab2c130581cb9d4f6110fc64b41ca4807b8d28e7622ebd3c9740baed95c8"
     },
     "en": {
-      "path": "/Users/contributor/Developer/poke/work/build/origin_hg_v4.0.3_en_wip.nds",
+      "path": "$HOME/Developer/poke/work/build/origin_hg_v4.0.3_en_wip.nds",
       "sha256": "6fa7b4e739391ca9ea9bfcf90d83eec6407c3c04102e52432bb41bc8ae44a7d3"
     },
     "seed": {
-      "path": "/Users/contributor/Developer/poke/work/build/memcheck/full_bag_6mons.sav",
+      "path": "$HOME/Developer/poke/work/build/memcheck/full_bag_6mons.sav",
       "sha256": "b3aca10747cd0f1adc3d5852a50dddaaa36ed8680f5ba04012cfe3110faad90f"
     },
     "shim": {
-      "path": "/Users/contributor/Developer/poke/work/build/melonds/libmelonds_shim.dylib",
+      "path": "$HOME/Developer/poke/work/build/melonds/libmelonds_shim.dylib",
       "sha256": "866802df3e266a5ecb28c6fa0667176aaee0837ae36cdda2b737aa25dfe147db"
     }
   }
