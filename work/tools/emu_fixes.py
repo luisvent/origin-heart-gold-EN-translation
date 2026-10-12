@@ -2237,15 +2237,22 @@ def judge_pryce(scenario, obs, ref=None):
 
 
 def judge_faintcry(scenario, obs, ref=None):
-    """fixed: every case shows its expected faints, and each faint (a Faint_Run window) plays one faint-mode cry
-    (mode 5, volume 127, heap 5, no delay; species as expected) in the frame state 0 ends, whose start is seen
-    (SEQ_PV), then once the cry has ended one SEQ_SE_DP_POKE_DEAD3 (1795) with the same pan, +117 for a foe and
-    -117 for the player's side. original: the same faints, no faint-mode cry and no 1795 at all."""
+    """Both verdicts require complete faint-state paths and successful return to the field. fixed: each faint
+    plays one faint-mode cry (mode 5, volume 127, heap 5, no delay; species as expected), with a SEQ_PV start,
+    followed by one SEQ_SE_DP_POKE_DEAD3 (1795) start with the same pan, +117 for a foe and -117 for the player.
+    This observes sequence-start ordering, not actual cry-end timing or audible output.
+    original: the same completed faints, no faint-mode cry and no 1795 at all."""
     if obs.get("error"):
         return "unclear", {"error": obs["error"]}
     why, fixed_ok, original_ok = {}, True, True
     for case, (_, _, want) in FAINT_CASES.items():
         c = obs.get(case) or {}
+        turns = c.get("turns") or []
+        terminal = ("field", "fled") if case == "player" else ("field",)
+        if c.get("in_field") is not True or not turns or turns[-1] not in terminal \
+                or any(t != "menu" for t in turns[:-1]):
+            return "unclear", dict(why, error=f"{case}: battle did not finish successfully",
+                                   turns=turns, in_field=c.get("in_field"))
         wins = c.get("faints") or []
         cries = [x for x in c.get("cries", []) if x["mode"] == FAINT_CRY_MODE]
         dead = [x for x in c.get("sounds", []) if x["seq"] == SEQ_POKE_DEAD3]
@@ -2254,6 +2261,13 @@ def judge_faintcry(scenario, obs, ref=None):
                                    f"{' or more' if want[0][1] is None else ''}")
         seen = []
         for w in wins:
+            states = [s[0] for s in w.get("states", [])]
+            # Entry hooks see state 3 only on the unraised path: state 2 falls through
+            # to state 3 and advances to 4 in the same call. State 5 waits for the
+            # health box; reaching it alone is insufficient without field return above.
+            if states not in ([0, 1, 3, 4, 5], [0, 1, 2, 4, 5]):
+                return "unclear", dict(why, error=f"{case}: incomplete or invalid faint-state path",
+                                       battler=w.get("battler"), states=states)
             cw = [x for x in cries if w["start"] <= x["frame"] <= w["end"]]
             dw = [x for x in dead if w["start"] <= x["frame"] <= w["end"]]
             one = len(cw) == 1 and len(dw) == 1

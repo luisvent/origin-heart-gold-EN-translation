@@ -702,11 +702,14 @@ class Judges(unittest.TestCase):
         def obs(sound=True, pan_sign=1, dead=True):
             out, frame = {}, 1000
             for case, (_, _, want) in F.FAINT_CASES.items():
-                c = {"faints": [], "cries": [], "sounds": [], "starts": []}
+                c = {"faints": [], "cries": [], "sounds": [], "starts": [],
+                     "turns": ["menu", "fled"] if case == "player" else ["field"], "in_field": True}
                 for side, species in want:
                     sp = species or 81
                     pan = (F.FAINT_PAN if side == "foe" else -F.FAINT_PAN) * pan_sign
-                    c["faints"].append({"battler": 13, "start": frame, "end": frame + 80, "states": []})
+                    c["faints"].append({"battler": 13, "start": frame, "end": frame + 80,
+                                         "states": [[0, frame], [1, frame + 1], [3, frame + 61],
+                                                    [4, frame + 62], [5, frame + 79]]})
                     if sound:
                         c["cries"].append({"frame": frame, "mode": 5, "species": sp, "pan": pan, "volume": 127,
                                            "heap": 5, "delay": 0, "form": 0})
@@ -723,6 +726,37 @@ class Judges(unittest.TestCase):
         self.assertEqual(F.judge_faintcry("faintcry", obs(sound=False))[0], "original")
         self.assertEqual(F.judge_faintcry("faintcry", obs(pan_sign=-1))[0], "unclear")      # the wrong side
         self.assertEqual(F.judge_faintcry("faintcry", obs(dead=False))[0], "unclear")       # cry without 1795
+        # A sound-only success must not hide a stalled battle or an incomplete faint.
+        # Apply each fault independently to every scenario, including silent controls.
+        for sound in (True, False):
+            for case in F.FAINT_CASES:
+                for turns in ([], ["stuck"], ["no_menu"], ["menu", "flee failed"],
+                              ["stuck", "field"], ["menu"]):
+                    with self.subTest(sound=sound, case=case, turns=turns):
+                        broken = obs(sound=sound)
+                        broken[case]["turns"] = turns
+                        self.assertEqual(F.judge_faintcry("faintcry", broken)[0], "unclear")
+                for field in (False, None):
+                    with self.subTest(sound=sound, case=case, in_field=field):
+                        broken = obs(sound=sound)
+                        broken[case]["in_field"] = field
+                        self.assertEqual(F.judge_faintcry("faintcry", broken)[0], "unclear")
+                for count in range(5):
+                    with self.subTest(sound=sound, case=case, state_count=count):
+                        broken = obs(sound=sound)
+                        broken[case]["faints"][-1]["states"] = broken[case]["faints"][-1]["states"][:count]
+                        self.assertEqual(F.judge_faintcry("faintcry", broken)[0], "unclear")
+                with self.subTest(sound=sound, case=case, states="out of order"):
+                    broken = obs(sound=sound)
+                    states = broken[case]["faints"][-1]["states"]
+                    states[2][0], states[3][0] = states[3][0], states[2][0]
+                    self.assertEqual(F.judge_faintcry("faintcry", broken)[0], "unclear")
+            # State 2 falls through to state 3 in one call when lowering a raised sprite.
+            raised = obs(sound=sound)
+            for c in raised.values():
+                for w in c["faints"]:
+                    w["states"][2][0] = 2
+            self.assertEqual(F.judge_faintcry("faintcry", raised)[0], "fixed" if sound else "original")
         missing = obs()
         missing["wild"]["faints"] = []
         self.assertEqual(F.judge_faintcry("faintcry", missing)[0], "unclear")

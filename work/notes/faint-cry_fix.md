@@ -81,3 +81,23 @@ byte:
 No ARM9 abort on any run. Not tested on hardware.
 
 `check.py` and `check.py --full` pass (see the commit).
+
+## Verifier hardening (2026-10-12)
+
+The review found that `judge_faintcry` could report `fixed` after both sounds played even when the faint
+stalled. It ignored the recorded turn results, field return and state history; incomplete silent controls
+could likewise be labelled `original`.
+
+Both verdicts now require a successful terminal turn (`field`, or `fled` in the player-faint case), only
+`menu` results before it, and `in_field = true`. Every faint window must record the complete entry-state
+path `0,1,3,4,5` or `0,1,2,4,5`. The latter is the raised-sprite path: state 2 executes state 3 in the same
+call, so the entry hook does not see a separate state-3 call. State 5 alone cannot prove completion because
+it waits for the health box; the successful field return is required too. Missing evidence fails closed
+as `unclear`. Older observations without this evidence need a new run.
+
+Verification: 140 fault cases (failed/missing turns, failed/missing field return, truncated or reordered
+states, across all five scenarios with and without sounds) failed against the previous judge and pass
+after this change. Complete observations, successful player escape and both sprite paths retain their
+expected verdicts. All 74 tests in `test_emu_fixes` pass. This is verifier-only validation; no new emulator
+run or ROM build was performed. The judge checks sequence-start ordering, not actual cry-end timing or
+audible output; its docstring now states that limit.
