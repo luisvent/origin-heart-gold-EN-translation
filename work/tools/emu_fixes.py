@@ -114,6 +114,11 @@ UNCOVERED = {
                                 "per build), verifying ClearFlag0 preserves Silver's marker. Complete scenes, "
                                 "map reload and native save/reload remain untested; see "
                                 "work/notes/issue10_shared_progress_fix_20261009.md.",
+    "sibling-ribbon-freeze": "No scenario in this unified runner; the one-off guide0813 'ribbon' recipe (removed from "
+                             "develop, 2e6fe55^) was rerun on 2026-10-12 against the Chinese ROM and the same ROM "
+                             "with this fix: all seven siblings end at End with no invalid opcode. test_sibling_"
+                             "ribbon_freeze.py pins the bytes and decodes the scripts; see "
+                             "work/notes/sibling_ribbon_freeze_fix.md.",
     "mortar-invalid-flag-noop": "No scenario in this unified runner; native_script_state.py executes actual "
                                 "native flag handlers in 20 bounded cases per paired build, checking SetFlag0 "
                                 "and preserved progress/Pokedex bytes. Complete scenes, map reload and native "

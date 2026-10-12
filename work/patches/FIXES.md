@@ -31,6 +31,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
+| [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | yes | – | Let the seven weekday siblings finish their ribbon scene |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
@@ -912,6 +913,53 @@ The original entire member SHA-1 and the four expected bytes guard the edit.
 **Touches:**
 
 - `a/0/1/2` #129 +0xB54 `corner-child-loss-target`: `036E 0000` → `FF56 FFFF` (member SHA-1 `c73334fd0e00`): GoToIf equality at 2897: displacement +878 -> -170, relative to 2904. Native whiteout at 2734.
+
+## sibling-ribbon-freeze
+
+**Let the seven weekday siblings finish their ribbon scene**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-1331, D-1558, D-2331
+- Source: `work/patches/sibling-ribbon-freeze/fix.toml`
+
+**Why (the Chinese hack):**
+
+D-1331/D-1558: after GiveRibbon and PlayFanfare 20, each of the seven weekday
+siblings' ribbon scripts (a/0/1/2 members 225, 232, 243, 246, 934, 937, 958)
+holds the two bytes D9 07 = command 2009. The hack's command table has 843
+entries (0-842), so RunScriptContext hits its out-of-range branch at 0x0203F4C4,
+asserts and sets the context mode to 0: the script dies before CloseMsg,
+ReleaseAll and End. The ribbon is given, but the message stays on screen and the
+player stays locked in the script context until X opens the menu. These are the
+only out-of-range command ids in the whole archive. User statement 2026-10-12
+lifted D-1337 for provable hack bugs.
+
+**What (old → new):**
+
+Overwrite each stray D9 07 with 00 00, command 0 = Noop (no arguments, two bytes).
+Nothing shifts: every offset, jump target and length is unchanged, and the
+instructions that were already there (GiveRibbon, PlayFanfare, then CloseMsg,
+ReleaseAll, End) now simply all run. Nothing is removed or invented: the ribbon,
+its flags, the variable checks and every message stay as in the Chinese ROM. The
+whole-member SHA-1 and the expected bytes guard each edit.
+
+**Evidence:**
+
+- work/notes/sibling_ribbon_freeze_fix.md
+- work/notes/softlock_audit.md (finding 1)
+- work/tools/test_sibling_ribbon_freeze.py
+
+**Touches:**
+
+- `a/0/1/2` #225 +0xf91 `ribbon-invalid-opcode-225`: `0x07D9` → `0x0000` (member SHA-1 `b52e7570aa0b`): Route 29 sibling: command 2009 after PlayFanfare 20 at 3981 -> Noop; CloseMsg/ReleaseAll/End follow at 3987.
+- `a/0/1/2` #232 +0x2f59 `ribbon-invalid-opcode-232`: `0x07D9` → `0x0000` (member SHA-1 `cbfa146b2875`): Route 32 sibling: command 2009 after PlayFanfare 20 at 12117 -> Noop; CloseMsg/ReleaseAll/End follow at 12123.
+- `a/0/1/2` #243 +0x91e `ribbon-invalid-opcode-243`: `0x07D9` → `0x0000` (member SHA-1 `2ea3db49ee90`): Route 36 sibling: command 2009 after PlayFanfare 20 at 2330 -> Noop; CloseMsg/ReleaseAll/End follow at 2336.
+- `a/0/1/2` #246 +0x2fc `ribbon-invalid-opcode-246`: `0x07D9` → `0x0000` (member SHA-1 `a610894cf8ec`): Route 37 sibling: command 2009 after PlayFanfare 20 at 760 -> Noop; CloseMsg/ReleaseAll/End follow at 766.
+- `a/0/1/2` #934 +0x1615 `ribbon-invalid-opcode-934`: `0x07D9` → `0x0000` (member SHA-1 `666ac8c4b686`): Lake of Rage sibling: command 2009 after PlayFanfare 20 at 5649 -> Noop; CloseMsg/ReleaseAll/End follow at 5655.
+- `a/0/1/2` #937 +0xae0 `ribbon-invalid-opcode-937`: `0x07D9` → `0x0000` (member SHA-1 `684407c8bb29`): Blackthorn sibling: command 2009 after PlayFanfare 20 at 2780 -> Noop; CloseMsg/ReleaseAll/End follow at 2786.
+- `a/0/1/2` #958 +0x436 `ribbon-invalid-opcode-958`: `0x07D9` → `0x0000` (member SHA-1 `921decbbe676`): Route 40 sibling: command 2009 after PlayFanfare 20 at 1074 -> Noop; CloseMsg/ReleaseAll/End follow at 1080.
 
 ## trade-evolutions-levelup
 
