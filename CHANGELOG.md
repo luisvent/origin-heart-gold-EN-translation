@@ -15,7 +15,7 @@ Merged into develop on 2026-10-12 at the user's request as separate patches with
 - **battle-hit-sound (D-2342):** a move that deals damage plays the hit sound again, louder when super effective and softer when not very effective (as in HeartGold). One-hit KO moves and hits on a substitute are still silent.
 
 ### Fixed
-- **Difficulty settings in story battles you're allowed to lose:** CAP and SHARE now also apply in battles where the story continues even if you lose, such as Blue in Pewter City before Brock's Gym. Before, these battles ignored both settings: Pokémon could gain EXP above the level cap, and benched Pokémon still got EXP with SHARE OFF. ITEMS LIMITED now also applies in these battles, as in every other trainer battle. Losing them still continues the story as before.
+- **Difficulty settings in story battles you're allowed to lose:** CAP and SHARE now also apply in battles where the story continues even if you lose, such as Blue in Pewter City before Brock's Gym. Before, these battles ignored both settings: Pokémon could gain EXP above the level cap, and benched Pokémon still got EXP with SHARE OFF. The ITEMS setting now also applies in these battles, as in every other trainer battle: with LIMITED (the default), you can only use berries and flutes from the Bag there. Losing them still continues the story as before.
 
 ## [1.0.0-rc7] - 2026-10-11
 
