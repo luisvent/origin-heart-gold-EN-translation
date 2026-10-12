@@ -32,3 +32,20 @@ Tests: `python3 work/tools/test_ss_anne_softlock.py` (6 tests: only writers/read
 instruction is dead, only 4 bytes differ, decode otherwise identical, guards).
 Not verified: the party and hijack beyond Archie's speech; stuck saves; hardware; expected.toml not updated (merge step).
 Reviewer: check the dead-code argument at offsets 117-156 of member 155 and that no other voyage reaches 152 with the party running.
+
+## Review (2026-10-12): APPROVED WITH NOTES
+
+A separate reviewer re-derived the analysis with its own decoder over every a/0/1/2 member and patched its own copy of the Chinese ROM.
+- Confirmed: the only `SetFlag 1440` is 156 @6350; clears at 157 @550 and 161 @1901; checks at 157 @124 and 156 @714, 1023, 1068, 1098, 1159, all
+  jumping away when the flag is clear. HM01 is given only in member 157 (81 and 191 only check for it). Boarding writes 1440 once (pc 0x204f8b6).
+- The edit (member 155 offset 152: `20 00 EB 00` -> `1E 00 A0 05`) is the end of a linear run 117-156 that nothing jumps into; the compare
+  register still holds the offset-139 result; the badge branch at 145 jumps away first.
+- Emulator, own runs: Chinese ROM Honey-first ends stuck (0x40A4 = 0); with the fix honey_then_captain, blue_first, oldboy_first and
+  captain_reboard all end with 0x40A4 = 3 and the hall trigger running; leaving and re-boarding before the party keeps flags 1423/1424/1440.
+- Edge case (low): re-boarding AFTER the party has started re-sets 1440; guests and shop vanish again and the Captain offers HM01 again; the party
+  still proceeds. Not compared on the Chinese ROM (harness hit 'pocket full').
+- Behaviour changes for the user's decision (D-1002): see the list in `work/patches/ss-anne-softlock/fix.toml` (`what`). The user chose on 2026-10-12
+  to merge this fix DISABLED so testers can judge.
+- Not verified: 'Soul Badge' label for CheckBadge 4; saves already stuck; the hijack beyond Archie's speech; hardware. The harness 'honey_first'
+  variant crashes on the fixed ROM (it expects an old-boy battle that no longer happens): harness limit.
+- Reviewer slip: it deleted its own scratch output directory once; nothing in the repo or work/rom was affected.
