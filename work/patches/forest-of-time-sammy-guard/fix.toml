@@ -1,0 +1,55 @@
+id = "forest-of-time-sammy-guard"
+title = "Forest of Time: the Sammy arrival and Marauder scenes only run while the Sammy chapter is active (the Ilex bug hunt no longer triggers or overwrites them)"
+kind = "narc"
+enabled = false
+decisions = ["D-2370", "D-2371", "D-2300"]
+requires = []
+why = """
+D-1581 / D-1429. Var 0x4099 is the Ilex Forest bug hunt's progress marker (file 92: 2 from Bugsy's Honey, 3/4/5 during
+the hunt, 5 = every rock done, reset to 2 at the reward, which needs 5) and also the Sammy chapter's progress (file 52:
+3 arrival, 4, 5 upper forest, 6 finished). The Forest of Time (zone 327, a door in Ilex Forest with no condition) has
+two coordinate triggers on that var with no check that the Sammy chapter is running: 0x4099 = 3 at the entrance
+clearing runs script 1 (the arrival scene, with Sammy, Celebi and the ranger absent because their hide flag 1120 is
+still set, then 0x4099 = 4), and 0x4099 = 5 at the top of the maze runs script 3 (the Marauder scene and battle, ending
+with 0x4099 = 6 and flag 2110 set). In the middle of the hunt both fire for the wrong chapter. The first moves the hunt's
+marker from 3 to 4, which swaps which rock the hunt treats as the last one. The second, at 5 (every rock done, before the
+player goes back to Bugsy), plays the whole Marauder scene and leaves 0x4099 = 6: Bugsy's closing talk, the reward
+and the reset to 2 need 5, so the hunt can never be finished (Bugsy keeps saying 'leave the Pokemon near this rock to
+me'), and the Sammy chapter is marked finished (flag 2110) before it began.
+
+Status: disabled, awaiting review (fix/shared-progress-losses). Notes: work/notes/forest-of-time-sammy-guard_fix.md.
+"""
+what = """
+Two [[script_insert]]s, one in front of each of the two scenes' first command: CheckFlag 2105 / GoToIf set over an
+End. Flag 2105 is the Sammy chapter's own 'active' flag: the ranger's Sammy scene sets it (file 92 @5364) immediately
+before it writes 0x4099 = 3 (@5372) and only the finale (file 52 @2401) clears it; its only other uses are the ranger's
+hide flag in Ilex Forest. So in the real Sammy chapter 2105 is set at both scenes and they play exactly as before. In
+the bug hunt it is clear and the two scenes end at once: nothing is shown, nothing is written, the hunt's marker is
+untouched. Nothing is removed and no content is invented. The maze copy of Ilex Forest (file 106, bounces at 0x4099 =
+2 and 4) is left alone.
+"""
+evidence = [
+  "work/notes/forest-of-time-sammy-guard_fix.md",
+  "work/notes/shared-progress-losses_investigation.md",
+  "work/tools/test_forest_of_time_sammy_guard.py",
+]
+
+[[script_insert]]
+id = "arrival-scene-guard"
+narc = "a/0/1/2"
+member = 52
+offset = "0x22"
+expect = "61 02 60 00"
+insert = "20 00 39 08 1C 00 01 02 00 00 00 02 00"
+member_sha1 = ["d8049a084f624d5dcc4672e5b65dd8782282dd39"]
+notes = "Script 1 entry (ScrCmd_609 at 34, then LockAll). Inserted: CheckFlag 2105; GoToIf set -> over the End; End. Flag 2105 clear (the bug hunt) ends the script before anything is locked or written."
+
+[[script_insert]]
+id = "marauder-scene-guard"
+narc = "a/0/1/2"
+member = 52
+offset = "0x1b5"
+expect = "61 02 60 00"
+insert = "20 00 39 08 1C 00 01 02 00 00 00 02 00"
+member_sha1 = ["d8049a084f624d5dcc4672e5b65dd8782282dd39"]
+notes = "Script 3 entry (ScrCmd_609 at 437, then LockAll). Same guard in front of the Marauder scene."
