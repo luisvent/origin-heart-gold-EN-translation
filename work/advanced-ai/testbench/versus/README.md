@@ -14,6 +14,7 @@ and the tools around those games. Ported from the Spanish workspace (commit `dc8
 | `score_round.py` | The held-out scorer: rounds of seeds nobody sees, old build against new | `qa/aivsai/score_round.py` |
 | `mirror_check.py` | Side-asymmetry check on self-play logs | `qa/aivsai/mirror_check.py` |
 | `fix_outcomes.py` | Correct report winners from the logs' end messages | `qa/aivsai/fix_outcomes.py` |
+| `test_aiteams.py` | Unit tests of the trainer names (the static tier runs them) | new |
 
 ## Run
 
@@ -41,6 +42,10 @@ the clock pinned, so the same build gives byte-identical logs. `run.py deep` com
 - The AI setting is written into the save in RAM after every state load, besides the battery save (`--control`
   clears it).
 - The teams are drawn from `--rom` (the Spanish tool drew them from its own build).
+- Trainer names: our build keeps five long names (ids 17, 59, 632, 666, 745; `work/tools/trainer_display.py`, D-2487)
+  in bank 719 as keys like `T00017` and draws the full name from ITCM. `aiteams.full_names` puts back the full name
+  the game shows, from the translation workspace the build takes it from (`work/translate/banks/a027/0719.json`);
+  none of the five has six Pokémon, so no AI-vs-AI team carries one today.
 - The battle's verdict (`OUTCOMES`), a failure's move message and `fix_outcomes.py` read English and Spanish.
 - Names come from `lib/names.json` and the failure classification from `lib/failures.py` (both from the Spanish
   `aifuzz.py` and text banks), the seed bookkeeping from `lib/seeds.py` (from `aitune.py`).

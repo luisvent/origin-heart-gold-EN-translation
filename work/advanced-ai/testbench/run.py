@@ -90,6 +90,7 @@ STEPS = [
     Step('selftest-report', ('static',), 'testbench-a', 'versus/aivsai_report.py', lambda c: ['--selftest']),
     Step('selftest-live', ('static',), 'testbench-a', 'versus/aivsai_live.py', lambda c: ['--selftest']),
     Step('selftest-score', ('static',), 'testbench-a', 'versus/score_round.py', lambda c: ['--selftest']),
+    Step('versus-tests', ('static',), 'testbench-a', 'versus', kind='unittest'),    # versus/test_*.py
     Step('hostai-replay', ('static',), 'testbench-b', 'hostai/replay.py', lambda c: ['--rom', c.rom, '--layout', c.layout],
          skip_codes=(2,)),          # 2: no bench record on this ROM yet (the quick tier makes one)
     Step('sim-bench-check', ('static',), 'testbench-b', 'sim/bench_check.py', lambda c: ['--rom', c.rom, '--layout', c.layout],

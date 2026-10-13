@@ -39,6 +39,9 @@ spec builds the Pokémon that trainer has in the game:
   battle; the specs keep 324).
 - Trainer names: the ROM's (bank 719 of the message NARC, decoded), after the class (lib/names.json trainer_class, the
   Spanish English bank 720), as docs/trainers.md's headings print them; --check compares the two with that file.
+  Our build stores five long names (D-2487, work/tools/trainer_display.py: ids 17, 59, 632, 666, 745) in bank 719 as
+  keys 'T000xx' and draws the full name from ITCM; full_names() puts the full names back, from the translation
+  workspace the build takes them from (work/translate/banks/a027/0719.json, trainer_display.plan).
 Skipped: teams with an alternate form (build_mon writes no form), records with no ability (the game picks
 one at random), names aidata does not have.
 """
@@ -60,6 +63,8 @@ from text import decode_bank  # noqa: E402
 
 DOCS = os.environ.get('ADVAI_TRAINERS_DOC') or ''      # only check() reads it, and runs without it
 EXCLUDED_TRAINERS = set()        # trainer ids never turned into bench teams (the Spanish rc32 list: empty)
+WORKSPACE = os.path.join(tbpaths.WORK, 'translate', 'banks')    # where the build takes the full trainer names from
+TOOLS = os.path.join(tbpaths.WORK, 'tools')                      # work/tools/trainer_display.py
 TRAINER_NAMES = 719             # the message bank of trainer names (packed; the same in every build)
 CLASS_GENDER = 0x020FF77C        # arm9: u8 per trainer class, 1 = female (the PID bias 0x78 instead of 0x88)
 ITEM_HANDLERS = (14, 0x0224BA30, 211)   # overlay 14: (u32 item, u32 handler) per item the battle engine handles
@@ -86,8 +91,26 @@ def rom_tables(rom):
     code = bytes(r.files[o.fileID])
     handled = {struct.unpack_from('<I', code, addr - o.ramAddress + 8 * k)[0] for k in range(n)}
     return {'headers': narc('a/0/5/5'), 'parties': narc('a/0/5/6'), 'learnsets': narc('a/0/3/3'),
-            'names': [text for text, _ in decode_bank(narc('a/0/2/7')[TRAINER_NAMES])[1]],
+            'names': full_names([text for text, _ in decode_bank(narc('a/0/2/7')[TRAINER_NAMES])[1]]),
             'class_gender': arm9[CLASS_GENDER - 0x02000000:CLASS_GENDER - 0x02000000 + 256], 'handled_items': handled}
+
+
+def full_names(names, workspace=WORKSPACE):
+    """Bank 719's names with the build's full-name keys ('T00017' at id 17: trainer_display.key) replaced by the full
+    names the build draws (trainer_display.plan of the translation workspace). Other names, the Spanish build's among
+    them, stay as they are; a key without its full name in the workspace is an error, never a label."""
+    if TOOLS not in sys.path:
+        sys.path.append(TOOLS)              # after the test bench's own modules
+    import trainer_display
+    keyed = [i for i, n in enumerate(names) if i in trainer_display.IDS and n == trainer_display.key(i)]
+    if not keyed:
+        return names
+    full = trainer_display.plan(workspace)
+    missing = [i for i in keyed if i not in full]
+    if missing:
+        raise KeyError('trainer names %s are full-name keys, but %s has no full name for them'
+                       % (', '.join(trainer_display.key(i) for i in missing), tbpaths.rel(str(workspace))))
+    return [full[i] if i in keyed else n for i, n in enumerate(names)]
 
 
 @functools.lru_cache(None)
