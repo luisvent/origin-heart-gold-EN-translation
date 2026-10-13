@@ -369,9 +369,9 @@
  "errors": 0,
  "fallbacks": 0,
  "not_overlay10": 0,
- "recorded": "20261013_112346",
- "rom_sha1": "22da8052b6719458fb92d7bfaef080b4d163a18a",
- "rom_sha256": "1e91ce1f7f7f6a45c5b10adae6071395d7d1c1a2bd06a74c8ff200497a98665b",
+ "recorded": "20261013_174726",
+ "rom_sha1": "7fbc923d713a36629293ae359e70f282016195a2",
+ "rom_sha256": "9b62fe11082f12e049c0e7487863744e25d1bf7f2369e40974f4351f586cb38a",
  "scenarios": 364,
  "score": 98.08
 }

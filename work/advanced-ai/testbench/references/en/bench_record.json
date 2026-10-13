@@ -662,7 +662,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 1600729274,
    "slot": 10,
    "snapshot": []
@@ -1339,7 +1339,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 2527895381,
    "slot": 10,
    "snapshot": []
@@ -4627,7 +4627,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.7,
+   "seconds": 3.6,
    "seed": 3949007754,
    "slot": 10,
    "snapshot": []
@@ -5499,7 +5499,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.7,
+   "seconds": 3.6,
    "seed": 587202261,
    "slot": 10,
    "snapshot": []
@@ -6375,7 +6375,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 611280945,
    "slot": 10,
    "snapshot": []
@@ -7722,7 +7722,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.4,
+   "seconds": 3.3,
    "seed": 1626379738,
    "slot": 10,
    "snapshot": []
@@ -7879,7 +7879,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 3.1,
    "seed": 1635940896,
    "slot": 10,
    "snapshot": []
@@ -10277,7 +10277,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 2992814659,
    "slot": 10,
    "snapshot": []
@@ -12452,7 +12452,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 3349112409,
    "slot": 10,
    "snapshot": []
@@ -13843,7 +13843,7 @@
    "failures": [
     "clipped "
    ],
-   "frames": 787,
+   "frames": 786,
    "grade": "pass",
    "id": "b04c_intimidate_sd_cc",
    "injected": true,
@@ -14139,7 +14139,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.4,
+   "seconds": 3.3,
    "seed": 4178434947,
    "slot": 10,
    "snapshot": []
@@ -15023,7 +15023,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 3.1,
    "seed": 1641683546,
    "slot": 10,
    "snapshot": []
@@ -15162,7 +15162,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 717157887,
    "slot": 10,
    "snapshot": []
@@ -15313,7 +15313,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 3.1,
    "seed": 1913280079,
    "slot": 10,
    "snapshot": []
@@ -15782,7 +15782,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.7,
+   "seconds": 3.8,
    "seed": 1819105868,
    "slot": 10,
    "snapshot": []
@@ -16078,7 +16078,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 2390285260,
    "slot": 10,
    "snapshot": []
@@ -16501,7 +16501,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 1287926499,
    "slot": 10,
    "snapshot": []
@@ -18858,7 +18858,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 326731488,
    "slot": 10,
    "snapshot": []
@@ -19269,7 +19269,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 3847806747,
    "slot": 10,
    "snapshot": []
@@ -19952,7 +19952,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 3865284302,
    "slot": 10,
    "snapshot": []
@@ -20091,7 +20091,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 3627226745,
    "slot": 10,
    "snapshot": []
@@ -20623,7 +20623,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 607626713,
    "slot": 10,
    "snapshot": []
@@ -22565,7 +22565,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 4166216120,
    "slot": 10,
    "snapshot": []
@@ -23151,7 +23151,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 1636498637,
    "slot": 10,
    "snapshot": []
@@ -24293,7 +24293,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 1247057734,
    "slot": 10,
    "snapshot": []
@@ -25161,7 +25161,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.3,
+   "seconds": 3.4,
    "seed": 218865708,
    "slot": 10,
    "snapshot": []
@@ -25306,7 +25306,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 1959078394,
    "slot": 10,
    "snapshot": []
@@ -26486,7 +26486,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 3.1,
    "seed": 2822909926,
    "slot": 10,
    "snapshot": []
@@ -27998,7 +27998,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 3432647324,
    "slot": 10,
    "snapshot": []
@@ -30040,7 +30040,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 4101995612,
    "slot": 10,
    "snapshot": []
@@ -30193,7 +30193,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.8,
+   "seconds": 3.9,
    "seed": 1119493683,
    "slot": 10,
    "snapshot": []
@@ -30356,7 +30356,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.4,
+   "seconds": 3.5,
    "seed": 2663363280,
    "slot": 10,
    "snapshot": []
@@ -32283,7 +32283,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 3616315630,
    "slot": 10,
    "snapshot": []
@@ -32428,7 +32428,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 3024338561,
    "slot": 10,
    "snapshot": []
@@ -32730,7 +32730,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 3.1,
    "seed": 3397932764,
    "slot": 10,
    "snapshot": []
@@ -32875,7 +32875,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 3.1,
    "seed": 3008574669,
    "slot": 10,
    "snapshot": []
@@ -33324,7 +33324,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 3.1,
    "seed": 3616106830,
    "slot": 10,
    "snapshot": []
@@ -35040,7 +35040,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 1397112078,
    "slot": 10,
    "snapshot": []
@@ -35306,7 +35306,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 575055479,
    "slot": 10,
    "snapshot": []
@@ -35566,13 +35566,13 @@
    ],
    "diag": null,
    "failures": [],
-   "frames": 610,
+   "frames": 609,
    "grade": "pass",
    "id": "imm_electric_vs_golem",
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 943116979,
    "slot": 10,
    "snapshot": []
@@ -35971,7 +35971,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 203722265,
    "slot": 10,
    "snapshot": []
@@ -36660,7 +36660,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 2883207625,
    "slot": 10,
    "snapshot": []
@@ -36793,7 +36793,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 3765106947,
    "slot": 10,
    "snapshot": []
@@ -37071,7 +37071,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 750714167,
    "slot": 10,
    "snapshot": []
@@ -37349,7 +37349,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 2938357840,
    "slot": 10,
    "snapshot": []
@@ -37881,7 +37881,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 1213024252,
    "slot": 10,
    "snapshot": []
@@ -38419,7 +38419,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 3737980842,
    "slot": 10,
    "snapshot": []
@@ -38558,7 +38558,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 169094018,
    "slot": 10,
    "snapshot": []
@@ -39545,7 +39545,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.7,
+   "seconds": 3.6,
    "seed": 3310083667,
    "slot": 10,
    "snapshot": []
@@ -40526,7 +40526,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 3143525219,
    "slot": 10,
    "snapshot": []
@@ -41704,7 +41704,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 1418151250,
    "slot": 10,
    "snapshot": []
@@ -42002,7 +42002,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.3,
+   "seconds": 3.4,
    "seed": 1375436341,
    "slot": 10,
    "snapshot": []
@@ -42729,7 +42729,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 746980921,
    "slot": 10,
    "snapshot": []
@@ -44493,7 +44493,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.7,
+   "seconds": 3.6,
    "seed": 988703328,
    "slot": 10,
    "snapshot": []
@@ -45093,7 +45093,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 2.9,
    "seed": 398145141,
    "slot": 10,
    "snapshot": []
@@ -47276,7 +47276,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 928400727,
    "slot": 10,
    "snapshot": []
@@ -47439,7 +47439,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.4,
+   "seconds": 3.5,
    "seed": 2227343472,
    "slot": 10,
    "snapshot": []
@@ -49680,7 +49680,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 3.1,
    "seed": 3740156426,
    "slot": 10,
    "snapshot": []
@@ -49825,7 +49825,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 1675063291,
    "slot": 10,
    "snapshot": []
@@ -49958,7 +49958,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 3.0,
+   "seconds": 3.1,
    "seed": 2005113524,
    "slot": 10,
    "snapshot": []
@@ -50852,7 +50852,7 @@
    "injected": true,
    "notes": [],
    "repeat": 0,
-   "seconds": 2.9,
+   "seconds": 3.0,
    "seed": 2069089680,
    "slot": 10,
    "snapshot": []
@@ -52454,5 +52454,5 @@
   }
  ],
  "rom": "rc8_ai.nds",
- "rom_sha1": "22da8052b6719458fb92d7bfaef080b4d163a18a"
+ "rom_sha1": "7fbc923d713a36629293ae359e70f282016195a2"
 }
