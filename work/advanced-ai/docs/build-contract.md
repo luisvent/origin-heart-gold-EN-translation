@@ -25,7 +25,7 @@ payload. A layout is a JSON file in `builder/layouts/` that names the memory reg
 | Region | Spanish (`es.json`) | English (`en.json`, option A until phase 0 decides) |
 |---|---|---|
 | `slot` | 0x021F6E20 (after overlay 11's image and bss) up to 0x022007E0 | the same |
-| `itcm` (resident code) | 0x01FF8620 (after the original ITCM block) | 0x01FF8FC0 (after text speed), a new autoload section |
+| `itcm` (resident code) | 0x01FF8620 (after the original ITCM block) | a fixed 0x01FF9500, a new autoload section past the largest ITCM block any locale can have (text speed, then trainer full names: at most 0x01FF9320; `builder/README.md` has the derivation) |
 | `itcm_ram` (work RAM) | 0x01FFEE00–0x01FFFF8C | the same |
 | `main` (resident code) | 0x0226D4C0 (inside the Spanish main block) | 0x023D4000–0x023DC000, a new autoload section below difficulty's |
 
@@ -49,7 +49,7 @@ payload/main.bin        the resident code for the main region (ai_lead first)
   "sources": {"src/advai.c": "<sha256>", "...": "..."},
   "regions": {
     "slot": {"ram": "0x021F6E20", "file": "slot.bin", "size": 0, "bss": 0, "limit": "0x022007E0"},
-    "itcm": {"ram": "0x01FF8FC0", "file": "itcm.bin", "size": 0, "bss": 0},
+    "itcm": {"ram": "0x01FF9500", "file": "itcm.bin", "size": 0, "bss": 0},
     "itcm_ram": {"ram": "0x01FFEE00", "size": 0, "limit": "0x01FFFF8C"},
     "main": {"ram": "0x023D4000", "file": "main.bin", "size": 0, "bss": 0, "limit": "0x023DC000"}
   },
@@ -57,7 +57,9 @@ payload/main.bin        the resident code for the main region (ai_lead first)
                 "static_init": ["0x021F6DE8", "0x021F6DEC"]},
   "symbols": {"adv_entry": "0x021F6E21", "ai_slot_select": "0x...", "...": "..."},
   "hooks": [{"file": "overlay14", "address": "0x02223D10", "before": "f1f700fe", "target": "ai_slot_select", "kind": "bl"}],
-  "words": [{"file": "arm9", "address": "0x020D1A28", "before": "c08fff01", "after": "00000002", "purpose": "ITCM arena start"}],
+  "words": [{"file": "arm9", "address": "0x020D1A28", "before": "itcm_end", "before_max": "0x01FF9500", "after": "00000002",
+             "purpose": "ITCM arena start"},
+            {"file": "arm9", "address": "0x020D1970", "before": "00c03d02", "after": "00403d02", "purpose": "main arena high"}],
   "files": {"slot.bin": "<sha256>", "itcm.bin": "<sha256>", "main.bin": "<sha256>"}
 }
 ```
@@ -71,7 +73,7 @@ region. `payload.json` pins `builder/build.py` and every source by sha256, so ed
 The Spanish-layout payload for the test bench is written to `work/build/advanced-ai/es/payload/`.
 
 Added after review (2026-10-13): in the English layout `regions.itcm.bss` is non-zero. It runs from the end of the
-itcm code through `.itcm_bss` (0x01FFEDA4–0x01FFFDD8), so the boot's autoload zeroes the AI's work RAM; real hardware
+itcm code through `.itcm_bss` (0x01FFECAC–0x01FFFDD8), so the boot's autoload zeroes the AI's work RAM; real hardware
 does not clear ITCM at power-on. The test records from 0x01FFFF8C stay outside it. The installer writes every
 region's bss into its autoload entry and the verifier checks it.
 
@@ -82,7 +84,10 @@ region's bss into its autoload entry and the verifier checks it.
 1. Overlay 10: the input's overlay 11 image, its 0x20-byte bss as zeros, then `slot.bin`; y9 entry 10 gets the new
    size, bss and overlay 11's static initialisers.
 2. Two new ARM9 autoload sections: `itcm` and `main`, as `payload.json` places them.
-3. The words in `words` (arena bounds), each checked against `before`.
+3. The words in `words` (arena bounds), each checked against `before`: either the 4 bytes the word must hold, or
+   `"itcm_end"`, which accepts any value that equals the end of the input's ITCM block (0x01FF8000 + its size) and is
+   at most `before_max` (the itcm origin). The ITCM block's end differs per locale (trainer full names, D-2487), so
+   the ITCM arena start has no fixed `before`. Each word gets `after` (the ITCM arena start becomes 0x02000000).
 4. The 5 hooks, each a Thumb BL written only if the site holds `before`.
 5. The trainer marks: bits 0 (important) and 1 (keep lead) of header byte 2 in `a/0/5/5`, for the IDs in
    `data/trainer_marks.json`, each checked to be clear in the input.

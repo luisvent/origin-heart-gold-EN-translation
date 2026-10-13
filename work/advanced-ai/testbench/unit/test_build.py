@@ -4,7 +4,8 @@ a byte-identical double build, steering compiled out, and the committed payload/
     .venv/bin/python -m unittest discover -s work/advanced-ai/testbench/unit -p 'test_build*.py'
 
 The build tests need arm-none-eabi-gcc 16.2.0 and binutils 2.47 and skip without them. The ROM checks read the
-untouched Chinese ROM and the rc8 release (docs/build-contract.md, "Inputs") and skip when they are missing.
+untouched Chinese ROM, the rc8 release and main's standard build (docs/build-contract.md, "Inputs") and skip when
+they are missing.
 """
 import hashlib
 import importlib.util
@@ -24,6 +25,10 @@ BUILD_PY = AI_DIR / 'builder' / 'build.py'
 PAYLOAD = AI_DIR / 'payload'
 CN_ROM = REPO / 'work' / 'rom' / 'origin_v4.0.3_cn.nds'
 RC8_ROM = REPO / 'work' / 'build' / 'advanced-ai' / 'base' / 'rc8_release.nds'
+MAIN_ROM = REPO / 'work' / 'build' / 'advanced-ai' / 'base' / 'main_standard.nds'
+TOOLS = REPO / 'work' / 'tools'
+ITCM, TEXT_SPEED_END = 0x01FF8000, 0x01FF8FC0    # the ITCM block, and its end after text speed (work/patches/text-speed)
+EN_ITCM = 0x01FF9500
 
 
 def load_builder():
@@ -156,7 +161,7 @@ class EnglishBuild(unittest.TestCase):
             self.assertTrue(s[fn] & 1, '%s lacks the Thumb bit' % fn)
         for obj in ('g_tune', 'ai_debug', 'live', 'fs'):
             self.assertFalse(s[obj] & 1, obj)
-        self.assertEqual(s['ai_serves'], 0x01FF8FC1, 'aiselect.s must be first in the itcm region')
+        self.assertEqual(s['ai_serves'], EN_ITCM | 1, 'aiselect.s must be first in the itcm region')
         self.assertEqual(s['ai_lead'], 0x023D4001, 'ai_lead must be first in the main region (its hook)')
         self.assertEqual(s['__bss_start'], 0x021F6E20 + len(self.bins['slot.bin']))
 
@@ -164,7 +169,7 @@ class EnglishBuild(unittest.TestCase):
         r = {n: {k: int(v, 16) if isinstance(v, str) and v.startswith('0x') else v for k, v in x.items()}
              for n, x in self.payload['regions'].items()}
         self.assertEqual((r['slot']['ram'], r['slot']['limit']), (0x021F6E20, 0x022007E0))
-        self.assertEqual((r['itcm']['ram'], r['itcm']['limit']), (0x01FF8FC0, 0x01FFEE00))
+        self.assertEqual((r['itcm']['ram'], r['itcm']['limit']), (EN_ITCM, 0x01FFEE00))
         self.assertEqual((r['itcm_ram']['ram'], r['itcm_ram']['limit']), (0x01FFEE00, 0x01FFFF8C))
         self.assertEqual((r['main']['ram'], r['main']['limit']), (0x023D4000, 0x023DC000))
         self.assertLessEqual(r['slot']['ram'] + r['slot']['size'] + r['slot']['bss'], r['slot']['limit'])
@@ -209,7 +214,8 @@ class EnglishBuild(unittest.TestCase):
             self.assertEqual((h['file'], h['kind']), ('overlay14', 'bl'))
             self.assertEqual(h['after'], builder.thumb_bl(int(h['address'], 16), s[h['target']] & ~1).hex())
         self.assertEqual([(w['file'], w['address'], w['before'], w['after']) for w in self.payload['words']],
-                         [('arm9', '0x020D1A28', 'c08fff01', '00000002'), ('arm9', '0x020D1970', '00c03d02', '00403d02')])
+                         [('arm9', '0x020D1A28', 'itcm_end', '00000002'), ('arm9', '0x020D1970', '00c03d02', '00403d02')])
+        self.assertEqual(self.payload['words'][0]['before_max'], self.payload['regions']['itcm']['ram'])
 
     def test_steering_compiled_out(self):
         """Only ai_serves reads a flag: no path reaches check_flag(0x218), so flag 0x218 cannot turn steering on."""
@@ -240,19 +246,47 @@ class EnglishBuild(unittest.TestCase):
 
 
 class LayoutSites(unittest.TestCase):
-    """en.json's hook and word `before` bytes are the rc8 release's, and the hook sites the Chinese ROM's."""
+    """en.json against the ROMs it installs on: the hook sites hold `before` in the Chinese ROM, the rc8 release and
+    main's standard build; the arena words hold the rc8 release's bytes, or for "itcm_end" the end of the ROM's ITCM
+    block, at most `before_max`."""
 
     def test_en_before_bytes(self):
         layout = json.loads((AI_DIR / 'builder' / 'layouts' / 'en.json').read_text())
-        rc8, cn = read_rom(RC8_ROM), read_rom(CN_ROM)
+        roms = {'cn': read_rom(CN_ROM), 'rc8': read_rom(RC8_ROM), 'main': read_rom(MAIN_ROM)}
         for h in layout['hooks']:
-            at = int(h['address'], 16)
-            with self.subTest(hook=h['address']):
-                self.assertEqual(overlay_bytes(rc8, 14, at, 4).hex(), h['before'])
-                self.assertEqual(overlay_bytes(cn, 14, at, 4).hex(), h['before'])
+            for name, rom in roms.items():
+                with self.subTest(hook=h['address'], rom=name):
+                    self.assertEqual(overlay_bytes(rom, 14, int(h['address'], 16), 4).hex(), h['before'])
         for w in layout['words']:
-            with self.subTest(word=w['address']):
-                self.assertEqual(arm9_bytes(rc8, int(w['address'], 16), 4).hex(), w['before'])
+            for name in ('rc8', 'main'):
+                rom = roms[name]
+                value = int.from_bytes(arm9_bytes(rom, int(w['address'], 16), 4), 'little')
+                with self.subTest(word=w['address'], rom=name):
+                    if w['before'] == 'itcm_end':
+                        itcm = next(s for s in rom.loadArm9().sections if s.ramAddress == ITCM)
+                        self.assertEqual(value, ITCM + len(itcm.data))
+                        self.assertLessEqual(value, int(w['before_max'], 16))
+                    elif name == 'rc8':         # main's standard build has no difficulty yet
+                        self.assertEqual(value.to_bytes(4, 'little').hex(), w['before'])
+
+    def test_itcm_origin_clears_every_trainer_display_block(self):
+        """The en itcm origin lies 0x100 or more past the largest ITCM block a locale can have: text speed, then
+        trainer_display.py's block at its own limits (its code and literal pool, a 16-byte entry per alias and one
+        terminating entry, each name at most 64 units of 2 bytes, the end rounded up to 32 bytes)."""
+        sys.path.insert(0, str(TOOLS))              # trainer_display imports msgtool when it encodes
+        try:
+            import trainer_display as td
+            self.assertEqual(len(td.encoded('A' * 63)), 64)
+            with self.assertRaises(ValueError):
+                td.encoded('A' * 64)                # 65 units with the terminator: refused
+        finally:
+            sys.path.remove(str(TOOLS))
+        names = len(td.IDS)
+        worst = TEXT_SPEED_END + len(td.CODE) + 12 + (names + 1) * 16 + names * 64 * 2
+        worst = (worst + 31) & ~31
+        self.assertEqual(worst, 0x01FF9320)
+        layout = json.loads((AI_DIR / 'builder' / 'layouts' / 'en.json').read_text())
+        self.assertGreaterEqual(int(layout['regions']['itcm']['origin'], 16), worst + 0x100)
 
 
 if __name__ == '__main__':

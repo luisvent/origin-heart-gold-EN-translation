@@ -12,7 +12,7 @@ Run from the repository root with the worktree's `.venv/bin/python`.
 
 | File | What it checks | Needs (skips without it) |
 |---|---|---|
-| `test_build.py` | The toolchain pin refuses other versions and writes nothing. The en payload's schema, region limits, symbols, hooks and words. The itcm section's bss covers every `.itcm_bss` variable and stops below 0x01FFFF8C. Steering compiled out (only `ai_serves` calls `check_flag`). No overlay 11 bytes in the payload. Two builds are byte-identical. The committed `payload/` equals a fresh build. The en layout's `before` bytes equal the rc8 release's and the Chinese ROM's | Toolchain; the Chinese ROM and rc8 release for the ROM checks |
+| `test_build.py` | The toolchain pin refuses other versions and writes nothing. The en payload's schema, region limits, symbols, hooks and words. The itcm section's bss covers every `.itcm_bss` variable and stops below 0x01FFFF8C. Steering compiled out (only `ai_serves` calls `check_flag`). No overlay 11 bytes in the payload. Two builds are byte-identical. The committed `payload/` equals a fresh build. The en layout's hook `before` bytes equal the Chinese ROM's, the rc8 release's and main's; the ITCM arena word equals each build's ITCM block end, below the itcm origin. The itcm origin clears `trainer_display.py`'s largest block by 0x100 | Toolchain; the Chinese ROM, rc8 release and main standard build for the ROM checks |
 | `test_golden.py` | `build.py --layout es` reproduces rc44's overlay 10 slot code, y9 entry, ITCM code, main-RAM AI code and the five hook BLs byte for byte. The sha256s are recorded in the test | Toolchain; the Spanish repository; `work/build/advanced-ai/es/rc44.nds` for the byte comparison |
 | `test_ids.py` | Every id in `src/ids.h` names the right move, ability or item in our text banks. `src/IDS.md` lists exactly those ids. `ids.h` equals a fresh Spanish generation. `test_ids.py --write` rewrites `IDS.md` | The Spanish repository with its `work_es/rom/` ROMs and the toolchain, for the generation check only |
 | `test_install.py` | Every refusal on synthetic inputs, the receipt, a real install onto the rc8 release and the refusals on real ROMs (Chinese, rc8 standard, rc44, an already installed ROM) | The rc8 release for the real-ROM cases |
@@ -27,6 +27,7 @@ Run from the repository root with the worktree's `.venv/bin/python`.
 | Spanish workspace repository (read only; archived at commit `dc8577c` into a temporary directory) | `ADVAI_ES_REPO=/path/to/spanish/repo` (no default; the tests that need it skip when it is unset) |
 | Untouched Chinese ROM | `work/rom/origin_v4.0.3_cn.nds` |
 | English rc8 release | `work/build/advanced-ai/base/rc8_release.nds` |
+| English standard build from main (trainer full names) | `work/build/advanced-ai/base/main_standard.nds` |
 | Spanish rc44 | `work/build/advanced-ai/es/rc44.nds` |
 
 The ROMs and the Spanish archive are read at test time and never copied into the repository. Each test that lacks

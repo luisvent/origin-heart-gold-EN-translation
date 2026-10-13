@@ -55,7 +55,7 @@ It prints the room line (used and free bytes per region) and what it moved betwe
 5. Writes `slot.bin`, `itcm.bin`, `main.bin` and `payload.json`: the regions, every placed symbol with the Thumb bit
    on functions, the hooks with their new bytes, the arena words, and the sha256 of every source and `.bin`.
    With the layout's `zero_work_ram` (en), the itcm region's `bss` runs from the end of its code through
-   `.itcm_bss` (en: 0x01FFEDA4–0x01FFFDD8, 0x1034 B). The boot's autoload then zeroes the AI's work RAM; the
+   `.itcm_bss` (en: 0x01FFECAC–0x01FFFDD8, 0x112C B). The boot's autoload then zeroes the AI's work RAM; the
    test records from 0x01FFFF8C stay outside it.
 
 The output depends only on the sources, the layout and the toolchain. Two builds are byte-identical
@@ -66,13 +66,31 @@ The output depends only on the sources, the layout and the toolchain. Two builds
 | Layout | Slot code + bss (free) | ITCM code (free) | ITCM work RAM (free) | Main RAM code (free) | Moved ITCM → main |
 |---|---|---|---|---|---|
 | `es` | 34,144 + 2,528 (2,688) | 25,836 (756) | 4,056 (436) | 24,184 (41,352 of 64 KB) | 17,192 B, 6 sections |
-| `en` | 32,800 + 2,656 (3,904) | 24,036 (92) | 4,056 (436) | 24,184 (8,584 of 32 KB) | 17,192 B, the same 6 |
+| `en` | 32,800 + 2,656 (3,904) | 22,444 (340) | 4,056 (436) | 25,784 (6,984 of 32 KB) | 18,788 B, 8 sections |
 
 `es` reproduces the Spanish build's own room line. In `en`, ITCM holds only `aiselect.s` and `check_flag.s` before
-the AI, instead of the Spanish build's other asm. The region is smaller (it starts after text speed), so the
-balance is similar. The slot is 1,344 B smaller, because the compiler drops the code behind the steering gate.
-`largest_first` moves the same six sections as in the Spanish build (`value_move`, `value_status`, `vetoed_vs`,
-`mixed1`, `entries_from`, `read_mon`); nothing more had to move.
+the AI, instead of the Spanish build's other asm, but the region is smaller. The slot is 1,344 B smaller, because
+the compiler drops the code behind the steering gate. `largest_first` moves the Spanish build's six sections
+(`value_move`, `value_status`, `vetoed_vs`, `mixed1`, `entries_from`, `read_mon`) and two more: `reply_odds`
+(788 B) and `value_switch` (808 B).
+
+## The English itcm origin
+
+The ITCM block before the AI differs per locale, so the en `itcm` region starts at a fixed 0x01FF9500 that clears
+the largest block any locale can have:
+
+| Part | Bytes | Source |
+|---|---|---|
+| Text speed's ITCM code ends at | 0x01FF8FC0 | `work/patches/text-speed` (fixed native payload) |
+| Trainer full-name block (D-2487): code + literal pool | 112 + 12 | `trainer_display.py` `CODE`, `expected_payload` |
+| Its table: 5 aliases + a terminating entry, 16 B each | 96 | `IDS` |
+| Its names: 5 × at most 64 units × 2 B | 640 | `encoded()` refuses more than 64 units |
+| Worst-case end, rounded up to its 32-byte step | 0x01FF9320 | `apply()` |
+| Rounded up to 0x100, plus 0x100 margin | **0x01FF9500** | 0x1E0 to spare: one more alias at full length takes 0x90 |
+
+English on main today ends the block at 0x01FF9140. 0x01FF9420 would also satisfy the margin, but it moves the
+same two sections to main RAM, so the rounder origin costs nothing. `test_build.py` recomputes the worst case from
+`trainer_display.py` and fails if the origin no longer clears it by 0x100.
 
 ## Steering
 

@@ -4,7 +4,7 @@ One JSON file per memory layout, read by [../build.py](../build.py) (`--layout <
 
 | File | What it is |
 |---|---|
-| `en.json` | The English payload, option A of the plan: the resident code in a new ITCM autoload section after text speed, and a new main-RAM section below difficulty's |
+| `en.json` | The English payload, option A of the plan: the resident code in a new ITCM autoload section at a fixed 0x01FF9500 (past the largest ITCM block any locale can have; see [../README.md](../README.md)), and a new main-RAM section below difficulty's |
 | `es.json` | The Spanish rc44 layout, for the golden test only. Its asm sources, defsyms and `event_mons.inc` are the Spanish build's |
 
 ## Fields
@@ -22,14 +22,15 @@ One JSON file per memory layout, read by [../build.py](../build.py) (`--layout <
 | `ld_defsyms` | Symbols for the linker (es: the Spanish `steer.s` storage in its main block) |
 | `cflags` | Extra compiler flags (en: `-DAI_NO_STEER`) |
 | `hooks` | The overlay-14 Thumb BLs: site, the bytes the site must hold (`before`), the target symbol. `build.py` adds the new bytes (`after`) |
-| `words` | The arm9 words the installer rewrites (arena bounds), with `before` and `after` |
+| `words` | The arm9 words the installer rewrites (arena bounds), with `before` and `after`. `before` is the 4 bytes the word must hold, or `"itcm_end"`: the word must equal the end of the input's ITCM block (0x01FF8000 + its size) and be at most `before_max`, which `build.py` requires to be the itcm origin |
 
 ## The English hooks and words
 
 The five hooks and their `before` bytes are the Spanish build's core hooks. `testbench/unit/test_build.py` checks
-the bytes against the English rc8 release and the untouched Chinese ROM; they are equal at all five sites.
+the bytes against the untouched Chinese ROM, the English rc8 release and main's standard build; they are equal at all
+five sites.
 
 | Word | rc8 value | Payload value | Why |
 |---|---|---|---|
-| 0x020D1A28, ITCM arena start | 0x01FF8FC0 (text speed) | 0x02000000 | The AI's ITCM code and work RAM take the rest of ITCM, as in the Spanish build |
+| 0x020D1A28, ITCM arena start | the ITCM block's end: 0x01FF8FC0 on rc8 (text speed), 0x01FF9140 on main (trainer full names); at most 0x01FF9500 | 0x02000000 | The AI's ITCM code and work RAM take the rest of ITCM, as in the Spanish build |
 | 0x020D1970, main arena high | 0x023DC000 (difficulty) | 0x023D4000 | The AI's main region, 32 KB below difficulty's section |

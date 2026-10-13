@@ -496,6 +496,13 @@ def build(layout_name, out, es_tree=None, work=None):
         at, dst = num(h['address']), syms[h['target']]
         require(dst & 1, 'hook target %s is not a Thumb function' % h['target'])
         hooks.append(dict(h, after=thumb_bl(at, dst & ~1).hex()))
+    for w in layout['words']:
+        # `before` is the 4 bytes the word must hold, or "itcm_end": it must equal the end of the input's ITCM block
+        # (which differs per locale) and be at most `before_max`, the itcm region's origin
+        require(re.fullmatch(r'[0-9a-f]{8}', w['before']) or (
+                w['before'] == 'itcm_end' and num(w.get('before_max', '0')) == r['itcm']['origin']),
+                'word %s: before must be 8 hex digits, or itcm_end with before_max %s' % (w['address'],
+                                                                                          hexa(r['itcm']['origin'])))
     payload = {
         'format': FORMAT,
         'layout': layout['name'],
