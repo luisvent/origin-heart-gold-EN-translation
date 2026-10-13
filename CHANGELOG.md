@@ -5,45 +5,52 @@ Patches apply to **Pokémon HeartGold (USA)**, CRC32 `C180A0E9`.
 
 ## [Unreleased]
 
-### Disabled fixes (built on request)
-Merged into develop on 2026-10-12 at the user's request as separate patches with `enabled = false`: the standard build is byte-identical to before and keeps the Chinese behaviour. Tester xdeltas (rc7 plus the fix) exist; build one with `build.py --only <fix-id>`.
+## [1.0.0-rc8] - 2026-10-13
+
+Release candidate. Adds the Victory Road freeze fix and switches on 22 further fixes that rc7 carried switched off, plus the text fixes below. Hardware and Delta remain untested.
+
+### Fixed
+- **Victory Road arch (D-2415, D-2416):** stepping under the arch in front of the stairs in the final chapter no longer freezes the game on a real DS (melonDS and hardware); the NPCs now finish their walk before the script ends. Reported on a DS Lite.
 - **sibling-ribbon-freeze (D-2331):** the seven weekday siblings' ribbon scene no longer leaves the message on screen with the player locked (invalid opcode 2009 becomes Noop).
 - **romance-mail-mismatch (D-2332; open question D-2333):** the Cynthia romance scenes in the Pallet Town house take the Snow Mail they check for, and her "I'm busy" reply shows her own line.
 - **petilil-hisuian-lilligant (D-2334):** Petilil holding a Black Belt by day evolves straight into Hisuian Lilligant instead of into another Petilil.
 - **blank-player-name (D-2335 to D-2339; open question D-2340):** the player's name is no longer blank in Clair's photo offer, the Pallet Town photographer's first line and Brock's Route 2 lines.
 - **battle-faint-cry (D-2341):** a Pokémon that faints cries again, in the low, drawn-out faint cry, and makes the falling sound as it slides off the screen, on both sides (as in HeartGold).
 - **battle-hit-sound (D-2342):** a move that deals damage plays the hit sound again, louder when super effective and softer when not very effective (as in HeartGold). One-hit KO moves and hits on a substitute are still silent.
-- **blank-player-name-batch (D-2343 to D-2345):** the player's name is no longer blank in 53 more script lines (Route 1 kid, Route 30 woman, Misty, "League Champion ..." greetings, received-Pokémon lines and others); adds a BufferPlayersName command in front of each message (built on request: `build.py --only blank-player-name-batch`). 15 positions with undecodable native commands are left alone and listed in `work/notes/blank-player-name-batch_fix.md`.
-- **blank-player-name-class-c (D-2353 to D-2355; answers D-2345):** the player's name is no longer blank in five more lines ("... got Pidgeot back!" at the Route 36 gardener, Prof. Oak's "you were so late, ..." Pikachu offer, the Hitmonlee and Hitmonchan offers); disabled like the other two blank-name fixes (`build.py --only blank-player-name-class-c`). The remaining class C positions are not bugs.
+- **blank-player-name-batch (D-2343 to D-2345):** the player's name is no longer blank in 53 more script lines (Route 1 kid, Route 30 woman, Misty, "League Champion ..." greetings, received-Pokémon lines and others); adds a BufferPlayersName command in front of each message. 15 positions with undecodable native commands are left alone and listed in `work/notes/blank-player-name-batch_fix.md`.
+- **blank-player-name-class-c (D-2353 to D-2355; answers D-2345):** the player's name is no longer blank in five more lines ("... got Pidgeot back!" at the Route 36 gardener, Prof. Oak's "you were so late, ..." Pikachu offer, the Hitmonlee and Hitmonchan offers). The remaining class C positions are not bugs.
 - **photographer-no-healthy-mon (D-2347):** answering Yes to the Pallet Town photographer while no Pokémon in the party can fight no longer freezes the game; he gives his usual decline reply.
-- **ss-anne-softlock (D-2348):** boarding the S.S. Anne sets the flag that lets the party start, so the first voyage can no longer leave the player stuck aboard (behaviour changes listed in `work/notes/ss-anne-softlock_fix.md`).
 - **giovanni-hotspring-loss (D-2349, D-2350):** losing to Giovanni at the Mt. Silver hot spring is a normal whiteout instead of a freeze on a black screen.
-- **route3-misty-actors (D-2351, D-2352):** Misty and her Gyarados are shown in the Route 3 scene even when the Viridian Forest request was skipped.
 - **tutor-blackthorn-play-rough (D-2356):** the Blackthorn Move Tutor teaches Play Rough instead of Flail.
 - **tutor-saffron-volt-switch (D-2357):** the Saffron Dojo tutor teaches Volt Switch on every path instead of Charge on some of them.
 - **double-battle-single-fallback (D-2358, D-2359):** a scripted Double Battle that starts with fewer than two Pokémon in the party becomes a Single Battle instead of freezing (Department Store 6F and about 130 other sites).
-- Decided by the user on 2026-10-12 to stay as in the Chinese hack: the Pidgeot loan (D-2383), the Sprout Tower monks' offering with no money check (D-2384), the Misty love-letter branch (D-2382), losing to Deoxys (D-2380).
 - **fortune-ideal-price-check (D-2362):** the Goldenrod fortune teller's ideal-Pokémon reading checks for the $10,000 she charges, so a player with $300 to $9,999 is refused instead of left with $0.
 - **ssanne-tm-price-check (D-2364):** the S.S. Anne shop checks for the $4,000 the Frustration TM costs, so a player with $400 to $3,999 is refused instead of ending with $0.
 - **gamecorner-500-coins (D-2365):** at the raised Game Corner price, "500 coins for $50000" gives 500 coins instead of 50.
 - **haircut-younger-price-check (D-2367):** the younger Haircut Brother accepts the $300 he charges instead of refusing a player with $300 to $499.
 - **forest-of-time-sammy-guard (D-2370, D-2371):** the Forest of Time's Sammy arrival and Marauder scenes only run while the Sammy chapter is active, so the Ilex Forest bug hunt can no longer start them early or leave the hunt stuck at a marker the reward does not accept.
-- **evolution-items-use (D-2392; open questions D-2393, D-2394):** the Ice Stone, Cracked Pot, Galarica Cuff and Wreath, Sweet and Tart Apple, Auspicious and Malicious Armor and Dragon Scale show USE in the Bag, so the Pokémon that evolve with them (Crabrawler, Sinistea, Slowpoke, Applin, Charcadet, Exeggcute and others) can evolve.
-- **overworld-pokemon-sprites (D-2395, D-2396, D-2398):** 37 stationary overworld Pokémon (the Pewter Jigglypuff, the Lighthouse Ampharos, the Machoke in the Goldenrod basement and others) are drawn as the species their Chinese text and cry name instead of a Generation 5 species. Every object needs a visual recheck before 4.1.0 (list in `work/notes/overworld-pokemon-sprite-mismatch_fix.md`).
-- **overworld-pokemon-cries (D-2398 to D-2400):** 29 stationary overworld Pokémon whose label and sprite agree cry as that species (Route 6 Cloyster, Route 43 Sentrets, Cerulean Gym Seels and others).
-- **trainer-abilities (D-2401, D-2402):** 54 trainer Pokémon get the ability their held item and moves are built around (Toxic Orb Gliscor and Breloom: Poison Heal; Flame Orb Raticate, Hariyama and Machamp: Guts; Heat Rock Ninetales and Torkoal: Drought; Damp Rock Pelipper: Drizzle; Petrel's Life Orb Nidoking: Sheer Force). This changes trainer difficulty, so it is off by default.
-- **safari-zone-closed (D-2407; open question D-2408):** the four Safari Zone gate counters show a "closed for now" notice and the two gate-hall door warps lead nowhere, so the unfinished Safari Zone cannot be entered. Off by default; Baoba's Geodude test cannot be finished while it is on.
+- **evolution-items-use (D-2392; open questions D-2393, D-2394):** the Ice Stone and the Dragon Scale show USE in the Bag, so the Pokémon that evolve with them (Mr. Mime, Alolan Sandshrew and Vulpix, Cetoddle and Darumaka with the Ice Stone; Exeggcute into Alolan Exeggutor with the Dragon Scale) can evolve. Seven more evolution items that cannot be obtained in the game get the same fix (Cracked Pot, Galarica Cuff and Wreath, both Apples, both Armors). Evolutions that need holding an item are unchanged.
+- **overworld-pokemon-sprites (D-2395, D-2396, D-2398):** 36 stationary overworld Pokémon (the Pewter Jigglypuff, the Lighthouse Ampharos, the Machoke in the Goldenrod basement and others) are drawn as the species their Chinese text and cry name instead of a Generation 5 species. The S.S. Aqua Bulbasaur stays an Ivysaur sprite.
 - **reward-qty (D-2409, D-2411):** a reward of more than one item (the Viridian Academy's 2 Ultra Balls and 162 other gifts of 2 to 20 items) says how many ('Obtained Ultra Ball x2!') instead of reading as a single item. Off by default.
-
-### Fixed
 - **Route 21 Lairon (D-2398):** the Pokémon in the Mr. Mime barrier scene is Lairon, as the Chinese text says (可多拉), not Onix: lines a027/0732#18 and #19.
 - **Celadon Skitty kid (D-2405):** the boy names the item as the Bag does, "Fluffy Tail" instead of "Skitty tail" (a027/0484#141; user-approved).
 - **Rock Tunnel tutor names the move he teaches (D-2386, D-2361):** the Bug Catcher in Rock Tunnel who asks for a Dusk Ball now says Pollen Puff in his offer and in the learn, thanks, forget and give-up lines, because Pollen Puff is the move he actually teaches. The Chinese dialogue still says Signal Beam (left over from the earlier hack version); this is a deliberate, user-approved text change. His joke that he thought Signal Beam lights up caves is unchanged.
 - **Exp. Share item with SHARE OFF (D-2403):** turning SHARE OFF no longer switches off the Exp. Share item. A Pokémon holding an Exp. Share keeps its normal bench share (same EXP and EVs as SHARE ON, CAP still applies); other benched Pokémon still get nothing. Reported on Discord (#bugs).
-- **Difficulty settings in story battles you're allowed to lose:** CAP and SHARE now also apply in battles where the story continues even if you lose, such as Blue in Pewter City before Brock's Gym. Before, these battles ignored both settings: Pokémon could gain EXP above the level cap, and benched Pokémon still got EXP with SHARE OFF. The ITEMS setting now also applies in these battles, as in every other trainer battle: with LIMITED (the default), you can only use berries and flutes from the Bag there. Losing them still continues the story as before.
+- **ITEMS setting renamed DEFAULT / ALL (D-2412):** DEFAULT now keeps the Chinese hack's real battle-item rules (rc7's LIMITED allowed only berries and flutes, but the original also allows Potion, Super Potion, drinks, Heal Powder and Berry Juice). ALL still adds the twenty extra medicines. The Options help text follows the choice.
+- **Difficulty settings in story battles you're allowed to lose:** CAP and SHARE now also apply in battles where the story continues even if you lose, such as Blue in Pewter City before Brock's Gym. Before, these battles ignored both settings: Pokémon could gain EXP above the level cap, and benched Pokémon still got EXP with SHARE OFF. The ITEMS setting now also applies in these battles, as in every other trainer battle: with DEFAULT, you can only use the items the Chinese hack allows there. Losing them still continues the story as before.
+
+### Still switched off (built on request)
+- **ss-anne-softlock (D-2348), trainer-abilities (D-2401, D-2402), safari-zone-closed (D-2407, D-2408), route3-misty-actors (D-2351, D-2352):** merged but not part of the standard patch.
+- **overworld-pokemon-cries (D-2398 to D-2400):** superseded by overworld-pokemon-sprites and never built.
+- Decided by the user on 2026-10-12 to stay as in the Chinese hack: the Pidgeot loan (D-2383), the Sprout Tower monks' offering with no money check (D-2384), the Misty love-letter branch (D-2382), losing to Deoxys (D-2380).
 
 ### Added (tools)
 - New fix kind `[[script_insert]]` (`work/tools/scriptinsert.py`, `narcpatch.py`, `fixes.py`): inserts a command into a script member and relocates its offsets; used by blank-player-name-batch. Covered by `work/tools/test_script_insert.py`.
+
+### Release notes
+- Apply the xdelta to clean **Pokémon HeartGold (USA)**, CRC32 **`C180A0E9`**. Back up your save and load the battery save when updating, rather than an old savestate. ROMs and saves are never distributed.
+- The standard builder now produces the 69-fix baseline (rc7: 47). The difficulty options are installed separately, as in rc7 (`work/research/difficulty-armips/build.py --enable-difficulty`); their code changed since rc7 (ITEMS DEFAULT, Exp. Share with SHARE OFF, loss-allowed story battles); the rc8 patch is built with it (see VALIDATION.txt in the release package).
+- The Boldore and Gurdurr level-up evolutions (Lv 35 / Lv 40) are unchanged since rc6.
 
 ## [1.0.0-rc7] - 2026-10-11
 

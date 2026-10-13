@@ -1,7 +1,7 @@
 id = "battle-faint-cry"
 title = "Battles: a Pokémon that faints cries (the low faint cry) and makes the faint sound again, on both sides"
 kind = "code"
-enabled = false
+enabled = true
 decisions = ["D-2341"]
 requires = []
 asm = "battle-faint-cry.asm"
@@ -12,25 +12,7 @@ down. The hack lost both: wild Pokémon, a Trainer's Pokémon and your own faint
 'Some moves have no sound' lists the missing cry of opposing Pokémon; your own are silent too). The untouched
 Chinese hack is silent in the same places, so this is a bug of the hack.
 
-Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
-(D-2341, 2026-10-09); other hack bugs stay report-only.
-
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only battle-faint-cry).
-
-Technical: the hack replaced HeartGold's battle code with its own engine in overlay 14. Client command 21
-(handler table entry 21) shows a faint by calling Faint_Run (0x0222CB7C) every frame until it returns 1, a
-state machine kept in the byte 0x02255EDD: 0 prepare, 1 wait while a cry is playing (arm9 0x02006258), start
-the health-box task, 2 lower a raised sprite, 3 set up the partial draw, 4 slide down 8 px a frame and hide
-the sprite, 5 wait for the health box. Nothing in it starts a cry or a sound, so state 1 waits for nothing.
-HeartGold's faint task has the same states plus, before the slide, the cry in faint mode and the faint sound
-(US overlay12 0x022601FA, US overlay12 0x0226022A, US overlay12 0x02260244 and US overlay12 0x0226026E):
-PlayCryWithChatter (US arm9 0x0207204C) with mode 5, volume 127, heap 5, no delay and pan +117 for a front
-sprite (the foe) or -117 for a back sprite; then it waits while the cry plays; then PlaySEWithPan
-(US arm9 0x0200602C) with SEQ_SE_DP_POKE_DEAD3 (1795) and the same pan. Observed on the Chinese ROM: no cry in mode 5 and
-no sequence 1795 in a wild, Trainer, double or Explosion faint, on either side (DeSmuME hooks, melonDS
-watchpoints on the sound archive's sequence records).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 """
 what = """
 Old: Faint_Run slides the fainted Pokémon down without a sound; its state 1 waits for a cry that never starts.

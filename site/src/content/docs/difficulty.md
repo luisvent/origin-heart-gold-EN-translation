@@ -1,22 +1,22 @@
 ---
 title: Difficulty settings
-description: The optional level cap, the EXP sharing switch and the battle-item limit added to the English patch in rc7, and exactly when the level cap goes up.
+description: The optional level cap, the EXP sharing switch and the battle-item limit added to the English patch in rc7 (updated in rc8), and exactly when the level cap goes up.
 ---
 
-From **rc7**, the English patch adds three optional difficulty settings: a **level cap** that follows your Gym progress, a switch that turns off **EXP sharing** for benched Pokémon, and a **battle-item limit** for Trainer battles. The original Chinese hack has none of them; they're extras of the English patch. With the level cap off and sharing on, EXP works exactly as in the original hack. The item setting is different: it starts on LIMITED, which is stricter than the original hack in Trainer battles (see [Battle items](#battle-items-items)).
+From **rc7**, the English patch adds three optional difficulty settings: a **level cap** that follows your Gym progress, a switch that turns off **EXP sharing** for benched Pokémon, and a **battle-item limit** for Trainer battles. The original Chinese hack has none of them; they're extras of the English patch. With the level cap off and sharing on, EXP works exactly as in the original hack. The item setting starts on DEFAULT, which keeps the original hack's battle-item rules; ALL adds more medicine (see [Battle items](#battle-items-items)). In rc7 this setting was called LIMITED and was stricter than the original hack; rc8 renamed it and gave it the original rules.
 
 ## Turning the settings on
 
 1. Open the menu in the field (X) and choose **OPTIONS**.
 2. Press **L** or **R**, or tap the arrows at the bottom of the screen, to go to page **2/2**, headed **DIFFICULTY**. Holding **L** while you choose OPTIONS opens this page straight away.
 3. Choose a value for each row:
-   - **ITEMS:** LIMITED or ALL.
+   - **ITEMS:** DEFAULT or ALL (called LIMITED or ALL in rc7).
    - **SHARE:** ON or OFF.
    - **CAP:** OFF or ON.
 4. Choose **CONFIRM** to apply your changes (on both Options pages), or **QUIT** or press **B** to throw them away.
 5. **Save the game** to keep the settings. Confirming only changes them until you turn the game off; nothing is saved for you.
 
-A new game, and a save from before rc7, starts with **ITEMS LIMITED, SHARE ON, CAP OFF**. You can change any setting whenever you like outside battle. A battle that has already started keeps the settings and the cap it started with.
+A new game, and a save from before rc7, starts with **ITEMS DEFAULT, SHARE ON, CAP OFF**. You can change any setting whenever you like outside battle. A battle that has already started keeps the settings and the cap it started with.
 
 ## The level cap (CAP)
 
@@ -63,27 +63,24 @@ In the original hack your whole party shares the EXP from every battle: the Pok�
 
 - **SHARE ON** (the default) keeps that sharing.
 - **SHARE OFF** gives **benched Pokémon no EXP and no EVs**, except a Pokémon holding an Exp. Share (see below). Only the Pokémon that took part in the battle gain anything, and each one still gets the same amount as before: switching sharing off doesn't hand the bench's share to the Pokémon that fought.
-- A Pokémon **holding an Exp. Share** still shares with SHARE OFF: it gets the same EXP and EVs as it would with SHARE ON, whether or not it took part. The other benched Pokémon get nothing. (In rc7 itself SHARE OFF also switched the item off; see Known issue.)
+- A Pokémon **holding an Exp. Share** still shares with SHARE OFF: it gets the same EXP and EVs as it would with SHARE ON, whether or not it took part. The other benched Pokémon get nothing. (In rc7, SHARE OFF also switched the item off; this was fixed in rc8.)
 - With **CAP ON** too, the Pokémon that took part, and an Exp. Share holder, still stop at the cap.
 
 ## Battle items (ITEMS)
 
-- **LIMITED** (the default): in **Trainer battles** you can only use **Berries** and the **Blue, Yellow and Red Flutes** from your Bag. Potions and other medicine are left out.
-- **ALL**: Trainer battles let you use a wider choice of battle items from the Bag, including medicine the original hack doesn't offer in battle (see [Status medicine in battle](../guide/known-issues/#status-medicine-in-battle)).
+- **DEFAULT** (the default): Trainer battles allow the same Bag items as the original Chinese hack: Berries, the Blue, Yellow and Red Flutes, and also Potion, Super Potion, the drinks, Heal Powder and Berry Juice. Other medicine is left out, as in the original.
+- **ALL**: Trainer battles let you use a wider choice of battle items from the Bag, twenty more medicines than DEFAULT, including medicine the original hack doesn't offer in battle (see [Status medicine in battle](../guide/known-issues/#status-medicine-in-battle)).
+
+In rc7 the first choice was called **LIMITED** and allowed only Berries and Flutes. That was stricter than the original hack, so rc8 renamed it DEFAULT and restored the original rules. The rule applies to Trainer battles only; the Safari Zone, the Bug-Catching Contest and the other special battles listed above keep their own rules.
 
 Either way, held items, items your opponent uses, wild battles and using items outside battle work as in the original hack.
 
-## Known issue
+## Fixed in rc8
 
-In rc7, **CAP** and **SHARE OFF** don't apply in story battles you're allowed to lose, the ones where losing continues the story instead of sending you back to a Pokémon Center. In those battles every Pokémon gets EXP as if CAP were OFF and SHARE were ON, so your Pokémon can pass the cap. Examples:
+Two problems in rc7 are gone in rc8:
 
-- Blue in **Pewter City**, just before Brock's Gym (and his battles in Oak's Lab, Cerulean City and on the S.S. Anne)
-- Misty on Route 3, Red and Green, Bruno in the Pewter City Pokémon Center
-- Several Team Rocket Executive and Giovanni battles, the Celadon Restaurant challengers and the Slowpoke Well battle against Jessie and James
-
-This is fixed for the next release after rc7: these battles will follow all three settings, including ITEMS LIMITED, and losing them will still continue the story.
-
-Also in rc7, **SHARE OFF switches off a held Exp. Share too**, so the holder gets nothing when it sits on the bench. This is fixed for the next release after rc7: the holder will share as with SHARE ON, and everyone else on the bench still gets nothing.
+- **Story battles you're allowed to lose** (the ones where losing continues the story instead of sending you back to a Pokémon Center) now follow all three settings. In rc7 they ignored CAP and SHARE OFF: every Pokémon got EXP as if CAP were OFF and SHARE were ON, so your Pokémon could pass the cap, and the ITEMS setting did not apply either. Examples: Blue in **Pewter City**, just before Brock's Gym (and his battles in Oak's Lab, Cerulean City and on the S.S. Anne); Misty on Route 3, Red and Green, Bruno in the Pewter City Pokémon Center; several Team Rocket Executive and Giovanni battles, the Celadon Restaurant challengers and the Slowpoke Well battle against Jessie and James. Losing them still continues the story as before.
+- **SHARE OFF no longer switches off a held Exp. Share.** The holder shares as with SHARE ON, and everyone else on the bench still gets nothing.
 
 <details class="tech" data-pagefind-ignore="all">
 <summary>Technical source (implementation and research files)</summary>

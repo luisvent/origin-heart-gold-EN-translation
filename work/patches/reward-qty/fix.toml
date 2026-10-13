@@ -1,7 +1,7 @@
 id = "reward-qty"
 title = "Reward scripts: a gift of more than one item says how many (Obtained <item> x2!), not one"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-2411", "D-2409", "D-2387"]
 requires = []
 why = """
@@ -20,8 +20,7 @@ pc 2133) compares var 0x8005 with 1 at pc 2211 and, for more than one, buffers t
 (command 844 BufferItemNamePlural) before the same message. The hack's command table stops at 842, so that command
 does not exist here.
 
-Status: disabled. A separate, switched-off patch (D-2387), to be merged into develop after review: the standard build keeps
-the Chinese behaviour and builds this only on request (build.py --only reward-qty).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 """
 what = """
 One [[narc_bytes]] and one [[script_insert]], both in script file 3 (the std script file). The 8 bytes of the shared

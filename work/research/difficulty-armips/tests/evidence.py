@@ -174,8 +174,9 @@ def validate_native(manifest, report_paths, binding, expected=None):
                         except AssertionError as exc:raise ValueError(str(exc)) from exc
                     if driver=='native_items_gates.py':
                         from native_items_gates_oracles import continued, GATES
+                        from native_items_cases import GATE_ITEM
                         run=report['battle']
-                        if run['fault_item']!=17 or key!=GATES[run['gate']][2]:
+                        if run['fault_item']!=GATE_ITEM or key!=GATES[run['gate']][2]:
                             raise ValueError('gate report claimed another case')
                         try:continued(run)
                         except AssertionError as exc:raise ValueError(str(exc)) from exc

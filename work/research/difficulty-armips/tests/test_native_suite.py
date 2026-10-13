@@ -93,7 +93,7 @@ class SuiteTests(unittest.TestCase):
     def test_invocation_nonce_and_job_identity_checked_even_when_report_and_supervisor_agree(self):
         from composite_fixtures import report_for,write_report,BINDING
         from native_composites import validate_slice
-        key='gate-doubles-item-slot1-item-00017'
+        key='gate-doubles-item-slot1-item-00025'
         with scratch('suite-nonce-') as tmp:
             p=write_report(Path(tmp),report_for(key),invocation='selected')
             expected=dict(id=key,driver='native_items_doubles.py',layer='native ARM gameplay doubles diagnostic',

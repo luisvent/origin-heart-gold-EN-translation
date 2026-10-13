@@ -60,7 +60,7 @@ def install_launch_hook(session,trace,raw):
         require(not events(run,'trainer_fixture') and not events(run,'begin') and h.in_field() and
                 trace.snapshot()['epoch']==0 and r[14]==0x02050815,'late/repeated/wrong trainer launch')
         ctor=events(run,'constructor')
-        require(len(ctor)==1 and ctor[0]['lr']==0x020507AD and ctor[0]['setup']==setup and
+        require(len(ctor)==1 and ctor[0]['lr'] in (0x020507AD, 0x02048EEF) and ctor[0]['setup']==setup and
                 ctor[0]['flags']==1 and ctor[0]['control']==0,'not native TrainerBattle6,0 constructor')
         require(h.u32(setup)==1 and h.u32(setup+0x18c)==0 and h.u32(setup+0x1c0)==h.save,
                 'trainer pre-entry identity mismatch')

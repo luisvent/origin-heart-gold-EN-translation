@@ -12,7 +12,7 @@ from native_battle_helpers import NativeSession, capture_failure
 from native_battle_oracles import require
 from native_items_fixture import prepare, install_player, install_enemy_at_launch, TRAINER
 from native_items_oracles import events, trainer_entry, input_fixture
-from native_items_cases import CASES
+from native_items_cases import CASES, GATE_ITEM
 from native_items_gates_oracles import GATES, denied, continued, selected_target
 from native_items_gates_trace import GateTrace
 
@@ -21,7 +21,7 @@ def fixture(receipt,out):
     from emu_harness import SaveFile
     from ndspy.rom import NintendoDSRom
     from ndspy.narc import NARC
-    f=prepare(receipt,out,17)
+    f=prepare(receipt,out,GATE_ITEM)
     r=NintendoDSRom.fromFile(receipt['output']['path'])
     berry=bytes(NARC(r.getFileByName('a/0/1/7')).files[151])
     bits=int.from_bytes(berry[8:10],'little')
@@ -29,7 +29,7 @@ def fixture(receipt,out):
     battery=SaveFile(f['battery']);battery.transaction([dict(type='setPocket',name='berries',items=[[151,3]])])
     target=f['battery'].parent/'gates-input.sav';battery.write(target)
     f['metadata'].update(input_battery_path=str(target),input_battery_sha256=sha256(target),
-        fault_fixture=True,stock=[[17,3],[151,3]],pecha_payload=list(berry))
+        fault_fixture=True,stock=[[GATE_ITEM,3],[151,3]],pecha_payload=list(berry))
     f['battery']=target
     write_json(out/'items-fixture.json',f['metadata']);write_json(target.parent/'provenance.json',f['metadata'])
     return f
@@ -43,12 +43,12 @@ def play(s,t,run,flush):
         from native_items_remembered import denied as deny_oracle, continued as continue_oracle
     def point(label):s.checkpoint(label,run);flush()
     require(h.wait_screen('battle_menu',1800),'trainer menu not reached')
-    trainer_entry(run);run['before']=t.state();input_fixture(run['before'],CASES[17]);point('trainer-menu')
+    trainer_entry(run);run['before']=t.state();input_fixture(run['before'],CASES[GATE_ITEM]);point('trainer-menu')
     if run['gate']=='remembered':t.armed=True
     s.touch(*BATTLE_BUTTONS['bag'],after=180)
     require(events(run,'lists'),'Bag list missing');point('bag-categories')
     lists=events(run,'lists')[-1]['lists']
-    require(lists[1]==[dict(item=151,quantity=3)] and not any(e['item']==17 for ls in lists for e in ls),
+    require(lists[1]==[dict(item=151,quantity=3)] and not any(e['item']==GATE_ITEM for ls in lists for e in ls),
             'unexpected restricted list; refusing blind selection')
     if run['gate']=='remembered':
         require(t.injected and not t.in_gate,'native remembered input check did not complete')
@@ -98,7 +98,7 @@ def main():
     p.add_argument('--receipt',type=Path,default=ROOT/'work/build/difficulty-v2/integration-impl/receipt.json')
     p.add_argument('--out',type=Path,required=True)
     p.add_argument('--gate',choices=(*GATES,'remembered'),required=True)
-    p.add_argument('--fault-item',type=int,choices=(17,791,65535),default=17)
+    p.add_argument('--fault-item',type=int,choices=(GATE_ITEM,791,65535),default=GATE_ITEM)
     args=p.parse_args()
     if args.gate=='remembered' and args.fault_item not in (791,65535):
         p.error('remembered input scope accepts only malformed IDs; authentic Potion persistence is separate')
@@ -106,7 +106,7 @@ def main():
     out=args.out.resolve()
     if not out.is_relative_to(OUTPUT):p.error('Output outside owned tests directory')
     out.mkdir(parents=True,exist_ok=True)
-    run=dict(name='gate-'+args.gate,gate=args.gate,fault_item=args.fault_item,item=17,flags=0,events=[])
+    run=dict(name='gate-'+args.gate,gate=args.gate,fault_item=args.fault_item,item=GATE_ITEM,flags=0,events=[])
     result=dict(status='running',driver='native_items_gates.py',layer='native ARM gameplay item gates',
         started_utc=utc(),nonce=os.environ.get('DG_TEST_NONCE'),old_state_loaded=False,cases={},battle=run,
         scope='Singles nativeFaultInput; no doubles or remembered-item acceptance')
@@ -136,8 +136,8 @@ def main():
             if args.gate=='target':artifacts.extend([out/'party-targets.png',out/'bag-reopened.png'])
             result['checkpoint_artifacts']=[dict(path=str(a),sha256=sha256(a)) for a in artifacts]
             # Invalid selected IDs are additional safety slices, not substitute
-            # evidence for the real restricted Potion at each gate.
-            if args.fault_item==17:
+            # evidence for the real restricted (DEFAULT-denied) item at each gate.
+            if args.fault_item==GATE_ITEM:
                 result['cases'][GATES[args.gate][2]]=dict(status='passed',artifacts=result['checkpoint_artifacts'])
             result.update(status='passed',checkpoint='passed')
     except BaseException:

@@ -1,7 +1,7 @@
 id = "blank-player-name"
 title = "Fill the player-name buffer a script's message actually reads"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-2335", "D-2336", "D-2337", "D-2338", "D-2339"]
 requires = []
 why = """
@@ -17,9 +17,7 @@ three branches) has the same order problem as (2). Buffers do not survive from o
 to the next (emulator), so nothing else fills them. Reproduced in the emulator on the
 Chinese ROM (name missing in all three) and fixed on patched ROMs.
 
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only blank-player-name). Tester xdeltas exist (rc7 plus this fix).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 """
 what = """
 Member 111: change the one argument byte of BufferPlayersName at 213 from buffer 0 to

@@ -14,7 +14,7 @@ def trainer_entry(run):
             'missing/duplicate real trainer lifecycle observations')
     ctor, capture = constructors[0], captures[0]
     c, snap = capture['context'], capture['snapshot']
-    require(ctor['lr'] == 0x020507AD and ctor['flags'] == 1 and ctor['control'] == 0,
+    require(ctor['lr'] in (0x020507AD, 0x02048EEF) and ctor['flags'] == 1 and ctor['control'] == 0,
             'wrong trainer constructor/caller')
     require(c['setup'] == ctor['setup'] == capture['setup_owner'] and
             c['save'] == c['published_save'] == capture['save_owner'] and c['save'] != 0,

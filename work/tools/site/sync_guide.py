@@ -38,6 +38,9 @@ OUT = os.path.join(REPO, 'site', 'src', 'content', 'docs', 'guide')
 AREAS = os.path.join(REPO, 'site', 'src', 'data', 'areas.json')
 
 ALIASES = os.path.join(HERE, 'area_aliases.json')
+LEDGER_PATH = os.path.join(HERE, 'quest_ledger.json')
+QUEST_LEDGER = json.load(open(LEDGER_PATH, encoding='utf-8'))
+QUEST_RECORDS = {q['id']: q for q in QUEST_LEDGER['quests']}
 
 STARTERS = ('Charmander', 'Pikachu', 'Bulbasaur')
 # Bare heading ids that were shared by two quest pages when Done ticks were keyed by heading id alone.
@@ -240,7 +243,7 @@ def rewrite_links(text, depth):
         return '](%s%s)' % (url, anchor)
     # pictures sit beside the generated pages (see sync_images); Astro needs the explicit ./
     text = re.sub(r'\]\(images/', '](./images/', text)
-    text = re.sub(r'\]\(((?:\d+-[a-z0-9-]+|known-issues|README)\.md)(#[^)]*)?\)', repl, text)
+    text = re.sub(r'\]\(((?:\d+-[a-z0-9-]+|known-issues|hidden-items|README)\.md)(#[^)]*)?\)', repl, text)
     # site reference pages: "[Move tutors](/tutors/)" means the site root, whatever the base path is.
     # Guide pages sit at /guide/ (README, depth 0) or /guide/<page>/ (depth 1).
     root = '../' * (depth + 1)
@@ -250,15 +253,17 @@ def rewrite_links(text, depth):
 def sync_images(check):
     """Mirror guide/images/ into OUT/images/. Returns the names that changed."""
     out = os.path.join(OUT, 'images')
-    want = sorted(os.listdir(IMAGES)) if os.path.isdir(IMAGES) else []
-    have = set(os.listdir(out)) if os.path.isdir(out) else set()
+    def listing(root):
+        return sorted(os.path.relpath(os.path.join(d, f), root) for d, _, fs in os.walk(root) for f in fs) if os.path.isdir(root) else []
+    want = listing(IMAGES)
+    have = set(listing(out))
     changed = []
     for n in want:
         src, dst = os.path.join(IMAGES, n), os.path.join(out, n)
         if n not in have or not filecmp.cmp(src, dst, shallow=False):
             changed.append('images/' + n)
             if not check:
-                os.makedirs(out, exist_ok=True)
+                os.makedirs(os.path.dirname(dst), exist_ok=True)
                 shutil.copyfile(src, dst + '.tmp')
                 os.replace(dst + '.tmp', dst)
     for n in sorted(have - set(want)):
@@ -386,6 +391,67 @@ def link_place(areas, h, meta):
     return areas.find_all(h.split(':')[0]), False
 
 
+def validate_ledger(srcs, ledger=QUEST_LEDGER):
+    """Fail before generation if identities, provenance or required edges are stale."""
+    records = ledger['quests']
+    ids = [q['id'] for q in records]
+    if len(ids) != len(set(ids)):
+        raise SystemExit('duplicate quest IDs in ledger')
+    actual = {}
+    for fn, src in srcs.items():
+        if page_slug(fn) in ('index', 'known-issues', 'hidden-items'):
+            continue
+        for heading, meta in quest_headings(src):
+            identity = meta.get('id')
+            if not identity or identity in actual:
+                raise SystemExit('missing or duplicate stable quest ID: %s: %s' % (fn, heading))
+            actual[identity] = 'guide/%s#%s' % (fn, gh_slug(heading))
+    if set(actual) != set(ids):
+        raise SystemExit('quest ledger coverage differs from guide IDs')
+    legacy = set()
+    graph = {}
+    sources = set(actual.values())
+    for q in records:
+        if q['source'] != actual[q['id']] or q['stage'] not in ledger['stages']:
+            raise SystemExit('stale source or unknown stage: %s' % q['id'])
+        if q['review'] not in ('guide-reviewed', 'needs-review'):
+            raise SystemExit('unknown review state: %s' % q['id'])
+        if q.get('prototype') and (q['stage'] == 'unknown' or q['review'] != 'guide-reviewed'):
+            raise SystemExit('unreviewed prototype: %s' % q['id'])
+        for key in q['legacy_keys']:
+            if key in legacy or not re.fullmatch(r'guide/[^/#]+#[^#]+', key):
+                raise SystemExit('invalid or ambiguous legacy key: %s' % key)
+            legacy.add(key)
+        graph[q['id']] = []
+        for edge in q['requires']:
+            if edge['quest'] not in actual or edge['kind'] not in ('required', 'recommended', 'conditional', 'step') or edge['evidence'] not in sources:
+                raise SystemExit('invalid prerequisite: %s' % q['id'])
+            if edge['kind'] == 'required':
+                graph[q['id']].append(edge['quest'])
+        for gate in q.get('opens_after', []) + q['deadlines']:
+            if gate['milestone'] not in ledger['milestones'] or gate['evidence'] not in sources:
+                raise SystemExit('invalid milestone gate: %s' % q['id'])
+        for warning in q['warnings']:
+            if warning['evidence'] not in sources:
+                raise SystemExit('invalid warning evidence: %s' % q['id'])
+    for milestone in ledger['milestones'].values():
+        if milestone['evidence'] not in sources:
+            raise SystemExit('invalid milestone evidence')
+    visiting, finished = set(), set()
+    def visit(identity):
+        if identity in visiting:
+            raise SystemExit('cycle in required quest prerequisites: %s' % identity)
+        if identity in finished:
+            return
+        visiting.add(identity)
+        for dependency in graph[identity]:
+            visit(dependency)
+        visiting.remove(identity)
+        finished.add(identity)
+    for identity in graph:
+        visit(identity)
+
+
 def convert(fn, src, areas, shared_ids=(), report=None, force_mdx=False):
     """(file name, text) of the site page for guide/<fn>: <slug>.mdx when it has solver markers, else <slug>.md."""
     lines = src.rstrip('\n').split('\n')
@@ -422,14 +488,27 @@ def convert(fn, src, areas, shared_ids=(), report=None, force_mdx=False):
             meta = next(metas)
             where = 'guide/%s: %s' % (fn, h)
             tags = apply_meta(heading_tags(h), meta, where)
-            if slug not in ('index', 'known-issues') and 'kind' not in tags:
+            if slug not in ('index', 'known-issues', 'hidden-items') and 'kind' not in tags:
                 raise SystemExit('%s: add quest metadata with kind=main or kind=side' % where)
             attrs = ['data-%s="%s"' % (k, html.escape(','.join(v) if isinstance(v, list) else v if isinstance(v, str) else 'yes', quote=True)) for k, v in sorted(tags.items())]
             if meta.get('id'):
                 attrs.append('data-quest-id="%s"' % html.escape(meta['id'], quote=True))
+                record = QUEST_RECORDS.get(meta['id'])
+                if record:
+                    extra = {'legacy-keys': json.dumps(record['legacy_keys'], ensure_ascii=False)}
+                    prototype = record.get('prototype')
+                    if prototype:
+                        extra.update({'checklist-title': prototype['title'],
+                                      'checklist-location': prototype['location'],
+                                      'checklist-order': str(prototype['order']),
+                                      'checklist-stage': record['stage'],
+                                      'checklist-stage-label': QUEST_LEDGER['stages'][record['stage']],
+                                      'checklist-notes': json.dumps([x['summary'] for x in record['deadlines'] + record['warnings']], ensure_ascii=False),
+                                      'checklist-starter': ','.join(record['applicability'].get('starter', []))})
+                    attrs.extend('data-%s="%s"' % (k, html.escape(v, quote=True)) for k, v in extra.items())
             if gh_slug(h) in shared_ids:
                 attrs.append('data-legacy-shared="yes"')
-            in_quest = slug not in ('index', 'known-issues')
+            in_quest = slug not in ('index', 'known-issues', 'hidden-items')
             if in_quest:
                 body += ['<section class="quest" %s>' % ' '.join(attrs) if attrs else '<section class="quest">', '']
             body.append(ln)
@@ -458,6 +537,8 @@ def convert(fn, src, areas, shared_ids=(), report=None, force_mdx=False):
         fm += ['  label: Overview']
     if fn == 'known-issues.md':
         fm += ['  label: Known issues']
+    if fn == 'hidden-items.md':
+        fm += ['  label: Hidden items']
     fm += ['source: guide/%s' % fn, 'editUrl: false', '---', '']
     text = text.strip('\n') + '\n'
     if not (solvers or force_mdx):
@@ -484,11 +565,12 @@ def main(argv=None):
     for fn in sorted(os.listdir(GUIDE)):
         if fn.endswith('.md'):
             srcs[fn] = open(os.path.join(GUIDE, fn), encoding='utf-8').read()
+    validate_ledger(srcs)
     # Heading ids used on more than one quest page. Old "Done" ticks were stored by bare heading id,
     # so a tick on one of these can't be told apart and is not carried over (see site/public/ohg.js).
     pages_of, quest_ids = {}, {}
     for fn, src in srcs.items():
-        if page_slug(fn) in ('index', 'known-issues'):
+        if page_slug(fn) in ('index', 'known-issues', 'hidden-items'):
             continue
         for h, meta in quest_headings(src):
             pages_of.setdefault(gh_slug(h), set()).add(fn)

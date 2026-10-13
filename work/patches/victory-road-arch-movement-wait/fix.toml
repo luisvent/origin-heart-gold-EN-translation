@@ -1,0 +1,62 @@
+id = "victory-road-arch-movement-wait"
+title = "Victory Road exterior: the arch in front of the stairs no longer freezes the final chapter"
+kind = "narc"
+enabled = true
+decisions = ["D-2416", "D-2415"]
+requires = []
+why = """
+Players: in the final chapter (after the Goldenrod Radio Tower speech), the game freezes on the Victory Road
+exterior the moment you step onto the row under the arch in front of the stairs, on the way to the gathering
+with Blue, Green, Silver and the others. The picture stops, the music may go on, nothing responds. Reported on
+a real DS Lite (Discord, 2026-10-12, photo of the frozen screen under the arch). The row spans the whole arch,
+so the final chapter cannot be reached. The untouched Chinese ROM freezes in the same place, so this is a bug
+of the hack.
+
+Status: enabled for rc8. User-approved fix of a hack bug (D-2416, 2026-10-12; D-2415 is the finding); tested by the user.
+
+Technical: script file 763 (a/0/1/2 member 763, the Victory Road exterior, zone 431) has a coord trigger on
+x 13-17, y 38 for var 0x409E == 7 (script 47). It checks flag 2307 and jumps to L5763, which places objects
+33-43 (MovePersonFacing) and starts ten ApplyMovement (objects 33, 34, 36-43), then ends with End: no
+WaitMovement and no LockAll. The movement tasks outlive the script. On melonDS 1.1 the game takes a data abort
+at 0x0204FAD8 ('ldr r0, [r0, #0xc]', a task's environment read through a NULL pointer; CPSR 0x97, abort LR
+0x0204FAE0) a few frames after the step, at the same frame on the Chinese ROM and the rc7 English build.
+DeSmuME does not emulate the ARM9 protection unit and keeps going, which is why the hack shipped like this.
+Experiments on the English build: NOP-ing the ten ApplyMovement, or waiting for them before the script ends,
+both remove the freeze.
+"""
+what = """
+Old: script 47 = CheckFlag 2307; GoToIf (flag clear) L5763; End. L5763 ... ApplyMovement x10; End.
+New: script 47 = Call L5763; WaitMovement; End. L5763 ... ApplyMovement x10; Return.
+The script now waits until the ten NPCs have finished their short walks (the player stands still for that
+moment) and then ends. Same placements, same movements, same trigger, same everything else; no other script
+jumps to L5763 or to the changed bytes (the three old bytes after the new End are never executed).
+The flag 2307 check is dropped: it cannot fail while the trigger can run. The trigger needs var 0x409E == 7,
+which only the Radio Tower scene sets (file 34 @6114), and the same trip clears 2307 (file 34 @3274); 2307 is
+set only together with var 0x409E = 8 (file 763 @5701/@5707) and in the post-game (file 842 @440, var 19), and
+the var never goes back to 7.
+"""
+evidence = [
+  "D-2415: the finding (zone 431, script 763/47, fault 0x0204FAD8 on both ROMs, DS Lite report)",
+  "melonDS 1.1, 2026-10-12: emu_harness.py hang --case victory_road_arch: the untouched Chinese ROM and the build without this fix hang at 0x0204FAD8 on the step onto (14,38); the build walks on up the stairs",
+  "DeSmuME, 2026-10-12: the same walk passes on every ROM (no protection unit), so `fixes` has no scenario for it (emu_fixes.UNCOVERED)",
+]
+
+[[narc_bytes]]
+id = "arch-trigger-call-and-wait"
+narc = "a/0/1/2"
+member = 763
+offset = "0x96D"
+expect = "0020 0903 001C 0B00 000D"
+new = "001A 0D10 0000 005F 0002"
+member_sha1 = "dd017d15a77e95889e42c16038b8ae4342f3f26a"
+notes = "Script 47 at 2413: 'CheckFlag 2307; GoToIf 0, L5763' -> 'Call L5763 (rel 3344); WaitMovement; End'. The old bytes 2423-2425 stay, dead after End."
+
+[[narc_bytes]]
+id = "arch-movements-return"
+narc = "a/0/1/2"
+member = 763
+offset = "0x1757"
+expect = "0x0002"
+new = "0x001B"
+member_sha1 = "dd017d15a77e95889e42c16038b8ae4342f3f26a"
+notes = "End of L5763 at 5975: End -> Return, so the block returns to script 47's WaitMovement."

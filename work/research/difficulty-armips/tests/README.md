@@ -660,6 +660,16 @@ not yet implemented. Doubles and fresh final positive revival counts remain
 pending; previous runs are historical after source edits.
 
 
+## ITEMS DEFAULT revision (D-2412)
+
+DEFAULT keeps the untouched Chinese battle-item rules, so Potion (17) is visible and usable
+in both DEFAULT and ALL, like the berries and the flutes (`restricted_allowed`). Exactly
+twenty medicines are ALL-only additions (`ADDITIONS`). The singles/doubles gate probes
+and the persistence diagnostic therefore use `GATE_ITEM` (Hyper Potion 25, an addition
+with the same HP-1 fixture) as the DEFAULT-denied item instead of Potion; their job ids
+end in `-item-00025`. Potion is covered by its own all/restricted pair as the
+native-eligible control.
+
 ## Authentic remembered Potion persistence diagnostic
 
 After receipt rebuild, parent runs one cold boot containing two native battles:

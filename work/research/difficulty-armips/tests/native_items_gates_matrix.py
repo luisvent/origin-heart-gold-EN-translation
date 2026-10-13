@@ -4,9 +4,10 @@ import uuid
 from pathlib import Path
 from evidence import write_json
 from native_items_gates_oracles import GATES
+from native_items_cases import GATE_ITEM
 
 
-def plan(root,item=17):
+def plan(root,item=GATE_ITEM):
     return _plan(root,[(gate,item) for gate in GATES])
 
 
@@ -15,14 +16,14 @@ def plan_remembered(root):
 
 
 def plan_persistence(root):
-    jobs=_plan(root,[('persistence',17)])
+    jobs=_plan(root,[('persistence',GATE_ITEM)])
     for job in jobs:job['persistence']=True
     return jobs
 
 
 def plan_doubles(root,full=False):
     specs=[(gate,slot) for slot in (0,1) for gate in GATES] if full else [('item',1)]
-    jobs=_plan(root,[(f'doubles-{gate}-slot{slot}',17) for gate,slot in specs])
+    jobs=_plan(root,[(f'doubles-{gate}-slot{slot}',GATE_ITEM) for gate,slot in specs])
     for job,(gate,slot) in zip(jobs,specs):job.update(doubles=True,double_gate=gate,slot=slot)
     return jobs
 

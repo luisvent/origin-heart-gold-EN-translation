@@ -31,7 +31,8 @@ class BattleInput:
     def __init__(self, session, trace, run):
         self.s, self.h, self.trace, self.run = session, session.h, trace, run
         self.index = 0
-        self.roster_ids = tuple(range(1, run.get('slots', 3)+1)) + (13,)
+        if 'slots' in run:      # a run with its own party size; otherwise keep the (sub)class roster, e.g. MultiInput's 13 and 14
+            self.roster_ids = tuple(range(1, run['slots']+1)) + (13,)
 
     def state(self, allow_absent_ui=False, raw=None):
         h = self.h

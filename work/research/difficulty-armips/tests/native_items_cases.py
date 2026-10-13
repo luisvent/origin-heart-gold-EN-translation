@@ -14,7 +14,7 @@ def medicine(name, category, mask, status=0, hp=None, healing=0, status_payload=
 
 
 CASES = {
-    17: medicine('Potion',0,4,hp=1,healing=20),
+    17: medicine('Potion',0,4,hp=1,healing=20,restricted_allowed=True),   # DEFAULT keeps the Chinese item rules, which allow Potions (D-2412)
     18: medicine('Antidote',1,8,status=8,status_payload=2),
     19: medicine('Burn Heal',1,8,status=16,status_payload=4),
     20: medicine('Ice Heal',1,8,status=32,status_payload=8),
@@ -42,6 +42,9 @@ CASES.update({
 PP_ONLY = (38,39,40,41)
 PP_REVIVE = (38,28,39,40,41,29,37)
 ADDITIONS = tuple(i for i in CASES if i != 17)
+# Hyper Potion: an addition (CN mask 0) with the same HP-1 fixture as Potion. Gate and
+# persistence probes inject/remember it because Potion is allowed in DEFAULT (D-2412).
+GATE_ITEM = 25
 # Preserve the twenty additions separately from already-native eligible items.
 BERRY_FLUTE = (151,155,154,65)
 CASES.update({

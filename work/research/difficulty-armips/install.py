@@ -17,11 +17,12 @@ from build import (ROOT, SOURCE, OUTPUT, BASE, LIMIT, LLD, require, sha, pin, bu
 
 BASES = {'arm9.bin': 0x02000000, 'itcm.bin': 0x01FF8000,
          'overlay9.bin': 0x021E4DA0, 'overlay14.bin': 0x022007E0, 'overlay50.bin': 0x021E4980}
-# Completed 47-fix RC7 baseline. Every difference from the historical input is
-# attributed in work/notes/rc7_difficulty_compatibility_20261010.md.
-INPUT_SHA = '18b6d1478af1740ec693cb30b02da2a8d37b0f715d105f0410466bc4dd355940'
+# Completed 69-fix RC8 baseline. Every difference from the RC7 baseline (47 fixes,
+# SHA-256 18b6d147...) is attributed in work/notes/rc8_difficulty_compatibility_20261013.md;
+# the RC7 review is work/notes/rc7_difficulty_compatibility_20261010.md.
+INPUT_SHA = 'f23e22632620454698c9a8f96b6e834737327b86fa5e5b9c3247d58f7a4d492d'
 OV_PINS = {9: (39040, 'f66e9ff1ec5525797654017d246c4d61f2ae70382d25e83df0e1680dbb890b0d'),
-           14: (337216, 'd6ec23a42bd81993913360e4a4335a7142caed5e77a47ac597e882b98472ed2a')}
+           14: (337216, '7c98bd2050bc3ffc71ebe3a31be6dd9680d2bf090c2b2206ee7b36bbfe5c93c1')}
 ITEM_RANGES = [(0x02202954,0x0220297E,'c0e1c2238dc930beb13445bd0e936066f3cd47b1b681472b6efa1255b5fd3304'),
                (0x02202AC2,0x02202ADC,'63d4cdb09516692fd75aa819fe3e632d9822e0698bd662377cbdffa7809c872c'),
                (0x02202BE0,0x02202BF4,'36db224ad0f945fe9d0ba83cf7ad5efb74e054c04a25b50612fe0b9bd39de2fc')]

@@ -1,7 +1,7 @@
 id = "romance-mail-mismatch"
 title = "Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-2332", "D-2333"]
 requires = []
 why = """
@@ -14,9 +14,7 @@ Separately, in the 1F Cynthia branch that has the rest option, choosing "I'm bus
 (file 842, offset 7161) shows Misty's line (msg 212) instead of Cynthia's (msg 218),
 which every other Cynthia fall-through (offsets 7228 and 8389) uses.
 
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only romance-mail-mismatch). Tester xdeltas exist (rc7 plus this fix).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 """
 what = """
 Three byte edits in a/0/1/2: file 842 offset 7163 NPCMsg argument 212 -> 218; file 842

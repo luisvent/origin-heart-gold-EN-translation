@@ -7,8 +7,8 @@
 
 melonDS 1.1 emulates the ARM9 protection unit, so a NULL read the hack makes is a data abort there (and on
 hardware) and the game hangs in the abort handler; DeSmuME reads address 0 and goes on. A case may first edit a
-copy of the save (teleport for Continue with the ground height, event flags, party lead species and count), then
-boots it, picks Continue and walks its steps one tile at a time. It stops at the goal, on an ARM9 abort, or when a step fails (an event took over),
+copy of the save (teleport for Continue with the ground height, event flags and vars, party lead species and count),
+then boots it, picks Continue and walks its steps one tile at a time (WAIT: 120 frames for a door warp to settle). It stops at the goal, on an ARM9 abort, or when a step fails (an event took over),
 then watches the game for a while (Harness.hang_report) and judges:
     hang   the ARM9 sits in abort mode (melonDS), or a black screen never changes, and the goal was not reached
     pass   the goal was reached, no data abort happened and the screen still changes
@@ -19,6 +19,9 @@ Cases:
     follower_route22   the same at Misty's first encounter on Route 22 (north shore of the pond): Bulbasaur leading,
                        Misty's flag cleared, a crossing into Viridian City and back so the map loads her, then
                        the players' way to her at (968,270) and one step away
+    victory_road_arch  D-2331: the final chapter (var 0x409E = 7, the Radio Tower scene's flags), from the League
+                       reception gate north through the door onto the Victory Road exterior and up to the arch row
+                       in front of the stairs (14,38), where script 47 starts ten NPC movements, then up the stairs
     save               any save as it is: Continue, then the --walk steps (none: only watch the field). The goal
                        is --goal (x,y after the last step) or, without it, every step moving. An abort while
                        Continue loads the map counts as a hang (no step is walked). Reproductions of the
@@ -65,6 +68,21 @@ CASES = {
                          "steps": ("RIGHT",) * 4 + ("LEFT",) * 4 + ("DOWN",) * 12 + ("LEFT",) * 4 + ("UP",) * 11
                          + ("LEFT",) * 18 + ("DOWN",) * 2 + ("RIGHT",) * 2 + ("LEFT",),
                          "goal": (967, 270), "fault_pc": 0x02024528},
+    # The Victory Road exterior (zone 431) in the final chapter. The Radio Tower scene (script file 34 @6114) sets
+    # var 0x409E = 7 and the flags below; 2010 (the qualifier crowd's hide flag, file 763 @998) and 223 (the
+    # Badge guard, file 34 @3195) are set by then, 0x4084 = 1 since the guard let the player pass. Continue only
+    # restores the saved objects, so the walk starts in the League reception gate (zone 299) and enters through
+    # the door at (11,2): the exterior then loads its NPCs, Blue's group (objects 33-43) and Yellow's (46-55).
+    # The step onto (14,38) runs script 47 (file 763 L5763). Fixed by work/patches/victory-road-arch-movement-wait.
+    "victory_road_arch": {"sav_sha256": "b3aca10747cd0f1adc3d5852a50dddaaa36ed8680f5ba04012cfe3110faad90f",
+                          "teleport": (299, 11, 4, "UP"),
+                          "vars": {0x409E: 7, 0x40A2: 23, 0x4077: 5, 0x4084: 1},
+                          "flags": {1108: True, 499: True, 1964: True, 1806: True, 514: True, 223: True, 2010: True,
+                                    759: False, 1097: False, 749: False, 746: False, 2311: False, 710: False,
+                                    2307: False, 2308: False, 2309: False, 2261: False},
+                          "start": (299, 11, 4),
+                          "steps": ("UP",) * 3 + ("WAIT",) + ("UP",) * 4 + ("LEFT",) * 10 + ("UP",) * 8,
+                          "goal": (14, 31), "fault_pc": 0x0204FAD8},
 }
 RTC = datetime.datetime(2026, 10, 9, 12, 0, 0)
 
@@ -93,7 +111,7 @@ def sha256(path):
 def prepare_save(eh, sav, case, species, folder):
     """The save to boot: the input itself, or an edited copy in `folder` (teleport and height, flags, party lead
     and count)."""
-    if not {"teleport", "species", "flags"} & set(case):
+    if not {"teleport", "species", "flags", "vars"} & set(case):
         return sav
     sf = eh.SaveFile(sav)
     if "teleport" in case:
@@ -101,6 +119,8 @@ def prepare_save(eh, sav, case, species, folder):
         sf.place_player(m, x, y, d, height=case.get("height", 0))
     for flag, value in case.get("flags", {}).items():
         sf.set_flag(flag, value)
+    for var, value in case.get("vars", {}).items():
+        sf.set_var(var, value)
     if "species" in case:
         sf.edit_party_mon(0, species=species or case["species"], form=0)
         sf.set_party_count(case.get("party_count", 6))
@@ -110,7 +130,7 @@ def prepare_save(eh, sav, case, species, folder):
 def save_case(a):
     """The `save` case from --walk / --goal / --fault-pc."""
     steps = tuple(d.strip().upper() for d in a.walk.split(",") if d.strip())
-    bad = [d for d in steps if d not in ("UP", "DOWN", "LEFT", "RIGHT")]
+    bad = [d for d in steps if d not in ("UP", "DOWN", "LEFT", "RIGHT", "WAIT")]
     if bad:
         raise SystemExit(f"--walk: unknown direction(s) {bad}")
     goal = tuple(int(v) for v in a.goal.split(",")) if a.goal else None
@@ -126,6 +146,9 @@ def walk_case(h, case, watch_frames=240):
         raise RuntimeError(f"the field starts at {h.position()}, the case expects {tuple(case['start'])}")
     early = h.arm9_abort() if h.emulator == "melonds" else None     # e.g. while Continue loaded the map
     for d in case["steps"] if not early else ():
+        if d == "WAIT":                     # let a door warp finish before the next step
+            h.step(120)
+            continue
         ok = h.step_dir(d)
         pos = h.position()
         abort = h.arm9_abort() if h.emulator == "melonds" else None
@@ -137,7 +160,7 @@ def walk_case(h, case, watch_frames=240):
     h.screenshot("after_watch")
     rep["steps"] = steps
     rep["abort_before_walking"] = early is not None
-    done = not early and len(steps) == len(case["steps"]) and all(s["moved"] for s in steps)
+    done = not early and len(steps) == sum(d != "WAIT" for d in case["steps"]) and all(s["moved"] for s in steps)
     if case.get("goal") is None:
         rep["reached_goal"] = done
     else:

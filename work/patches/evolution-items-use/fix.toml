@@ -1,7 +1,7 @@
 id = "evolution-items-use"
 title = "Items that evolve a Pokémon when used (Ice Stone, Cracked Pot, Galarica Cuff/Wreath, apples, armors, Dragon Scale) get the Bag's Use entry"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-2392"]
 requires = []
 why = """
@@ -18,10 +18,7 @@ Technical: the item table a/0/1/7 has one 34-byte record per item. Bytes 10..15 
 items above have zeros. The fix copies those six bytes from the Fire Stone record; the price, hold effect, pocket
 and everything else stay. Evolution records (a/0/3/4) are untouched: they already name these items with method 7.
 
-Status: disabled. Reviewed against the Chinese ROM at merge (the nine records read all zeros at bytes 10..15, the
-member SHA-1 guards match). Merged into develop on 2026-10-12 as a separate, switched-off patch at the user's request:
-the standard build keeps the Chinese behaviour and builds this only on request (build.py --only evolution-items-use).
-Notes: work/notes/ice-stone-use_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 """
 what = """
 Old: the nine items open the Bag menu with TRASH / GIVE / MOVE only; their evolutions can never happen.

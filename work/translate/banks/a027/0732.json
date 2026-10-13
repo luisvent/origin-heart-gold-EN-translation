@@ -153,7 +153,7 @@
    "en": "Lairon, smash through Mr. Mime’s{NEWLINE}barrier with Iron Head!",
    "status": "draft",
    "origin": "agent",
-   "notes": "Hack text error fixed with user approval (D-0691, D-1496). | D-2398: zh 可多拉 is Lairon (the drawn sprite 766); the English said Onix. Text-only correction from the Chinese; the PlayCry in this script stay as the Chinese has them (they play Onix, finding D-2400)."
+   "notes": "D-2398 (user ruling 2026-10-13, reverses the Onix wording approved under D-0691/D-1496): zh 可多拉 is Lairon (the drawn sprite 766); the English said Onix. Text-only correction from the Chinese; the PlayCry in this script stay as the Chinese has them (they play Onix, finding D-2400)."
   },
   {
    "id": 19,
@@ -161,7 +161,7 @@
    "en": "Lairon: Laaa-ro!",
    "status": "draft",
    "origin": "agent",
-   "notes": "Hack text error fixed with user approval (D-0691, D-1496). | D-2398: zh 可多拉 is Lairon (the drawn sprite 766); the English said Onix. Text-only correction from the Chinese; the PlayCry in this script stay as the Chinese has them (they play Onix, finding D-2400)."
+   "notes": "D-2398 (user ruling 2026-10-13, reverses the Onix wording approved under D-0691/D-1496): zh 可多拉 is Lairon (the drawn sprite 766); the English said Onix. Text-only correction from the Chinese; the PlayCry in this script stay as the Chinese has them (they play Onix, finding D-2400)."
   },
   {
    "id": 20,

@@ -2,6 +2,7 @@
 from copy import deepcopy
 from native_battle_oracles import require
 from native_items_oracles import events, trainer_entry
+from native_items_cases import GATE_ITEM
 
 GATES = {'accept':('dg_bag_accept',13,'items.accept'),
          'item':('dg_bag_commit_item',0,'items.backstop_item'),
@@ -78,8 +79,8 @@ def denied(run):
     require(row['snapshot']==before['snapshot'],'fault epoch differs from battle')
     lists=events(run,'lists')
     require(lists and all(any(e['item']==151 for e in x['lists'][1]) and
-            not any(e['item']==17 for entries in x['lists'] for e in entries) for x in lists),
-            'restricted list did not retain Pecha/exclude Potion')
+            not any(e['item']==GATE_ITEM for entries in x['lists'] for e in entries) for x in lists),
+            'restricted list did not retain Pecha/exclude the DEFAULT-denied item')
     for name in ('command','effect','outcome','consume','action','target_resolved','ordinary_hp','status_effect','pp_one','pp_all','revive','exception'):
         require(not events(run,name),'denied input reached native '+name)
     require(not events(run,'slot_advance'),'denied input advanced command slot')

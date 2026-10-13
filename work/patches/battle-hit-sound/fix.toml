@@ -1,7 +1,7 @@
 id = "battle-hit-sound"
 title = "Battles: a move that deals damage plays the hit sound again (normal, super effective, not very effective)"
 kind = "code"
-enabled = false
+enabled = true
 decisions = ["D-2342"]
 requires = []
 asm = "battle-hit-sound.asm"
@@ -11,25 +11,7 @@ don't hear the noise of your attack hitting'; 'Pikachu's Electro Ball has no sou
 off'). HeartGold plays a hit sound with every damaging hit, louder for a super-effective one and softer for a
 not-very-effective one. The untouched Chinese hack never plays it, so this is a bug of the hack.
 
-Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
-(D-2342, 2026-10-09); other hack bugs stay report-only.
-
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only battle-hit-sound).
-
-Technical: the hack replaced HeartGold's battle code with its own engine in overlay 14, which drives the
-screen with a list of commands. Command 8 (command table 0x0224ABC0, entry 8; BattleAct_MoveDamage,
-0x02204CF0; 'command 8' in faint-waits-for-hp-bar too) shows a move's damage: arguments [target count, effectiveness class, move id, ...], per target a
-battler id and the damage. It starts the target's blink and the HP-bar drain, but plays no sound, and no code
-in the hack plays the hit sounds SEQ_SE_DP_KOUKA_H/L/M (1788/1789/1790; every overlay and arm9 searched, and
-the PlaySE / sequence-start calls logged in battle). HeartGold plays them from battle command 215
-(PlayMoveHitSoundEffect) through the client handler at US overlay12 0x0225B3D4: normal 1790, super
-effective 1788, not very effective 1789. The effectiveness class of command 8 is 1 normal, 2 super effective,
-3 not very effective (observed with the battle messages 2#74 / 2#75). HeartGold sends 0 (normal), 1 (not very
-effective) or 2 (super effective) from the move's effectiveness flags only, so every damaging hit without an
-effectiveness flag (fixed damage such as Seismic Toss or Dragon Rage, Future Sight) plays 1790; the hack sends
-class 1 for those, so they match.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 """
 what = """
 Old: command 8 builds its target and damage lists, starts the blink and the HP bar; no sound.

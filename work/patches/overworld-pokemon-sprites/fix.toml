@@ -1,7 +1,7 @@
 id = "overworld-pokemon-sprites"
 title = "Draw stationary overworld Pokemon as the species their Chinese text and cry name"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-2395", "D-2396", "D-2398"]
 requires = []
 why = """
@@ -16,17 +16,14 @@ Patrat. Rule (user decision 2026-10-12, D-2398): the sprites follow the Chinese 
 RECHECK WHEN 4.1.0 RELEASES: every object in work/notes/overworld-pokemon-sprite-mismatch_fix.md (section "Recheck when 4.1.0
 releases") must be looked at again in the game, because 4.1.0 may change the sprites.
 
-Status: disabled. Merged into develop on 2026-10-12 as a separate, switched-off patch at the user's request: the standard
-build keeps the Chinese behaviour and builds this only on request (build.py --only overworld-pokemon-sprites). The byte guards
-(member SHA-1 and expected value of every entry) were re-checked against the Chinese ROM at merge. Notes:
-work/notes/overworld-pokemon-sprite-mismatch_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 """
 what = """
-Replace the sprite id of 37 object events with the following-Pokemon sprite id of the species the object's Chinese text and cry name
+Replace the sprite id of 36 object events with the following-Pokemon sprite id of the species the object's Chinese text and cry name
 (428 + base offset from the table): the vanilla NPC-Pokemon ids 994..1046 whose speaker label and cry agree (Jigglypuff, Machoke,
 Ampharos, Pikachu, Slowbro, the Pokeathlon and Safari warden Pokemon, Kyogre, Abra, ...), the second Indigo Plateau Metagross
 (Tyranitar 709, same script as the Metagross objects drawn 837), Kirk's Sylveon (Leafeon 946; its cry disagrees with its label: label
-wins, needs user check) and the S.S. Aqua Bulbasaur (Ivysaur 429; label and sound say Bulbasaur, cry says Ivysaur: needs user check).
+wins, needs user check). The S.S. Aqua Bulbasaur is left drawn as Ivysaur (label and sound say Bulbasaur, the cry says Ivysaur; user decision of 2026-10-13).
 Only the 2-byte sprite id changes; position, flag, script, movement and facing stay. Silent objects (Mount Moon Clefairy, Moomoo
 Farm Miltank, Pokeathlon Poliwrath) and the Route 21 Lairon are not changed. Text and cries are not touched.
 """
@@ -394,13 +391,3 @@ expect = "0x03B2"
 new = "0x04B0"
 member_sha1 = "1a27507d921675fb3d5ddac2efaa00f309d2232d"
 notes = "Kirk's house (Cianwood): object 8 sprite 946 -> 1200 (Sylveon)."
-
-[[narc_bytes]]
-id = "ev299-obj28-bulbasaur"
-narc = "a/0/3/2"
-member = 299
-offset = "0x38A"
-expect = "0x01AD"
-new = "0x01AC"
-member_sha1 = "6f6f891ef943d8af5f5d7a014e20f270c2b29239"
-notes = "S.S. Aqua 1F north-west rooms: object 28 sprite 429 -> 428 (Bulbasaur)."

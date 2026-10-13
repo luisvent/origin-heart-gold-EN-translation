@@ -56,6 +56,12 @@ def exercise(session, trace, report):
     if report['case'] != 'grass':
         partner = report['case'] == 'trainer4b'
         prefix = [('SetFlag', 0x961), ('SetVar', 0x403f, 385)] if partner else []
+        if report['case'] == 'trainer13':
+            # A scripted double battle (entry type 0x13) started with fewer than two Pokemon freezes the original game on hardware;
+            # the enabled double-battle-single-fallback fix turns it into a single battle (entry type 1). Give the fixture the
+            # two-Pokemon party the native double-battle entry needs, so this job still exercises entry type 0x13.
+            while len(h.party()) < 2:
+                h.generate_pokemon(19, level=5)
         commands = [('LockAll',), *prefix, ('TrainerBattle', 6, 8, 0, int(partner)), ('ReleaseAll',), ('End',)]
         report['script'] = [list(c) for c in commands]
         run = dict(name=report['case'], events=[], control_trace=[])

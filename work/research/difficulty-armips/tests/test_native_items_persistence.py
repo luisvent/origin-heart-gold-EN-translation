@@ -4,16 +4,17 @@ import json
 from pathlib import Path
 import unittest
 from support import ROOT, scratch
-from test_native_items import sample
+from test_native_items import sample, medicine_sample
+from native_items_cases import GATE_ITEM
 from native_items_persistence import validate, fixture
 from native_items_gates_matrix import plan, plan_remembered, plan_persistence, report_paths
 
 
 def evidence():
-    first=sample(True)
+    first=medicine_sample(GATE_ITEM,0,True)
     for state in (first['before'],first['after']):state['mons']['13']['hp']=1
     first['after_potion']=first.pop('after')
-    first['events'].append(dict(name='remember_set',item=17,stored_item=17,category=0,stored_category=0))
+    first['events'].append(dict(name='remember_set',item=GATE_ITEM,stored_item=GATE_ITEM,category=0,stored_category=0))
     first['potion_event_count']=len(first['events'])
     first['events'] += [dict(name='move_verified',actor=1,move=82),dict(name='award_actor',enemy=dict(hp=0)),
         dict(name='teardown'),dict(name='root_free',root=first['before']['snapshot']['root'],after=dict(epoch=0))]
@@ -25,10 +26,10 @@ def evidence():
     for e in second['events']:
         if e['name']=='captured':e['generation']=3;e['snapshot']['epoch']=3
         if e['name']=='lists':e['args']['remembered']=0
-    before=bytearray(0x30);before[0x1c]=17
-    second['events'] += [dict(name='remember_check',before=dict(remembered=17,bag=500),after=dict(remembered=0),
+    before=bytearray(0x30);before[0x1c]=GATE_ITEM
+    second['events'] += [dict(name='remember_check',before=dict(remembered=GATE_ITEM,bag=500),after=dict(remembered=0),
         result=0,raw_before=before.hex(),raw_after=bytes(0x30).hex()),
-        dict(name='remembered',item=17,quantity=1,result=0,bag=500)]
+        dict(name='remembered',item=GATE_ITEM,quantity=1,result=0,bag=500)]
     second['command_before']=second['command_after']=dict(slot=0,command='00'*12)
     hashes=['a'*64,'b'*64,'c'*64];second['player_backing_hashes']=hashes
     field=dict(hashes=hashes,inventory=dict(quantity=2,bag=second['before']['bag']))

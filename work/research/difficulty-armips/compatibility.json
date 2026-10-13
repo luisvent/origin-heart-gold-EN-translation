@@ -7,7 +7,7 @@
       "arm9": {
         "base": "0x2000000",
         "size": 1115808,
-        "sha256": "5590ddbb205b1306d309285de7ec8081c01143c7981623681a73a507406a79e9"
+        "sha256": "4b55c2e7b28ee11f69cd0fed3aeff1555ea7463c10edb5386f7043adaa9063dc"
       },
       "overlay50": {
         "base": "0x21e4980",
@@ -40,8 +40,8 @@
   },
   "roms": {
     "en": {
-      "path": "work/build/rc7-baseline/origin_hg_v4.0.3_en_wip.nds",
-      "sha256": "18b6d1478af1740ec693cb30b02da2a8d37b0f715d105f0410466bc4dd355940"
+      "path": "work/build/rc8-harness/baseline69.nds",
+      "sha256": "f23e22632620454698c9a8f96b6e834737327b86fa5e5b9c3247d58f7a4d492d"
     },
     "cn": {
       "path": "work/rom/origin_v4.0.3_cn.nds",

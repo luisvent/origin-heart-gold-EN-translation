@@ -84,11 +84,13 @@ def validate_run(run):
     # Scripted WildBattle: constructor flags0/control0, caller ORs control 8 before entry.
     # Script TrainerBattle (singles): flags1/control0 from the trainer constructor.
     kind = run.get('kind', 'wild')
-    lr, cflags, ccontrol = {'wild': (0x02050433, 0, 8), 'trainer': (0x020507AD, 1, 0)}[kind]
+    # The trainer constructor (02050C34) is called from 020507A8 in the Chinese code (return address 020507AD) and, with the
+    # enabled double-battle-single-fallback fix, from its wrapper at 02048EEA (return address 02048EEF): the same call sequence.
+    lr, cflags, ccontrol = {'wild': ((0x02050433,), 0, 8), 'trainer': ((0x020507AD, 0x02048EEF), 1, 0)}[kind]
     require(len(constructors) == 1 and constructors[0]['setup'] == ctx['setup'] and
             constructors[0]['flags'] == cflags and constructors[0]['control'] == 0,
             'real ordinary setup constructor missing')
-    require(constructors[0]['lr'] == lr and ctx['flags'] == cflags and
+    require(constructors[0]['lr'] in lr and ctx['flags'] == cflags and
             ctx['control'] == ccontrol and ctx['save'] == ctx['published_save'],
             f'actual {kind} caller/save identity mismatch')
     require(ctx['root'] == snap['root'] and ctx['setup'] == captured[0]['setup_owner'] and
@@ -283,7 +285,7 @@ def validate_double(run):
             snap['flags'] == run['flags'], 'doubles snapshot missing/wrong settings')
     constructors = events(run, 'constructor')
     require(len(constructors) == 1 and constructors[0]['flags'] == 3 and constructors[0]['control'] == 0 and
-            constructors[0]['lr'] == 0x020507AD and ctx['flags'] == 3 and ctx['control'] == 0 and
+            constructors[0]['lr'] in (0x020507AD, 0x02048EEF) and ctx['flags'] == 3 and ctx['control'] == 0 and
             ctx['setup'] == constructors[0]['setup'] and ctx['save'] == ctx['published_save'],
             'doubles setup is not flags3/control0 from the trainer constructor')
     require(run['final_snapshot'] == original_free[0]['snapshot'] == dict(flags=0, cap=0, allowed=0, root=0, epoch=0),

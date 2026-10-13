@@ -279,6 +279,18 @@ def export_evolutions(ctx, sp_slug):
     return rows
 
 
+# Evolutions the standard patch changes in the evolution records themselves (work/patches/trade-evolutions-levelup):
+# the pages show what the patched game does, and `original` still marks the hack's trade evolution.
+BUILD_EVOLUTIONS = {525: (4, 35, 526), 533: (4, 40, 534)}   # Boldore -> Gigalith Lv 35, Gurdurr -> Conkeldurr Lv 40
+
+
+def apply_build_evolutions(ctx):
+    for sp, (method, param, target) in BUILD_EVOLUTIONS.items():
+        rows = ctx.evos[sp]
+        assert [(m, t) for m, _, t in rows] == [(5, target)], (sp, rows)   # still the Chinese trade record
+        ctx.evos[sp] = [(method, param, target)]
+
+
 def held_item_chances(items):
     """Ordinary wild held-item rolls; identical slots guarantee that item.
 
@@ -775,7 +787,9 @@ def main(argv=None):
     ap.add_argument('--out', default=OUT)
     ap.add_argument('--check', action='store_true')
     a = ap.parse_args(argv)
-    data = export(G.Ctx(R.Rom()))
+    ctx = G.Ctx(R.Rom())
+    apply_build_evolutions(ctx)
+    data = export(ctx)
     changed = []
     for k, v in data.items():
         path = os.path.join(a.out, k + '.json')

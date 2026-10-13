@@ -1,5 +1,5 @@
 """Pure deterministic job inventory; no filesystem writes or emulator imports."""
-from native_items_cases import CASES, ADDITIONS, BERRY_FLUTE, NO_EFFECT, HP_STATUS, PP_REVIVE, PP_ONLY
+from native_items_cases import CASES, ADDITIONS, BERRY_FLUTE, NO_EFFECT, HP_STATUS, PP_REVIVE, PP_ONLY, GATE_ITEM
 from native_progression_cases import CASES as PROGRESSION
 
 LAYERS = {
@@ -19,6 +19,7 @@ LAYERS = {
     'native_items_persistence.py': 'native ARM gameplay remembered persistence',
 }
 GATES = ('accept', 'item', 'target')
+PERSISTENCE_ID = f'gate-persistence-item-{GATE_ITEM:05d}'
 
 
 def job(name, driver, *args, dependencies=()):
@@ -36,12 +37,12 @@ def item_jobs(items, condition='positive'):
             for i in items for c in CASES[i]['categories'] for m in ('all','restricted')]
 
 
-def gate_job(gate, item=17):
+def gate_job(gate, item=GATE_ITEM):
     return job(f'gate-{gate}-item-{item:05d}','native_items_gates.py','--gate',gate,'--fault-item',item)
 
 
 def doubles_job(gate, slot):
-    return job(f'gate-doubles-{gate}-slot{slot}-item-00017','native_items_doubles.py','--gate',gate,'--slot',slot)
+    return job(f'gate-doubles-{gate}-slot{slot}-item-{GATE_ITEM:05d}','native_items_doubles.py','--gate',gate,'--slot',slot)
 
 
 def ui_jobs():
@@ -70,7 +71,7 @@ def comprehensive():
     # Also retain the driver's implemented invalid selected-item selectors;
     # these diagnostics never replace real Potion or remembered-ID coverage.
     jobs += [gate_job(g,i) for i in (791,65535) for g in GATES]
-    jobs += [job('gate-persistence-item-00017','native_items_persistence.py')]
+    jobs += [job(PERSISTENCE_ID,'native_items_persistence.py')]
     jobs += [doubles_job(g,s) for s in (0,1) for g in GATES]
     assert len(jobs)==len({j['id'] for j in jobs})
     return jobs
@@ -95,7 +96,7 @@ def selected(args):
             scope=args.items_scope
             if scope=='gates':jobs += [gate_job(g,args.items_gate_item) for g in GATES]
             elif scope=='remembered-invalid':jobs += [gate_job('remembered',i) for i in (791,65535)]
-            elif scope=='remembered-persistence':jobs.append(job('gate-persistence-item-00017','native_items_persistence.py'))
+            elif scope=='remembered-persistence':jobs.append(job(PERSISTENCE_ID,'native_items_persistence.py'))
             elif scope.startswith('doubles-'):
                 jobs += ([doubles_job(g,s) for s in (0,1) for g in GATES] if scope=='doubles-gates' else [doubles_job('item',1)])
             else:
@@ -120,7 +121,7 @@ def identity(report):
     if driver=='native_multiko.py':return 'multiko'
     if driver=='native_edges.py':return 'edges-'+report['case']
     if driver=='native_progression.py':return 'progression-'+report['battle']['name']
-    if driver=='native_items_persistence.py':return 'gate-persistence-item-00017'
+    if driver=='native_items_persistence.py':return PERSISTENCE_ID
     r=report['battle']
     if driver=='native_items.py':return item_id(r['item'],r['category'],r['name'],r.get('condition','positive'))
     if driver=='native_items_gates.py':return f"gate-{r['gate']}-item-{r['fault_item']:05d}"

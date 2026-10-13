@@ -41,7 +41,7 @@
   {
    "id": 4,
    "zh": "{VAR:FF00:1}转载请声明出处！{VAR:FF00:0}{NEWLINE}更多信息请关注：{NEWLINE}{NEWLINE}QQ群：1055021987{NEWLINE}贴吧：起源心金吧{NEWLINE}{NEWLINE}当前版本号：{VAR:FF00:1}V4.0正式版{VAR:FF00:0}",
-   "en": "{VAR:FF00:1}CONTENT WARNING{VAR:FF00:0}{NEWLINE}For mature audiences.{NEWLINE}{NEWLINE}Strong language, sexual themes,{NEWLINE}violence, death and dark humour.{NEWLINE}{NEWLINE}{VAR:FF00:1}Not suitable for children.{NEWLINE}Current version: 4.0.3-RC7{VAR:FF00:0}",
+   "en": "{VAR:FF00:1}CONTENT WARNING{VAR:FF00:0}{NEWLINE}For mature audiences.{NEWLINE}{NEWLINE}Strong language, sexual themes,{NEWLINE}violence, death and dark humour.{NEWLINE}{NEWLINE}{VAR:FF00:1}Not suitable for children.{NEWLINE}Current version: 4.0.3-RC8{VAR:FF00:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "贴吧 起源心金吧 cannot be written in the English font; described as Origin HeartGold forum | D-2327 user-approved startup revision: Replaces QQ/Tieba promotion with project-authored content warning; displayed first by startup-content-warning fix. Original repost attribution moved to #2 and version to #3. | D-2328 user-approved credit/version/website: Current version: 4.0.3-RC7 on first page; update this line for each release.",

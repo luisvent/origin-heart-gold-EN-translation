@@ -1,15 +1,13 @@
 id = "fortune-ideal-price-check"
 title = "Goldenrod fortune-teller: the ideal-Pokemon reading checks for $10000, the price she names and takes"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-1545", "D-2362"]
 requires = []
 why = """Goldenrod Fortune House (script file 895, script 1, text bank 0583). The text says each reading costs $10000 (#0, #8, #9) and the love reading checks $10000 (L334, L612). The 'My ideal Pokemon' branch (L215) checks only HasEnoughMoneyImmediate 300 (@228), then gives the evolution item and runs SubMoneyImmediate 10000 (@313; Rhyperior/Chansey variants @537/@589). With $300-$9999 the player gets the reading and item and is left with $0, and the 'not enough money' message #9 can only appear below $300. Observed in the emulator on the Chinese ROM and rc7 ($5000 -> $0).
 
-Status: disabled. The Goldenrod fortune teller's ideal-Pokémon reading now checks for the $10,000 she names and charges, so a player with less is refused instead of losing everything.
-Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
-user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
-fortune-ideal-price-check). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/fortune_ideal_price_check_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). The Goldenrod fortune teller's ideal-Pokémon reading now checks for the $10,000 she names and charges, so a player with less is refused instead of losing everything.
+Reviewed by a separate reviewer (approved with notes).
 """
 what = """One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 228, 300 -> 10000 (the price her own text, the love branch and the SubMoneyImmediate use). No other byte changes. The not-enough-money branch (L484, message #9) already exists and already says $10000. The love branch touch-menu issue (D-1546) is not part of this fix."""
 evidence = [

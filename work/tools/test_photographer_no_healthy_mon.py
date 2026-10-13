@@ -46,8 +46,8 @@ class PhotographerGuardTests(unittest.TestCase):
         self.assertTrue(N.verify(store.__getitem__, report).startswith("ok"))
         return M.Narc.parse(store["a/0/1/2"]).files[MEMBER]
 
-    def test_registered_and_off_by_default(self):
-        self.assertFalse(self.fix["enabled"])
+    def test_registered_and_on_by_default(self):
+        self.assertTrue(self.fix["enabled"])
         self.assertEqual(self.fix["kind"], "narc")
         self.assertEqual(F.validate([self.fix]) if hasattr(F, "validate") else [], [])
 

@@ -175,7 +175,6 @@ class Helpers(unittest.TestCase):
         off = F.disabled_fixes()
         only_off = {sc for sc in F.ALL_SCENARIOS if F.scenario_fixes(sc) and set(F.scenario_fixes(sc)) <= off}
         self.assertEqual(set(F.select("all")), set(F.ALL_SCENARIOS) - only_off)
-        self.assertIn("petilil-evo", only_off)
         self.assertEqual(F.select("petilil-evo"), {"petilil-evo": ["petilil-hisuian-lilligant"]})
         with self.assertRaises(ValueError):
             F.select("gfx-jp-buttons")          # listed in UNCOVERED

@@ -22,7 +22,7 @@ def validate(report):
                 'not the observed native constructor branch')
         require(ctor['control'] == context['control'] == 0, 'nonordinary native entry control')
         if case.startswith('trainer'):
-            require(ctor['lr'] == 0x020507AD, 'not the native trainer constructor')
+            require(ctor['lr'] in (0x020507AD, 0x02048EEF), 'not the native trainer constructor')
         else:
             require(ctor['lr'] in {0: (0x0224870D,), 0x4a: (0x0224712D,),
                                    0x100: (0x0224709F, 0x02247545)}.get(flags, ()),

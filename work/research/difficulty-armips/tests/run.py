@@ -12,7 +12,7 @@ from pathlib import Path
 import sys
 import traceback
 import unittest
-from native_items_cases import CASES
+from native_items_cases import CASES, GATE_ITEM
 from native_plan import selected as select_jobs
 from native_suite import create as create_suite, resume as resume_suite, execute as execute_suite, evidence_selection
 from support import OUTPUT, ROOT, SOURCE, source_hashes
@@ -49,7 +49,7 @@ def main():
     parser.add_argument('--edge-cases',nargs='+',choices=('gap','overlevel','curve'),default=('gap','overlevel','curve'),help='Target edge jobs without overwriting unselected reports; full phase retains all jobs')
     parser.add_argument('--items-item',type=int,choices=tuple(CASES),default=17,help='Bounded item positive/restricted pair')
     parser.add_argument('--items-scope',choices=('single','hp-status','pp-revive-checkpoint','pp-revive','pp-only','berry-flute-checkpoint','berry-flute','oran-leppa','no-effect','all-additions','gates','remembered-invalid','remembered-persistence','doubles-checkpoint','doubles-gates'),default='single',help='One item pair, or implemented HP/status matrix including both Full Restore lists')
-    parser.add_argument('--items-gate-item',type=int,choices=(17,791,65535),default=17,help='Selected input for all three singles gate probes; invalid IDs are separate safety slices')
+    parser.add_argument('--items-gate-item',type=int,choices=(GATE_ITEM,791,65535),default=GATE_ITEM,help='Selected input for all three singles gate probes; invalid IDs are separate safety slices')
     parser.add_argument('--native-timeout',type=int,default=240)
     parser.add_argument('--record-focus-review',metavar='ATTESTATION',help='Record explicit completed visual review (identify the assistant or human reviewer with --reviewer) of all five current focus PNGs; does not launch native code')
     parser.add_argument('--reviewer',default='parent')

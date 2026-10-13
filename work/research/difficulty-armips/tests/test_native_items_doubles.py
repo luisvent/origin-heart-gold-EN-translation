@@ -3,6 +3,9 @@ from copy import deepcopy
 import unittest
 from support import scratch
 from test_native_items import sample
+from native_items_cases import GATE_ITEM
+
+GATE_BYTES=GATE_ITEM.to_bytes(2,'little')+b'\0'
 from native_items_doubles import validate, validate_denial, selected_command
 from native_items_gates_oracles import GATES
 from native_items_gates_matrix import plan_doubles, plan, report_paths
@@ -37,7 +40,7 @@ def evidence(gate='item',slot=1):
                 (2*command['slot'],0x02212673,0x0221266E,'eef777f9','selected')))]
     first_pair=pair(a,12);r['events']+=first_pair;r['first_command']=deepcopy(first_pair[-1])
     pending=dict(destination=2000,bytes=encoded);r['pending_initial']=deepcopy(pending)
-    raw=bytearray(0x30);raw[0x1a]=4;changed=bytearray(raw);changed[0x18:0x1b]=b'\x11\x00\x00'
+    raw=bytearray(0x30);raw[0x1a]=4;changed=bytearray(raw);changed[0x18:0x1b]=GATE_BYTES
     r['events'].append(dict(name='double_fault',kind='nativeFaultInput',gate=gate,frame=20,target=None,binding=deepcopy(b),before=raw.hex(),after=changed.hex(),
         registers_before=[0]*16,registers_after=[0]*16,result=0,args_after=dict(item=0,category=4),
         command_before=deepcopy(b['command']),command_after=deepcopy(b['command']),command_return=deepcopy(b['command']),
@@ -66,7 +69,7 @@ def evidence(gate='item',slot=1):
         fault['binding']=deepcopy(a);r['command_denied']=deepcopy(a['command'])
     if gate!='item':
         raw=bytearray.fromhex(fault['before']);raw[0x18:0x1b]=b'\x97\x00\x01'
-        fault['before']=raw.hex();raw[0x18:0x1b]=b'\x11\x00\x00';fault['after']=raw.hex()
+        fault['before']=raw.hex();raw[0x18:0x1b]=GATE_BYTES;fault['after']=raw.hex()
         fault['result']=GATES[gate][1]
     if gate=='target':
         actor=a if slot==0 else b;fault['target']=slot;r['selected_ui_slot']=slot
@@ -118,7 +121,7 @@ class DoublesTests(unittest.TestCase):
             elif mutation=='input':
                 raw=bytearray.fromhex(f['after']);raw[0x1b]=1;f['after']=raw.hex()
             elif mutation=='register':f['registers_after'][0]=0
-            elif mutation=='result':f['result']=17
+            elif mutation=='result':f['result']=GATE_ITEM
             elif mutation=='command':r['command_denied']['destination']+=12
             elif mutation in ('early_turn','early_slot'):
                 r['events'].insert(0,dict(name='action' if mutation=='early_turn' else 'slot_advance'));r['denied_event_count']+=1

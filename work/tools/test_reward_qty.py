@@ -85,8 +85,8 @@ class RewardQtyTests(unittest.TestCase):
         cls.narc_after = M.Narc.parse(store[SCRIPTS])
         cls.after = cls.narc_after.files[MEMBER]
 
-    def test_disabled_by_default(self):
-        self.assertFalse(self.fix["enabled"])
+    def test_enabled_by_default(self):
+        self.assertTrue(self.fix["enabled"])
 
     def test_original_shows_one_item_for_any_quantity(self):
         for std in (STD_2033, STD_2008):

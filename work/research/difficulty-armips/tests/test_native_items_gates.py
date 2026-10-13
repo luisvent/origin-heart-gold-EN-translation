@@ -5,11 +5,12 @@ from pathlib import Path
 import unittest
 from support import ROOT, scratch
 from test_native_items import sample
+from native_items_cases import GATE_ITEM
 from native_items_gates_oracles import GATES, continued, injection
 from native_items_gates_matrix import plan, report_paths
 
 
-def gate_sample(gate,item=17):
+def gate_sample(gate,item=GATE_ITEM):
     r=sample(False);r.update(gate=gate,fault_item=item)
     r['events']=[e for e in r['events'] if e['name'] in ('constructor','enemy_fixture','begin','captured')]
     engine=r['before']['mons']['1'];ui=engine['address']+0x10000
@@ -47,7 +48,7 @@ def gate_sample(gate,item=17):
 class GateTests(unittest.TestCase):
     def test_three_gates_deny_real_and_invalid_selected_inputs(self):
         for gate in GATES:
-            for item in (17,791,65535):continued(gate_sample(gate,item))
+            for item in (GATE_ITEM,791,65535):continued(gate_sample(gate,item))
 
     def test_input_contract_rejects_register_command_and_outside_byte_writes(self):
         for gate in GATES:
@@ -62,7 +63,7 @@ class GateTests(unittest.TestCase):
                     b=bytearray.fromhex(r['before']);b[0x18]=28;r['before']=b.hex()
                 else:
                     b=bytearray.fromhex(r['after']);b[0x18]=0;r['after']=b.hex()
-                with self.subTest(gate=gate,change=change),self.assertRaises(AssertionError):injection(r,gate,17)
+                with self.subTest(gate=gate,change=change),self.assertRaises(AssertionError):injection(r,gate,GATE_ITEM)
 
     def test_denial_and_continuation_cannot_hide_effect_turn_slot_or_metadata(self):
         for gate in GATES:
@@ -117,7 +118,7 @@ class GateTests(unittest.TestCase):
         with scratch('gates-evidence-') as tmp:
             out=Path(tmp)
             manifest=dict(cases=[dict(id=GATES[g][2],driver='native_items_gates.py') for g in GATES])
-            report=report_for('gate-accept-item-00017')
+            report=report_for(f'gate-accept-item-{GATE_ITEM:05d}')
             report['cases']={'items.accept':dict(status='passed')}
             def check(row):
                 path=write_report(out,row)
@@ -136,11 +137,11 @@ class GateTests(unittest.TestCase):
         receipt=json.loads((ROOT/'work/build/difficulty-v2/integration-impl/receipt.json').read_text())
         with scratch('gates-fixture-') as tmp:
             f=fixture(receipt,Path(tmp))
-            self.assertEqual(f['metadata']['stock'],[[17,3],[151,3]])
+            self.assertEqual(f['metadata']['stock'],[[GATE_ITEM,3],[151,3]])
             self.assertTrue(all(r['decoded']['flags']==0 and r['decoded']['checksumOk'] for r in f['metadata']['records']))
             # Reopen via strict native save-core parser; no raw battery edits.
             s=SaveFile(f['battery'])
-            self.assertEqual(s.pocket('medicine'),[(17,3)])
+            self.assertEqual(s.pocket('medicine'),[(GATE_ITEM,3)])
             self.assertEqual(s.pocket('berries'),[(151,3)])
             again=fixture(receipt,Path(tmp))
             self.assertNotEqual(f['battery'],again['battery'])

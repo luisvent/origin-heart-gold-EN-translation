@@ -12,10 +12,9 @@ text is never changed by this fix. Not touched: Kirk's Sylveon, the S.S. Aqua Bu
 Route 21 Lairon (cry plays Onix, D-2400) and the silent objects (open questions, D-2399). RECHECK WHEN 4.1.0 RELEASES: every object in
 work/notes/overworld-pokemon-sprite-mismatch_fix.md must be looked at again in the game (4.1.0 may change sprites or cries).
 
-Status: disabled. Merged into develop on 2026-10-12 as a separate, switched-off patch at the user's request: the standard
-build keeps the Chinese behaviour and builds this only on request (build.py --only overworld-pokemon-cries). The byte guards
-(member SHA-1 and expected value of every entry) were re-checked against the Chinese ROM at merge. Notes:
-work/notes/overworld-pokemon-sprite-mismatch_fix.md.
+Status: disabled and superseded (user decision of 2026-10-13). The sprites follow the Chinese text and cry instead (overworld-pokemon-sprites, enabled
+in rc8), so this cry fix is kept only as a record and is never built. It also conflicts with blank-player-name-batch on members 55, 109 and 734
+(its member SHA-1 guards), so the two cannot be built together. Notes: work/notes/overworld-pokemon-sprite-mismatch_fix.md.
 """
 what = """
 Replace the species argument of 23 PlayCry commands (first halfword of the command's two arguments, form 0 kept) in a/0/1/2 with the

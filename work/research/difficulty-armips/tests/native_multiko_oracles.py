@@ -64,7 +64,7 @@ def validate_run(run):
     require(len(run['before'])==len(run['after'])==3,'wrong player party count')
     require(all(m['checksum_ok'] and not m['bad_egg'] for m in run['before']+run['after']), 'bad party record')
     ctor=events(run,'constructor');capture=events(run,'captured')[0];ctx=capture['context']
-    require(len(ctor)==1 and ctor[0]['lr']==0x020507AD and ctor[0]['flags']==1 and ctor[0]['control']==0 and
+    require(len(ctor)==1 and ctor[0]['lr'] in (0x020507AD, 0x02048EEF) and ctor[0]['flags']==1 and ctor[0]['control']==0 and
             ctor[0]['setup']==ctx['setup']==capture['setup_owner'] and ctx['flags']==1 and ctx['control']==0,
             'not real native trainer6 singles constructor')
     require(ctx['root']==snap['root'] and ctx['save']==ctx['published_save']==capture['save_owner'],

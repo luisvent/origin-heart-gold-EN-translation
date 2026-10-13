@@ -1,7 +1,7 @@
 id = "sibling-ribbon-freeze"
 title = "Let the seven weekday siblings finish their ribbon scene"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-1331", "D-1558", "D-2331"]
 requires = []
 why = """
@@ -15,9 +15,7 @@ player stays locked in the script context until X opens the menu. These are the
 only out-of-range command ids in the whole archive. User statement 2026-10-12
 lifted D-1337 for provable hack bugs.
 
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only sibling-ribbon-freeze). Tester xdeltas exist (rc7 plus this fix).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 """
 what = """
 Overwrite each stray D9 07 with 00 00, command 0 = Noop (no arguments, two bytes).

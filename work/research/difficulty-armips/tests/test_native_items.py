@@ -708,17 +708,66 @@ class NativeItemsFrameworkTests(unittest.TestCase):
             with self.subTest(name=name),self.assertRaises(AssertionError): checkpoint(row)
 
     def test_restricted_checkpoint_rejects_visibility_command_and_turn_bypasses(self):
-        self.assertTrue(checkpoint(sample(False)))
+        self.assertTrue(checkpoint(antidote_sample(False)))
         for name in ('accept','command','effect','consume','action'):
-            row=sample(False);row['events'].append(dict(name=name))
+            row=antidote_sample(False);row['events'].append(dict(name=name))
             with self.subTest(name=name),self.assertRaises(AssertionError):checkpoint(row)
         for key in ('command_before_cancel','command_after_cancel'):
-            row=sample(False);row[key]['slot']=1
+            row=antidote_sample(False);row[key]['slot']=1
             with self.assertRaises(AssertionError):checkpoint(row)
-        row=sample(False);next(e for e in row['events'] if e['name']=='mask')['result']=4
+        row=antidote_sample(False);next(e for e in row['events'] if e['name']=='mask')['result']=8
         with self.assertRaises(AssertionError):checkpoint(row)
-        row=sample(False);row['after']['mons']['1']['hp']=2
+        row=antidote_sample(False);row['after']['mons']['1']['hp']=2
         with self.assertRaises(AssertionError):checkpoint(row)
+
+    @staticmethod
+    def _set_visibility(row, item, category, visible):
+        """Rewrite only the mask and Bag-list observations of a synthetic run."""
+        from native_items_cases import CASES
+        for event in row['events']:
+            if event['name']=='mask':event['result']=CASES[item]['mask'] if visible else 0
+            if event['name']=='lists':
+                event['lists']=[[dict(item=item,quantity=3)] if visible and c==category else [] for c in range(5)]
+                event['counts']=[len(v) for v in event['lists']]
+        return row
+
+    def test_default_and_all_visibility_contrast(self):
+        # Potion is allowed by the Chinese rules (DEFAULT) and by ALL; an addition
+        # (Antidote) is hidden in DEFAULT and visible in ALL (D-2412).
+        for mode in (False,True):
+            self.assertTrue(checkpoint(medicine_sample(17,0,mode)),mode)
+        self.assertTrue(checkpoint(medicine_sample(18,1,True)))
+        self.assertTrue(checkpoint(medicine_sample(18,1,False)))
+        # A DEFAULT-allowed item hidden in DEFAULT must fail.
+        row=self._set_visibility(medicine_sample(17,0,False),17,0,False)
+        with self.assertRaisesRegex(AssertionError,'did not expose exactly selected item'):checkpoint(row)
+        # An addition visible in DEFAULT must fail.
+        row=self._set_visibility(medicine_sample(18,1,False),18,1,True)
+        with self.assertRaisesRegex(AssertionError,'restricted selected item visible'):checkpoint(row)
+        # An addition hidden in ALL must fail.
+        row=self._set_visibility(medicine_sample(18,1,True),18,1,False)
+        with self.assertRaisesRegex(AssertionError,'did not expose exactly selected item'):checkpoint(row)
+        # Potion hidden in ALL must also fail.
+        row=self._set_visibility(medicine_sample(17,0,True),17,0,False)
+        with self.assertRaisesRegex(AssertionError,'did not expose exactly selected item'):checkpoint(row)
+
+    def test_default_allowed_flag_matches_untouched_chinese_item_metadata(self):
+        from native_items_cases import CASES, ADDITIONS, GATE_ITEM, usable
+        from support import CN, load_rom
+        if not CN.is_file():self.skipTest('Local untouched Chinese ROM unavailable')
+        from ndspy.narc import NARC
+        narc=NARC(load_rom().getFileByName('a/0/1/7'))
+        for item,case in CASES.items():
+            mask=(int.from_bytes(narc.files[item][8:10],'little')>>11)&31
+            with self.subTest(item=item,name=case['name']):
+                # CN battle mask nonzero <=> DEFAULT keeps the item usable.
+                self.assertEqual(bool(mask),case['restricted_allowed'])
+                if mask:self.assertEqual(mask,case['mask'])
+                self.assertEqual(usable(dict(item=item,flags=0)),bool(mask))
+                self.assertTrue(usable(dict(item=item,flags=4)))
+        self.assertEqual(len(ADDITIONS),20)
+        self.assertTrue(all(not CASES[i]['restricted_allowed'] for i in ADDITIONS))
+        self.assertIn(GATE_ITEM,ADDITIONS)
 
     def test_fade13_neither_proves_denial_nor_invalidates_success(self):
         self.assertTrue(checkpoint(sample(True)))  # native success also returns13
@@ -726,12 +775,12 @@ class NativeItemsFrameworkTests(unittest.TestCase):
             row=sample(True)
             next(e for e in row['events'] if e['name']=='accept')['after'][field]=value
             with self.assertRaises(AssertionError):checkpoint(row)
-        for field,value in (('item',17),('category',0)):
-            row=sample(False)
+        for field,value in (('item',18),('category',1)):
+            row=antidote_sample(False)
             next(e for e in row['events'] if e['name']=='fade_close_state13')['args'][field]=value
             with self.assertRaises(AssertionError):checkpoint(row)
-        row=sample(False)
-        next(e for e in row['events'] if e['name']=='commit_item')['result']=17
+        row=antidote_sample(False)
+        next(e for e in row['events'] if e['name']=='commit_item')['result']=18
         with self.assertRaises(AssertionError):checkpoint(row)
 
     def test_trainer_entry_requires_actual_control_and_owner_capture(self):

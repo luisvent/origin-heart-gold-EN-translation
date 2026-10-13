@@ -1,6 +1,8 @@
 """Remembered malformed-input oracles and retained-job coverage, no emulator."""
 import unittest
 from support import scratch
+from native_items_cases import GATE_ITEM
+from native_plan import PERSISTENCE_ID
 from test_native_items_gates import gate_sample
 from native_items_remembered import continued
 from native_items_gates_matrix import plan, plan_remembered, report_paths
@@ -38,7 +40,7 @@ class RememberedTests(unittest.TestCase):
                     r['denied_event_count']+=1
                 elif mutation=='register':e['registers_after'][0]+=1
                 elif mutation=='extra_write':
-                    raw=bytearray.fromhex(e['after']);raw[0x18]=17;e['after']=raw.hex()
+                    raw=bytearray.fromhex(e['after']);raw[0x18]=GATE_ITEM;e['after']=raw.hex()
                 elif mutation=='forced_result':
                     raw=bytearray.fromhex(e['after']);raw[0x1c:0x1e]=bytes(2);e['after']=raw.hex()
                 elif mutation in ('category','item'):
@@ -69,7 +71,7 @@ class RememberedTests(unittest.TestCase):
         self.assertEqual(next(c for c in manifest['cases'] if c['id']=='items.remembered')['driver'],
                          'native_composites.py')
         self.assertEqual(len(CONTRACTS['items.remembered']),3)
-        self.assertIn('gate-persistence-item-00017',CONTRACTS['items.remembered'])
+        self.assertIn(PERSISTENCE_ID,CONTRACTS['items.remembered'])
         self.assertNotEqual(validate_native(manifest,[],{})['items.remembered']['status'],'passed')
 
 

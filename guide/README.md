@@ -26,6 +26,7 @@ The website also has [moves](/moves/), [abilities](/abilities/), [TMs and HMs](/
 - [Lake of Rage, Blackthorn City and beyond](12-lake-of-rage-to-sinjoh.md) (31)
 - [Dungeons, Battle Tower and game-wide events](13-dungeons-and-common.md) (6)
 
+- [Hidden items](hidden-items.md): every hidden item with a screenshot of where to stand and press A.
 - [Known issues](known-issues.md): suspected bugs in the original hack that affect quests (reported, not fixed).
 
 ## Start here

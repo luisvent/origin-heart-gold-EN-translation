@@ -18,6 +18,9 @@ from native_items_gates_trace import GateTrace
 from native_items_gates_oracles import GATES
 from native_items_trace import ram_pointer, mon_state, read_inventory
 from native_items_oracles import events
+from native_items_cases import GATE_ITEM
+
+GATE_BYTES = GATE_ITEM.to_bytes(2,'little')+b'\0'
 
 
 class DoublesTrace(GateTrace):
@@ -65,7 +68,7 @@ class DoublesTrace(GateTrace):
             if p:
                 m=mon_state(h,p);require(m['id']==rid,'doubles engine registry mismatch');mons[str(rid)]=m
         return dict(mons=mons,snapshot=self.snapshot(),
-                    **read_inventory(h,h.u32(h.u32(root+0x10)+0x108),17))
+                    **read_inventory(h,h.u32(h.u32(root+0x10)+0x108),GATE_ITEM))
 
     def position_resolver(self):
         # Native022151D0 maps battle position through02228580 to owner/slot,
@@ -105,7 +108,7 @@ class DoublesTrace(GateTrace):
         if gate=='target':require(target is not None and target<6,'target already cancelled')
         row=self.event('double_fault',kind='nativeFaultInput',gate=gate,target=target,address=args,before=self.h.read(args,0x30).hex(),
             registers_before=registers(self.h),binding=binding,command_before=c,pending_before=self.pending())
-        self.h.write(args+0x18,b'\x11\x00\x00')
+        self.h.write(args+0x18,GATE_BYTES)
         row.update(after=self.h.read(args,0x30).hex(),registers_after=registers(self.h),pending_after=self.pending(),command_after=self.command_state())
         def finish():
             row.update(result=registers(self.h)[0],args_after=self.args(args),command_return=self.command_state(),
@@ -186,7 +189,7 @@ def validate_denial(run):
     raw=bytearray.fromhex(e['before']);old_item=int.from_bytes(raw[0x18:0x1a],'little')
     require(old_item==(0 if gate=='item' else 151) and raw[0x1a]==(4 if gate=='item' else 1),
             'wrong native input before doubles fault')
-    raw[0x18:0x1b]=b'\x11\x00\x00'
+    raw[0x18:0x1b]=GATE_BYTES
     require(e['kind']=='nativeFaultInput' and e['gate']==gate and len(raw)==0x30 and e['after']==raw.hex() and
             e['registers_before']==e['registers_after'] and e['result']==GATES[gate][1] and
             e['args_after']['item']==0 and e['args_after']['category']==4,'doubles gate did not deny input natively')
@@ -212,7 +215,7 @@ def validate_denial(run):
     require(not any(x['name'] in forbidden for x in prefix),'denial committed item/effect/turn/slot')
     lists=[x for x in prefix if x['name']=='lists']
     require(lists and all(x['lists'][1]==[dict(item=151,quantity=3)] and
-            not any(i['item']==17 for ls in x['lists'] for i in ls) for x in lists),'restricted doubles list wrong')
+            not any(i['item']==GATE_ITEM for ls in x['lists'] for i in ls) for x in lists),'restricted doubles list wrong')
     require(any(x['name']=='schedule' and x['handler']==0x02202445 for x in prefix),
             'native command-selection continuation missing')
     if gate=='target':
@@ -238,7 +241,7 @@ def validate(run):
     ctor,caps=events(run,'constructor'),events(run,'captured')
     require(len(ctor)==len(caps)==len(events(run,'begin'))==1,'doubles lifecycle missing')
     c=ctor[0];cap=caps[0];ctx=cap['context'];snap=cap['snapshot']
-    require(c['flags']==ctx['flags']==3 and c['control']==ctx['control']==0 and c['lr']==0x020507AD and
+    require(c['flags']==ctx['flags']==3 and c['control']==ctx['control']==0 and c['lr'] in (0x020507AD, 0x02048EEF) and
             c['setup']==ctx['setup']==cap['setup_owner'] and ctx['save']==ctx['published_save']==cap['save_owner'] and
             snap['allowed']==1 and snap['flags']==0 and snap['epoch']==cap['generation']>0 and
             ctx['options_copy']==run['options']['after'],'native doubles context binding failed')
@@ -298,7 +301,7 @@ def play(s,t,run,flush):
     s.touch(*BATTLE_BUTTONS['bag'],after=180);point('double-bag')
     lists=events(run,'lists')
     require(lists and lists[-1]['lists'][1]==[dict(item=151,quantity=3)] and
-            not any(i['item']==17 for ls in lists[-1]['lists'] for i in ls),'wrong restricted Bag before input')
+            not any(i['item']==GATE_ITEM for ls in lists[-1]['lists'] for i in ls),'wrong restricted Bag before input')
     if run['gate']=='item':
         t.armed=True;s.touch(236,170,after=180)
     else:
@@ -341,7 +344,7 @@ def main():
     p.add_argument('--receipt',type=Path,default=ROOT/'work/build/difficulty-v2/integration-impl/receipt.json')
     a=p.parse_args();out=a.out.resolve()
     if Path.cwd().resolve()!=ROOT or sys.flags.optimize or not out.is_relative_to(OUTPUT):p.error('repo root/owned output/assertions required')
-    out.mkdir(parents=True,exist_ok=True);run=dict(name=f'double-{a.gate}-slot{a.slot}',item=17,fault_item=17,flags=0,gate=a.gate,fault_slot=a.slot,events=[])
+    out.mkdir(parents=True,exist_ok=True);run=dict(name=f'double-{a.gate}-slot{a.slot}',item=GATE_ITEM,fault_item=GATE_ITEM,flags=0,gate=a.gate,fault_slot=a.slot,events=[])
     result=dict(status='running',driver='native_items_doubles.py',layer='native ARM gameplay doubles diagnostic',
         nonce=os.environ.get('DG_TEST_NONCE'),old_state_loaded=False,started_utc=utc(),cases={},battle=run,
         scope='One native doubles gate/slot case; no artificial pending action or backtracking claim')

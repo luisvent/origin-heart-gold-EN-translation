@@ -43,7 +43,7 @@ No. Sharing ROMs isn't allowed, here or on the Discord. The patch is all you nee
 
 ### Which emulator should I use?
 
-The translation was tested in [melonDS](https://melonds.kuribo64.net/). The automated checks for rc6, including the text speed setting, ran in DeSmuME; the freeze and battle fixes in rc6 were also checked in melonDS 1.1. There has been no full second-emulator pass for this build. Players also use DraStic, Lemuroid and others, but those aren't tested. For a real DS, DSi or 3DS, see the next question.
+The translation was tested in [melonDS](https://melonds.kuribo64.net/). The automated checks for rc8, including the text speed setting, ran in DeSmuME; the freeze and battle fixes in rc8 were also checked in melonDS 1.1. There has been no full second-emulator pass for this build. Players also use DraStic, Lemuroid and others, but those aren't tested. For a real DS, DSi or 3DS, see the next question.
 
 ### Can I play on a real DS, DSi or 3DS?
 
@@ -108,7 +108,7 @@ No. In the original hack these newer moves have no sound effect: Electro Ball, S
 
 ### Can I turn off the shared EXP, or set a level cap?
 
-Yes, from rc7. The original hack has neither: your whole party shares EXP and EVs automatically ([details](../mechanics/#automatic-exp-and-ev-sharing)). The English patch adds two optional settings on the second Options page: **SHARE** (turn it OFF so benched Pokémon get no EXP or EVs, except one holding an Exp. Share) and **CAP** (a level cap). They start at SHARE ON and CAP OFF, the original behaviour. The cap follows your Gym progress; see [Difficulty settings](../difficulty/) for how to turn them on and when the cap goes up.
+Yes, from rc7. The original hack has neither: your whole party shares EXP and EVs automatically ([details](../mechanics/#automatic-exp-and-ev-sharing)). The English patch adds two optional settings on the second Options page: **SHARE** (turn it OFF so benched Pokémon get no EXP or EVs, except one holding an Exp. Share) and **CAP** (a level cap). They start at SHARE ON and CAP OFF, the original behaviour. A third setting, **ITEMS** (DEFAULT or ALL), controls which medicine you can use from the Bag in Trainer battles. Since rc8 the settings also apply in story battles you are allowed to lose, and SHARE OFF no longer switches off a held Exp. Share. The cap follows your Gym progress; see [Difficulty settings](../difficulty/) for how to turn them on and when the cap goes up.
 
 ## Training your Pokémon
 
@@ -167,7 +167,7 @@ No. Charizard is the only Pokémon that can Mega Evolve, holding the Charizardit
 
 ### Why can't I use a Full Heal or a Revive in battle?
 
-The original hack leaves most medicine out of the battle Bag: status heals, Full Restore, Max and Hyper Potions, Revives, Ethers and Elixirs. This may be intended. Carry status-healing Berries (Lum, Pecha, Cheri and others) or the Blue, Yellow and Red Flutes, which do work in battle; for PP, the Leppa Berry is in the battle Bag. The full list is in [Known issues](../guide/known-issues/#status-medicine-in-battle).
+The original hack leaves most medicine out of the battle Bag: status heals, Full Restore, Max and Hyper Potions, Revives, Ethers and Elixirs. This may be intended. Carry status-healing Berries (Lum, Pecha, Cheri and others) or the Blue, Yellow and Red Flutes, which do work in battle; for PP, the Leppa Berry is in the battle Bag. If you play with the optional difficulty settings, **ITEMS: ALL** (second Options page) adds twenty more medicines to the Trainer-battle Bag; see [Difficulty settings](../difficulty/#battle-items-items). The full list is in [Known issues](../guide/known-issues/#status-medicine-in-battle).
 
 ### My Pokémon is out of PP and won't use Struggle
 

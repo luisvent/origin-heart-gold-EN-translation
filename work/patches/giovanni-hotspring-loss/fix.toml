@@ -1,7 +1,7 @@
 id = "giovanni-hotspring-loss"
 title = "White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-2349", "D-2350"]
 requires = []
 why = """
@@ -15,11 +15,8 @@ game ends on a black or garbage screen (CPU on a bad address) on the Chinese ROM
 corner child (D-2300) and the Pokemon Tower Magcargo did. Setting the "allow loss" option bytes of the battle
 (1,0 or 1,1) does not help: the same blank screen follows.
 
-Status: disabled. Losing to Giovanni at the Mt. Silver hot spring is a normal whiteout instead of a freeze on a black
-screen. Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate,
-switched-off patch by the user's decision: the standard build keeps the Chinese behaviour and builds this only on
-request (build.py --only giovanni-hotspring-loss). A tester xdelta (rc7 plus this fix) is available on request. Notes:
-work/notes/giovanni-hotspring-loss_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). Losing to Giovanni at the Mt. Silver hot spring is a normal whiteout instead of a freeze on a black
+screen.
 """
 what = """
 One [[script_insert]]: in front of the GoToIf at offset 819 (the loss branch) put GoToIf not-equal (win) over a

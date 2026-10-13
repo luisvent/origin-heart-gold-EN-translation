@@ -26,47 +26,48 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`gfx-type-icons`](#gfx-type-icons) | graphics | yes | – | Type and contest icons (USA art; FAIRY from hg-engine) |
 | [`gfx-weather-banners`](#gfx-weather-banners) | graphics | yes | – | Battle weather banners |
 | [`gfx-yes-no-buttons`](#gfx-yes-no-buttons) | graphics | yes | – | Touch-screen YES/NO buttons |
-| [`blank-player-name`](#blank-player-name) | narc | **no** | – | Fill the player-name buffer a script's message actually reads |
-| [`blank-player-name-batch`](#blank-player-name-batch) | narc | **no** | – | Fill the player-name buffer before the messages that read it (53 more places) |
-| [`blank-player-name-class-c`](#blank-player-name-class-c) | narc | **no** | – | Fill the player-name buffer before 5 more messages that read it (loan Pidgeot, Oak's Pikachu, Hitmonlee/Hitmonchan) |
-| [`evolution-items-use`](#evolution-items-use) | narc | **no** | – | Items that evolve a Pokémon when used (Ice Stone, Cracked Pot, Galarica Cuff/Wreath, apples, armors, Dragon Scale) get the Bag's Use entry |
+| [`blank-player-name`](#blank-player-name) | narc | yes | – | Fill the player-name buffer a script's message actually reads |
+| [`blank-player-name-batch`](#blank-player-name-batch) | narc | yes | – | Fill the player-name buffer before the messages that read it (53 more places) |
+| [`blank-player-name-class-c`](#blank-player-name-class-c) | narc | yes | – | Fill the player-name buffer before 5 more messages that read it (loan Pidgeot, Oak's Pikachu, Hitmonlee/Hitmonchan) |
+| [`evolution-items-use`](#evolution-items-use) | narc | yes | – | Items that evolve a Pokémon when used (Ice Stone, Cracked Pot, Galarica Cuff/Wreath, apples, armors, Dragon Scale) get the Bag's Use entry |
 | [`expedition-completed-progress`](#expedition-completed-progress) | narc | **no** | – | Preserve beasts eligibility when revisiting the completed expedition leader |
-| [`forest-of-time-sammy-guard`](#forest-of-time-sammy-guard) | narc | **no** | – | Forest of Time: the Sammy arrival and Marauder scenes only run while the Sammy chapter is active (the Ilex bug hunt no longer triggers or overwrites them) |
-| [`fortune-ideal-price-check`](#fortune-ideal-price-check) | narc | **no** | – | Goldenrod fortune-teller: the ideal-Pokemon reading checks for $10000, the price she names and takes |
-| [`gamecorner-500-coins`](#gamecorner-500-coins) | narc | **no** | – | Game Corner: the raised-price '500 coins for $50000' option gives 500 coins, not 50 |
-| [`giovanni-hotspring-loss`](#giovanni-hotspring-loss) | narc | **no** | – | White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring |
-| [`haircut-younger-price-check`](#haircut-younger-price-check) | narc | **no** | – | Pokemon Salon: the younger Haircut Brother checks for $300, the price he names and takes |
+| [`forest-of-time-sammy-guard`](#forest-of-time-sammy-guard) | narc | yes | – | Forest of Time: the Sammy arrival and Marauder scenes only run while the Sammy chapter is active (the Ilex bug hunt no longer triggers or overwrites them) |
+| [`fortune-ideal-price-check`](#fortune-ideal-price-check) | narc | yes | – | Goldenrod fortune-teller: the ideal-Pokemon reading checks for $10000, the price she names and takes |
+| [`gamecorner-500-coins`](#gamecorner-500-coins) | narc | yes | – | Game Corner: the raised-price '500 coins for $50000' option gives 500 coins, not 50 |
+| [`giovanni-hotspring-loss`](#giovanni-hotspring-loss) | narc | yes | – | White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring |
+| [`haircut-younger-price-check`](#haircut-younger-price-check) | narc | yes | – | Pokemon Salon: the younger Haircut Brother checks for $300, the price he names and takes |
 | [`hooh-panel-silver-marker`](#hooh-panel-silver-marker) | narc | **no** | – | Keep Ho-Oh panel completion from clearing Silver's dream marker |
 | [`magcargo-loss-whiteout`](#magcargo-loss-whiteout) | narc | yes | – | Restore native whiteout after losing to Pokemon Tower's Magcargo |
 | [`mortar-invalid-flag-noop`](#mortar-invalid-flag-noop) | narc | **no** | – | Prevent the expedition departure from writing into Pokédex caught data |
 | [`overworld-pokemon-cries`](#overworld-pokemon-cries) | narc | **no** | – | Stationary overworld Pokemon cry as the species their label and sprite show |
-| [`overworld-pokemon-sprites`](#overworld-pokemon-sprites) | narc | **no** | – | Draw stationary overworld Pokemon as the species their Chinese text and cry name |
-| [`photographer-no-healthy-mon`](#photographer-no-healthy-mon) | narc | **no** | – | Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene) |
-| [`reward-qty`](#reward-qty) | narc | **no** | – | Reward scripts: a gift of more than one item says how many (Obtained <item> x2!), not one |
+| [`overworld-pokemon-sprites`](#overworld-pokemon-sprites) | narc | yes | – | Draw stationary overworld Pokemon as the species their Chinese text and cry name |
+| [`photographer-no-healthy-mon`](#photographer-no-healthy-mon) | narc | yes | – | Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene) |
+| [`reward-qty`](#reward-qty) | narc | yes | – | Reward scripts: a gift of more than one item says how many (Obtained <item> x2!), not one |
 | [`rock-tunnel-corner-loss`](#rock-tunnel-corner-loss) | narc | yes | – | Restore native whiteout after losing to Rock Tunnel's corner child |
-| [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | **no** | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
+| [`romance-mail-mismatch`](#romance-mail-mismatch) | narc | yes | – | Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line |
 | [`route3-misty-actors`](#route3-misty-actors) | narc | **no** | – | Show Misty and her Gyarados in the Route 3 scene even when the Viridian Forest request was skipped |
 | [`safari-zone-closed`](#safari-zone-closed) | narc | **no** | – | Safari Zone closed: the gate counters show a closed notice and the doors lead nowhere |
-| [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | **no** | – | Let the seven weekday siblings finish their ribbon scene |
+| [`sibling-ribbon-freeze`](#sibling-ribbon-freeze) | narc | yes | – | Let the seven weekday siblings finish their ribbon scene |
 | [`ss-anne-softlock`](#ss-anne-softlock) | narc | **no** | – | Open the S.S. Anne voyage in its pre-party state so the party can always start |
-| [`ssanne-tm-price-check`](#ssanne-tm-price-check) | narc | **no** | – | S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken |
+| [`ssanne-tm-price-check`](#ssanne-tm-price-check) | narc | yes | – | S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken |
 | [`trade-evolutions-levelup`](#trade-evolutions-levelup) | narc | yes | – | Boldore and Gurdurr evolve at Lv 35 / Lv 40, as the hack author's sheet says (no trade needed) |
 | [`trainer-abilities`](#trainer-abilities) | narc | **no** | – | Give trainer Pokémon the ability their held item and moves need (54 slots) |
-| [`tutor-blackthorn-play-rough`](#tutor-blackthorn-play-rough) | narc | **no** | – | Blackthorn Move Tutor teaches Play Rough, as it says (not Flail) |
-| [`tutor-saffron-volt-switch`](#tutor-saffron-volt-switch) | narc | **no** | – | Saffron Dojo tutor teaches Volt Switch on every path (not Charge) |
+| [`tutor-blackthorn-play-rough`](#tutor-blackthorn-play-rough) | narc | yes | – | Blackthorn Move Tutor teaches Play Rough, as it says (not Flail) |
+| [`tutor-saffron-volt-switch`](#tutor-saffron-volt-switch) | narc | yes | – | Saffron Dojo tutor teaches Volt Switch on every path (not Charge) |
+| [`victory-road-arch-movement-wait`](#victory-road-arch-movement-wait) | narc | yes | – | Victory Road exterior: the arch in front of the stairs no longer freezes the final chapter |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
 | [`antipiracy`](#antipiracy) | code | yes | – | Real hardware: the six DS Protect entry points return the genuine-cart values |
-| [`battle-faint-cry`](#battle-faint-cry) | code | **no** | – | Battles: a Pokémon that faints cries (the low faint cry) and makes the faint sound again, on both sides |
+| [`battle-faint-cry`](#battle-faint-cry) | code | yes | – | Battles: a Pokémon that faints cries (the low faint cry) and makes the faint sound again, on both sides |
 | [`battle-heal-hpbar-switched-out`](#battle-heal-hpbar-switched-out) | code | yes | – | Battle: a Potion on a Pokémon that is forced out the same turn no longer freezes (Maxie gauntlet) |
-| [`battle-hit-sound`](#battle-hit-sound) | code | **no** | – | Battles: a move that deals damage plays the hit sound again (normal, super effective, not very effective) |
+| [`battle-hit-sound`](#battle-hit-sound) | code | yes | – | Battles: a move that deals damage plays the hit sound again (normal, super effective, not very effective) |
 | [`battle-message-error-marker`](#battle-message-error-marker) | code | yes | – | Battle text: the hack's error marker before a Pokémon name prints '(Error) ' instead of Chinese (错误) |
 | [`battle-message-references`](#battle-message-references) | code | yes | – | Battle text: Nature Power's 'turned into' line and the per-turn infatuation line name the right Pokémon |
 | [`battle-message-variant`](#battle-message-variant) | code | yes | – | Battle text: 'The wild' / 'The foe's' goes with the Pokémon the line names (Destiny Knot, Mean Look, Protect, drain, immunity, ...) |
 | [`battle-party-status-sync`](#battle-party-status-sync) | code | yes | – | In-battle party screen: status conditions show as they are now (Heal Bell, Aromatherapy, statuses gained in battle) |
 | [`bulbasaur-reflection-boundary`](#bulbasaur-reflection-boundary) | code | yes | – | Following Pokémon: Bulbasaur's reflection in water no longer reads a NULL graphics pointer (black screen over water) |
 | [`cute-charm-infatuation`](#cute-charm-infatuation) | code | yes | – | Battle: Cute Charm infatuates the attacker (the 'fell in love!' line no longer prints without effect) |
-| [`double-battle-single-fallback`](#double-battle-single-fallback) | code | **no** | – | A scripted Double Battle with fewer than two Pokémon becomes a Single Battle (no freeze) |
+| [`double-battle-single-fallback`](#double-battle-single-fallback) | code | yes | – | A scripted Double Battle with fewer than two Pokémon becomes a Single Battle (no freeze) |
 | [`double-battle-targeting`](#double-battle-targeting) | code | yes | – | Double battles: escape the D-pad target cursor trap after a foe position becomes empty |
 | [`evolution-moves`](#evolution-moves) | code | yes | – | Evolution: an evolved Pokémon is offered its evolution moves (Crobat Cross Poison, Charizard Air Slash, Gyarados Bite) |
 | [`faint-waits-for-hp-bar`](#faint-waits-for-hp-bar) | code | yes | – | Battle: a Pokémon knocked out by a multi-hit move faints after its HP bar has drained (the bar no longer jumps back and vanishes) |
@@ -77,7 +78,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`namelen`](#namelen) | code | yes | – | Name lengths: US limits (7 characters for trainers, 10 for Pokémon) |
 | [`naming-keyboard`](#naming-keyboard) | code | yes | – | English naming keyboard: ABC page first, pinyin IME off |
 | [`overworld-texture-frame-bounds`](#overworld-texture-frame-bounds) | code | yes | – | Overworld objects: a texture frame the texture does not have no longer crashes (Rocket HQ freeze) |
-| [`petilil-hisuian-lilligant`](#petilil-hisuian-lilligant) | code | **no** | – | Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil) |
+| [`petilil-hisuian-lilligant`](#petilil-hisuian-lilligant) | code | yes | – | Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil) |
 | [`pryce-weather-rule`](#pryce-weather-rule) | code | yes | – | Pryce's Glacier Badge rule checks the party's Abilities (no weather-changing Ability), not 28 species |
 | [`safari-no-wild-double`](#safari-no-wild-double) | code | yes | – | Safari Zone: wild encounters are single battles again (no frozen double battle) |
 | [`startup-content-warning`](#startup-content-warning) | code | yes | – | New Game: mature-content warning first, remove QQ promotion |
@@ -758,7 +759,7 @@ New: the USA member: YES / NO.
 **Fill the player-name buffer a script's message actually reads**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2335, D-2336, D-2337, D-2338, D-2339
 - Source: `work/patches/blank-player-name/fix.toml`
@@ -777,9 +778,7 @@ three branches) has the same order problem as (2). Buffers do not survive from o
 to the next (emulator), so nothing else fills them. Reproduced in the emulator on the
 Chinese ROM (name missing in all three) and fixed on patched ROMs.
 
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only blank-player-name). Tester xdeltas exist (rc7 plus this fix).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 
@@ -810,7 +809,7 @@ SHA-1 and the expected bytes guard the edit.
 **Fill the player-name buffer before the messages that read it (53 more places)**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2343, D-2344, D-2345
 - Source: `work/patches/blank-player-name-batch/fix.toml`
@@ -827,9 +826,7 @@ the patched ROM: the Route 1 kid (member 168, script 5), the Route 30 woman (mem
 other members (work/notes/blank-player-name-batch_fix.md). Follow-up of blank-player-name, which fixed the
 three places that needed no inserted command.
 
-Status: disabled, like blank-player-name: merged as a separate switched-off patch; the standard build keeps
-the Chinese behaviour; build it with build.py --only blank-player-name-batch (tester xdeltas on request).
-It combines with blank-player-name (member 171 accepts both member hashes) and does not repeat its sites.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 
@@ -908,7 +905,7 @@ native command that may fill the buffer is on the path): see work/notes/blank-pl
 **Fill the player-name buffer before 5 more messages that read it (loan Pidgeot, Oak's Pikachu, Hitmonlee/Hitmonchan)**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2345, D-2353, D-2354, D-2355
 - Source: `work/patches/blank-player-name-class-c/fix.toml`
@@ -924,11 +921,8 @@ empty ("... got Pidgeot back!"), and ScrCmd_452 (the Pokemon picture window in P
 Hitmonlee/Hitmonchan offers) fills no message buffer either, so the line reads blank on the Chinese ROM and on our
 build alike (work/notes/blank-player-name-class-c_fix.md).
 
-Status: disabled. The player's name is no longer blank in five more lines (the Route 36 gardener's "got Pidgeot back"
-line, Prof. Oak's Pikachu offer, the Hitmonlee and Hitmonchan offers). Reviewed by a separate reviewer (approved with notes).
-Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps
-the Chinese behaviour and builds this only on request (build.py --only blank-player-name-class-c). A tester xdelta
-(rc7 plus this fix) is available on request. Notes: work/notes/blank-player-name-class-c_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). The player's name is no longer blank in five more lines (the Route 36 gardener's "got Pidgeot back"
+line, Prof. Oak's Pikachu offer, the Hitmonlee and Hitmonchan offers).
 
 **What (old → new):**
 
@@ -954,7 +948,7 @@ blank-player-name-batch). The two member 829 sites also accept the member after 
 **Items that evolve a Pokémon when used (Ice Stone, Cracked Pot, Galarica Cuff/Wreath, apples, armors, Dragon Scale) get the Bag's Use entry**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2392
 - Source: `work/patches/evolution-items-use/fix.toml`
@@ -974,10 +968,7 @@ Technical: the item table a/0/1/7 has one 34-byte record per item. Bytes 10..15 
 items above have zeros. The fix copies those six bytes from the Fire Stone record; the price, hold effect, pocket
 and everything else stay. Evolution records (a/0/3/4) are untouched: they already name these items with method 7.
 
-Status: disabled. Reviewed against the Chinese ROM at merge (the nine records read all zeros at bytes 10..15, the
-member SHA-1 guards match). Merged into develop on 2026-10-12 as a separate, switched-off patch at the user's request:
-the standard build keeps the Chinese behaviour and builds this only on request (build.py --only evolution-items-use).
-Notes: work/notes/ice-stone-use_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 
@@ -1048,7 +1039,7 @@ unchanged. No global counter remap or backward save restoration.
 **Forest of Time: the Sammy arrival and Marauder scenes only run while the Sammy chapter is active (the Ilex bug hunt no longer triggers or overwrites them)**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2370, D-2371, D-2300
 - Source: `work/patches/forest-of-time-sammy-guard/fix.toml`
@@ -1067,11 +1058,8 @@ player goes back to Bugsy), plays the whole Marauder scene and leaves 0x4099 = 6
 and the reset to 2 need 5, so the hunt can never be finished (Bugsy keeps saying 'leave the Pokemon near this rock to
 me'), and the Sammy chapter is marked finished (flag 2110) before it began.
 
-Status: disabled. The Forest of Time's Sammy arrival and Marauder scenes only run while the Sammy chapter is active, so
-the Ilex bug hunt no longer triggers or overwrites them. Reviewed by a separate reviewer (approved with notes). Merged into
-develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
-behaviour and builds this only on request (build.py --only forest-of-time-sammy-guard). A tester xdelta (rc7 plus this
-fix) is available on request. Notes: work/notes/forest-of-time-sammy-guard_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). The Forest of Time's Sammy arrival and Marauder scenes only run while the Sammy chapter is active, so
+the Ilex bug hunt no longer triggers or overwrites them.
 
 **What (old → new):**
 
@@ -1099,7 +1087,7 @@ untouched. Nothing is removed and no content is invented. The maze copy of Ilex 
 **Goldenrod fortune-teller: the ideal-Pokemon reading checks for $10000, the price she names and takes**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-1545, D-2362
 - Source: `work/patches/fortune-ideal-price-check/fix.toml`
@@ -1108,10 +1096,8 @@ untouched. Nothing is removed and no content is invented. The maze copy of Ilex 
 
 Goldenrod Fortune House (script file 895, script 1, text bank 0583). The text says each reading costs $10000 (#0, #8, #9) and the love reading checks $10000 (L334, L612). The 'My ideal Pokemon' branch (L215) checks only HasEnoughMoneyImmediate 300 (@228), then gives the evolution item and runs SubMoneyImmediate 10000 (@313; Rhyperior/Chansey variants @537/@589). With $300-$9999 the player gets the reading and item and is left with $0, and the 'not enough money' message #9 can only appear below $300. Observed in the emulator on the Chinese ROM and rc7 ($5000 -> $0).
 
-Status: disabled. The Goldenrod fortune teller's ideal-Pokémon reading now checks for the $10,000 she names and charges, so a player with less is refused instead of losing everything.
-Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
-user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
-fortune-ideal-price-check). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/fortune_ideal_price_check_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). The Goldenrod fortune teller's ideal-Pokémon reading now checks for the $10,000 she names and charges, so a player with less is refused instead of losing everything.
+Reviewed by a separate reviewer (approved with notes).
 
 **What (old → new):**
 
@@ -1132,7 +1118,7 @@ One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 228, 300 -> 100
 **Game Corner: the raised-price '500 coins for $50000' option gives 500 coins, not 50**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-1415, D-2365
 - Source: `work/patches/gamecorner-500-coins/fix.toml`
@@ -1141,10 +1127,8 @@ One operand: the 32-bit amount of the HasEnoughMoneyImmediate at 228, 300 -> 100
 
 Goldenrod Game Corner clerk (script file 903, text bank 0591). After the magnet cheater scene the clerk's menu is raised (#94 '50 coins for $5000', #95 '500 coins for $50000'). The $5000 option (L7501) checks and gives 50 coins; the $50000 option (L7575) checks $50000 and takes it (SubMoneyImmediate 50000 at 7617) but its CheckGiveCoins (7596) and GiveCoins (7623) both use 50. The player pays ten times the price for a tenth of the coins. The normal menu (L3657/L3731) gives 50 for $500 and 500 for $5000, so 500 is the intended count. Observed in the emulator on the Chinese ROM and rc7 (D-1415).
 
-Status: disabled. At the raised Game Corner price, "500 coins for $50000" gives 500 coins instead of 50.
-Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
-user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
-gamecorner-500-coins). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/gamecorner_500_coins_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). At the raised Game Corner price, "500 coins for $50000" gives 500 coins instead of 50.
+Reviewed by a separate reviewer (approved with notes).
 
 **What (old → new):**
 
@@ -1166,7 +1150,7 @@ Two operands: the coin count in the CheckGiveCoins at 7596 and in the GiveCoins 
 **White out, not freeze, when you lose to Giovanni at the Mt. Silver hot spring**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2349, D-2350
 - Source: `work/patches/giovanni-hotspring-loss/fix.toml`
@@ -1183,11 +1167,8 @@ game ends on a black or garbage screen (CPU on a bad address) on the Chinese ROM
 corner child (D-2300) and the Pokemon Tower Magcargo did. Setting the "allow loss" option bytes of the battle
 (1,0 or 1,1) does not help: the same blank screen follows.
 
-Status: disabled. Losing to Giovanni at the Mt. Silver hot spring is a normal whiteout instead of a freeze on a black
-screen. Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate,
-switched-off patch by the user's decision: the standard build keeps the Chinese behaviour and builds this only on
-request (build.py --only giovanni-hotspring-loss). A tester xdelta (rc7 plus this fix) is available on request. Notes:
-work/notes/giovanni-hotspring-loss_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). Losing to Giovanni at the Mt. Silver hot spring is a normal whiteout instead of a freeze on a black
+screen.
 
 **What (old → new):**
 
@@ -1214,7 +1195,7 @@ branch run, and whiteout is what every other loss branch in the hack does (D-230
 **Pokemon Salon: the younger Haircut Brother checks for $300, the price he names and takes**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2366, D-2367
 - Source: `work/patches/haircut-younger-price-check/fix.toml`
@@ -1223,10 +1204,8 @@ branch run, and whiteout is what every other loss branch in the hack does (D-230
 
 Pokemon Salon (script file 94, text bank 0115). The younger Haircut Brother advertises $300 (#17) and takes 300 (SubMoneyImmediate 0x12C at @2912) but first checks HasEnoughMoneyImmediate 500 (@2806), so a player with $300-$499 is told they cannot pay for a service that costs $300. The older brother checks 500 and takes 500 (@2547/@2653). In the US game the younger brother checks and charges $300.
 
-Status: disabled. The younger Haircut Brother accepts the $300 he charges, instead of refusing a player with $300 to $499.
-Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
-user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
-haircut-younger-price-check). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/haircut_younger_price_check_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). The younger Haircut Brother accepts the $300 he charges, instead of refusing a player with $300 to $499.
+Reviewed by a separate reviewer (approved with notes).
 
 **What (old → new):**
 
@@ -1373,10 +1352,9 @@ text is never changed by this fix. Not touched: Kirk's Sylveon, the S.S. Aqua Bu
 Route 21 Lairon (cry plays Onix, D-2400) and the silent objects (open questions, D-2399). RECHECK WHEN 4.1.0 RELEASES: every object in
 work/notes/overworld-pokemon-sprite-mismatch_fix.md must be looked at again in the game (4.1.0 may change sprites or cries).
 
-Status: disabled. Merged into develop on 2026-10-12 as a separate, switched-off patch at the user's request: the standard
-build keeps the Chinese behaviour and builds this only on request (build.py --only overworld-pokemon-cries). The byte guards
-(member SHA-1 and expected value of every entry) were re-checked against the Chinese ROM at merge. Notes:
-work/notes/overworld-pokemon-sprite-mismatch_fix.md.
+Status: disabled and superseded (user decision of 2026-10-13). The sprites follow the Chinese text and cry instead (overworld-pokemon-sprites, enabled
+in rc8), so this cry fix is kept only as a record and is never built. It also conflicts with blank-player-name-batch on members 55, 109 and 734
+(its member SHA-1 guards), so the two cannot be built together. Notes: work/notes/overworld-pokemon-sprite-mismatch_fix.md.
 
 **What (old → new):**
 
@@ -1420,7 +1398,7 @@ Sentrets, Red's house Butterfrees and Sinjoh Shiftry share scripts). Nothing els
 **Draw stationary overworld Pokemon as the species their Chinese text and cry name**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2395, D-2396, D-2398
 - Source: `work/patches/overworld-pokemon-sprites/fix.toml`
@@ -1438,18 +1416,15 @@ Patrat. Rule (user decision 2026-10-12, D-2398): the sprites follow the Chinese 
 RECHECK WHEN 4.1.0 RELEASES: every object in work/notes/overworld-pokemon-sprite-mismatch_fix.md (section "Recheck when 4.1.0
 releases") must be looked at again in the game, because 4.1.0 may change the sprites.
 
-Status: disabled. Merged into develop on 2026-10-12 as a separate, switched-off patch at the user's request: the standard
-build keeps the Chinese behaviour and builds this only on request (build.py --only overworld-pokemon-sprites). The byte guards
-(member SHA-1 and expected value of every entry) were re-checked against the Chinese ROM at merge. Notes:
-work/notes/overworld-pokemon-sprite-mismatch_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 
-Replace the sprite id of 37 object events with the following-Pokemon sprite id of the species the object's Chinese text and cry name
+Replace the sprite id of 36 object events with the following-Pokemon sprite id of the species the object's Chinese text and cry name
 (428 + base offset from the table): the vanilla NPC-Pokemon ids 994..1046 whose speaker label and cry agree (Jigglypuff, Machoke,
 Ampharos, Pikachu, Slowbro, the Pokeathlon and Safari warden Pokemon, Kyogre, Abra, ...), the second Indigo Plateau Metagross
 (Tyranitar 709, same script as the Metagross objects drawn 837), Kirk's Sylveon (Leafeon 946; its cry disagrees with its label: label
-wins, needs user check) and the S.S. Aqua Bulbasaur (Ivysaur 429; label and sound say Bulbasaur, cry says Ivysaur: needs user check).
+wins, needs user check). The S.S. Aqua Bulbasaur is left drawn as Ivysaur (label and sound say Bulbasaur, the cry says Ivysaur; user decision of 2026-10-13).
 Only the 2-byte sprite id changes; position, flag, script, movement and facing stay. Silent objects (Mount Moon Clefairy, Moomoo
 Farm Miltank, Pokeathlon Poliwrath) and the Route 21 Lairon are not changed. Text and cries are not touched.
 
@@ -1496,14 +1471,13 @@ Farm Miltank, Pokeathlon Poliwrath) and the Route 21 Lairon are not changed. Tex
 - `a/0/3/2` #82 +0x36A `ev82-obj27-metagross`: `0x02C5` → `0x0345` (member SHA-1 `5560adae1ab6`): Indigo Plateau Metagross object (zone 85): object 27 sprite 709 -> 837 (Metagross).
 - `a/0/3/2` #188 +0x392 `ev188-obj27-metagross`: `0x02C5` → `0x0345` (member SHA-1 `1d424b772bc1`): Indigo Plateau Metagross object (zone 195): object 27 sprite 709 -> 837 (Metagross).
 - `a/0/3/2` #218 +0x10A `ev218-obj8-sylveon`: `0x03B2` → `0x04B0` (member SHA-1 `1a27507d9216`): Kirk's house (Cianwood): object 8 sprite 946 -> 1200 (Sylveon).
-- `a/0/3/2` #299 +0x38A `ev299-obj28-bulbasaur`: `0x01AD` → `0x01AC` (member SHA-1 `6f6f891ef943`): S.S. Aqua 1F north-west rooms: object 28 sprite 429 -> 428 (Bulbasaur).
 
 ## photographer-no-healthy-mon
 
 **Pallet Town photographer: no photo without a healthy Pokémon (no frozen photo scene)**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2347
 - Source: `work/patches/photographer-no-healthy-mon/fix.toml`
@@ -1517,11 +1491,8 @@ photo scene looks up the party's lead Pokémon and reads it without checking tha
 notice (a read from address 0 returns 0 there), which is why the earlier emulator test with an empty party passed.
 A player report (Manic Emulator, iOS) matches. The untouched Chinese ROM does the same, so this is a hack bug.
 
-Status: disabled. Answering Yes to the Pallet Town photographer while no Pokémon in the party can fight no longer
-freezes the game: he gives his usual decline reply instead. Reviewed by a separate reviewer (approved with notes). Merged into
-develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
-behaviour and builds this only on request (build.py --only photographer-no-healthy-mon). A tester xdelta (rc7 plus
-this fix) is available on request. Notes: work/notes/photographer-no-healthy-mon_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). Answering Yes to the Pallet Town photographer while no Pokémon in the party can fight no longer
+freezes the game: he gives his usual decline reply instead.
 
 **What (old → new):**
 
@@ -1556,7 +1527,7 @@ operand and movement are still refused.
 **Reward scripts: a gift of more than one item says how many (Obtained <item> x2!), not one**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2411, D-2409, D-2387
 - Source: `work/patches/reward-qty/fix.toml`
@@ -1578,8 +1549,7 @@ pc 2133) compares var 0x8005 with 1 at pc 2211 and, for more than one, buffers t
 (command 844 BufferItemNamePlural) before the same message. The hack's command table stops at 842, so that command
 does not exist here.
 
-Status: disabled. A separate, switched-off patch (D-2387), to be merged into develop after review: the standard build keeps
-the Chinese behaviour and builds this only on request (build.py --only reward-qty).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 
@@ -1647,7 +1617,7 @@ The original entire member SHA-1 and the four expected bytes guard the edit.
 **Make the Cynthia romance scenes take Snow Mail and show Cynthia's own line**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2332, D-2333
 - Source: `work/patches/romance-mail-mismatch/fix.toml`
@@ -1663,9 +1633,7 @@ Separately, in the 1F Cynthia branch that has the rest option, choosing "I'm bus
 (file 842, offset 7161) shows Misty's line (msg 212) instead of Cynthia's (msg 218),
 which every other Cynthia fall-through (offsets 7228 and 8389) uses.
 
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only romance-mail-mismatch). Tester xdeltas exist (rc7 plus this fix).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 
@@ -1710,11 +1678,9 @@ Stop, Gyarados!" and "Gyarados: Gy-a-ra!" come from nobody, the battle starts fr
 I'm so sorry" talk is held with an empty field. (Seen in the emulator with the state forced to flag 1303 set and
 var 0x4086 = 0, which is the game's own state between the Viridian Blue scene and the forest scene.)
 
-Status: disabled. Misty and her Gyarados are shown in the Route 3 scene even when the Viridian Forest request was
-skipped, instead of the scene playing with an empty field. Reviewed by a separate reviewer (approved with notes). Merged into
-develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard build keeps the Chinese
-behaviour and builds this only on request (build.py --only route3-misty-actors). A tester xdelta (rc7 plus this fix)
-is available on request. Notes: work/notes/route3-misty-actors_fix.md.
+Status: disabled. The user decided on 2026-10-13 not to ship this: the empty-field scene only shows for a player who skipped Misty's Viridian
+Forest request, which the user considers user error. The patch stays merged, switched off, and is built only on request
+(build.py --only route3-misty-actors). Notes: work/notes/route3-misty-actors_fix.md.
 
 **What (old → new):**
 
@@ -1787,7 +1753,7 @@ script 12, the Dratini gift, the Fuchsia gym.
 **Let the seven weekday siblings finish their ribbon scene**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-1331, D-1558, D-2331
 - Source: `work/patches/sibling-ribbon-freeze/fix.toml`
@@ -1804,9 +1770,7 @@ player stays locked in the script context until X opens the menu. These are the
 only out-of-range command ids in the whole archive. User statement 2026-10-12
 lifted D-1337 for provable hack bugs.
 
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only sibling-ribbon-freeze). Tester xdeltas exist (rc7 plus this fix).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 
@@ -1936,7 +1900,7 @@ TO UNDO: set enabled = false (or build with --without ss-anne-softlock), or chan
 **S.S. Anne shop: the Frustration TM checks for $4000, the price on the menu and taken**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2363, D-2364
 - Source: `work/patches/ssanne-tm-price-check/fix.toml`
@@ -1945,10 +1909,8 @@ TO UNDO: set enabled = false (or build with --without ss-anne-softlock), or chan
 
 S.S. Anne ship shop (script file 156, text bank 0252). Menu line #31 sells the Frustration TM for $4000 and the purchase at @4349 takes 4000 (SubMoneyImmediate 0xFA0), but the check before it (@4328) is HasEnoughMoneyImmediate 400. With $400-$3999 the player buys it anyway and ends with $0. The sibling entries check exactly what they take (Shoal Salt 1500/1500, Liechi and Ganlon Berry 800/800). Observed in the emulator on the Chinese ROM and rc7.
 
-Status: disabled. The S.S. Anne shop checks for the $4,000 the Frustration TM costs, so a player with $400 to $3,999 is refused instead of buying it and ending with $0.
-Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
-user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
-ssanne-tm-price-check). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/ssanne_tm_price_check_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). The S.S. Anne shop checks for the $4,000 the Frustration TM costs, so a player with $400 to $3,999 is refused instead of buying it and ending with $0.
+Reviewed by a separate reviewer (approved with notes).
 
 **What (old → new):**
 
@@ -2119,7 +2081,7 @@ listed in D-2402 and not changed. Each entry pins the original member by SHA-1 a
 **Blackthorn Move Tutor teaches Play Rough, as it says (not Flail)**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-1305, D-2356
 - Source: `work/patches/tutor-blackthorn-play-rough/fix.toml`
@@ -2134,11 +2096,8 @@ uses move 175, the id v3 gave Play Rough. v4 moved Play Rough to its own id 583 
 and the English build (D-1305: 175 written on both the free-slot and the forget-a-move path, and the summary screen
 names 抓狂 / Flail). The same script already teaches Draco Meteor (434) correctly.
 
-Status: disabled. The Blackthorn Move Tutor teaches Play Rough, the move the hack's own sheet lists, instead of Flail.
-Reviewed by a separate reviewer (approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the
-user's decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only
-tutor-blackthorn-play-rough). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/tutor-
-blackthorn-play-rough_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). The Blackthorn Move Tutor teaches Play Rough, the move the hack's own sheet lists, instead of Flail.
+Reviewed by a separate reviewer (approved with notes).
 
 **What (old → new):**
 
@@ -2166,7 +2125,7 @@ edit.
 **Saffron Dojo tutor teaches Volt Switch on every path (not Charge)**
 
 - Kind: narc
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-1347, D-2357
 - Source: `work/patches/tutor-saffron-volt-switch/fix.toml`
@@ -2182,11 +2141,7 @@ Pokemon with four moves that answers 'no' to the first forget prompt and 'yes' t
 taught, Charge as well. Observed in the emulator on the Chinese ROM and the English build (D-1347: 3 moves ->
 268, 4 moves -> 521, 10000 taken on both).
 
-Status: disabled. The Saffron Dojo tutor teaches Volt Switch on every path instead of Charge on some of them. Reviewed
-by a separate reviewer (approved). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's
-decision: the standard build keeps the Chinese behaviour and builds this only on request (build.py --only tutor-
-saffron-volt-switch). A tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/tutor-saffron-
-volt-switch_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). The Saffron Dojo tutor teaches Volt Switch on every path instead of Charge on some of them.
 
 **What (old → new):**
 
@@ -2207,6 +2162,61 @@ Guards: whole-member SHA-1 and the expected bytes of each edit.
 - `a/0/1/2` #829 +0x18e6 `dojo-setmonmove-free`: `0x010C` → `0x0209` (member SHA-1 `c19ec3061f93`): SetMonMove slot, free slot, 268 -> 521 at pc 6368 (operand at +6): the pupil has fewer than four moves.
 - `a/0/1/2` #829 +0x1a1d `dojo-summary-retry`: `0x010C` → `0x0209` (member SHA-1 `c19ec3061f93`): PokemonSummaryScreen 1, slot, 268 -> 521 at pc 6680 (operand at +5): retry path after 'no' to the first forget prompt.
 - `a/0/1/2` #829 +0x1a62 `dojo-setmonmove-retry`: `0x010C` → `0x0209` (member SHA-1 `c19ec3061f93`): SetMonMove slot, chosen move, 268 -> 521 at pc 6748 (operand at +6): retry path.
+
+## victory-road-arch-movement-wait
+
+**Victory Road exterior: the arch in front of the stairs no longer freezes the final chapter**
+
+- Kind: narc
+- Enabled: yes
+- Requires: nothing
+- Decisions: D-2416, D-2415
+- Source: `work/patches/victory-road-arch-movement-wait/fix.toml`
+
+**Why (the Chinese hack):**
+
+Players: in the final chapter (after the Goldenrod Radio Tower speech), the game freezes on the Victory Road
+exterior the moment you step onto the row under the arch in front of the stairs, on the way to the gathering
+with Blue, Green, Silver and the others. The picture stops, the music may go on, nothing responds. Reported on
+a real DS Lite (Discord, 2026-10-12, photo of the frozen screen under the arch). The row spans the whole arch,
+so the final chapter cannot be reached. The untouched Chinese ROM freezes in the same place, so this is a bug
+of the hack.
+
+Status: enabled for rc8. User-approved fix of a hack bug (D-2416, 2026-10-12; D-2415 is the finding); tested by the user.
+
+Technical: script file 763 (a/0/1/2 member 763, the Victory Road exterior, zone 431) has a coord trigger on
+x 13-17, y 38 for var 0x409E == 7 (script 47). It checks flag 2307 and jumps to L5763, which places objects
+33-43 (MovePersonFacing) and starts ten ApplyMovement (objects 33, 34, 36-43), then ends with End: no
+WaitMovement and no LockAll. The movement tasks outlive the script. On melonDS 1.1 the game takes a data abort
+at 0x0204FAD8 ('ldr r0, [r0, #0xc]', a task's environment read through a NULL pointer; CPSR 0x97, abort LR
+0x0204FAE0) a few frames after the step, at the same frame on the Chinese ROM and the rc7 English build.
+DeSmuME does not emulate the ARM9 protection unit and keeps going, which is why the hack shipped like this.
+Experiments on the English build: NOP-ing the ten ApplyMovement, or waiting for them before the script ends,
+both remove the freeze.
+
+**What (old → new):**
+
+Old: script 47 = CheckFlag 2307; GoToIf (flag clear) L5763; End. L5763 ... ApplyMovement x10; End.
+
+New: script 47 = Call L5763; WaitMovement; End. L5763 ... ApplyMovement x10; Return.
+The script now waits until the ten NPCs have finished their short walks (the player stands still for that
+moment) and then ends. Same placements, same movements, same trigger, same everything else; no other script
+jumps to L5763 or to the changed bytes (the three old bytes after the new End are never executed).
+The flag 2307 check is dropped: it cannot fail while the trigger can run. The trigger needs var 0x409E == 7,
+which only the Radio Tower scene sets (file 34 @6114), and the same trip clears 2307 (file 34 @3274); 2307 is
+set only together with var 0x409E = 8 (file 763 @5701/@5707) and in the post-game (file 842 @440, var 19), and
+the var never goes back to 7.
+
+**Evidence:**
+
+- D-2415: the finding (zone 431, script 763/47, fault 0x0204FAD8 on both ROMs, DS Lite report)
+- melonDS 1.1, 2026-10-12: emu_harness.py hang --case victory_road_arch: the untouched Chinese ROM and the build without this fix hang at 0x0204FAD8 on the step onto (14,38); the build walks on up the stairs
+- DeSmuME, 2026-10-12: the same walk passes on every ROM (no protection unit), so `fixes` has no scenario for it (emu_fixes.UNCOVERED)
+
+**Touches:**
+
+- `a/0/1/2` #763 +0x96D `arch-trigger-call-and-wait`: `0020 0903 001C 0B00 000D` → `001A 0D10 0000 005F 0002` (member SHA-1 `dd017d15a77e`): Script 47 at 2413: 'CheckFlag 2307; GoToIf 0, L5763' -> 'Call L5763 (rel 3344); WaitMovement; End'. The old bytes 2423-2425 stay, dead after End.
+- `a/0/1/2` #763 +0x1757 `arch-movements-return`: `0x0002` → `0x001B` (member SHA-1 `dd017d15a77e`): End of L5763 at 5975: End -> Return, so the block returns to script 47's WaitMovement.
 
 ## outfit-chooser-strings
 
@@ -2575,7 +2585,7 @@ GENUINE_ALL_GOOD equ 1          ; "all checks pass":   1 on a genuine cart
 **Battles: a Pokémon that faints cries (the low faint cry) and makes the faint sound again, on both sides**
 
 - Kind: code
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2341
 - Source: `work/patches/battle-faint-cry/fix.toml`
@@ -2588,25 +2598,7 @@ down. The hack lost both: wild Pokémon, a Trainer's Pokémon and your own faint
 'Some moves have no sound' lists the missing cry of opposing Pokémon; your own are silent too). The untouched
 Chinese hack is silent in the same places, so this is a bug of the hack.
 
-Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
-(D-2341, 2026-10-09); other hack bugs stay report-only.
-
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only battle-faint-cry).
-
-Technical: the hack replaced HeartGold's battle code with its own engine in overlay 14. Client command 21
-(handler table entry 21) shows a faint by calling Faint_Run (0x0222CB7C) every frame until it returns 1, a
-state machine kept in the byte 0x02255EDD: 0 prepare, 1 wait while a cry is playing (arm9 0x02006258), start
-the health-box task, 2 lower a raised sprite, 3 set up the partial draw, 4 slide down 8 px a frame and hide
-the sprite, 5 wait for the health box. Nothing in it starts a cry or a sound, so state 1 waits for nothing.
-HeartGold's faint task has the same states plus, before the slide, the cry in faint mode and the faint sound
-(US overlay12 0x022601FA, US overlay12 0x0226022A, US overlay12 0x02260244 and US overlay12 0x0226026E):
-PlayCryWithChatter (US arm9 0x0207204C) with mode 5, volume 127, heap 5, no delay and pan +117 for a front
-sprite (the foe) or -117 for a back sprite; then it waits while the cry plays; then PlaySEWithPan
-(US arm9 0x0200602C) with SEQ_SE_DP_POKE_DEAD3 (1795) and the same pan. Observed on the Chinese ROM: no cry in mode 5 and
-no sequence 1795 in a wild, Trainer, double or Explosion faint, on either side (DeSmuME hooks, melonDS
-watchpoints on the sound archive's sequence records).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 
@@ -3288,7 +3280,7 @@ the turn, Roar, the other playback commands.
 **Battles: a move that deals damage plays the hit sound again (normal, super effective, not very effective)**
 
 - Kind: code
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2342
 - Source: `work/patches/battle-hit-sound/fix.toml`
@@ -3300,25 +3292,7 @@ don't hear the noise of your attack hitting'; 'Pikachu's Electro Ball has no sou
 off'). HeartGold plays a hit sound with every damaging hit, louder for a super-effective one and softer for a
 not-very-effective one. The untouched Chinese hack never plays it, so this is a bug of the hack.
 
-Status: D-1337 says hack bugs are reported, not fixed. This fix is a user-approved exception to it
-(D-2342, 2026-10-09); other hack bugs stay report-only.
-
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only battle-hit-sound).
-
-Technical: the hack replaced HeartGold's battle code with its own engine in overlay 14, which drives the
-screen with a list of commands. Command 8 (command table 0x0224ABC0, entry 8; BattleAct_MoveDamage,
-0x02204CF0; 'command 8' in faint-waits-for-hp-bar too) shows a move's damage: arguments [target count, effectiveness class, move id, ...], per target a
-battler id and the damage. It starts the target's blink and the HP-bar drain, but plays no sound, and no code
-in the hack plays the hit sounds SEQ_SE_DP_KOUKA_H/L/M (1788/1789/1790; every overlay and arm9 searched, and
-the PlaySE / sequence-start calls logged in battle). HeartGold plays them from battle command 215
-(PlayMoveHitSoundEffect) through the client handler at US overlay12 0x0225B3D4: normal 1790, super
-effective 1788, not very effective 1789. The effectiveness class of command 8 is 1 normal, 2 super effective,
-3 not very effective (observed with the battle messages 2#74 / 2#75). HeartGold sends 0 (normal), 1 (not very
-effective) or 2 (super effective) from the move's effectiveness flags only, so every damaging hit without an
-effectiveness flag (fixed damage such as Seismic Toss or Dragon Rage, Future Sight) plays 1790; the hack sends
-class 1 for those, so they match.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 
@@ -5070,7 +5044,7 @@ checks, the message, every other ability and status.
 **A scripted Double Battle with fewer than two Pokémon becomes a Single Battle (no freeze)**
 
 - Kind: code
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2358
 - Source: `work/patches/double-battle-single-fallback/fix.toml`
@@ -5091,11 +5065,8 @@ type (1 single, 3 double with one trainer twice, 0x13 double with two trainers, 
 BattleSetup_New(11, type). Nothing there looks at the party. With a party count below two the battle init (overlay 14) reads the
 empty second slot's index as a pointer (DeSmuME: broken ally, blank screen; melonDS: data abort at 0x022167B4).
 
-Status: disabled. A scripted Double Battle that starts with fewer than two Pokémon in the party becomes a Single
-Battle instead of freezing (Department Store 6F and about 130 other sites). Reviewed by a separate reviewer
-(approved with notes). Merged into develop on 2026-10-12 as a separate, switched-off patch by the user's decision: the standard
-build keeps the Chinese behaviour and builds this only on request (build.py --only double-battle-single-fallback). A
-tester xdelta (rc7 plus this fix) is available on request. Notes: work/notes/double-battle-single-fallback_fix.md.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review). A scripted Double Battle that starts with fewer than two Pokémon in the party becomes a Single
+Battle instead of freezing (Department Store 6F and about 130 other sites).
 
 **What (old → new):**
 
@@ -7238,7 +7209,7 @@ being bound to texture parameters read from address 0.
 **Petilil holding a Black Belt evolves into Hisuian Lilligant by day (not into another Petilil)**
 
 - Kind: code
-- Enabled: no
+- Enabled: yes
 - Requires: nothing
 - Decisions: D-2334
 - Source: `work/patches/petilil-hisuian-lilligant/fix.toml`
@@ -7251,18 +7222,7 @@ Petilil instead ('Petilil evolved into Petilil', the Black Belt is used up) and 
 Sun Stone then makes it Hisuian Lilligant. The untouched Chinese ROM does the same (hack finding D-1485,
 observed in the emulator 2026-10-05), so this is a bug of the hack.
 
-Status: D-1337 said hack bugs are reported, not fixed; the user lifted that on 2026-10-12 ('We are way past this
-point since the Chinese rom contains too many bugs.. So lets create a fix in a worktree', D-2334).
-
-Technical: Petilil's evolution record 1 in a/0/3/4 (method 18, parameter 241 = Black Belt) names the target
-1361, the hack's own 'Hisuian Lilligant' form-species id. The evolution scene's setup (0x02074048) turns the ids
-from 1026 up into a base species plus form 1 (SetMonData FORM = 1, then the species goes to the scene). For 1361
-it loads 548 ('movs r5, #0x89; lsls r5, r5, #2'), which is Petilil; Lilligant is 549 (Petilil's Sun Stone record
-names 549).
-
-Status: disabled. Merged into develop on 2026-10-12 at the user's request as a separate, switched-off patch: the
-standard build leaves it out (the Chinese behaviour is kept) and it is built only on request
-(build.py --only petilil-hisuian-lilligant). Tester xdeltas exist (rc7 plus this fix).
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 
 **What (old → new):**
 

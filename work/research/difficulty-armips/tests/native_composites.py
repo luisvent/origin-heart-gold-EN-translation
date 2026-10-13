@@ -1,8 +1,8 @@
 """Strict functional evidence composition. No driver status alone is a proof."""
 import json
 from pathlib import Path
-from native_plan import comprehensive, identity, item_id, gate_job, doubles_job, LAYERS
-from native_items_cases import ADDITIONS, BERRY_FLUTE, NO_EFFECT, CASES, usable
+from native_plan import PERSISTENCE_ID, comprehensive, identity, item_id, gate_job, doubles_job, LAYERS
+from native_items_cases import ADDITIONS, BERRY_FLUTE, NO_EFFECT, CASES, usable, GATE_ITEM
 from support import sha256
 
 
@@ -15,7 +15,7 @@ def item_dependencies(item, condition='positive'):
 
 
 CONTRACTS = {
-    'items.remembered':[gate_job('remembered',i)['id'] for i in (791,65535)]+['gate-persistence-item-00017'],
+    'items.remembered':[gate_job('remembered',i)['id'] for i in (791,65535)]+[PERSISTENCE_ID],
     'items.doubles_slot1':[doubles_job(g,0)['id'] for g in ('accept','item','target')],
     'items.doubles_slot2':[doubles_job(g,1)['id'] for g in ('accept','item','target')],
     'items.restricted':[j for i in (17,*ADDITIONS,*BERRY_FLUTE) for j in item_dependencies(i)],
@@ -69,7 +69,7 @@ def allowed_cases(report):
     if driver=='native_items_gates.py':
         from native_items_gates_oracles import GATES
         r=report['battle']
-        return {GATES[r['gate']][2]} if r['fault_item']==17 and r['gate'] in GATES else set()
+        return {GATES[r['gate']][2]} if r['fault_item']==GATE_ITEM and r['gate'] in GATES else set()
     if driver in ('native_items_doubles.py','native_items_persistence.py'):return set()
     return {case for case,deps in CONTRACTS.items() if deps==[key]}
 

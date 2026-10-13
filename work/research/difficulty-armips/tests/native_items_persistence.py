@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Authentic All Potion -> native KO -> Options -> restricted trainer Bag.
+"""Authentic ALL Hyper Potion (an addition; Potion is allowed in DEFAULT) -> native KO -> Options -> restricted trainer Bag.
 
 No remembered-input injection, state reload, or player/inventory reset between battles.
 Parent alone launches this supervised diagnostic.
@@ -21,6 +21,7 @@ from native_items_fixture import prepare, install_player, install_enemy_at_launc
 from native_items_trace import ram_pointer, mon_state, read_inventory
 from native_items_gates_trace import GateTrace
 from native_items_oracles import events, trainer_entry
+from native_items_cases import CASES, GATE_ITEM
 
 
 class PersistenceTrace(GateTrace):
@@ -59,7 +60,7 @@ def fixture(receipt,out):
     import save_core
     from ndspy.rom import NintendoDSRom
     from ndspy.narc import NARC
-    f=prepare(receipt,out,17)
+    f=prepare(receipt,out,GATE_ITEM)
     moves=NARC(NintendoDSRom.fromFile(receipt['output']['path']).getFileByName('a/0/1/1')).files
     pp=[moves[82][6],moves[150][6],0,0]
     require(pp==[10,40,0,0],'candidate Dragon Rage/Splash PP changed')
@@ -87,7 +88,7 @@ def field_state(h):
     decoded=[save_core.request('decodePokemon',x,diagnostic=False) for x in raw]
     require(all(x['flags']==0 and x['checksumOk'] and not x['isEgg'] for x in decoded),'invalid closed field party')
     return dict(party=p,hashes=[hashlib.sha256(x).hexdigest() for x in raw],decoded=decoded,
-                inventory=read_inventory(h,h.array(3),17))
+                inventory=read_inventory(h,h.array(3),GATE_ITEM))
 
 
 def potion_oracle(run):
@@ -95,22 +96,22 @@ def potion_oracle(run):
     before,after=run['before'],run['after_potion'];expected=deepcopy(before)
     require(before['quantity']==3 and before['mons']['1']['hp']==1 and before['mons']['13']['hp']==1,
             'wrong persistence HP/quantity inputs')
-    expected['mons']['1']['hp']=21
+    expected['mons']['1']['hp']=min(before['mons']['1']['maxhp'],before['mons']['1']['hp']+CASES[GATE_ITEM]['healing'])
     expected['mons']['13']['pp'][0]-=1;expected['mons']['13']['original_pp'][0]-=1
     expected['quantity']=2;bag=bytearray.fromhex(expected['bag']);at=expected['item_offset']+2
     bag[at:at+2]=(2).to_bytes(2,'little');expected['bag']=bag.hex()
-    require(after==expected,'native Potion did not produce exact HP/Bag/enemy PP effect')
+    require(after==expected,'native Hyper Potion did not produce exact HP/Bag/enemy PP effect')
     for name in ('accept','commit_item','commit_target','command','effect','consume','outcome','remember_set'):
-        require(len(events(run,name))==1,'missing/duplicate native Potion '+name)
+        require(len(events(run,name))==1,'missing/duplicate native Hyper Potion '+name)
     effect=events(run,'effect')[0];outcome=events(run,'outcome')[0];consume=events(run,'consume')[0]
-    require(effect['item']==17 and effect['actor']['id']==1 and effect['target_id']==1 and
-            outcome['words']==[0,1,0] and consume['item']==17 and consume['owner']==0,'wrong Potion actor/target/consume')
+    require(effect['item']==GATE_ITEM and effect['actor']['id']==1 and effect['target_id']==1 and
+            outcome['words']==[0,1,0] and consume['item']==GATE_ITEM and consume['owner']==0,'wrong Potion actor/target/consume')
     command=events(run,'command')[0];encoded=bytes.fromhex(command['after'])
-    require(command['item']==17 and command['target']==1 and len(encoded)==12 and
-            int.from_bytes(encoded[:4],'little')==17*16+2 and int.from_bytes(encoded[4:8],'little')==1,
+    require(command['item']==GATE_ITEM and command['target']==1 and len(encoded)==12 and
+            int.from_bytes(encoded[:4],'little')==GATE_ITEM*16+2 and int.from_bytes(encoded[4:8],'little')==1,
             'wrong native item command')
     remembered=events(run,'remember_set')[0]
-    require(remembered['item']==remembered['stored_item']==17 and
+    require(remembered['item']==remembered['stored_item']==GATE_ITEM and
             remembered['category']==remembered['stored_category']==0,'Potion was not remembered by native setter')
     require([(e['actor']['id'],e['move']) for e in events(run,'action')]==[(13,150)],'Potion used wrong turn')
 
@@ -133,7 +134,7 @@ def validate(result):
     ctor=events(second,'constructor');caps=events(second,'captured')
     require(len(ctor)==len(caps)==len(events(second,'begin'))==1,'second native entry missing')
     cap=caps[0];c=cap['context'];snap=cap['snapshot']
-    require(ctor[0]['lr']==0x020507AD and ctor[0]['flags']==c['flags']==1 and
+    require(ctor[0]['lr'] in (0x020507AD, 0x02048EEF) and ctor[0]['flags']==c['flags']==1 and
             ctor[0]['control']==c['control']==0 and c['setup']==ctor[0]['setup']==cap['setup_owner'] and
             c['save']==c['published_save']==cap['save_owner'] and c['save']!=0,'second native constructor/owner mismatch')
     require(snap['allowed']==1 and snap['flags']==0 and snap['epoch']==cap['generation']>
@@ -147,13 +148,13 @@ def validate(result):
     checks=events(second,'remember_check');wrappers=events(second,'remembered')
     require(len(checks)==len(wrappers)==1,'second remembered native check missing/duplicate')
     ck,w=checks[0],wrappers[0]
-    require(ck['before']['remembered']==w['item']==17 and w['quantity']==1 and w['result']==ck['result']==0 and
+    require(ck['before']['remembered']==w['item']==GATE_ITEM and w['quantity']==1 and w['result']==ck['result']==0 and
             ck['after']['remembered']==0 and ck['before']['bag']==w['bag']==second['before']['bag_address'],
-            'authentic remembered Potion was not natively denied')
+            'authentic remembered Hyper Potion was not natively denied')
     raw=bytearray.fromhex(ck['raw_before']);raw[0x1b:0x1e]=bytes(3)
     require(bytes(raw)==bytes.fromhex(ck['raw_after']),'remembered native clear changed other args')
-    require(events(second,'lists') and all(not any(x['item']==17 for ls in e['lists'] for x in ls) and
-            e['args']['remembered']==0 for e in events(second,'lists')),'Potion leaked into restricted list/shortcut')
+    require(events(second,'lists') and all(not any(x['item']==GATE_ITEM for ls in e['lists'] for x in ls) and
+            e['args']['remembered']==0 for e in events(second,'lists')),'Hyper Potion leaked into restricted list/shortcut')
     for name in ('accept','commit_target','command','effect','consume','outcome','action','remember_set','enemy_fixture','player_fixture'):
         require(not events(second,name),'unexpected second-battle '+name)
 
@@ -168,7 +169,7 @@ def play(s,t,result,flush,installed,token):
     s.callbacks[0x0204FCE4].remove(token)
     first['before']=t.state();point('first-menu')
     s.touch(*BATTLE_BUTTONS['bag'],after=180);point('first-bag')
-    require(events(first,'lists')[-1]['lists'][0]==[dict(item=17,quantity=3)],'actual Potion list changed')
+    require(events(first,'lists')[-1]['lists'][0]==[dict(item=GATE_ITEM,quantity=3)],'actual Potion list changed')
     s.touch(64,40,after=90);s.touch(64,32,after=60);s.touch(100,170,after=180)
     mapping=t.party_mapping();binding=t.actor_binding()
     choices=[e for e in mapping['entries'] if e['id']==1 and e['mon']==binding['ui'] and
@@ -179,12 +180,12 @@ def play(s,t,result,flush,installed,token):
         h.step(15)
         if events(first,'effect') and h.on_screen('battle_menu'):break
         if elapsed%120==105:s.press('A',after=0)
-    else:raise AssertionError('native Potion turn did not finish')
+    else:raise AssertionError('native Hyper Potion turn did not finish')
     first['after_potion']=t.state();first['potion_event_count']=len(first['events']);potion_oracle(first);point('first-potion-used')
     require(BattleInput(s,t,first).move(0,82,1,'remembered-ko')=='field','native Dragon Rage did not finish trainer')
     h.step(180);result['boundary']=dict(after_ko=field_state(h),snapshot=t.snapshot());point('field-after-ko')
     options=s.options(0);result['boundary']['after_options']=field_state(h);point('field-restricted')
-    second=dict(name='remembered-restricted',flags=0,item=17,events=[],options=options)
+    second=dict(name='remembered-restricted',flags=0,item=GATE_ITEM,events=[],options=options)
     result['battles'].append(second);t.run=second;t.controller=None
     result['boundary']['before_second']=field_state(h)
     h.trainer_battle(TRAINER)
@@ -208,7 +209,7 @@ def main():
     a=p.parse_args();out=a.out.resolve()
     if Path.cwd().resolve()!=ROOT or sys.flags.optimize or not out.is_relative_to(OUTPUT):p.error('repo root/owned output/assertions required')
     out.mkdir(parents=True,exist_ok=True)
-    first=dict(name='remembered-all',flags=4,item=17,events=[])
+    first=dict(name='remembered-all',flags=4,item=GATE_ITEM,events=[])
     result=dict(status='running',driver='native_items_persistence.py',layer='native ARM gameplay remembered persistence',
         nonce=os.environ.get('DG_TEST_NONCE'),old_state_loaded=False,started_utc=utc(),cases={},battles=[first],
         scope='Authentic valid Potion persistence slice; malformed IDs separately required for broad acceptance')

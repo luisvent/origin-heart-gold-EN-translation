@@ -100,7 +100,7 @@ def validate_remote(run, directory):
         return rows[0]
     ctor, capture = one('constructor'), one('captured')
     context = capture['context']
-    require(ctor['lr']==0x020507AD and ctor['args'][:4]==[11,0x4B,8,385] and ctor['flags']==context['flags']==0x4B
+    require(ctor['lr'] in (0x020507AD, 0x02048EEF) and ctor['args'][:4]==[11,0x4B,8,385] and ctor['flags']==context['flags']==0x4B
             and ctor['control']==context['control']==0 and ctor['setup']==context['setup'],
             'native partner entry identity mismatch')
     snap = capture['snapshot']

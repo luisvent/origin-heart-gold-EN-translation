@@ -108,6 +108,10 @@ UNCOVERED = {
     "reward-qty": "No scenario in this unified runner; emu_reward_qty.py separately runs the Viridian Academy reward and "
                   "other CallStd 2033/2008 gifts on a build with and without the fix, and test_reward_qty.py checks the "
                   "script traces without the emulator.",
+    "victory-road-arch-movement-wait": "No scenario in this unified runner: DeSmuME does not emulate the ARM9 "
+                                       "protection unit and never freezes there. The layer's freeze part runs "
+                                       "emu_hang.py --case victory_road_arch on melonDS (build passes, untouched "
+                                       "Chinese ROM hangs at 0x0204FAD8); see D-2415.",
     "honey-gather": "Dedicated emu_honey_gather.py checks native rewards and Bag insertion; run separately.",
     "startup-content-warning": "Dedicated emu_startup_warning.py captures the native startup screens; run separately.",
     "zero-pp-struggle": "No scenario in this unified runner; emu_struggle.py separately verifies paired "
@@ -1802,10 +1806,8 @@ def observe_faintcry(h):
     team and a double battle (Chuck, two foes to one Surf). Logged: every Faint_Run call (frame, battler,
     state), every cry the hack's cry routine plays (mode, species, pan, volume, heap, delay, form), every
     PlaySEWithPan and every sequence start."""
-    import emu_guide0107 as G
+    import emu_battle_support as G
     import emu_harness as E
-    import emu_open
-    import emu_verify as V
     runs, cries, sounds, starts = [], [], [], []
 
     def regs(h):
@@ -1820,16 +1822,15 @@ def observe_faintcry(h):
         marks = (len(runs), len(cries), len(sounds), len(starts))
         for slot, (species, level, moves, hp) in enumerate(party):
             if slot == 0:
-                G.lead(h, species, level=level, **emu_open.moveset(moves, [20] * len(moves)))
+                G.lead(h, species, level=level, **E.moveset(moves, [20] * len(moves)))
             else:
                 h.generate_pokemon(species, level=level)
-                h.edit_party_mon(h.generated_slot, **emu_open.moveset(moves, [20] * len(moves)))
+                h.edit_party_mon(h.generated_slot, **E.moveset(moves, [20] * len(moves)))
                 h.swap_party(slot, h.generated_slot)
             if hp is not None:
                 G.set_party_hp(h, slot, hp)
-        ml = V.MsgLog(h)
         if foe[0] == "wild":
-            emu_open.wild_battle(h, foe[1], foe[2], moves=foe[3], pp=[40] * len(foe[3]))
+            E.wild_battle(h, foe[1], foe[2], moves=foe[3], pp=[40] * len(foe[3]))
         else:
             h.run_script(program=E.script_bytes(("LockAll",), ("TrainerBattle", foe[1], foe[1] if foe[0] == "double"
                                                 else 0, 0, 0), ("ReleaseAll",), ("End",)))
@@ -1837,7 +1838,7 @@ def observe_faintcry(h):
             return {"error": f"{case}: the battle command menu never appeared"}
         turns = []
         for _ in range(16):
-            turn = _turn_targeted(h) if foe[0] == "double" else emu_open.turn(h, ml, 0)
+            turn = _turn_targeted(h) if foe[0] == "double" else G.turn(h, 0)
             turns.append(turn)
             if turn != "menu":
                 break
@@ -1859,7 +1860,7 @@ def _turn_targeted(h, max_frames=4000):
     """At the command menu: FIGHT, the first move and, in a double battle's target screen, the top-left button
     (the first move button's place); then B through the turn, our fainted Pokemon replaced from the party list
     (as emu_sweeps.b_turn). Returns 'menu', 'field' or 'stuck'."""
-    import emu_guide0107 as G
+    import emu_battle_support as G
     import emu_harness as E
     h.touch(*E.BATTLE_BUTTONS["fight"], frames=10, after=90)
     h.touch(*E.MOVE_BUTTONS[0], frames=10, after=90)
@@ -1872,9 +1873,9 @@ def _turn_targeted(h, max_frames=4000):
             return "field"
         if i > 60 and h.on_screen("battle_menu"):
             return "menu"
-        if i % 60 == 0 and G._match(h, G.PARTY_LIST):
+        if i % 60 == 0 and G.match(h, G.PARTY_LIST):
             h.touch(*E.PARTY_SLOTS[nxt], frames=10, after=60)
-            if G._match(h, G.PARTY_SUBMENU):
+            if G.match(h, G.PARTY_SUBMENU):
                 h.touch(*G.SUBMENU_SHIFT, frames=10, after=30)
             nxt = nxt % 5 + 1
             continue
@@ -1909,9 +1910,8 @@ def observe_hitsound(h):
     """Pikachu Lv50 (Tackle, Thunderbolt) against three scripted wild Pokemon that only know Splash, one turn
     each, then RUN: every command-8 call (step 0) with its effectiveness class, and every sequence the game
     starts (number, frame, whether PlaySE's start succeeded)."""
-    import emu_guide0107 as G
-    import emu_open
-    import emu_verify as V
+    import emu_battle_support as G
+    import emu_harness as E
     starts, actions = [], []          # starts: [frame, seq, PlaySE's result or None]
 
     def started(h):
@@ -1922,15 +1922,14 @@ def observe_hitsound(h):
     h.on_exec(HIT_ACTION, lambda h: actions.append((h.frame, h.u32(h.reg.r2 + 4), h.u32(h.reg.r2 + 8)))
               if h.u32(h.reg.r1) == 0 else None, exclusive=True)
     species, level, moves = HIT_LEAD
-    G.lead(h, species, level=level, **emu_open.moveset(moves, [20] * len(moves)))
-    ml = V.MsgLog(h)
+    G.lead(h, species, level=level, **E.moveset(moves, [20] * len(moves)))
     out = {}
     for case, (slot, foe, foe_level, foe_moves, _) in HIT_FOES.items():
         a0, s0 = len(actions), len(starts)
-        emu_open.wild_battle(h, foe, foe_level, moves=foe_moves, pp=[40] * len(foe_moves))
+        E.wild_battle(h, foe, foe_level, moves=foe_moves, pp=[40] * len(foe_moves))
         if not h.wait_screen("battle_menu", 2400):
             return {"error": f"{case}: the battle command menu never appeared"}
-        turn = emu_open.turn(h, ml, slot)
+        turn = G.turn(h, slot)
         fled = h.flee(battle_menu_wait=0) if turn == "menu" else h.in_field()
         h.run_until(lambda h: h.in_field(), 900, every=10)
         h.step(240)                   # let the field settle before the next scripted battle

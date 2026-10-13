@@ -2,6 +2,7 @@
 from copy import deepcopy
 from pathlib import Path
 from evidence import write_json
+from native_items_cases import GATE_ITEM
 from support import sha256
 from native_composites import SPECS, TRACE, required_artifacts
 
@@ -29,7 +30,7 @@ def report_for(job_id):
     elif spec['driver']=='native_items_doubles.py':
         from test_native_items_doubles import evidence
         r['battle']=evidence(args['--gate'],int(args['--slot']))
-        r['battle']['fault_item']=17
+        r['battle']['fault_item']=GATE_ITEM
     elif spec['driver']=='native_items_persistence.py':
         from test_native_items_persistence import evidence
         r.update(evidence())

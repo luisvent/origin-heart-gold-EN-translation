@@ -132,7 +132,7 @@ def install_enemy_at_launch(session, trace, fixture):
         require(not applied, 'unexpected second trainer launch')
         require(r[14] == 0x02050815, 'not the ordinary TrainerBattle launch caller')
         constructors = [e for e in trace.run['events'] if e['name'] == 'constructor']
-        require(len(constructors) == 1 and constructors[0]['lr'] == 0x020507AD,
+        require(len(constructors) == 1 and constructors[0]['lr'] in (0x020507AD, 0x02048EEF),
                 'unexpected trainer constructor provenance')
         setup = r[1]
         require(constructors[0]['setup'] == setup and constructors[0]['flags'] == 1 and

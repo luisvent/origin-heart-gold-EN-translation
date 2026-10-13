@@ -62,6 +62,10 @@ FREEZE_CASES = {
     "follower_route22": {"fix": "bulbasaur-reflection-boundary", "refs": ["D-2270"],
                          "what": "Bulbasaur following to Misty's first encounter on the Route 22 pond shore, where "
                                  "players meet the freeze (player B's save, teleported, Misty's flag cleared)"},
+    "victory_road_arch": {"fix": "victory-road-arch-movement-wait", "refs": ["D-2331"],
+                          "what": "final chapter: from the League reception gate onto the Victory Road exterior and "
+                                  "up through the arch in front of the stairs, where script 47 starts ten NPC "
+                                  "movements (memcheck/full_bag_6mons.sav, teleported, story var and flags set)"},
 }
 FREEZE_SAVE_DIR = "rocket-repro-20261008"     # next to the default save folder: the 2026-10-08 reproductions
 

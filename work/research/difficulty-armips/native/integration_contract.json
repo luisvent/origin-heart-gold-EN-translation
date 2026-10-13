@@ -70,8 +70,8 @@
       ]
     },
     "work/research/difficulty-armips/compatibility.json": {
-      "sha256": "ff5bffc2b007f7c35907a2c5564f1280b008eaf69114bd4d2e110008d23184b6",
-      "reason": "Reviewed RC7 input: all hook/Options/ITCM and dependency bytes unchanged; whole-file changes attributed to enabled production patches."
+      "sha256": "842cfa165cb5416c32fa7ff362ffcae8d348e87cdf01346eba982d9ebbb1b499",
+      "reason": "Reviewed RC8 input (work/notes/rc8_difficulty_compatibility_20261013.md): all hook/Options/ITCM and dependency bytes unchanged; whole-file changes attributed to enabled production patches."
     },
     "work/tools/text_speed_patch.py": {
       "sha256": "833852baf233d4d82fa8be430438a643ce08cf5ca0616ddb209f8f1422e2a1e1",

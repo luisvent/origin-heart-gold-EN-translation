@@ -283,7 +283,7 @@ class Stage(unittest.TestCase):
 class Schema(unittest.TestCase):
     def test_real_fix_validates(self):
         fx = next(f for f in F.load_all() if f["id"] == "blank-player-name-batch")
-        self.assertFalse(fx["enabled"])
+        self.assertTrue(fx["enabled"])
         self.assertEqual(F.validate([fx]) if hasattr(F, "validate") else [], [])
 
     def test_bad_entries(self):

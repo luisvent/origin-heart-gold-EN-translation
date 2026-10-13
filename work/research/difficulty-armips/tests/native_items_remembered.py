@@ -6,6 +6,7 @@ from native_items_trace import ram_pointer
 from native_items_gates_trace import GateTrace
 from native_items_gates_oracles import actor_identity
 from native_items_oracles import events, trainer_entry
+from native_items_cases import GATE_ITEM
 
 
 class RememberedTrace(GateTrace):
@@ -93,7 +94,7 @@ def denied(run):
         require(not events(run,name),'invalid remembered input reached '+name)
     lists=events(run,'lists')
     require(lists and all(x['args']['remembered']==0 and x['lists'][1]==[dict(item=151,quantity=3)] and
-            not any(y['item']==17 or y['item']>790 for ls in x['lists'] for y in ls) for x in lists),
+            not any(y['item']==GATE_ITEM or y['item']>790 for ls in x['lists'] for y in ls) for x in lists),
             'remembered list retained invalid shortcut or lost native filtering')
     require(any(x['handler']==0x02202445 for x in events(run,'schedule')),'Back continuation missing')
 

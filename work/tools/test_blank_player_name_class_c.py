@@ -22,9 +22,9 @@ SITES = {115: [0x16C8], 738: [0x7EE, 0x828], 829: [0x967, 0x9EF]}
 
 
 class Registry(unittest.TestCase):
-    def test_fix_is_registered_and_disabled(self):
+    def test_fix_is_registered_and_enabled(self):
         fx = next(f for f in F.load_all() if f["id"] == FIX_ID)
-        self.assertFalse(fx["enabled"])
+        self.assertTrue(fx["enabled"])
         self.assertEqual(sorted(e["member"] for e in fx["script_insert"]), [115, 738, 738, 829, 829])
         for e in fx["script_insert"]:
             self.assertEqual(e["insert"], "BE 00 00")

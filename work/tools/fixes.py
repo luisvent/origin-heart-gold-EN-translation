@@ -1784,7 +1784,8 @@ def _touched(fx, bases=None) -> list:
         lines.append(f"`{e['narc']}` #{e['member']} +{e['offset']} `{e['id']}`: `{e['expect']}` → `{e['new']}` "
                      f"(member SHA-1 `{e['member_sha1'][:12]}`): {e['notes']}")
     for e in fx.get("script_insert", []):
-        lines.append(f"`{e['narc']}` #{e['member']} +{e['offset']} `{e['id']}`: insert `{e['insert']}` before `{e['expect']}` "
+        lines.append(f"`{e['narc']}` #{e['member']} +{e['offset']} `{e['id']}`: insert `{e['insert']}` "
+                     f"before `{e['expect']}` "
                      f"(member SHA-1 {' or '.join('`' + h[:12] + '`' for h in e['member_sha1'])}): {e['notes']}")
     for e in fx.get("font", []):
         lines.append(f"`{e['narc']}` fonts {', '.join(map(str, e['fonts']))}: glyph + width of "

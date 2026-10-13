@@ -1,7 +1,7 @@
 id = "blank-player-name-batch"
 title = "Fill the player-name buffer before the messages that read it (53 more places)"
 kind = "narc"
-enabled = false
+enabled = true
 decisions = ["D-2343", "D-2344", "D-2345"]
 requires = []
 why = """
@@ -15,9 +15,7 @@ the patched ROM: the Route 1 kid (member 168, script 5), the Route 30 woman (mem
 other members (work/notes/blank-player-name-batch_fix.md). Follow-up of blank-player-name, which fixed the
 three places that needed no inserted command.
 
-Status: disabled, like blank-player-name: merged as a separate switched-off patch; the standard build keeps
-the Chinese behaviour; build it with build.py --only blank-player-name-batch (tester xdeltas on request).
-It combines with blank-player-name (member 171 accepts both member hashes) and does not repeat its sites.
+Status: enabled for rc8 (user decision of 2026-10-13, after a separate review).
 """
 what = """
 Each [[script_insert]] puts the 3-byte command BufferPlayersName n (BE 00 nn) in front of the first message
