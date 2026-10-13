@@ -24,7 +24,7 @@ Everything for the feature lives in this directory. Its tests live in [testbench
 | 2. English build of the engine | Done: payload, installer and verifier (review fixes included); AI serves trainers on the English ROM |
 | 3. Test bench and runtime verification | Done on rc8: whole bench ported, Spanish results reproduced on rc44, English references recorded (static 9/9, quick all pass, deep: 72/80 vs the hack's AI, 0 fallbacks); one known Spanish property violation awaits a reviewer |
 | 4. Options setting | Row built in a development difficulty build; host tests, 14 native cases and the flag scan pass; release-tool build pending |
-| 5. Review and merge | Independent review done and its fixes merged; integration with the updated upstream main (trainer names in ITCM) not started; not pushed |
+| 5. Review and merge | Independent review done and its fixes merged; upstream main merged (dc7a1d3): AI ITCM origin fixed at 0x01FF9500, difficulty re-pinned to main, all tiers re-pass with identical decisions; not pushed |
 
 ## Layout
 
