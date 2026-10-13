@@ -12,12 +12,15 @@ Two saved event flags, not the Options word (`work/advanced-ai/docs/build-contra
 
 | Value | 0x2C2 | 0x2C3 |
 |---|---|---|
-| OFF | clear | written clear (read: ignored) |
+| OFF | clear | clear |
 | ALL | set | clear |
 | KEY | set | set |
 
-OFF clears both flags, as the Spanish build's Pokémon Centre NPC did. Codec:
-`dg_ai_decode` and `dg_ai_encode` in `native/settings.c`.
+Reading ignores 0x2C3 when 0x2C2 is clear, so the stray pair (0x2C2 clear,
+0x2C3 set) shows OFF. Writing always stores the pair above: OFF clears both, as
+the Spanish build's Pokémon Centre NPC did, and Confirm rewrites a stray pair
+even when the row was not changed. Codec: `dg_ai_decode` and `dg_ai_encode` in
+`native/settings.c`.
 
 The row reads and writes the flags through the hack's own routines, the same
 path the AI's selector reads (disassembly of the rc8 standard build):
@@ -36,15 +39,77 @@ or 0x2C3 comes from the difficulty resident code, and the harness reads the
 result through its own SaveData global (0x021D11B4), which holds the same
 pointer as GetSaveData's.
 
+## Why flags 0x2C2 and 0x2C3 are free
+
+`work/advanced-ai/testbench/checks/options_flags_free.py` (no emulator) gives the
+same result on the untouched Chinese ROM, the rc8 English standard build and the
+development difficulty build:
+
+- **Scripts** (`a/0/1/2`): 966 files, of which 963 decode as scripts. The
+  Chinese ROM has 292,869 reachable instructions; rc8 has 292,930, because its
+  fixes add some. No SetFlag, ClearFlag or CheckFlag names 706 or 707. Other
+  commands carry 706 or 707 only as plain values: GoTo and movement offsets,
+  `CompareVarToValue(0x8005, 706/707)` and `PlayerHasSpecies`.
+- **Map objects** (`a/0/3/2`): none of the 6,731 objects uses 706 or 707 as its
+  hide flag. A hide flag would count as a writer, because removing the object
+  sets it.
+- **Vanilla US HeartGold** did use both flags: script 832 sets and clears them,
+  and map events 355 has two objects that hide with them. The hack has no such
+  uses. The US scan is only for this comparison, because the hack's command
+  table decodes less of the US scripts.
+- **Code**: the only literal 0x2C2/0x2C3 words in ARM9, ITCM and all overlays
+  are three in overlay 14 and one in overlay 77. One (0x0221B39C) feeds a battle
+  routine at 0x02229E1C, not a flag routine. No pc-relative load reaches the
+  other three, which are table data. Constants that the compiler builds with
+  arithmetic are not covered by this search. The setter at 0x0203FC70 and the
+  clearer at 0x0203FC88 use flag 0x550 + n, so their flags start at 1360.
+
+Seven commands take their flag from a variable, all in three files. Each is
+bounded:
+
+| File (script IDs) | Commands | Variable | Flags |
+|---|---|---|---|
+| 145 (hidden items, 8000–8799) | SetFlagVar | 0x8006, copied from 0x8002, which the engine sets | 800–1030 |
+| 151 (Bug-Catching Contest) | SetFlagVar, ClearFlagVar | 0x8005 or 0x8006 = 627 + a loop counter 0–9 | 627–636 |
+| 948 (Trainer House), script 10350 | SetFlagVar, ClearFlagVar | 0x4001 = 653 + a loop counter 0–9; 663 at loop exit | 653–663 |
+| 948, scripts 10351–10361 | CheckFlagVar, SetFlagVar | 0x4001 = 2730 + 0x4000, which each script sets to 0–10 | 2730–2740 (or 653–663, below) |
+
+- **Hidden items.** Starting any script 8000–8799 calls 0x0203FCE8 (from
+  0x0203F796–0x0203F7A8). It looks up script − 8000 in the 231-row table at
+  0x020F7194 and writes 0x8000 = item, 0x8001 = quantity, and 0x8002 = script −
+  7200 (0x0203FC98). File 145's single entry copies 0x8002 to 0x8006 and sets
+  that flag. The table indices are 0–230, so the flag is 800–1030. All 215
+  hidden-item BG events use scripts 8000–8230 and have a table row. No map
+  object, coordinate trigger or CallStd starts a script in 8000–8799. If the
+  lookup failed, the prep would assert and write nothing; no event reaches that
+  path.
+- **Trainer House, pc 382.** This command sets the flag after the battle that
+  0x4001 was computed for. 0x4001 is a general-purpose variable that 1,335
+  instructions name. Only these scripts can run on the map (zone 499, Frontier
+  Access) during that battle:
+  - header script 10350 (type 2), which leaves 0x4001 at 653–663;
+  - frame-table scripts 3 and 4 of file 746, and the std script 2006 they call,
+    which never name 0x4001.
+
+  The flag at pc 382 is therefore 2730–2740, or 653–663 if script 10350 ran
+  during the battle.
+
+The check fails if any of these change: a flag command or map object names
+706/707; the seven sites change; scripts 145, 151 or 948 differ from the
+Chinese hack's; or the hidden-item prep code changes. On vanilla US it fails as
+expected.
+
 ## Transaction
 
 The row joins the existing draft/apply/cancel transaction (`native/options.c`).
 
-- Opening Options reads the flags once into `page.ai_original` and `page.ai_draft`.
+- Opening Options reads the stored pair once into `page.ai_stored` and decodes
+  it into `page.ai_draft`.
 - Changing the row changes only the draft.
-- Confirm (APPLY) writes both flags at exit, only when the draft differs. It
+- Confirm (APPLY) writes both flags at exit when the draft's pair differs from
+  the stored pair. That includes an unchanged OFF over the stray pair. It
   writes them only after the Options word's own apply has succeeded.
-- If the flags changed while the page was open, Apply is refused on the page
+- If the stored pair changed while the page was open, Apply is refused on the page
   (the help shows the existing "Settings changed" message) and again at exit
   (`DG_SETTINGS_STALE`). Nothing is written in either case.
 - Back, B and Cancel discard the draft. Confirm on page 1 also commits the
@@ -90,17 +155,28 @@ The labels follow the plan's OFF / KEY / ALL, which is still marked "labels to c
 
 ## Binary layout
 
-`page` gains two words at its end: `ai_original` at +352 and `ai_draft` at +356.
+`page` gains two words at its end: `ai_stored` (bit0 0x2C2, bit1 0x2C3) at +352
+and `ai_draft` at +356.
 The struct is now 360 bytes. Earlier offsets that native test drivers read
 (+24, +36, +48, +52, +336) are unchanged. With Apple clang 17 the resident
-section grows from 8940 to 9776 bytes of the 16 KiB reservation.
+section grows from 8940 to 9824 bytes of the 16 KiB reservation.
+
+## Related change: difficulty's pointer check
+
+The advanced AI places resident code at 0x023D4000–0x023DC000
+(`work/advanced-ai/docs/memory-layout.md`). Difficulty's pointer checks treated
+everything below 0x023DC000 as data: `dg_runtime_ram` (`native/runtime.c`, also
+used by `caps.c`) and `RAM_END` (`native/items.c`). They now end at 0x023D4000,
+so a pointer into the AI's code is refused. Neither file has a source pin in
+`options-source-pins.json`, so no source override applies. The host drivers
+check both edges, and they fail with the old bound restored.
 
 ## Tests
 
 - Host: `tests/drivers/options_check.c` (ASan/UBSan) covers:
   - the codec;
   - the four flag pairs with B, touch Cancel and an unchanged Apply, none of
-    which writes;
+    which writes, except that Apply rewrites the stray pair;
   - the D-pad walk over six positions and the native cursor row;
   - Left, Right and A wrapping;
   - touch band edges;
@@ -109,11 +185,13 @@ section grows from 8940 to 9776 bytes of the 16 KiB reservation.
   - flags changed before Apply and at exit, and an Options word changed at
     exit, none of which writes.
 
-  Thirteen scratch mutants of the row, including writing on Cancel, the wrong
-  touch band, no stale check and writing after a failed word apply, are all
-  rejected.
-- Native: `work/advanced-ai/testbench/checks/options_trainer_ai.py`, 13 cases on
-  the development build, including save and reload in a second emulator process.
+  Fourteen scratch mutants of the row are all rejected. They include writing on
+  Cancel, the wrong touch band, no stale check, writing after a failed word
+  apply, and comparing values instead of pairs.
+- Native: `work/advanced-ai/testbench/checks/options_trainer_ai.py`, 14 cases on
+  the development build, including the stray pair, and save and reload in a
+  second emulator process.
+- Static: `work/advanced-ai/testbench/checks/options_flags_free.py` (see above).
 - The difficulty suite's native UI driver now walks six focus positions
   (`tests/support.py` `FOCUS_COUNT`, `native_ui.py`, `evidence.py`,
   `native_ui_oracles.py`, `test_framework.py`). That driver needs

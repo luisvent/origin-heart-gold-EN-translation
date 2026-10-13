@@ -2,8 +2,8 @@
   "format": 1,
   "source_overrides": {
     "work/research/difficulty-armips/native/options.c": {
-      "sha256": "c70052dd2dd31784a7db5b0eae84938f40603e80c6e14a94acfb3ce24be66acc",
-      "reason": "Advanced AI phase 4 (work/advanced-ai/PLAN.md, decision 4): TRAINER AI row on Options page 2 (OFF/KEY/ALL), stored in event flags 0x2C2/0x2C3 through the hack's GetSaveData/SaveVarsFlags/CheckFlag/SetFlag/ClearFlag, committed with the shared Apply/Cancel transaction. See research/options-trainer-ai.md.",
+      "sha256": "949583a6a3a378aad136afbd51e0c87f281aaa27db606667c29a8b254036d012",
+      "reason": "Advanced AI phase 4 (work/advanced-ai/PLAN.md, decision 4): TRAINER AI row on Options page 2 (OFF/KEY/ALL), stored in event flags 0x2C2/0x2C3 through the hack's GetSaveData/SaveVarsFlags/CheckFlag/SetFlag/ClearFlag, committed with the shared Apply/Cancel transaction. Confirm writes the canonical flag pair (review item 8). See research/options-trainer-ai.md.",
       "history": [
         {
           "sha256": "1f732fe8931c4af87890cb1976f5884843751cc40f22ebf9cafb5d3020d95182",

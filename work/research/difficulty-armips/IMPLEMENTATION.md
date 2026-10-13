@@ -20,7 +20,8 @@ a real candidate. The second runs host/static tests without launching an emulato
 `tests/run.py --require-complete` also requires all native evidence and currently
 fails that gate. Native runs require the parent's separate approval.
 On a machine whose tools differ from the pinned ones, `DIFFICULTY_DEV_TOOLS=1`
-builds a development candidate that is never a release candidate; see
+builds a development candidate that is never a release candidate, in its own
+folder `work/build/difficulty-v2/integration-impl-dev/`; see
 [development tools mode](research/dev-tools-mode.md).
 
 The installer accepts only the completed English input above, SHA-256

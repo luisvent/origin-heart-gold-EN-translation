@@ -18,7 +18,7 @@ Set `DIFFICULTY_DEV_TOOLS=1` (exactly `1`; any other value is release):
 
 ```sh
 DIFFICULTY_DEV_TOOLS=1 .venv/bin/python work/research/difficulty-armips/build.py --enable-difficulty --input work/build/origin_hg_v4.0.3_en_wip.nds
-DIFFICULTY_DEV_TOOLS=1 .venv/bin/python work/research/difficulty-armips/verify.py --receipt work/build/difficulty-v2/integration-impl/receipt.json --out work/build/<dir>
+DIFFICULTY_DEV_TOOLS=1 .venv/bin/python work/research/difficulty-armips/verify.py --receipt work/build/difficulty-v2/integration-impl-dev/receipt.json --out work/build/<dir>
 DIFFICULTY_DEV_TOOLS=1 .venv/bin/python work/research/difficulty-armips/tests/run.py
 ```
 
@@ -28,17 +28,21 @@ DIFFICULTY_DEV_TOOLS=1 .venv/bin/python work/research/difficulty-armips/tests/ru
 |---|---|---|
 | Tool pins | Each tool must equal its pin | Each tool is pinned as found: path, bytes, sha256, its own `--version` line, the release pin and `matches_release_pin` |
 | Rust LLD | Run as is | Run with `DYLD_FALLBACK_LIBRARY_PATH` set to the toolchain's `lib/`: a current rustup `rust-lld` loads `libLLVM.dylib` from there, which its rpath does not name. The receipt records it, and pins `libLLVM.dylib` |
+| Output folder | `work/build/difficulty-v2/integration-impl/` | `work/build/difficulty-v2/integration-impl-dev/`, so a development candidate never replaces or poses as the release one |
 | Receipt | `tool_mode: release` | `tool_mode: development`; `status` starts with "development build, local tools, not a release candidate" |
 | Output | Unchanged | The same label on stderr before the build and in the printed summary |
 | `verify.py` | Requires a release receipt | Requires a development receipt (a mode mismatch is refused) |
-| `tests/run.py` | `tool_mode: release` in the report | `tool_mode: development` in the report and the summary line |
+| Tests | Bind `integration-impl/receipt.json` (`support.RECEIPT`, from `build.RECEIPT`) | Bind `integration-impl-dev/receipt.json` |
+| `candidate_binding` (`tests/native_ui.py`) | Refuses a receipt whose `tool_mode` is not `release` | Refuses a receipt whose `tool_mode` is not `development` |
+| `tests/run.py` report | `tool_mode` from the bound receipt; `host_build_mode: release` | The same, `development`; the summary line carries the label |
 
 Everything else is unchanged in both modes: the input ROM guard, the source
 guards and `source_overrides`, every hook, edit and dependency guard, the
 logical byte census, the negative checks and the rebuild-and-compare in
 `verify.py`. Code: `build.py` (`dev_tools`, `tool_mode`, `tool_env`),
-`install.py` (`check_tools`, receipt), `verify.py`, `tests/run.py`;
-`tests/test_installer.py` `ToolModeTests` covers the switch.
+`install.py` (`check_tools`, receipt), `verify.py`, `tests/run.py`,
+`tests/support.py`, `tests/native_ui.py`; `tests/test_installer.py`
+`ToolModeTests` covers the switch, the output folder and the binding refusal.
 
 ## Proof: a development build of unchanged rc8 sources
 

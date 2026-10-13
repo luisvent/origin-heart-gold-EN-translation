@@ -214,8 +214,10 @@ int main(void) {
  assert(*opts==dg_settings_merge(0x4146,4));
  keep=*opts;open_page(0);W16(data,0x86)=0;
  tap(85,180);tap(116,35);tap(18,180);input(2);close_page();assert(*opts==keep);
- /* TRAINER AI row. Each starting flag pair shows its value; B, touch Cancel
-  * and an unchanged Apply write no flag and leave the Options word alone. */
+ /* TRAINER AI row. Each starting flag pair shows its value; B and touch Cancel
+  * write no flag, and neither does an unchanged Apply, except that Apply turns
+  * the stray pair (0x2C2 clear, 0x2C3 set) into canonical OFF. The Options word
+  * is left alone throughout. */
  static const unsigned start[4][3]={{0,0,DG_AI_OFF},{0,1,DG_AI_OFF},{1,0,DG_AI_ALL},{1,1,DG_AI_KEY}};
  *opts=0x4144;
  for(unsigned st=0;st<4;++st) for(unsigned way=0;way<3;++way) {
@@ -224,8 +226,10 @@ int main(void) {
   open_page(1);assert(shown_ai()==start[st][2] && ai_labels==labels+1 && ai_fills==fills+1);
   if(way==0)input(2);else if(way==1)tap(200,180);else tap(149,180);
   close_page();
-  assert(flag_writes==writes && flag_on==start[st][0] && flag_key==start[st][1] && *opts==0x4144);
-  assert(dg_menu_last_apply_result()==0);
+  unsigned canonical=way==2 && st==1;
+  assert(flag_writes==writes+(canonical?2:0) && flag_on==start[st][0] &&
+         flag_key==(canonical?0:start[st][1]) && *opts==0x4144);
+  assert(dg_menu_last_apply_result()==(int)canonical);
  }
  /* D-pad: three DOWNs reach the row, with the native outline on slot3 and its
   * help. RIGHT and A step forward, LEFT back, wrapping; no write before Apply. */
@@ -281,5 +285,5 @@ int main(void) {
  int reads=flag_reads;
  fail_alloc=1;open_page(1);close_page();assert(flag_reads==reads); /* Fallback never reads the flags. */assert(normal_rows==old_rows+2 && normal_draw==old_draw+2 && normal_exit==old_exit+2);
  assert(native_choices>0);
- printf("PASS 524288 codec cases; halfword guard page; transaction invalid/stale/no-op; 8 draft/apply patterns; input/touch/cancel/hidden-row/cleanup/fallback ABI mocks; TRAINER AI codec, 4 flag states x 3 no-write exits, D-pad/touch/shared-confirm/stale flag writes. Native UI acceptance NOT claimed.\n");
+ printf("PASS 524288 codec cases; halfword guard page; transaction invalid/stale/no-op; 8 draft/apply patterns; input/touch/cancel/hidden-row/cleanup/fallback ABI mocks; TRAINER AI codec, 4 flag states x 3 exits (canonical stray pair), D-pad/touch/shared-confirm/stale flag writes. Native UI acceptance NOT claimed.\n");
 }

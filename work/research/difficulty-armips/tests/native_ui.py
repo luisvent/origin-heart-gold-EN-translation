@@ -11,7 +11,7 @@ from pathlib import Path
 import shutil
 import sys
 import traceback
-from support import ROOT, OUTPUT, SOURCE, FOCUS_COUNT, sha256
+from support import ROOT, OUTPUT, SOURCE, FOCUS_COUNT, sha256, RECEIPT
 from evidence import register_values, write_json
 from native_ui_oracles import focus_regions, inspect_battery, validate_page_navigation
 sys.path.insert(0, str(ROOT / 'work/tools'))
@@ -20,6 +20,12 @@ from emu_harness import Harness
 
 def candidate_binding(receipt_path):
     receipt = json.loads(receipt_path.read_text())
+    # The receipt says which tools built the candidate; a development candidate
+    # binds only in development mode and a release one only in release mode.
+    from build import DEV_ENV, tool_mode
+    mode = receipt.get('tool_mode', 'release')
+    if mode != tool_mode():
+        raise ValueError(f'Receipt tool mode {mode} differs from this run ({tool_mode()}, {DEV_ENV}): '+str(receipt_path))
     for item in [receipt['input'], receipt['output']]:
         if sha256(item['path']) != item['sha256']:
             raise ValueError('Stale ROM binding: ' + item['path'])
@@ -38,7 +44,7 @@ def candidate_binding(receipt_path):
     for name,item in receipt['build_artifacts'].items():
         if sha256(item['path'])!=item['sha256']:
             raise ValueError('Candidate build artifact changed: '+name)
-    return receipt, {'receipt_sha256': sha256(receipt_path), 'candidate_sha256': receipt['output']['sha256'],
+    return receipt, {'tool_mode': mode, 'receipt_sha256': sha256(receipt_path), 'candidate_sha256': receipt['output']['sha256'],
                      'input_sha256': receipt['input']['sha256'], 'implementation_sources': current,
                      'script_commands_sha256':sha256(ROOT/'work/tools/docs/script_cmds.json'),
                      'driver_sha256': sha256(__file__), 'harness_sha256':sha256(ROOT/'work/tools/emu_harness.py'), 'test_sources':{str(p.relative_to(ROOT)):sha256(p) for p in sorted((SOURCE/'tests').rglob('*')) if p.is_file() and p.suffix in ('.py','.c','.h','.asm','.ld','.json','.toml','.md') and '__pycache__' not in p.parts}, 'battery_source_sha256':sha256(ROOT/'work/build/memcheck/trainer.sav'), 'negative_seed_save_sha256':sha256(ROOT/'work/build/memcheck/full_bag_6mons.sav'),
@@ -47,7 +53,7 @@ def candidate_binding(receipt_path):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--receipt',type=Path,default=ROOT/'work/build/difficulty-v2/integration-impl/receipt.json')
+    p.add_argument('--receipt',type=Path,default=RECEIPT)
     p.add_argument('--out',type=Path,default=OUTPUT/'native-tests/ui')
     p.add_argument('--phase',choices=('ui','reload','cold0','newgame'),default='ui')
     args=p.parse_args(); out=args.out.resolve();out.mkdir(parents=True,exist_ok=True)

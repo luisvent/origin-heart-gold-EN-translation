@@ -40,8 +40,9 @@ ROW3_PREVIEW = 0x0200589C                         # native slot-3 preview the ro
 RESIDENT, RESIDENT_END = 0x023DC000, 0x023E0000
 OFF, KEY, ALL = 0, 1, 2
 NAMES = ('OFF', 'KEY', 'ALL')
-# page struct (native/options.c): +24 state, +36 focus, +48 mode, +352 ai_original, +356 ai_draft.
-PAGE_SIZE, STATE, FOCUS, MODE, AI_ORIGINAL, AI_DRAFT = 360, 24, 36, 48, 352, 356
+# page struct (native/options.c): +24 state, +36 focus, +48 mode, +352 ai_stored (bit0 0x2C2,
+# bit1 0x2C3), +356 ai_draft.
+PAGE_SIZE, STATE, FOCUS, MODE, AI_STORED, AI_DRAFT = 360, 24, 36, 48, 352, 356
 # Screen touch points: TRAINER AI row band y 82..101, value bands x 108..159/160..207/208..247.
 ROW_Y = 91
 VALUE_X = {OFF: 128, KEY: 180, ALL: 220}
@@ -176,12 +177,17 @@ def phase_a(args, sym, out, result):
         for on, key in ((0, 0), (0, 1), (1, 0), (1, 1)):
             c.begin((on, key)); c.open()
             value = decode(on, key)
-            assert h.u32(c.page + AI_ORIGINAL) == value and c.draft() == value
+            assert h.u32(c.page + AI_STORED) == on | key << 1 and c.draft() == value
             c.shot(f'decode-{on}{key}-{NAMES[value].lower()}')
             h.press('B'); c.closed()
             c.expect(f'decode_{on}{key}', (bool(on), bool(key)), [], shown=NAMES[value])
 
         # D-pad: reach the row, RIGHT/RIGHT/LEFT, DOWN twice to APPLY, A.
+        # Confirm without a change turns the stray pair (0x2C2 clear, 0x2C3 set) into canonical OFF.
+        c.begin((0, 1)); c.open(); assert c.draft() == OFF
+        h.touch(*APPLY); c.closed()
+        c.expect('stray_pair_confirm_canonical_off', (False, False), [(FLAG_ON, False), (FLAG_KEY, False)])
+
         c.begin((0, 0)); c.open(); c.to_row(); c.shot('dpad-focus-trainer-ai')
         for key, value in (('RIGHT', KEY), ('RIGHT', ALL), ('LEFT', KEY)):
             h.press(key, after=30)

@@ -134,7 +134,9 @@ def tool_version(name,path):
     import subprocess
     argv=[str(path)] if name=='armips' else [str(path),'--version']
     result=subprocess.run(argv,cwd=ROOT,text=True,capture_output=True,env=tool_env(str(path)))
-    return (result.stdout+result.stderr).strip().splitlines()[0]
+    lines=(result.stdout+result.stderr).strip().splitlines()
+    require(lines,f'tool {name} printed no version line: {path}')
+    return lines[0]
 
 
 def check_tools(pinned):

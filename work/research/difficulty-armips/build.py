@@ -13,7 +13,6 @@ import tempfile
 
 ROOT = Path(__file__).resolve().parents[3]
 SOURCE = ROOT / 'work/research/difficulty-armips'
-OUTPUT = ROOT / 'work/build/difficulty-v2/integration-impl'
 BASE, LIMIT = 0x023DC000, 0x023E0000
 ITEM_STUB_BYTES = 336
 CLANG = '/usr/bin/clang'
@@ -35,6 +34,12 @@ def dev_tools():
 
 def tool_mode():
     return 'development' if dev_tools() else 'release'
+
+
+# A development candidate never shares the release candidate's folder.
+OUTPUT = ROOT / ('work/build/difficulty-v2/integration-impl-dev' if dev_tools() else
+                 'work/build/difficulty-v2/integration-impl')
+RECEIPT = OUTPUT / 'receipt.json'
 
 
 def tool_env(tool):

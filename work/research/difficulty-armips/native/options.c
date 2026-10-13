@@ -44,9 +44,10 @@ static struct {
     uint8_t rows[3][0x54];
     void *choices[6];
     uint32_t nav[4]; /* Native Window, independently owned on Options heap38. */
-    /* TRAINER AI draft (DG_AiSetting). Appended so the earlier field offsets
-     * that native test drivers read stay unchanged. */
-    uint32_t ai_original, ai_draft;
+    /* TRAINER AI: the stored flag pair (dg_ai_encode bits) and the draft
+     * (DG_AiSetting). Appended so the earlier field offsets that native test
+     * drivers read stay unchanged. */
+    uint32_t ai_stored, ai_draft;
 } page;
 static int last_apply;
 static void load_page_rows(void *d);
@@ -58,10 +59,11 @@ static int owned(void *state) { return page.manager && page.state == state; }
 static void *ai_vars(void) {
     return (void *)C1(0x0204f859u,CALL(0x02001195u,0,0,0,0,0,0,0,0));
 }
+/* The stored pair as dg_ai_encode bits: bit0 0x2C2, bit1 0x2C3. */
 static uint32_t ai_read(void) {
     void *v=ai_vars();
-    return dg_ai_decode((uint32_t)C2(0x0204f865u,v,DG_AI_FLAG_ON),
-                        (uint32_t)C2(0x0204f865u,v,DG_AI_FLAG_KEY));
+    return ((uint32_t)C2(0x0204f865u,v,DG_AI_FLAG_ON)!=0) |
+           ((uint32_t)(C2(0x0204f865u,v,DG_AI_FLAG_KEY)!=0)<<1);
 }
 static void ai_write(uint32_t value) {
     void *v=ai_vars(); uint32_t f=dg_ai_encode(value);
@@ -109,7 +111,8 @@ int dg_menu_init(void *manager, int *step) {
     page.manager = manager; page.state = d; page.string = str; page.epoch = epoch;
     page.focus = 0; page.closing = 0; page.fault = 0; last_apply = 0;
     page.mode = mode; page.nav_live = 0; page.cursor_live = 0;
-    page.ai_original = page.ai_draft = ai_read();
+    page.ai_stored = ai_read();
+    page.ai_draft = dg_ai_decode(page.ai_stored&1u,page.ai_stored&2u);
     load_page_rows(d);
     if (page.fault) {
         release_page_rows(); C1(0x02026891u,str); dg_options_cancel(&page.txn);
@@ -327,7 +330,7 @@ static void row_draw(void *d, unsigned row) {
 static void finish(void *d, unsigned apply, unsigned touch) {
     if (apply && (page.fault || !page.txn.active ||
         (READ16(page.txn.options_identity)&DG_DIFFICULTY_MASK) !=
-        (page.txn.original_word&DG_DIFFICULTY_MASK) || ai_read()!=page.ai_original)) {
+        (page.txn.original_word&DG_DIFFICULTY_MASK) || ai_read()!=page.ai_stored)) {
         page.fault=1; refresh_focus(d); return;
     }
     /* Match native input-mode bookkeeping; no title/audio/background preview.
@@ -430,11 +433,13 @@ int dg_menu_exit(void *manager, int *step) {
         return 1;
     }
     if ((U32(d,0x10)&3u)!=1) last_apply=DG_SETTINGS_NO_CHANGE;
-    else if (ai_read()!=page.ai_original) last_apply=DG_SETTINGS_STALE; /* No write at all. */
+    else if (ai_read()!=page.ai_stored) last_apply=DG_SETTINGS_STALE; /* No write at all. */
     else {
         last_apply=dg_options_apply((uint16_t *)PTR(d,0x24),(uintptr_t)manager,page.epoch,&page.txn);
         /* TRAINER AI commits with the Options word, never after its failure. */
-        if (last_apply>=0 && page.ai_draft!=page.ai_original) {
+        /* Compare pairs, not values: Confirm also rewrites the stray 0x2C3
+         * of 0x2C2-clear (OFF) as the canonical pair, both clear. */
+        if (last_apply>=0 && dg_ai_encode(page.ai_draft)!=page.ai_stored) {
             ai_write(page.ai_draft); last_apply=DG_SETTINGS_CHANGED;
         }
     }

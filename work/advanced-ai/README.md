@@ -23,7 +23,7 @@ Everything for the feature lives in this directory. Its tests live in [testbench
 | 1. Faithful extraction | Done: sources vendored (0db9bb3), golden test reproduces rc44 byte for byte (7b12fad) |
 | 2. English build of the engine | English payload built (7b12fad); installer in progress |
 | 3. Test bench and runtime verification | In progress |
-| 4. Options setting | Row built in a development difficulty build; host tests and 13 native cases pass; release-tool build pending |
+| 4. Options setting | Row built in a development difficulty build; host tests, 14 native cases and the flag scan pass; release-tool build pending |
 | 5. Review and merge | Not started |
 
 ## Layout
@@ -80,6 +80,7 @@ The feature changes only these files elsewhere. Each change is listed here when 
 | `.gitignore` | Build output of `testbench/sim/` and `testbench/hostai/` | 3 |
 | `work/research/difficulty-armips/native/options.c`, `settings.c`, `settings.h`; `native/integration_contract.json` (source overrides) | The TRAINER AI row on Options page 2 ([options-trainer-ai.md](../research/difficulty-armips/research/options-trainer-ai.md)) | 4 |
 | `work/research/difficulty-armips/tests/`: `drivers/options_check.c`, `support.py`, `native_ui.py`, `native_ui_oracles.py`, `evidence.py`, `test_framework.py` | Host tests for the row; the native UI driver walks six focus positions | 4 |
-| `work/research/difficulty-armips/build.py`, `install.py`, `verify.py`, `tests/run.py`, `tests/test_installer.py` | Opt-in development tools mode, `DIFFICULTY_DEV_TOOLS=1` ([dev-tools-mode.md](../research/difficulty-armips/research/dev-tools-mode.md)) | 4 |
+| `work/research/difficulty-armips/native/runtime.c`, `items.c`; `tests/drivers/runtime_check.c`, `items_check.c` | Difficulty's pointer checks end at 0x023D4000, below the AI's main code | 4 |
+| `work/research/difficulty-armips/build.py`, `install.py`, `verify.py`, `tests/run.py`, `tests/test_installer.py`, and the receipt path in every `tests/` driver (`support.RECEIPT`) | Opt-in development tools mode, `DIFFICULTY_DEV_TOOLS=1`, with its own output folder ([dev-tools-mode.md](../research/difficulty-armips/research/dev-tools-mode.md)) | 4 |
 | `CHANGELOG.md`, release notes, credits | The optional feature and its Spanish origin | 5 |
 | `AGENTS.md` | One line pointing to this directory | 5 |

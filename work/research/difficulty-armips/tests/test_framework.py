@@ -151,5 +151,6 @@ class FrameworkTests(unittest.TestCase):
         self.assertNotIn("getattr(h.reg,'r'",text)
         with scratch('bad-binding-') as tmp:
             p=Path(tmp)/'receipt.json';fake=Path(tmp)/'rom.nds';fake.write_bytes(b'fixture')
-            p.write_text(json.dumps({'input':{'path':str(fake),'sha256':'wrong'},'output':{}}))
+            from build import tool_mode  # the mode check precedes the ROM check
+            p.write_text(json.dumps({'tool_mode':tool_mode(),'input':{'path':str(fake),'sha256':'wrong'},'output':{}}))
             with self.assertRaisesRegex(ValueError,'Stale ROM'):native_ui.candidate_binding(p)
