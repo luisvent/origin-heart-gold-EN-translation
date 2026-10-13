@@ -101,6 +101,9 @@ class InstallerTests(unittest.TestCase):
         with scratch('installer-') as temp:
             dest=Path(temp);stage=dest/'success';stage.mkdir()
             with patch.object(install,'OUTPUT',dest):install.execute(INPUT,stage)
+            receipt=json.loads((dest/'receipt.json').read_text())
+            self.assertEqual(receipt['tool_mode'],build.tool_mode())
+            self.assertEqual(receipt['status'].startswith(build.DEV_LABEL),build.dev_tools())
             promoted={name:sha256(dest/name) for name in ('candidate.nds','receipt.json')}
             for mode in ('late_verify','source_changed','bad_input'):
                 stage=dest/mode;stage.mkdir()
@@ -153,6 +156,26 @@ class InstallerTests(unittest.TestCase):
         # Restore cached assembled fixture for following tests/models.
         for f,data in self.staged.items():(self.stage/f).write_bytes(data)
         for span in self.report['stub_spans']:(self.stage/span['file']).write_bytes(self.payload[span['start']-build.BASE:span['end']-build.BASE])
+
+
+class ToolModeTests(unittest.TestCase):
+    """Release compares every tool with its pin; only DIFFICULTY_DEV_TOOLS=1 records instead."""
+    def test_release_rejects_and_development_records_a_changed_tool(self):
+        with scratch('tools-') as tmp:
+            tool=Path(tmp)/'armips';tool.write_text('#!/bin/sh\necho "armips assembler local"\n');tool.chmod(0o755)
+            pins={'armips':{'path':str(tool),'sha256':'0'*64,'version':'pinned'}}
+            for value in ('','0','true','yes'):
+                with self.subTest(value=value),patch.dict(os.environ,{build.DEV_ENV:value}):
+                    self.assertEqual(build.tool_mode(),'release')
+                    with self.assertRaisesRegex(ValueError,'tool guard armips'):install.check_tools(pins)
+            with patch.dict(os.environ,{build.DEV_ENV:'1'}):
+                row=install.check_tools(pins)['armips']
+            self.assertEqual((row['sha256'],row['release_sha256'],row['matches_release_pin']),(sha256(tool),'0'*64,False))
+            self.assertEqual((row['version'],row['release_version']),('armips assembler local','pinned'))
+            pins['armips']['sha256']=sha256(tool)
+            with patch.dict(os.environ,{build.DEV_ENV:''}):
+                self.assertEqual(install.check_tools(pins)['armips'],
+                                 dict(path=str(tool),bytes=tool.stat().st_size,sha256=sha256(tool),version='pinned'))
 
 
 class PublicationTests(unittest.TestCase):

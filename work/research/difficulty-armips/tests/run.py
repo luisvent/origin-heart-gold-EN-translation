@@ -17,6 +17,8 @@ from native_plan import selected as select_jobs
 from native_suite import create as create_suite, resume as resume_suite, execute as execute_suite, evidence_selection
 from support import OUTPUT, ROOT, SOURCE, source_hashes
 from evidence import write_json, utc, validate_native
+sys.path.insert(0, str(SOURCE))
+from build import DEV_LABEL, tool_mode
 
 class RecordingResult(unittest.TextTestResult):
     def __init__(self,*args,**kwargs):super().__init__(*args,**kwargs);self.passed=[]
@@ -69,7 +71,8 @@ def main():
     OUTPUT.mkdir(parents=True,exist_ok=True)
     os.environ.setdefault('ARMIPS',str(Path.home()/'Developer/armips/build/armips'))
     report={'format':2,'scope':'Host/static tests and explicit native acceptance gate','status':'running','started_utc':utc(),'command':[sys.executable,*sys.argv],
-            'complete':False,'success':False,'native_requested':args.native,'sources_before':source_hashes()}
+            'complete':False,'success':False,'native_requested':args.native,'sources_before':source_hashes(),
+            'tool_mode':tool_mode()}  # DIFFICULTY_DEV_TOOLS=1: development build, see research/dev-tools-mode.md
     path=OUTPUT/'report.json';write_json(path,report)
     try:
         from native_ui import candidate_binding
@@ -146,7 +149,8 @@ def main():
         report.update(status='failed',success=False,complete=False,failure=traceback.format_exc())
     finally:
         report['finished_utc']=utc();write_json(path,report)
-    print(f"Host/static: {report.get('host_static',{}).get('tests_run',0)} tests; native: {report.get('native',{}).get('passed',0)}/{report.get('native',{}).get('required','?')}; complete={report['complete']}")
+    print(f"Host/static: {report.get('host_static',{}).get('tests_run',0)} tests; native: {report.get('native',{}).get('passed',0)}/{report.get('native',{}).get('required','?')}; complete={report['complete']}"
+          +(f'; {DEV_LABEL}' if report['tool_mode']=='development' else ''))
     print(f'Report: {path}')
     return 0 if report['success'] else 1
 

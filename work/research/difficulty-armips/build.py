@@ -5,6 +5,7 @@ sys.dont_write_bytecode = True
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import struct
 import subprocess
@@ -22,6 +23,26 @@ MODULES = ('policy', 'settings', 'growth', 'items', 'options', 'caps', 'runtime'
 FLAGS = ['--target=arm-none-eabi', '-mcpu=arm946e-s', '-mthumb', '-Os',
          '-ffreestanding', '-fno-builtin', '-fno-unwind-tables',
          '-fno-asynchronous-unwind-tables', '-fstack-usage', '-Wall', '-Wextra', '-Werror']
+# Opt-in development mode (research/dev-tools-mode.md): DIFFICULTY_DEV_TOOLS=1
+# records the local tools' pins instead of comparing them. Release is the default.
+DEV_ENV = 'DIFFICULTY_DEV_TOOLS'
+DEV_LABEL = 'development build, local tools, not a release candidate'
+
+
+def dev_tools():
+    return os.environ.get(DEV_ENV) == '1'
+
+
+def tool_mode():
+    return 'development' if dev_tools() else 'release'
+
+
+def tool_env(tool):
+    """Development only: a current rustup rust-lld loads libLLVM.dylib from the
+    toolchain's lib directory, which its rpath does not name."""
+    if dev_tools() and str(tool) == LLD:
+        return dict(os.environ, DYLD_FALLBACK_LIBRARY_PATH=str(Path(LLD).parents[4]))
+    return None
 
 
 def require(test, message):
@@ -39,10 +60,14 @@ def pin(path):
 
 
 def run(args, stage, name):
-    result = subprocess.run(list(map(str, args)), cwd=ROOT, text=True, capture_output=True)
+    env = tool_env(args[0])
+    result = subprocess.run(list(map(str, args)), cwd=ROOT, text=True, capture_output=True, env=env)
     (stage / (name + '.log')).write_text(result.stdout + result.stderr)
     require(result.returncode == 0, f'{name} failed: {result.stdout}{result.stderr}')
-    return {'argv': list(map(str, args)), 'returncode': result.returncode}
+    record = {'argv': list(map(str, args)), 'returncode': result.returncode}
+    if env:
+        record['env'] = {'DYLD_FALLBACK_LIBRARY_PATH': env['DYLD_FALLBACK_LIBRARY_PATH']}
+    return record
 
 
 def read_elf(path):
@@ -183,6 +208,11 @@ def main():
     args = parser.parse_args()
     require(Path.cwd().resolve() == ROOT, 'run from repository root')
     import install
+    if dev_tools():
+        try:
+            print(f'{DEV_LABEL.upper()} ({DEV_ENV}=1): tool pins are recorded, not compared.', file=sys.stderr)
+        except OSError:
+            pass
     OUTPUT.mkdir(parents=True, exist_ok=True)
     stage = Path(tempfile.mkdtemp(prefix='run-', dir=OUTPUT))
     try:

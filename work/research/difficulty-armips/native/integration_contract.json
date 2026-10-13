@@ -2,9 +2,13 @@
   "format": 1,
   "source_overrides": {
     "work/research/difficulty-armips/native/options.c": {
-      "sha256": "1f732fe8931c4af87890cb1976f5884843751cc40f22ebf9cafb5d3020d95182",
-      "reason": "User request 2026-10-12: DEFAULT preserves untouched Chinese item permissions; ALL expansion unchanged. Menu uses ITEMS IN BATTLE and choice-specific help.",
+      "sha256": "c70052dd2dd31784a7db5b0eae84938f40603e80c6e14a94acfb3ce24be66acc",
+      "reason": "Advanced AI phase 4 (work/advanced-ai/PLAN.md, decision 4): TRAINER AI row on Options page 2 (OFF/KEY/ALL), stored in event flags 0x2C2/0x2C3 through the hack's GetSaveData/SaveVarsFlags/CheckFlag/SetFlag/ClearFlag, committed with the shared Apply/Cancel transaction. See research/options-trainer-ai.md.",
       "history": [
+        {
+          "sha256": "1f732fe8931c4af87890cb1976f5884843751cc40f22ebf9cafb5d3020d95182",
+          "reason": "User request 2026-10-12: DEFAULT preserves untouched Chinese item permissions; ALL expansion unchanged. Menu uses ITEMS IN BATTLE and choice-specific help."
+        },
         {
           "sha256": "3230099f6103b132ed6bc2893f0e6c5d65a9c44fa6bcfbb92bb60c3707e45c1c",
           "reason": "Integration changes only CAP help to explicitly state Candy and Day Care unchanged; native Candy deferred under D-2304. Original pin retained in options-source-pins.json."
@@ -94,6 +98,26 @@
       "sha256": "ad859d842772dbe6961180aaadd999ac5e628992d0137557c7888ba4b5179015",
       "reason": "User request 2026-10-12: DEFAULT preserves untouched Chinese item permissions; ALL expansion unchanged. Menu uses ITEMS IN BATTLE and choice-specific help.",
       "history": []
+    },
+    "work/research/difficulty-armips/native/settings.c": {
+      "sha256": "89814914882fb432d67162da168a505b432f130de5533aaf8cf7af193390bc75",
+      "reason": "Advanced AI phase 4 (work/advanced-ai/PLAN.md, decision 4): TRAINER AI row on Options page 2 (OFF/KEY/ALL), stored in event flags 0x2C2/0x2C3 through the hack's GetSaveData/SaveVarsFlags/CheckFlag/SetFlag/ClearFlag, committed with the shared Apply/Cancel transaction. See research/options-trainer-ai.md.",
+      "history": [
+        {
+          "sha256": "38426b761de8b54b218cb63b7192674997338228ddeed8d808e48839476c74d1",
+          "reason": "Original pin in options-source-pins.json."
+        }
+      ]
+    },
+    "work/research/difficulty-armips/native/settings.h": {
+      "sha256": "b4bbc4b192d7798a446a75ee548675fafb7e8af53fc24b8302139d76d4affbf7",
+      "reason": "Advanced AI phase 4 (work/advanced-ai/PLAN.md, decision 4): TRAINER AI row on Options page 2 (OFF/KEY/ALL), stored in event flags 0x2C2/0x2C3 through the hack's GetSaveData/SaveVarsFlags/CheckFlag/SetFlag/ClearFlag, committed with the shared Apply/Cancel transaction. See research/options-trainer-ai.md.",
+      "history": [
+        {
+          "sha256": "e6875942402a9b792357b6f3ca23db13039a7093c41f98f75f5d693fbbb5aca0",
+          "reason": "Original pin in options-source-pins.json."
+        }
+      ]
     }
   },
   "interactive_contract": {

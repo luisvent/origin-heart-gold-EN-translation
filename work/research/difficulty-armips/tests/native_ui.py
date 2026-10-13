@@ -11,7 +11,7 @@ from pathlib import Path
 import shutil
 import sys
 import traceback
-from support import ROOT, OUTPUT, SOURCE, sha256
+from support import ROOT, OUTPUT, SOURCE, FOCUS_COUNT, sha256
 from evidence import register_values, write_json
 from native_ui_oracles import focus_regions, inspect_battery, validate_page_navigation
 sys.path.insert(0, str(ROOT / 'work/tools'))
@@ -195,16 +195,16 @@ def main():
                 for row in navigation['points'] if row['name']!='restored']
             open_options()
             visual=[]
-            for focus in range(5):
+            for focus in range(FOCUS_COUNT):
                 assert h.u32(labels['page']+36)==focus, 'custom focus did not follow D-pad'
                 point('focus-'+str(focus))
                 visual.append(focus_regions(out/('focus-'+str(focus)+'.png'),focus))
-                if focus<4:press_key('DOWN',after=30)
+                if focus<FOCUS_COUNT-1:press_key('DOWN',after=30)
             press_key('DOWN',after=30)
             assert h.u32(labels['page']+36)==0
             result['focus_regions']=visual
-            result['cases']['ui.visible_glyphs']={'status':'incomplete','reason':'Five fresh focus captures require matching source-bound manual visual review; no automatic readability claim.',
-                'artifacts':[{'path':str(out/('focus-'+str(i)+'.png')),'sha256':sha256(out/('focus-'+str(i)+'.png'))} for i in range(5)]}
+            result['cases']['ui.visible_glyphs']={'status':'incomplete','reason':f'{FOCUS_COUNT} fresh focus captures require matching source-bound manual visual review; no automatic readability claim.',
+                'artifacts':[{'path':str(out/('focus-'+str(i)+'.png')),'sha256':sha256(out/('focus-'+str(i)+'.png'))} for i in range(FOCUS_COUNT)]}
             # Native callback's state argument exposes live Options identity;
             # read only. No injection of page/transaction/settings outcome.
             assert 'state' in last_input,'missing native input trace'
@@ -220,7 +220,8 @@ def main():
             passed('ui.b_cancel');flush()
             # Selection persists in the field menu; reopen with a direct touch.
             open_options()
-            for button in ('RIGHT','DOWN','RIGHT','DOWN','RIGHT','DOWN','DOWN','A'):press_key(button,after=20)
+            # ITEMS, SHARE, CAP toggled; DOWN past TRAINER AI and CANCEL to APPLY.
+            for button in ('RIGHT','DOWN','RIGHT','DOWN','RIGHT','DOWN','DOWN','DOWN','A'):press_key(button,after=20)
             h.step(240);point('applied-dpad')
             expected=original^0x8028
             assert h.u16(options)==expected,('D-pad Apply mismatch',hex(original),hex(h.u16(options)),hex(expected))

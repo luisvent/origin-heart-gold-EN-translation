@@ -10,6 +10,9 @@ OUTPUT = ROOT / 'work/build/difficulty-v2/tests'
 CN = ROOT / 'work/rom/origin_v4.0.3_cn.nds'
 CN_SHA256 = '4807ab2c130581cb9d4f6110fc64b41ca4807b8d28e7622ebd3c9740baed95c8'
 HISTORY = ROOT / 'work/build/exp-share-research'
+# Options page 2: ITEMS, SHARE, CAP, TRAINER AI, then CANCEL and APPLY.
+OPTIONS_ROWS = 4
+FOCUS_COUNT = OPTIONS_ROWS + 2
 
 
 def sha256(path):

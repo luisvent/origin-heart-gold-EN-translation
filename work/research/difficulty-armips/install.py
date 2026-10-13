@@ -13,7 +13,8 @@ import ndspy.code
 import ndspy.fnt
 from publication import publish_pair, recover_publication
 from publication import PublicationRecoveryRequired as PublicationRecoveryRequired
-from build import (ROOT, SOURCE, OUTPUT, BASE, LIMIT, LLD, require, sha, pin, build)
+from build import (ROOT, SOURCE, OUTPUT, BASE, LIMIT, LLD, require, sha, pin, build,
+                   DEV_LABEL, dev_tools, tool_mode, tool_env)
 
 BASES = {'arm9.bin': 0x02000000, 'itcm.bin': 0x01FF8000,
          'overlay9.bin': 0x021E4DA0, 'overlay14.bin': 0x022007E0, 'overlay50.bin': 0x021E4980}
@@ -129,6 +130,30 @@ def validate_sections(raw, comp, hooks, edits):
     return checked
 
 
+def tool_version(name,path):
+    import subprocess
+    argv=[str(path)] if name=='armips' else [str(path),'--version']
+    result=subprocess.run(argv,cwd=ROOT,text=True,capture_output=True,env=tool_env(str(path)))
+    return (result.stdout+result.stderr).strip().splitlines()[0]
+
+
+def check_tools(pinned):
+    """Release: each tool must equal its pin. Development (DIFFICULTY_DEV_TOOLS=1):
+    record the local tool and how it differs from the release pin instead."""
+    result={}
+    for name,p in pinned.items():
+        # Tool paths are stored as $HOME/... so the pins work on any machine.
+        path=Path(os.path.expandvars(p['path']))
+        if not dev_tools():
+            require(sha(path.read_bytes())==p['sha256'],f'tool guard {name}')
+            result[name]=dict(pin(path),version=p['version'])
+            continue
+        local=pin(path)
+        result[name]=dict(local,version=tool_version(name,path),release_sha256=p['sha256'],
+                          release_version=p['version'],matches_release_pin=local['sha256']==p['sha256'])
+    return result
+
+
 def source_tools():
     old=json.loads((SOURCE/'research/options-source-pins.json').read_text())
     overrides=json.loads((SOURCE/'native/integration_contract.json').read_text())['source_overrides']
@@ -144,12 +169,9 @@ def source_tools():
             expected=overrides.get(name,{}).get('sha256',p['sha256'])
             require(sha((ROOT/name).read_bytes())==expected,f'source guard {name}')
             checked[name]=pin(ROOT/name)
-    for name,p in old['tools'].items():
-        # Tool paths are stored as $HOME/... so the pins work on any machine.
-        require(sha(Path(os.path.expandvars(p['path'])).read_bytes())==p['sha256'],f'tool guard {name}')
+    toolpins=check_tools(old['tools'])
     sources={str(p.relative_to(ROOT)):pin(p) for p in sorted(SOURCE.rglob('*'))
              if p.is_file() and p.suffix in ('.py','.c','.h','.asm','.ld','.json','.toml','.md')}
-    toolpins={name:dict(pin(os.path.expandvars(p['path'])),version=p['version']) for name,p in old['tools'].items()}
     # Capture the real Xcode compiler and Rust linker behind the small drivers.
     import subprocess
     realclang=subprocess.check_output(['/usr/bin/xcrun','--find','clang'],cwd=ROOT,text=True).strip()
@@ -157,6 +179,9 @@ def source_tools():
     toolpins['clang_real']=pin(realclang)
     require(rustlld.is_file(),'underlying rust-lld missing')
     toolpins['rust_lld_real']=pin(rustlld)
+    libllvm=Path(LLD).parents[4]/'libLLVM.dylib'
+    if dev_tools() and libllvm.is_file():
+        toolpins['rust_libllvm']=pin(libllvm)
     toolpins['python']=dict(pin(sys.executable),version=sys.version)
     for module in (ndspy.rom,ndspy.code,ndspy.fnt):
         toolpins[module.__name__]=pin(module.__file__)
@@ -341,7 +366,8 @@ def execute(input_path, stage):
     require(sha(input_path.read_bytes())==INPUT_SHA,'input changed while building')
     for p in list(sources.values())+list(tools.values()):
         require(pin(p['path'])['sha256']==p['sha256'],f'build input changed: {p["path"]}')
-    receipt={'format':1,'status':'built, installed, reopened and logically verified; native acceptance pending',
+    status='built, installed, reopened and logically verified; native acceptance pending'
+    receipt={'format':1,'status':DEV_LABEL+'; '+status if dev_tools() else status,'tool_mode':tool_mode(),
              'input':pin(input_path),'output':dict(pin(temp),path=str(OUTPUT/'candidate.nds')),
              'input_selection':'pinned completed 47-fix RC7 English baseline; compatibility review retained',
              'sources':sources,'tools':tools,'layout':layout,'build':report,'guards':guards,
@@ -355,5 +381,6 @@ def execute(input_path, stage):
     (stage/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
     publish_pair(temp, stage/'receipt.json', OUTPUT)
     return {'candidate':str(OUTPUT/'candidate.nds'),'sha256':receipt['output']['sha256'],
+                      'status':receipt['status'],'tool_mode':receipt['tool_mode'],
                       'resident_bytes':len(payload),'reservation_bytes':LIMIT-BASE,
                       'negative_rejections':negatives['rejections'],'artifacts':str(stage)}
