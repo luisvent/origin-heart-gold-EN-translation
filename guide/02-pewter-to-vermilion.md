@@ -271,11 +271,11 @@ Once all four are there, they wait just south of the guards. Then talk to the gu
 ## Cerulean City: lend the kid your Bicycle (→ Amulet Coin)
 <!-- quest: kind=side -->
 
-**Where:** a boy in south Cerulean, just south-west of the Bike Maniac's house door (west of the Poké Mart). He's there from the start, but he's away during two stretches of the story: from your talk with Blue at the Viridian Gym (after he becomes its Gym Leader) until Misty wins her Cerulean Gym Leader assessment, and again during the League HQ investigation, from one of your League HQ reports until Misty leaves for the Seafoam Islands ([League HQ: the Trainer Affairs Department's investigations](07-league-to-cherrygrove.md#league-hq-the-trainer-affairs-departments-investigations-where-to-go-next)).
+**Where:** a kid in south Cerulean, just south-west of the Bike Maniac's house door (west of the Poké Mart). The kid is there from the start, but is away during two stretches of the story: from your talk with Blue at the Viridian Gym (after he becomes its Gym Leader) until Misty wins her Cerulean Gym Leader assessment, and again during the League HQ investigation, from one of your League HQ reports until Misty leaves for the Seafoam Islands ([League HQ: the Trainer Affairs Department's investigations](07-league-to-cherrygrove.md#league-hq-the-trainer-affairs-departments-investigations-where-to-go-next)).
 
-**How it works:** talk to him while you have the **Bicycle**. "Can I borrow your bike for a couple of days?" Answer **Yes** and he takes it. No just ends the talk; you can ask again.
+**How it works:** talk to the kid while you have the **Bicycle**. "Can I borrow your bike for a couple of days?" Answer **Yes** and the kid takes it. No just ends the talk; you can ask again.
 
-**Reward:** once you have the **Rainbow Badge**, talk to him again. He gives the Bicycle back plus an **Amulet Coin**.
+**Reward:** once you have the **Rainbow Badge**, talk to the kid again. You get the Bicycle back plus an **Amulet Coin**.
 
 **Timing:** you get the Bicycle from the Cerulean Bike Shop in exchange for the Bike Voucher from the Vermilion Pokémon Fan Club ([Vermilion City to Celadon City](03-vermilion-to-celadon.md#vermilion-city-the-pokémon-fan-club-three-members--bike-voucher)), so you can lend it before the Rainbow Badge; the reward waits until you have that badge. The offer also disappears after Misty's sparring-match scene on Route 7 ([Vermilion City to Celadon City](03-vermilion-to-celadon.md#route-7-mistys-sparring-match-what-closes-the-bicycle-offer)).
 
