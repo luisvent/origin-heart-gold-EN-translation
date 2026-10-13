@@ -13,6 +13,19 @@ half local, half CI. ROMs, saves and build inputs are never uploaded: only the x
    (see [CONTRIBUTING.md](CONTRIBUTING.md#release-notice-version)). It is embedded in the ROM; the release tag does not change it.
 2. Add a `## [<version>] - <date>` section to `CHANGELOG.md` (e.g. `## [1.0.0-rc8] - 2026-10-20`). It becomes the release notes.
 3. Build, run the gates (`python3 work/tools/check.py --full --strict-release`) and verify the xdelta round-trip.
+   The standard release does not ship the advanced trainer AI. The AI's checks run in `check.py`, where missing AI
+   inputs are a SKIP, never a failure ([work/advanced-ai/docs/checks.md](work/advanced-ai/docs/checks.md)).
+   **Only if the release ships the AI** (a separate decision), all three of its tiers must pass on the release ROM. A
+   SKIP does not count as a pass:
+
+   ```
+   ROM=<the release ROM>
+   P=work/advanced-ai/payload/payload.json
+   .venv/bin/python work/tools/check.py --full --strict-release --ai-rom "$ROM"                    # static tier
+   .venv/bin/python work/advanced-ai/testbench/run.py quick --rom "$ROM" --payload $P --workers 3 \
+       --options-receipt <the difficulty build's receipt>                                        # about 20 min
+   .venv/bin/python work/advanced-ai/testbench/run.py deep --rom "$ROM" --payload $P --workers 3   # 35-80 min
+   ```
 4. Package into `work/release/<tag>/` (gitignored): the `.xdelta`, `README.txt` (with the `Result ROM SHA-1:` line) and, optionally, the ZIP and `SHA256SUMS.txt`.
 5. Write `latest.json` for the website's in-browser patcher: `python3 work/tools/site/patch_manifest.py <tag>`.
 6. Commit the version bump and CHANGELOG, and merge to `main`.

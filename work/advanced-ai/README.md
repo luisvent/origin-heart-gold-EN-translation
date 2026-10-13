@@ -48,8 +48,10 @@ Every directory gets its own README when it is created: what it holds, what it n
 |---|---|
 | [PLAN.md](PLAN.md) | The port plan |
 | [docs/research-2026-10-13.md](docs/research-2026-10-13.md) | What the Spanish patch's AI is, how it was verified, why it is rebuilt from source, the constraints in this project |
+| [docs/checks.md](docs/checks.md) | How the tiers run from check.py (fast, --full, the --emu part ai) and the release runbook: steps, the AI ROM, skips, commands, timings, output paths |
+| [docs/build-contract.md](docs/build-contract.md) | The interfaces between builder, installer, test bench and the Options row |
+| [docs/memory-layout.md](docs/memory-layout.md) | Where the AI lives in memory and the measurements behind it |
 | [testbench/README.md](testbench/README.md) | Test layout, tiers, pass rules, what comes from the Spanish test bench |
-| `docs/memory-layout.md` | The chosen placement and the measurements behind it (phase 0) |
 | `docs/test-report-*.md` | Test reports (phase 3 onwards) |
 
 Earlier context, outside this directory: `work/notes/es_patch_comparison_20261012.md` compared the Spanish patch with
@@ -75,9 +77,12 @@ The feature changes only these files elsewhere. Each change is listed here when 
 
 | File | Change | Phase |
 |---|---|---|
-| `work/tools/check.py` | Run the static tier; add the `ai` part to `--emu` | 3 |
-| `RELEASING.md` | Require the deep tier for a release candidate | 3 |
-| `.gitignore` | Build output of `testbench/sim/` and `testbench/hostai/` | 3 |
+| `work/tools/check.py` | Fast: `ai-payload`, `ai-unit` (no-ROM tests); `--full`: all unit tests and `ai-static`; `--emu`: the `ai` part (quick tier); `--ai-rom` | 3 |
+| `work/tools/test_check.py` | Tests for the AI steps (`AdvancedAi`) | 3 |
+| `RELEASING.md` | Step 3: the three tiers, required only for a release that ships the AI | 3 |
+| `CONTRIBUTING.md` (Checks), `work/notes/toolchain.md` (Checks) | The AI steps in the check documentation | 3 |
+| `.githooks/pre-commit`, `.github/workflows/patches.yml` | Run the fast check for changes under `work/advanced-ai/` | 3 |
+| `.gitignore` | No change needed: every output lands under the ignored `work/build/` | 3 |
 | `work/research/difficulty-armips/native/options.c`, `settings.c`, `settings.h`; `native/integration_contract.json` (source overrides) | The TRAINER AI row on Options page 2 ([options-trainer-ai.md](../research/difficulty-armips/research/options-trainer-ai.md)) | 4 |
 | `work/research/difficulty-armips/tests/`: `drivers/options_check.c`, `support.py`, `native_ui.py`, `native_ui_oracles.py`, `evidence.py`, `test_framework.py` | Host tests for the row; the native UI driver walks six focus positions | 4 |
 | `work/research/difficulty-armips/native/runtime.c`, `items.c`; `tests/drivers/runtime_check.c`, `items_check.c` | Difficulty's pointer checks end at 0x023D4000, below the AI's main code | 4 |
