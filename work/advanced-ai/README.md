@@ -19,12 +19,12 @@ Everything for the feature lives in this directory. Its tests live in [testbench
 | Phase | State |
 |---|---|
 | Plan | Written: [PLAN.md](PLAN.md) |
-| 0. Environment and measurements | Tools installed; rc8 standard build and rc8 release reproduced; measurements in progress |
+| 0. Environment and measurements | Done: tools installed, rc8 builds reproduced; ITCM arena unused, heap keeps 77 KB ([docs/memory-layout.md](docs/memory-layout.md)) |
 | 1. Faithful extraction | Done: sources vendored (0db9bb3), golden test reproduces rc44 byte for byte (7b12fad) |
-| 2. English build of the engine | English payload built (7b12fad); installer in progress |
-| 3. Test bench and runtime verification | In progress |
+| 2. English build of the engine | Done: payload, installer and verifier (review fixes included); AI serves trainers on the English ROM |
+| 3. Test bench and runtime verification | Done on rc8: whole bench ported, Spanish results reproduced on rc44, English references recorded (static 9/9, quick all pass, deep: 72/80 vs the hack's AI, 0 fallbacks); one known Spanish property violation awaits a reviewer |
 | 4. Options setting | Row built in a development difficulty build; host tests, 14 native cases and the flag scan pass; release-tool build pending |
-| 5. Review and merge | Not started |
+| 5. Review and merge | Independent review done and its fixes merged; integration with the updated upstream main (trainer names in ITCM) not started; not pushed |
 
 ## Layout
 
