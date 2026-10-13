@@ -425,7 +425,8 @@ def link_ai(layout, es_tree, d):
             'slot_code': {'used': len(slot), 'free': slot_end - syms['__bss_end']},   # free: shared with slot_bss
             'slot_bss': {'used': syms['__bss_end'] - syms['__bss_start'], 'free': slot_end - syms['__bss_end']},
             'itcm_code': {'used': len(code), 'free': r['itcm']['limit'] - itcm_at - len(code)},
-            'itcm_bss': {'used': itcm_bss, 'free': itcm_bss_end - itcm_bss_at - itcm_bss, 'end': itcm_bss_end},
+            'itcm_bss': {'start': itcm_bss_at, 'used': itcm_bss, 'free': itcm_bss_end - itcm_bss_at - itcm_bss,
+                         'end': itcm_bss_end},
             'main_ai': {'used': len(main_code), 'free': main_room - len(main_code)}},
         'moved': {'slot_spill': moved, 'largest_first': to_main},
         'sections': [{'name': n, 'object': f, 'output': o, 'region': ROOM_REGION[o], 'size': size}
@@ -479,6 +480,16 @@ def build(layout_name, out, es_tree=None, work=None):
             slot, itcm, main, syms, room = link_ai(layout, es_tree, Path(t))
     r, ov = layout['regions'], layout['overlay10']
     bins = {'slot.bin': slot, 'itcm.bin': itcm, 'main.bin': main}
+    itcm_bss = 0
+    if r['itcm'].get('zero_work_ram'):
+        # the itcm section's bss runs from the end of its code through .itcm_bss, so the boot's autoload zeroes the
+        # AI's work RAM on every boot (a DS leaves ITCM as it was; an emulator zeroes it at power-on). The test
+        # records from the itcm_ram limit up stay outside it.
+        w = room['regions']['itcm_bss']
+        itcm_bss = w['start'] + w['used'] - (r['itcm']['origin'] + len(itcm))
+        require(itcm_bss >= 0 and not itcm_bss % 4 and w['start'] + w['used'] <= r['itcm_ram']['limit'],
+                'the itcm section\'s bss (%08X+%X) must end on a word at or below %08X'
+                % (r['itcm']['origin'] + len(itcm), itcm_bss, r['itcm_ram']['limit']))
     hooks = []
     for h in layout['hooks']:
         require(h['target'] in syms, 'hook target %s is not a symbol of the link' % h['target'])
@@ -493,7 +504,7 @@ def build(layout_name, out, es_tree=None, work=None):
         'regions': {
             'slot': {'ram': hexa(r['slot']['origin']), 'file': 'slot.bin', 'size': len(slot),
                      'bss': syms['__bss_end'] - syms['__bss_start'], 'limit': hexa(r['slot']['limit'])},
-            'itcm': {'ram': hexa(r['itcm']['origin']), 'file': 'itcm.bin', 'size': len(itcm), 'bss': 0,
+            'itcm': {'ram': hexa(r['itcm']['origin']), 'file': 'itcm.bin', 'size': len(itcm), 'bss': itcm_bss,
                      'limit': hexa(r['itcm']['limit'])},
             'itcm_ram': {'ram': hexa(r['itcm_ram']['origin']), 'size': room['regions']['itcm_bss']['used'],
                          'limit': hexa(r['itcm_ram']['limit'])},

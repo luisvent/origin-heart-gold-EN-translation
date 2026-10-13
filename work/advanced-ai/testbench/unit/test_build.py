@@ -177,6 +177,28 @@ class EnglishBuild(unittest.TestCase):
             a = int(address, 16) & ~1
             self.assertTrue(any(lo <= a < hi for lo, hi in spans), '%s at %08X is outside every region' % (name, a))
 
+    def test_itcm_bss_zeroes_work_ram(self):
+        """The itcm section's bss (zeroed by the boot's autoload) covers every .itcm_bss variable, such as g_narc,
+        which the AI opens only while it is 0, and stops below the fixed test records at 0x01FFFF8C."""
+        itcm = self.payload['regions']['itcm']
+        lo = int(itcm['ram'], 16) + itcm['size']
+        hi = lo + itcm['bss']
+        self.assertLessEqual(hi, 0x01FFFF8C)
+        elf = str(self.work / 'ai.elf')
+        sections = subprocess.run(['arm-none-eabi-readelf', '-SW', elf], capture_output=True, text=True,
+                                  check=True).stdout
+        index = re.search(r'\[\s*(\d+)\]\s+\.itcm_bss\s', sections).group(1)
+        symbols = subprocess.run(['arm-none-eabi-readelf', '-sW', elf], capture_output=True, text=True,
+                                 check=True).stdout
+        work_ram = [(f[7], int(f[1], 16), int(f[2], 0)) for f in (line.split() for line in symbols.splitlines())
+                    if len(f) >= 8 and f[6] == index and f[3] == 'OBJECT']
+        self.assertIn('g_narc', [n for n, _, _ in work_ram])
+        self.assertGreater(len(work_ram), 10)
+        for name, address, size in work_ram:
+            with self.subTest(symbol=name):
+                self.assertTrue(lo <= address and address + size <= hi,
+                                '%s %08X+%X is outside the zeroed %08X-%08X' % (name, address, size, lo, hi))
+
     def test_hooks_and_words(self):
         s = {n: int(a, 16) for n, a in self.payload['symbols'].items()}
         hooks = self.payload['hooks']

@@ -13,7 +13,7 @@ One JSON file per memory layout, read by [../build.py](../build.py) (`--layout <
 |---|---|
 | `name` | The layout's name; must match the file name |
 | `regions.slot` | `origin`: where the AI code starts in overlay 10, after overlay 11's image and bss. `limit`: overlay 14's start. The slot's bss follows the code and must also end below `limit` |
-| `regions.itcm` | Resident code in ITCM: `origin` up to `limit` (the start of the work RAM) |
+| `regions.itcm` | Resident code in ITCM: `origin` up to `limit` (the start of the work RAM). `zero_work_ram` (en): the section's bss runs from the end of the code through `.itcm_bss`, so the boot's autoload zeroes the AI's work RAM every time. A DS does not clear ITCM at power-on (an emulator does), and the AI opens its move-data handle `g_narc` only while it is 0 |
 | `regions.itcm_ram` | The AI's ITCM work RAM (`.itcm_bss`): `origin` up to `limit`. The limit must equal the `ASSERT` in `src/link.ld`, which keeps the test records at 0x01FFFF8C–0x01FFFFFF free |
 | `regions.main` | Resident code in main RAM: `origin` (`ai_lead` first) up to `limit` |
 | `overlay10` | Overlay 10's base: its RAM address, the overlay it copies (11), that overlay's size and bss, and its static initialisers. `build.py` checks that the slot starts right after the copy; the installer checks the ROM |

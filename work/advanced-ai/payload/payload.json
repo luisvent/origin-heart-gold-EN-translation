@@ -6,8 +6,8 @@
   "binutils": "2.47"
  },
  "sources": {
-  "builder/build.py": "ee52ae84d375f50574cc2b7d1efd902f9c2972334c3d0b11eca573435a8398ed",
-  "builder/layouts/en.json": "b821ba76123357155c88bb1b48b883fb523a0e472d9237f8e5490fe60ad09665",
+  "builder/build.py": "03be53e556aa0761b08dc7199c396bdd00bd86ffe1ed139e48bc3dfab62d2256",
+  "builder/layouts/en.json": "0d547ed3ff7bf73b5172989795d97276c8ce099fed02da82ed2d27107d682059",
   "src/advai.c": "1382c41f736ec3cc34b8735a362b0363182d484c7d3cc059415c340f25cc9e72",
   "src/aiselect.s": "b3b19d12478bd3353a17bc8248d021a1ec00a41e5ed24dc60086813823a8b2ba",
   "src/check_flag.s": "44e457379038a5fe46cd6fd8f94fd2ed83b6720965a9e93fea69c33501b7a1f1",
@@ -30,7 +30,7 @@
    "ram": "0x01FF8FC0",
    "file": "itcm.bin",
    "size": 24036,
-   "bss": 0,
+   "bss": 4148,
    "limit": "0x01FFEE00"
   },
   "itcm_ram": {
@@ -427,6 +427,7 @@
     "free": 92
    },
    "itcm_bss": {
+    "start": 33549824,
     "used": 4056,
     "free": 436,
     "end": 33554316

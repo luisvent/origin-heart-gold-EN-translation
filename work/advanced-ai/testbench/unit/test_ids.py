@@ -10,7 +10,7 @@ Checks:
 - src/IDS.md lists exactly ids.h's ids and lists (its names are for the reader; `--write` refreshes them);
 - ids.h equals a fresh Spanish generation: `ai_ids_header()` of the Spanish build.py at commit dc8577c, archived with
   `git archive` into a temporary directory. Importing that build.py links the Spanish AI, so it needs the Spanish
-  workspace repository (ADVAI_ES_REPO, default ~/Downloads/Origin_HeartGold_v4.0.3_EN_v1.0.0-rc3) with its ROMs
+  workspace repository, named by ADVAI_ES_REPO=/path/to/spanish/repo (no default), with its ROMs
   work_es/rom/origin_en.nds and origin_cn.nds (linked into the archive), and the pinned toolchain. It skips without
   them.
 """
@@ -30,7 +30,7 @@ IDS_H = AI_DIR / 'src' / 'ids.h'
 IDS_MD = AI_DIR / 'src' / 'IDS.md'
 BANKS = REPO / 'work' / 'translate' / 'banks' / 'a027'
 GLOSSARY = REPO / 'work' / 'glossary'
-ES_REPO = Path(os.environ.get('ADVAI_ES_REPO', Path.home() / 'Downloads' / 'Origin_HeartGold_v4.0.3_EN_v1.0.0-rc3'))
+ES_REPO = Path(os.environ['ADVAI_ES_REPO']) if os.environ.get('ADVAI_ES_REPO') else None
 ES_COMMIT = 'dc8577c'
 ES_ROMS = ('origin_en.nds', 'origin_cn.nds')
 # prefix -> (title, text bank of its names, glossary file)
@@ -140,6 +140,8 @@ class IdsHeader(unittest.TestCase):
 
 class SpanishGeneration(unittest.TestCase):
     def test_equals_spanish_generation(self):
+        if not ES_REPO:
+            self.skipTest('ADVAI_ES_REPO is not set: point it at the Spanish workspace repository')
         roms = [ES_REPO / 'work_es' / 'rom' / n for n in ES_ROMS]
         if not (ES_REPO / '.git').exists() or not all(p.is_file() for p in roms):
             self.skipTest('needs the Spanish workspace repository with work_es/rom/%s at %s (set ADVAI_ES_REPO)'

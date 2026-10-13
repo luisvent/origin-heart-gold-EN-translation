@@ -1,9 +1,9 @@
 {
  "name": "en",
- "description": "The English layout, option A (docs/build-contract.md): the resident code in a new ITCM autoload section after text speed's code, its work RAM at the top of ITCM as in the Spanish build, the rest in a new main-RAM autoload section below difficulty's. Steering is compiled out (AI_NO_STEER).",
+ "description": "The English layout, option A (docs/build-contract.md): the resident code in a new ITCM autoload section after text speed's code, its work RAM at the top of ITCM as in the Spanish build, the rest in a new main-RAM autoload section below difficulty's. The ITCM section's bss runs through the work RAM, so every boot zeroes it. Steering is compiled out (AI_NO_STEER).",
  "regions": {
   "slot": {"origin": "0x021F6E20", "limit": "0x022007E0"},
-  "itcm": {"origin": "0x01FF8FC0", "limit": "0x01FFEE00"},
+  "itcm": {"origin": "0x01FF8FC0", "limit": "0x01FFEE00", "zero_work_ram": true},
   "itcm_ram": {"origin": "0x01FFEE00", "limit": "0x01FFFF8C"},
   "main": {"origin": "0x023D4000", "limit": "0x023DC000"}
  },

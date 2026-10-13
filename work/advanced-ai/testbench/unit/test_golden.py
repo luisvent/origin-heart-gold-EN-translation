@@ -8,10 +8,10 @@ Compared with rc44 (docs/build-contract.md, "Inputs"): overlay 10's slot code (0
 five core hooks' BLs. The expected sha256s are recorded below, so the test still checks the build when the ROM is
 missing.
 
-Needs the Spanish workspace repository (ADVAI_ES_REPO, default ~/Downloads/Origin_HeartGold_v4.0.3_EN_v1.0.0-rc3):
-the es layout's other asm sources (hard mode, starter, ...) come from `git archive dc8577c work_es/tools/asm` into a
-temporary directory, never into this repository. Needs arm-none-eabi-gcc 16.2.0 and binutils 2.47. Skips with the
-reason when an input is missing.
+Needs the Spanish workspace repository, named by ADVAI_ES_REPO=/path/to/spanish/repo (no default): the es layout's
+other asm sources (hard mode, starter, ...) come from `git archive dc8577c work_es/tools/asm` into a temporary
+directory, never into this repository. Needs arm-none-eabi-gcc 16.2.0 and binutils 2.47. Skips with the reason when
+an input is missing.
 """
 import hashlib
 import importlib.util
@@ -24,7 +24,7 @@ from pathlib import Path
 AI_DIR = Path(__file__).resolve().parents[2]
 REPO = AI_DIR.parents[1]
 RC44_ROM = REPO / 'work' / 'build' / 'advanced-ai' / 'es' / 'rc44.nds'
-ES_REPO = Path(os.environ.get('ADVAI_ES_REPO', Path.home() / 'Downloads' / 'Origin_HeartGold_v4.0.3_EN_v1.0.0-rc3'))
+ES_REPO = os.environ.get('ADVAI_ES_REPO')
 
 # sha256 of rc44's bytes: overlay 10 from 0x021F6E20 to its end, ITCM section from 0x01FF8620 to its end, main
 # section 0x02264920 from 0x0226D4C0 to its end
@@ -54,9 +54,10 @@ class Golden(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.builder = b = load_builder()
-        if not has_commit(ES_REPO, b.ES_COMMIT):
-            raise unittest.SkipTest('the Spanish workspace repository with commit %s is not at %s (set ADVAI_ES_REPO)'
-                                    % (b.ES_COMMIT, ES_REPO))
+        if not ES_REPO:
+            raise unittest.SkipTest('ADVAI_ES_REPO is not set: point it at the Spanish workspace repository')
+        if not has_commit(Path(ES_REPO), b.ES_COMMIT):
+            raise unittest.SkipTest('ADVAI_ES_REPO=%s has no commit %s' % (ES_REPO, b.ES_COMMIT))
         try:
             b.toolchain()
         except b.BuildError as e:

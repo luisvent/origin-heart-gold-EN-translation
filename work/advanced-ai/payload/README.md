@@ -8,7 +8,7 @@ writes these bytes into a ROM, so normal builds need no compiler. The schema is 
 |---|---|
 | `payload.json` | Toolchain, sha256 of every source and `.bin`, the regions (RAM address, size, bss, limit), overlay 10's shape, every placed symbol (Thumb functions with bit 0 set), the 5 hooks with their old and new bytes, the 2 arena words, the room report |
 | `slot.bin` | 32,800 B: the AI code that follows overlay 11's image in overlay 10, from 0x021F6E20 (`adv_entry` first). Its bss (2,656 B) follows it in RAM |
-| `itcm.bin` | 24,036 B: the resident code for the new ITCM autoload section at 0x01FF8FC0 (`aiselect.s`, `check_flag.s`, `ai_replace`, `g_tune`, libgcc, the shared AI code) |
+| `itcm.bin` | 24,036 B: the resident code for the new ITCM autoload section at 0x01FF8FC0 (`aiselect.s`, `check_flag.s`, `ai_replace`, `g_tune`, libgcc, the shared AI code). The section's bss (`regions.itcm.bss`, 0x1034 B) runs through the AI's work RAM to 0x01FFFDD8, so every boot zeroes it |
 | `main.bin` | 24,184 B: the resident code for the new main-RAM autoload section at 0x023D4000 (`ai_lead` first) |
 
 These files hold only our compiled code. Overlay 11's image, which overlay 10 starts with, is never in the

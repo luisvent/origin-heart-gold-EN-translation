@@ -30,7 +30,7 @@ From the repository root:
 
 # the Spanish rc44 layout, where the test bench looks for it
 .venv/bin/python work/advanced-ai/builder/build.py --layout es \
-    --es-repo ~/Downloads/Origin_HeartGold_v4.0.3_EN_v1.0.0-rc3 --out work/build/advanced-ai/es/payload
+    --es-repo /path/to/spanish/repo --out work/build/advanced-ai/es/payload
 ```
 
 | Option | Meaning |
@@ -54,6 +54,9 @@ It prints the room line (used and free bytes per region) and what it moved betwe
    main RAM.
 5. Writes `slot.bin`, `itcm.bin`, `main.bin` and `payload.json`: the regions, every placed symbol with the Thumb bit
    on functions, the hooks with their new bytes, the arena words, and the sha256 of every source and `.bin`.
+   With the layout's `zero_work_ram` (en), the itcm region's `bss` runs from the end of its code through
+   `.itcm_bss` (en: 0x01FFEDA4–0x01FFFDD8, 0x1034 B). The boot's autoload then zeroes the AI's work RAM; the
+   test records from 0x01FFFF8C stay outside it.
 
 The output depends only on the sources, the layout and the toolchain. Two builds are byte-identical
 (`testbench/unit/test_build.py`).
