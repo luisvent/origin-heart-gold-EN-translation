@@ -14,11 +14,14 @@ build). The output is a new file: the input is never written. What it writes (do
    bss. The itcm section's bss runs through the AI's work RAM, so the boot zeroes it; it must stop before the
    fixed records at itcm_ram's limit.
 3. The arena words of payload.json `words` (the SDK's initial ITCM arena start and main arena end), each only
-   if it holds `before`.
+   if it holds `before`. The ITCM arena start is the exception: the input's ITCM code (the hack's block, text
+   speed, trainer display) ends at a different place per build, so it must equal that end, which must be at or
+   below the AI's itcm origin (and at or below `before_max` when the payload gives one). It becomes 0x02000000.
 4. The hooks of payload.json `hooks`: a Thumb BL to the target symbol, each only if the site holds `before`.
 5. The trainer marks of data/trainer_marks.json: bit 0 (important) and bit 1 (keep lead) of header byte 2 in
    a/0/5/5. Byte 2 must be 0 in every record of the input.
-6. A receipt, <out>.receipt.json: input, output, payload and marks hashes; the input's difficulty build mode
+6. A receipt, <out>.receipt.json: input, output, payload and marks hashes; the input's ITCM end and the
+   headroom below the AI's itcm origin; the input's difficulty build mode
    (from --difficulty-receipt, else 'release' for the known rc8 release, else 'unknown'); every check; the logical
    writes above, byte range by byte range; and what saving moved in the ROM container (header offsets and sizes,
    the header CRC, the used-size copy at 0x1000, the autoload table pointers, the files' ROM offsets).
@@ -97,6 +100,16 @@ def num(text):
     return int(text, 16) if isinstance(text, str) else int(text)
 
 
+def word_value(text):
+    """A word in payload.json: 8 hex digits are its little-endian bytes (as `before` and `after` are written);
+    "0x..." is the value itself."""
+    if isinstance(text, str) and text.lower().startswith("0x"):
+        return int(text, 16)
+    raw = bytes.fromhex(text)
+    require(len(raw) == 4, f"payload: {text!r} is not a word")
+    return struct.unpack("<I", raw)[0]
+
+
 @dataclass(frozen=True)
 class Pins:
     """What the installer expects of the hack's code; the tests' synthetic ROMs bring their own."""
@@ -135,8 +148,18 @@ class Payload:
         self.ov10 = {"ram": num(o["ram"]), "bss": num(o["bss"]), "static_init": [num(x) for x in o["static_init"]]}
         require(self.ov10["bss"] == self.regions["slot"]["bss"], "payload: overlay 10 bss is not the slot's bss")
         self.hooks = [dict(h, address=num(h["address"]), before=bytes.fromhex(h["before"])) for h in p["hooks"]]
-        self.words = [dict(w, address=num(w["address"]), before=bytes.fromhex(w["before"]),
-                           after=bytes.fromhex(w["after"])) for w in p["words"]]
+        # `before` is the word's exact old value, except for the ITCM arena start: the input's ITCM code ends at a
+        # different place per build (text speed, trainer display), so that word may give no exact value ("itcm_end",
+        # or no `before`) or a ceiling (`before_max`); the installer always requires it to equal the input's ITCM end,
+        # at or below the itcm region's origin.
+        self.words = []
+        for w in p["words"]:
+            address, before = num(w["address"]), w.get("before")
+            exact = None if before in (None, "itcm_end") else word_value(before)
+            require(exact is not None or address == ITCM_ARENA_LO_WORD, f"payload: word {hx(address)} has no before")
+            self.words.append(dict(w, address=address, before=exact,
+                                   before_max=word_value(w["before_max"]) if "before_max" in w else None,
+                                   after=bytes.fromhex(w["after"])))
         require({w["address"] for w in self.words} == {ITCM_ARENA_LO_WORD, MAIN_ARENA_HI_WORD},
                 "payload: words must be exactly the ITCM arena start and the main arena end")
 
@@ -241,7 +264,7 @@ class Install:
         if 10 in self.ovs and len(self.rom.files[self.ovs[10].fileID]) != 0x20:
             found.append("overlay 10 is not the 0x20-byte stub")
         for w in p.words:
-            if self.arm9_word(w["address"]) == w["after"] != w["before"]:
+            if self.arm9_word(w["address"]) == w["after"]:
                 found.append(f"arm9 word {hx(w['address'])} already {w['after'].hex()}")
         for h in p.hooks:
             if h["target"] in p.symbols:
@@ -275,9 +298,27 @@ class Install:
                 "overlay 11's static initialisers are not the payload's")
         self.check("overlay 11 sha256", sha256(bytes(o11.data)))
         self.check("overlay 10 sha256 (stub)", sha256(bytes(o10.data)))
+        # ITCM: the input's ITCM code (the hack's block, text speed, trainer display, any other autoload section in
+        # ITCM) must end at or below the AI's itcm origin, and the SDK's ITCM arena must start exactly there.
+        itcm_end = max(s.ramAddress + len(s.data) + s.bssSize for s in self.arm.sections[1:]
+                       if ITCM_START <= s.ramAddress < ITCM_END)
+        origin = p.regions["itcm"]["ram"]
+        require(itcm_end <= origin, f"the input's ITCM code ends at {hx(itcm_end)}, past the AI's itcm origin "
+                f"{hx(origin)}: the payload needs a later origin")
+        self.input_itcm = {"end": hx(itcm_end), "ai_itcm_origin": hx(origin), "headroom": origin - itcm_end}
         for w in p.words:
-            have = self.arm9_word(w["address"])
-            require(have == w["before"], f"arm9 word {hx(w['address'])} holds {have.hex()}, not {w['before'].hex()}")
+            have = struct.unpack("<I", self.arm9_word(w["address"]))[0]
+            if w["address"] == ITCM_ARENA_LO_WORD:
+                require(have == itcm_end, f"the ITCM arena start word {hx(w['address'])} holds {hx(have)}, not the "
+                        f"input's ITCM end {hx(itcm_end)}")
+                self.input_itcm["arena_start_word"] = hx(have)
+            if w["before"] is not None:
+                require(have == w["before"], f"arm9 word {hx(w['address'])} holds {hx(have)}, not {hx(w['before'])}")
+            if w["before_max"] is not None:
+                require(have <= w["before_max"], f"arm9 word {hx(w['address'])} holds {hx(have)}, above "
+                        f"{hx(w['before_max'])}")
+            w["found"] = struct.pack("<I", have)
+        self.check("input ITCM end", self.input_itcm)
         self.check("words hold before", [hx(w["address"]) for w in p.words])
         for h in p.hooks:
             off = self.ov14_site(h["address"])
@@ -313,7 +354,7 @@ class Install:
         require(R["itcm"]["bss"] == 0 or span["itcm"][1] >= work[1], "the itcm section's bss must cover the work RAM")
         # main: inside the main arena's free tail, which the new arena end gives up.
         lo_word = struct.unpack("<I", self.arm9_word(MAIN_ARENA_LO_WORD))[0]
-        hi_before = struct.unpack("<I", self.payload.word(MAIN_ARENA_HI_WORD)["before"])[0]
+        hi_before = self.payload.word(MAIN_ARENA_HI_WORD)["before"]
         hi_after = struct.unpack("<I", self.payload.word(MAIN_ARENA_HI_WORD)["after"])[0]
         itcm_lo_after = struct.unpack("<I", self.payload.word(ITCM_ARENA_LO_WORD)["after"])[0]
         require(itcm_lo_after == ITCM_END, "the ITCM arena start must move to the end of ITCM (an empty arena)")
@@ -386,7 +427,7 @@ class Install:
         for w in p.words:
             off = w["address"] - ARM9_RAM
             self.main.data[off:off + 4] = w["after"]
-            self.writes.append({"what": "arm9 word", "address": hx(w["address"]), "before": w["before"].hex(),
+            self.writes.append({"what": "arm9 word", "address": hx(w["address"]), "before": w["found"].hex(),
                                 "after": w["after"].hex(), "purpose": w.get("purpose", "")})
         # 2. the autoload sections
         for name in ("itcm", "main"):
@@ -534,6 +575,7 @@ def install(input_path, out_path, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS,
         "tool": "work/advanced-ai/builder/install.py",
         "input": identity(data, input_path),
         "difficulty": difficulty,
+        "input_itcm": job.input_itcm,
         "output": identity(out, out_path),
         "payload": payload.receipt(),
         "marks": {"path": str(marks.path), "sha256": marks.sha256, "important": len(marks.important),

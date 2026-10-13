@@ -9,7 +9,8 @@ capstone. It checks (docs/build-contract.md, "Installer and verifier"):
 
 - the ROM layout: header CRC, every file inside the ROM, no two files or tables overlapping;
 - the autoload table: ITCM, DTCM, difficulty's section, then the AI's itcm and main sections, each equal to the
-  payload's bytes and bss, none overlapping another, the AI's ITCM span clear of the original ITCM block;
+  payload's bytes and bss, none overlapping another; every other section in ITCM (the hack's block with text speed
+  and trainer display) ends at or below the AI's itcm origin; the itcm bss stops before the fixed records;
 - the arena words: the payload's values; the ITCM arena empty; the main arena ending where region main starts and
   still holding the root heaps (the heap table at 0x020F2EAC);
 - each hook: capstone reads a Thumb `bl` to its target symbol;
@@ -19,7 +20,9 @@ capstone. It checks (docs/build-contract.md, "Installer and verifier"):
 
 With --input (the ROM the installer read), it also checks that nothing else changed: every other ROM file, the
 ARM7 binary, the banner, the FNT, the other y9 entries, the arm9 main section outside the two words, the input's
-autoload sections, overlay 14 outside the hook sites and a/0/5/5 outside byte 2 of the marked records.
+autoload sections, overlay 14 outside the hook sites and a/0/5/5 outside byte 2 of the marked records; the header
+outside the fields saving moves, and 0x160-0x3FFF outside the used-size copy; and that the input's ITCM arena started
+at its ITCM end, at or below the AI's itcm origin.
 
 Exit 0 when every check passes, 1 otherwise (each failure is printed).
 """
@@ -256,8 +259,10 @@ def verify(data, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS, input_data=None,
     dests = sorted((s["ram"], s["ram"] + s["size"] + s["bss"]) for s in arm9.sections)
     check("no two autoload destinations overlap", all(b[0] >= a[1] for a, b in zip(dests, dests[1:])))
     itcm_block = by_ram.get(ITCM_LO)
-    check("AI ITCM span after the ITCM block", itcm_block is not None and
-          ITCM_LO + itcm_block["size"] + itcm_block["bss"] <= ram["itcm"])
+    others_in_itcm = [s["ram"] + s["size"] + s["bss"] for s in arm9.sections
+                      if ITCM_LO <= s["ram"] < ITCM_HI and s["ram"] != ram["itcm"]]
+    check("every other ITCM section ends at or below the AI's itcm origin", itcm_block is not None and
+          max(others_in_itcm) <= ram["itcm"], f"ends at {h32(max(others_in_itcm, default=0))}")
     code_end = ram["itcm"] + R["itcm"]["size"]
     work = (ram["itcm_ram"], ram["itcm_ram"] + R["itcm_ram"]["size"])
     fixed_records = as_int(R["itcm_ram"]["limit"])
@@ -372,6 +377,11 @@ def verify(data, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS, input_data=None,
                      and k not in words and not MODULE_PARAMS_AT <= k < MODULE_PARAMS_AT + 8]
         check("arm9 main section unchanged except the words and the autoload table pointers",
               len(old9.main) == len(arm9.main) and not main_diff, str([h32(ARM9_BASE + k) for k in main_diff[:5]]))
+        old_itcm_end = max((s["ram"] + s["size"] + s["bss"] for s in old9.sections if ITCM_LO <= s["ram"] < ITCM_HI),
+                           default=0)
+        check("input's ITCM arena started at its ITCM end, at or below the AI's itcm origin",
+              old9.word(ITCM_ARENA_START) == old_itcm_end <= ram["itcm"],
+              f"word {h32(old9.word(ITCM_ARENA_START))}, ITCM end {h32(old_itcm_end)}, origin {h32(ram['itcm'])}")
         check("input's autoload sections unchanged",
               [(s["ram"], s["data"], s["bss"]) for s in old9.sections] ==
               [(s["ram"], s["data"], s["bss"]) for s in arm9.sections[:len(old9.sections)]])

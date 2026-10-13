@@ -15,8 +15,11 @@ clock fixed at 2026-01-01 12:00) and plays:
 Before each trainer battle every party Pokemon's current HP is set to at most its maximum (the Spanish test save's
 edited stats leave 998/297 after a battle, which the AI's range check rejects: a silent fallback to overlay 11).
 
-Without --payload (a ROM without the AI): it fills 0x01FF8FC0-0x02000000 with an address-derived canary and hooks
-writes there, as the phase 0 probe did. It fails if a word changes or the hook fires.
+Without --payload (a ROM without the AI): it fills the SDK's ITCM arena, from the end of the ROM's ITCM code (the
+hack's block, text speed and, in main's builds, trainer display: 0x01FF8FC0 in the rc8 release, 0x01FF9140 in main)
+to 0x02000000, with an address-derived canary and hooks writes there, as the phase 0 probe did. The positive control
+is text speed's frame state (from work/patches/text-speed/payload.json), which the game writes every frame. It fails
+if a word changes or the hook fires.
 
 With --payload (an AI build): the AI is switched on with --setting (default all) in the save in RAM, and the checks are
 the AI's own regions (the payload's itcm and main regions): no code outside the AI ever writes into them, the AI itself
@@ -24,6 +27,9 @@ writes only its data objects there (the payload's even-address symbols, e.g. g_f
 symbol), and at the end every other byte still equals the payload's itcm.bin and main.bin; the SDK's ITCM arena (bounds at 0x027FFDA0/0x027FFDC4, sampled
 every 30 frames) never changes from its value after boot. Writes into the AI's work RAM (the itcm_ram region) from
 code outside the AI are counted and listed, not failed: the engine routines the AI calls may write into its buffers.
+Below the AI's itcm origin (from the payload), the ITCM code the AI build kept (the hack's block, text speed, trainer
+display) must stay as the ROM has it: the AI's code never writes there, nothing writes the headroom between that code's
+end and the origin, and at the end those bytes equal the ROM's ITCM section, except text speed's frame state.
 Both modes also track each game heap's smallest spare room and every NULL allocation (memcheck's method), and fail
 on a NULL allocation or a battle that does not end.
 
@@ -47,8 +53,8 @@ sys.path.insert(0, os.path.join(tbpaths.WORK, 'tools'))
 import emu_harness as eh  # noqa: E402
 
 OUT = os.path.join(tbpaths.RUNS, 'itcm_arena')
-REGION = (0x01FF8FC0, 0x02000000)        # after text speed's ITCM code: the region the AI build's itcm code takes
-CONTROL = (0x01FF8F80, 0x01FF8FC0)       # text speed's frame state at its payload's tail: written every frame
+ITCM = (0x01FF8000, 0x02000000)
+TEXT_SPEED = os.path.join(tbpaths.WORK, 'patches', 'text-speed', 'payload.json')
 ARENA_LO, ARENA_HI = 0x027FFDA0, 0x027FFDC4
 ARENAS = ('main', 'main_subpriv', 'mainex', 'itcm', 'dtcm', 'shared', 'wram_main', 'wram_sub', 'wram_subpriv')
 ALLOC = 0x0201B258           # AllocFromHeapInternal(expHeap, size, align, heapId)
@@ -60,6 +66,25 @@ TRAINER_SET_INIT = 0x02072544      # EnemyTrainerSet_Init(BattleSetup *setup, ..
 IN_BATTLE_SUMMARY = (50, 173)      # battle party, a Pokemon's page: SUMMARY (bottom left)
 IN_BATTLE_SHIFT = (128, 78)        # the same page: SHIFT
 BATTERY = 524288                   # the battery image the harness imports (a .dsv is it plus DeSmuME's footer)
+
+
+def rom_itcm(rom_path, ai_origin=None):
+    """(the ROM's ITCM code from 0x01FF8000, its end): every autoload section in ITCM but the AI's own itcm section."""
+    import ndspy.rom
+    secs = [s for s in ndspy.rom.NintendoDSRom.fromFile(rom_path).loadArm9().sections[1:]
+            if ITCM[0] <= s.ramAddress < ITCM[1] and s.ramAddress != ai_origin]
+    end = max(s.ramAddress + len(s.data) + s.bssSize for s in secs)
+    image = bytearray(end - ITCM[0])
+    for s in secs:
+        image[s.ramAddress - ITCM[0]:s.ramAddress - ITCM[0] + len(s.data)] = s.data
+    return bytes(image), end
+
+
+def text_speed_state():
+    """[lo, hi) of text speed's frame state: its state symbol to its payload's end (written every frame)."""
+    with open(TEXT_SPEED) as f:
+        t = json.load(f)
+    return t['symbols']['text_speed_state'] & ~1, t['base'] + len(bytes.fromhex(t['code']))
 
 
 def canary(addr):
@@ -232,7 +257,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--rom', required=True)
     ap.add_argument('--payload', help='an AI build\'s payload.json: check the AI\'s regions (default: ADVAI_PAYLOAD; '
-                    'none: the canary over 0x01FF8FC0-0x02000000)')
+                    'none: the canary over the ITCM arena, from the ROM\'s ITCM code end to 0x02000000)')
     ap.add_argument('--setting', choices=sorted(SETTINGS), default='all', help='the AI setting in RAM (AI builds)')
     ap.add_argument('--part', choices=('menus', 'battles', 'all'), default='all')
     ap.add_argument('--json')
@@ -244,6 +269,14 @@ def main():
     sav = battery('violet_gym', str(out))
     ranges = ai_ranges(lay) if lay else {}
     code = [(n, r) for n, r in ranges.items() if n in ('itcm', 'main')]
+    origin = lay.regions['itcm']['ram'] if lay else None
+    itcm_image, itcm_end = rom_itcm(a.rom, origin)
+    CONTROL = text_speed_state()
+    REGION = (itcm_end, ITCM[1])
+    if not ITCM[0] <= CONTROL[0] < CONTROL[1] <= itcm_end:
+        sys.exit('text speed\'s frame state %08X-%08X is not in the ROM\'s ITCM code' % CONTROL)
+    if lay and itcm_end > origin:
+        sys.exit('the ROM\'s ITCM code ends at %08X, past the AI\'s itcm origin %08X' % (itcm_end, origin))
     with eh.Harness(rom=Path(a.rom).resolve(), sav=Path(sav).resolve(), out=out,
                     rtc=datetime.datetime(2026, 1, 1, 12, 0, 0)) as h:
         p = Probe(h)
@@ -252,6 +285,7 @@ def main():
         h.continue_game()
         res = {'rom': str(a.rom), 'mode': 'ai build' if lay else 'canary', 'problems': []}
         writes, foreign, control = [], [], [0]
+        below = {'ai': [], 'headroom': [], 'other': []}
         if lay:
             on, important = SETTINGS[a.setting]
             h.set_flag(FLAG_AI, on)
@@ -277,6 +311,17 @@ def main():
                     if not any(c0 <= pc < c1 for c0, c1 in ai_code):
                         foreign.append((hex(addr), sz, hex(pc), h.frame, p.stage))
                 h.emu.memory.register_write(lo, on_ram, hi - lo)
+
+            # below the origin: the ITCM code the build kept, then the headroom up to the origin
+            def on_below(addr, sz):
+                pc = h.reg.pc & 0xFFFFFFFE
+                kind = ('ai' if any(c0 <= pc < c1 for c0, c1 in ai_code) else 'headroom' if addr >= itcm_end
+                        else None if CONTROL[0] <= addr < CONTROL[1] else 'other')
+                if kind and len(below[kind]) < 32:
+                    below[kind].append((hex(addr), sz, hex(pc), h.frame, p.stage))
+            h.emu.memory.register_write(ITCM[0], on_below, origin - ITCM[0])
+            res['itcm_below_origin'] = {'code_end': hex(itcm_end), 'origin': hex(origin),
+                                        'headroom': origin - itcm_end, 'text_speed_state': [hex(x) for x in CONTROL]}
         else:
             size = REGION[1] - REGION[0]
             res['boot_nonzero_bytes'] = sum(1 for b in h.read(REGION[0], size) if b)
@@ -394,6 +439,18 @@ def main():
                                            '%08X)' % (n, lay.regions[n]['file'], len(diff), diff[0]))
             if writes:
                 res['problems'].append('%d write(s) into the AI\'s code: %s' % (len(writes), writes[:4]))
+            if below['ai']:
+                res['problems'].append('the AI wrote below its itcm origin: %s' % below['ai'][:4])
+            if below['headroom'] or any(h.read(itcm_end, origin - itcm_end)):
+                res['problems'].append('the headroom %08X-%08X was written: %s' % (itcm_end, origin, below['headroom'][:4]))
+            kept = h.read(ITCM[0], itcm_end - ITCM[0])
+            diff = [ITCM[0] + i for i in range(len(kept)) if kept[i] != itcm_image[i]
+                    and not CONTROL[0] <= ITCM[0] + i < CONTROL[1]]
+            if diff:
+                res['problems'].append('the ITCM code below the origin differs from the ROM\'s at the end (%d bytes '
+                                       'from %08X)' % (len(diff), diff[0]))
+            res['itcm_below_origin'].update(other_writes=below['other'][:16], ai_writes=below['ai'][:16],
+                                            headroom_writes=below['headroom'][:16], bytes_changed=len(diff))
         else:
             back = h.read(REGION[0], REGION[1] - REGION[0])
             diff = [REGION[0] + i for i in range(0, len(back), 4) if back[i:i + 4] != want[i:i + 4]]

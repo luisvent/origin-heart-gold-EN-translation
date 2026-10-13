@@ -171,7 +171,7 @@ class Synthetic(unittest.TestCase):
     def test_an_itcm_bss_reaching_the_fixed_records(self):
         def edit(rom):
             arm = rom.loadArm9()
-            arm.sections[4].bssSize = 0x01FFFF90 - (0x01FF8FC0 + 0x200)
+            arm.sections[4].bssSize = 0x01FFFF90 - (ti.ORIGIN + 0x200)
             rom.arm9 = arm.save(compress=False)
         self.failing(self.mutate(edit), "AI itcm bss stops before the fixed records")
 
@@ -181,6 +181,24 @@ class Synthetic(unittest.TestCase):
             arm.sections[4].bssSize = 0x100
             rom.arm9 = arm.save(compress=False)
         self.failing(self.mutate(edit), "AI itcm bss is none, or covers the work RAM")
+
+    def test_itcm_code_past_the_origin(self):
+        def edit(rom):
+            arm = rom.loadArm9()
+            arm.sections[1].data = bytearray(0x1500)        # the input's ITCM block, now past ORIGIN
+            rom.arm9 = arm.save(compress=False)
+        self.failing(self.mutate(edit), "every other ITCM section ends at or below the AI's itcm origin",
+                     with_input=False)
+
+    def test_an_input_whose_itcm_arena_was_not_at_its_itcm_end(self):
+        def edit(rom):
+            arm = rom.loadArm9()
+            struct.pack_into("<I", arm.sections[0].data, 0x020D1A28 - 0x02000000, 0x01FF9000)
+            rom.arm9 = arm.save(compress=False)
+        old = ndspy.rom.NintendoDSRom(self.rom)
+        edit(old)
+        r = verify.verify(self.out, self.payload, self.marks, old.save(), overlay11_sha256=self.pins.overlay11_sha256)
+        self.assertTrue(any("input's ITCM arena started at its ITCM end" in e for e in r["errors"]), r["errors"])
 
     def test_a_payload_bin_that_does_not_match_its_sha256(self):
         with tempfile.TemporaryDirectory() as tmp:

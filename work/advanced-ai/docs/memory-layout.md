@@ -7,30 +7,53 @@ the standard build plus difficulty. This answers PLAN.md phase 0: can the AI's r
 **Decision: option A.** Nothing allocates from the ITCM arena or writes to it, and the main arena has 110,228 bytes
 that nothing uses after boot. Option A takes 32 KB of them. No game heap gets smaller with either option.
 
+Updated after the merge of `main` (trainer full names, `work/tools/trainer_display.py`): the AI's `itcm` region now
+starts at a fixed origin, 0x01FF9500, with headroom above every input's ITCM code. See "The ITCM origin". The ITCM
+arena measurement was repeated on main's standard build.
+
 ## Final layout
 
 | Region | RAM | Size | What is there | Written by |
 |---|---|---|---|---|
 | Overlay 10 | 0x021E4DA0–0x021FF8A0 | file 0x12080 + 32,800 B, bss 0xA60 (3,904 B of the slot free) | Overlay 11's image and its 0x20-byte bss, then the slot code from 0x021F6E20 (`adv_entry` first). Loaded into the battle slot in place of overlay 11 | y9 entry 10, ROM file 10 |
-| `itcm` | 0x01FF8FC0–0x01FFEDA4 (limit 0x01FFEE00, 92 B free); its bss 0x01FFEDA4–0x01FFFDD8 | 24,036 B, bss 0x1034 (4,148 B) | Resident AI code: `aiselect.s`, `check_flag`, `ai_replace`, `g_tune`, libgcc, shared AI code | new autoload section 5 |
+| The input's ITCM code | 0x01FF8000 to its end: 0x01FF8FC0 in the rc8 release (the hack's block and text speed), 0x01FF9140 in main's English build (and trainer display; at most 0x01FF9320 in any locale) | – | Kept as the input has it | – |
+| Headroom | the input's ITCM end to 0x01FF9500 (1,344 B with rc8, 960 B with main) | – | Empty; nothing writes it | – |
+| `itcm` | 0x01FF9500–0x01FFECAC (limit 0x01FFEE00, 340 B free); its bss 0x01FFECAC–0x01FFFDD8 | 22,444 B, bss 0x112C (4,396 B) | Resident AI code: `aiselect.s`, `check_flag`, `ai_replace`, `g_tune`, libgcc, shared AI code | new autoload section 5 |
 | `itcm_ram` | 0x01FFEE00–0x01FFFDD8 (limit 0x01FFFF8C, 436 B free) | 4,056 B | The AI's work RAM (`.itcm_bss`), inside the `itcm` section's bss, so every boot zeroes it | autoload section 5's bss |
 | Fixed records | 0x01FFFF8C–0x01FFFFFF | 116 B | Foresight word, NOREAD, NOLEAD, Read and Replaced records, SELFPLAY (`engine.h`) | – |
-| `main` | 0x023D4000–0x023D9E78 (limit 0x023DC000) | 24,184 B, no bss | Resident AI code: `ai_lead` first | new autoload section 6 |
+| `main` | 0x023D4000–0x023DA4B8 (limit 0x023DC000, 6,984 B free) | 25,784 B, no bss | Resident AI code: `ai_lead` first, and what no longer fits ITCM | new autoload section 6 |
 | Difficulty (unchanged) | 0x023DC000–0x023DE1E0 (rc8; the development build with the TRAINER AI row: –0x023DE660), below 0x023E0000 | 8,672 B (rc8) | Difficulty's resident code | autoload section 4 |
 
 | Word | Before | After | Meaning |
 |---|---|---|---|
-| arm9 0x020D1A28 | 0x01FF8FC0 (text speed) | 0x02000000 | Initial ITCM arena start: the arena is now empty |
+| arm9 0x020D1A28 | the input's ITCM end (0x01FF8FC0 rc8, 0x01FF9140 main), at most 0x01FF9500 | 0x02000000 | Initial ITCM arena start: the arena is now empty |
 | arm9 0x020D1970 | 0x023DC000 (difficulty) | 0x023D4000 | Initial main arena end: the arena now ends below region `main` |
 
 The autoload table after installation is: ITCM block, DTCM, difficulty, AI `itcm`, AI `main`. The ARM9 start-up code
 (crt0 at 0x02000800, autoload loop at 0x02000A1C) copies each section word by word and then zeroes its bss. It does
 not clear ITCM otherwise, and a DS keeps ITCM across a soft reset. So the `itcm` section's bss runs from the end of
-its code through `.itcm_bss` (0x01FFEDA4–0x01FFFDD8): every boot zeroes the AI's work RAM, as C expects of `.bss`
+its code through `.itcm_bss` (0x01FFECAC–0x01FFFDD8): every boot zeroes the AI's work RAM, as C expects of `.bss`
 (the Spanish build had no such bss and relied on the emulator's zeroed ITCM and on tags). The bss stops before the
 fixed records at 0x01FFFF8C, which the test tools write and which keep their magic words. The installer refuses an
-`itcm` bss that would reach them or that would not cover the work RAM, and the smoke test filled 0x01FFEDA4–0x02000000
-with 0xA5 before the first instruction: after boot the bss range was 0 and the records still 0xA5.
+`itcm` bss that would reach them or that would not cover the work RAM, and the smoke test filled the bss range to
+0x02000000 with 0xA5 before the first instruction: after boot the bss range was 0 and the records still 0xA5.
+
+### The ITCM origin
+
+Every byte the AI links is at an absolute address: the hooks' BLs, the slot code's BLs into ITCM, the literals for
+`g_tune`. So one payload fits one `itcm` origin. The ITCM code before it is not the same in every input:
+
+| Input | ITCM code | ITCM arena start word |
+|---|---|---|
+| rc8 release | the hack's 0x620-byte block and text speed, to 0x01FF8FC0 | 0x01FF8FC0 |
+| main's English build | the same, then trainer display's formatter and names, to 0x01FF9140 | 0x01FF9140 |
+| any locale of main | trainer display's names differ in length; the builder's worst case ends at 0x01FF9320 | its end |
+
+The origin is fixed at 0x01FF9500, above the worst case with a margin, so one reviewed payload installs on all of
+them. The installer accepts an input whose ITCM code (every autoload section in ITCM) ends at or below the origin and
+whose ITCM arena start word equals that end (payload.json: `"before": "itcm_end", "before_max": "0x01FF9500"`). It
+refuses any other input and records the end and the headroom in the receipt. The cost is ITCM room: the headroom
+pushed about 1.6 KB of code from ITCM to the `main` region, which still has 6,984 B free.
 
 ## Main arena
 
@@ -111,7 +134,8 @@ With the AI on (`smoke` run, 4 trainer battles), the battle heap's smallest spar
 ## ITCM arena
 
 ITCM is 0x01FF8000–0x02000000. In the rc8 release, ITCM holds the hack's 0x620-byte block plus text speed's code, up
-to 0x01FF8FC0. The SDK's ITCM arena is the rest: 0x01FF8FC0–0x02000000, 28,736 bytes.
+to 0x01FF8FC0. The SDK's ITCM arena is the rest: 0x01FF8FC0–0x02000000, 28,736 bytes. In main's English build,
+trainer display's code and names follow, to 0x01FF9140, and the arena is 0x01FF9140–0x02000000.
 
 **Static check.** The only code that touches the ITCM arena is `OS_InitArena`, which sets its bounds at boot. No
 code calls an arena function with arena 3. See the table above.
@@ -130,11 +154,18 @@ code calls an arena function with arena 3. See the table above.
    - All 7,184 canary words were unchanged at the end.
    - The ITCM arena's bounds (0x027FFDAC/0x027FFDD0) stayed 0x01FF8FC0/0x02000000 throughout.
 
+The same run on main's standard build (`base/main_standard.nds`, sha256 `96793c39…`; 25,806 frames) with
+`testbench/checks/itcm_arena.py`, which now takes the arena from the ROM: the region 0x01FF9140–0x02000000 was 0 after
+boot, its hook fired 0 times (control: 69,292), every canary word was unchanged and the arena bounds stayed
+0x01FF9140/0x02000000. No allocation failed.
+
 The Spanish build supports this too: it emptied the ITCM arena (start 0x02000000) and passed its full QA. A game
 allocation from an empty arena would have returned NULL.
 
 So option A's ITCM part is safe. After installation, the arena is empty (start = end = 0x02000000, measured in the
-smoke run).
+smoke run). On the AI builds, `itcm_arena.py` (with `--payload`) also checks the ITCM below the origin: across the same
+scenarios with the AI on, the AI's code never wrote below 0x01FF9500, nothing wrote the headroom, and the kept ITCM
+code (with trainer display on main) still equalled the ROM's at the end, except text speed's frame state.
 
 ## Overlay 10 and the battle slot
 
@@ -180,9 +211,15 @@ English ROM: Violet City, a level 50–100 party. No English battery save existe
 
 ## Smoke test with the AI installed
 
-`install.py` onto the rc8 release gave `layout/rom/rc8_ai.nds` (sha256 `1e91ce1f…a98665b` with the payload of commit
-`cb4ca7e`, receipt next to it). It
-boots to the title screen and continues into the field. With the flags set in RAM:
+With the payload of commit `8362032` (origin 0x01FF9500), `install.py` gave two AI builds (ignored, under
+`work/build/advanced-ai/layout/rom/`, each with its receipt):
+
+| AI build | Input | sha256 |
+|---|---|---|
+| `rc8_ai.nds` | the rc8 release (ITCM end 0x01FF8FC0) | `9b62fe11…f586cb38a` |
+| `main_dev_ai.nds` | `options/difficulty_dev_main.nds`: main's build with difficulty in development mode and the TRAINER AI row (ITCM end 0x01FF9140) | `849ab3c3…0100e7d0` |
+
+Each boots to the title screen and continues into the field. On `rc8_ai.nds`, with the flags set in RAM:
 
 | Case | Flags 0x2C2 / 0x2C3 | Trainer | Slot overlays loaded | `adv_entry` polls | Actions written from the slot code | Fallback |
 |---|---|---|---|---|---|---|
@@ -198,10 +235,10 @@ boots to the title screen and continues into the field. With the flags set in RA
 - Fallback is `ai_debug.fallback`.
 - `ai_lead` and `ai_replace` ran in every battle; their hooks always run and ask `ai_serves`.
 
-The same four cases also pass on `layout/rom/difficulty_dev_ai.nds`, the options agent's development build with the
-TRAINER AI row. There the setting was chosen through the real Options screen: L + OPTIONS, page 2, touch the value,
-Confirm. With KEY, trainer 1 led with Ditto instead of its first Pokémon, Bulbasaur, which shows `ai_lead` picking
-the lead.
+The same four cases also pass on `main_dev_ai.nds`, with the setting chosen through the real Options screen: L +
+OPTIONS, page 2, touch the value, Confirm. With KEY, trainer 1 led with Ditto instead of its first Pokémon, Bulbasaur,
+which shows `ai_lead` picking the lead. On both builds, `itcm_arena.py --payload` passed with the AI on: no write into
+the AI's code from outside it, none from outside it into its work RAM, nothing below the origin touched.
 
 One test artefact: the Spanish bench save's Pokémon have edited stats. After the first battle, the game recomputes
 the lead's maximum HP, and its current HP is left above it (998/297). The AI's range check then rejects that Pokémon
