@@ -7,7 +7,8 @@ between the builder, the installer and the test bench is [../docs/build-contract
 |---|---|
 | `build.py` | Compiles and links the AI for one layout and writes the payload. Ported from the Spanish build's `link_ai` (see [../PROVENANCE.md](../PROVENANCE.md)) |
 | `layouts/` | The memory layouts: `en.json` (the English payload) and `es.json` (the Spanish rc44 layout, for the golden test). [layouts/README.md](layouts/README.md) explains the fields |
-| `install.py`, `verify.py` | The installer and its independent check (written separately, see the build contract) |
+| `install.py` | `install.py --input ROM --out ROM [--payload DIR] [--marks JSON]` writes the AI into a copy of an English build with difficulty and writes `<out>.receipt.json`. It refuses an input without difficulty, one that already has the AI, and any site that does not hold the expected bytes |
+| `verify.py` | `verify.py ROM [--input ROM]` re-reads an installed ROM with its own parser (not the installer's) and checks every write; with `--input` it also checks that nothing else changed. The placement is explained in [../docs/memory-layout.md](../docs/memory-layout.md) |
 
 ## What it needs
 
