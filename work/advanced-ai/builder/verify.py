@@ -96,7 +96,12 @@ class NdsImage:
         return self.data[self.arm7_off:self.arm7_off + self.arm7_size]
 
     def banner(self):
-        return self.data[self.banner_off:self.banner_off + 0x840] if self.banner_off else b""
+        """The icon/title block; its size follows its version (1: 0x840, 2: 0x940, 3: 0xA40, 0x103: 0x23C0)."""
+        if not self.banner_off:
+            return b""
+        version = struct.unpack_from("<H", self.data, self.banner_off)[0]
+        size = {1: 0x840, 2: 0x940, 3: 0xA40, 0x103: 0x23C0}.get(version, 0x840)
+        return self.data[self.banner_off:self.banner_off + size]
 
     def y9_entries(self):
         t = self.blob(self.y9)
@@ -184,27 +189,40 @@ class Checker:
 
 
 def load_payload(directory):
+    """payload.json and its .bin files, with the names of the files whose sha256 is not payload.json's."""
     directory = Path(directory)
     p = json.loads((directory / "payload.json").read_text())
     bins = {name: (directory / r["file"]).read_bytes() for name, r in p["regions"].items() if "file" in r}
-    return p, bins
+    bad = [p["regions"][name]["file"] for name, b in bins.items()
+           if hashlib.sha256(b).hexdigest() != p.get("files", {}).get(p["regions"][name]["file"])]
+    return p, bins, bad
+
+
+# Header fields that saving a ROM may move (ndspy lays the container out again): checked against the parsed layout
+MOVABLE_HEADER = {0x2C: "ARM9 size", 0x30: "ARM7 ROM offset", 0x40: "FNT offset", 0x48: "FAT offset",
+                  0x50: "ARM9 overlay table offset", 0x68: "banner offset", 0x80: "used ROM size"}
+USED_SIZE_COPY = 0x1000           # a copy of the used ROM size in the header padding (ndspy's container pointer)
 
 
 def verify(data, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS, input_data=None, overlay11_sha256=OVERLAY11_SHA256):
     """Check an installed ROM (bytes). Returns {"ok", "errors", "checked", "rom", ...}."""
-    p, bins = load_payload(payload_dir)
+    p, bins, bad_bins = load_payload(payload_dir)
     marks = json.loads(Path(marks_path).read_text())
     check = Checker()
+    check("payload .bin files match payload.json", not bad_bins, str(bad_bins))
     rom = NdsImage(data)
     R = {k: v for k, v in p["regions"].items()}
     ram = {k: as_int(v["ram"]) for k, v in R.items()}
     symbols = {k: as_int(v) for k, v in p["symbols"].items()}
+    u32 = lambda d, o: struct.unpack_from("<I", d, o)[0]   # noqa: E731
 
     # -- ROM layout --------------------------------------------------------------------------------------------
     check("header CRC", crc16(data[:0x15E]) == struct.unpack_from("<H", data, 0x15E)[0])
     check("ROM size covers the used area", rom.used_size <= len(data))
+    check("used-size copy at 0x1000", u32(data, USED_SIZE_COPY) == rom.used_size)
     spans = [("arm9", rom.arm9_off, rom.arm9_size), ("arm7", rom.arm7_off, rom.arm7_size),
-             ("fnt", *rom.fnt), ("fat", *rom.fat), ("y9", *rom.y9), ("y7", *rom.y7)]
+             ("fnt", *rom.fnt), ("fat", *rom.fat), ("y9", *rom.y9), ("y7", *rom.y7),
+             ("banner", rom.banner_off, len(rom.banner()))]
     spans += [(f"file {i}", s, e - s) for i, (s, e) in enumerate(rom.files) if e > s]
     inside = all(0x4000 <= s and s + n <= rom.used_size for _, s, n in spans if n)
     check("every file and table inside the ROM", inside)
@@ -215,7 +233,15 @@ def verify(data, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS, input_data=None,
     # -- ARM9 autoloads ------------------------------------------------------------------------------------------
     arm9 = Arm9(rom.arm9(), rom.arm9_ram)
     check("ARM9 module parameters at 0xBA0", arm9.params_at == MODULE_PARAMS_AT, str(arm9.params_at))
+    hook = u32(data, 0x70)
+    check("header autoload hook points at the module parameters",
+          0 <= hook - 4 - rom.arm9_ram < len(arm9.main) and arm9.word(hook - 4) == ARM9_BASE + MODULE_PARAMS_AT)
+    check("ARM9 entry inside the main section", ARM9_BASE <= rom.arm9_entry < ARM9_BASE + len(arm9.main))
+    check("ARM9 size ends at the autoload table", rom.arm9_size == arm9.list_end - arm9.ram)
     check("main section ends at the BSS start", arm9.bss_start == arm9.data_start)
+    y9 = rom.y9_entries()
+    lowest_overlay = min((e[1] for e in y9.values()), default=0)
+    check("BSS ends at or below the lowest overlay", arm9.data_start <= arm9.bss_end <= lowest_overlay)
     check("autoload table follows the autoload data", arm9.table_at == arm9.list_start - arm9.ram)
     want_order = list(ORIGINAL_AUTOLOADS) + [ram["itcm"], ram["main"]]
     have_order = [s["ram"] for s in arm9.sections]
@@ -225,17 +251,23 @@ def verify(data, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS, input_data=None,
     for name in ("itcm", "main"):
         s = by_ram.get(ram[name])
         check(f"autoload {name}: payload bytes and bss",
-              s is not None and s["data"] == bins[name] and s["bss"] == R[name]["bss"] and s["size"] % 4 == 0)
+              s is not None and s["data"] == bins[name] and s["bss"] == R[name]["bss"] and s["size"] % 4 == 0 and
+              s["bss"] % 4 == 0)
     dests = sorted((s["ram"], s["ram"] + s["size"] + s["bss"]) for s in arm9.sections)
     check("no two autoload destinations overlap", all(b[0] >= a[1] for a, b in zip(dests, dests[1:])))
     itcm_block = by_ram.get(ITCM_LO)
-    ai_itcm = (ram["itcm"], ITCM_HI)
     check("AI ITCM span after the ITCM block", itcm_block is not None and
-          ITCM_LO + itcm_block["size"] + itcm_block["bss"] <= ai_itcm[0])
-    itcm_ram_end = ram["itcm_ram"] + R["itcm_ram"]["size"]
-    check("AI itcm code below its work RAM, inside ITCM",
-          ram["itcm"] + R["itcm"]["size"] + R["itcm"]["bss"] <= ram["itcm_ram"] and
-          itcm_ram_end <= as_int(R["itcm_ram"]["limit"]) <= ITCM_HI)
+          ITCM_LO + itcm_block["size"] + itcm_block["bss"] <= ram["itcm"])
+    code_end = ram["itcm"] + R["itcm"]["size"]
+    work = (ram["itcm_ram"], ram["itcm_ram"] + R["itcm_ram"]["size"])
+    fixed_records = as_int(R["itcm_ram"]["limit"])
+    check("AI itcm code below its limit and its work RAM, inside ITCM",
+          code_end <= as_int(R["itcm"]["limit"]) <= work[0] and work[1] <= fixed_records <= ITCM_HI)
+    itcm_sec = by_ram.get(ram["itcm"])
+    bss_end = code_end + (itcm_sec["bss"] if itcm_sec else 0)
+    check("AI itcm bss stops before the fixed records", bss_end <= fixed_records, f"ends at {h32(bss_end)}")
+    check("AI itcm bss is none, or covers the work RAM", itcm_sec is not None and
+          (itcm_sec["bss"] == 0 or bss_end >= work[1]), f"ends at {h32(bss_end)}, work RAM ends at {h32(work[1])}")
 
     # -- arena words -----------------------------------------------------------------------------------------------
     for w in p["words"]:
@@ -247,39 +279,43 @@ def verify(data, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS, input_data=None,
     diff = by_ram.get(ORIGINAL_AUTOLOADS[2])
     check("main arena ends at region main, which ends at difficulty's section",
           hi == ram["main"] and diff is not None and main_end <= diff["ram"])
+    overlay_end = max((e[1] + e[2] + e[3] for e in y9.values()), default=0)
+    check("main arena starts above the BSS and every overlay", max(arm9.bss_end, overlay_end) <= lo < hi)
     heaps = struct.unpack_from("<8I", arm9.main, ROOT_HEAPS - ARM9_BASE)
     check("root heaps fit the main arena", sum(heaps[0::2]) < hi - lo and not any(heaps[1::2]),
           f"{sum(heaps[0::2])} bytes of heaps, arena {hi - lo}")
 
     # -- overlays --------------------------------------------------------------------------------------------------
-    y9 = rom.y9_entries()
     e10, e11, e8, e14 = (y9.get(i) for i in (10, 11, SLOT_OVERLAY, ENGINE_OVERLAY))
+    missing = [i for i, e in ((10, e10), (11, e11), (SLOT_OVERLAY, e8), (ENGINE_OVERLAY, e14)) if e is None]
+    check("y9 entries for overlays 8, 10, 11 and 14", not missing, f"missing {missing}")
     ov10 = p["overlay10"]
     image = rom.file(e10[6]) if e10 else b""
     ov11 = rom.file(e11[6]) if e11 else b""
+    ov14 = rom.file(e14[6]) if e14 else b""
     check("overlay 11 is the hack's", hashlib.sha256(ov11).hexdigest() == overlay11_sha256)
     check("y9 entry 11", e11 is not None and e11[1:4] == (as_int(ov10["ram"]), OV11_SIZE, OV11_BSS) and e11[7] == 0)
     check("y9 entry 10: RAM, size, bss, static initialisers, uncompressed",
-          e10 is not None and e10[1] == as_int(ov10["ram"]) and e10[2] == len(image) ==
+          e10 is not None and e11 is not None and e10[1] == as_int(ov10["ram"]) and e10[2] == len(image) ==
           OV11_SIZE + OV11_BSS + len(bins["slot"]) and e10[3] == as_int(ov10["bss"]) and
           e10[4:6] == e11[4:6] and e10[7] == 0)
     check("overlay 10 = overlay 11, 0x20 zero bytes, slot.bin",
-          image[:OV11_SIZE] == ov11 and image[OV11_SIZE:OV11_SIZE + OV11_BSS] == bytes(OV11_BSS) and
+          bool(image) and image[:OV11_SIZE] == ov11 and image[OV11_SIZE:OV11_SIZE + OV11_BSS] == bytes(OV11_BSS) and
           image[OV11_SIZE + OV11_BSS:] == bins["slot"])
     check("region slot starts after overlay 11's image and bss", ram["slot"] == as_int(ov10["ram"]) + OV11_SIZE + OV11_BSS)
-    end10 = (e10[1] + e10[2] + e10[3]) if e10 else 0
-    slot = (e8[1], e8[1] + e8[2] + e8[3]) if e8 else (0, 0)
-    check("overlay 10 inside the battle slot, which ends at overlay 14",
-          e10 is not None and slot[0] <= e10[1] and end10 <= slot[1] == e14[1] == as_int(R["slot"]["limit"]))
-    alone = [i for i, e in y9.items() if i not in (10, SLOT_OVERLAY) and e[1] < end10 and e10[1] < e[1] + e[2] + e[3]
-             and not (e[1] < slot[1] and slot[0] < e[1] + e[2] + e[3])]
-    check("overlay 10 overlaps only slot overlays", not alone, str(alone))
+    if not missing:
+        end10 = e10[1] + e10[2] + e10[3]
+        slot = (e8[1], e8[1] + e8[2] + e8[3])
+        check("overlay 10 inside the battle slot, which ends at overlay 14",
+              slot[0] <= e10[1] and end10 <= slot[1] == e14[1] == as_int(R["slot"]["limit"]))
+        alone = [i for i, e in y9.items() if i not in (10, SLOT_OVERLAY) and e[1] < end10 and e10[1] < e[1] + e[2] + e[3]
+                 and not (e[1] < slot[1] and slot[0] < e[1] + e[2] + e[3])]
+        check("overlay 10 overlaps only slot overlays", not alone, str(alone))
 
     # -- hooks (capstone) ------------------------------------------------------------------------------------------
-    ov14 = rom.file(e14[6]) if e14 else b""
     for hk in p["hooks"]:
         a = as_int(hk["address"])
-        off = a - e14[1]
+        off = a - e14[1] if e14 else -1
         target = thumb_bl_target(ov14[off:off + 4], a) if 0 <= off <= len(ov14) - 4 else None
         want = symbols.get(hk["target"], 1) & ~1
         check(f"hook {h32(a)}: bl {hk['target']}", target == want and symbols.get(hk["target"], 0) & 1,
@@ -300,28 +336,40 @@ def verify(data, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS, input_data=None,
     if input_data is not None:
         old = NdsImage(input_data)
         old9 = Arm9(old.arm9(), old.arm9_ram)
-        check("same game code and title", data[:0x10] == input_data[:0x10])
+        moved = {o + k for o in MOVABLE_HEADER for k in range(4)}
+        header_diff = [o for o in range(0x15E) if data[o] != input_data[o] and o not in moved]
+        check("header unchanged except the fields saving moves", not header_diff, str([hex(o) for o in header_diff[:8]]))
+        check("moved header fields agree with the layout", rom.used_size == len(data) and
+              rom.arm9_size == arm9.list_end - arm9.ram and rom.fnt[1] == old.fnt[1] and rom.fat[1] == old.fat[1] and
+              rom.y9[1] == old.y9[1] and rom.arm7_size == old.arm7_size)
+        pad = [o for o in range(0x160, 0x4000) if data[o] != input_data[o] and not USED_SIZE_COPY <= o < USED_SIZE_COPY + 4]
+        check("header padding 0x160-0x3FFF unchanged except the used-size copy", not pad, str([hex(o) for o in pad[:8]]))
+        check("ARM9 footer after the binary unchanged",
+              data[rom.arm9_off + rom.arm9_size:rom.arm9_off + rom.arm9_size + 12] ==
+              input_data[old.arm9_off + old.arm9_size:old.arm9_off + old.arm9_size + 12])
         check("ARM7 binary unchanged", rom.arm7() == old.arm7() and rom.blob(rom.y7) == old.blob(old.y7))
         check("banner unchanged", rom.banner() == old.banner())
         check("FNT unchanged", rom.blob(rom.fnt) == old.blob(old.fnt))
         check("file count unchanged", len(rom.files) == len(old.files))
         oy9 = old.y9_entries()
         check("y9 unchanged except entry 10", set(oy9) == set(y9) and all(oy9[i] == y9[i] for i in y9 if i != 10))
-        hooks = {as_int(hk["address"]) - e14[1] for hk in p["hooks"]}
-        allowed = {e10[6]: None, e14[6]: {o + k for o in hooks for k in range(4)},
-                   narc_id: {s + 2 for i, (s, _) in enumerate(records) if want[i]}}
-        changed = []
-        for i in range(min(len(rom.files), len(old.files))):
-            a, b = rom.file(i), old.file(i)
-            if a == b or (i in allowed and allowed[i] is None):
-                continue
-            if i not in allowed or len(a) != len(b) or any(a[k] != b[k] for k in range(len(a)) if k not in allowed[i]):
-                changed.append(i)
-        check("every other ROM file unchanged; overlay 14 only at the hooks; a/0/5/5 only at byte 2", not changed,
-              str(changed[:5]))
+        if not missing:
+            hooks = {as_int(hk["address"]) - e14[1] for hk in p["hooks"]}
+            allowed = {e10[6]: None, e14[6]: {o + k for o in hooks for k in range(4)},
+                       narc_id: {s + 2 for i, (s, _) in enumerate(records) if want[i]}}
+            changed = []
+            for i in range(min(len(rom.files), len(old.files))):
+                a, b = rom.file(i), old.file(i)
+                if a == b or (i in allowed and allowed[i] is None):
+                    continue
+                if i not in allowed or len(a) != len(b) or any(a[k] != b[k] for k in range(len(a))
+                                                               if k not in allowed[i]):
+                    changed.append(i)
+            check("every other ROM file unchanged; overlay 14 only at the hooks; a/0/5/5 only at byte 2",
+                  not changed, str(changed[:5]))
         words = {as_int(w["address"]) - ARM9_BASE + k for w in p["words"] for k in range(4)}
         main_diff = [k for k in range(len(old9.main)) if k < len(arm9.main) and old9.main[k] != arm9.main[k]
-                     and k not in words and not MODULE_PARAMS_AT <= k < MODULE_PARAMS_AT + 12]
+                     and k not in words and not MODULE_PARAMS_AT <= k < MODULE_PARAMS_AT + 8]
         check("arm9 main section unchanged except the words and the autoload table pointers",
               len(old9.main) == len(arm9.main) and not main_diff, str([h32(ARM9_BASE + k) for k in main_diff[:5]]))
         check("input's autoload sections unchanged",

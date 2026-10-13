@@ -12,11 +12,11 @@ that nothing uses after boot. Option A takes 32 KB of them. No game heap gets sm
 | Region | RAM | Size | What is there | Written by |
 |---|---|---|---|---|
 | Overlay 10 | 0x021E4DA0–0x021FF8A0 | file 0x12080 + 32,800 B, bss 0xA60 (3,904 B of the slot free) | Overlay 11's image and its 0x20-byte bss, then the slot code from 0x021F6E20 (`adv_entry` first). Loaded into the battle slot in place of overlay 11 | y9 entry 10, ROM file 10 |
-| `itcm` | 0x01FF8FC0–0x01FFEDA4 (limit 0x01FFEE00, 92 B free) | 24,036 B, no bss | Resident AI code: `aiselect.s`, `check_flag`, `ai_replace`, `g_tune`, libgcc, shared AI code | new autoload section 5 |
-| `itcm_ram` | 0x01FFEE00–0x01FFFDD8 (limit 0x01FFFF8C, 436 B free) | 4,056 B | The AI's work RAM (`.itcm_bss`), not in any section | – |
+| `itcm` | 0x01FF8FC0–0x01FFEDA4 (limit 0x01FFEE00, 92 B free); its bss 0x01FFEDA4–0x01FFFDD8 | 24,036 B, bss 0x1034 (4,148 B) | Resident AI code: `aiselect.s`, `check_flag`, `ai_replace`, `g_tune`, libgcc, shared AI code | new autoload section 5 |
+| `itcm_ram` | 0x01FFEE00–0x01FFFDD8 (limit 0x01FFFF8C, 436 B free) | 4,056 B | The AI's work RAM (`.itcm_bss`), inside the `itcm` section's bss, so every boot zeroes it | autoload section 5's bss |
 | Fixed records | 0x01FFFF8C–0x01FFFFFF | 116 B | Foresight word, NOREAD, NOLEAD, Read and Replaced records, SELFPLAY (`engine.h`) | – |
 | `main` | 0x023D4000–0x023D9E78 (limit 0x023DC000) | 24,184 B, no bss | Resident AI code: `ai_lead` first | new autoload section 6 |
-| Difficulty (unchanged) | 0x023DC000–0x023DE1E0 (rc8; the development build with the TRAINER AI row: –0x023DE630), below 0x023E0000 | 8,672 B (rc8) | Difficulty's resident code | autoload section 4 |
+| Difficulty (unchanged) | 0x023DC000–0x023DE1E0 (rc8; the development build with the TRAINER AI row: –0x023DE660), below 0x023E0000 | 8,672 B (rc8) | Difficulty's resident code | autoload section 4 |
 
 | Word | Before | After | Meaning |
 |---|---|---|---|
@@ -25,8 +25,12 @@ that nothing uses after boot. Option A takes 32 KB of them. No game heap gets sm
 
 The autoload table after installation is: ITCM block, DTCM, difficulty, AI `itcm`, AI `main`. The ARM9 start-up code
 (crt0 at 0x02000800, autoload loop at 0x02000A1C) copies each section word by word and then zeroes its bss. It does
-not clear ITCM, so `itcm_ram` and the fixed records keep whatever was there before. The Spanish build has the same
-behaviour; `advai.c` tags its ITCM state with the battle's tag and the records with magic words.
+not clear ITCM otherwise, and a DS keeps ITCM across a soft reset. So the `itcm` section's bss runs from the end of
+its code through `.itcm_bss` (0x01FFEDA4–0x01FFFDD8): every boot zeroes the AI's work RAM, as C expects of `.bss`
+(the Spanish build had no such bss and relied on the emulator's zeroed ITCM and on tags). The bss stops before the
+fixed records at 0x01FFFF8C, which the test tools write and which keep their magic words. The installer refuses an
+`itcm` bss that would reach them or that would not cover the work RAM, and the smoke test filled 0x01FFEDA4–0x02000000
+with 0xA5 before the first instruction: after boot the bss range was 0 and the records still 0xA5.
 
 ## Main arena
 
@@ -176,13 +180,14 @@ English ROM: Violet City, a level 50–100 party. No English battery save existe
 
 ## Smoke test with the AI installed
 
-`install.py` onto the rc8 release gave `layout/rom/rc8_ai.nds` (sha256 `c16ea19f…ab556b`, receipt next to it). It
+`install.py` onto the rc8 release gave `layout/rom/rc8_ai.nds` (sha256 `1e91ce1f…a98665b` with the payload of commit
+`cb4ca7e`, receipt next to it). It
 boots to the title screen and continues into the field. With the flags set in RAM:
 
 | Case | Flags 0x2C2 / 0x2C3 | Trainer | Slot overlays loaded | `adv_entry` polls | Actions written from the slot code | Fallback |
 |---|---|---|---|---|---|---|
 | ALL | set / clear | 6 (unmarked) | 8, 10 | 205, client 1 | none, move (×2) | 0 |
-| KEY | set / set | 1 (important) | 8, 10 | 436, client 1 | none, move (×4) | 0 |
+| KEY | set / set | 1 (important) | 8, 10 | 434, client 1 | none, move (×4) | 0 |
 | KEY | set / set | 15 (unmarked) | 8, 11 | 0 | – | – |
 | OFF | clear / clear | 1 | 8, 11 | 0 | – | – |
 
@@ -205,8 +210,9 @@ test bench needs English pre-battle saves with legal Pokémon.
 
 ## Risks and open points
 
-- **No real hardware.** On a DS, ITCM is not cleared between a soft reset and the next boot. The AI's ITCM state
-  relies on the same tags and magic words as in the Spanish build. Neither project has tested this on hardware.
+- **No real hardware.** Neither project has run the AI on a DS. The boot now zeroes the AI's ITCM work RAM (the
+  `itcm` bss), which a soft reset on hardware would otherwise leave as it was; the fixed test records above it are
+  not zeroed and rely on their magic words.
 - **Distance between ITCM and main RAM.** ITCM (0x01FF8FC0) and region `main` (0x023D4000) are about 3.9 MB apart,
   close to the ±4 MB reach of a Thumb BL. The current link needs no long-branch stubs, and the builder must keep it
   that way. All five hooks are well within reach: the largest offset is about 2.2 MB.

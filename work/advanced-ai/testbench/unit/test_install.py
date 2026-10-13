@@ -99,7 +99,11 @@ def synthetic_rom(autoloads=3, itcm_len=0xFC0, heap4=0x11D000, ov8_size=0x1BA40,
     return rom.save()
 
 
-def synthetic_payload(directory, slot_bss=0x40, **overrides):
+# itcm code 0x01FF8FC0 + 0x200; its bss runs through the work RAM 0x01FFEE00 + 0x100, as the builder's en payload
+ITCM_BSS = 0x01FFEF00 - (0x01FF8FC0 + 0x200)
+
+
+def synthetic_payload(directory, slot_bss=0x40, itcm_bss=ITCM_BSS, **overrides):
     """A payload in the contract's format (docs/build-contract.md) for the synthetic ROM, written to directory."""
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
@@ -110,7 +114,8 @@ def synthetic_payload(directory, slot_bss=0x40, **overrides):
         "format": 1, "layout": "en", "toolchain": {"gcc": "16.2.0", "binutils": "2.47"}, "sources": {},
         "regions": {
             "slot": {"ram": "0x021F6E20", "file": "slot.bin", "size": 0x400, "bss": slot_bss, "limit": "0x022007E0"},
-            "itcm": {"ram": "0x01FF8FC0", "file": "itcm.bin", "size": 0x200, "bss": 0, "limit": "0x01FFEE00"},
+            "itcm": {"ram": "0x01FF8FC0", "file": "itcm.bin", "size": 0x200, "bss": itcm_bss,
+                     "limit": "0x01FFEE00"},
             "itcm_ram": {"ram": "0x01FFEE00", "size": 0x100, "limit": "0x01FFFF8C"},
             "main": {"ram": "0x023D4000", "file": "main.bin", "size": 0x100, "bss": 0, "limit": "0x023DC000"}},
         "overlay10": {"base_from": "overlay 11 of the input ROM", "ram": "0x021E4DA0", "bss": hex(slot_bss),
@@ -152,16 +157,17 @@ class Synthetic(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def install(self, rom=None, payload=None, out="out.nds"):
+    def install(self, rom=None, payload=None, out="out.nds", difficulty_receipt=None):
         path = self.input
         if rom is not None:
             path = self.dir / "mutated.nds"
             path.write_bytes(rom)
-        return install.install(path, self.dir / out, payload or self.payload, self.marks, self.pins)
+        return install.install(path, self.dir / out, payload or self.payload, self.marks, self.pins,
+                               difficulty_receipt=difficulty_receipt)
 
-    def refused(self, fragment, rom=None, payload=None):
+    def refused(self, fragment, rom=None, payload=None, difficulty_receipt=None):
         with self.assertRaises(install.Refused) as cm:
-            self.install(rom, payload)
+            self.install(rom, payload, difficulty_receipt=difficulty_receipt)
         self.assertIn(fragment, str(cm.exception))
         self.assertFalse((self.dir / "out.nds").exists(), "a refused install wrote its output")
         self.assertFalse((self.dir / "out.nds.receipt.json").exists())
@@ -174,8 +180,9 @@ class Synthetic(unittest.TestCase):
         self.assertTrue(report["ok"], report["errors"])
         rom = ndspy.rom.NintendoDSRom(out)
         arm = rom.loadArm9()
-        self.assertEqual([s.ramAddress for s in arm.sections],
-                         [0x02000000, 0x01FF8000, 0x027E0000, 0x023DC000, 0x01FF8FC0, 0x023D4000])
+        self.assertEqual([(s.ramAddress, s.bssSize) for s in arm.sections],
+                         [(0x02000000, 0), (0x01FF8000, 0), (0x027E0000, 0x20), (0x023DC000, 0),
+                          (0x01FF8FC0, ITCM_BSS), (0x023D4000, 0)])
         o10 = rom.loadArm9Overlays()[10]
         self.assertEqual(bytes(o10.data), rom.files[11] + bytes(0x20) + (self.payload / "slot.bin").read_bytes())
         self.assertEqual((o10.ramSize, o10.bssSize, o10.staticInitStart), (0x12080 + 0x400, 0x40, 0x021F6DE8))
@@ -199,19 +206,27 @@ class Synthetic(unittest.TestCase):
         self.assertEqual(r["payload"]["payload.json"], sha256((self.payload / "payload.json").read_bytes()))
         self.assertEqual(r["payload"]["files"]["slot.bin"], sha256((self.payload / "slot.bin").read_bytes()))
         self.assertEqual(r["marks"]["sha256"], sha256(Path(self.marks).read_bytes()))
-        kinds = [w["what"] for w in r["writes"]]
+        kinds = [w["what"] for w in r["logical_writes"]]
         self.assertEqual(kinds.count("hook (overlay 14)"), 5)
         self.assertEqual(kinds.count("arm9 word"), 2)
         self.assertIn("arm9 autoload section (itcm)", kinds)
         self.assertIn("arm9 autoload section (main)", kinds)
         self.assertIn("overlay 10 (ROM file)", kinds)
         self.assertIn("y9 entry 10", kinds)
-        hooks = {w["address"]: w for w in r["writes"] if w["what"] == "hook (overlay 14)"}
+        hooks = {w["address"]: w for w in r["logical_writes"] if w["what"] == "hook (overlay 14)"}
         for addr, before, target in HOOKS:
             w = hooks[f"0x{addr:08X}"]
             self.assertEqual((w["before"], w["after"]), (before, install.thumb_bl(addr, SYMBOLS[target]).hex()))
-        marks = next(w for w in r["writes"] if w["what"].startswith("trainer marks"))
+        marks = next(w for w in r["logical_writes"] if w["what"].startswith("trainer marks"))
         self.assertEqual(marks["marks"], [[1, 1], [2, 3], [5, 1], [7, 2], [1023, 1]])
+        itcm = next(w for w in r["logical_writes"] if w["what"] == "arm9 autoload section (itcm)")
+        self.assertEqual(itcm["bss"], ITCM_BSS)
+        # what saving moved: the ARM9 grew, so the autoload table pointers, the header CRC and offsets changed
+        moved = {h["field"] for h in r["container"]["header"]}
+        self.assertIn("ARM9 size", moved)
+        self.assertEqual([m["field"] for m in r["container"]["module_params"]],
+                         ["autoload table start", "autoload table end"])
+        self.assertEqual(r["difficulty"]["mode"], "unknown")
         self.assertTrue(r["verify"]["ok"])
         self.assertIn("not installed", [c["check"] for c in r["checks"]])
 
@@ -280,6 +295,29 @@ class Synthetic(unittest.TestCase):
             rom.files[15] = narc.save()
         self.refused("byte 2 is set in 1 records", rom=synthetic_rom(mutate=edit))
 
+    def test_refuses_an_itcm_bss_reaching_the_fixed_records(self):
+        payload = synthetic_payload(self.dir / "bss", itcm_bss=0x01FFFF90 - (0x01FF8FC0 + 0x200))
+        self.refused("would reach the fixed records", payload=payload)
+
+    def test_refuses_an_itcm_bss_that_misses_the_work_ram(self):
+        payload = synthetic_payload(self.dir / "short", itcm_bss=0x100)
+        self.refused("must cover the work RAM", payload=payload)
+
+    def test_installs_a_payload_without_itcm_bss(self):
+        receipt = self.install(payload=synthetic_payload(self.dir / "nobss", itcm_bss=0))
+        itcm = next(w for w in receipt["logical_writes"] if w["what"] == "arm9 autoload section (itcm)")
+        self.assertEqual(itcm["bss"], 0)
+
+    def test_difficulty_mode_from_its_receipt(self):
+        receipt = self.dir / "difficulty.receipt.json"
+        receipt.write_text(json.dumps({"tool_mode": "development", "output": {"sha256": sha256(self.rom)}}))
+        self.assertEqual(self.install(difficulty_receipt=receipt)["difficulty"]["mode"], "development")
+
+    def test_refuses_a_difficulty_receipt_for_another_rom(self):
+        receipt = self.dir / "other.receipt.json"
+        receipt.write_text(json.dumps({"tool_mode": "release", "output": {"sha256": "0" * 64}}))
+        self.refused("describes another ROM", difficulty_receipt=receipt)
+
     def test_refuses_a_payload_bin_that_does_not_match(self):
         (self.payload / "slot.bin").write_bytes(blob(99, 0x400))
         self.refused("slot.bin does not match its sha256")
@@ -320,7 +358,8 @@ class RealRom(unittest.TestCase):
         report = verify.verify((self.dir / "a.nds").read_bytes(), PAYLOAD, MARKS, RC8_RELEASE.read_bytes())
         self.assertTrue(report["ok"], report["errors"])
         self.assertEqual(r1["input"]["sha256"], RC8_RELEASE_SHA256)
-        marks = next(w for w in r1["writes"] if w["what"].startswith("trainer marks"))
+        self.assertEqual(r1["difficulty"]["mode"], "release")
+        marks = next(w for w in r1["logical_writes"] if w["what"].startswith("trainer marks"))
         self.assertEqual(len(marks["marks"]), 514)
         with self.assertRaises(install.Refused) as cm:
             install.install(self.dir / "a.nds", self.dir / "c.nds", PAYLOAD, MARKS)

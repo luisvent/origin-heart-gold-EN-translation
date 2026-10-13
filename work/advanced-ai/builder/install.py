@@ -2,6 +2,7 @@
 """install - write the advanced trainer AI into a copy of an English Origin HeartGold ROM that has difficulty.
 
     .venv/bin/python work/advanced-ai/builder/install.py --input ROM --out ROM [--payload DIR] [--marks JSON]
+        [--difficulty-receipt JSON]
 
 The input is an English build with the difficulty settings installed (the rc8 release, or a later difficulty
 build). The output is a new file: the input is never written. What it writes (docs/build-contract.md, "Installer"):
@@ -9,19 +10,25 @@ build). The output is a new file: the input is never written. What it writes (do
 1. Overlay 10: the input's overlay 11 image, overlay 11's 0x20-byte bss as zeros, then payload slot.bin. Its y9
    entry gets the new size, the payload's bss and overlay 11's static initialisers. The y9 table is patched in
    place, so every other entry keeps its bytes.
-2. Two new ARM9 autoload sections, after difficulty's: the payload's itcm and main regions.
+2. Two new ARM9 autoload sections, after difficulty's: the payload's itcm and main regions, each with the payload's
+   bss. The itcm section's bss runs through the AI's work RAM, so the boot zeroes it; it must stop before the
+   fixed records at itcm_ram's limit.
 3. The arena words of payload.json `words` (the SDK's initial ITCM arena start and main arena end), each only
    if it holds `before`.
 4. The hooks of payload.json `hooks`: a Thumb BL to the target symbol, each only if the site holds `before`.
 5. The trainer marks of data/trainer_marks.json: bit 0 (important) and bit 1 (keep lead) of header byte 2 in
    a/0/5/5. Byte 2 must be 0 in every record of the input.
-6. A receipt, <out>.receipt.json: input, output, payload and marks hashes, every check, every byte range written.
+6. A receipt, <out>.receipt.json: input, output, payload and marks hashes; the input's difficulty build mode
+   (from --difficulty-receipt, else 'release' for the known rc8 release, else 'unknown'); every check; the logical
+   writes above, byte range by byte range; and what saving moved in the ROM container (header offsets and sizes,
+   the header CRC, the used-size copy at 0x1000, the autoload table pointers, the files' ROM offsets).
 
 It refuses (exit 1, nothing written) an input that already has the AI, one without difficulty (its fourth
 autoload section), an overlay 10 or 11 that is not the Chinese hack's, a hook site or word that does not hold
 `before`, a region that would overlap an autoload section, an overlay that can be in RAM with the battle slot,
-or the arenas, a main arena too small for the root heaps, and a trainer header with byte 2 set. It then reopens
-the output with ndspy, and runs builder/verify.py (its own parsing) on it before publishing it.
+or the arenas, a main arena too small for the root heaps, a trainer header with byte 2 set, and a
+--difficulty-receipt for another ROM. It then reopens the output with ndspy, and runs builder/verify.py (its own
+parsing) on it before publishing it.
 
 Memory layout and the measurements behind its checks: docs/memory-layout.md.
 """
@@ -290,12 +297,20 @@ class Install:
         p, ovs = self.payload, self.ovs
         R = p.regions
         span = {name: (r["ram"], r["ram"] + r["size"] + r["bss"]) for name, r in R.items()}
-        for name in ("slot", "itcm", "itcm_ram", "main"):
-            lo, hi = span[name]
-            require(R[name]["limit"] is None or hi <= R[name]["limit"], f"region {name} ends past its limit")
-        # ITCM: the AI owns [itcm, ITCM end): code, work RAM and the fixed records above itcm_ram's limit.
+        for name in ("slot", "main"):
+            require(span[name][1] <= R[name]["limit"], f"region {name} ends past its limit")
+        # ITCM: the AI owns [itcm, ITCM end): code, work RAM and the fixed records from itcm_ram's limit up. The
+        # code stays below its limit and the work RAM; the itcm section's bss, when the payload has one, runs from
+        # the code's end through the work RAM, so every boot zeroes it (a DS does not clear ITCM), and must stop
+        # before the fixed records.
         itcm = (span["itcm"][0], ITCM_END)
-        require(ITCM_START <= itcm[0] and span["itcm"][1] <= span["itcm_ram"][0], "region itcm/itcm_ram layout")
+        code_end = R["itcm"]["ram"] + R["itcm"]["size"]
+        work = (R["itcm_ram"]["ram"], R["itcm_ram"]["ram"] + R["itcm_ram"]["size"])
+        require(ITCM_START <= itcm[0] and code_end <= R["itcm"]["limit"] <= work[0], "region itcm ends past its limit")
+        require(work[1] <= R["itcm_ram"]["limit"] <= ITCM_END, "region itcm_ram ends past its limit")
+        require(R["itcm"]["bss"] % 4 == 0 and span["itcm"][1] <= R["itcm_ram"]["limit"],
+                "the itcm section's bss would reach the fixed records at itcm_ram's limit")
+        require(R["itcm"]["bss"] == 0 or span["itcm"][1] >= work[1], "the itcm section's bss must cover the work RAM")
         # main: inside the main arena's free tail, which the new arena end gives up.
         lo_word = struct.unpack("<I", self.arm9_word(MAIN_ARENA_LO_WORD))[0]
         hi_before = struct.unpack("<I", self.payload.word(MAIN_ARENA_HI_WORD)["before"])[0]
@@ -433,6 +448,52 @@ class Install:
         return out
 
 
+RC8_RELEASE_SHA256 = "d0185cfa37f329f4236aafbaa671b3dbb49fcdc4d7094bc27e491dc2894cf87f"
+HEADER_FIELDS = {0x2C: "ARM9 size", 0x30: "ARM7 ROM offset", 0x40: "FNT offset", 0x48: "FAT offset",
+                 0x50: "ARM9 overlay table offset", 0x58: "ARM7 overlay table offset", 0x68: "banner offset",
+                 0x80: "used ROM size", 0x1000: "used ROM size (copy in the header padding)"}
+
+
+def difficulty_mode(input_sha256, receipt_path=None):
+    """The input's difficulty build mode: from difficulty's receipt (which must describe this input), else
+    'release' for the known rc8 release and 'unknown' for anything else."""
+    if receipt_path:
+        raw = Path(receipt_path).read_bytes()
+        r = json.loads(raw)
+        require(r.get("output", {}).get("sha256") == input_sha256,
+                "--difficulty-receipt describes another ROM (its output sha256 is not the input's)")
+        return {"mode": r.get("tool_mode", "release"), "from": "difficulty receipt",
+                "receipt": str(Path(receipt_path).resolve()), "receipt_sha256": sha256(raw)}
+    if input_sha256 == RC8_RELEASE_SHA256:
+        return {"mode": "release", "from": "the input is the rc8 release (sha256 d0185cfa...)"}
+    return {"mode": "unknown", "from": "no --difficulty-receipt and not a known input"}
+
+
+def container_changes(before, after):
+    """What saving the ROM moved besides the logical writes: header fields, the header CRC, the copy of the used
+    size at 0x1000, the arm9 module parameters' autoload table pointers, and the ROM offsets of files."""
+    u32 = lambda d, o: struct.unpack_from("<I", d, o)[0]   # noqa: E731
+    header = [{"offset": hx(o), "field": HEADER_FIELDS.get(o, "?"), "before": hx(u32(before, o)),
+               "after": hx(u32(after, o))} for o in range(0, 0x4000, 4) if o != 0x15C and u32(before, o) != u32(after, o)]
+    crc = [struct.unpack_from("<H", d, 0x15E)[0] for d in (before, after)]
+    params = []
+    for d, name in ((before, "before"), (after, "after")):
+        base = u32(d, 0x20) + CODE_SETTINGS
+        params.append(struct.unpack_from("<6I", d, base))
+    labels = ("autoload table start", "autoload table end", "autoload data start", "bss start", "bss end",
+              "compressed end")
+    fat = [[struct.unpack_from("<2I", d, u32(d, 0x48) + 8 * i) for i in range(u32(d, 0x4C) // 8)] for d in (before, after)]
+    moved = [i for i, (a, b) in enumerate(zip(*fat)) if a[0] != b[0]]
+    return {"note": "ndspy rewrites the ROM container on save: these bytes change with no change in content (the "
+                    "verifier checks every moved table and file against the input)",
+            "header": header, "header_crc": [hex(c) for c in crc],
+            "module_params": [{"address": hx(ARM9_RAM + CODE_SETTINGS + 4 * k), "field": labels[k],
+                               "before": hx(params[0][k]), "after": hx(params[1][k])}
+                              for k in range(6) if params[0][k] != params[1][k]],
+            "files_moved": {"count": len(moved), "first_id": moved[0] if moved else None,
+                            "last_id": moved[-1] if moved else None}}
+
+
 def identity(data, path=None):
     out = {"size": len(data), "sha1": hashlib.sha1(data).hexdigest(), "sha256": sha256(data)}
     return {"path": str(path)} | out if path else out
@@ -450,7 +511,8 @@ def atomic_write(path, data):
         raise
 
 
-def install(input_path, out_path, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS, pins=None):
+def install(input_path, out_path, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS, pins=None,
+            difficulty_receipt=None):
     """Install into a copy; returns the receipt. Raises Refused before writing anything."""
     pins = pins or Pins()
     import verify    # builder/verify.py: its own parsing of the written ROM
@@ -460,6 +522,7 @@ def install(input_path, out_path, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS,
             "--out must be a new file, not the input")
     data = input_path.read_bytes()
     payload, marks = Payload(payload_dir), Marks(marks_path)
+    difficulty = difficulty_mode(sha256(data), difficulty_receipt)
     job = Install(data, payload, marks, pins)
     out = job.run()
     report = verify.verify(out, payload_dir=payload.dir, marks_path=marks.path, input_data=data,
@@ -470,12 +533,14 @@ def install(input_path, out_path, payload_dir=DEF_PAYLOAD, marks_path=DEF_MARKS,
         "format": 1,
         "tool": "work/advanced-ai/builder/install.py",
         "input": identity(data, input_path),
+        "difficulty": difficulty,
         "output": identity(out, out_path),
         "payload": payload.receipt(),
         "marks": {"path": str(marks.path), "sha256": marks.sha256, "important": len(marks.important),
                   "keep_lead": len(marks.keep_lead)},
         "checks": job.checks,
-        "writes": job.writes,
+        "logical_writes": job.writes,
+        "container": container_changes(data, out),
         "verify": {k: v for k, v in report.items() if k != "errors"},
     }
     atomic_write(out_path, out)
@@ -489,9 +554,10 @@ def main(argv=None):
     ap.add_argument("--out", required=True, help="the new ROM; <out>.receipt.json is written next to it")
     ap.add_argument("--payload", default=DEF_PAYLOAD, help=f"payload directory (default {DEF_PAYLOAD})")
     ap.add_argument("--marks", default=DEF_MARKS, help=f"trainer marks (default {DEF_MARKS})")
+    ap.add_argument("--difficulty-receipt", help="difficulty's receipt for the input: its build mode goes into ours")
     a = ap.parse_args(argv)
     try:
-        receipt = install(a.input, a.out, a.payload, a.marks)
+        receipt = install(a.input, a.out, a.payload, a.marks, difficulty_receipt=a.difficulty_receipt)
     except Refused as e:
         print(f"install.py: refused: {e}", file=sys.stderr)
         return 1

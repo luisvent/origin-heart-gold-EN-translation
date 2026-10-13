@@ -4,7 +4,8 @@
 
 - The lists: 453 important and 129 keep-lead trainer ids, sorted, unique, within the 1024 records of a/0/5/5, never
   trainer 0; equal to IMPORTANT_TRAINERS and KEEP_LEAD_TRAINERS in the Spanish build.py at commit dc8577c (read
-  from the Spanish repository at test time; skips without it) and to bits 0 and 1 of byte 2 in Spanish rc44.
+  at test time from the Spanish workspace repository named by ADVAI_ES_REPO; skips when it is unset) and to bits 0
+  and 1 of byte 2 in Spanish rc44.
 - Byte 2 is 0 in every trainer header of the Chinese ROM and the rc8 release.
 - Nobody reads byte 2 (data/README.md, "Byte 2 is free"): the only callers of TrainerData_ReadTrData (0x02072700,
   the one reader of a/0/5/5) and TrainerData_GetAttr (0x020725F4) are the four and two reviewed sites, GetAttr is
@@ -25,7 +26,7 @@ import ndspy.rom
 AI_DIR = Path(__file__).resolve().parents[2]
 REPO = AI_DIR.parents[1]
 MARKS = AI_DIR / "data" / "trainer_marks.json"
-ES_REPO = Path(os.environ.get("ADVAI_ES_REPO", Path.home() / "Downloads" / "Origin_HeartGold_v4.0.3_EN_v1.0.0-rc3"))
+ES_REPO = Path(os.environ["ADVAI_ES_REPO"]) if os.environ.get("ADVAI_ES_REPO") else None
 ES_COMMIT = "dc8577c"
 CN_ROM = REPO / "work" / "rom" / "origin_v4.0.3_cn.nds"
 RC8_RELEASE = REPO / "work" / "build" / "advanced-ai" / "base" / "rc8_release.nds"
@@ -87,8 +88,10 @@ class Lists(unittest.TestCase):
                 self.assertNotIn(0, ids)
 
     def test_equal_to_the_spanish_build(self):
+        if ES_REPO is None:
+            self.skipTest("set ADVAI_ES_REPO to the Spanish workspace repository to compare with its build.py")
         if not (ES_REPO / ".git").exists():
-            self.skipTest(f"the Spanish repository is not at {ES_REPO} (set ADVAI_ES_REPO)")
+            self.skipTest(f"ADVAI_ES_REPO={ES_REPO} is not a git repository")
         src = subprocess.run(["git", "-C", str(ES_REPO), "show", f"{ES_COMMIT}:work_es/tools/build.py"],
                              capture_output=True, text=True, check=True).stdout
         lists = {n.targets[0].id: ast.literal_eval(n.value) for n in ast.parse(src).body

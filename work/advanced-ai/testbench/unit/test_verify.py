@@ -128,6 +128,67 @@ class Synthetic(unittest.TestCase):
             rom.files[14] = bytes(data)
         self.failing(self.mutate(edit), "every other ROM file unchanged")
 
+    def raw(self, *edits, crc=True):
+        """The output with raw byte edits (offset, bytes); crc=True keeps the header CRC valid."""
+        data = bytearray(self.out)
+        for off, value in edits:
+            data[off:off + len(value)] = value
+        if crc:
+            struct.pack_into("<H", data, 0x15E, verify.crc16(bytes(data[:0x15E])))
+        return bytes(data)
+
+    def test_header_fields_that_saving_never_moves(self):
+        # the review's mutations (work/build/advanced-ai/reviewer/scripts/mutate.py): only --input catches them
+        u32 = lambda o: struct.unpack_from("<I", self.out, o)[0]   # noqa: E731
+        for name, off, value in (("ARM9 entry", 0x24, struct.pack("<I", u32(0x24) + 4)),
+                                 ("ARM7 entry", 0x34, struct.pack("<I", u32(0x34) + 4)),
+                                 ("ARM7 RAM", 0x38, struct.pack("<I", u32(0x38) + 0x100)),
+                                 ("card control", 0x60, struct.pack("<I", u32(0x60) ^ 1)),
+                                 ("secure area CRC", 0x6C, b"\x34\x12"),
+                                 ("device capacity", 0x14, bytes([self.out[0x14] ^ 7]))):
+            with self.subTest(name):
+                self.failing(self.raw((off, value)), "header unchanged except the fields saving moves")
+
+    def test_header_padding(self):
+        self.failing(self.raw((0x200, bytes([self.out[0x200] ^ 1]))), "header padding 0x160-0x3FFF unchanged")
+
+    def test_used_size_copy(self):
+        self.failing(self.raw((0x1000, b"\0\0\0\0")), "used-size copy at 0x1000", with_input=False)
+
+    def test_module_params_bss_end(self):
+        at = struct.unpack_from("<I", self.out, 0x20)[0] + 0xBB0
+        self.failing(self.raw((at, struct.pack("<I", 0x021E49A0)), crc=False), "BSS ends at or below the lowest overlay",
+                     with_input=False)
+
+    def test_an_arm9_code_byte(self):
+        at = struct.unpack_from("<I", self.out, 0x20)[0] + 0x1000
+        self.failing(self.raw((at, bytes([self.out[at] ^ 1])), crc=False), "arm9 main section unchanged")
+
+    def test_a_missing_y9_entry_is_a_failure(self):
+        at = struct.unpack_from("<I", self.out, 0x50)[0] + 32 * 14
+        self.failing(self.raw((at, struct.pack("<I", 99)), crc=False), "y9 entries for overlays 8, 10, 11 and 14")
+
+    def test_an_itcm_bss_reaching_the_fixed_records(self):
+        def edit(rom):
+            arm = rom.loadArm9()
+            arm.sections[4].bssSize = 0x01FFFF90 - (0x01FF8FC0 + 0x200)
+            rom.arm9 = arm.save(compress=False)
+        self.failing(self.mutate(edit), "AI itcm bss stops before the fixed records")
+
+    def test_an_itcm_bss_that_misses_the_work_ram(self):
+        def edit(rom):
+            arm = rom.loadArm9()
+            arm.sections[4].bssSize = 0x100
+            rom.arm9 = arm.save(compress=False)
+        self.failing(self.mutate(edit), "AI itcm bss is none, or covers the work RAM")
+
+    def test_a_payload_bin_that_does_not_match_its_sha256(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            payload = ti.synthetic_payload(Path(tmp))
+            (payload / "main.bin").write_bytes(b"\0" * 0x100)
+            r = verify.verify(self.out, payload, self.marks, overlay11_sha256=self.pins.overlay11_sha256)
+        self.assertTrue(any("payload .bin files match payload.json" in e for e in r["errors"]), r["errors"])
+
     def test_a_broken_header_crc(self):
         data = bytearray(self.out)
         data[0x0B] ^= 1
