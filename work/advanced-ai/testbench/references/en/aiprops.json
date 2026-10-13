@@ -1,0 +1,23 @@
+{
+ "deep": {
+  "checked": 549,
+  "known": {
+   "hp p0072 T": "The Spanish AI itself: the archived Spanish aiprops.py reports the same violation on the Spanish rc44 ROM (seed 1, --pos 72: Electro Ball 807 -> 637 when my Weezing goes from 183/291 to 191/291 HP), so it is not a port or English-build defect. Recorded by testbench-a on 2026-10-13; needs a reviewer's confirmation."
+  },
+  "n": 100,
+  "rom_sha1": "22da8052b6719458fb92d7bfaef080b4d163a18a",
+  "rom_sha256": "1e91ce1f7f7f6a45c5b10adae6071395d7d1c1a2bd06a74c8ff200497a98665b",
+  "seed": 1,
+  "unserved": 0,
+  "violations": 1
+ },
+ "quick": {
+  "checked": 109,
+  "n": 20,
+  "rom_sha1": "22da8052b6719458fb92d7bfaef080b4d163a18a",
+  "rom_sha256": "1e91ce1f7f7f6a45c5b10adae6071395d7d1c1a2bd06a74c8ff200497a98665b",
+  "seed": 1,
+  "unserved": 0,
+  "violations": 0
+ }
+}
