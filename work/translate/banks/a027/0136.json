@@ -46,42 +46,42 @@
   {
    "id": 5,
    "zh": "那么这边请。{SCROLL}",
-   "en": "Please come this way.{SCROLL}{SCROLL}",
+   "en": "Please come this way.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 6,
    "zh": "口袋竞技马上就要开始了,{NEWLINE}您的队伍颜色是红,{SCROLL}请加油！{SCROLL}",
-   "en": "The Pokéathlon will begin shortly.{NEWLINE}Your team color is red.{SCROLL}Good luck!{SCROLL}{SCROLL}",
+   "en": "The Pokéathlon will begin shortly. Your{NEWLINE}team color is red.{SCROLL}Good luck!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 7,
    "zh": "口袋竞技马上就要开始了,{NEWLINE}请前进吧。{SCROLL}",
-   "en": "The Pokéathlon will begin shortly.{NEWLINE}Please go on ahead.{SCROLL}{SCROLL}",
+   "en": "The Pokéathlon will begin shortly.{NEWLINE}Please go on ahead.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 8,
    "zh": "{VAR:0103:0}{NEWLINE}换上了运动衫！{SCROLL}",
-   "en": "{VAR:0103:0}{NEWLINE}changed into a jersey!{SCROLL}{SCROLL}",
+   "en": "{VAR:0103:0} changed into a jersey!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 9,
    "zh": "这边请！{NEWLINE}加油！{SCROLL}",
-   "en": "Right this way!{NEWLINE}Good luck!{SCROLL}{SCROLL}",
+   "en": "Right this way! Good luck!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 10,
@@ -102,66 +102,66 @@
   {
    "id": 12,
    "zh": "精灵竞技是{NEWLINE}３只精灵一同进行{CLEAR}３场比试的{CLEAR}体育竞赛。{SCROLL}口袋竞技的项目{NEWLINE}根据精灵的特性不同{SCROLL}设置有各种不同的{NEWLINE}比试。{SCROLL}请一定要同３只精灵{NEWLINE}一起来参加{CLEAR}口袋竞技啊。{SCROLL}",
-   "en": "The Pokéathlon is a sports festival in{NEWLINE}which three Pokémon compete together{CLEAR}in three events.{SCROLL}The Pokéathlon has various events{NEWLINE}suited to Pokémon’s different{CLEAR}Performance traits.{SCROLL}Please come join the Pokéathlon with{NEWLINE}three Pokémon!{SCROLL}{SCROLL}",
+   "en": "The Pokéathlon is a sports festival in{NEWLINE}which three Pokémon compete together{CLEAR}in three events.{SCROLL}The Pokéathlon has various events{NEWLINE}suited to Pokémon’s different{CLEAR}Performance traits.{SCROLL}Please come join the Pokéathlon with{NEWLINE}three Pokémon!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": " | RV039: grammar: unnatural phrasing"
+   "notes": " | RV039: grammar: unnatural phrasing | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 13,
    "zh": "全明星赛{NEWLINE}是各地的精英{SCROLL}精灵运动员才能{NEWLINE}参加的特殊项目。{SCROLL}在全明星赛上{NEWLINE}获胜{SCROLL}能够得到比平时{NEWLINE}更多的分数。{SCROLL}请一定要来尝试挑战一下{NEWLINE}各优秀的运动员。{SCROLL}",
-   "en": "The Supreme Cup is a special course only{NEWLINE}for the top Pokéathletes from all over.{SCROLL}Win the Supreme Cup, and you will earn{NEWLINE}more points than usual.{SCROLL}Please come and challenge these{NEWLINE}top Pokéathletes!{SCROLL}{SCROLL}",
+   "en": "The Supreme Cup is a special course only{NEWLINE}for the top Pokéathletes from all over.{SCROLL}Win the Supreme Cup, and you will earn{NEWLINE}more points than usual.{SCROLL}Please come and challenge these top{NEWLINE}Pokéathletes!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 14,
    "zh": "速度项目{NEWLINE}集合了３个重视{CLEAR}速度的{CLEAR}比试。{SCROLL}跨过栏杆{NEWLINE}冲向第一！{CLEAR}「跨栏」{SCROLL}快速地抢旗！{NEWLINE}「抢旗」{SCROLL}３只精灵{NEWLINE}齐心协力！{CLEAR}「赛跑」{SCROLL}获胜后能够得到{NEWLINE}速度奖牌。{SCROLL}请一定要选３只{NEWLINE}对速度有信心的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Speed Course consists of three{NEWLINE}events that require good Speed.{SCROLL}“Hurdle Dash”{NEWLINE}Clear the Hurdles and be number one!{SCROLL}“Pennant Capture”{NEWLINE}Grab the Pennants quickly!{SCROLL}“Relay Run”{NEWLINE}Three Pokémon working together!{SCROLL}When you win, you will be awarded the{NEWLINE}Speed Medal.{SCROLL}Choose three Pokémon with confidence{NEWLINE}in their Speed!{SCROLL}{SCROLL}",
+   "en": "The Speed Course consists of three{NEWLINE}events that require good Speed.{SCROLL}“Hurdle Dash” Clear the Hurdles and be{NEWLINE}number one!{SCROLL}“Pennant Capture” Grab the Pennants{NEWLINE}quickly!{SCROLL}“Relay Run” Three Pokémon working{NEWLINE}together!{SCROLL}When you win, you will be awarded the{NEWLINE}Speed Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Speed!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 15,
    "zh": "力量项目{NEWLINE}集合了３个重视{CLEAR}力量的{CLEAR}比试。{SCROLL}击碎堆积的石板！{NEWLINE}「劈石板」{SCROLL}推挤进入圈内！{NEWLINE}「抢位置」{SCROLL}踹飞防守者射门！{NEWLINE}「足球」{SCROLL}获胜后能够得到{NEWLINE}力量奖牌。{SCROLL}请一定要选３只{NEWLINE}对力量有信心的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Power Course consists of three{NEWLINE}events that require good Power.{SCROLL}“Block Smash”{NEWLINE}Smash the stacked Blocks!{SCROLL}“Circle Push”{NEWLINE}Push your way into the Circle!{SCROLL}“Goal Roll”{NEWLINE}Knock the defenders flying and score!{SCROLL}When you win, you will be awarded the{NEWLINE}Power Medal.{SCROLL}Choose three Pokémon with confidence{NEWLINE}in their Power!{SCROLL}{SCROLL}",
+   "en": "The Power Course consists of three{NEWLINE}events that require good Power.{SCROLL}“Block Smash” Smash the stacked{NEWLINE}Blocks!{SCROLL}“Circle Push” Push your way into the{NEWLINE}Circle!{SCROLL}“Goal Roll” Knock the defenders flying{NEWLINE}and score!{SCROLL}When you win, you will be awarded the{NEWLINE}Power Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Power!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 16,
    "zh": "耐力项目{NEWLINE}集合了３个重视{CLEAR}耐力的{CLEAR}比试。{SCROLL}退开对手{NEWLINE}留在环内！{CLEAR}「撞人」{SCROLL}３只精灵{NEWLINE}比拼耐力！{CLEAR}「赛跑」{SCROLL}不断不断地破坏{NEWLINE}直到气力耗尽！{CLEAR}「劈石板」{SCROLL}获胜后能够得到{NEWLINE}耐力奖牌。{SCROLL}请一定要选３只{NEWLINE}对耐力有信心的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Stamina Course consists of three{NEWLINE}events that require good Stamina.{SCROLL}“Ring Drop”{NEWLINE}Push them back and stay on the Ring!{SCROLL}“Relay Run”{NEWLINE}Three Pokémon test their Stamina!{SCROLL}“Block Smash”{NEWLINE}Smash and smash till you’re worn out!{SCROLL}When you win, you will be awarded the{NEWLINE}Stamina Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Stamina!{SCROLL}{SCROLL}",
+   "en": "The Stamina Course consists of three{NEWLINE}events that require good Stamina.{SCROLL}“Ring Drop” Push them back and stay on{NEWLINE}the Ring!{SCROLL}“Relay Run” Three Pokémon test their{NEWLINE}Stamina!{SCROLL}“Block Smash” Smash and smash till{NEWLINE}you’re worn out!{SCROLL}When you win, you will be awarded the{NEWLINE}Stamina Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Stamina!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 17,
    "zh": "跳跃项目{NEWLINE}集合了３个重视{CLEAR}弹跳的{CLEAR}比试。{SCROLL}用弹床跳得高高的！{NEWLINE}「蹦床」{SCROLL}跳起来抓住飞碟！{NEWLINE}「抓飞碟」{SCROLL}华丽地越过栏杆！{NEWLINE}「跨栏」{SCROLL}获胜后能够得到{NEWLINE}跳跃奖牌。{SCROLL}请一定要选３只{NEWLINE}对弹跳有信心的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Jump Course consists of three{NEWLINE}events that require good Jump.{SCROLL}“Lamp Jump”{NEWLINE}Bounce high off the trampoline!{SCROLL}“Disc Catch”{NEWLINE}Jump and catch the flying Discs!{SCROLL}“Hurdle Dash”{NEWLINE}Clear the Hurdles in style!{SCROLL}When you win, you will be awarded the{NEWLINE}Jump Medal.{SCROLL}Choose three Pokémon with confidence{NEWLINE}in their Jump!{SCROLL}{SCROLL}",
+   "en": "The Jump Course consists of three{NEWLINE}events that require good Jump.{SCROLL}“Lamp Jump” Bounce high off the{NEWLINE}trampoline!{SCROLL}“Disc Catch” Jump and catch the flying{NEWLINE}Discs!{SCROLL}“Hurdle Dash” Clear the Hurdles in{NEWLINE}style!{SCROLL}When you win, you will be awarded the{NEWLINE}Jump Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Jump!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 18,
    "zh": "技巧项目{NEWLINE}集合了３个重视{CLEAR}技巧的{CLEAR}比试。{SCROLL}精准地扔出雪球吧！{NEWLINE}「扔雪球」{SCROLL}朝球门精准射门吧！{NEWLINE}「足球」{SCROLL}抢夺迅速切换的旗子吧！{NEWLINE}「抢旗」{SCROLL}获胜后能够得到{NEWLINE}技巧奖牌。{SCROLL}请一定要选３只{NEWLINE}对技巧有信心的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Skill Course consists of three{NEWLINE}events that require good Skill.{SCROLL}“Snow Throw”{NEWLINE}Throw those Snowballs with precision!{SCROLL}“Goal Roll”{NEWLINE}Shoot for the Goal with precision!{SCROLL}“Pennant Capture”{NEWLINE}Grab the quickly switching Pennants!{SCROLL}When you win, you will be awarded the{NEWLINE}Skill Medal.{SCROLL}Choose three Pokémon with confidence{NEWLINE}in their Skill!{SCROLL}{SCROLL}",
+   "en": "The Skill Course consists of three{NEWLINE}events that require good Skill.{SCROLL}“Snow Throw” Throw those Snowballs{NEWLINE}with precision!{SCROLL}“Goal Roll” Shoot for the Goal with{NEWLINE}precision!{SCROLL}“Pennant Capture” Grab the quickly{NEWLINE}switching Pennants!{SCROLL}When you win, you will be awarded the{NEWLINE}Skill Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Skill!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 19,
    "zh": "辛苦你了！{SCROLL}立刻将您这次的得分{NEWLINE}转换为{CLEAR}口袋竞技点数！{SCROLL}",
-   "en": "Good work!{SCROLL}Your score this time will now be{NEWLINE}converted into Athlete Points!{SCROLL}{SCROLL}",
+   "en": "Good work!{SCROLL}Your score this time will now be{NEWLINE}converted into Athlete Points!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 20,
@@ -182,34 +182,34 @@
   {
    "id": 22,
    "zh": "另外这次{NEWLINE}您还得到了{CLEAR}１００点冠军加分。{SCROLL}",
-   "en": "You also earned a winner’s bonus of 100{NEWLINE}points this time.{SCROLL}{SCROLL}",
+   "en": "You also earned a winner’s bonus of 100{NEWLINE}points this time.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 23,
    "zh": "根据这次的成绩,{NEWLINE}{VAR:0103:0}选手{CLEAR}能够进入美术馆{CLEAR}「信赖」之房了。{SCROLL}恭喜！{NEWLINE}好了⋯{SCROLL}",
-   "en": "Based on these results, Pokéathlete{NEWLINE}{VAR:0103:0} may now enter the Museum’s{CLEAR}“Trust” room.{SCROLL}Congratulations!{NEWLINE}Now then...{SCROLL}{SCROLL}",
+   "en": "Based on these results, Pokéathlete{NEWLINE}{VAR:0103:0} may now enter the Museum’s{CLEAR}“Trust” room.{SCROLL}Congratulations! Now then...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 24,
    "zh": "根据这次的成绩,{NEWLINE}{VAR:0103:0}选手{CLEAR}能够进入美术馆{CLEAR}「可能性」之房了。{SCROLL}恭喜！{NEWLINE}好了⋯{SCROLL}",
-   "en": "Based on these results, Pokéathlete{NEWLINE}{VAR:0103:0} may now enter the Museum’s{CLEAR}“Potential” room.{SCROLL}Congratulations!{NEWLINE}Now then...{SCROLL}{SCROLL}",
+   "en": "Based on these results, Pokéathlete{NEWLINE}{VAR:0103:0} may now enter the Museum’s{CLEAR}“Potential” room.{SCROLL}Congratulations! Now then...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 25,
    "zh": "根据这次的成绩,{NEWLINE}{VAR:0103:0}选手{CLEAR}能够进入博物馆{CLEAR}「友情」之房了。{SCROLL}恭喜！{NEWLINE}好了⋯{SCROLL}",
-   "en": "Based on these results, Pokéathlete{NEWLINE}{VAR:0103:0} may now enter the Museum’s{CLEAR}“Friendship” room.{SCROLL}Congratulations!{NEWLINE}Now then...{SCROLL}{SCROLL}",
+   "en": "Based on these results, Pokéathlete{NEWLINE}{VAR:0103:0} may now enter the Museum’s{CLEAR}“Friendship” room.{SCROLL}Congratulations! Now then...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 26,
@@ -286,18 +286,18 @@
   {
    "id": 35,
    "zh": "{VAR:0103:0}{NEWLINE}换上了运动衫！{SCROLL}",
-   "en": "{VAR:0103:0}{NEWLINE}changed into a jersey!{SCROLL}{SCROLL}",
+   "en": "{VAR:0103:0} changed into a jersey!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 36,
    "zh": "那么这边请！{NEWLINE}请加油吧！{SCROLL}",
-   "en": "Right this way, please!{NEWLINE}Good luck!{SCROLL}{SCROLL}",
+   "en": "Right this way, please! Good luck!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 37,
@@ -318,58 +318,58 @@
   {
    "id": 39,
    "zh": "口袋通信竞技是{NEWLINE}三只精灵连续参加{CLEAR}４场比试进行角逐的{CLEAR}体育比赛。{SCROLL}您的好友也能{NEWLINE}跟您参加同一个项目。{SCROLL}口袋竞技的项目{NEWLINE}根据精灵的特性{SCROLL}设有各种不同的{NEWLINE}比试,{SCROLL}请一定要和您的朋友们{NEWLINE}来参加{CLEAR}口袋通信竞技。{SCROLL}",
-   "en": "The Link Pokéathlon is a sports festival{NEWLINE}in which three Pokémon compete in four{CLEAR}events in a row.{SCROLL}Your friends can enter the same course{NEWLINE}as you.{SCROLL}The Pokéathlon has various events{NEWLINE}suited to Pokémon’s different{CLEAR}Performance traits.{SCROLL}Please bring your friends to the{NEWLINE}Link Pokéathlon!{SCROLL}{SCROLL}",
+   "en": "The Link Pokéathlon is a sports festival{NEWLINE}in which three Pokémon compete in four{CLEAR}events in a row.{SCROLL}Your friends can enter the same course{NEWLINE}as you.{SCROLL}The Pokéathlon has various events{NEWLINE}suited to Pokémon’s different{CLEAR}Performance traits.{SCROLL}Please bring your friends to the Link{NEWLINE}Pokéathlon!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": " | RV039: grammar: unnatural phrasing"
+   "notes": " | RV039: grammar: unnatural phrasing | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 40,
    "zh": "速度＆跳跃项目{NEWLINE}有注重速度和{CLEAR}弹跳的{CLEAR}４种比试。{SCROLL}跨过栏杆,冲向第一！{NEWLINE}「跨栏」{SCROLL}迅速抢到亮着的灯！{NEWLINE}「蹦床」{SCROLL}快速抓到飞碟！{NEWLINE}「抓飞碟」{SCROLL}速度的终极挑战！{NEWLINE}「赛跑」{SCROLL}获胜后能得到速度奖牌和{NEWLINE}跳跃奖牌,{SCROLL}请一定要选{NEWLINE}３只对速度和弹跳{CLEAR}有信心的精灵{CLEAR}来参加。{SCROLL}",
-   "en": "The Speed & Jump Course consists of{NEWLINE}four events that require good Speed{CLEAR}and Jump.{SCROLL}“Hurdle Dash”{NEWLINE}Clear the Hurdles and be number one!{SCROLL}“Lamp Jump”{NEWLINE}Grab the lit Lamps quickly!{SCROLL}“Disc Catch”{NEWLINE}Catch the Discs fast!{SCROLL}“Relay Run”{NEWLINE}The ultimate test of Speed!{SCROLL}When you win, you will be awarded the{NEWLINE}Speed Medal and the Jump Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Speed and Jump!{SCROLL}{SCROLL}",
+   "en": "The Speed & Jump Course consists of{NEWLINE}four events that require good Speed{CLEAR}and Jump.{SCROLL}“Hurdle Dash” Clear the Hurdles and be{NEWLINE}number one!{SCROLL}“Lamp Jump” Grab the lit Lamps quickly!{SCROLL}“Disc Catch” Catch the Discs fast!{SCROLL}“Relay Run” The ultimate test of Speed!{SCROLL}When you win, you will be awarded the{NEWLINE}Speed Medal and the Jump Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Speed and Jump!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 41,
    "zh": "跳跃＆技巧项目{NEWLINE}有注重弹跳和{CLEAR}技巧的{CLEAR}４种比试。{SCROLL}巧妙地跳跃,{NEWLINE}触碰电灯！{CLEAR}「蹦床」{SCROLL}跳起来抓住飞碟！{NEWLINE}「抢飞碟」{SCROLL}巧妙地移动{NEWLINE}收集旗帜！{CLEAR}「抢旗」{SCROLL}瞄准对手,{NEWLINE}扔！{CLEAR}「扔雪球」{SCROLL}获胜后能得到技巧奖牌和{NEWLINE}跳跃奖牌,{SCROLL}请一定要选{NEWLINE}３只对技巧和弹跳{CLEAR}有信心的精灵{CLEAR}来参加。{SCROLL}",
-   "en": "The Jump & Skill Course consists of{NEWLINE}four events that require good Jump{CLEAR}and Skill.{SCROLL}“Lamp Jump”{NEWLINE}Jump with skill and touch the Lamps!{SCROLL}“Disc Catch”{NEWLINE}Jump and catch the Discs!{SCROLL}“Pennant Capture”{NEWLINE}Move with skill and collect Pennants!{SCROLL}“Snow Throw”{NEWLINE}Take aim at your foes and throw!{SCROLL}When you win, you will be awarded the{NEWLINE}Skill Medal and the Jump Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Skill and Jump!{SCROLL}{SCROLL}",
+   "en": "The Jump & Skill Course consists of four{NEWLINE}events that require good Jump{CLEAR}and Skill.{SCROLL}“Lamp Jump” Jump with skill and touch{NEWLINE}the Lamps!{SCROLL}“Disc Catch” Jump and catch the Discs!{SCROLL}“Pennant Capture” Move with skill and{NEWLINE}collect Pennants!{SCROLL}“Snow Throw” Take aim at your foes and{NEWLINE}throw!{SCROLL}When you win, you will be awarded the{NEWLINE}Skill Medal and the Jump Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Skill and Jump!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 42,
    "zh": "技巧＆力量项目{NEWLINE}有注重技巧和{CLEAR}力量的{CLEAR}４种比试。{SCROLL}朝球门精准射门吧！{NEWLINE}「足球」{SCROLL}扔准目标！　{NEWLINE}「扔雪球」{SCROLL}巧妙地收集旗帜！{NEWLINE}「抢旗」{SCROLL}劈开那些石板！{NEWLINE}「劈石板」{SCROLL}获胜后能得到技巧奖牌和{NEWLINE}力量奖牌,{SCROLL}请一定要选{NEWLINE}３只对技巧和力量{CLEAR}有信心的精灵{CLEAR}来参加。{SCROLL}",
-   "en": "The Skill & Power Course consists of{NEWLINE}four events that require good Skill{CLEAR}and Power.{SCROLL}“Goal Roll”{NEWLINE}Shoot for the Goal with precision!{SCROLL}“Snow Throw”{NEWLINE}Throw right on target!{SCROLL}“Pennant Capture”{NEWLINE}Collect Pennants with skill!{SCROLL}“Block Smash”{NEWLINE}Smash those Blocks!{SCROLL}When you win, you will be awarded the{NEWLINE}Skill Medal and the Power Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Skill and Power!{SCROLL}{SCROLL}",
+   "en": "The Skill & Power Course consists of{NEWLINE}four events that require good Skill{CLEAR}and Power.{SCROLL}“Goal Roll” Shoot for the Goal with{NEWLINE}precision!{SCROLL}“Snow Throw” Throw right on target!{SCROLL}“Pennant Capture” Collect Pennants{NEWLINE}with skill!{SCROLL}“Block Smash” Smash those Blocks!{SCROLL}When you win, you will be awarded the{NEWLINE}Skill Medal and the Power Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Skill and Power!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 43,
    "zh": "力量＆耐力项目{NEWLINE}有注重力量和{CLEAR}力量的{CLEAR}４种比试。{SCROLL}劈开那些石板！{NEWLINE}「劈石板」{SCROLL}挤开对手,{NEWLINE}抢到座位！{CLEAR}「抢位置」{SCROLL}射门射到{NEWLINE}精疲力尽！{CLEAR}「足球」{SCROLL}撞掉对手,{NEWLINE}成为台上的幸存者！{CLEAR}「撞人」{SCROLL}获胜后能得到力量奖牌和{NEWLINE}耐力奖牌,{SCROLL}请一定要选{NEWLINE}３只对力量和耐力{CLEAR}有信心的精灵{CLEAR}来参加。{SCROLL}",
-   "en": "The Power & Stamina Course consists of{NEWLINE}four events that require good Power{CLEAR}and Stamina.{SCROLL}“Block Smash”{NEWLINE}Smash those Blocks!{SCROLL}“Circle Push”{NEWLINE}Push them away and grab your spot!{SCROLL}“Goal Roll”{NEWLINE}Keep shooting until you’re worn out!{SCROLL}“Ring Drop”{NEWLINE}Knock them off and be the last on{CLEAR}the Ring!{SCROLL}When you win, you will be awarded the{NEWLINE}Power Medal and the Stamina Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Power and Stamina!{SCROLL}{SCROLL}",
+   "en": "The Power & Stamina Course consists of{NEWLINE}four events that require good Power{CLEAR}and Stamina.{SCROLL}“Block Smash” Smash those Blocks!{SCROLL}“Circle Push” Push them away and grab{NEWLINE}your spot!{SCROLL}“Goal Roll” Keep shooting until you’re{NEWLINE}worn out!{SCROLL}“Ring Drop” Knock them off and be the{NEWLINE}last on the Ring!{SCROLL}When you win, you will be awarded the{NEWLINE}Power Medal and the Stamina Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Power and Stamina!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": " | RV039: meaning: silent correction reverted: zh says 力量和力量 (Power and Power); hack-finding logged (D-1669) | D-2272: fixed per D-2170 (user-approved hack slip)"
+   "notes": " | RV039: meaning: silent correction reverted: zh says 力量和力量 (Power and Power); hack-finding logged (D-1669) | D-2272: fixed per D-2170 (user-approved hack slip) | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 44,
    "zh": "耐力＆速度项目{NEWLINE}有注重耐力和{CLEAR}速度的{CLEAR}４种比试。{SCROLL}注重耐力与速度的{NEWLINE}「赛跑」{SCROLL}撞掉对手,{NEWLINE}成为台上的幸存者！{CLEAR}「撞人」{SCROLL}在对战中{NEWLINE}获胜！{CLEAR}「跨栏」{SCROLL}挤开对手,{NEWLINE}抢到座位！{CLEAR}「抢位置」{SCROLL}获胜后能得到耐力奖牌和{NEWLINE}速度奖牌,{SCROLL}请一定要选{NEWLINE}３只对耐力和速度{CLEAR}有信心的精灵{CLEAR}来参加。{SCROLL}",
-   "en": "The Stamina & Speed Course consists of{NEWLINE}four events that require good Stamina{CLEAR}and Speed.{SCROLL}“Relay Run”{NEWLINE}Stamina and Speed both count!{SCROLL}“Ring Drop”{NEWLINE}Knock them off and be the last on{CLEAR}the Ring!{SCROLL}“Hurdle Dash”{NEWLINE}Win the race!{SCROLL}“Circle Push”{NEWLINE}Push them away and grab your spot!{SCROLL}When you win, you will be awarded the{NEWLINE}Stamina Medal and the Speed Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Stamina and Speed!{SCROLL}{SCROLL}",
+   "en": "The Stamina & Speed Course consists of{NEWLINE}four events that require good Stamina{CLEAR}and Speed.{SCROLL}“Relay Run” Stamina and Speed both{NEWLINE}count!{SCROLL}“Ring Drop” Knock them off and be the{NEWLINE}last on the Ring!{SCROLL}“Hurdle Dash” Win the race!{SCROLL}“Circle Push” Push them away and grab{NEWLINE}your spot!{SCROLL}When you win, you will be awarded the{NEWLINE}Stamina Medal and the Speed Medal.{SCROLL}Choose three Pokémon with confidence in{NEWLINE}their Stamina and Speed!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 45,
    "zh": "辛苦你了！{SCROLL}立刻将这次的得分{NEWLINE}转换为{CLEAR}口袋竞技点数！{SCROLL}",
-   "en": "Good work!{SCROLL}Your score this time will now be{NEWLINE}converted into Athlete Points!{SCROLL}{SCROLL}",
+   "en": "Good work!{SCROLL}Your score this time will now be{NEWLINE}converted into Athlete Points!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from CN; retain original terminal pause."
   },
   {
    "id": 46,
@@ -526,10 +526,10 @@
   {
    "id": 65,
    "zh": "精灵中有些擅长{NEWLINE}速度项目的,{CLEAR}也有些不擅长的,{SCROLL}必须要创建一个足以{NEWLINE}弥补弱点的队伍。",
-   "en": "Some Pokémon are good at Speed events.{NEWLINE}Some are not. You need to form a team{CLEAR}whose members can help one another.",
+   "en": "Some Pokémon are good at Speed events,{NEWLINE}and some aren’t.{SCROLL}You need to build a team that can make{NEWLINE}up for its weaknesses.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0138/65"
+   "origin": "agent",
+   "notes": "US 0138/65 | CES005-0136-0137: Restore compensating weaknesses rather than generic mutual help."
   },
   {
    "id": 66,
@@ -574,10 +574,10 @@
   {
    "id": 71,
    "zh": "「劈石板」{SCROLL}你的精灵要击碎{NEWLINE}堆得像山一样的石板！{SCROLL}用精灵的力量{NEWLINE}不断地破坏！",
-   "en": "“Block Smash”{SCROLL}A mountain of Blocks awaits{NEWLINE}your Pokémon!{CLEAR}Use its Power to smash them all!",
+   "en": "“Block Smash”{SCROLL}Your Pokémon must smash a mountain of{NEWLINE}stacked Blocks!{SCROLL}Use your Pokémon’s Power to keep{NEWLINE}smashing!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0138/71"
+   "origin": "agent",
+   "notes": "US 0138/71 | CES005-0136-0137: Restore continuing destruction and explicit Pokémon action."
   },
   {
    "id": 72,
@@ -614,10 +614,10 @@
   {
    "id": 76,
    "zh": "「扔雪球」{SCROLL}这是寒冷的战场,{NEWLINE}等待你的是无数的雪球。{SCROLL}瞄准！扔！{NEWLINE}到你展现技术的时候了！",
-   "en": "“Snow Throw”{SCROLL}On an incredibly cold playfield,{NEWLINE}millions of balls of Snow await!{SCROLL}Aim and throw!{NEWLINE}Time it right to show your skill!",
+   "en": "“Snow Throw”{SCROLL}This is a cold battlefield, where{NEWLINE}countless Snowballs await you.{SCROLL}Aim! Throw! It’s time to show your{NEWLINE}skill!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0138/76"
+   "origin": "agent",
+   "notes": "US 0138/76 | CES005-0136-0137: Restore battlefield and countless, remove added timing instruction/incredibly cold."
   },
   {
    "id": 77,
@@ -834,10 +834,10 @@
   {
    "id": 103,
    "zh": "哦哦！{NEWLINE}你的眼神相当不错啊！{SCROLL}我应该可以{NEWLINE}把我最后的梦想{CLEAR}托付给你了。{VAR:0200:0}",
-   "en": "Oh-ho! You have quite a good eye!{SCROLL}I think I can entrust{NEWLINE}my last dream to you. {VAR:0200:0}",
+   "en": "Oh-ho! That’s quite a promising look in{NEWLINE}your eyes!{SCROLL}I think I can entrust{NEWLINE}my last dream to you. {VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0138/103 | RV039: meaning: entrust final dream, not tell about it (D-1670); layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "US 0138/103 | RV039: meaning: entrust final dream, not tell about it (D-1670); layout rebalance 2026-10-09 (prompt icons / single-word page) | CES005-0136-0137: Restore look in eyes rather than discernment good eye."
   },
   {
    "id": 104,
@@ -866,18 +866,18 @@
   {
    "id": 107,
    "zh": "哦哦哦！！{NEWLINE}实在是太美妙了,{SCROLL}你终于成功地跳到{NEWLINE}１０００次了！{SCROLL}谢谢,{NEWLINE}这是我的一点心意。{SCROLL}",
-   "en": "Oh! You!{NEWLINE}It is so wonderful of you!{CLEAR}You have jumped 1,000 times.{SCROLL}Thank you so much!{NEWLINE}This is just a token of my appreciation.{SCROLL}",
+   "en": "Ohhh!! It’s wonderful!{SCROLL}You finally made it to 1,000 jumps!{SCROLL}Thank you. Here’s a small token of my{NEWLINE}appreciation.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0138/107"
+   "origin": "agent",
+   "notes": "US 0138/107 | CES005-0136-0137: Restore finally and repeated exclamation, no invented You address."
   },
   {
    "id": 108,
    "zh": "我变成你的{NEWLINE}粉丝了！{SCROLL}虽然我老了,{NEWLINE}不过我还是会为你加油的！",
-   "en": "I’m now your fan. I’m old as you see,{NEWLINE}but I will support you no matter what.",
+   "en": "I’m your fan now!{SCROLL}I’m old, but I’ll still cheer for you!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0138/108"
+   "origin": "agent",
+   "notes": "US 0138/108 | CES005-0136-0137: Remove added unconditional promise; preserve age concession."
   },
   {
    "id": 109,
@@ -914,10 +914,10 @@
   {
    "id": 113,
    "zh": "⋯⋯！！{NEWLINE}怎么会这样！{CLEAR}你的记录{CLEAR}比我的更强？{SCROLL}啊啊啊啊啊！！{SCROLL}⋯⋯我输了,{NEWLINE}彻底输了。{CLEAR}完全不是你的对手,{CLEAR}这个送你吧。{SCROLL}",
-   "en": "......!{NEWLINE}No! That’s not right!{CLEAR}Your record beats mine?{SCROLL}Nooooo!{NEWLINE}...OK. You win.{SCROLL}I admit complete defeat.{NEWLINE}Please take this.{SCROLL}",
+   "en": "...!! How can this be?! Your record{NEWLINE}beats mine?{SCROLL}Aaaaaah!!{SCROLL}...I lost. I lost completely. I’m no{NEWLINE}match for you at all. Here, take this.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0138/113"
+   "origin": "agent",
+   "notes": "US 0138/113 | CES005-0136-0137: Restore repeated lost and completely no match, scream rather than invented denial."
   },
   {
    "id": 114,

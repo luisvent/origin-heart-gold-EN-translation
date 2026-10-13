@@ -190,10 +190,10 @@
   {
    "id": 23,
    "zh": "小绿『{VAR:0103:0}！{NEWLINE}你躲在后面干什么呀,{CLEAR}是害怕当众输给我太丢人吗？",
-   "en": "Blue: {VAR:0103:0}! What are you hiding in{NEWLINE}the back for?{SCROLL}Scared of losing to me in front of{NEWLINE}everyone?",
+   "en": "Blue: {VAR:0103:0}! What are you hiding in{NEWLINE}the back for?{SCROLL}Afraid you’ll embarrass yourself losing{NEWLINE}to me in front of everyone?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore fear of public embarrassment."
   },
   {
    "id": 24,
@@ -222,10 +222,10 @@
   {
    "id": 27,
    "zh": "小蓝『喂喂喂！{NEWLINE}{VAR:0103:0}你退缩个什么劲啊。{CLEAR}小绿连打三场都虚了,{CLEAR}你趁现在打败他赚些奖金,{CLEAR}到枯叶市你俩好一起请我吃饭呀！{SCROLL}小蓝『快快快！{NEWLINE}给我上去！",
-   "en": "Green: Hey, hey, hey! {VAR:0103:0}, what{NEWLINE}are you chickening out for?{SCROLL}Blue’s worn out after three battles in{NEWLINE}a row.{SCROLL}Beat him now and grab some prize money!{SCROLL}Then when we get to Vermilion City, you{NEWLINE}two can treat me to dinner together!{SCROLL}Green: Come on, come on! Get up there!",
+   "en": "Green: Hey, hey, hey! {VAR:0103:0}, what{NEWLINE}are you chickening out for?{SCROLL}Blue’s worn out after three battles in{NEWLINE}a row.{SCROLL}Beat him now and grab some prize money!{SCROLL}Then when we get to Vermilion City, you{NEWLINE}two can treat me to dinner together!{SCROLL}Green: Come on, come on, come on! Get{NEWLINE}up there!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore triple hurry repetition."
   },
   {
    "id": 28,
@@ -590,10 +590,10 @@
   {
    "id": 73,
    "zh": "小蓝『喂喂！获胜者的奖金呢！",
-   "en": "Green: Hey! What about the winner’s{NEWLINE}prize money!",
+   "en": "Green: Hey, hey! What about the{NEWLINE}winner’s prize money!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore repeated call."
   },
   {
    "id": 74,
@@ -622,10 +622,10 @@
   {
    "id": 77,
    "zh": "喂！你们几个！{NEWLINE}就是你们在地下非法决斗扰乱治安吗！",
-   "en": "Hey! You there!{SCROLL}Are you the ones holding illegal{NEWLINE}underground battles here?",
+   "en": "Hey! You there!{SCROLL}Are you the ones holding illegal{NEWLINE}underground battles and disturbing the{CLEAR}peace here?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore disturbing-the-peace allegation."
   },
   {
    "id": 78,
@@ -686,10 +686,10 @@
   {
    "id": 85,
    "zh": "{VAR:0103:0}、小绿『呃,哦,是！好的！{NEWLINE}小赤『一定一定！下次一定注意！",
-   "en": "{VAR:0103:0} & Blue: Uh, oh, yes! OK!{NEWLINE}Red: Of course! We’ll be careful!",
+   "en": "{VAR:0103:0} & Blue: Uh, oh, yes! OK! Red:{NEWLINE}Of course, of course! We’ll be careful{CLEAR}next time!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore repeated assent and next-time detail."
   },
   {
    "id": 86,

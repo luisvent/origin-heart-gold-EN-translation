@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "咳,咳,啊,啊{SCROLL}……嗯,我是台长！{SCROLL}从今天开始{NEWLINE}我台将开始播放{CLEAR}颂扬火箭队的精彩节目！{SCROLL}大家不要多说,{NEWLINE}努力做出好节目……{SCROLL}",
-   "en": "Ahem, ahem, ah, ah... Yes, I am the{NEWLINE}Director! Starting today, this station{CLEAR}will broadcast wonderful shows praising{CLEAR}Team Rocket! No arguments, everyone.{CLEAR}Just work hard and make good shows...{SCROLL}",
+   "en": "Ahem, ahem, ah, ah...{SCROLL}...Yes, I am the Director!{SCROLL}Starting today, this station will{NEWLINE}broadcast wonderful shows praising{CLEAR}Team Rocket!{SCROLL}No arguments, everyone. Just work hard{NEWLINE}and make good shows...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0069/0 | RV037: addition: US ‘do you hear me?’ added; restore 从今天开始"
+   "notes": "US 0069/0 | RV037: addition: US ‘do you hear me?’ added; restore 从今天开始 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,
@@ -182,10 +182,10 @@
   {
    "id": 22,
    "zh": "就我那4枚徽章实力{NEWLINE}在火箭队面前根本不够看,{CLEAR}我真是愧对台长的信任……",
-   "en": "With only 4 Badges, I’m no match for{NEWLINE}Team Rocket at all.{SCROLL}I’ve really let down the{NEWLINE}director’s trust...",
+   "en": "With only 4 Badges, I’m no match for{NEWLINE}Team Rocket at all.{SCROLL}I’ve really betrayed the director’s{NEWLINE}trust...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   }
  ]
 }

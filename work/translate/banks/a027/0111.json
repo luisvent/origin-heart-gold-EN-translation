@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "乔伊『柳伯馆主承让了。",
-   "en": "Joy: Thank you for{NEWLINE}going easy on me, Pryce.",
+   "en": "Joy: Thank you for going easy on me,{NEWLINE}Gym Leader Pryce.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 12,
@@ -454,10 +454,10 @@
   {
    "id": 56,
    "zh": "渡『呼……由红色暴鲤龙{NEWLINE}牵扯出的一系列事件{CLEAR}总算是告一段落了。",
-   "en": "Lance: Phew... The whole chain{NEWLINE}of events that started with the red{CLEAR}Gyarados has finally come to an end.",
+   "en": "Lance: Phew... The whole chain of{NEWLINE}events that started with the red{CLEAR}Gyarados has finally come to a close{CLEAR}for now.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 57,
@@ -630,10 +630,10 @@
   {
    "id": 78,
    "zh": "小蓝『好啦,我知道这些大道理。{NEWLINE}但是你会保护我的,对吗？",
-   "en": "Green: OK, OK, I know all that.{NEWLINE}But you’ll protect me, right?",
+   "en": "Green: OK, OK, I know all those lofty{NEWLINE}principles. But you’ll protect{CLEAR}me, right?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 79,
@@ -654,18 +654,18 @@
   {
    "id": 81,
    "zh": "{VAR:0103:0}『嘿嘿,所以说嘛,{NEWLINE}安心生活、好好锻炼,{CLEAR}为最后消灭火箭队做好准备就行了。",
-   "en": "{VAR:0103:0}: Hee hee, exactly. Just live{NEWLINE}your life, train hard and be ready{CLEAR}to finish off Team Rocket in the end.",
+   "en": "{VAR:0103:0}: Hee hee, exactly. Just live{NEWLINE}your life without worrying, train hard{CLEAR}and be ready to finish off Team Rocket{CLEAR}in the end.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 82,
    "zh": "小蓝『嗯、嗯,可靠的联盟冠军。{NEWLINE}我现在要回家啦,{CLEAR}以后有空记得来找我玩啊！",
-   "en": "Green: Mm-hmm, such a reliable League{NEWLINE}Champion. I’m heading home now. Come{CLEAR}visit me when you’re free!",
+   "en": "Green: Mm-hmm, mm-hmm, such a reliable{NEWLINE}League Champion. I’m heading home now.{CLEAR}Come visit me when you’re free!",
    "status": "draft",
    "origin": "agent",
-   "notes": "RV047: addition: 'my' not in zh"
+   "notes": "RV047: addition: 'my' not in zh | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 83,
@@ -678,10 +678,10 @@
   {
    "id": 84,
    "zh": "音符鹦鹉『火箭队终将统治世界！",
-   "en": "Chatot: Team Rocket will rule the world!",
+   "en": "Chatot: Team Rocket will eventually rule{NEWLINE}the world!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 85,
@@ -806,18 +806,18 @@
   {
    "id": 100,
    "zh": "滴——系统提示：{NEWLINE}开门前请说出口令{CLEAR}「火箭队终将统治世界」。{SCROLL}要说出口令吗？",
-   "en": "Beep! System notice: Please say the{NEWLINE}password before opening the door:{CLEAR}‘Team Rocket will rule the world!’{SCROLL}Say the password?",
+   "en": "Beep! System notice: Please say the{NEWLINE}password before opening the door:{CLEAR}‘Team Rocket will eventually rule{CLEAR}the world!’{SCROLL}Say the password?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 101,
    "zh": "{VAR:0103:0}『火箭队终将统治世界。",
-   "en": "{VAR:0103:0}: Team Rocket{NEWLINE}will rule the world!",
+   "en": "{VAR:0103:0}: Team Rocket will eventually{NEWLINE}rule the world.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 102,

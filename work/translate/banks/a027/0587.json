@@ -1390,7 +1390,7 @@
   {
    "id": 173,
    "zh": "小绿『{VAR:0103:0},{NEWLINE}我一定会成为最后的冠军！",
-   "en": "Blue: {VAR:0103:0}, I’m going to be the one{NEWLINE}who wins it all!",
+   "en": "Blue: {VAR:0103:0}, I’ll be{NEWLINE}the Champion at the end!",
    "status": "draft",
    "origin": "agent",
    "notes": ""

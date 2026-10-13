@@ -1149,7 +1149,7 @@
   {
    "id": 142,
    "zh": "谢谢你大哥哥,{NEWLINE}这是我盼了好久的东西呢！",
-   "en": "Thank you, mister! I’ve been wanting{NEWLINE}this for so long!",
+   "en": "Thank you, big brother!{NEWLINE}I’ve wanted this for so long!",
    "status": "draft",
    "origin": "agent",
    "notes": "#142/#143 and #144/#145: male/female player variants (mister/miss)."
@@ -1157,7 +1157,7 @@
   {
    "id": 143,
    "zh": "谢谢你大姐姐,{NEWLINE}这是我盼了好久的东西呢！",
-   "en": "Thank you, miss! I’ve been wanting this{NEWLINE}for so long!",
+   "en": "Thank you, big sister!{NEWLINE}I’ve wanted this for so long!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -1165,7 +1165,7 @@
   {
    "id": 144,
    "zh": "我的向尾喵,最近学会了一招{NEWLINE}出其不意拍巴掌的技能呢,{CLEAR}大哥哥想让你的精灵也学一下吗？",
-   "en": "My Skitty just learned a move where it{NEWLINE}claps its paws to surprise the foe!{SCROLL}Mister, do you want your Pokémon to{NEWLINE}learn it too?",
+   "en": "My Skitty just learned a move where it{NEWLINE}claps its paws to surprise the foe!{SCROLL}Big brother, want your Pokémon{NEWLINE}to learn it too?",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -1173,7 +1173,7 @@
   {
    "id": 145,
    "zh": "我的向尾喵,最近学会了一招{NEWLINE}出其不意拍巴掌的技能呢,{CLEAR}大姐姐想让你的精灵也学一下吗？",
-   "en": "My Skitty just learned a move where it{NEWLINE}claps its paws to surprise the foe!{SCROLL}Miss, do you want your Pokémon to learn{NEWLINE}it too?",
+   "en": "My Skitty just learned a move where it{NEWLINE}claps its paws to surprise the foe!{SCROLL}Big sister, want your Pokémon{NEWLINE}to learn it too?",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -1333,9 +1333,9 @@
   {
    "id": 165,
    "zh": "莉佳『那么,{NEWLINE}我要拍了哦……{SCROLL}",
-   "en": "Erika: Try and look cool now.{SCROLL}",
+   "en": "Erika: All right...{NEWLINE}I’m taking the picture now...{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0491/25"
   },
   {
@@ -1373,9 +1373,9 @@
   {
    "id": 170,
    "zh": "莉佳『那么,{NEWLINE}我要拍了哦……{SCROLL}",
-   "en": "Erika: Try and look cool now.{SCROLL}",
+   "en": "Erika: All right...{NEWLINE}I’m taking the picture now...{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0491/25"
   },
   {
@@ -1405,9 +1405,9 @@
   {
    "id": 174,
    "zh": "莉佳『那么,{NEWLINE}我要拍了哦……{SCROLL}",
-   "en": "Erika: Try and look cool now.{SCROLL}",
+   "en": "Erika: All right...{NEWLINE}I’m taking the picture now...{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0491/25"
   },
   {

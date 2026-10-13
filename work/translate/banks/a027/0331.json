@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "柑果有着特殊的香味儿,{NEWLINE}对口袋妖怪来说这种味道{CLEAR}有镇静安神的作用,{CLEAR}比起新型机械构造的球,{CLEAR}口袋妖怪们更适合待在柑果球里。{SCROLL}所以我觉得愿意用柑果球{NEWLINE}来容纳口袋妖怪的训练家,{CLEAR}才是对口袋妖怪足够有爱的训练家。",
-   "en": "Apricorns have a special fragrance.{SCROLL}For Pokémon, that scent is calming and{NEWLINE}soothing.{SCROLL}Pokémon are much happier in Apricorn{NEWLINE}Balls than in Balls with fancy new{CLEAR}mechanical parts.{SCROLL}So I believe that only Trainers who keep{NEWLINE}their Pokémon in Apricorn Balls truly{CLEAR}love their Pokémon enough.",
+   "en": "Apricorns have a special fragrance.{SCROLL}For Pokémon, that scent is calming{NEWLINE}and soothing.{SCROLL}Apricorn Balls suit Pokémon better than{NEWLINE}Balls with modern mechanical parts.{SCROLL}So I believe that only Trainers who keep{NEWLINE}their Pokémon in Apricorn Balls truly{CLEAR}love their Pokémon enough.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve suitability rather than invented happiness comparison; former friend where specified."
   },
   {
    "id": 3,
@@ -188,10 +188,10 @@
   {
    "id": 22,
    "zh": "{VAR:0103:0}『不要再为难精灵了,{NEWLINE}你们身为训练家{CLEAR}都没有发现这两只精灵{CLEAR}不愿意去攻击彼此吗？",
-   "en": "{VAR:0103:0}: Stop forcing your Pokémon. As{NEWLINE}Trainers, haven’t you noticed that{CLEAR}these two don’t want to fight?",
+   "en": "{VAR:0103:0}: Stop forcing your Pokémon. As{NEWLINE}Trainers, haven’t you noticed that{CLEAR}these two don’t want to attack{CLEAR}each other?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve reluctance to attack each other specifically."
   },
   {
    "id": 23,
@@ -324,10 +324,10 @@
   {
    "id": 39,
    "zh": "柑果有着特殊的香味儿,{NEWLINE}对口袋妖怪来说这种味道{CLEAR}有镇静安神的作用,{CLEAR}比起新型机械构造的球,{CLEAR}口袋妖怪们更适合待在柑果球里。{SCROLL}所以我觉得愿意用柑果球{NEWLINE}来容纳口袋妖怪的训练家,{CLEAR}才是对口袋妖怪足够有爱的训练家。{SCROLL}我曾经的一位朋友{NEWLINE}就过于追求所谓的效率,{CLEAR}而过于忽视了精灵的感受。",
-   "en": "Apricorns have a special fragrance.{SCROLL}For Pokémon, that scent is calming and{NEWLINE}soothing.{SCROLL}Pokémon are much happier in Apricorn{NEWLINE}Balls than in Balls with fancy new{CLEAR}mechanical parts.{SCROLL}So I believe that only Trainers who keep{NEWLINE}their Pokémon in Apricorn Balls truly{CLEAR}love their Pokémon enough.{SCROLL}Someone who used to be my friend was so{NEWLINE}obsessed with so-called efficiency that{CLEAR}he ignored how his Pokémon felt.",
+   "en": "Apricorns have a special fragrance.{SCROLL}For Pokémon, that scent is calming{NEWLINE}and soothing.{SCROLL}Apricorn Balls suit Pokémon better than{NEWLINE}Balls with modern mechanical parts.{SCROLL}So I believe that only Trainers who keep{NEWLINE}their Pokémon in Apricorn Balls truly{CLEAR}love their Pokémon enough.{SCROLL}Someone who used to be my friend was so{NEWLINE}obsessed with so-called efficiency that{CLEAR}he ignored how his Pokémon felt.",
    "status": "draft",
    "origin": "agent",
-   "notes": "RV012: meaning: 曾经的一位朋友 = a former friend"
+   "notes": "RV012: meaning: 曾经的一位朋友 = a former friend | AGENT-0321-0380: Preserve suitability rather than invented happiness comparison; former friend where specified."
   },
   {
    "id": 40,
@@ -407,10 +407,10 @@
   {
    "id": 49,
    "zh": "爷爷我这么大岁数了{NEWLINE}还能保持身体健康,{CLEAR}靠的就是平时多吃营养保健品。{CLEAR}你虽然年轻,但是也要注意保健啊,{CLEAR}要来点营养品补补吗？{SCROLL}",
-   "en": "Look at Gramps here: still in good{NEWLINE}health at my age! The secret is eating{CLEAR}lots of health foods.{SCROLL}You may be young, but you should take{NEWLINE}care of your health too. Want some{CLEAR}health food to build you up?{SCROLL}",
+   "en": "Look at Gramps here: still in good{NEWLINE}health at my age! The secret is taking{CLEAR}lots of nutritional supplements.{SCROLL}You may be young, but you should take{NEWLINE}care of your health too. Want some{CLEAR}nutritional supplements to build you up?{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "RV012: voice: 爷爷我 self-reference kept"
+   "notes": "RV012: voice: 爷爷我 self-reference kept | AGENT-0321-0380: Preserve elderly man self-reference. Preserve nutritional supplements item category."
   },
   {
    "id": 50,
@@ -450,10 +450,10 @@
   {
    "id": 54,
    "zh": "注意身体健康啊年轻人,{NEWLINE}要是哪里不舒服了{CLEAR}可以再来试试我的补品。",
-   "en": "Look after your health, young one. If{NEWLINE}you ever feel unwell, come try my health{CLEAR}foods again.",
+   "en": "Look after your health, young one. If{NEWLINE}you ever feel unwell, come try my{CLEAR}nutritional supplements again.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve nutritional supplements item category."
   },
   {
    "id": 55,
@@ -466,10 +466,10 @@
   {
    "id": 56,
    "zh": "保持身体健康是需要花钱的,{NEWLINE}我这里可不免费施舍补品。",
-   "en": "Staying healthy costs money. I don’t{NEWLINE}hand out my health foods for free.",
+   "en": "Staying healthy costs money. I don’t{NEWLINE}hand out my nutritional supplements{CLEAR}for free.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve nutritional supplements item category."
   },
   {
    "id": 57,
@@ -514,10 +514,10 @@
   {
    "id": 62,
    "zh": "娜姿『{VAR:0103:0},{NEWLINE}火箭队不仅占领了金黄市,{CLEAR}还在城市外围制造了一道透明屏障。{CLEAR}金黄市的四个入口{CLEAR}全都被屏障封住无法通过。{CLEAR}即使我用超能力也无法打破屏障。{SCROLL}娜姿『原本计划由四天王和馆主们{NEWLINE}分别从四个入口突入城市围攻火箭队。{CLEAR}结果现在大家都被挡在了外面。{SCROLL}娜姿『依目前的状况看,{NEWLINE}菊子女士和我的能力{CLEAR}都无法破解屏障。{CLEAR}不如你先去金黄市的另外三个入口,{CLEAR}看看其他训练家破解屏障的思路。{CLEAR}我也趁这段时间再想想{CLEAR}有没有其他进入金黄市的办法。",
-   "en": "Sabrina: {VAR:0103:0}. Team Rocket hasn’t{NEWLINE}just taken over Saffron City. They’ve{CLEAR}put up an invisible barrier around it.{SCROLL}All four entrances to Saffron City are{NEWLINE}sealed off by the barrier. Even my{CLEAR}psychic powers can’t break it.{SCROLL}Sabrina: The plan was for the Elite Four{NEWLINE}and the Gym Leaders to storm the city{CLEAR}through the four entrances and{CLEAR}surround Team Rocket.{SCROLL}Instead, we’re all stuck outside.{SCROLL}Sabrina: As things stand, neither{NEWLINE}Agatha’s powers nor mine can break it.{SCROLL}Why don’t you go to Saffron City’s{NEWLINE}other three entrances first, and see{CLEAR}what the other Trainers have in mind?{SCROLL}In the meantime, I’ll think about{NEWLINE}whether there’s another way into{CLEAR}Saffron City.",
+   "en": "Sabrina: {VAR:0103:0}. Team Rocket hasn’t{NEWLINE}just taken over Saffron City. They’ve{CLEAR}put up an invisible barrier around it.{SCROLL}All four entrances to Saffron City are{NEWLINE}sealed off by the barrier. Even my{CLEAR}psychic powers can’t break it.{SCROLL}Sabrina: The plan was for the Elite Four{NEWLINE}and the Gym Leaders to storm the city{CLEAR}through the four entrances and{CLEAR}surround Team Rocket.{SCROLL}Instead, we’re all stuck outside.{SCROLL}Sabrina: As things stand, neither{NEWLINE}Ms. Agatha nor I can break it with{CLEAR}our powers.{SCROLL}Why don’t you go to Saffron City’s{NEWLINE}other three entrances first, and see{CLEAR}what the other Trainers have in mind?{SCROLL}In the meantime, I’ll think about{NEWLINE}whether there’s another way into{CLEAR}Saffron City.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve respectful Agatha title."
   },
   {
    "id": 63,
@@ -530,18 +530,18 @@
   {
    "id": 64,
    "zh": "小蓝『{VAR:0103:0},{NEWLINE}我刚离开金黄市去找娜姿小姐,{CLEAR}就感觉身后有些不对劲。{CLEAR}于是转身想回去看看,{CLEAR}结果却撞上了一道无形的屏障。{SCROLL}小蓝『这道看起来牢不可破的屏障,{NEWLINE}很有可能是火箭队用特殊增幅装置{CLEAR}把吸盘魔偶的力量放大后做出的。{CLEAR}如果能破除那个增幅装置的话,{CLEAR}或许就能破除屏障。",
-   "en": "Green: {VAR:0103:0}, I’d only just left{NEWLINE}Saffron City to go find Sabrina when I{CLEAR}sensed something wrong behind me.{SCROLL}So I turned around to go back and{NEWLINE}check, and hit an invisible barrier.{SCROLL}Green: This barrier looks unbreakable.{NEWLINE}Team Rocket probably made it by{CLEAR}boosting a Mr. Mime’s power with some{CLEAR}special amplifier.{SCROLL}If we can destroy that amplifier, we{NEWLINE}might be able to break the barrier.",
+   "en": "Green: {VAR:0103:0}, I’d only just left{NEWLINE}Saffron City to go find Miss Sabrina{CLEAR}when I sensed something wrong{CLEAR}behind me.{SCROLL}So I turned around to go back and{NEWLINE}check, and hit an invisible barrier.{SCROLL}Green: This barrier looks unbreakable.{NEWLINE}Team Rocket probably made it by{CLEAR}boosting a Mr. Mime’s power with some{CLEAR}special amplifier.{SCROLL}If we can destroy that amplifier, we{NEWLINE}might be able to break the barrier.",
    "status": "draft",
    "origin": "agent",
-   "notes": "Partner branch: #64/#76 Green (male-player route), #65/#77 Red (female-player route)."
+   "notes": "Partner branch: #64/#76 Green (male-player route), #65/#77 Red (female-player route). | AGENT-0321-0380: Preserve respectful Sabrina title."
   },
   {
    "id": 65,
    "zh": "小赤『{VAR:0103:0},{NEWLINE}我刚离开金黄市去找娜姿小姐,{CLEAR}就感觉身后有些不对劲。{CLEAR}于是转身想回去看看,{CLEAR}结果却撞上了一道无形的屏障。{SCROLL}小赤『这道看起来牢不可破的屏障,{NEWLINE}很有可能是火箭队用特殊增幅装置{CLEAR}把吸盘魔偶的力量放大后做出的。{CLEAR}如果能破除那个增幅装置的话,{CLEAR}或许就能破除屏障。",
-   "en": "Red: {VAR:0103:0}, I’d only just left{NEWLINE}Saffron City to go find Sabrina when I{CLEAR}sensed something wrong behind me.{SCROLL}So I turned around to go back and{NEWLINE}check, and hit an invisible barrier.{SCROLL}Red: This barrier looks unbreakable.{NEWLINE}Team Rocket probably made it by{CLEAR}boosting a Mr. Mime’s power with some{CLEAR}special amplifier.{SCROLL}If we can destroy that amplifier, we{NEWLINE}might be able to break the barrier.",
+   "en": "Red: {VAR:0103:0}, I’d only just left{NEWLINE}Saffron City to go find Miss Sabrina{CLEAR}when I sensed something wrong{CLEAR}behind me.{SCROLL}So I turned around to go back and{NEWLINE}check, and hit an invisible barrier.{SCROLL}Red: This barrier looks unbreakable.{NEWLINE}Team Rocket probably made it by{CLEAR}boosting a Mr. Mime’s power with some{CLEAR}special amplifier.{SCROLL}If we can destroy that amplifier, we{NEWLINE}might be able to break the barrier.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve respectful Sabrina title."
   },
   {
    "id": 66,
@@ -602,10 +602,10 @@
   {
    "id": 73,
    "zh": "娜姿『呼、呼、呼……{NEWLINE}啊……{VAR:0103:0}……{CLEAR}我……已经……呼……{CLEAR}精疲力竭了……{SCROLL}娜姿『呼……剩下的……{NEWLINE}就……呼……交给……{CLEAR}你了……呼……{SCROLL}娜姿『不要……逞强……呼……{NEWLINE}去正面……呼……{CLEAR}攻击……火箭队……{CLEAR}只要想办法……呼……{CLEAR}解除屏障……{CLEAR}呼……胜利必然……{CLEAR}就是咱们的……呼……{SCROLL}娜姿『呼、呼……以防万一……{NEWLINE}呼……把我家里的那个……呼……{CLEAR}那个娃娃……也带上……呼……{NEWLINE}要小心呐……",
-   "en": "Sabrina: Hah, hah, hah...{SCROLL}Ah... {VAR:0103:0}... I’m... hah...{NEWLINE}completely... drained...{SCROLL}Sabrina: Hah... The rest... is... hah...{NEWLINE}up to... you... hah...{SCROLL}Sabrina: Don’t... push yourself...{NEWLINE}hah... Don’t attack... Team Rocket...{CLEAR}head-on... hah...{SCROLL}If you can just... find a way... to lift{NEWLINE}the barrier... hah... victory... will{CLEAR}be... ours... hah...{SCROLL}Sabrina: Hah, hah... Just in case...{NEWLINE}take that... hah... doll from my{CLEAR}house... Be careful...",
+   "en": "Sabrina: Hah, hah, hah...{SCROLL}Ah... {VAR:0103:0}... I’m... already...{NEWLINE}hah... completely drained...{SCROLL}Sabrina: Hah... The rest... is... hah...{NEWLINE}up to... you... hah...{SCROLL}Sabrina: Don’t... push yourself...{NEWLINE}hah... and attack... hah... Team{CLEAR}Rocket... head-on...{SCROLL}Just find a way... hah... to lift the{NEWLINE}barrier... hah... and victory... will{CLEAR}surely be ours... hah...{SCROLL}Sabrina: Hah, hah... Just in case...{NEWLINE}hah... take that... from my house...{CLEAR}hah... that doll... along too... hah...{CLEAR}Be careful...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore repeated panting, interrupted speech, deictic doll repetition and certain victory without shortening."
   },
   {
    "id": 74,

@@ -63,10 +63,10 @@
   {
    "id": 7,
    "zh": "我将为全地区的观众{NEWLINE}奉献最专业的直播！",
-   "en": "I’ll give viewers across the whole{NEWLINE}region the most professional live{CLEAR}broadcast ever!",
+   "en": "I’ll give viewers across the whole{NEWLINE}region the most professional{CLEAR}live broadcast!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Remove invented historical superlative scope."
   },
   {
    "id": 8,
@@ -79,10 +79,10 @@
   {
    "id": 9,
    "zh": "我是来自芳缘地区的训练家,{NEWLINE}听我们那儿的联盟冠军大吾先生说,{CLEAR}关东地区的冠军是最厉害的。{CLEAR}所以我专程跑来这里{CLEAR}想一睹这位冠军的风采。",
-   "en": "I’m a Trainer from the Hoenn region.{NEWLINE}Steven, our League Champion, told me{CLEAR}the Kanto Champion is the strongest{CLEAR}there is.{SCROLL}So I came all this way to see this{NEWLINE}Champion for myself.",
+   "en": "I’m a Trainer from the Hoenn region.{NEWLINE}Our League Champion, Mr. Steven, told{CLEAR}me the Kanto Champion is the strongest{CLEAR}there is.{SCROLL}So I came all this way to see this{NEWLINE}Champion for myself.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Mr Steven honorific and explicit Kanto Champion role."
   },
   {
    "id": 10,
@@ -95,10 +95,10 @@
   {
    "id": 11,
    "zh": "嘿嘿,你是来参加{NEWLINE}白银大会的训练家吧？{CLEAR}我听说这届大会{CLEAR}禁止携带回复类的道具,{CLEAR}你身上要是有道具没清理干净,{CLEAR}可以卖给我哦。",
-   "en": "Heh heh, you’re here for the Silver{NEWLINE}Conference, right?{SCROLL}I hear healing items are banned at this{NEWLINE}year’s Conference.{SCROLL}If you haven’t cleared all your items{NEWLINE}out yet, you can sell them to me.",
+   "en": "Heh heh, you’re a Trainer here for the{NEWLINE}Silver Conference, right?{SCROLL}I hear healing items are banned at this{NEWLINE}year’s Conference.{SCROLL}If you haven’t cleared all your items{NEWLINE}out yet, you can sell them to me.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Trainer role."
   },
   {
    "id": 12,

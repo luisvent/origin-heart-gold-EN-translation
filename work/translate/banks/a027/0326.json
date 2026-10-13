@@ -70,18 +70,18 @@
   {
    "id": 8,
    "zh": "妙蛙种子很感谢你那天帮忙呢。{SCROLL}其实自从那天以来,{NEWLINE}妙蛙种子就一直自责没有保护好同伴。{CLEAR}最近它好几次想要{CLEAR}孤身出去寻找青绵鸟。{SCROLL}我不是训练家,{NEWLINE}不敢随便带它出去旅行,{CLEAR}但如果是作为训练家的你,{CLEAR}一定可以照顾好妙蛙种子的。{SCROLL}所以可以请你带上它一起旅行吗？{NEWLINE}在途中顺便打听下青绵鸟的下落,{CLEAR}也好让妙蛙种子不再那么自责。",
-   "en": "Bulbasaur is really grateful for your{NEWLINE}help that day.{SCROLL}But ever since then, it keeps blaming{NEWLINE}itself for not protecting its friend.{SCROLL}Lately it’s tried to go off alone to look{NEWLINE}for Swablu several times.{SCROLL}I’m not a Trainer, so I don’t dare take{NEWLINE}it out on a journey.{SCROLL}But you’re a Trainer. I know you could{NEWLINE}take good care of Bulbasaur.{SCROLL}So would you take it along on your{NEWLINE}travels?{SCROLL}And along the way, maybe ask around{NEWLINE}about Swablu, so Bulbasaur won’t blame{CLEAR}itself so much.",
+   "en": "Bulbasaur is really grateful for your{NEWLINE}help that day.{SCROLL}But ever since then, it keeps blaming{NEWLINE}itself for not protecting its friend.{SCROLL}Lately it’s wanted to go off alone to{NEWLINE}look for Swablu several times.{SCROLL}I’m not a Trainer, so I don’t dare take{NEWLINE}it out on a journey.{SCROLL}But you’re a Trainer. I know you could{NEWLINE}take good care of Bulbasaur.{SCROLL}So would you take it along on{NEWLINE}your travels?{SCROLL}And along the way, maybe ask around{NEWLINE}about Swablu, so Bulbasaur won’t blame{CLEAR}itself so much.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | AGENT-0321-0380: Preserve desire to search repeatedly rather than asserted attempts."
   },
   {
    "id": 9,
    "zh": "卡帝狗很感谢你那天帮忙呢。{SCROLL}其实自从那天以来,{NEWLINE}卡帝狗就一直自责没有保护好同伴。{CLEAR}最近它好几次想要{CLEAR}孤身出去寻找青绵鸟。{SCROLL}我不是训练家,{NEWLINE}不敢随便带它出去旅行,{CLEAR}但如果是作为训练家的你,{CLEAR}一定可以照顾好卡帝狗的。{SCROLL}所以可以请你带上它一起旅行吗？{NEWLINE}在途中顺便打听下青绵鸟的下落,{CLEAR}也好让卡帝狗不再那么自责。",
-   "en": "Growlithe is really grateful for your{NEWLINE}help that day.{SCROLL}But ever since then, it keeps blaming{NEWLINE}itself for not protecting its friend.{SCROLL}Lately it’s tried to go off alone to look{NEWLINE}for Swablu several times.{SCROLL}I’m not a Trainer, so I don’t dare take{NEWLINE}it out on a journey.{SCROLL}But you’re a Trainer. I know you could{NEWLINE}take good care of Growlithe.{SCROLL}So would you take it along on your{NEWLINE}travels?{SCROLL}And along the way, maybe ask around{NEWLINE}about Swablu, so Growlithe won’t blame{CLEAR}itself so much.",
+   "en": "Growlithe is really grateful for your{NEWLINE}help that day.{SCROLL}But ever since then, it keeps blaming{NEWLINE}itself for not protecting its friend.{SCROLL}Lately it’s wanted to go off alone to{NEWLINE}look for Swablu several times.{SCROLL}I’m not a Trainer, so I don’t dare take{NEWLINE}it out on a journey.{SCROLL}But you’re a Trainer. I know you could{NEWLINE}take good care of Growlithe.{SCROLL}So would you take it along on{NEWLINE}your travels?{SCROLL}And along the way, maybe ask around{NEWLINE}about Swablu, so Growlithe won’t blame{CLEAR}itself so much.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | AGENT-0321-0380: Preserve desire to search repeatedly rather than asserted attempts."
   },
   {
    "id": 10,

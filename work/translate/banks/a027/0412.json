@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "一群不畏艰险的人员{NEWLINE}会发现什么呢？{NEWLINE}请看精灵搜查队！！",
-   "en": "What has our fearless staff witnessed?{NEWLINE}It’s the Pokémon Search Party!",
+   "en": "What will our fearless team discover?{NEWLINE}Watch the Pokémon Search Party!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0419/2"
+   "origin": "agent",
+   "notes": "US 0419/2 | CES006: fidelity: Restore future discovery question and invitation."
   },
   {
    "id": 3,
@@ -38,18 +38,18 @@
   {
    "id": 4,
    "zh": "最后,搜查队的努力{NEWLINE}付诸东流。{NEWLINE}他们无法在被无尽黑暗{NEWLINE}所笼罩的连接洞穴中{NEWLINE}继续前行,只得撤退。{NEWLINE}队长留下了一句{NEWLINE}「要是有闪光的话⋯⋯」{NEWLINE}以上就是本期特别节目{NEWLINE}「被黑暗笼罩的洞窟！」{NEWLINE}我们下期再见！",
-   "en": "At the end of the day, our search{NEWLINE}party’s efforts were in vain.{NEWLINE}They eventually had to leave the deep{NEWLINE}and dark Union Cave.{NEWLINE}“If only we had Flash!” the leader cried.{NEWLINE}That was this week’s special,{NEWLINE}“The Cave Plunged into Darkness”!{NEWLINE}See you next time!",
+   "en": "In the end, the search party’s efforts{NEWLINE}were in vain.{NEWLINE}They could not go any farther in Union{NEWLINE}Cave, shrouded in endless darkness,{NEWLINE}and had to retreat.{NEWLINE}The leader left these words: “If only{NEWLINE}we had Flash...”{NEWLINE}That was this episode’s special, “The{NEWLINE}Cave Shrouded in Darkness!”{NEWLINE}See you next time!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0419/4; ext-review B-022"
+   "notes": "US 0419/4; ext-review B-022 | CES006: fidelity: Restore inability to proceed, endless darkness, retreat and trailing wish; remove invented depth and cry."
   },
   {
    "id": 5,
    "zh": "最后,搜查队的努力{NEWLINE}付诸东流。{NEWLINE}他们没有能成功发现{NEWLINE}未知图腾⋯⋯{NEWLINE}以上就是本期特别节目{NEWLINE}「追寻未知图腾的秘密！」{NEWLINE}我们下期再见！",
-   "en": "At the end of the day, our search{NEWLINE}party’s efforts were in vain.{NEWLINE}We weren’t able to find any Unown...{NEWLINE}That was this week’s special,{NEWLINE}“Solving the Unown Puzzle!”{NEWLINE}See you next time!",
+   "en": "In the end, the search party’s efforts{NEWLINE}were in vain.{NEWLINE}They failed to find any Unown...{NEWLINE}That was this episode’s special,{NEWLINE}“Pursuing the Secrets of Unown!”{NEWLINE}See you next time!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0419/5; modernised from US 0419#5"
+   "notes": "US 0419/5; modernised from US 0419#5 | CES006: fidelity: Restore third-person subject and pursuing secrets rather than solving a puzzle."
   },
   {
    "id": 6,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "于是,搜查队想要{NEWLINE}揭示真相的劲头{NEWLINE}被漩涡岛的浪声{NEWLINE}消磨得一干二净。{NEWLINE}漩涡满布的大海中,{NEWLINE}他们只看到了{NEWLINE}巨大精灵的影子⋯⋯{NEWLINE}以上就是本期特别节目{NEWLINE}「在漩涡中消失的传说」{NEWLINE}我们下期再见！",
-   "en": "The voyaging search party tried to{NEWLINE}think of a solution to the puzzle, but{NEWLINE}their thoughts were interrupted and{NEWLINE}washed away by the sound of the waves{NEWLINE}around the Whirl Islands.{NEWLINE}The shadow of a huge Pokémon shifted and{NEWLINE}shook in the violent sea filled with{NEWLINE}whirlpools...{NEWLINE}That was this week’s special,{NEWLINE}“The Legend Disappeared into the{NEWLINE}Whirlpool!”{NEWLINE}See you next time!",
+   "en": "And so, the sound of the waves around{NEWLINE}the Whirl Islands completely wore away{NEWLINE}the search party’s drive to uncover{NEWLINE}the truth.{NEWLINE}In the sea full of whirlpools, all they{NEWLINE}saw was the shadow of a huge Pokémon...{NEWLINE}That was this episode’s special, “The{NEWLINE}Legend That Vanished in the Whirlpool!”{NEWLINE}See you next time!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0419/10; ext-review B-022"
+   "notes": "US 0419/10; ext-review B-022 | CES006: fidelity: Restore motivation being worn away and only seeing a shadow; remove invented movement and violent sea."
   },
   {
    "id": 11,
@@ -118,10 +118,10 @@
   {
    "id": 14,
    "zh": "令搜查队员{NEWLINE}感到麻烦的是{NEWLINE}这个世界,{NEWLINE}它的上下左右都是颠倒的,{NEWLINE}非常诡异⋯⋯{NEWLINE}在混乱的队员面前{NEWLINE}突然出现了⋯⋯{NEWLINE}什么！{NEWLINE}居然是骑拉帝纳！{NEWLINE}可是⋯⋯{NEWLINE}关于骑拉帝纳的资料非常少,{NEWLINE}只有一些目击记录,{NEWLINE}但这只骑拉帝纳{NEWLINE}和以往在资料上所见到的{NEWLINE}形状完全不同⋯⋯{NEWLINE}以上就是本期特别节目{NEWLINE}「怪异的骑拉帝纳！」{NEWLINE}我们下期再见！",
-   "en": "The search party has become lost! In{NEWLINE}this strange world, up has become down,{NEWLINE}and left has become right! Then{NEWLINE}suddenly, right before the confused{NEWLINE}search party’s eyes, it appears!{NEWLINE}Giratina! There’re so few accounts of{NEWLINE}anyone ever meeting this Pokémon. It{NEWLINE}rarely appears. But comparing Giratina{NEWLINE}to the few records that exist, its{NEWLINE}appearance is different... That was this{NEWLINE}week’s special, “The Strange Giratina!”{NEWLINE}See you next time!",
+   "en": "What troubled the search party was{NEWLINE}this world, where up, down, left and{NEWLINE}right were all reversed. Very{NEWLINE}strange...{NEWLINE}Suddenly, before the confused members{NEWLINE}appeared...{NEWLINE}What! It was Giratina!{NEWLINE}But...{NEWLINE}There is very little information about{NEWLINE}Giratina, only a few sighting records.{NEWLINE}Yet this Giratina’s shape was completely{NEWLINE}different from what those records had{NEWLINE}shown before...{NEWLINE}That was this episode’s special, “The{NEWLINE}Strange Giratina!”{NEWLINE}See you next time!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0419/14; modernised from US 0419#14 | RV070: grammar: it’s → its"
+   "notes": "US 0419/14; modernised from US 0419#14 | RV070: grammar: it’s → its | CES006: fidelity: Restore troubling world, surprise, scarce records and completely different shape; remove invented lost party and rarity claim."
   },
   {
    "id": 15,
@@ -134,10 +134,10 @@
   {
    "id": 16,
    "zh": "此时的搜查队已经{NEWLINE}已经累得筋疲力尽,{NEWLINE}为了调整状态,{NEWLINE}他们来到了华蓝市的小镇。{NEWLINE}「看,多么美丽的夕阳⋯⋯」{NEWLINE}「队长！看那⋯⋯」{NEWLINE}顺着队员手指指的地方,{NEWLINE}有一个很可疑的洞窟！{NEWLINE}接着,在进去探险的{NEWLINE}搜查队面前出现一个{NEWLINE}忽隐忽现的奇怪影子⋯⋯{NEWLINE}以上就是本期特别节目{NEWLINE}「洞窟主人」{NEWLINE}我们下期再见！",
-   "en": "The search party had just about{NEWLINE}reached the limits of its physical{NEWLINE}strength, when it came to Cerulean City{NEWLINE}to rest. “Look, such a beautiful{NEWLINE}sunset...” “Leader! Look over there!”{NEWLINE}The member was pointing at a{NEWLINE}suspicious-looking cave! The search{NEWLINE}party went to explore, and found a{NEWLINE}strange flickering shadow... That was{NEWLINE}this week’s special, “The Master of the{NEWLINE}Cave!” See you next time!",
+   "en": "By now, the search party was already,{NEWLINE}already utterly exhausted. To recover,{NEWLINE}they came to the town of Cerulean City.{NEWLINE}“Look, what a beautiful sunset...”{NEWLINE}“Leader! Look over there...”{NEWLINE}Where the member’s finger pointed,{NEWLINE}there was a very suspicious cave!{NEWLINE}Then, before the search party that{NEWLINE}went inside to explore, a strange{NEWLINE}shadow appeared and disappeared...{NEWLINE}That was this episode’s special, “The{NEWLINE}Master of the Cave”!{NEWLINE}See you next time!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0419/16; ext-review B-022 | RV070: addition: title: zh 洞窟主人 = the Cave’s Master"
+   "notes": "US 0419/16; ext-review B-022 | RV070: addition: title: zh 洞窟主人 = the Cave’s Master | CES006: fidelity: Restore repeated 已经, completed exhaustion, recovery and appearing/disappearing shadow; preserve individual speech lines."
   }
  ]
 }

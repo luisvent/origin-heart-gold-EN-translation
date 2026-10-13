@@ -886,10 +886,10 @@
   {
    "id": 110,
    "zh": "{VAR:0103:0}『保证城市功能正常运转,{NEWLINE}不受火箭队行动的波及。{CLEAR}在这期间,除非特殊情况,{CLEAR}道馆馆主不得离开镇守的城市……",
-   "en": "{VAR:0103:0}: This will keep our{NEWLINE}cities running and safe from Team{CLEAR}Rocket’s actions.{SCROLL}During this time, unless there’s an{NEWLINE}emergency, Gym Leaders must not leave{CLEAR}the cities they guard...",
+   "en": "{VAR:0103:0}: This will keep our cities{NEWLINE}running and safe from Team{CLEAR}Rocket’s actions.{SCROLL}During this time, except in special{NEWLINE}circumstances, Gym Leaders must not{CLEAR}leave the cities they guard...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 111,

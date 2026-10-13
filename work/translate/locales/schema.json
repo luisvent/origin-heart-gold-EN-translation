@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/origin-heartgold/locale-bank.schema.json",
+  "title": "Origin HeartGold locale bank",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "locale",
+    "narc",
+    "bank",
+    "strings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "locale": {
+      "enum": [
+        "en",
+        "fr",
+        "it",
+        "de",
+        "es"
+      ]
+    },
+    "narc": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_]+$"
+    },
+    "bank": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_bank_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "strings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ref",
+          "source_sha256",
+          "text",
+          "status",
+          "provenance",
+          "alignment"
+        ],
+        "properties": {
+          "ref": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_]+/[0-9]{4}#[0-9]+$"
+          },
+          "source_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "todo",
+              "imported",
+              "draft",
+              "reviewed"
+            ]
+          },
+          "provenance": {
+            "type": "object"
+          },
+          "alignment": {
+            "type": "object",
+            "required": [
+              "state"
+            ],
+            "properties": {
+              "state": {
+                "enum": [
+                  "direct_source_ref",
+                  "unreviewed_same_index_equal_count_candidate",
+                  "reviewed",
+                  "verified"
+                ]
+              }
+            },
+            "additionalProperties": true
+          },
+          "staleness": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "todo"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "text": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "reviewed"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "pattern": "\\S"
+                },
+                "alignment": {
+                  "properties": {
+                    "state": {
+                      "enum": [
+                        "direct_source_ref",
+                        "reviewed",
+                        "verified"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": true
+}

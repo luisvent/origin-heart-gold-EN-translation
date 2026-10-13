@@ -70,9 +70,9 @@
   {
    "id": 8,
    "zh": "４楼是适合送礼的{NEWLINE}礼品专柜。",
-   "en": "Fourth floor has the Wiseman Gifts,{NEWLINE}which has the perfect gifts.",
+   "en": "Fourth floor has the Gift Counter,{NEWLINE}which has the perfect gifts.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0500/8"
   },
   {
@@ -89,9 +89,9 @@
   {
    "id": 10,
    "zh": "６楼是最顶层,歇脚的{NEWLINE}休闲广场。",
-   "en": "Sixth floor has the Rooftop Atrium{NEWLINE}for a nice break.",
+   "en": "Sixth floor has the Leisure Plaza{NEWLINE}for a nice break.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0500/10"
   }
  ]

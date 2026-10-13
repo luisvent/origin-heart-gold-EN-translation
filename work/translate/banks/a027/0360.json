@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "……笔记上有写着什么！{NEWLINE}要看吗？{VAR:0200:0}",
-   "en": "There’s something written here.{NEWLINE}Read it? {VAR:0200:0}",
+   "en": "...There’s something written in the{NEWLINE}notebook! Read it?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0367/0"
+   "origin": "agent",
+   "notes": "US 0367/0 | AGENT-0321-0380: Restore notebook location."
   },
   {
    "id": 1,
@@ -266,10 +266,10 @@
   {
    "id": 30,
    "zh": "看来你对道具的事情真的很了解,{NEWLINE}那我就把这个这个送给你吧。{CLEAR}以你的见识应该能发挥出它的威力。",
-   "en": "You really know your items! Then I’ll{NEWLINE}give you this.{SCROLL}Someone as knowledgeable as you should{NEWLINE}be able to bring out its full power.",
+   "en": "You seem to know your items really well!{NEWLINE}Then I’ll give you this, this.{SCROLL}Someone as knowledgeable as you should{NEWLINE}be able to bring out its full power.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve repeated this and seems/should modality."
   },
   {
    "id": 31,

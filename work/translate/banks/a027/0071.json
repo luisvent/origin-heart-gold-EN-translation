@@ -73,10 +73,10 @@
   {
    "id": 8,
    "zh": "听我说！{NEWLINE}这可是大发现哦！{SCROLL}未知图腾的数量{NEWLINE}和文字的种类数相同,{CLEAR}这一点已经确认了！{SCROLL}现在已经确认到了{NEWLINE}２６种文字,{SCROLL}加油,把所有的未知图腾{NEWLINE}都找出来吧！{SCROLL}",
-   "en": "You have to hear this!{NEWLINE}This is a big discovery!{SCROLL}There are as many Unown as there are{NEWLINE}letters in the alphabet!{SCROLL}There have been 26 types confirmed.{NEWLINE}Why don’t you collect them all?{SCROLL}",
+   "en": "You have to hear this! This is a big{NEWLINE}discovery!{SCROLL}We’ve confirmed that there are as many{NEWLINE}kinds of Unown as there are types{CLEAR}of letters!{SCROLL}We’ve confirmed 26 types of letters so{NEWLINE}far.{SCROLL}Keep at it and find all the Unown!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073/8; modernised from US 0073#8"
+   "origin": "agent",
+   "notes": "US 0073/8; modernised from US 0073#8 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 9,
@@ -97,18 +97,18 @@
   {
    "id": 11,
    "zh": "好了！{NEWLINE}已经把未知图腾侬{CLEAR}按正确的顺序排列好了！{SCROLL}这样又可能{NEWLINE}有什么发现呢！{SCROLL}",
-   "en": "There!{NEWLINE}I put the Unown in the correct order!{CLEAR}We may be able to tell more about them.{SCROLL}",
+   "en": "There! I’ve put the Unown in the right{NEWLINE}order!{SCROLL}Perhaps this will lead to another{NEWLINE}discovery!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073/11; modernised from US 0073#11"
+   "origin": "agent",
+   "notes": "US 0073/11; modernised from US 0073#11 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 12,
    "zh": "哎？！{NEWLINE}在遗迹的地上找到了{CLEAR}写着未知图腾文字的房间？{SCROLL}那可是大发现啊！{NEWLINE}我们也调查看看！{SCROLL}",
-   "en": "What?{NEWLINE}You found a room with Unown symbols?{CLEAR}That is a big discovery!{SCROLL}We will study them right away.{SCROLL}",
+   "en": "What?! You found an aboveground room{NEWLINE}in the ruins with Unown symbols?{SCROLL}That’s a huge discovery! We’ll{NEWLINE}investigate too!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073/12; modernised from US 0073#12"
+   "origin": "agent",
+   "notes": "US 0073/12; modernised from US 0073#12 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 13,
@@ -121,10 +121,10 @@
   {
    "id": 14,
    "zh": "听我说！{NEWLINE}关于地上的文字{CLEAR}已经解读出很多信息了！{SCROLL}……从前这个遗迹里,{NEWLINE}未知图腾好像曾和一群人类{CLEAR}一起生活,{SCROLL}那些人建造了{NEWLINE}地下房间里的精灵像,{SCROLL}未知图腾很胆小,{NEWLINE}从不到外面去,{SCROLL}遗迹附近人类越来越多,{NEWLINE}各种人都到这里来,{SCROLL}希望未知图腾和人类能{NEWLINE}共生的那群人{CLEAR}离开了这里……{SCROLL}我们的调查{NEWLINE}加上你的协助{CLEAR}解开了以上这些疑问！{SCROLL}但是还有很多很多事{NEWLINE}没搞清楚,{CLEAR}考古也是学无止境啊……{SCROLL}",
-   "en": "You have to hear this!{NEWLINE}We are learning more and more about the{CLEAR}symbols on the floor!{SCROLL}...It seems that Unown were living at{NEWLINE}the ruins with a human clan.{SCROLL}It is thought that this clan made the{NEWLINE}Pokémon statues underground.{SCROLL}The Unown were easily scared and{NEWLINE}wouldn’t go outside.{SCROLL}When more and more people started to{NEWLINE}appear around the ruins, the clan that{CLEAR}wished to live in harmony with the Unown{CLEAR}eventually left...{SCROLL}Thanks to our research and your{NEWLINE}help, we have unraveled so much about{CLEAR}their mystery!{SCROLL}We have so many things we don’t know{NEWLINE}left, of course.{SCROLL}Archaeology never ends.{SCROLL}",
+   "en": "You have to hear this! We’ve deciphered{NEWLINE}a lot of information from the symbols on{CLEAR}the floor!{SCROLL}...It seems Unown once lived in these{NEWLINE}ruins with a group of people.{SCROLL}Those people built the Pokémon statues{NEWLINE}in the underground chambers.{SCROLL}The Unown were very timid and never{NEWLINE}went outside.{SCROLL}More and more people came to live near{NEWLINE}the ruins. All sorts of people{CLEAR}came here.{SCROLL}The group who wanted Unown and humans{NEWLINE}to live together left this place...{SCROLL}Our research and your help have{NEWLINE}answered all these questions!{SCROLL}But there are still so many, many things{NEWLINE}we don’t understand. There’s no end to{CLEAR}learning in archaeology either...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073/14; modernised from US 0073#14"
+   "origin": "agent",
+   "notes": "US 0073/14; modernised from US 0073#14 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 15,
@@ -137,10 +137,10 @@
   {
    "id": 16,
    "zh": "{VAR:0103:0}{NEWLINE}在未知图腾笔记写下记录！",
-   "en": "{VAR:0103:0} opened the Unown Report{NEWLINE}and made notes!",
+   "en": "{VAR:0103:0} made notes in the Unown{NEWLINE}Report!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073/16; modernised from US 0073#16"
+   "origin": "agent",
+   "notes": "US 0073/16; modernised from US 0073#16 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 17,
@@ -153,10 +153,10 @@
   {
    "id": 18,
    "zh": "墙壁上画着的图案{NEWLINE}是解开遗迹谜题的钥匙！{SCROLL}……我有这种感觉。",
-   "en": "The patterns drawn on the walls are the{NEWLINE}key to solving the mystery of the{CLEAR}ruins! ...Or so I feel.",
+   "en": "The patterns drawn on the walls are the{NEWLINE}key to solving the mystery of{CLEAR}the ruins!{SCROLL}...Or so I feel.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0073/18 | RV031: omission: ‘…我有这种感觉’ hedge restored; US made it certain"
+   "notes": "US 0073/18 | RV031: omission: ‘…我有这种感觉’ hedge restored; US made it certain | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 19,
@@ -201,10 +201,10 @@
   {
    "id": 24,
    "zh": "全是很深奥的书！{SCROLL}『古代文明之谜』{NEWLINE}『暗号解读手册』{CLEAR}『风化遗迹』……",
-   "en": "There are many academic books.{SCROLL}“Mysteries of the Ancients”{NEWLINE}“Code-Breaking Guidebook”{CLEAR}“Weathering Ruins”",
+   "en": "These books are all very difficult!{SCROLL}“Mysteries of Ancient Civilizations”{NEWLINE}“Code-Breaking Guidebook”{CLEAR}“Weathered Ruins”...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073/24"
+   "origin": "agent",
+   "notes": "US 0073/24 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 25,
@@ -292,10 +292,10 @@
   {
    "id": 35,
    "zh": "听我说！{NEWLINE}关于地上的文字{CLEAR}已经解读出很多信息了！{SCROLL}……从前这个遗迹里,{NEWLINE}安侬好像曾和一群人类{CLEAR}一起生活,{SCROLL}那些人建造了{NEWLINE}地下房间里的精灵像,{SCROLL}安侬很胆小,{NEWLINE}从不到外面去,{SCROLL}遗迹附近人类越来越多,{NEWLINE}各种人都到这里来,{SCROLL}希望安侬和人类能{NEWLINE}共生的那群人{CLEAR}离开了这里……{SCROLL}我们的调查{NEWLINE}加上你的协助{CLEAR}解开了以上这些疑问！{SCROLL}但是还有很多很多事{NEWLINE}没搞清楚,{CLEAR}考古也是学无止境啊……{SCROLL}",
-   "en": "You have to hear this!{NEWLINE}We are learning more and more about the{CLEAR}symbols on the floor!{SCROLL}...It seems that Unown were living at{NEWLINE}the ruins with a human clan.{SCROLL}It is thought that this clan made the{NEWLINE}Pokémon statues underground.{SCROLL}The Unown were easily scared and{NEWLINE}wouldn’t go outside.{SCROLL}When more and more people started to{NEWLINE}appear around the ruins, the clan that{CLEAR}wished to live in harmony with the Unown{CLEAR}eventually left...{SCROLL}Thanks to our research and your{NEWLINE}help, we have unraveled so much about{CLEAR}their mystery!{SCROLL}We have so many things we don’t know{NEWLINE}left, of course.{SCROLL}Archaeology never ends.{SCROLL}",
+   "en": "You have to hear this! We’ve deciphered{NEWLINE}a lot of information from the symbols on{CLEAR}the floor!{SCROLL}...It seems Unown once lived in these{NEWLINE}ruins with a group of people.{SCROLL}Those people built the Pokémon statues{NEWLINE}in the underground chambers.{SCROLL}The Unown were very timid and never{NEWLINE}went outside.{SCROLL}More and more people came to live near{NEWLINE}the ruins. All sorts of people{CLEAR}came here.{SCROLL}The group who wanted Unown and humans{NEWLINE}to live together left this place...{SCROLL}Our research and your help have{NEWLINE}answered all these questions!{SCROLL}But there are still so many, many things{NEWLINE}we don’t understand. There’s no end to{CLEAR}learning in archaeology either...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073 line (same as #14; zh uses the newer name 安侬 for Unown)."
+   "origin": "agent",
+   "notes": "US 0073 line (same as #14; zh uses the newer name 安侬 for Unown). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 36,
@@ -308,10 +308,10 @@
   {
    "id": 37,
    "zh": "哎？！{NEWLINE}在遗迹的地上找到了{CLEAR}写着安侬文字的房间？{SCROLL}那可是大发现啊！{NEWLINE}我们也调查看看！{SCROLL}",
-   "en": "What?{NEWLINE}You found a room with Unown symbols?{CLEAR}That is a big discovery!{SCROLL}We will study them right away.{SCROLL}",
+   "en": "What?! You found an aboveground room{NEWLINE}in the ruins with Unown symbols?{SCROLL}That’s a huge discovery! We’ll{NEWLINE}investigate too!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073 line (same as #12; zh uses the newer name 安侬 for Unown)."
+   "origin": "agent",
+   "notes": "US 0073 line (same as #12; zh uses the newer name 安侬 for Unown). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 38,
@@ -332,18 +332,18 @@
   {
    "id": 40,
    "zh": "好了！{NEWLINE}已经把安侬{CLEAR}按正确的顺序排列好了！{SCROLL}这样又可能{NEWLINE}有什么发现呢！{SCROLL}",
-   "en": "There!{NEWLINE}I put the Unown in the correct order!{CLEAR}We may be able to tell more about them.{SCROLL}",
+   "en": "There! I’ve put the Unown in the right{NEWLINE}order!{SCROLL}Perhaps this will lead to another{NEWLINE}discovery!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073 line (same as #11; zh uses the newer name 安侬 for Unown)."
+   "origin": "agent",
+   "notes": "US 0073 line (same as #11; zh uses the newer name 安侬 for Unown). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 41,
    "zh": "听我说！{NEWLINE}这可是大发现哦！{SCROLL}安侬的数量{NEWLINE}和文字的种类数相同,{CLEAR}这一点已经确认了！{SCROLL}现在已经确认到了{NEWLINE}２６种文字,{SCROLL}加油,把所有的安侬{NEWLINE}都找出来吧！{SCROLL}",
-   "en": "You have to hear this!{NEWLINE}This is a big discovery!{SCROLL}There are as many Unown as there are{NEWLINE}letters in the alphabet!{SCROLL}There have been 26 types confirmed.{NEWLINE}Why don’t you collect them all?{SCROLL}",
+   "en": "You have to hear this! This is a big{NEWLINE}discovery!{SCROLL}We’ve confirmed that there are as many{NEWLINE}kinds of Unown as there are types{CLEAR}of letters!{SCROLL}We’ve confirmed 26 types of letters so{NEWLINE}far.{SCROLL}Keep at it and find all the Unown!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073 line (same as #8; zh uses the newer name 安侬 for Unown)."
+   "origin": "agent",
+   "notes": "US 0073 line (same as #8; zh uses the newer name 安侬 for Unown). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 42,
@@ -364,10 +364,10 @@
   {
    "id": 44,
    "zh": "{VAR:0103:0}{NEWLINE}在安侬笔记写下记录！",
-   "en": "{VAR:0103:0} opened the Unown Report{NEWLINE}and made notes!",
+   "en": "{VAR:0103:0} made notes in the Unown{NEWLINE}Report!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0073 line (same as #16; zh uses the newer name 安侬 for Unown)."
+   "origin": "agent",
+   "notes": "US 0073 line (same as #16; zh uses the newer name 安侬 for Unown). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 45,

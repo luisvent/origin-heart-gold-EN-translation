@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "我要和这３只精灵{NEWLINE}一起变强！一起长大！{SCROLL}",
-   "en": "Together with these three Pokémon I’ll{NEWLINE}get stronger! I’ll get bigger!{SCROLL}",
+   "en": "Together with these three Pokémon, I’ll{NEWLINE}get stronger! We’ll grow up together!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/2"
+   "origin": "agent",
+   "notes": "US 0311/2 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 3,
@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "它们一直保护我！{NEWLINE}所以我们⋯⋯不会输的！{SCROLL}",
-   "en": "My Pokémon are always protecting me!{NEWLINE}So there’s no way that we’ll lose!{SCROLL}",
+   "en": "They’re always protecting me! So we...{NEWLINE}won’t lose!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/11"
+   "origin": "agent",
+   "notes": "US 0311/11 | CES-early: Secondary CN comparison: restore exact meaning, subjects, register and explicit details"
   },
   {
    "id": 12,
@@ -118,10 +118,10 @@
   {
    "id": 14,
    "zh": "你知道这些{NEWLINE}精灵的技巧吗？{SCROLL}",
-   "en": "Do you know the skill of{NEWLINE}these Pokémon?!{SCROLL}",
+   "en": "Do you know the skill of these Pokémon?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/14"
+   "origin": "agent",
+   "notes": "US 0311/14 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 15,
@@ -142,18 +142,18 @@
   {
    "id": 17,
    "zh": "我在山里住了５年⋯⋯{NEWLINE}获得的友情是永远的！{SCROLL}",
-   "en": "On the mountain five years together...{NEWLINE}The friendship is everlasting!{SCROLL}",
+   "en": "I’ve lived in the mountains for five{NEWLINE}years... The friendship I{CLEAR}gained is forever!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/17"
+   "origin": "agent",
+   "notes": "US 0311/17 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 18,
    "zh": "精进武艺,为武而生！{NEWLINE}然后,为口袋竞技而生的男人！{SCROLL}",
-   "en": "Master fighting! Live for fighting!{NEWLINE}And live for the Pokéathlon!{SCROLL}",
+   "en": "Honing his martial arts, born for them!{NEWLINE}And a man born for the Pokéathlon!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/18"
+   "origin": "agent",
+   "notes": "US 0311/18 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 19,
@@ -174,26 +174,26 @@
   {
    "id": 21,
    "zh": "向着胜利飞吧！{NEWLINE}飞向胜利的那边！{SCROLL}",
-   "en": "Jump to victory!{NEWLINE}Jump to the other side of victory!{SCROLL}",
+   "en": "Fly toward victory! Fly to the other{NEWLINE}side of victory!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/21"
+   "origin": "agent",
+   "notes": "US 0311/21 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 22,
    "zh": "为什么这么跳？{NEWLINE}因为只会跳啊。{SCROLL}",
-   "en": "Why can you jump that high?!{NEWLINE}Simple, it’s because it’s all you can do.{SCROLL}",
+   "en": "Why jump like that? Because jumping is{NEWLINE}all I can do.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/22"
+   "origin": "agent",
+   "notes": "US 0311/22 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 23,
    "zh": "我们才刚刚开始！{NEWLINE}就算天涯海角也会飞给你看！{SCROLL}",
-   "en": "We’re not done. We’re just beginning!{NEWLINE}We’ll show you just how far we can jump!{SCROLL}",
+   "en": "We’ve only just begun! We’ll show you{NEWLINE}we can fly to the ends of the earth!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/23"
+   "origin": "agent",
+   "notes": "US 0311/23 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 24,
@@ -206,10 +206,10 @@
   {
    "id": 25,
    "zh": "该速度无法测量！{NEWLINE}超越速度的传说中的团队！{SCROLL}",
-   "en": "It’s impossible to measure that speed!{NEWLINE}A legendary team known for speed!{SCROLL}",
+   "en": "That speed can’t be measured! A{NEWLINE}legendary team that surpasses speed!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/25"
+   "origin": "agent",
+   "notes": "US 0311/25 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 26,
@@ -286,10 +286,10 @@
   {
    "id": 35,
    "zh": "天生的技巧才能！{NEWLINE}天才才能抓住胜利！{SCROLL}",
-   "en": "I’ve got innate talent! This genius is{NEWLINE}going to seize victory!{SCROLL}",
+   "en": "Born with a talent for skill! Only a{NEWLINE}genius can seize victory!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0311/35"
+   "origin": "agent",
+   "notes": "US 0311/35 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 36,

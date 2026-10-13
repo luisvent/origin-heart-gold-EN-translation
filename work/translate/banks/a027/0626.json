@@ -46,9 +46,9 @@
   {
    "id": 5,
    "zh": "什么？这个是蛋啊！{NEWLINE}什么技能也没学会……{SCROLL}",
-   "en": "What? That’s an Egg.{NEWLINE}No Egg should know any moves.{SCROLL}",
+   "en": "What? That’s an Egg.{NEWLINE}It hasn’t learned any moves...{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0635/5"
   },
   {

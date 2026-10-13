@@ -6,25 +6,25 @@
   {
    "id": 0,
    "zh": "我是培育屋的爷爷。{SCROLL}在这里可以照顾大家的精灵哦。{SCROLL}如果有什么需要的话,{NEWLINE}跟婆婆说就可以了。",
-   "en": "I’m the Day-Care Man.{SCROLL}We look after the precious Pokémon{NEWLINE}of other Trainers.{SCROLL}If you’d like us to raise your{NEWLINE}Pokémon, have a word with my wife.",
+   "en": "I’m the Day-Care Man.{SCROLL}We look after everyone’s Pokémon.{SCROLL}If you need anything,{NEWLINE}just talk to my wife.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0439/0"
   },
   {
    "id": 1,
    "zh": "嘿！你啊。{SCROLL}放在这里的精灵{NEWLINE}成长得很好⋯⋯什么！{SCROLL}精灵居然带着蛋！{SCROLL}从哪里来的还不知道。{NEWLINE}你的精灵所持有的蛋,{SCROLL}想要吗？{VAR:0200:0}",
-   "en": "Ah, it’s you!{SCROLL}We were raising your Pokémon,{NEWLINE}and my goodness, were we surprised!{SCROLL}Your Pokémon was holding an Egg!{SCROLL}We don’t know how it got there,{NEWLINE}but your Pokémon had it.{SCROLL}You do want it, don’t you? {VAR:0200:0}",
+   "en": "Hey, you!{SCROLL}The Pokémon you left here{NEWLINE}has grown well... What?!{SCROLL}Your Pokémon is carrying an Egg!{SCROLL}We don’t know where it came from.{NEWLINE}The Egg your Pokémon was holding...{SCROLL}Would you like it? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": ""
   },
   {
    "id": 2,
    "zh": "嘿,你啊！终于来了。{NEWLINE}{VAR:0100:0}很健康哦。",
-   "en": "Ah, it’s you! Good to see you.{NEWLINE}Your {VAR:0100:0}’s doing just fine.",
+   "en": "Ah, you’re finally here!{NEWLINE}{VAR:0100:0} is doing just fine.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": ""
   },
   {
@@ -78,9 +78,9 @@
   {
    "id": 9,
    "zh": "噢,你啊！终于来了啊。{SCROLL}{VAR:0100:0}和{NEWLINE}{VAR:0100:1}都很健康哦！{SCROLL}",
-   "en": "Ah, it’s you!{NEWLINE}Good to see you!{SCROLL}Your {VAR:0100:0} and {VAR:0100:1}{NEWLINE}are doing just fine.{SCROLL}",
+   "en": "Ah, you’re finally here!{SCROLL}{VAR:0100:0} and {VAR:0100:1}{NEWLINE}are both doing just fine.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": ""
   },
   {
@@ -126,17 +126,17 @@
   {
    "id": 15,
    "zh": "好！{NEWLINE}交给我吧！{SCROLL}你要想培育什么精灵的话{NEWLINE}就去找婆婆吧。",
-   "en": "You can leave it up to us!{SCROLL}Any Pokémon you’d like to have raised{NEWLINE}you can leave in my wife’s care.",
+   "en": "All right!{NEWLINE}Leave it to me!{SCROLL}If there’s a Pokémon you want raised,{NEWLINE}go see my wife.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": ""
   },
   {
    "id": 16,
    "zh": "原来如此,也行。{SCROLL}你要想培育什么精灵的话{NEWLINE}就去找婆婆吧。",
-   "en": "I see. Well, that’s fine.{SCROLL}Any Pokémon you’d like to have raised{NEWLINE}you can leave in my wife’s care.",
+   "en": "I see. That’s fine.{SCROLL}If there’s a Pokémon you want raised,{NEWLINE}go see my wife.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": ""
   },
   {
@@ -174,9 +174,9 @@
   {
    "id": 21,
    "zh": "我是培育屋的婆婆。{SCROLL}可以帮你们培育{NEWLINE}你们的精灵的哦。{SCROLL}想培育哪个呢？{VAR:0200:0}",
-   "en": "I’m the Day-Care Lady.{NEWLINE}We can raise Pokémon for you.{SCROLL}Would you like us to raise your{NEWLINE}Pokémon? {VAR:0200:0}",
+   "en": "I’m the Day-Care Lady.{SCROLL}We can raise your Pokémon for you.{SCROLL}Which one would you like us to raise? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0439/21"
   },
   {
@@ -198,9 +198,9 @@
   {
    "id": 24,
    "zh": "可以寄存２只精灵哦,{NEWLINE}还是要寄存１只精灵吗？{VAR:0200:0}",
-   "en": "We can raise two of your Pokémon.{NEWLINE}Would you like us to raise another? {VAR:0200:0}",
+   "en": "We can look after two Pokémon.{NEWLINE}Do you still want to leave just one? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0439/24"
   },
   {
@@ -214,9 +214,9 @@
   {
    "id": 26,
    "zh": "是吗,{NEWLINE}那么下次再来吧。",
-   "en": "Oh, fine, then.{NEWLINE}Come again.",
+   "en": "I see.{NEWLINE}Then come back next time.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0439/26"
   },
   {
@@ -230,23 +230,23 @@
   {
    "id": 28,
    "zh": "要取回１只精灵吗？{VAR:0200:0}",
-   "en": "Do you want to take back the other{NEWLINE}one, too? {VAR:0200:0}",
+   "en": "Would you like to take back{NEWLINE}one Pokémon? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0439/28"
   },
   {
    "id": 29,
    "zh": "那么下次再来吧。",
-   "en": "Very good.{NEWLINE}Come again.",
+   "en": "Come back next time.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0439/29"
   },
   {
    "id": 30,
    "zh": "噢,你啊！终于来了,{NEWLINE}你的精灵很健康哦。{SCROLL}",
-   "en": "Ah, it’s you! Good to see you.{NEWLINE}Your Pokémon is doing just fine.{SCROLL}",
+   "en": "Ah, you’re finally here!{NEWLINE}Your Pokémon is doing just fine.{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -254,9 +254,9 @@
   {
    "id": 31,
    "zh": "{VAR:0100:0}的等级,{NEWLINE}已经提升了{VAR:0133:1}级了。{SCROLL}",
-   "en": "By level, your {VAR:0100:0} has{NEWLINE}grown by about {VAR:0133:1}.{SCROLL}",
+   "en": "Your {VAR:0100:0} has gone up{NEWLINE}{VAR:0133:1} levels.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0439/31"
   },
   {
@@ -278,9 +278,9 @@
   {
    "id": 34,
    "zh": "谢谢！{NEWLINE}那么,请将精灵带走吧！{SCROLL}",
-   "en": "Excellent!{NEWLINE}Here’s your Pokémon.{SCROLL}",
+   "en": "Thank you!{NEWLINE}Now, please take your Pokémon.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0439/34"
   },
   {

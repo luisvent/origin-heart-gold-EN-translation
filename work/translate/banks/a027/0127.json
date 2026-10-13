@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "哎呀？{NEWLINE}装不下了……我会在道馆等你,{CLEAR}想要的话就整理好了{CLEAR}再来找我吧。{SCROLL}",
-   "en": "Oh? You don’t have any room for this.{SCROLL}I’m going back to the Gym, so make{NEWLINE}room, then come see me there.{SCROLL}",
+   "en": "Oh? You don’t have any room for this...{NEWLINE}I’ll wait at the Gym. If you want it,{CLEAR}make room and come see me there.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0129/4"
+   "origin": "agent",
+   "notes": "US 0129/4 | CES005-0127-0138-0139: Restore conditional invitation and waiting at Gym."
   },
   {
    "id": 5,
@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "伊吹『……　……　……",
-   "en": "Clair: ...",
+   "en": "Clair: ... ... ...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0127-0138-0139: Restore repeated silence."
   },
   {
    "id": 13,
@@ -270,10 +270,10 @@
   {
    "id": 33,
    "zh": "相册{NEWLINE}好像满了,{SCROLL}用电脑把相册的{NEWLINE}照片整理一下吧。",
-   "en": "Your Photo Album is full.{SCROLL}Access your PC and delete{NEWLINE}some pictures.{NEWLINE}",
+   "en": "Your Photo Album seems to be full.{SCROLL}Use the PC to organize the photos in{NEWLINE}your album.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0129/33"
+   "origin": "agent",
+   "notes": "US 0129/33 | CES005-0127-0138-0139: Restore uncertainty and organizing rather than mandatory deletion."
   },
   {
    "id": 34,

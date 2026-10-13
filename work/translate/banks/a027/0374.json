@@ -14,18 +14,18 @@
   {
    "id": 1,
    "zh": "我的可拉可拉被暴风卷上天去{NEWLINE}掉下来的时候摔破了头骨,{CLEAR}其实在对战中也会遇到{CLEAR}头骨受伤的情况,{CLEAR}通常只要给可拉可拉喂一些{CLEAR}补充营养的食物它就能自己痊愈。{CLEAR}可是这附近压根弄不到像样的营养品,{CLEAR}这可如何是好啊。",
-   "en": "My Cubone got swept up into{NEWLINE}the sky by the storm, and when{CLEAR}it fell, it cracked its skull.{SCROLL}Skull injuries happen in battle too.{NEWLINE}Usually, if you feed Cubone something{CLEAR}nourishing, it heals on its own.{SCROLL}But there’s nothing decent like{NEWLINE}that to be had anywhere around{CLEAR}here. What am I going to do?",
+   "en": "My Cubone got swept up into the sky by{NEWLINE}the storm, and when it fell, it cracked{CLEAR}its skull.{SCROLL}Skull injuries happen in battle too.{NEWLINE}Usually, if you feed Cubone something{CLEAR}nourishing, it heals on its own.{SCROLL}But there are no decent nutritional{NEWLINE}supplements to be had anywhere around{CLEAR}here. What am I going to do?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Retain nutritional supplements item kind."
   },
   {
    "id": 2,
    "zh": "我的胡说盆栽被暴风吹得撞上了岩石,{NEWLINE}导致身体出现了一条裂缝,{CLEAR}如果把坚硬的岩石{CLEAR}填补进胡说盆栽的伤口,{CLEAR}应该就能减轻它的痛苦。{CLEAR}可是我没有这种东西啊……",
-   "en": "The storm slammed my{NEWLINE}Bonsly into a rock, and now{CLEAR}it has a crack in its body.{SCROLL}If something hard like stone{NEWLINE}were packed into Bonsly’s wound,{CLEAR}it should ease the pain. But I{CLEAR}don’t have anything like that...",
+   "en": "The storm slammed my Bonsly into a{NEWLINE}rock, and now it has a crack in{CLEAR}its body.{SCROLL}If hard stone were packed into Bonsly’s{NEWLINE}wound, it should ease the pain. But I{CLEAR}don’t have anything like that...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Specify hard stone rather than any hard material."
   },
   {
    "id": 3,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "可拉可拉『Cuuu——bon！{SCROLL}可拉可拉的伤势恢复了许多！",
-   "en": "Cubone: Cuuu-bon!{SCROLL}Cubone looks much better!",
+   "en": "Cubone: Cuuu-bon!{SCROLL}Cubone’s injuries have{NEWLINE}healed considerably!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Injuries actually improved, not merely appearance."
   },
   {
    "id": 11,
@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "乔伊『呀,您是……{NEWLINE}您是联盟冠军！{CLEAR}没想到您竟然会来到{CLEAR}我们这间偏远的精灵中心。",
-   "en": "Joy: Oh! You’re... you’re{NEWLINE}the League Champion! I never{CLEAR}thought you’d come to a remote{CLEAR}little Pokémon Center like ours.",
+   "en": "Joy: Oh! You’re... you’re the League{NEWLINE}Champion! I never thought you’d come{CLEAR}to a remote Pokémon Center like ours.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Champion title and polite address; remote is not necessarily small."
   },
   {
    "id": 18,
@@ -230,10 +230,10 @@
   {
    "id": 28,
    "zh": "阿金『这是我捡的树叶,{NEWLINE}给结草儿粘上应该就没问题了。",
-   "en": "Gold: These are some leaves I picked{NEWLINE}up. Stick ’em on Burmy and it’ll be fine.",
+   "en": "Gold: These are some leaves I picked{NEWLINE}up. Stick ’em on Burmy and it should{CLEAR}be fine.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve should modality."
   },
   {
    "id": 29,
@@ -366,10 +366,10 @@
   {
    "id": 45,
    "zh": "那等你忙完之后能跟我约会……",
-   "en": "Then once you’re done, would{NEWLINE}you go on a date with...",
+   "en": "Then once you’re done, would you go on{NEWLINE}a date with me...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Retain with me before interrupted date request."
   },
   {
    "id": 46,
@@ -390,10 +390,10 @@
   {
    "id": 48,
    "zh": "乔伊『谢谢您冠军大人,{NEWLINE}在您和几位热心训练家的帮助下,{CLEAR}这一批来就医的精灵们{CLEAR}似乎都治疗地差不多了。",
-   "en": "Joy: Thank you, Champion. With{NEWLINE}your help and a few kind-hearted{CLEAR}Trainers, this round of patients{CLEAR}is just about all treated.",
+   "en": "Joy: Thank you, Champion. With your{NEWLINE}help and that of a few kind-hearted{CLEAR}Trainers, this round of patients seems{CLEAR}just about all treated.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore seems, Champion address, and polite register."
   },
   {
    "id": 49,
@@ -406,10 +406,10 @@
   {
    "id": 50,
    "zh": "乔伊『宝宝丁的伤势确实很严重,{NEWLINE}只用好伤药的话恐怕无济于事。{CLEAR}好在我这里有从铃铛塔进货的圣灰,{CLEAR}给宝宝丁兑水冲服应该有效。",
-   "en": "Joy: Igglybuff’s injuries really are{NEWLINE}serious. A Super Potion alone won’t{CLEAR}do much. Luckily, I have some Sacred{CLEAR}Ash we stock from the Bell Tower.{CLEAR}Mixed with water, it should work.",
+   "en": "Joy: Igglybuff’s injuries really are{NEWLINE}serious. I’m afraid a Super Potion alone{CLEAR}won’t help. Luckily, I have some Sacred{CLEAR}Ash we stock from the Bell Tower. Mixing{CLEAR}it with water for Igglybuff to drink{CLEAR}should work.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve fear that potion will not help, not just limited effectiveness."
   },
   {
    "id": 51,
@@ -518,10 +518,10 @@
   {
    "id": 64,
    "zh": "一会儿我要让乔伊小姐{NEWLINE}看一下我的土龙,{CLEAR}等看完之后,{CLEAR}我就以感谢为名约乔伊小姐吃饭。{CLEAR}嗯！就这么办。",
-   "en": "In a bit, I’ll have Nurse Joy take{NEWLINE}a look at my Dunsparce. When she’s{CLEAR}done, I’ll ask her out to dinner to{CLEAR}say thanks. Yeah! That’s the plan.",
+   "en": "In a bit, I’ll have Nurse Joy take a{NEWLINE}look at my Dunsparce. When she’s done,{CLEAR}I’ll ask her out for a meal under the{CLEAR}pretext of thanking her. Yeah! That’s{CLEAR}the plan.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Thanks is pretext for invitation."
   },
   {
    "id": 65,

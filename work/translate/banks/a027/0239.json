@@ -110,9 +110,9 @@
   {
    "id": 13,
    "zh": "{VAR:0103:0}将精灵{NEWLINE}寄存给了管理员！{SCROLL}那么剩下的精灵{NEWLINE}就由我们保管吧！{SCROLL}",
-   "en": "Fine, we’ll hold your other Pokémon{NEWLINE}while you compete.{SCROLL}{VAR:0103:0}’s Pokémon were left with{NEWLINE}the Contest Helper.{SCROLL}",
+   "en": "{VAR:0103:0} left their Pokémon with{NEWLINE}the Contest Helper!{SCROLL}We’ll look after the rest of your{NEWLINE}Pokémon.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/13"
   },
   {
@@ -134,9 +134,9 @@
   {
    "id": 16,
    "zh": "真遗憾！{SCROLL}您似乎不能{NEWLINE}再抓精灵了！",
-   "en": "Oh no!{SCROLL}I’m sorry, you don’t have enough{NEWLINE}room to catch any more Pokémon.",
+   "en": "Oh no!{SCROLL}It seems you can’t catch any more{NEWLINE}Pokémon!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/16"
   },
   {
@@ -214,9 +214,9 @@
   {
    "id": 26,
    "zh": "是吗,{NEWLINE}那么接下来的时间{CLEAR}还请多多努力呀！{SCROLL}",
-   "en": "OK. Please go back outside and{NEWLINE}finish up.{SCROLL}",
+   "en": "I see. Do your best with the{NEWLINE}time you have left!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/26"
   },
   {
@@ -374,9 +374,9 @@
   {
    "id": 46,
    "zh": "手上的东西满了,{NEWLINE}{VAR:0101:5}{CLEAR}传送到了箱子！{SCROLL}",
-   "en": "Your party’s full, so {VAR:0101:5} was{NEWLINE}sent to your Box in Bill’s PC.{SCROLL}",
+   "en": "Your party’s full, so {VAR:0101:5} was{NEWLINE}sent to your Box.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/46"
   },
   {
@@ -430,9 +430,9 @@
   {
    "id": 53,
    "zh": "洋二『唔~真羡慕,{NEWLINE}这次只是我状态不好罢了。",
-   "en": "Ed: I envy you. I just couldn’t do it{NEWLINE}this time.",
+   "en": "Ed: I envy you. I was just off my game{NEWLINE}this time.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/53"
   },
   {
@@ -446,9 +446,9 @@
   {
    "id": 55,
    "zh": "绘里『听说颜色鲜艳{NEWLINE}长的漂亮的虫子容易拿第一,{CLEAR}是真的吗？",
-   "en": "Abby: I heard that using Pokémon with{NEWLINE}beautiful colors makes it easier to win.{CLEAR}I wonder if that’s true?",
+   "en": "Abby: I hear bright, beautiful Bug{NEWLINE}Pokémon are likelier to win first.{CLEAR}Is that true?",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/55"
   },
   {
@@ -550,17 +550,17 @@
   {
    "id": 68,
    "zh": "里见『恭喜你！{NEWLINE}对了⋯⋯{SCROLL}我最喜欢虫精灵了。",
-   "en": "Cindy: Congratulations on winning!{NEWLINE}By the way...{SCROLL}Did I mention that I really love bug{NEWLINE}Pokémon?",
+   "en": "Cindy: Congratulations on winning!{NEWLINE}By the way...{SCROLL}I really love bug Pokémon!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/68"
   },
   {
    "id": 69,
    "zh": "智道『 自出生起{NEWLINE}就只抓虫精灵的{SCROLL}我怎么可能会输！",
-   "en": "Josh: I’ve been collecting bug Pokémon{NEWLINE}since I was just a baby.{SCROLL}There’s no way I’m going to lose!",
+   "en": "Josh: I’ve caught only Bug Pokémon{NEWLINE}since the day I was born.{SCROLL}There’s no way I’m going to lose!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/69"
   },
   {
@@ -574,9 +574,9 @@
   {
    "id": 71,
    "zh": "智道『捕虫大会{NEWLINE}不是抓草啊鸟什么的{CLEAR}而是要抓虫子！{SCROLL}拿到了冠军的你{NEWLINE}应该是知道的吧？",
-   "en": "Josh: It’s called a Bug-Catching{NEWLINE}Contest, not a Bird-Catching Contest!{SCROLL}You, of all people, should know that.{NEWLINE}After all, you won!",
+   "en": "Josh: It’s called a Bug-Catching{NEWLINE}Contest, not for grass or birds!{SCROLL}You, of all people, should know that.{NEWLINE}After all, you won!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/71"
   },
   {
@@ -598,17 +598,17 @@
   {
    "id": 74,
    "zh": "库塔『不甘心⋯⋯{NEWLINE}这次的失败我要当作教训⋯⋯",
-   "en": "Samuel: It’s so disappointing...{NEWLINE}I won’t forget this defeat, and...",
+   "en": "Samuel: It’s so disappointing...{NEWLINE}I’ll learn from this defeat...",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/74"
   },
   {
    "id": 75,
    "zh": "知之『虫精灵的事{NEWLINE}我已经充~分学习过了。{CLEAR}一定能拿到第一的！",
-   "en": "Kipp: I’ve studied bug Pokémon a lot.{NEWLINE}I’m going to win for sure.",
+   "en": "Kipp: I’ve studied Bug Pokémon{NEWLINE}inside out. I’ll win for sure.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0246/75"
   },
   {

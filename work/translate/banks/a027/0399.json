@@ -100,10 +100,10 @@
   {
    "id": 11,
    "zh": "这是你要的东西,请拿好。",
-   "en": "Here’s what you wanted.{NEWLINE}Take good care of it.",
+   "en": "Here’s what you wanted. Please take it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: preserve exact meaning, subjects, uncertainty and emphasis"
   },
   {
    "id": 12,
@@ -780,10 +780,10 @@
   {
    "id": 96,
    "zh": "{VAR:0103:0}『阿金、水晶,你们不愧是{NEWLINE}空木博士挑选的图鉴持有者,{CLEAR}今天面对强大的火箭队,{CLEAR}表现得都很出色。",
-   "en": "{VAR:0103:0}: Gold, Crystal, you really{NEWLINE}are the Pokédex holders Prof. Elm{CLEAR}chose. You both did great today{CLEAR}against Team Rocket’s strongest.",
+   "en": "{VAR:0103:0}: Gold, Crystal, you really are{NEWLINE}the Pokédex holders Prof. Elm chose.{CLEAR}You both did great today against the{CLEAR}powerful Team Rocket.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: preserve exact meaning, subjects, uncertainty and emphasis"
   },
   {
    "id": 97,
@@ -844,18 +844,18 @@
   {
    "id": 104,
    "zh": "阿金『嘿嘿,那咱们就来比比{NEWLINE}谁收集图鉴更有效率,{CLEAR}看我比你快的同时{CLEAR}会不会像你说的那样栽跟头。",
-   "en": "Gold: Heh heh, then let’s see who{NEWLINE}fills in the Pokédex faster. And{CLEAR}we’ll see if I fall on my face like{CLEAR}you said while I beat you to it.",
+   "en": "Gold: Heh heh, then let’s see who fills{NEWLINE}in the Pokédex more efficiently. And{CLEAR}we’ll see if I fall on my face like you{CLEAR}said while I beat you to it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: preserve exact meaning, subjects, uncertainty and emphasis"
   },
   {
    "id": 105,
    "zh": "水晶『能比赛收集图鉴,{NEWLINE}当然是更有干劲啦。{CLEAR}但是你也不要为了取胜就故意犯险,{CLEAR}要注意安全知道吗？",
-   "en": "Crystal: A Pokédex race will make{NEWLINE}me work even harder, of course.{CLEAR}But don’t take stupid risks just{CLEAR}to win. Be careful, you hear?",
+   "en": "Crystal: A Pokédex race will make me{NEWLINE}work even harder, of course. But don’t{CLEAR}deliberately take risks just to win. Be{CLEAR}careful, you hear?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: preserve exact meaning, subjects, uncertainty and emphasis"
   },
   {
    "id": 106,

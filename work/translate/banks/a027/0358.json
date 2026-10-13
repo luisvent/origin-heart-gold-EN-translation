@@ -55,10 +55,10 @@
   {
    "id": 6,
    "zh": "我看电视上说,{NEWLINE}小小象能探测到埋在地下的金珠,{CLEAR}我就想让我的小小象也学着寻找金珠。{CLEAR}可是练了这么久……{CLEAR}它一个金珠都没有找到。{SCROLL}是不是因为我的小小象{NEWLINE}从来都没有见过金珠啊？{CLEAR}要是我能有一颗金珠{CLEAR}帮小小象练习探测能力就好了。",
-   "en": "I saw on TV that Phanpy can sniff out{NEWLINE}Nuggets buried underground, so I{CLEAR}wanted to teach my Phanpy to look for{CLEAR}Nuggets too.{SCROLL}But after all this training... it hasn’t{NEWLINE}found a single one.{SCROLL}Maybe it’s because my Phanpy has never{NEWLINE}seen a Nugget?{SCROLL}If only I had a Nugget to help Phanpy{NEWLINE}practice its detecting skills.",
+   "en": "I saw on TV that Phanpy can detect{NEWLINE}Nuggets buried underground, so I{CLEAR}wanted to teach my Phanpy to look for{CLEAR}Nuggets too.{SCROLL}But after all this training... it hasn’t{NEWLINE}found a single one.{SCROLL}Maybe it’s because my Phanpy has never{NEWLINE}seen a Nugget?{SCROLL}If only I had a Nugget to help Phanpy{NEWLINE}practice its detecting skills.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Keep detection ability without inventing smell-specific mechanism."
   },
   {
    "id": 7,
@@ -130,10 +130,10 @@
   {
    "id": 15,
    "zh": "来吧,路过的训练家,{NEWLINE}与我一决高低！",
-   "en": "Come on, passing Trainer, battle me!",
+   "en": "Come on, passing Trainer! Let’s see{NEWLINE}who’s better!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Trainer address and decide superiority challenge."
   },
   {
    "id": 16,

@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "烈空坐『咕啦咕啦！{NEWLINE}",
-   "en": "Rayquaza: Kiyuryursheeah!",
+   "en": "Rayquaza: Kiyuryursheeah!{NEWLINE}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0150/2; modernised from US 0150#2 | D-1195: reverted to match the zh (Rayquaza is given Kyogre’s cry 咕啦咕啦); logged in hack_findings_import.jsonl | Hack text error fixed with user approval (D-1137, D-1496)."
+   "notes": "US 0150/2; modernised from US 0150#2 | D-1195: reverted to match the zh (Rayquaza is given Kyogre’s cry 咕啦咕啦); logged in hack_findings_import.jsonl | Hack text error fixed with user approval (D-1137, D-1496). | CES-early: layout: preserve source final NEWLINE"
   },
   {
    "id": 3,
@@ -222,10 +222,10 @@
   {
    "id": 27,
    "zh": "{VAR:0103:0}『别做梦了坂木,{NEWLINE}这个世界无法使用穿洞绳,{CLEAR}你已经无处可逃了,{CLEAR}跟我回去认罪是你唯一的出路。",
-   "en": "{VAR:0103:0}: Dream on, Giovanni. Escape{NEWLINE}Ropes don’t work in this world. You’ve{CLEAR}got nowhere to run. Coming back with{CLEAR}me to face justice is your only way out.",
+   "en": "{VAR:0103:0}: Dream on, Giovanni. Escape{NEWLINE}Ropes don’t work in this world. You’ve{CLEAR}got nowhere to run. Coming back with me{CLEAR}to confess your crimes is your only{CLEAR}way out.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: meaning: acknowledge guilt not merely face justice"
   },
   {
    "id": 28,

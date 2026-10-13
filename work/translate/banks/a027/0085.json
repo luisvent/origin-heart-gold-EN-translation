@@ -179,10 +179,10 @@
   {
    "id": 21,
    "zh": "{VAR:0103:0}『既然是你先看到的,{NEWLINE}那就让给你吧。",
-   "en": "{VAR:0103:0}: If you saw it{NEWLINE}first, then you can have it.",
+   "en": "{VAR:0103:0}: Since you saw it first, then{NEWLINE}you can have it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 22,
@@ -299,10 +299,10 @@
   {
    "id": 36,
    "zh": "{VAR:0103:0}『我忍你很久了,{NEWLINE}你这样的人,不帮助也罢！",
-   "en": "{VAR:0103:0}: I’ve put up with you{NEWLINE}for a long time. Someone like{CLEAR}you doesn’t deserve help!",
+   "en": "{VAR:0103:0}: I’ve put up with you for a long{NEWLINE}time. I won’t bother helping someone{CLEAR}like you!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 37,
@@ -403,10 +403,10 @@
   {
    "id": 49,
    "zh": "小姐,你的玛力露{NEWLINE}好像是固执性格的大力士。{CLEAR}而且我看它也不怎么喜欢你,{CLEAR}与其把它强留在你身边,{CLEAR}不如让它跟我走吧。",
-   "en": "Miss, your Marill seems to have{NEWLINE}an Adamant nature and Huge Power.{CLEAR}And it doesn’t seem to like you much,{CLEAR}either. Instead of keeping it by your{CLEAR}side, why not let it come with me?",
+   "en": "Miss, your Marill seems to have an{NEWLINE}Adamant nature and Huge Power. And it{CLEAR}doesn’t seem to like you much, either.{CLEAR}Instead of forcing it to stay by your{CLEAR}side, why not let it come with me?",
    "status": "draft",
    "origin": "agent",
-   "notes": "Marill thief (Girafarig) who 'repented at Sprout Tower'; the Marill girl is from the Violet City runaway quest (0548)."
+   "notes": "Marill thief (Girafarig) who 'repented at Sprout Tower'; the Marill girl is from the Violet City runaway quest (0548). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 50,
@@ -651,10 +651,10 @@
   {
    "id": 80,
    "zh": "小豪『你总算良心发现{NEWLINE}知道移开那块石头了啊！{CLEAR}现在没你什么事了,{CLEAR}赶紧给我让开,{CLEAR}别挡着我去抓那只臭老鼠。",
-   "en": "Goh: So your conscience finally kicked{NEWLINE}in and you moved that rock, huh?{CLEAR}You’ve got no business here now,{CLEAR}so get out of my way. Don’t stand{CLEAR}between me and that stinking rat.",
+   "en": "Goh: So your conscience finally kicked in{NEWLINE}and you moved that rock, huh? You’ve{CLEAR}got no business here now, so get out of{CLEAR}my way. Don’t stand in the way of me{CLEAR}catching that stinking rat.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 81,
@@ -806,10 +806,10 @@
   {
    "id": 99,
    "zh": "我听我奶奶唱过哦,{NEWLINE}大致内容是这样的：{SCROLL}鲜红的血液从地底渗出,{NEWLINE}照亮了最后的洞窟。{CLEAR}为红莲献上红心,{CLEAR}它就会从火焰中走来……{SCROLL}怎么样,这歌词是不是{NEWLINE}充满了神秘感呀？",
-   "en": "My grandma used to sing it.{NEWLINE}It goes something like this:{SCROLL}‘Crimson blood seeps up from the earth{NEWLINE}and lights the deepest cave. Offer a{CLEAR}red heart to the crimson lotus, and{CLEAR}it will walk forth from the flames...’{SCROLL}Well? Doesn’t that sound mysterious?",
+   "en": "My grandma used to sing it. It goes{NEWLINE}something like this:{SCROLL}‘Crimson blood seeps up from the earth{NEWLINE}and lights the last cave. Offer a red{CLEAR}heart to the crimson lotus, and it will{CLEAR}walk forth from the flames...’{SCROLL}Well? Doesn’t that sound mysterious?",
    "status": "draft",
    "origin": "agent",
-   "notes": "The Union Cave rhyme is the hack's own riddle (Heatran / Magma Stone hint), not a real song; translated."
+   "notes": "The Union Cave rhyme is the hack's own riddle (Heatran / Magma Stone hint), not a real song; translated. | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 100,

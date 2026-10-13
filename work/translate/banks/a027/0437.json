@@ -38,7 +38,7 @@
   {
    "id": 4,
    "zh": "小光『对了,{VAR:0103:0},{NEWLINE}你认识水树吗？{SCROLL}他应该在绿缘市,{NEWLINE}作为一名精灵训练师,{CLEAR}我想你应该去见见他。",
-   "en": "Dawn: Oh, right, {VAR:0103:0}.{NEWLINE}Do you know Bebe?{SCROLL}She’s in Hearthome City. You’re a{NEWLINE}Trainer, so you should go say hello!",
+   "en": "Dawn: Oh, right, {VAR:0103:0}.{NEWLINE}Do you know Bebe?{SCROLL}He should be in Hearthome City.{NEWLINE}As a Pokémon Trainer, I think you{CLEAR}should go meet him.",
    "status": "draft",
    "origin": "agent",
    "notes": "水树 (JP ミズキ, Hearthome City): unused Platinum support text; English name not confirmed, 'Keira' is a guess.; ext-review RV-002: 水树 (JP Mizuki) = Bebe, the Hearthome PC-box developer (Platinum); answers D-0508"
@@ -150,7 +150,7 @@
   {
    "id": 18,
    "zh": "幸树『对了,{VAR:0103:0},{NEWLINE}你认识水树吗？{SCROLL}他应该在绿缘市,{NEWLINE}作为一名精灵训练师,{CLEAR}我想你应该去见见他。",
-   "en": "Lucas: Oh, right, {VAR:0103:0}.{NEWLINE}Do you know Bebe?{SCROLL}She’s in Hearthome City. You’re a{NEWLINE}Trainer, so you should go say hello!",
+   "en": "Lucas: Oh, right, {VAR:0103:0}.{NEWLINE}Do you know Bebe?{SCROLL}He should be in Hearthome City.{NEWLINE}As a Pokémon Trainer, I think you{CLEAR}should go meet him.",
    "status": "draft",
    "origin": "agent",
    "notes": "水树: see #4.; ext-review RV-002: 水树 (JP Mizuki) = Bebe, the Hearthome PC-box developer (Platinum); answers D-0508"

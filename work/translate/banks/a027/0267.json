@@ -86,16 +86,10 @@
   {
    "id": 10,
    "zh": "あたらしい　おでかけコースが{NEWLINE}ふえました！",
-   "en": "",
+   "en": "A new Stroll Route{NEWLINE}has been added!",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 11,
@@ -124,16 +118,10 @@
   {
    "id": 14,
    "zh": "ポケウォーカーの　そうほすうを{NEWLINE}けさずに　しょきかしますか？",
-   "en": "",
+   "en": "Reset the Pokéwalker without{NEWLINE}erasing its total step count?",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 15,
@@ -154,16 +142,10 @@
   {
    "id": 17,
    "zh": "ポケウォーカーを　とうろく{NEWLINE}することが　できます",
-   "en": "",
+   "en": "You can register{NEWLINE}a Pokéwalker.",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 18,
@@ -257,16 +239,10 @@
   {
    "id": 28,
    "zh": "プレゼントを　うけとります",
-   "en": "",
+   "en": "Receiving gifts.",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 29,
@@ -279,16 +255,10 @@
   {
    "id": 30,
    "zh": "ポケウォーカーの　きろくを{NEWLINE}しょきか　しています",
-   "en": "",
+   "en": "Resetting the{NEWLINE}Pokéwalker’s records.",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 31,
@@ -443,10 +413,10 @@
   {
    "id": 49,
    "zh": "おでかけで　つれてきた　ポケモンを{NEWLINE}ボックスに　しまった！{VAR:0207}",
-   "en": "The Pokémon you brought back{NEWLINE}were put in your PC Box!{VAR:0207}",
+   "en": "The Pokémon brought back from{NEWLINE}the Stroll went into your PC Box!{VAR:0207}",
    "status": "draft",
    "origin": "agent",
-   "notes": "Pokéwalker (the hack left it in Japanese); translated from the Japanese, US wording where it matches"
+   "notes": "Pokéwalker (the hack left it in Japanese); translated from the Japanese, US wording where it matches | CES-early: JP-source reference: restore explicit Stroll origin"
   },
   {
    "id": 50,
@@ -691,16 +661,10 @@
   {
    "id": 80,
    "zh": "けってい",
-   "en": "",
+   "en": "Confirm",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 81,
@@ -1252,16 +1216,10 @@
   {
    "id": 146,
    "zh": "つうしんようの{NEWLINE}きょうつう　せつめいぶん{NEWLINE}の　よてい　です",
-   "en": "",
+   "en": "Planned shared explanation{NEWLINE}text for connections.",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 147,
@@ -1312,72 +1270,42 @@
   {
    "id": 152,
    "zh": "ＰＨＣかんぜんしょきか",
-   "en": "",
+   "en": "Full PHC reset",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 153,
    "zh": "ＰＨＣしょきとうろく",
-   "en": "",
+   "en": "Initial PHC registration",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 154,
    "zh": "ＰＨＣに　あずける",
-   "en": "",
+   "en": "Deposit in PHC",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 155,
    "zh": "ＰＨＣから　うけとる",
-   "en": "",
+   "en": "Receive from PHC",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   },
   {
    "id": 156,
    "zh": "ボックスにあきがない　エラー",
-   "en": "",
+   "en": "Error: No room in the Box",
    "status": "draft",
-   "origin": "copy",
-   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored",
-   "qa_ignore": [
-    "empty",
-    "tag_mismatch",
-    "tag_order",
-    "trailing_layout"
-   ]
+   "origin": "agent",
+   "notes": "Pokéwalker text the hack left in Japanese; US HGSS blanks this slot, mirrored | CES-early: JP-source reference review: restore source content formerly blanked like US or omitted detail; retain actual Japanese controls; not CN semantic review"
   }
  ]
 }

@@ -70,7 +70,7 @@
   {
    "id": 8,
    "zh": "原来如此啊。{SCROLL}不知道那位少年{NEWLINE}能不能回应冠军大人的期待,{CLEAR}第一个到达这里。",
-   "en": "I see.{SCROLL}I wonder if that boy can live up to your{NEWLINE}expectations and be the first to{CLEAR}get here.",
+   "en": "I see.{SCROLL}I wonder if that boy can live up to your{NEWLINE}expectations as Champion and be the{CLEAR}first to get here.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -169,7 +169,7 @@
   {
    "id": 20,
    "zh": "啊呀,这么厉害的吗？{SCROLL}希望知道那位少年{NEWLINE}能回应冠军大人的期待,{CLEAR}第一个到达这里吧。",
-   "en": "Oh my, is he that good?{SCROLL}I hope that boy lives up to your{NEWLINE}expectations and gets here first.",
+   "en": "Oh my, is he that good? I hope that boy{NEWLINE}lives up to your expectations as{CLEAR}Champion and gets here first.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -177,7 +177,7 @@
   {
    "id": 21,
    "zh": "原来如此啊。{SCROLL}不知道那个女孩{NEWLINE}能不能回应冠军大人的期待,{CLEAR}第一个到达这里。",
-   "en": "I see.{SCROLL}I wonder if that girl can live up to your{NEWLINE}expectations and be the first to{CLEAR}get here.",
+   "en": "I see.{SCROLL}I wonder if that girl can live up to your{NEWLINE}expectations as Champion and be the{CLEAR}first to get here.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -297,10 +297,10 @@
   {
    "id": 36,
    "zh": "谢谢渡先生的认可！",
-   "en": "Thank you, Lance!",
+   "en": "Thank you for acknowledging me,{NEWLINE}Mr. Lance!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0124: Restore reason for thanks and respectful title."
   },
   {
    "id": 37,
@@ -537,10 +537,10 @@
   {
    "id": 66,
    "zh": "阿金『这里除了间小木屋啥都没有,{NEWLINE}都是你这个吊眼红毛领错了路{CLEAR}才会走到这个死胡同来！",
-   "en": "Gold: There’s nothing here but a little{NEWLINE}cabin!{SCROLL}We ended up in this dead end because{NEWLINE}you led us the wrong way, you{CLEAR}scowling redhead!",
+   "en": "Gold: There’s nothing here but a little{NEWLINE}cabin!{SCROLL}We ended up in this dead end because{NEWLINE}you led us the wrong way, you{CLEAR}upturned-eyed redhead!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CN 吊眼红毛 describes the redhead’s upturned eyes; restored the physical insult instead of mood. Earlier D-0727 wording was provisional."
   },
   {
    "id": 67,
@@ -593,18 +593,18 @@
   {
    "id": 73,
    "zh": "水晶『现在回到正确的路线上,{NEWLINE}赶在前8名到达山顶才是最重要的。{CLEAR}你们不是都想挑战{VAR:0103:0}前辈吗？{CLEAR}去晚了可就失去挑战资格了！",
-   "en": "Crystal: What matters now is getting{NEWLINE}back on the right route and reaching{CLEAR}the summit in the top eight.{SCROLL}Don’t you both want to challenge{NEWLINE}{VAR:0103:0}?{SCROLL}If we’re late, we’ll lose our chance!",
+   "en": "Crystal: What matters now is getting{NEWLINE}back on the right route and reaching{CLEAR}the summit in the top eight.{SCROLL}Don’t you both want to challenge{NEWLINE}{VAR:0103:0}, Senpai?{SCROLL}If we’re late, we’ll lose our chance!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "Crystal’s CN 前辈 address restored in this scene; provisional Senpai form follows D-2455."
   },
   {
    "id": 74,
    "zh": "阿金『没错,现在不是{NEWLINE}教训吊眼红毛的时候。",
-   "en": "Gold: Right. Now’s not the time to teach{NEWLINE}this scowling redhead a lesson.",
+   "en": "Gold: Right. Now’s not the time to teach{NEWLINE}this upturned-eyed redhead a lesson.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CN 吊眼红毛 describes the redhead’s upturned eyes; restored the physical insult instead of mood. Earlier D-0727 wording was provisional."
   },
   {
    "id": 75,
@@ -681,10 +681,10 @@
   {
    "id": 84,
    "zh": "渡『还剩三个挑战冠军的名额啊。",
-   "en": "Lance: So there are three challenger{NEWLINE}spots left.",
+   "en": "Lance: So there are three spots left to{NEWLINE}challenge the Champion.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0124: Restore purpose of challenger spots; ES neutral title wording pending D2394."
   },
   {
    "id": 85,
@@ -737,10 +737,10 @@
   {
    "id": 91,
    "zh": "啊……刚才撞得我有点晕,{NEWLINE}让我缓一缓……",
-   "en": "Ah... That crash left me a little dizzy.{NEWLINE}Let me catch my breath...",
+   "en": "Ah... That crash left me a little dizzy.{NEWLINE}Let me recover for a moment...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0124: Remove invented breathlessness from dizziness recovery."
   },
   {
    "id": 92,
@@ -873,7 +873,7 @@
   {
    "id": 108,
    "zh": "小银『啊！小赤哥！",
-   "en": "Silver: Ah! Red!",
+   "en": "Silver: Ah! Big Bro Red!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -889,7 +889,7 @@
   {
    "id": 110,
    "zh": "小银『真不愧是小赤哥,{NEWLINE}这么早就到山顶了。",
-   "en": "Silver: Just what I’d expect of you,{NEWLINE}Red. Already at the summit this early.",
+   "en": "Silver: Just what I’d expect of you, Big{NEWLINE}Bro Red. Already at the{CLEAR}summit this early.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -953,10 +953,10 @@
   {
    "id": 118,
    "zh": "水晶『啊……老天保佑阿金快一点啊！",
-   "en": "Crystal: Ah... Please, please let Gold{NEWLINE}hurry up!",
+   "en": "Crystal: Ah... Heavens, please let Gold{NEWLINE}hurry up!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0124: Restore appeal to heaven rather than invented repeated please."
   },
   {
    "id": 119,
@@ -969,10 +969,10 @@
   {
    "id": 120,
    "zh": "水晶『{VAR:0103:0}前辈！{NEWLINE}阿金现在正跟渡先生交战呢,{CLEAR}旁边还有另外一个{CLEAR}看起来很厉害的训练家{CLEAR}在跟科拿女士交战。{CLEAR}不知道他们谁会先取得胜利上来……",
-   "en": "Crystal: {VAR:0103:0}! Gold is battling{NEWLINE}Lance right now.{SCROLL}And next to him, another really{NEWLINE}strong-looking Trainer is battling{CLEAR}Ms. Lorelei.{SCROLL}I wonder which of them will win and come{NEWLINE}up first...",
+   "en": "Crystal: {VAR:0103:0}! Gold is battling{NEWLINE}Mr. Lance right now.{SCROLL}And next to him, another really{NEWLINE}strong-looking Trainer is battling{CLEAR}Ms. Lorelei.{SCROLL}I wonder which of them will win and come{NEWLINE}up first...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0124: Restore respectful title."
   },
   {
    "id": 121,
@@ -1227,18 +1227,18 @@
   {
    "id": 152,
    "zh": "小黄『我能坚定地{NEWLINE}走上训练家这条路,{CLEAR}都要感谢{VAR:0103:0}哥哥。{CLEAR}一直以来我都以您为目标努力着,{CLEAR}今天终于有机会在正式场合向您……{CLEAR}向您挑战。{CLEAR}我会好好加油的。",
-   "en": "Yellow: I owe it to you,{NEWLINE}Big Bro {VAR:0103:0}, that I could{CLEAR}set out on the path of a Trainer{CLEAR}with confidence.{SCROLL}I’ve always worked hard with you as my{NEWLINE}goal.{SCROLL}And today, I finally get the chance to{NEWLINE}challenge you... officially.{SCROLL}I’ll do my very best.",
+   "en": "Yellow: I owe it to you,{NEWLINE}Big Bro {VAR:0103:0}, that I could set out{CLEAR}on the path of a Trainer{CLEAR}with confidence.{SCROLL}I’ve always worked hard with you as my{NEWLINE}goal.{SCROLL}And today, I finally get the chance to{NEWLINE}officially challenge you...{CLEAR}challenge you.{SCROLL}I’ll do my very best.",
    "status": "draft",
    "origin": "agent",
-   "notes": "D-2274: Yellow's {player}哥哥/姐姐 kept as Big Bro/Big Sis"
+   "notes": "D-2274: Yellow's {player}哥哥/姐姐 kept as Big Bro/Big Sis | CES005-0124: Restore deliberate repetition of addressing challenge to you."
   },
   {
    "id": 153,
    "zh": "小黄『我能坚定地{NEWLINE}走上训练家这条路,{CLEAR}都要感谢{VAR:0103:0}姐姐。{CLEAR}一直以来我都以您为目标努力着,{CLEAR}今天终于有机会在正式场合向您……{CLEAR}向您挑战。{CLEAR}我会好好加油的。",
-   "en": "Yellow: I owe it to you,{NEWLINE}Big Sis {VAR:0103:0}, that I could{CLEAR}set out on the path of a Trainer{CLEAR}with confidence.{SCROLL}I’ve always worked hard with you as my{NEWLINE}goal.{SCROLL}And today, I finally get the chance to{NEWLINE}challenge you... officially.{SCROLL}I’ll do my very best.",
+   "en": "Yellow: I owe it to you, Big Sis {VAR:0103:0},{NEWLINE}that I could set out on the path of a{CLEAR}Trainer with confidence.{SCROLL}I’ve always worked hard with you as my{NEWLINE}goal.{SCROLL}And today, I finally get the chance to{NEWLINE}officially challenge you...{CLEAR}challenge you.{SCROLL}I’ll do my very best.",
    "status": "draft",
    "origin": "agent",
-   "notes": "D-2274: Yellow's {player}哥哥/姐姐 kept as Big Bro/Big Sis"
+   "notes": "D-2274: Yellow's {player}哥哥/姐姐 kept as Big Bro/Big Sis | CES005-0124: Restore deliberate repetition of addressing challenge to you."
   },
   {
    "id": 154,
@@ -1643,10 +1643,10 @@
   {
    "id": 204,
    "zh": "达马兰奇『哈哈哈哈,{NEWLINE}人要学会向前看啊,小绿。",
-   "en": "Goodshow: Ha ha ha ha! A man must learn{NEWLINE}to look ahead, Blue.",
+   "en": "Goodshow: Ha ha ha ha! People have to{NEWLINE}learn to look ahead, Blue.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0124: Restore general people principle rather than male-specific injunction."
   },
   {
    "id": 205,
@@ -1675,10 +1675,10 @@
   {
    "id": 208,
    "zh": "达马兰奇『两年前,火箭队的阴影{NEWLINE}曾经笼罩着整个地区,{CLEAR}但多亏了我们的联盟冠军挺身而出,{CLEAR}这才终结了火箭队的野心。{CLEAR}两年后的今天,{CLEAR}火箭队又躲暗处准备卷土重来,{CLEAR}但只要有你们这样优秀的训练家在,{CLEAR}我们就能够保护家人、保护伙伴、{CLEAR}保护我们生活的地方。{SCROLL}达马兰奇『精灵联盟和全地区的人民{NEWLINE}都对你们寄予厚望,{CLEAR}期待你们在未来对抗黑暗的战斗中{CLEAR}能够像今天一样表现出色！",
-   "en": "Goodshow: Two years ago, the shadow of{NEWLINE}Team Rocket hung over this{CLEAR}entire region.{SCROLL}But thanks to our League Champion{NEWLINE}stepping forward, Team Rocket’s{CLEAR}ambitions were brought to an end.{SCROLL}Now, two years later, Team Rocket is{NEWLINE}hiding in the shadows, preparing{CLEAR}a comeback.{SCROLL}But as long as we have fine Trainers like{NEWLINE}you, we can protect our families, our{CLEAR}partners, and the places we live.{SCROLL}Goodshow: The Pokémon League and the{NEWLINE}people of the region have high hopes for{CLEAR}you all.{SCROLL}We look forward to seeing you shine as{NEWLINE}brightly as you did today in the battles{CLEAR}against darkness to come!",
+   "en": "Goodshow: Two years ago, the shadow of{NEWLINE}Team Rocket hung over this{CLEAR}entire region.{SCROLL}But thanks to our League Champion{NEWLINE}stepping forward, Team Rocket’s{CLEAR}ambitions were brought to an end.{SCROLL}Now, two years later, Team Rocket is{NEWLINE}hiding in the shadows, preparing{CLEAR}a comeback.{SCROLL}But as long as we have fine Trainers like{NEWLINE}you, we can protect our families,{CLEAR}protect our partners, and protect the{CLEAR}places we live.{SCROLL}Goodshow: The Pokémon League and the{NEWLINE}people of the region have high hopes for{CLEAR}you all.{SCROLL}We look forward to seeing you shine as{NEWLINE}brightly as you did today in the battles{CLEAR}against darkness to come!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0124: Restore repeated protect emphasis."
   },
   {
    "id": 209,

@@ -166,18 +166,18 @@
   {
    "id": 20,
    "zh": "{VAR:0135:0}第一轮的游戏！{NEWLINE}挑战！来吧！！",
-   "en": "Game no. {VAR:0135:0}!{NEWLINE}Come on!",
+   "en": "Game no. {VAR:0135:0}!{NEWLINE}A challenge! Come on!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0426/20"
+   "origin": "agent",
+   "notes": "US 0426/20 | CES006: fidelity: Restore explicit challenge and doubled emphasis."
   },
   {
    "id": 21,
    "zh": "请快一点！！{NEWLINE}轮盘赌！去试试吧！！",
-   "en": "Without further ado...{NEWLINE}Let’s activate the game board!",
+   "en": "Hurry up!!{NEWLINE}Give the game board a try!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0426/21"
+   "origin": "agent",
+   "notes": "US 0426/21 | CES006: fidelity: Restore hurry/try rather than invented activation."
   },
   {
    "id": 22,
@@ -206,18 +206,18 @@
   {
    "id": 25,
    "zh": "{VAR:0103:0}的精灵{NEWLINE}在增强力量的状态下{CLEAR}进行战斗！！",
-   "en": "The match will commence with{NEWLINE}{VAR:0103:0}’s Pokémon leveled up!",
+   "en": "The match will commence with {VAR:0103:0}’s{NEWLINE}Pokémon’s strength boosted!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0426/25"
+   "origin": "agent",
+   "notes": "US 0426/25 | CES006: fidelity: Source says increased strength without specifying a level increase."
   },
   {
    "id": 26,
    "zh": "{VAR:0103:0}{VAR:0103:1}的精灵{NEWLINE}在力量增强{CLEAR}的状态下进行战斗！",
-   "en": "The match will commence with{NEWLINE}{VAR:0103:0}’s and {VAR:0103:1}’s{CLEAR}Pokémon leveled up!",
+   "en": "The match will commence with{NEWLINE}{VAR:0103:0}’s and {VAR:0103:1}’s{CLEAR}Pokémon’s strength boosted!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0426/26"
+   "origin": "agent",
+   "notes": "US 0426/26 | CES006: fidelity: Restore generic strength boost; preserve both owners."
   },
   {
    "id": 27,
@@ -302,26 +302,26 @@
   {
    "id": 37,
    "zh": "给{VAR:0103:0}的精灵{NEWLINE}喂了{VAR:0108:2}！！",
-   "en": "{VAR:0103:0}’s Pokémon were{NEWLINE}given the {VAR:0108:2}!!",
+   "en": "{VAR:0103:0}’s Pokémon were fed{NEWLINE}{VAR:0108:2}!!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0426/37"
+   "notes": "US 0426/37 | CES006: fidelity: Restore feeding, not unspecified giving."
   },
   {
    "id": 38,
    "zh": "给{VAR:0103:0}{VAR:0103:1}的精灵{NEWLINE}喂了{CLEAR}{VAR:0108:2}！！",
-   "en": "{VAR:0103:0} and {VAR:0103:1}’s{NEWLINE}Pokémon were given{CLEAR}the {VAR:0108:2}!!",
+   "en": "{VAR:0103:0}’s and {VAR:0103:1}’s Pokémon were{NEWLINE}fed {VAR:0108:2}!!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0426/38; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "US 0426/38; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES006: fidelity: Restore feeding and distinct possessive owners."
   },
   {
    "id": 39,
    "zh": "这边请！{SCROLL}",
-   "en": "Here you go!{SCROLL}",
+   "en": "This way, please!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0426/39"
+   "origin": "agent",
+   "notes": "US 0426/39 | CES006: fidelity: Restore directional invitation."
   },
   {
    "id": 40,
@@ -334,10 +334,10 @@
   {
    "id": 41,
    "zh": "在下大雨的环境战斗！！",
-   "en": "This match will be conducted under a{NEWLINE}steady rainfall.",
+   "en": "This match will be conducted in heavy{NEWLINE}rain!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0426/41"
+   "origin": "agent",
+   "notes": "US 0426/41 | CES006: fidelity: Restore heavy rain and emphasis, not merely steady rain."
   },
   {
    "id": 42,
@@ -366,18 +366,18 @@
   {
    "id": 45,
    "zh": "在时空扭曲的环境战斗！！",
-   "en": "This match will be conducted on a floor{NEWLINE}where time and space are distorted.",
+   "en": "This match will be conducted where time{NEWLINE}and space are distorted!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0426/45"
+   "origin": "agent",
+   "notes": "US 0426/45 | CES006: fidelity: Remove invented floor; restore emphasis."
   },
   {
    "id": 46,
    "zh": "检查各自的精灵,{NEWLINE}然后开始对战吧！！",
-   "en": "Check each other’s Pokémon,{NEWLINE}and then let the battle begin!!",
+   "en": "Check your own Pokémon, and then let{NEWLINE}the battle begin!!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0426/46"
+   "notes": "US 0426/46 | CES006: fidelity: Restore respective own Pokémon, not each other’s."
   },
   {
    "id": 47,

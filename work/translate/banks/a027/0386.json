@@ -15,10 +15,10 @@
   {
    "id": 1,
    "zh": "贴心的告示牌！{SCROLL}用了挖洞的技能后{NEWLINE}可以瞬间返回入口处。{SCROLL}在洞窟中探险时{NEWLINE}带上１只会这个技能的精灵{CLEAR}会很方便呢",
-   "en": "Trainer Tips{SCROLL}The move Dig can take you back to{NEWLINE}the entrance when you use it.{SCROLL}If you want to explore a cave or{NEWLINE}something similar, a Pokémon with{CLEAR}Dig will be quite useful.",
+   "en": "Trainer Tips{SCROLL}Using the move Dig takes you back to{NEWLINE}the entrance instantly.{SCROLL}When exploring a cave, it’s very useful{NEWLINE}to bring a Pokémon that knows{CLEAR}this move.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0393/1"
+   "origin": "agent",
+   "notes": "US 0393/1 | root-full-comparison-0385-0387: Match previously compared Dig advice: immediate return and bring a Pokémon knowing the move."
   },
   {
    "id": 2,
@@ -103,18 +103,18 @@
   {
    "id": 12,
    "zh": "小蓝『啊……哦,对了。{NEWLINE}我还约了跟他见面,先不跟你聊了。{CLEAR}以后有机会再重新介绍你们认识啊。",
-   "en": "Green: Ah... Oh, right. I’m supposed{NEWLINE}to meet him, so I’ve got to run.{CLEAR}I’ll introduce you two properly some{CLEAR}other time!",
+   "en": "Green: Ah... Oh, right. I’m supposed to{NEWLINE}meet him, so I’ve got to run. I’ll{CLEAR}introduce you two again when I get{CLEAR}the chance!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0385-0387: Restore renewed introduction and opportunity condition; do not replace with properly."
   },
   {
    "id": 13,
    "zh": "小赤『啊……哦,对了。{NEWLINE}我还约了跟他见面,先不跟你聊了。{CLEAR}以后有机会再重新介绍你们认识。",
-   "en": "Red: Ah... Oh, right. I’m supposed{NEWLINE}to meet him, so I’ve got to run.{CLEAR}I’ll introduce you two properly some{CLEAR}other time.",
+   "en": "Red: Ah... Oh, right. I’m supposed to{NEWLINE}meet him, so I’ve got to run. I’ll{CLEAR}introduce you two again when I get{CLEAR}the chance.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0385-0387: Restore renewed introduction and opportunity condition; do not replace with properly."
   },
   {
    "id": 14,
@@ -162,10 +162,10 @@
   {
    "id": 19,
    "zh": "如此小僧便得罪了！",
-   "en": "Then forgive me, but I shall not{NEWLINE}hold back!",
+   "en": "Then forgive this humble monk for the{NEWLINE}offense!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0385-0387: Restore conventional martial courtesy; source does not promise not to hold back."
   },
   {
    "id": 20,
@@ -178,10 +178,10 @@
   {
    "id": 21,
    "zh": "阿弥陀佛,{NEWLINE}施主你身上只有一只精灵,{CLEAR}小僧怎能以多欺少。",
-   "en": "Amitabha. Traveler, you have only one{NEWLINE}Pokémon with you. How could I take{CLEAR}unfair advantage of you?",
+   "en": "Amitabha. Traveler, you have only one{NEWLINE}Pokémon with you. How could this humble{CLEAR}monk take advantage of{CLEAR}outnumbering you?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0385-0387: Restore explicit numerical advantage and monk self-reference."
   }
  ]
 }

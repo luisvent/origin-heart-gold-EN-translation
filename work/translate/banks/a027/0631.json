@@ -374,17 +374,17 @@
   {
    "id": 46,
    "zh": "{VAR:0103:0},晚上好。{SCROLL}我是{VAR:0103:1},你还没睡的吧？{SCROLL}",
-   "en": "Hi, {VAR:0103:0}.{SCROLL}This is {VAR:0103:1}. Were you awake?{SCROLL}",
+   "en": "Good evening, {VAR:0103:0}.{SCROLL}This is {VAR:0103:1}. Were you awake?{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0640/46"
   },
   {
    "id": 47,
    "zh": "{VAR:0103:0},晚上好。{SCROLL}我是{VAR:0103:1},你还没睡吧？{SCROLL}",
-   "en": "Hi, {VAR:0103:0}.{SCROLL}This is {VAR:0103:1}. Were you awake?{SCROLL}",
+   "en": "Good evening, {VAR:0103:0}.{SCROLL}This is {VAR:0103:1}. Were you awake?{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0640/47"
   },
   {
@@ -438,17 +438,17 @@
   {
    "id": 54,
    "zh": "喂喂喂？我是{VAR:0103:1},{SCROLL}最近还好吗？早安！{SCROLL}",
-   "en": "This is {VAR:0103:1}.{SCROLL}Oh, hey! Good morning!{SCROLL}",
+   "en": "This is {VAR:0103:1}.{SCROLL}How are you? Good morning!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0640/54"
   },
   {
    "id": 55,
    "zh": "喂喂喂？我是{VAR:0103:1},{SCROLL}最近还好吗？早安！{SCROLL}",
-   "en": "This is {VAR:0103:1}.{SCROLL}Oh, hey! Good morning!{SCROLL}",
+   "en": "This is {VAR:0103:1}.{SCROLL}How are you? Good morning!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0640/55"
   },
   {

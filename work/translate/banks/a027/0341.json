@@ -148,10 +148,10 @@
   {
    "id": 17,
    "zh": "我都看到了,我都看到了！{NEWLINE}你唤醒卡比兽并将它击败了！{CLEAR}多亏了你,这下子我就可以{CLEAR}无忧无虑地种树果了。{SCROLL}这是我好不容易从卡比兽嘴里{NEWLINE}抢下来的树果,{CLEAR}分你一些吧！",
-   "en": "I saw it, I saw it! You woke Snorlax up{NEWLINE}and beat it! Thanks to you, I can grow{CLEAR}my Berries without a care again.{SCROLL}These are Berries I snatched back out{NEWLINE}of Snorlax’s mouth. Here, have some!",
+   "en": "I saw it, I saw it! You woke Snorlax up{NEWLINE}and beat it! Thanks to you, I can grow{CLEAR}my Berries without a care again.{SCROLL}These are Berries I struggled to{NEWLINE}snatch back out of Snorlax’s mouth.{CLEAR}Here, have some!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore difficulty of salvaging berries."
   },
   {
    "id": 18,
@@ -223,10 +223,10 @@
   {
    "id": 26,
    "zh": "你还有女朋友呢,你不是一个人。",
-   "en": "You’re not alone. You have her!",
+   "en": "You have a girlfriend. Not alone!",
    "status": "draft",
    "origin": "agent",
-   "notes": " | RV013: omission: 你不是一个人 restored (answered by #30); fits 224 px menu",
+   "notes": " | RV013: omission: 你不是一个人 restored (answered by #30); fits 224 px menu | AGENT-0321-0380: Preserve girlfriend and not alone in verified one-line menu.",
    "category": "menu_touch_1line"
   },
   {
@@ -496,10 +496,10 @@
   {
    "id": 60,
    "zh": "行行行！你厉害你厉害！{NEWLINE}我听你的不再电鱼就是了。",
-   "en": "OK, OK! You win, you win! I’ll do as you{NEWLINE}say and stop zapping fish.",
+   "en": "OK, OK, OK! You win, you win! I’ll do as{NEWLINE}you say and stop zapping fish.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore triple assent."
   },
   {
    "id": 61,
@@ -804,10 +804,10 @@
   {
    "id": 98,
    "zh": "对不起啊巴大蝴,{NEWLINE}我不知道你们要去南方繁衍{CLEAR}就把你们强留在我这儿了。{CLEAR}现在你们自由了,{CLEAR}快去南方吧,{CLEAR}去完成你们繁衍的任务！",
-   "en": "Sorry, Butterfree. I didn’t know you{NEWLINE}were heading south to breed, and I kept{CLEAR}you here with me.{SCROLL}Now you’re free. Hurry on south and{NEWLINE}carry out your mission to breed!",
+   "en": "Sorry, Butterfree. I didn’t know you{NEWLINE}were heading south to breed, and I{CLEAR}forced you to stay here with me.{SCROLL}Now you’re free. Hurry on south and{NEWLINE}carry out your mission to breed!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve forced retention."
   },
   {
    "id": 99,

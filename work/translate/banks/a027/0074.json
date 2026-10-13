@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "好像有什么动静……",
-   "en": "There is a strange presence here...",
+   "en": "Something seems to be stirring...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0076/1"
+   "origin": "agent",
+   "notes": "US 0076/1 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 2,
@@ -54,18 +54,18 @@
   {
    "id": 6,
    "zh": "我从阿鲁夫研究所买了一本{NEWLINE}研究未知图腾的笔记本,{CLEAR}想着好好研究一下未知图腾的秘密。{SCROLL}可惜研究的过程太困难太枯燥,{NEWLINE}不得已只能放弃了。{CLEAR}好在有一个看起来很有精神的少年{CLEAR}对未知图腾似乎很有兴趣,{CLEAR}我就把笔记本送给他了。",
-   "en": "I bought a notebook for studying{NEWLINE}Unown from the Research Center,{CLEAR}hoping to really dig into their secrets.{SCROLL}But the research was way too hard{NEWLINE}and way too dull, so I had to give up.{SCROLL}Luckily, there was an energetic-looking{NEWLINE}boy who seemed really into Unown,{CLEAR}so I gave the notebook to him.",
+   "en": "I bought a notebook for studying Unown{NEWLINE}from the Ruins of Alph Research Center,{CLEAR}hoping to really dig into their secrets.{SCROLL}But the research was way too hard{NEWLINE}and way too dull, so I had to give up.{SCROLL}Luckily, there was an energetic-looking{NEWLINE}boy who seemed really into Unown,{CLEAR}so I gave the notebook to him.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
    "zh": "我要研究一下未知图腾的秘密,{NEWLINE}争取成为口袋妖怪考古界的专家！",
-   "en": "I’m going to study the secrets{NEWLINE}of the Unown and become an{CLEAR}expert in Pokémon archaeology!",
+   "en": "I’m going to study the secrets of Unown{NEWLINE}and try to become an expert in{CLEAR}Pokémon archaeology!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 8,

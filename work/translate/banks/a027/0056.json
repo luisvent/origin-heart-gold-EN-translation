@@ -150,10 +150,10 @@
   {
    "id": 18,
    "zh": "彩月『冠军大人、小松馆主。",
-   "en": "Satsuki: Champion. Morty.",
+   "en": "Satsuki: Champion. Leader Morty.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 19,
@@ -182,10 +182,10 @@
   {
    "id": 22,
    "zh": "彩月『吾等姐妹苦练舞蹈{NEWLINE}正是为了今日之用。{CLEAR}既然两件信物都已齐聚铃铛塔顶,{CLEAR}那么现在便是跳起祈神之舞的时候了。{CLEAR}请冠军大人和小松馆主到台阶上静观。",
-   "en": "Satsuki: We sisters have practiced{NEWLINE}our dance for this very day.{CLEAR}Now that both tokens are gathered atop{CLEAR}the Bell Tower, the time has come to{CLEAR}perform the Prayer Dance.{SCROLL}Champion, Morty, please watch quietly{NEWLINE}from the steps.",
+   "en": "Satsuki: We sisters have practiced our{NEWLINE}dance for this very day. Now that both{CLEAR}tokens are gathered atop the Bell{CLEAR}Tower, the time has come to perform the{CLEAR}Prayer Dance.{SCROLL}Champion, Leader Morty, please watch{NEWLINE}quietly from the steps.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 23,
@@ -214,10 +214,10 @@
   {
    "id": 26,
    "zh": "彩月『不行啊小松馆主,{NEWLINE}凤王是我们通过舞蹈召唤来的,{CLEAR}由我来收服才更合理吧？",
-   "en": "Satsuki: That will not do, Morty.{NEWLINE}We summoned Ho-Oh with our dance,{CLEAR}so would it not make more sense{CLEAR}for me to catch it?",
+   "en": "Satsuki: That will not do, Leader Morty.{NEWLINE}We summoned Ho-Oh with our dance, so{CLEAR}would it not make more sense for me to{CLEAR}catch it?",
    "status": "draft",
    "origin": "agent",
-   "notes": "RV040: meaning: 不行啊 = that won't do, not 'Oh, no'"
+   "notes": "RV040: meaning: 不行啊 = that won't do, not 'Oh, no' | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 27,
@@ -238,10 +238,10 @@
   {
    "id": 29,
    "zh": "阿波罗『小松馆主你要去哪里啊,{NEWLINE}你的对手是我哦。",
-   "en": "Archer: Where do you think you’re{NEWLINE}going, Morty? I’m your opponent.",
+   "en": "Archer: Where do you think you’re{NEWLINE}going, Leader Morty? I’m{CLEAR}your opponent.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 30,
@@ -358,10 +358,10 @@
   {
    "id": 44,
    "zh": "{VAR:0103:0}『刚刚好险啊小松馆主,{NEWLINE}幸好你及时出手。",
-   "en": "{VAR:0103:0}: That was close, Morty.{NEWLINE}Good thing you stepped in when you did.",
+   "en": "{VAR:0103:0}: That was close, Leader Morty.{NEWLINE}Good thing you stepped in when you did.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 45,
@@ -430,10 +430,10 @@
   {
    "id": 53,
    "zh": "{VAR:0103:0}『小松馆主你去阻止乔伊吧,{NEWLINE}这两个火箭队我自己就可以应付。",
-   "en": "{VAR:0103:0}: Morty, go stop Joy!{NEWLINE}I can handle these two Rockets myself.",
+   "en": "{VAR:0103:0}: Leader Morty, go stop Joy! I{NEWLINE}can handle these two Rockets myself.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 54,
@@ -606,10 +606,10 @@
   {
    "id": 75,
    "zh": "{VAR:0103:0}『小松馆主不要过于自责,{NEWLINE}没能保护好凤王我也有责任。{CLEAR}而且火箭队这次用的策略{CLEAR}确实让人防不胜防,{CLEAR}难免就会着了他们的道。",
-   "en": "{VAR:0103:0}: Morty, don’t blame yourself{NEWLINE}so much. I share the blame for not{CLEAR}protecting Ho-Oh.{SCROLL}And Team Rocket’s plan this time{NEWLINE}was impossible to guard against.{CLEAR}Anyone could have fallen for it.",
+   "en": "{VAR:0103:0}: Leader Morty, don’t blame{NEWLINE}yourself so much. I share the blame for{CLEAR}not protecting Ho-Oh.{SCROLL}And Team Rocket’s plan this time was{NEWLINE}impossible to guard against. Anyone{CLEAR}could have fallen for it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 76,
@@ -630,10 +630,10 @@
   {
    "id": 78,
    "zh": "彩月『冠军大人、小松馆主！",
-   "en": "Satsuki: Champion! Morty!",
+   "en": "Satsuki: Champion! Leader Morty!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 79,
@@ -694,10 +694,10 @@
   {
    "id": 86,
    "zh": "小桃『小松馆主请勿戏言啊！",
-   "en": "Momo: Morty, please do not jest!",
+   "en": "Momo: Leader Morty, please do not{NEWLINE}jest!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 87,
@@ -710,18 +710,18 @@
   {
    "id": 88,
    "zh": "玉绪『小松馆主可看清了？{NEWLINE}当真是凤王吗？",
-   "en": "Tamao: Did you see clearly, Morty?{NEWLINE}Was it truly Ho-Oh?",
+   "en": "Tamao: Did you see clearly, Leader{NEWLINE}Morty? Was it truly Ho-Oh?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 89,
    "zh": "彩月『妹妹们勿言,{NEWLINE}且听小松馆主说来！",
-   "en": "Satsuki: Hush, sisters!{NEWLINE}Let Morty explain!",
+   "en": "Satsuki: Hush, sisters! Let Leader{NEWLINE}Morty explain!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 90,
@@ -782,10 +782,10 @@
   {
    "id": 97,
    "zh": "彩月『原来如此……{SCROLL}彩月『冠军大人、小松馆主,{NEWLINE}凤王现已被捉,吾等该如何是好呢？",
-   "en": "Satsuki: I see...{SCROLL}Satsuki: Champion, Morty,{NEWLINE}now that Ho-Oh has been captured,{CLEAR}what should we do?",
+   "en": "Satsuki: I see...{SCROLL}Satsuki: Champion, Leader Morty, now{NEWLINE}that Ho-Oh has been captured, what{CLEAR}should we do?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 98,
@@ -926,10 +926,10 @@
   {
    "id": 115,
    "zh": "彩月『小松馆主所言甚是,{NEWLINE}我等姐妹当回去勤加修炼,{CLEAR}虽不敢说消灭火箭队,{CLEAR}但守卫缘朱市确是义不容辞。",
-   "en": "Satsuki: Morty speaks true. We sisters{NEWLINE}shall go back and train diligently.{SCROLL}We dare not say we will wipe out Team{NEWLINE}Rocket, but defending Ecruteak City is{CLEAR}a duty we cannot refuse.",
+   "en": "Satsuki: Leader Morty speaks true. We{NEWLINE}sisters shall go back and{CLEAR}train diligently.{SCROLL}We dare not say we will wipe out Team{NEWLINE}Rocket, but defending Ecruteak City is{CLEAR}a duty we cannot refuse.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 116,
@@ -942,10 +942,10 @@
   {
    "id": 117,
    "zh": "彩月『小松馆主客气。{NEWLINE}此间既然已无他事,{CLEAR}吾等姐妹就先行告退了,{CLEAR}咱们后会有期。",
-   "en": "Satsuki: You are too kind, Morty.{NEWLINE}As nothing more remains to be done{CLEAR}here, we sisters shall take our leave.{CLEAR}Until we meet again.",
+   "en": "Satsuki: You are too kind, Leader{NEWLINE}Morty. As nothing more remains to be{CLEAR}done here, we sisters shall take our{CLEAR}leave. Until we meet again.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: title: retain explicit 小松馆主 Gym Leader address"
   },
   {
    "id": 118,

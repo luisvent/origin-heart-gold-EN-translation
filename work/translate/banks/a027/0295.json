@@ -849,10 +849,10 @@
   {
    "id": 105,
    "zh": "「蛋的样子」{NEWLINE}从蛋里听见活动的声音！{NEWLINE}似乎快诞生了！{NEWLINE}",
-   "en": "“The Egg Watch”{NEWLINE}Sounds can be heard{NEWLINE}coming from inside!{NEWLINE}It will hatch soon!{NEWLINE}",
+   "en": "“The Egg Watch”{NEWLINE}Sounds of movement{NEWLINE}come from inside!{NEWLINE}It seems close to{NEWLINE}hatching!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0302/105"
+   "origin": "agent",
+   "notes": "US 0302/105 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 106,
@@ -1561,10 +1561,10 @@
   {
    "id": 194,
    "zh": "{VAR:0205}换位置！",
-   "en": "{VAR:0205}Switch",
+   "en": "{VAR:0205}Switch!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0302/194"
+   "origin": "agent",
+   "notes": "US 0302/194 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 195,

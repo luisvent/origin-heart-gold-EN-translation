@@ -6,7 +6,7 @@
   {
    "id": 0,
    "zh": "你好！状态如何？{SCROLL}你的队伍是{NEWLINE}{VAR:0103:0}为队长的{CLEAR}{VAR:0101:1}队伍吗？{SCROLL}要离开现在的队伍{NEWLINE}加入别的队伍吗？{VAR:0200:0}",
-   "en": "Hi! How’s it going?{SCROLL}You’re in the {VAR:0101:1} group{NEWLINE}with {VAR:0103:0} as leader, right?{SCROLL}Would you like to leave your current{NEWLINE}group and join another one? {VAR:0200:0}",
+   "en": "Hi! How’s it going?{SCROLL}You’re in the {VAR:0101:1} group{NEWLINE}with {VAR:0103:0} as leader, right?{SCROLL}Would you like to leave your current{NEWLINE}group and join another one?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0204/0 | seed rejected us [tag_mismatch] (candidate US 0204#0; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0202#0; text not kept)"
@@ -14,7 +14,7 @@
   {
    "id": 1,
    "zh": "你好！状态如何？{SCROLL}你的队伍是{NEWLINE}{VAR:0103:0}为队长的{CLEAR}{VAR:0101:1}队伍吗？{SCROLL}要解散现在的队伍{NEWLINE}组建新的队伍吗？{VAR:0200:0}",
-   "en": "Hi! How’s it going?{SCROLL}You’re in the {VAR:0101:1} group{NEWLINE}with {VAR:0103:0} as leader, right?{SCROLL}Would you like to disband your{NEWLINE}current group and make a new one? {VAR:0200:0}",
+   "en": "Hi! How’s it going?{SCROLL}You’re in the {VAR:0101:1} group{NEWLINE}with {VAR:0103:0} as leader, right?{SCROLL}Would you like to disband your{NEWLINE}current group and make a new one?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0204/1 | seed rejected us [tag_mismatch] (candidate US 0204#1; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0202#1; text not kept)"
@@ -22,7 +22,7 @@
   {
    "id": 2,
    "zh": "你想加入队伍吗？{SCROLL}加入队伍的话{NEWLINE}可以和朋友相互竞争{CLEAR}或相互合作,非常有趣！{VAR:0200:0}",
-   "en": "Would you like to join a group?{SCROLL}If you join a group, you can compete{NEWLINE}or cooperate with your friends.{SCROLL}It’s a lot of fun! {VAR:0200:0}",
+   "en": "Would you like to join a group?{SCROLL}If you join a group, you can compete{NEWLINE}or cooperate with your friends.{SCROLL}It’s a lot of fun!{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0204/2 | RV069: addition: US added ‘I know it’s a little sudden’ and ‘Want to join?’"
@@ -30,7 +30,7 @@
   {
    "id": 3,
    "zh": "要加入哪个队伍？{VAR:0200:0}",
-   "en": "Which group would you like to join? {VAR:0200:0}",
+   "en": "Which group would you like to join?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0204/3"
@@ -46,18 +46,18 @@
   {
    "id": 5,
    "zh": "要组建队伍吧！{SCROLL}之前组建的队伍{NEWLINE}将会消失,可以吗？{VAR:0200:0}",
-   "en": "Oh, you want to make a new group?{NEWLINE}Sure thing!{SCROLL}The group you made before will be{NEWLINE}disbanded, though. Is that OK? {VAR:0200:0}",
+   "en": "Let’s make a group!{SCROLL}The group you made before will{NEWLINE}disappear. Is that OK?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0204/5"
+   "origin": "agent",
+   "notes": "US 0204/5 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 6,
    "zh": "好！那么{NEWLINE}好好考虑队伍的名字吧！",
-   "en": "Cool! What do you want to name{NEWLINE}your group?",
+   "en": "All right! Then think carefully about{NEWLINE}your group’s name!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0204/6"
+   "origin": "agent",
+   "notes": "US 0204/6 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "{VAR:0101:0}队伍！{NEWLINE}{VAR:0103:1}是队长！{CLEAR}要加入吗？{VAR:0200:0}",
-   "en": "The {VAR:0101:0} group? {VAR:0103:1} is{NEWLINE}the leader. Will you join this group? {VAR:0200:0}",
+   "en": "The {VAR:0101:0} group! {VAR:0103:1} is{NEWLINE}the leader! Will you join?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0204/8 | seed rejected us [tag_mismatch] (candidate US 0204#8; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0202#8; text not kept)"
+   "notes": "US 0204/8 | seed rejected us [tag_mismatch] (candidate US 0204#8; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0202#8; text not kept) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 9,
@@ -86,7 +86,7 @@
   {
    "id": 10,
    "zh": "组建队伍{NEWLINE}在联机大厅登录的话,{SCROLL}朋友们就可以加入相同的队伍,{SCROLL}加入相同的队伍的话{NEWLINE}两边就会发生相同的事件,{CLEAR}非常让人期待！{SCROLL}任何人都可以组建队伍,{CLEAR}加入也是一样的！{SCROLL}赶紧增加同伴跟大家一起玩！{VAR:0200:0}",
-   "en": "Once you’ve made a group, log in at{NEWLINE}the Union Room, and your friends can{CLEAR}join the same group.{SCROLL}When you’re in the same group, the same{NEWLINE}events happen for both of you.{SCROLL}It’s really exciting!{SCROLL}Anyone can make a group, and{NEWLINE}anyone can join one, too!{SCROLL}Hurry and gather lots of friends so{NEWLINE}you can all have fun together! {VAR:0200:0}",
+   "en": "Once you’ve made a group, log in at{NEWLINE}the Union Room, and your friends can{CLEAR}join the same group.{SCROLL}When you’re in the same group, the same{NEWLINE}events happen for both of you.{SCROLL}It’s really exciting!{SCROLL}Anyone can make a group, and{NEWLINE}anyone can join one, too!{SCROLL}Hurry and gather lots of friends so{NEWLINE}you can all have fun together!{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0204/10 | RV069: meaning: US added record mixing/‘integrated’; zh says register at the Union Room so friends can join"
@@ -232,10 +232,10 @@
   {
    "id": 27,
    "zh": "这个名字已经被占用了。",
-   "en": "Isn’t there already another group{NEWLINE}with that name?",
+   "en": "That name is already taken.",
    "status": "draft",
-   "origin": "tm_v3",
-   "notes": "v3 TM: 1 source(s), same position"
+   "origin": "agent",
+   "notes": "v3 TM: 1 source(s), same position | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   }
  ]
 }

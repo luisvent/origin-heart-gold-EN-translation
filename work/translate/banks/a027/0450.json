@@ -300,10 +300,10 @@
   {
    "id": 36,
    "zh": "训练家屋的规则是{SCROLL}１　１次能和１个不同类型的{NEWLINE}　　训练家决斗！{SCROLL}２　等级５０以上的精灵{NEWLINE}　　会变成５０级的强度,{CLEAR}　　不足５０级的则不变！{SCROLL}３　不能从背包里{NEWLINE}　　使用道具！{SCROLL}４　在战斗中精灵持有的{NEWLINE}　　回复物品也要收回！{SCROLL}５　就算战斗胜利了{NEWLINE}　　也得不到经验值！{SCROLL}６　相对的赢的人{NEWLINE}　　可以得到战斗点数！{SCROLL}好了,有自信的训练家{NEWLINE}请来参加！",
-   "en": "Trainer House Rules{SCROLL}1. You can challenge various Trainers{NEWLINE}one at a time.{SCROLL}2. All Pokémon over Level 50 become{NEWLINE}Level 50 for the battle.{CLEAR}Those below Level 50 stay unchanged.{SCROLL}3. You cannot use items from your Bag.{SCROLL}4. Afterward, your Pokémon will recover{NEWLINE}and the held item will be restored.{SCROLL}5. You cannot earn experience from{NEWLINE}the battle.{SCROLL}6. You earn Battle Points instead!{SCROLL}Skilled Trainers are invited to{NEWLINE}participate.",
-   "status": "reviewed",
+   "en": "Trainer House Rules{SCROLL}1. You can challenge various Trainers{NEWLINE}one at a time.{SCROLL}2. All Pokémon over Level 50 become{NEWLINE}Level 50 for the battle.{CLEAR}Those below Level 50 stay unchanged.{SCROLL}3. You cannot use items from your Bag.{SCROLL}4. Held healing items used in battle{NEWLINE}will also be recovered.{SCROLL}5. You cannot earn experience from{NEWLINE}the battle.{SCROLL}6. In exchange, the winner earns{NEWLINE}Battle Points!{SCROLL}Skilled Trainers are invited to{NEWLINE}participate.",
+   "status": "draft",
    "origin": "agent",
-   "notes": "US 0457/6 [User-approved warning review 2026-10-04; exact proposal applied.]"
+   "notes": "US 0457/6 [User-approved warning review 2026-10-04; exact proposal applied.] | User-approved CN-faithful rules 4 and 6 (D-2468); replaces earlier exact wording approved 2026-10-04."
   },
   {
    "id": 37,

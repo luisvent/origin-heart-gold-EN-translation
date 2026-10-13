@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "欢迎光临,{NEWLINE}我们是便宜的道具店哦,{SCROLL}卖的都是其他店里没有的{NEWLINE}珍奇道具哦,{CLEAR}但是每天只出售一个商品哦。{VAR:0200:0}",
-   "en": "Hiya! Care to see some bargains?{SCROLL}I sell rare items that no other shop{NEWLINE}carries, but only one item a day.{VAR:0200:0}",
+   "en": "Welcome! We’re a bargain item shop.{SCROLL}We sell rare items that no other{NEWLINE}shop carries, but we only sell one{CLEAR}item a day.{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0117/1 US line kept but ‘only one of each item’ changed to zh ‘only one item a day’."
+   "notes": "US 0117/1 US line kept but ‘only one of each item’ changed to zh ‘only one item a day’. | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 2,
@@ -38,7 +38,7 @@
   {
    "id": 4,
    "zh": "把{VAR:0108:0}{NEWLINE}放进{VAR:0112:1}口袋里。{VAR:0200:0}",
-   "en": "You put the {VAR:0108:0} in{NEWLINE}the {VAR:0112:1} Pocket. {VAR:0200:0}",
+   "en": "You put the {VAR:0108:0} in{NEWLINE}the {VAR:0112:1} Pocket.{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0117/4"
@@ -46,7 +46,7 @@
   {
    "id": 5,
    "zh": "这个不是刚才买了么？{NEWLINE}已经没货了。{VAR:0200:0}",
-   "en": "You bought that already. I’m all{NEWLINE}sold out of it. {VAR:0200:0}",
+   "en": "You bought that already. I’m all{NEWLINE}sold out of it.{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0117/5"
@@ -54,18 +54,18 @@
   {
    "id": 6,
    "zh": "你的钱好像不够呢。{VAR:0200:0}",
-   "en": "Uh-oh, you’re short on funds. {VAR:0200:0}",
+   "en": "You seem to be short on money.{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/6"
+   "origin": "agent",
+   "notes": "US 0117/6 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
    "zh": "包包好像满了呢。{VAR:0200:0}",
-   "en": "Uh-oh, your Bag is chock-full. {VAR:0200:0}",
+   "en": "Your Bag seems to be full.{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/7"
+   "origin": "agent",
+   "notes": "US 0117/7 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 8,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "欢迎光临！{NEWLINE}我们这是精灵美容室！{SCROLL}手艺很好的我{NEWLINE}是美发兄弟的哥哥,{CLEAR}只要５００元就能把你的精灵{CLEAR}变漂亮！{SCROLL}美发后毛色就会更漂亮,{CLEAR}更加黏主人。{SCROLL}怎样？{NEWLINE}要美发吗？{VAR:0200:0}",
-   "en": "Welcome!{SCROLL}I run the Pokémon Salon!{SCROLL}I’m the older and better of the two{NEWLINE}Haircut Brothers.{SCROLL}I can make your Pokémon beautiful for{NEWLINE}just $500.{SCROLL}Grooming gives a better look.{NEWLINE}Your Pokémon will become friendlier and{CLEAR}more beautiful.{SCROLL}Would you like me to do that? {VAR:0200:0}",
+   "en": "Welcome! This is the Pokémon Salon!{SCROLL}I’m the skilled older Haircut Brother. I{NEWLINE}can make your Pokémon beautiful for{CLEAR}just $500!{SCROLL}Grooming will make its coat prettier and{NEWLINE}make it more attached to its owner.{SCROLL}So? Would you like a haircut?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/10"
+   "origin": "agent",
+   "notes": "US 0117/10 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 11,
@@ -126,10 +126,10 @@
   {
    "id": 15,
    "zh": "钱好像不够呢。",
-   "en": "You’ll need more money than that.",
+   "en": "You seem to be short on money.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/15"
+   "origin": "agent",
+   "notes": "US 0117/15 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 16,
@@ -142,7 +142,7 @@
   {
    "id": 17,
    "zh": "欢迎光临精灵美容院！{SCROLL}我是美发兄弟的弟弟！{SCROLL}我的卖点就是价格优惠！{NEWLINE}只要３００元就能把你的精灵{CLEAR}变漂亮哦！{SCROLL}美发后毛色会更漂亮,{CLEAR}会更加黏主人哦。{SCROLL}怎样？{NEWLINE}要让我来做吗？{VAR:0200:0}",
-   "en": "Welcome to the Pokémon Salon!{SCROLL}I’m the younger of the{NEWLINE}two Haircut Brothers!{SCROLL}My selling point is my low{NEWLINE}price! I’ll make your Pokémon{CLEAR}beautiful for just $300!{SCROLL}Grooming gives it a prettier coat,{NEWLINE}and it’ll become friendlier with you.{SCROLL}So? How about it? Want me to do it?{VAR:0200:0}",
+   "en": "Welcome to the Pokémon Salon!{SCROLL}I’m the younger of the two Haircut{NEWLINE}Brothers!{SCROLL}My selling point is my low price! I’ll{NEWLINE}make your Pokémon beautiful for{CLEAR}just $300!{SCROLL}Grooming gives it a prettier coat, and{NEWLINE}it’ll become more attached to its owner.{SCROLL}So? How about it? Want me to do it?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0117/17 | seed rejected us [tag_mismatch] (candidate US 0117#17; text not kept)"
@@ -182,10 +182,10 @@
   {
    "id": 22,
    "zh": "钱好像不够呢。",
-   "en": "You’re a little short on funds.",
+   "en": "You seem to be short on money.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/22"
+   "origin": "agent",
+   "notes": "US 0117/22 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 23,
@@ -238,10 +238,10 @@
   {
    "id": 29,
    "zh": "哎呀,欢迎光临,{NEWLINE}欢迎光临纪念照片工作室,{SCROLL}我们拍的可不是{NEWLINE}普通的纪念照片哦！{SCROLL}听好了,{NEWLINE}你可以扮成火箭队{CLEAR}的样子拍照！{SCROLL}怎样？要试试吗？{VAR:0200:0}",
-   "en": "Welcome to the Memorial Photo Studio.{NEWLINE}We are no ordinary studio!{SCROLL}You can wear a Team Rocket uniform{NEWLINE}to take a picture!{SCROLL}Would you like to try it? {VAR:0200:0}",
+   "en": "Oh, welcome! Welcome to the Memorial{NEWLINE}Photo Studio.{SCROLL}We don’t take ordinary souvenir{NEWLINE}photos!{SCROLL}Listen to this: you can dress up as a{NEWLINE}Team Rocket member for your photo!{SCROLL}So? Want to try it?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/29"
+   "origin": "agent",
+   "notes": "US 0117/29 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 30,
@@ -254,10 +254,10 @@
   {
    "id": 31,
    "zh": "那么要拍了哦,{SCROLL}你要有种{SCROLL}「这个世界是我的！」的感觉,{NEWLINE}好了,说茄……子！{SCROLL}",
-   "en": "Here we go! Give me that ‘The world is{NEWLINE}mine!’ feeling! OK, say chee...se!{SCROLL}",
+   "en": "Here we go!{SCROLL}Give me that{SCROLL}“The world is mine!” feeling! OK, say{NEWLINE}chee...se!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0117/31 | RV036: omission: say-cheese restored (D-1706)"
+   "notes": "US 0117/31 | RV036: omission: say-cheese restored (D-1706) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 32,
@@ -270,7 +270,7 @@
   {
    "id": 33,
    "zh": "我们这里可以扮成火箭队的样子{NEWLINE}拍照哦！{SCROLL}怎样？要试试吗？{VAR:0200:0}",
-   "en": "You can wear a Team Rocket uniform{NEWLINE}to take a picture!{SCROLL}Would you like to try it? {VAR:0200:0}",
+   "en": "You can wear a Team Rocket uniform{NEWLINE}to take a picture!{SCROLL}Would you like to try it?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0117/33"
@@ -286,10 +286,10 @@
   {
    "id": 35,
    "zh": "哎呀？你的相册{NEWLINE}好像满了,{SCROLL}抱歉,先用电脑{NEWLINE}把照片整理一下{CLEAR}再来吧。",
-   "en": "Hmm. Your Photo Album is full.{SCROLL}Access your PC and delete{NEWLINE}some pictures.",
+   "en": "Hmm? Your Photo Album seems to be full.{SCROLL}Sorry, please organize your photos on{NEWLINE}the PC first, then come back.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/35"
+   "origin": "agent",
+   "notes": "US 0117/35 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 36,
@@ -302,10 +302,10 @@
   {
    "id": 37,
    "zh": "嗯,还挺合适的~！{SCROLL}但是穿成这样子{NEWLINE}跑到城市里去转悠,{CLEAR}吓到市民就不好了哦！",
-   "en": "Mm, it suits you pretty well! But if you{NEWLINE}wander around the city dressed like{CLEAR}that, you’ll scare people. That{CLEAR}wouldn’t be nice!",
+   "en": "Mm, it suits you pretty well!{SCROLL}But if you wander around the city{NEWLINE}dressed like that and scare people,{CLEAR}that wouldn’t be nice!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0117/37 | RV036: omission: restored ‘suits you’ and ‘around the city’"
+   "notes": "US 0117/37 | RV036: omission: restored ‘suits you’ and ‘around the city’ | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 38,
@@ -318,10 +318,10 @@
   {
    "id": 39,
    "zh": "你的精灵{NEWLINE}好有魅力哦{SCROLL}若是在这里穿上礼服的话{NEWLINE}会变的更加,更加,更加{CLEAR}有魅力！{SCROLL}这样的话就可以特意为你{NEWLINE}把一张照片装饰在{CLEAR}最里面的房间！{SCROLL}怎样？要试试吗？{VAR:0200:0}",
-   "en": "Ooh, your Pokémon are so charming!{NEWLINE}If they dress up here, they’ll{CLEAR}be even more, more, MORE charming!{CLEAR}Then I’ll specially hang{CLEAR}a photo in the room at the very{CLEAR}back for you! How about it?{CLEAR}Want to try? {VAR:0200:0}",
+   "en": "Your Pokémon are so charming!{SCROLL}If they dress up here, they’ll be even{NEWLINE}more, more, MORE charming!{SCROLL}Then I can specially hang a photo in the{NEWLINE}room at the very back for you!{SCROLL}So? Want to try it?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0117/39 | RV036: meaning: US line differed from the hack (more, more charming; back room); layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "US 0117/39 | RV036: meaning: US line differed from the hack (more, more charming; back room); layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 40,
@@ -334,10 +334,10 @@
   {
    "id": 41,
    "zh": "太好了,太好了！{NEWLINE}那么就让我们开始吧！{SCROLL}你……{NEWLINE}需要说明吗？{VAR:0200:0}",
-   "en": "Ooh, ooh, yes! How nice!{NEWLINE}Let’s not delay!{SCROLL}Should I explain to you how{NEWLINE}to dress up your Pokémon? {VAR:0200:0}",
+   "en": "Great, great! Then let’s get started!{SCROLL}Do you... need an explanation?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/41"
+   "origin": "agent",
+   "notes": "US 0117/41 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 42,
@@ -358,10 +358,10 @@
   {
    "id": 44,
    "zh": "从你手里的{NEWLINE}饰品盒的里面{CLEAR}挑选喜欢的装饰品{CLEAR}给精灵戴上！{SCROLL}好了以后会把照片{NEWLINE}装饰在最里面的房间,{SCROLL}通过记录通信{NEWLINE}连朋友的照片{CLEAR}也能拿到哦！{SCROLL}首先,总之{NEWLINE}让我们先试试吧！{VAR:0200:0}",
-   "en": "Pick the Accessories you like from your{NEWLINE}Fashion Case and put them on your{CLEAR}Pokémon! When you’re done, I’ll hang{CLEAR}the photo in the room at the very back.{CLEAR}If you mix records, you can even get{CLEAR}your friends’ photos! Anyway, let’s{CLEAR}just give it a try first! {VAR:0200:0}",
+   "en": "Pick the Accessories you like from{NEWLINE}your Fashion Case and put them on{CLEAR}your Pokémon!{SCROLL}When you’re done, I’ll hang the{NEWLINE}photo in the room at the{CLEAR}very back.{SCROLL}If you mix records, you can even{NEWLINE}get your friends’ photos!{SCROLL}Anyway, let’s just give it a try{NEWLINE}first!{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0117/44 | RV036: meaning: US ‘Ah, oui’ and ‘beside me’ not in zh; back room (D-1709)"
+   "notes": "US 0117/44 | RV036: meaning: US ‘Ah, oui’ and ‘beside me’ not in zh; back room (D-1709) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 45,
@@ -374,10 +374,10 @@
   {
    "id": 46,
    "zh": "{VAR:011C:0}{NEWLINE}……　……　……{SCROLL}好,好,原来如此！{NEWLINE}看上去闪闪发光！{SCROLL}",
-   "en": "{VAR:011C:0}... Ooh, yes, yes! I see!{NEWLINE}It looks dazzling!{SCROLL}",
+   "en": "{VAR:011C:0} ... ... ...{SCROLL}Yes, yes, I see! It looks dazzling!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0117/46 | RV036: addition: US ‘Your aesthetics’ not in zh"
+   "notes": "US 0117/46 | RV036: addition: US ‘Your aesthetics’ not in zh | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 47,
@@ -398,10 +398,10 @@
   {
    "id": 49,
    "zh": "再来穿礼服的话,{NEWLINE}就会帮你把装饰照片{CLEAR}换成新的！{SCROLL}要穿礼服吗？{VAR:0200:0}",
-   "en": "If you dress up again, I’ll replace{NEWLINE}the photo on display with a new one!{CLEAR}Would you like to dress up? {VAR:0200:0}",
+   "en": "If you dress up again, I’ll replace the{NEWLINE}photo on display with a new one!{SCROLL}Would you like to dress up?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0117/49 | RV036: addition: US ‘dearie’ not in zh; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "US 0117/49 | RV036: addition: US ‘dearie’ not in zh; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 50,
@@ -446,23 +446,23 @@
   {
    "id": 55,
    "zh": "从刚刚开始穿黑衣的{NEWLINE}火箭队员们{CLEAR}就慌慌张张地走来走去……{SCROLL}我还以为他们想闹点什么事,{NEWLINE}结果是你把火箭队员给……{CLEAR}你真强！{SCROLL}既然这样,{NEWLINE}传说的……{SCROLL}",
-   "en": "Team Rocket members in black have been{NEWLINE}rushing around in a panic...{SCROLL}I thought they were up to something,{NEWLINE}but it turns out you gave those{CLEAR}Rockets a...{SCROLL}You’re really strong!{NEWLINE}In that case, the legendary...{SCROLL}",
+   "en": "Team Rocket members in black have been{NEWLINE}rushing around in a panic...{SCROLL}I thought they were up to something,{NEWLINE}but it turns out you gave those{CLEAR}Rockets a... You’re really strong!{SCROLL}In that case, the legendary...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0117/55 | RV036: addition: US ‘you may be able to face the legendary Poké...’ not in zh; trailing-off kept"
+   "notes": "US 0117/55 | RV036: addition: US ‘you may be able to face the legendary Poké...’ not in zh; trailing-off kept | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 56,
    "zh": "哦呵呵！不说了,{SCROLL}那,我先走了！{SCROLL}",
-   "en": "Hahaha! Never mind.{SCROLL}I must go now.{SCROLL}",
+   "en": "Oh ho ho! I won’t say any more.{SCROLL}Well, I’ll be off!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/56"
+   "origin": "agent",
+   "notes": "US 0117/56 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 57,
    "zh": "欢迎光临！{SCROLL}这里是不知道会出现什么的{NEWLINE}装饰品抽奖！{SCROLL}一次１００元{NEWLINE}要试试吗？{VAR:0200:0}",
-   "en": "Take a look!{SCROLL}This is a drawing for Accessories.{NEWLINE}You never know what you’re gonna get.{SCROLL}Would you like to try for $100? {VAR:0200:0}",
+   "en": "Welcome!{SCROLL}This is a drawing for Accessories. You{NEWLINE}never know what you’re gonna get.{SCROLL}Would you like to try for $100?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0117/57"
@@ -478,10 +478,10 @@
   {
    "id": 59,
    "zh": "再见,{NEWLINE}要来玩哦！",
-   "en": "Please come again!",
+   "en": "Goodbye! Come back and play!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/59"
+   "origin": "agent",
+   "notes": "US 0117/59 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 60,
@@ -510,10 +510,10 @@
   {
    "id": 63,
    "zh": "再见！",
-   "en": "Come again!",
+   "en": "Goodbye!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0117/63"
+   "origin": "agent",
+   "notes": "US 0117/63 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 64,
@@ -1188,10 +1188,10 @@
   {
    "id": 147,
    "zh": "行了,换人换人。{NEWLINE}阿承、阿仇你们上！",
-   "en": "Enough, switch out.{NEWLINE}Chan, Vince, you’re up!",
+   "en": "Enough, switch out, switch out. Chan,{NEWLINE}Vince, you’re up!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 148,
@@ -1348,10 +1348,10 @@
   {
    "id": 167,
    "zh": "我还是第一次见到他们这么害怕,{NEWLINE}以前小茜馆主来赶他们的时候,{CLEAR}他们都没有慌张成这样。",
-   "en": "It’s the first time I’ve seen them{NEWLINE}this scared. Even when Whitney{CLEAR}came to drive them off before,{CLEAR}they didn’t panic like this.",
+   "en": "It’s the first time I’ve seen them this{NEWLINE}scared. Even when Gym Leader Whitney{CLEAR}came to drive them off before, they{CLEAR}didn’t panic like this.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 168,
@@ -1420,10 +1420,10 @@
   {
    "id": 176,
    "zh": "这伙人听说小茜馆主{NEWLINE}今天去了满金广播塔做节目,{CLEAR}就又明目张胆地聚到这里了。",
-   "en": "This gang heard Whitney went{NEWLINE}to the Goldenrod Radio Tower{CLEAR}for a show today, so they’ve{CLEAR}brazenly gathered here again.",
+   "en": "This gang heard Gym Leader Whitney went{NEWLINE}to the Goldenrod Radio Tower for a show{CLEAR}today, so they’ve brazenly gathered{CLEAR}here again.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 177,
@@ -1476,7 +1476,7 @@
   {
    "id": 183,
    "zh": "水晶『前辈,现在的满金市{NEWLINE}跟我小时候记忆中的样子差好多啊。{CLEAR}果然无论人也好城市也好,{CLEAR}都是不断向前发展变化的。",
-   "en": "Crystal: You know, Goldenrod{NEWLINE}today is so different from what I{CLEAR}remember as a kid. Whether it’s{CLEAR}people or cities, I guess everything{CLEAR}keeps growing and changing.",
+   "en": "Crystal: You know, Goldenrod today is{NEWLINE}so different from what I remember as a{CLEAR}kid. Whether it’s people or cities,{CLEAR}everything really does keep growing{CLEAR}and changing.",
    "status": "draft",
    "origin": "agent",
    "notes": ""

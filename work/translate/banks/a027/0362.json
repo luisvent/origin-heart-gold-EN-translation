@@ -183,10 +183,10 @@
   {
    "id": 22,
    "zh": "小豪『切,真是个麻烦的家伙。{NEWLINE}不过既然让我遇到了,{CLEAR}我就绝对不会放过你！",
-   "en": "Goh: Tch, what a pain.{SCROLL}But now that I’ve found it, there’s no{NEWLINE}way I’m letting you get away!",
+   "en": "Goh: Tch, what a pain.{SCROLL}But now that I’ve found you, there’s no{NEWLINE}way I’m letting you get away!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Keep address to Mew consistent across consecutive threat clauses."
   },
   {
    "id": 23,

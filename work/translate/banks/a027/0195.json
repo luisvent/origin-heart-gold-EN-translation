@@ -46,18 +46,18 @@
   {
    "id": 5,
    "zh": "{VAR:0101:0}想要学习{NEWLINE}{VAR:0106:1}⋯⋯⋯{SCROLL}",
-   "en": "{VAR:0101:0} is trying to{NEWLINE}learn {VAR:0106:1}.{SCROLL}",
+   "en": "{VAR:0101:0} wants to learn{NEWLINE}{VAR:0106:1}......{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/5"
+   "origin": "agent",
+   "notes": "US 0197/5 | CES-early: detail: source wants/already-has, hesitation and usable-in-battle qualifier"
   },
   {
    "id": 6,
    "zh": "但是{VAR:0101:0}已经{NEWLINE}有４个招式了！{SCROLL}",
-   "en": "But {VAR:0101:0} can’t learn{NEWLINE}more than four moves.{SCROLL}",
+   "en": "But {VAR:0101:0} already has four moves!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/6",
+   "origin": "agent",
+   "notes": "US 0197/6 | CES-early: detail: source wants/already-has, hesitation and usable-in-battle qualifier",
    "qa_ignore": [
     "number_missing"
    ]
@@ -73,26 +73,26 @@
   {
    "id": 8,
    "zh": "{VAR:0101:0}忘记了{NEWLINE}{VAR:0106:2}！{SCROLL}",
-   "en": "{VAR:0101:0} forgot the move{NEWLINE}{VAR:0106:2}.{SCROLL}",
+   "en": "{VAR:0101:0} forgot the move{NEWLINE}{VAR:0106:2}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/8"
+   "origin": "agent",
+   "notes": "US 0197/8 | CES-early: intensity: source exclamation"
   },
   {
    "id": 9,
    "zh": "那么⋯⋯要放弃学习{NEWLINE}{VAR:0106:1}吗？{SCROLL}",
-   "en": "Give up on learning the move{NEWLINE}{VAR:0106:1}?{SCROLL}",
+   "en": "Well... Give up on learning{NEWLINE}{VAR:0106:1}?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/9"
+   "origin": "agent",
+   "notes": "US 0197/9 | CES-early: detail: source wants/already-has, hesitation and usable-in-battle qualifier"
   },
   {
    "id": 10,
    "zh": "{VAR:0101:0}没记住{NEWLINE}{VAR:0106:1}！{SCROLL}",
-   "en": "{VAR:0101:0} did not learn{NEWLINE}{VAR:0106:1}.{SCROLL}",
+   "en": "{VAR:0101:0} did not learn {VAR:0106:1}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/10"
+   "origin": "agent",
+   "notes": "US 0197/10 | CES-early: intensity: source exclamation"
   },
   {
    "id": 11,
@@ -105,10 +105,10 @@
   {
    "id": 12,
    "zh": "但是{VAR:0101:0}的攻击{NEWLINE}没有命中！",
-   "en": "{VAR:0101:0}’s{NEWLINE}attack missed!",
+   "en": "But {VAR:0101:0}’s attack missed!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/12",
+   "origin": "agent",
+   "notes": "US 0197/12 | CES-early: detail: restore source contrast but",
    "qa_ignore": [
     "glossary:命中"
    ]
@@ -116,10 +116,10 @@
   {
    "id": 13,
    "zh": "但是,野生的{VAR:0101:0}的攻击{NEWLINE}没有命中！",
-   "en": "The wild {VAR:0101:0}’s{NEWLINE}attack missed!",
+   "en": "But the wild {VAR:0101:0}’s attack{NEWLINE}missed!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/13",
+   "origin": "agent",
+   "notes": "US 0197/13 | CES-early: detail: restore source contrast but",
    "qa_ignore": [
     "glossary:命中"
    ]
@@ -127,10 +127,10 @@
   {
    "id": 14,
    "zh": "但是,对手的{VAR:0101:0}的攻击{NEWLINE}没有命中！",
-   "en": "The attack of the foe’s{NEWLINE}{VAR:0101:0} missed!",
+   "en": "But the attack of the foe’s {VAR:0101:0}{NEWLINE}missed!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/14",
+   "origin": "agent",
+   "notes": "US 0197/14 | CES-early: detail: restore source contrast but",
    "qa_ignore": [
     "glossary:命中"
    ]
@@ -519,26 +519,26 @@
   {
    "id": 60,
    "zh": "但是,对{VAR:0101:0}无效！",
-   "en": "{VAR:0101:0}{NEWLINE}wasn’t affected!",
+   "en": "But {VAR:0101:0} wasn’t affected!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/60"
+   "origin": "agent",
+   "notes": "US 0197/60 | CES-early: detail: restore source contrast but"
   },
   {
    "id": 61,
    "zh": "但是,对野生的{VAR:0101:0}无效！",
-   "en": "The wild {VAR:0101:0}{NEWLINE}wasn’t affected!",
+   "en": "But the wild {VAR:0101:0} wasn’t{NEWLINE}affected!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/61"
+   "origin": "agent",
+   "notes": "US 0197/61 | CES-early: detail: restore source contrast but"
   },
   {
    "id": 62,
    "zh": "但是,对对手的{VAR:0101:0}无效！",
-   "en": "The foe’s {VAR:0101:0}{NEWLINE}wasn’t affected!",
+   "en": "But the foe’s {VAR:0101:0} wasn’t{NEWLINE}affected!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/62"
+   "origin": "agent",
+   "notes": "US 0197/62 | CES-early: detail: restore source contrast but"
   },
   {
    "id": 63,
@@ -939,26 +939,26 @@
   {
    "id": 111,
    "zh": "{VAR:0101:0}{NEWLINE}因为身上结冰动不了！",
-   "en": "{VAR:0101:0} is{NEWLINE}frozen solid!",
+   "en": "{VAR:0101:0} can’t move because it’s{NEWLINE}frozen!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/111"
+   "origin": "agent",
+   "notes": "US 0197/111 | CES-early: detail: explicit frozen inability to move"
   },
   {
    "id": 112,
    "zh": "野生的{VAR:0101:0}{NEWLINE}因为身上结冰动不了！",
-   "en": "The wild {VAR:0101:0} is{NEWLINE}frozen solid!",
+   "en": "The wild {VAR:0101:0} can’t move because{NEWLINE}it’s frozen!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/112"
+   "origin": "agent",
+   "notes": "US 0197/112 | CES-early: detail: explicit frozen inability to move"
   },
   {
    "id": 113,
    "zh": "对手的{VAR:0101:0}{NEWLINE}因为身上结冰动不了！",
-   "en": "The foe’s {VAR:0101:0} is{NEWLINE}frozen solid!",
+   "en": "The foe’s {VAR:0101:0} can’t move{NEWLINE}because it’s frozen!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/113"
+   "origin": "agent",
+   "notes": "US 0197/113 | CES-early: detail: explicit frozen inability to move"
   },
   {
    "id": 114,
@@ -1003,10 +1003,10 @@
   {
    "id": 119,
    "zh": "对手的{VAR:0101:0}身上的冰被{NEWLINE}{VAR:0106:1}融化了！！",
-   "en": "The foe’s {VAR:0101:0} was{NEWLINE}defrosted by {VAR:0106:1}!",
+   "en": "The foe’s {VAR:0101:0} was defrosted by{NEWLINE}{VAR:0106:1}!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/119"
+   "origin": "agent",
+   "notes": "US 0197/119 | CES-early: intensity: source doubled exclamation"
   },
   {
    "id": 120,
@@ -1502,26 +1502,26 @@
   {
    "id": 172,
    "zh": "{VAR:0101:0}着迷了{NEWLINE}使不出任何招式！",
-   "en": "{VAR:0101:0} is{NEWLINE}immobilized by love!",
+   "en": "{VAR:0101:0} is infatuated and can’t use{NEWLINE}any moves!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/172"
+   "origin": "agent",
+   "notes": "US 0197/172 | CES-early: detail: no move can be used, not generic immobilization"
   },
   {
    "id": 173,
    "zh": "野生的{VAR:0101:0}着迷了{NEWLINE}使不出任何招式！",
-   "en": "The wild {VAR:0101:0} is{NEWLINE}immobilized by love!",
+   "en": "The wild {VAR:0101:0} is infatuated and{NEWLINE}can’t use any moves!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/173"
+   "origin": "agent",
+   "notes": "US 0197/173 | CES-early: detail: no move can be used, not generic immobilization"
   },
   {
    "id": 174,
    "zh": "对手的{VAR:0101:0}着迷了{NEWLINE}使不出任何招式！",
-   "en": "The foe’s {VAR:0101:0} is{NEWLINE}immobilized by love!",
+   "en": "The foe’s {VAR:0101:0} is infatuated and{NEWLINE}can’t use any moves!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/174"
+   "origin": "agent",
+   "notes": "US 0197/174 | CES-early: detail: no move can be used, not generic immobilization"
   },
   {
    "id": 175,
@@ -1583,26 +1583,26 @@
   {
    "id": 181,
    "zh": "{VAR:0101:0}因为害怕{NEWLINE}动弹不得！",
-   "en": "{VAR:0101:0} flinched!",
+   "en": "{VAR:0101:0} flinched in fear and{NEWLINE}couldn’t move!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/181"
+   "origin": "agent",
+   "notes": "US 0197/181 | CES-early: detail: source fear and inability to move"
   },
   {
    "id": 182,
    "zh": "野生的{VAR:0101:0}因为害怕{NEWLINE}动弹不得！",
-   "en": "The wild {VAR:0101:0} flinched!",
+   "en": "The wild {VAR:0101:0} flinched in fear and{NEWLINE}couldn’t move!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/182"
+   "origin": "agent",
+   "notes": "US 0197/182 | CES-early: detail: source fear and inability to move"
   },
   {
    "id": 183,
    "zh": "对手的{VAR:0101:0}因为害怕{NEWLINE}动弹不得！",
-   "en": "The foe’s {VAR:0101:0} flinched!",
+   "en": "The foe’s {VAR:0101:0} flinched in fear{NEWLINE}and couldn’t move!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/183"
+   "origin": "agent",
+   "notes": "US 0197/183 | CES-early: detail: source fear and inability to move"
   },
   {
    "id": 184,
@@ -1640,26 +1640,26 @@
   {
    "id": 187,
    "zh": "但是,{NEWLINE}{VAR:0101:0}的体力满了！",
-   "en": "{VAR:0101:0}’s{NEWLINE}HP is full!",
+   "en": "But {VAR:0101:0}’s HP is full!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/187"
+   "origin": "agent",
+   "notes": "US 0197/187 | CES-early: detail: restore source contrast but"
   },
   {
    "id": 188,
    "zh": "但是,{NEWLINE}野生的{VAR:0101:0}的体力满了！",
-   "en": "The wild {VAR:0101:0}’s{NEWLINE}HP is full!",
+   "en": "But the wild {VAR:0101:0}’s HP is full!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/188"
+   "origin": "agent",
+   "notes": "US 0197/188 | CES-early: detail: restore source contrast but"
   },
   {
    "id": 189,
    "zh": "但是,{NEWLINE}对手的{VAR:0101:0}的体力满了！",
-   "en": "The foe’s {VAR:0101:0}’s{NEWLINE}HP is full!",
+   "en": "But the foe’s {VAR:0101:0}’s HP is full!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/189"
+   "origin": "agent",
+   "notes": "US 0197/189 | CES-early: detail: restore source contrast but"
   },
   {
    "id": 190,
@@ -1841,10 +1841,10 @@
   {
    "id": 211,
    "zh": "{VAR:0101:0}周围的空气{NEWLINE}起了漩涡！",
-   "en": "{VAR:0101:0} whipped{NEWLINE}up a whirlwind!",
+   "en": "The air around {VAR:0101:0} began to{NEWLINE}swirl!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/211",
+   "origin": "agent",
+   "notes": "US 0197/211 | CES-early: actor/detail: air around Pokémon forms vortex; no invented causal actor",
    "qa_ignore": [
     "glossary:漩涡"
    ]
@@ -1852,10 +1852,10 @@
   {
    "id": 212,
    "zh": "野生的{VAR:0101:0}周围的空气{NEWLINE}起了漩涡！！",
-   "en": "The wild {VAR:0101:0} whipped{NEWLINE}up a whirlwind!",
+   "en": "The air around the wild {VAR:0101:0}{NEWLINE}began to swirl!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/212",
+   "origin": "agent",
+   "notes": "US 0197/212 | CES-early: actor/detail: air around Pokémon forms vortex; no invented causal actor",
    "qa_ignore": [
     "glossary:漩涡"
    ]
@@ -1863,10 +1863,10 @@
   {
    "id": 213,
    "zh": "对手的{VAR:0101:0}周围的空气{NEWLINE}起了漩涡！！",
-   "en": "The foe’s {VAR:0101:0} whipped{NEWLINE}up a whirlwind!",
+   "en": "The air around the foe’s {VAR:0101:0}{NEWLINE}began to swirl!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/213",
+   "origin": "agent",
+   "notes": "US 0197/213 | CES-early: actor/detail: air around Pokémon forms vortex; no invented causal actor",
    "qa_ignore": [
     "glossary:漩涡"
    ]
@@ -2051,58 +2051,58 @@
   {
    "id": 235,
    "zh": "{VAR:0101:0}被{VAR:0101:1}{NEWLINE}捆住了！",
-   "en": "{VAR:0101:0} was squeezed{NEWLINE}by {VAR:0101:1}!",
+   "en": "{VAR:0101:0} was bound by {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/235"
+   "origin": "agent",
+   "notes": "US 0197/235 | CES-early: detail: source binding, not generic squeezing"
   },
   {
    "id": 236,
    "zh": "{VAR:0101:0}被野生的{VAR:0101:1}{NEWLINE}捆住了！",
-   "en": "{VAR:0101:0} was squeezed{NEWLINE}by the wild {VAR:0101:1}!",
+   "en": "{VAR:0101:0} was bound by the wild{NEWLINE}{VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/236"
+   "origin": "agent",
+   "notes": "US 0197/236 | CES-early: detail: source binding, not generic squeezing"
   },
   {
    "id": 237,
    "zh": "{VAR:0101:0}被对手的{VAR:0101:1}{NEWLINE}捆住了！",
-   "en": "{VAR:0101:0} was squeezed{NEWLINE}by the foe’s {VAR:0101:1}!",
+   "en": "{VAR:0101:0} was bound by the foe’s{NEWLINE}{VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/237"
+   "origin": "agent",
+   "notes": "US 0197/237 | CES-early: detail: source binding, not generic squeezing"
   },
   {
    "id": 238,
    "zh": "野生的{VAR:0101:0}被{VAR:0101:1}{NEWLINE}捆住了！",
-   "en": "The wild {VAR:0101:0} was squeezed{NEWLINE}by {VAR:0101:1}!",
+   "en": "The wild {VAR:0101:0} was bound by{NEWLINE}{VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/238"
+   "origin": "agent",
+   "notes": "US 0197/238 | CES-early: detail: source binding, not generic squeezing"
   },
   {
    "id": 239,
    "zh": "野生的{VAR:0101:0}被{NEWLINE}野生的{VAR:0101:1}捆住了！",
-   "en": "The wild {VAR:0101:0} was squeezed{NEWLINE}by the wild {VAR:0101:1}!",
+   "en": "The wild {VAR:0101:0} was bound by the{NEWLINE}wild {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/239"
+   "origin": "agent",
+   "notes": "US 0197/239 | CES-early: detail: source binding, not generic squeezing"
   },
   {
    "id": 240,
    "zh": "对手的{VAR:0101:0}被{VAR:0101:1}{NEWLINE}捆住了！",
-   "en": "The foe’s {VAR:0101:0} was squeezed{NEWLINE}by {VAR:0101:1}!",
+   "en": "The foe’s {VAR:0101:0} was bound by{NEWLINE}{VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/240"
+   "origin": "agent",
+   "notes": "US 0197/240 | CES-early: detail: source binding, not generic squeezing"
   },
   {
    "id": 241,
    "zh": "对手的{VAR:0101:0}被{NEWLINE}对手的{VAR:0101:1}捆住了！",
-   "en": "The foe’s {VAR:0101:0} was squeezed{NEWLINE}by the foe’s {VAR:0101:1}!",
+   "en": "The foe’s {VAR:0101:0} was bound by the{NEWLINE}foe’s {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/241"
+   "origin": "agent",
+   "notes": "US 0197/241 | CES-early: detail: source binding, not generic squeezing"
   },
   {
    "id": 242,
@@ -2220,58 +2220,58 @@
   {
    "id": 255,
    "zh": "{VAR:0101:0}被{VAR:0101:1}{NEWLINE}的壳给夹住了！",
-   "en": "{VAR:0101:1} clamped{NEWLINE}{VAR:0101:0}!",
+   "en": "{VAR:0101:1} clamped {VAR:0101:0} with its{NEWLINE}shell!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/255"
+   "origin": "agent",
+   "notes": "US 0197/255 | CES-early: detail: source shell explicitly clamps victim"
   },
   {
    "id": 256,
    "zh": "{VAR:0101:0}被野生的{VAR:0101:1}{NEWLINE}的壳给夹住了！",
-   "en": "The wild {VAR:0101:1} clamped{NEWLINE}{VAR:0101:0}!",
+   "en": "The wild {VAR:0101:1} clamped {VAR:0101:0}{NEWLINE}with its shell!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/256"
+   "origin": "agent",
+   "notes": "US 0197/256 | CES-early: detail: source shell explicitly clamps victim"
   },
   {
    "id": 257,
    "zh": "{VAR:0101:0}被对手的{VAR:0101:1}{NEWLINE}的壳给夹住了！",
-   "en": "The foe’s {VAR:0101:1} clamped{NEWLINE}{VAR:0101:0}!",
+   "en": "The foe’s {VAR:0101:1} clamped{NEWLINE}{VAR:0101:0} with its shell!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/257"
+   "origin": "agent",
+   "notes": "US 0197/257 | CES-early: detail: source shell explicitly clamps victim"
   },
   {
    "id": 258,
    "zh": "野生的{VAR:0101:0}被{VAR:0101:1}{NEWLINE}的壳给夹住了！",
-   "en": "{VAR:0101:1} clamped{NEWLINE}the wild {VAR:0101:0}!",
+   "en": "{VAR:0101:1} clamped the wild {VAR:0101:0}{NEWLINE}with its shell!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/258"
+   "origin": "agent",
+   "notes": "US 0197/258 | CES-early: detail: source shell explicitly clamps victim"
   },
   {
    "id": 259,
    "zh": "野生的{VAR:0101:0}被{NEWLINE}野生的{VAR:0101:1}的壳给夹住了！",
-   "en": "The wild {VAR:0101:1} clamped{NEWLINE}the wild {VAR:0101:0}!",
+   "en": "The wild {VAR:0101:1} clamped the wild{NEWLINE}{VAR:0101:0} with its shell!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/259"
+   "origin": "agent",
+   "notes": "US 0197/259 | CES-early: detail: source shell explicitly clamps victim"
   },
   {
    "id": 260,
    "zh": "对手的{VAR:0101:0}被{VAR:0101:1}{NEWLINE}的壳给夹住了！",
-   "en": "{VAR:0101:1} clamped{NEWLINE}the foe’s {VAR:0101:0}!",
+   "en": "{VAR:0101:1} clamped the foe’s{NEWLINE}{VAR:0101:0} with its shell!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/260"
+   "origin": "agent",
+   "notes": "US 0197/260 | CES-early: detail: source shell explicitly clamps victim"
   },
   {
    "id": 261,
    "zh": "对手的{VAR:0101:0}被{NEWLINE}对手的{VAR:0101:1}的壳给夹住了！",
-   "en": "The foe’s {VAR:0101:1} clamped{NEWLINE}the foe’s {VAR:0101:0}!",
+   "en": "The foe’s {VAR:0101:1} clamped the foe’s{NEWLINE}{VAR:0101:0} with its shell!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/261"
+   "origin": "agent",
+   "notes": "US 0197/261 | CES-early: detail: source shell explicitly clamps victim"
   },
   {
    "id": 262,
@@ -2686,26 +2686,26 @@
   {
    "id": 311,
    "zh": "{VAR:0101:0}无法安静下来！",
-   "en": "{VAR:0101:0} is making{NEWLINE}an uproar!",
+   "en": "{VAR:0101:0} can’t calm down!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/311"
+   "origin": "agent",
+   "notes": "US 0197/311 | CES-early: negation: cannot calm down, not just making noise"
   },
   {
    "id": 312,
    "zh": "野生的{VAR:0101:0}无法安静下来！",
-   "en": "The wild {VAR:0101:0} is making{NEWLINE}an uproar!",
+   "en": "The wild {VAR:0101:0} can’t calm down!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/312"
+   "origin": "agent",
+   "notes": "US 0197/312 | CES-early: negation: cannot calm down, not just making noise"
   },
   {
    "id": 313,
    "zh": "对手的{VAR:0101:0}无法安静下来！",
-   "en": "The foe’s {VAR:0101:0} is making{NEWLINE}an uproar!",
+   "en": "The foe’s {VAR:0101:0} can’t calm down!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/313"
+   "origin": "agent",
+   "notes": "US 0197/313 | CES-early: negation: cannot calm down, not just making noise"
   },
   {
    "id": 314,
@@ -2734,26 +2734,26 @@
   {
    "id": 317,
    "zh": "{VAR:0101:0}储存了{NEWLINE}{VAR:0132:1}次能量！",
-   "en": "{VAR:0101:0} stockpiled {VAR:0132:1}!",
+   "en": "{VAR:0101:0} stockpiled energy {VAR:0132:1} times!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/317"
+   "origin": "agent",
+   "notes": "US 0197/317 | CES-early: detail: energy and number of times explicitly stated"
   },
   {
    "id": 318,
    "zh": "野生的{VAR:0101:0}储存了{NEWLINE}{VAR:0132:1}次能量！",
-   "en": "The wild {VAR:0101:0} stockpiled {VAR:0132:1}!",
+   "en": "The wild {VAR:0101:0} stockpiled energy {VAR:0132:1}{NEWLINE}times!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/318"
+   "origin": "agent",
+   "notes": "US 0197/318 | CES-early: detail: energy and number of times explicitly stated"
   },
   {
    "id": 319,
    "zh": "对手的{VAR:0101:0}储存了{NEWLINE}{VAR:0132:1}次能量！",
-   "en": "The foe’s {VAR:0101:0} stockpiled {VAR:0132:1}!",
+   "en": "The foe’s {VAR:0101:0} stockpiled energy{NEWLINE}{VAR:0132:1} times!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/319"
+   "origin": "agent",
+   "notes": "US 0197/319 | CES-early: detail: energy and number of times explicitly stated"
   },
   {
    "id": 320,
@@ -3033,26 +3033,26 @@
   {
    "id": 351,
    "zh": "但是的{VAR:0101:0}已经{NEWLINE}有替身了！",
-   "en": "{VAR:0101:0} already{NEWLINE}has a substitute!",
+   "en": "But {VAR:0101:0} already has a{NEWLINE}substitute!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/351"
+   "origin": "agent",
+   "notes": "US 0197/351 | CES-early: detail: restore source but; source351pure typo loggedD2255"
   },
   {
    "id": 352,
    "zh": "但是,野生的{VAR:0101:0}已经{NEWLINE}有替身了！",
-   "en": "The wild {VAR:0101:0} already{NEWLINE}has a substitute!",
+   "en": "But the wild {VAR:0101:0} already has a{NEWLINE}substitute!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/352"
+   "origin": "agent",
+   "notes": "US 0197/352 | CES-early: detail: restore source but; source351pure typo loggedD2255"
   },
   {
    "id": 353,
    "zh": "但是,对手的{VAR:0101:0}已经{NEWLINE}有替身了！",
-   "en": "The foe’s {VAR:0101:0} already{NEWLINE}has a substitute!",
+   "en": "But the foe’s {VAR:0101:0} already has a{NEWLINE}substitute!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/353"
+   "origin": "agent",
+   "notes": "US 0197/353 | CES-early: detail: restore source but; source351pure typo loggedD2255"
   },
   {
    "id": 354,
@@ -3081,50 +3081,50 @@
   {
    "id": 357,
    "zh": "{VAR:0101:0}的{NEWLINE}替身消失了⋯⋯{SCROLL}",
-   "en": "{VAR:0101:0}’s{NEWLINE}substitute faded!{SCROLL}",
+   "en": "{VAR:0101:0}’s substitute faded...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/357"
+   "origin": "agent",
+   "notes": "US 0197/357 | CES-early: tone: restore trailing source ellipsis instead of exclamation"
   },
   {
    "id": 358,
    "zh": "野生的{VAR:0101:0}的{NEWLINE}替身消失了⋯⋯{SCROLL}",
-   "en": "The wild {VAR:0101:0}’s{NEWLINE}substitute faded!{SCROLL}",
+   "en": "The wild {VAR:0101:0}’s substitute{NEWLINE}faded...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/358"
+   "origin": "agent",
+   "notes": "US 0197/358 | CES-early: tone: restore trailing source ellipsis instead of exclamation"
   },
   {
    "id": 359,
    "zh": "对手的{VAR:0101:0}的{NEWLINE}替身消失了⋯⋯{SCROLL}",
-   "en": "The foe’s {VAR:0101:0}’s{NEWLINE}substitute faded!{SCROLL}",
+   "en": "The foe’s {VAR:0101:0}’s substitute{NEWLINE}faded...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/359"
+   "origin": "agent",
+   "notes": "US 0197/359 | CES-early: tone: restore trailing source ellipsis instead of exclamation"
   },
   {
    "id": 360,
    "zh": "因为攻击的反作用{NEWLINE}{VAR:0101:0}无法动弹！",
-   "en": "{VAR:0101:0} must{NEWLINE}recharge!",
+   "en": "{VAR:0101:0} can’t move from the{NEWLINE}aftereffects of its attack!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/360"
+   "origin": "agent",
+   "notes": "US 0197/360 | CES-early: detail: source inability and causal aftereffects, not only recharge label"
   },
   {
    "id": 361,
    "zh": "因为攻击的反作用{NEWLINE}野生的{VAR:0101:0}无法动弹！",
-   "en": "The wild {VAR:0101:0} must{NEWLINE}recharge!",
+   "en": "The wild {VAR:0101:0} can’t move from the{NEWLINE}aftereffects of its attack!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/361"
+   "origin": "agent",
+   "notes": "US 0197/361 | CES-early: detail: source inability and causal aftereffects, not only recharge label"
   },
   {
    "id": 362,
    "zh": "因为攻击的反作用{NEWLINE}对手的{VAR:0101:0}无法动弹！",
-   "en": "The foe’s {VAR:0101:0} must{NEWLINE}recharge!",
+   "en": "The foe’s {VAR:0101:0} can’t move from{NEWLINE}the aftereffects of its attack!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/362"
+   "origin": "agent",
+   "notes": "US 0197/362 | CES-early: detail: source inability and causal aftereffects, not only recharge label"
   },
   {
    "id": 363,
@@ -3839,10 +3839,10 @@
   {
    "id": 448,
    "zh": "震级变化{VAR:0132:0}！！",
-   "en": "Magnitude {VAR:0132:0}!",
+   "en": "Magnitude {VAR:0132:0}!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/448"
+   "origin": "agent",
+   "notes": "US 0197/448 | CES-early: intensity: source double exclamation"
   },
   {
    "id": 449,
@@ -4107,26 +4107,26 @@
   {
    "id": 478,
    "zh": "{VAR:0101:0}把{VAR:0106:1}{NEWLINE}托付给了未来！",
-   "en": "{VAR:0101:0} chose{NEWLINE}{VAR:0106:1} as its destiny!",
+   "en": "{VAR:0101:0} entrusted {VAR:0106:1} to{NEWLINE}the future!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/478"
+   "origin": "agent",
+   "notes": "US 0197/478 | CES-early: meaning: entrust move to the future, not choose destiny; retain deliberate metaphor"
   },
   {
    "id": 479,
    "zh": "野生的{VAR:0101:0}把{NEWLINE}{VAR:0106:1}托付给了未来！",
-   "en": "The wild {VAR:0101:0} chose{NEWLINE}{VAR:0106:1} as its destiny!",
+   "en": "The wild {VAR:0101:0} entrusted{NEWLINE}{VAR:0106:1} to the future!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/479"
+   "origin": "agent",
+   "notes": "US 0197/479 | CES-early: meaning: entrust move to the future, not choose destiny; retain deliberate metaphor"
   },
   {
    "id": 480,
    "zh": "对手的{VAR:0101:0}把{NEWLINE}{VAR:0106:1}托付给了未来！",
-   "en": "The foe’s {VAR:0101:0} chose{NEWLINE}{VAR:0106:1} as its destiny!",
+   "en": "The foe’s {VAR:0101:0} entrusted{NEWLINE}{VAR:0106:1} to the future!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/480"
+   "origin": "agent",
+   "notes": "US 0197/480 | CES-early: meaning: entrust move to the future, not choose destiny; retain deliberate metaphor"
   },
   {
    "id": 481,
@@ -4325,58 +4325,58 @@
   {
    "id": 503,
    "zh": "{VAR:0101:0}作为{VAR:0101:1}{NEWLINE}的帮手加入了战斗！",
-   "en": "{VAR:0101:0} is ready to{NEWLINE}help {VAR:0101:1}!",
+   "en": "{VAR:0101:0} joined the battle to help{NEWLINE}{VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/503"
+   "origin": "agent",
+   "notes": "US 0197/503 | CES-early: aspect: joined battle as helper, not merely ready"
   },
   {
    "id": 504,
    "zh": "{VAR:0101:0}作为野生的{VAR:0101:1}{NEWLINE}的帮手加入了战斗！",
-   "en": "{VAR:0101:0} is ready to{NEWLINE}help the wild {VAR:0101:1}!",
+   "en": "{VAR:0101:0} joined the battle to help{NEWLINE}the wild {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/504"
+   "origin": "agent",
+   "notes": "US 0197/504 | CES-early: aspect: joined battle as helper, not merely ready"
   },
   {
    "id": 505,
    "zh": "{VAR:0101:0}作为对手的{VAR:0101:1}{NEWLINE}的帮手加入了战斗！",
-   "en": "{VAR:0101:0} is ready to{NEWLINE}help the foe’s {VAR:0101:1}!",
+   "en": "{VAR:0101:0} joined the battle to help{NEWLINE}the foe’s {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/505"
+   "origin": "agent",
+   "notes": "US 0197/505 | CES-early: aspect: joined battle as helper, not merely ready"
   },
   {
    "id": 506,
    "zh": "野生的{VAR:0101:0}作为{VAR:0101:1}{NEWLINE}的帮手加入了战斗！",
-   "en": "The wild {VAR:0101:0} is ready to{NEWLINE}help {VAR:0101:1}!",
+   "en": "The wild {VAR:0101:0} joined the battle{NEWLINE}to help {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/506"
+   "origin": "agent",
+   "notes": "US 0197/506 | CES-early: aspect: joined battle as helper, not merely ready"
   },
   {
    "id": 507,
    "zh": "野生的{VAR:0101:0}作为{NEWLINE}野生的{VAR:0101:1}{CLEAR}的帮手加入了战斗！",
-   "en": "The wild {VAR:0101:0} is ready to{NEWLINE}help the wild {VAR:0101:1}!",
+   "en": "The wild {VAR:0101:0} joined the battle{NEWLINE}to help the wild {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/507"
+   "origin": "agent",
+   "notes": "US 0197/507 | CES-early: aspect: joined battle as helper, not merely ready"
   },
   {
    "id": 508,
    "zh": "对手的{VAR:0101:0}作为{VAR:0101:1}{NEWLINE}的帮手加入了战斗！",
-   "en": "The foe’s {VAR:0101:0} is ready to{NEWLINE}help {VAR:0101:1}!",
+   "en": "The foe’s {VAR:0101:0} joined the battle{NEWLINE}to help {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/508"
+   "origin": "agent",
+   "notes": "US 0197/508 | CES-early: aspect: joined battle as helper, not merely ready"
   },
   {
    "id": 509,
    "zh": "对手的{VAR:0101:0}作为{NEWLINE}对手的{VAR:0101:1}{CLEAR}的帮手加入了战斗！",
-   "en": "The foe’s {VAR:0101:0} is ready to{NEWLINE}help the foe’s {VAR:0101:1}!",
+   "en": "The foe’s {VAR:0101:0} joined the battle{NEWLINE}to help the foe’s {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/509"
+   "origin": "agent",
+   "notes": "US 0197/509 | CES-early: aspect: joined battle as helper, not merely ready"
   },
   {
    "id": 510,
@@ -4851,26 +4851,26 @@
   {
    "id": 565,
    "zh": "{VAR:0101:0}试图把怨念{NEWLINE}转到对方身上！",
-   "en": "{VAR:0101:0} wants the{NEWLINE}foe to bear a grudge!",
+   "en": "{VAR:0101:0} tried to pass its grudge on{NEWLINE}to the foe!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/565"
+   "origin": "agent",
+   "notes": "US 0197/565 | CES-early: meaning: transfer grudge to foe, not desire foe to resent"
   },
   {
    "id": 566,
    "zh": "野生的{VAR:0101:0}试图把怨念{NEWLINE}转到对方身上！",
-   "en": "The wild {VAR:0101:0} wants the{NEWLINE}foe to bear a grudge!",
+   "en": "The wild {VAR:0101:0} tried to pass its{NEWLINE}grudge on to the foe!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/566"
+   "origin": "agent",
+   "notes": "US 0197/566 | CES-early: meaning: transfer grudge to foe, not desire foe to resent"
   },
   {
    "id": 567,
    "zh": "对手的{VAR:0101:0}试图把怨念{NEWLINE}转到对方身上！",
-   "en": "The foe’s {VAR:0101:0} wants the{NEWLINE}foe to bear a grudge!",
+   "en": "The foe’s {VAR:0101:0} tried to pass its{NEWLINE}grudge on to the foe!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/567"
+   "origin": "agent",
+   "notes": "US 0197/567 | CES-early: meaning: transfer grudge to foe, not desire foe to resent"
   },
   {
    "id": 568,
@@ -5149,10 +5149,10 @@
   {
    "id": 600,
    "zh": "{VAR:0101:0}的集中力中断{NEWLINE}无法使出招式！",
-   "en": "{VAR:0101:0} lost its{NEWLINE}focus and couldn’t move!",
+   "en": "{VAR:0101:0} lost its focus and couldn’t{NEWLINE}use its move!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/600",
+   "origin": "agent",
+   "notes": "US 0197/600 | CES-early: meaning: unable to use a move, not physically move",
    "qa_ignore": [
     "glossary:集中力"
    ]
@@ -5160,10 +5160,10 @@
   {
    "id": 601,
    "zh": "野生的{VAR:0101:0}的集中力中断{NEWLINE}无法使出招式！",
-   "en": "The wild {VAR:0101:0} lost its{NEWLINE}focus and couldn’t move!",
+   "en": "The wild {VAR:0101:0} lost its focus and{NEWLINE}couldn’t use its move!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/601",
+   "origin": "agent",
+   "notes": "US 0197/601 | CES-early: meaning: unable to use a move, not physically move",
    "qa_ignore": [
     "glossary:集中力"
    ]
@@ -5171,10 +5171,10 @@
   {
    "id": 602,
    "zh": "对手的{VAR:0101:0}的集中力中断{NEWLINE}无法使出招式！",
-   "en": "The foe’s {VAR:0101:0} lost its{NEWLINE}focus and couldn’t move!",
+   "en": "The foe’s {VAR:0101:0} lost its focus and{NEWLINE}couldn’t use its move!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/602",
+   "origin": "agent",
+   "notes": "US 0197/602 | CES-early: meaning: unable to use a move, not physically move",
    "qa_ignore": [
     "glossary:集中力"
    ]
@@ -5182,26 +5182,26 @@
   {
    "id": 603,
    "zh": "{VAR:0101:0}{NEWLINE}被硬拖入战斗！{SCROLL}",
-   "en": "{VAR:0101:0} was{NEWLINE}dragged out!{SCROLL}",
+   "en": "{VAR:0101:0} was dragged into battle!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/603"
+   "origin": "agent",
+   "notes": "US 0197/603 | CES-early: detail: explicit forced entry into battle"
   },
   {
    "id": 604,
    "zh": "野生的{VAR:0101:0}{NEWLINE}被硬拖入战斗！{SCROLL}",
-   "en": "The wild {VAR:0101:0} was{NEWLINE}dragged out!{SCROLL}",
+   "en": "The wild {VAR:0101:0} was dragged into{NEWLINE}battle!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/604"
+   "origin": "agent",
+   "notes": "US 0197/604 | CES-early: detail: explicit forced entry into battle"
   },
   {
    "id": 605,
    "zh": "对手的{VAR:0101:0}{NEWLINE}被硬拖入战斗！{SCROLL}",
-   "en": "The foe’s {VAR:0101:0} was{NEWLINE}dragged out!{SCROLL}",
+   "en": "The foe’s {VAR:0101:0} was dragged into{NEWLINE}battle!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/605"
+   "origin": "agent",
+   "notes": "US 0197/605 | CES-early: detail: explicit forced entry into battle"
   },
   {
    "id": 606,
@@ -6160,10 +6160,10 @@
   {
    "id": 720,
    "zh": "吸取了毒液！",
-   "en": "It sucked up the{NEWLINE}liquid ooze!",
+   "en": "It sucked up toxic fluid!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/720",
+   "origin": "agent",
+   "notes": "US 0197/720 | CES-early: detail: source poisonous fluid, not unspecified liquid sludge",
    "qa_ignore": [
     "glossary:吸取"
    ]
@@ -6195,26 +6195,26 @@
   {
    "id": 724,
    "zh": "{VAR:0101:0}因为{VAR:0105:1}特性{NEWLINE}受到了攻击！",
-   "en": "{VAR:0101:0}’s {VAR:0105:1}{NEWLINE}took the attack!",
+   "en": "{VAR:0101:0} took the attack because of{NEWLINE}{VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/724"
+   "origin": "agent",
+   "notes": "US 0197/724 | CES-early: actor: Pokémon takes attack due to ability; ability not attack recipient"
   },
   {
    "id": 725,
    "zh": "野生的{VAR:0101:0}因为{VAR:0105:1}特性{NEWLINE}受到了攻击！",
-   "en": "The wild {VAR:0101:0}’s{NEWLINE}{VAR:0105:1} took the attack!",
+   "en": "The wild {VAR:0101:0} took the attack{NEWLINE}because of {VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/725"
+   "origin": "agent",
+   "notes": "US 0197/725 | CES-early: actor: Pokémon takes attack due to ability; ability not attack recipient"
   },
   {
    "id": 726,
    "zh": "对手的{VAR:0101:0}因为{VAR:0105:1}特性{NEWLINE}受到了攻击！",
-   "en": "The foe’s {VAR:0101:0}’s{NEWLINE}{VAR:0105:1} took the attack!",
+   "en": "The foe’s {VAR:0101:0} took the attack{NEWLINE}because of {VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/726"
+   "origin": "agent",
+   "notes": "US 0197/726 | CES-early: actor: Pokémon takes attack due to ability; ability not attack recipient"
   },
   {
    "id": 727,
@@ -6791,18 +6791,18 @@
   {
    "id": 797,
    "zh": "不知怎么的攻击了自己！",
-   "en": "It hurt itself in its{NEWLINE}confusion!",
+   "en": "Somehow, it attacked itself!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/797"
+   "origin": "agent",
+   "notes": "US 0197/797 | CES-early: meaning/detail: preserve uncertainty, contrast, thick-fog exclamation, explicit HP/equal split, and ignored addressee"
   },
   {
    "id": 798,
    "zh": "但是鹦鹉学舌以失败告终！",
-   "en": "Mirror Move failed!",
+   "en": "But Mirror Move failed!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/798"
+   "origin": "agent",
+   "notes": "US 0197/798 | CES-early: meaning/detail: preserve uncertainty, contrast, thick-fog exclamation, explicit HP/equal split, and ignored addressee"
   },
   {
    "id": 799,
@@ -6823,26 +6823,26 @@
   {
    "id": 801,
    "zh": "雨还在持续！",
-   "en": "Rain continues to fall.",
+   "en": "Rain continues to fall!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/801"
+   "origin": "agent",
+   "notes": "US 0197/801 | CES-early: intensity: restore source weather exclamation"
   },
   {
    "id": 802,
    "zh": "大雨还在持续！",
-   "en": "The downpour continues.",
+   "en": "The downpour continues!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/802"
+   "origin": "agent",
+   "notes": "US 0197/802 | CES-early: intensity: restore source weather exclamation"
   },
   {
    "id": 803,
    "zh": "雨停了！",
-   "en": "The rain stopped.",
+   "en": "The rain stopped!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/803"
+   "origin": "agent",
+   "notes": "US 0197/803 | CES-early: intensity: restore source weather exclamation"
   },
   {
    "id": 804,
@@ -6855,18 +6855,18 @@
   {
    "id": 805,
    "zh": "沙尘暴还在持续！",
-   "en": "The sandstorm rages.",
+   "en": "The sandstorm rages!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/805"
+   "origin": "agent",
+   "notes": "US 0197/805 | CES-early: intensity: restore source weather exclamation"
   },
   {
    "id": 806,
    "zh": "沙尘暴平静下来了！",
-   "en": "The sandstorm subsided.",
+   "en": "The sandstorm subsided!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/806"
+   "origin": "agent",
+   "notes": "US 0197/806 | CES-early: intensity: restore source weather exclamation"
   },
   {
    "id": 807,
@@ -6879,10 +6879,10 @@
   {
    "id": 808,
    "zh": "天气十分晴朗！",
-   "en": "The sunlight is strong.",
+   "en": "The sunlight is strong!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/808",
+   "origin": "agent",
+   "notes": "US 0197/808 | CES-early: intensity: restore source weather exclamation",
    "qa_ignore": [
     "glossary:天气"
    ]
@@ -6890,10 +6890,10 @@
   {
    "id": 809,
    "zh": "阳光减弱了！",
-   "en": "The sunlight faded.",
+   "en": "The sunlight faded!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/809"
+   "origin": "agent",
+   "notes": "US 0197/809 | CES-early: intensity: restore source weather exclamation"
   },
   {
    "id": 810,
@@ -6906,26 +6906,26 @@
   {
    "id": 811,
    "zh": "冰雹还在持续！",
-   "en": "Hail continues to fall.",
+   "en": "Hail continues to fall!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/811"
+   "origin": "agent",
+   "notes": "US 0197/811 | CES-early: intensity: restore source weather exclamation"
   },
   {
    "id": 812,
    "zh": "冰雹停了！",
-   "en": "The hail stopped.",
+   "en": "The hail stopped!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/812"
+   "origin": "agent",
+   "notes": "US 0197/812 | CES-early: intensity: restore source weather exclamation"
   },
   {
    "id": 813,
    "zh": "好浓的雾！",
-   "en": "The fog is deep...",
+   "en": "What thick fog!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/813"
+   "origin": "agent",
+   "notes": "US 0197/813 | CES-early: meaning/detail: preserve uncertainty, contrast, thick-fog exclamation, explicit HP/equal split, and ignored addressee"
   },
   {
    "id": 814,
@@ -6970,10 +6970,10 @@
   {
    "id": 819,
    "zh": "但是没有足够的体力来制造替身！",
-   "en": "It was too weak to make{NEWLINE}a substitute!",
+   "en": "But it didn’t have enough HP to make a{NEWLINE}substitute!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/819",
+   "origin": "agent",
+   "notes": "US 0197/819 | CES-early: meaning/detail: preserve uncertainty, contrast, thick-fog exclamation, explicit HP/equal split, and ignored addressee",
    "qa_ignore": [
     "glossary:体力"
    ]
@@ -6981,10 +6981,10 @@
   {
    "id": 820,
    "zh": "平分了双方的体力！",
-   "en": "The battlers shared{NEWLINE}their pain!",
+   "en": "The two battlers’ HP was shared{NEWLINE}equally!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/820",
+   "origin": "agent",
+   "notes": "US 0197/820 | CES-early: meaning/detail: preserve uncertainty, contrast, thick-fog exclamation, explicit HP/equal split, and ignored addressee",
    "qa_ignore": [
     "glossary:体力"
    ]
@@ -7071,10 +7071,10 @@
   {
    "id": 830,
    "zh": "{VAR:0101:0}扭过头去不理你！",
-   "en": "{VAR:0101:0} turned away!",
+   "en": "{VAR:0101:0} turned its head away and{NEWLINE}ignored you!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/830"
+   "origin": "agent",
+   "notes": "US 0197/830 | CES-early: meaning/detail: preserve uncertainty, contrast, thick-fog exclamation, explicit HP/equal split, and ignored addressee"
   },
   {
    "id": 831,
@@ -7167,10 +7167,10 @@
   {
    "id": 842,
    "zh": "{VAR:0101:0}{NEWLINE}正在观察我方的行动！",
-   "en": "{VAR:0101:0} is watching{NEWLINE}carefully!",
+   "en": "{VAR:0101:0} is watching your actions!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/842"
+   "origin": "agent",
+   "notes": "US 0197/842 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 843,
@@ -7199,18 +7199,18 @@
   {
    "id": 846,
    "zh": "{VAR:0103:0}朝{NEWLINE}{VAR:0101:1}扔了饵！",
-   "en": "{VAR:0103:0} threw a Poffin{NEWLINE}at the {VAR:0101:1}!",
+   "en": "{VAR:0103:0} threw bait at {VAR:0101:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/846"
+   "origin": "agent",
+   "notes": "US 0197/846 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 847,
    "zh": "广播『呯嘭！{NEWLINE}由于狩猎球用完了{CLEAR}狩猎结束！{SCROLL}",
-   "en": "Announcer: You’re out of{NEWLINE}Safari Balls!{CLEAR}Game over!{SCROLL}",
+   "en": "Announcer: Ding-dong! You’re out of{NEWLINE}Safari Balls! The safari is over!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/847"
+   "origin": "agent",
+   "notes": "US 0197/847 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 848,
@@ -7231,10 +7231,10 @@
   {
    "id": 850,
    "zh": "呯嘭！因为球已经没有了,{NEWLINE}狩猎游戏结束！",
-   "en": "Announcer: You’re out of{NEWLINE}Safari Balls! Game over!",
+   "en": "Ding-dong! You’re out of Balls, so the{NEWLINE}safari game is over!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/850"
+   "origin": "agent",
+   "notes": "US 0197/850 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 851,
@@ -7247,18 +7247,18 @@
   {
    "id": 852,
    "zh": "{VAR:0100:0}{NEWLINE}正在吃饵！",
-   "en": "{VAR:0100:0} is eating!",
+   "en": "{VAR:0100:0} is eating the bait!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/852"
+   "origin": "agent",
+   "notes": "US 0197/852 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 853,
    "zh": "{VAR:0100:0}{NEWLINE}吃饵吃得正香！",
-   "en": "{VAR:0100:0} is busy eating!",
+   "en": "{VAR:0100:0} is enjoying the bait!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/853"
+   "origin": "agent",
+   "notes": "US 0197/853 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 854,
@@ -7311,10 +7311,10 @@
   {
    "id": 860,
    "zh": "拿人家的东西就是小偷！",
-   "en": "Don’t be a thief!",
+   "en": "Taking other people’s things makes you{NEWLINE}a thief!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/860"
+   "origin": "agent",
+   "notes": "US 0197/860 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 861,
@@ -7402,10 +7402,10 @@
   {
    "id": 871,
    "zh": "{VAR:0101:0}有新的资料{NEWLINE}登录到精灵图鉴了！{SCROLL}",
-   "en": "{VAR:0101:0}’s data was{NEWLINE}added to the Pokédex.{SCROLL}",
+   "en": "New data on {VAR:0101:0} was added to{NEWLINE}the Pokédex!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/871",
+   "origin": "agent",
+   "notes": "US 0197/871 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise",
    "qa_ignore": [
     "glossary:精灵"
    ]
@@ -7429,10 +7429,10 @@
   {
    "id": 874,
    "zh": "箱子已经满了,{NEWLINE}不能再抓了！{SCROLL}",
-   "en": "There is no room left in the PC!{SCROLL}",
+   "en": "The Boxes are full! You can’t catch any{NEWLINE}more Pokémon!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/874"
+   "origin": "agent",
+   "notes": "US 0197/874 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 875,
@@ -7784,26 +7784,26 @@
   {
    "id": 915,
    "zh": "⋯⋯啊呀！？{NEWLINE}{VAR:0101:0}的样子⋯⋯",
-   "en": "What?{NEWLINE}{VAR:0101:0} is evolving!",
+   "en": "...Huh!? {VAR:0101:0}’s appearance...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/915"
+   "origin": "agent",
+   "notes": "US 0197/915 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 916,
    "zh": "⋯⋯啊呀！？{SCROLL}",
-   "en": "What?{SCROLL}",
+   "en": "...Huh!?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/916"
+   "origin": "agent",
+   "notes": "US 0197/916 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 917,
    "zh": "{VAR:0101:0}的样子⋯⋯",
-   "en": "{VAR:0101:0} is evolving!",
+   "en": "{VAR:0101:0}’s appearance...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/917"
+   "origin": "agent",
+   "notes": "US 0197/917 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 918,
@@ -8333,10 +8333,10 @@
   {
    "id": 982,
    "zh": "对方变弱了！{NEWLINE}这是机会！{VAR:0101:0}！",
-   "en": "Your foe’s weak!{NEWLINE}Get ’em, {VAR:0101:0}!",
+   "en": "The foe has weakened! This is your{NEWLINE}chance, {VAR:0101:0}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/982"
+   "origin": "agent",
+   "notes": "US 0197/982 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 983,
@@ -8365,10 +8365,10 @@
   {
    "id": 986,
    "zh": "{VAR:0101:0}做得不错！回来吧！",
-   "en": "{VAR:0101:0}, OK!{NEWLINE}Come back!",
+   "en": "{VAR:0101:0}, well done! Come back!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/986"
+   "origin": "agent",
+   "notes": "US 0197/986 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 987,
@@ -8381,10 +8381,10 @@
   {
    "id": 988,
    "zh": "{VAR:0101:0}非常好！回来吧！",
-   "en": "{VAR:0101:0}, good!{NEWLINE}Come back!",
+   "en": "{VAR:0101:0}, excellent! Come back!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/988"
+   "origin": "agent",
+   "notes": "US 0197/988 | CES-early: meaning/voice: source actions, bait, chime, thief explanation, new data, inability to catch, evolving ellipsis, chance and praise ladder;987D2258keepspraise"
   },
   {
    "id": 989,
@@ -9168,18 +9168,18 @@
   {
    "id": 1077,
    "zh": "我方场上布满了石砾！",
-   "en": "Pointed stones float in the air{NEWLINE}around your team!",
+   "en": "Your team’s side was covered in stones!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1077"
+   "origin": "agent",
+   "notes": "US 0197/1077 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1078,
    "zh": "对手场上布满了石砾！",
-   "en": "Pointed stones float in the air{NEWLINE}around your foe’s team!",
+   "en": "The foe’s side was covered in stones!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1078"
+   "origin": "agent",
+   "notes": "US 0197/1078 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1079,
@@ -9496,10 +9496,10 @@
   {
    "id": 1118,
    "zh": "{VAR:0101:0}{NEWLINE}看穿了{VAR:0108:1}！",
-   "en": "{VAR:0101:0} frisked its{NEWLINE}foe and found one {VAR:0108:1}!",
+   "en": "{VAR:0101:0} detected {VAR:0108:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1118",
+   "origin": "agent",
+   "notes": "US 0197/1118 | CES-early: meaning: source detects held item; no invented physical frisking or quantity",
    "qa_ignore": [
     "glossary:看穿"
    ]
@@ -9507,10 +9507,10 @@
   {
    "id": 1119,
    "zh": "野生的{VAR:0101:0}{NEWLINE}看穿了{VAR:0108:1}！",
-   "en": "The wild {VAR:0101:0} frisked its{NEWLINE}foe and found one {VAR:0108:1}!",
+   "en": "The wild {VAR:0101:0} detected{NEWLINE}{VAR:0108:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1119",
+   "origin": "agent",
+   "notes": "US 0197/1119 | CES-early: meaning: source detects held item; no invented physical frisking or quantity",
    "qa_ignore": [
     "glossary:看穿"
    ]
@@ -9518,10 +9518,10 @@
   {
    "id": 1120,
    "zh": "对手的{VAR:0101:0}{NEWLINE}看穿了{VAR:0108:1}！",
-   "en": "The foe’s {VAR:0101:0} frisked its{NEWLINE}foe and found one {VAR:0108:1}!",
+   "en": "The foe’s {VAR:0101:0} detected{NEWLINE}{VAR:0108:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1120",
+   "origin": "agent",
+   "notes": "US 0197/1120 | CES-early: meaning: source detects held item; no invented physical frisking or quantity",
    "qa_ignore": [
     "glossary:看穿"
    ]
@@ -9529,58 +9529,58 @@
   {
    "id": 1121,
    "zh": "因为{VAR:0101:0}的{VAR:0105:1}特性{NEWLINE}{VAR:0101:2}被梦魔缠身了！",
-   "en": "{VAR:0101:2} is tormented{NEWLINE}by {VAR:0101:0}’s {VAR:0105:1}!",
+   "en": "{VAR:0101:2} is haunted by nightmares{NEWLINE}because of {VAR:0101:0}’s {VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1121"
+   "origin": "agent",
+   "notes": "US 0197/1121 | CES-early: meaning: restore source nightmares while preserving every ability-owner/victim branch"
   },
   {
    "id": 1122,
    "zh": "因为{VAR:0101:0}的{VAR:0105:1}特性{NEWLINE}野生的{VAR:0101:2}{CLEAR}被梦魔缠身了！",
-   "en": "The wild {VAR:0101:2} is tormented{NEWLINE}by {VAR:0101:0}’s {VAR:0105:1}!",
+   "en": "The wild {VAR:0101:2} is haunted by{NEWLINE}nightmares because{CLEAR}of {VAR:0101:0}’s {VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1122"
+   "origin": "agent",
+   "notes": "US 0197/1122 | CES-early: meaning: restore source nightmares while preserving every ability-owner/victim branch"
   },
   {
    "id": 1123,
    "zh": "因为{VAR:0101:0}的{VAR:0105:1}特性{NEWLINE}对手的{VAR:0101:2}{CLEAR}被梦魔缠身了！",
-   "en": "The foe’s {VAR:0101:2} is tormented{NEWLINE}by {VAR:0101:0}’s {VAR:0105:1}!",
+   "en": "The foe’s {VAR:0101:2} is haunted by{NEWLINE}nightmares because{CLEAR}of {VAR:0101:0}’s {VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1123"
+   "origin": "agent",
+   "notes": "US 0197/1123 | CES-early: meaning: restore source nightmares while preserving every ability-owner/victim branch"
   },
   {
    "id": 1124,
    "zh": "因为野生的{VAR:0101:0}的{NEWLINE}{VAR:0105:1}特性{CLEAR}{VAR:0101:2}被梦魔缠身了！",
-   "en": "{VAR:0101:2} is{NEWLINE}tormented by the wild{CLEAR}{VAR:0101:0}’s {VAR:0105:1}!",
+   "en": "{VAR:0101:2} is haunted by nightmares{NEWLINE}because of the{CLEAR}wild {VAR:0101:0}’s {VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1124; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "origin": "agent",
+   "notes": "US 0197/1124; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: meaning: restore source nightmares while preserving every ability-owner/victim branch"
   },
   {
    "id": 1125,
    "zh": "因为野生的{VAR:0101:0}的{NEWLINE}{VAR:0105:1}特性{CLEAR}野生的{VAR:0101:2}被梦魔缠身了！",
-   "en": "The wild {VAR:0101:2}{NEWLINE}is tormented by the wild{CLEAR}{VAR:0101:0}’s {VAR:0105:1}!",
+   "en": "The wild {VAR:0101:2} is haunted by{NEWLINE}nightmares because of the wild{CLEAR}{VAR:0101:0}’s {VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1125; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "origin": "agent",
+   "notes": "US 0197/1125; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: meaning: restore source nightmares while preserving every ability-owner/victim branch"
   },
   {
    "id": 1126,
    "zh": "因为对手的{VAR:0101:0}的{NEWLINE}{VAR:0105:1}特性{CLEAR}{VAR:0101:2}被梦魔缠身了！",
-   "en": "{VAR:0101:2} is tormented{NEWLINE}by the foe’s{CLEAR}{VAR:0101:0}’s {VAR:0105:1}!",
+   "en": "{VAR:0101:2} is haunted by nightmares{NEWLINE}because of the{CLEAR}foe’s {VAR:0101:0}’s {VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1126; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "origin": "agent",
+   "notes": "US 0197/1126; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: meaning: restore source nightmares while preserving every ability-owner/victim branch"
   },
   {
    "id": 1127,
    "zh": "因为对手的{VAR:0101:0}的{NEWLINE}{VAR:0105:1}特性{CLEAR}对手的{VAR:0101:2}被梦魔缠身了！",
-   "en": "The foe’s {VAR:0101:2}{NEWLINE}is tormented by the foe’s{CLEAR}{VAR:0101:0}’s {VAR:0105:1}!",
+   "en": "The foe’s {VAR:0101:2} is haunted by{NEWLINE}nightmares because of the foe’s{CLEAR}{VAR:0101:0}’s {VAR:0105:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1127; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "origin": "agent",
+   "notes": "US 0197/1127; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: meaning: restore source nightmares while preserving every ability-owner/victim branch"
   },
   {
    "id": 1128,
@@ -9985,18 +9985,18 @@
   {
    "id": 1178,
    "zh": "{VAR:0101:0}要学习新的{NEWLINE}{VAR:0106:1}⋯⋯⋯{SCROLL}",
-   "en": "{VAR:0101:0} wants to learn the{NEWLINE}move {VAR:0106:1}.{SCROLL}",
+   "en": "{VAR:0101:0} wants to learn the new move{NEWLINE}{VAR:0106:1}...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1178"
+   "origin": "agent",
+   "notes": "US 0197/1178 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1179,
    "zh": "但是,{VAR:0101:0}已经{NEWLINE}有４个绝招了！{SCROLL}",
-   "en": "But {VAR:0101:0} can’t learn{NEWLINE}more than four moves.{SCROLL}",
+   "en": "But {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1179",
+   "origin": "agent",
+   "notes": "US 0197/1179 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name",
    "qa_ignore": [
     "number_missing"
    ]
@@ -10068,10 +10068,10 @@
   {
    "id": 1188,
    "zh": "{VAR:0101:0}没学会{VAR:0106:1}！{SCROLL}",
-   "en": "{VAR:0101:0} did not learn{NEWLINE}{VAR:0106:1}.{SCROLL}",
+   "en": "{VAR:0101:0} did not learn {VAR:0106:1}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1188"
+   "origin": "agent",
+   "notes": "US 0197/1188 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1189,
@@ -10087,42 +10087,42 @@
   {
    "id": 1190,
    "zh": "{VAR:0101:0}完全忘记了{NEWLINE}{VAR:0106:1}！{SCROLL}",
-   "en": "{VAR:0101:0} forgot how to{NEWLINE}use {VAR:0106:1}.{SCROLL}",
+   "en": "{VAR:0101:0} completely forgot{NEWLINE}{VAR:0106:1}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1190"
+   "origin": "agent",
+   "notes": "US 0197/1190 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1191,
    "zh": "接着！{SCROLL}",
-   "en": "And...{SCROLL}",
+   "en": "And then!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1191"
+   "origin": "agent",
+   "notes": "US 0197/1191 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1192,
    "zh": "{VAR:0101:0}学会了新的{NEWLINE}{VAR:0106:1}！{VAR:0202:5}{VAR:0202:2}{SCROLL}",
-   "en": "{VAR:0101:0} learned{NEWLINE}{VAR:0106:1}!{VAR:0202:5}{VAR:0202:2}{SCROLL}",
+   "en": "{VAR:0101:0} learned the new move{NEWLINE}{VAR:0106:1}!{VAR:0202:5}{VAR:0202:2}{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1192"
+   "origin": "agent",
+   "notes": "US 0197/1192 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1193,
    "zh": "{VAR:0101:0}要学习新的{NEWLINE}{VAR:0106:1}⋯⋯⋯！{SCROLL}",
-   "en": "{VAR:0101:0} wants to learn{NEWLINE}the move {VAR:0106:1}.{SCROLL}",
+   "en": "{VAR:0101:0} wants to learn the new move{NEWLINE}{VAR:0106:1}...!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1193"
+   "origin": "agent",
+   "notes": "US 0197/1193 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1194,
    "zh": "但是,{VAR:0101:0}已经{NEWLINE}有４个绝招了！{SCROLL}",
-   "en": "However, {VAR:0101:0} already{NEWLINE}knows four moves.{SCROLL}",
+   "en": "However, {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1194",
+   "origin": "agent",
+   "notes": "US 0197/1194 | CES-early: voice: retain source exclamation",
    "qa_ignore": [
     "number_missing"
    ]
@@ -10154,10 +10154,10 @@
   {
    "id": 1198,
    "zh": "{VAR:0101:0}没学会{NEWLINE}{VAR:0106:1}！{SCROLL}",
-   "en": "{VAR:0101:0} did not learn the{NEWLINE}move {VAR:0106:1}.{SCROLL}",
+   "en": "{VAR:0101:0} did not learn the move{NEWLINE}{VAR:0106:1}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1198"
+   "origin": "agent",
+   "notes": "US 0197/1198 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1199,
@@ -10173,26 +10173,26 @@
   {
    "id": 1200,
    "zh": "{VAR:0101:0}完全忘记了{NEWLINE}{VAR:0106:1}！{SCROLL}",
-   "en": "{VAR:0101:0} forgot how to{NEWLINE}use {VAR:0106:1}.{SCROLL}",
+   "en": "{VAR:0101:0} completely forgot{NEWLINE}{VAR:0106:1}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1200"
+   "origin": "agent",
+   "notes": "US 0197/1200 | CES-early: consistency: parallel source move-learning message"
   },
   {
    "id": 1201,
    "zh": "接着！{SCROLL}",
-   "en": "And...{SCROLL}",
+   "en": "And then!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1201"
+   "origin": "agent",
+   "notes": "US 0197/1201 | CES-early: consistency: parallel source move-learning message"
   },
   {
    "id": 1202,
    "zh": "{VAR:0101:0}学会了新的{NEWLINE}{VAR:0106:1}！{VAR:0202:5}{VAR:0202:2}{SCROLL}",
-   "en": "{VAR:0101:0} learned{NEWLINE}{VAR:0106:1}!{VAR:0202:5}{VAR:0202:2}{SCROLL}",
+   "en": "{VAR:0101:0} learned the new move{NEWLINE}{VAR:0106:1}!{VAR:0202:5}{VAR:0202:2}{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1202"
+   "origin": "agent",
+   "notes": "US 0197/1202 | CES-early: consistency: parallel source move-learning message"
   },
   {
    "id": 1203,
@@ -10213,10 +10213,10 @@
   {
    "id": 1205,
    "zh": "{VAR:0101:0}现在干劲十足！",
-   "en": "{VAR:0101:0} is getting{NEWLINE}pumped!",
+   "en": "{VAR:0101:0} is now raring to go!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1205",
+   "origin": "agent",
+   "notes": "US 0197/1205 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name",
    "qa_ignore": [
     "glossary:干劲"
    ]
@@ -10232,50 +10232,50 @@
   {
    "id": 1207,
    "zh": "{VAR:0101:0}的毒素完全消失了！",
-   "en": "{VAR:0101:0} was cured of its{NEWLINE}poisoning.",
+   "en": "{VAR:0101:0} was cured of its poisoning!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1207"
+   "origin": "agent",
+   "notes": "US 0197/1207 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1208,
    "zh": "{VAR:0101:0}身体已经不麻痹了！",
-   "en": "{VAR:0101:0} was cured of{NEWLINE}paralysis.",
+   "en": "{VAR:0101:0} was cured of paralysis!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1208"
+   "origin": "agent",
+   "notes": "US 0197/1208 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1209,
    "zh": "{VAR:0101:0}的烧伤被治愈了！",
-   "en": "{VAR:0101:0}’s burn was healed.",
+   "en": "{VAR:0101:0}’s burn was healed!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1209"
+   "origin": "agent",
+   "notes": "US 0197/1209 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1210,
    "zh": "{VAR:0101:0}醒了！",
-   "en": "{VAR:0101:0} woke up.",
+   "en": "{VAR:0101:0} woke up!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1210"
+   "origin": "agent",
+   "notes": "US 0197/1210 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1211,
    "zh": "{VAR:0101:0}身上的冰融化了！",
-   "en": "{VAR:0101:0} was thawed out.",
+   "en": "{VAR:0101:0} was thawed out!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1211"
+   "origin": "agent",
+   "notes": "US 0197/1211 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1212,
    "zh": "{VAR:0101:0}清醒了！",
-   "en": "{VAR:0101:0} snapped out of its{NEWLINE}confusion.",
+   "en": "{VAR:0101:0} snapped out of its{NEWLINE}confusion!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1212",
+   "origin": "agent",
+   "notes": "US 0197/1212 | CES-early: voice: retain source exclamation",
    "qa_ignore": [
     "glossary:清醒"
    ]
@@ -10283,18 +10283,18 @@
   {
    "id": 1213,
    "zh": "{VAR:0101:0}从着迷状态中解脱了！",
-   "en": "{VAR:0101:0} got over its{NEWLINE}infatuation.",
+   "en": "{VAR:0101:0} got over its infatuation!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1213"
+   "origin": "agent",
+   "notes": "US 0197/1213 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1214,
    "zh": "{VAR:0101:0}的体力{NEWLINE}{VAR:0134:1}回复了！",
-   "en": "{VAR:0101:0}’s HP was restored{NEWLINE}by {VAR:0134:1} point(s).",
+   "en": "{VAR:0101:0}’s HP was restored by {VAR:0134:1}{NEWLINE}point(s)!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1214"
+   "origin": "agent",
+   "notes": "US 0197/1214 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1215,
@@ -10395,10 +10395,10 @@
   {
    "id": 1227,
    "zh": "像这样耗掉对方体力,{NEWLINE}再扔出精灵球⋯⋯{VAR:0200:0}",
-   "en": "OK! Its HP is down!{NEWLINE}It’s ready for a Poké Ball!{VAR:0200:0}",
+   "en": "Lower the foe’s HP like this, then{NEWLINE}throw a Poké Ball...{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1227"
+   "origin": "agent",
+   "notes": "US 0197/1227 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1228,
@@ -10454,10 +10454,10 @@
   {
    "id": 1234,
    "zh": "但是,因为没有对手,{NEWLINE}所以没能使出技能！",
-   "en": "But there was no target...",
+   "en": "But with no target, it couldn’t use its{NEWLINE}move!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1234"
+   "origin": "agent",
+   "notes": "US 0197/1234 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1235,
@@ -10582,10 +10582,10 @@
   {
    "id": 1250,
    "zh": "{VAR:0101:0}恢复健康了！",
-   "en": "{VAR:0101:0} became healthy.",
+   "en": "{VAR:0101:0} became healthy!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1250"
+   "origin": "agent",
+   "notes": "US 0197/1250 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1251,
@@ -10687,18 +10687,18 @@
   {
    "id": 1262,
    "zh": "请稍等！",
-   "en": "Please wait.",
+   "en": "Please wait!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1262"
+   "origin": "agent",
+   "notes": "US 0197/1262 | CES-early: voice: retain source exclamation"
   },
   {
    "id": 1263,
    "zh": "由于战斗录像损坏",
-   "en": "Data is corrupted.",
+   "en": "The Battle Video is corrupted.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1263"
+   "origin": "agent",
+   "notes": "US 0197/1263 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1264,
@@ -10743,10 +10743,10 @@
   {
    "id": 1269,
    "zh": "广播『叮咚！{NEWLINE}{VAR:0108:0}没了,{CLEAR}捕虫大会就此结束！{SCROLL}",
-   "en": "Announcer: You’re out of{NEWLINE}{VAR:0108:0}s!{CLEAR}Game over!{SCROLL}",
+   "en": "Announcer: Ding-dong! You’re out of{NEWLINE}{VAR:0108:0}s! The Bug-Catching{CLEAR}Contest is over!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0197/1269"
+   "origin": "agent",
+   "notes": "US 0197/1269 | CES-early: meaning/voice: restore source action, detail, explicit negation, causal inability, chime and event name"
   },
   {
    "id": 1270,

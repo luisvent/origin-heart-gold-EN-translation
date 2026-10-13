@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "琴音『啊！{SCROLL}刚刚跟眼神很凶的孩子{NEWLINE}吵架的大叔！{SCROLL}",
-   "en": "Lyra: Huh?{SCROLL}It’s the man we just saw arguing with{NEWLINE}that sharp-eyed boy!{SCROLL}",
+   "en": "Lyra: Huh?{SCROLL}It’s the man we just saw arguing with{NEWLINE}that fierce-eyed boy!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0131/8 | RV007: omission: restored 眼神很凶 (sharp-eyed boy)"
+   "notes": "US 0131/8 | RV007: omission: restored 眼神很凶 (sharp-eyed boy) | CES005-012x: 凶 describes fierce gaze, not sharp observation."
   },
   {
    "id": 9,
@@ -126,18 +126,18 @@
   {
    "id": 15,
    "zh": "阿响『再怎么呼唤{NEWLINE}老大也不会来了,{CLEAR}真是群可怜的家伙啊。{SCROLL}在这之后还被{VAR:0103:0}{NEWLINE}修理了一顿！{SCROLL}……咦？{NEWLINE}{VAR:0103:0}在这里啊？{SCROLL}那是谁{NEWLINE}把广播塔的火箭队{CLEAR}修理了一顿呢？？{SCROLL}",
-   "en": "Ethan: They keep calling for their boss.{NEWLINE}I feel sorry they don’t know he’s{CLEAR}not coming.{SCROLL}After this, {VAR:0103:0}, you will{NEWLINE}defeat them!{SCROLL}...Wait a second!{SCROLL}{VAR:0103:0}, you’re still here.{NEWLINE}Then, who will defeat Team Rocket...?{SCROLL}",
+   "en": "Ethan: They keep calling for their boss.{NEWLINE}I feel sorry they don’t know{CLEAR}he’s not coming.{SCROLL}After this, {VAR:0103:0}, you will defeat{NEWLINE}them!{SCROLL}...Wait a second!{SCROLL}{VAR:0103:0}, you’re still here. Then, who{NEWLINE}will defeat Team Rocket{CLEAR}at the Radio Tower...?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0131/15"
+   "origin": "agent",
+   "notes": "US 0131/15 | CES005-012x: Restore Radio Tower location in final question; temporal ambiguity separately recorded."
   },
   {
    "id": 16,
    "zh": "琴音『明明再怎么呼唤{NEWLINE}老大也不会来了,{CLEAR}真是群可怜的人。{SCROLL}在这之后还被{VAR:0103:0}{NEWLINE}修理了一顿！{SCROLL}……咦？{NEWLINE}{VAR:0103:0}在这里啊？{SCROLL}那是谁{NEWLINE}把广播塔的火箭队{CLEAR}修理了一顿啊？？{SCROLL}",
-   "en": "Lyra: They keep calling for their boss.{NEWLINE}I feel sorry they don’t know he’s{CLEAR}not coming.{SCROLL}After this, {VAR:0103:0}, you will{NEWLINE}defeat them!{SCROLL}...Wait a second!{SCROLL}{VAR:0103:0}, you’re still here.{NEWLINE}Then, who will defeat Team Rocket...?{SCROLL}",
+   "en": "Lyra: They keep calling for their boss.{NEWLINE}I feel sorry they don’t know{CLEAR}he’s not coming.{SCROLL}After this, {VAR:0103:0}, you will defeat{NEWLINE}them!{SCROLL}...Wait a second!{SCROLL}{VAR:0103:0}, you’re still here. Then, who{NEWLINE}will defeat Team Rocket{CLEAR}at the Radio Tower...?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0131/16"
+   "origin": "agent",
+   "notes": "US 0131/16 | CES005-012x: Restore Radio Tower location in final question; temporal ambiguity separately recorded."
   },
   {
    "id": 17,
@@ -158,10 +158,10 @@
   {
    "id": 19,
    "zh": "注意到的时候雪拉比{NEWLINE}已经穿越了时空！{SCROLL}回到了这个不可思议的冒险{NEWLINE}开始之前的{CLEAR}时间……{SCROLL}",
-   "en": "Celebi is traveling through time!{NEWLINE}It is going back to the time before{CLEAR}this strange adventure began...{SCROLL}",
+   "en": "By the time we noticed, Celebi had{NEWLINE}already traveled through time!{SCROLL}Back to the time before this strange{NEWLINE}adventure began...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0131/19; modernised from US 0131#19"
+   "origin": "agent",
+   "notes": "US 0131/19; modernised from US 0131#19 | CES005-012x: Restore completed journey and noticing it afterward."
   },
   {
    "id": 20,
@@ -182,18 +182,18 @@
   {
    "id": 22,
    "zh": "雪拉比！{SCROLL}要让它恢复精神,{NEWLINE}不然我们就没法{CLEAR}回到原来的时代！{SCROLL}",
-   "en": "Celebi...!{SCROLL}We need it to get better, or we will{NEWLINE}never be able to go back to our time!{SCROLL}",
+   "en": "Celebi...!{SCROLL}We need it to get better, or we won’t{NEWLINE}be able to go back to our time!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0131/22; modernised from US 0131#22"
+   "origin": "agent",
+   "notes": "US 0131/22; modernised from US 0131#22 | CES005-012x: Remove unsupported never; preserve branch distinction."
   },
   {
    "id": 23,
    "zh": "雪拉比！{SCROLL}要让它恢复精神,{NEWLINE}不然我们就会没法{CLEAR}回去！{SCROLL}",
-   "en": "Celebi...!{SCROLL}We need it to get better, or we will{NEWLINE}never be able to go back to our time!{SCROLL}",
+   "en": "Celebi...!{SCROLL}We need it to get better, or we won’t{NEWLINE}be able to go back!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0131/23; modernised from US 0131#23"
+   "origin": "agent",
+   "notes": "US 0131/23; modernised from US 0131#23 | CES005-012x: Remove unsupported never; preserve branch distinction."
   },
   {
    "id": 24,
@@ -214,18 +214,18 @@
   {
    "id": 26,
    "zh": "{VAR:FF00:1}穿越时空{VAR:FF00:0}……{SCROLL}这次会帮我们{NEWLINE}恢复到原来的时代了吧！{SCROLL}",
-   "en": "{VAR:FF00:1}Time Travel{VAR:FF00:0}......!{SCROLL}This is it! Please take us to our time!{SCROLL}",
+   "en": "{VAR:FF00:1}Time Travel{VAR:FF00:0}...{SCROLL}This time it’ll help us get back to our{NEWLINE}own time, right?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0131/26"
+   "origin": "agent",
+   "notes": "US 0131/26 | CES005-012x: Restore this time and hopeful question rather than imperative."
   },
   {
    "id": 27,
    "zh": "{VAR:FF00:1}穿越时空{VAR:FF00:0}……{SCROLL}这次会帮我们{NEWLINE}恢复到原来的时代了吧！{SCROLL}",
-   "en": "{VAR:FF00:1}Time Travel{VAR:FF00:0}......!{SCROLL}This is it! Please take us to our time!{SCROLL}",
+   "en": "{VAR:FF00:1}Time Travel{VAR:FF00:0}...{SCROLL}This time it’ll help us get back to our{NEWLINE}own time, right?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0131/27"
+   "origin": "agent",
+   "notes": "US 0131/27 | CES005-012x: Restore this time and hopeful question rather than imperative."
   }
  ]
 }

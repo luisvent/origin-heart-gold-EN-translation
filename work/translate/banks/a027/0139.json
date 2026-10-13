@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "这之后是要用同一个精灵{NEWLINE}取得５枚奖章！{CLEAR}只有优秀的口袋竞技员{CLEAR}才被允许进入。",
-   "en": "Only the Pokéathletes who have{NEWLINE}come first in five courses with{CLEAR}one Pokémon are allowed here.",
+   "en": "Only outstanding Pokéathletes who have{NEWLINE}earned five Medals with the same{CLEAR}Pokémon are allowed ahead.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0141/1"
+   "origin": "agent",
+   "notes": "US 0141/1 | CES005-0127-0138-0139: Restore stated five-Medal requirement and excellence without substituting mechanics explanation."
   },
   {
    "id": 2,
@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "参加精灵竞技的次数达到{NEWLINE}５０次的人,{SCROLL}挑战永无止境,{NEWLINE}在此为其不屈不挠的意志鼓掌。",
-   "en": "Those who have participated in the{NEWLINE}Pokéathlon 50 times are commemorated{CLEAR}here for their never-yielding spirits.",
+   "en": "Those who have participated in the{NEWLINE}Pokéathlon 50 times...{SCROLL}The challenge never ends. Here, we{NEWLINE}applaud their unyielding spirit.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0141/7"
+   "origin": "agent",
+   "notes": "US 0141/7 | CES005-0127-0138-0139: Restore never-ending challenge and celebratory voice."
   },
   {
    "id": 8,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "量身定做的帅气鞋子！",
-   "en": "Cool shoes!{NEWLINE}And they’re your model!",
+   "en": "Cool, custom-made shoes!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0141/10"
+   "origin": "agent",
+   "notes": "US 0141/10 | CES005-0127-0138-0139: Restore custom-made quality, not simply ownership or model."
   },
   {
    "id": 11,
@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "量身定做的帅气旗帜！",
-   "en": "It’s a cool flag!{NEWLINE}And it’s yours!",
+   "en": "A cool, custom-made flag!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0141/12"
+   "origin": "agent",
+   "notes": "US 0141/12 | CES005-0127-0138-0139: Restore custom-made quality, not simply ownership or model."
   },
   {
    "id": 13,

@@ -1064,7 +1064,7 @@ def make_dex_labels(us_path, cn_path, out_dir):
 
     Header (NCGR #1; screen 0 = top banner "全国 图鉴", screens 7/8 = the 80x24 region overlay
     "城都"/"全国" that the hack pastes over the first two characters):
-      - overlay 7/8: the USA "JOHTO" / "NATIONAL" letters (from USA screens 7/8), right-aligned;
+      - overlay 7/8: the USA "NATIONAL" letters (from USA screen 8) for both variants, right-aligned;
       - screen 0: the Chinese letters are removed and the USA "POKéDEX" plate part (USA screen 0,
         x 128..219) is placed right after the overlay (7 px further right than in the USA layout);
         the "NATIONAL ◀ ▶ JOHTO" switch row (y 120..135) is the USA one.
@@ -1116,9 +1116,9 @@ def make_dex_labels(us_path, cn_path, out_dir):
         for x in range(128, 220):
             t0[y][x + 7] = u0[y][x]
     targets = [(NSCR(cnf[0]), t0)]
-    for s in (7, 8):                                # region overlay: 7 = JOHTO, 8 = NATIONAL
+    for s in (7, 8):                                # National Dex is available from the start
         t = img(cnf, s, DEX_HDR_NCGR)
-        u = img(usf, s, DEX_HDR_NCGR)
+        u = img(usf, 8, DEX_HDR_NCGR)
         pl = t[1][10][0]
         # clean box: the overlay sits at (56, 24) over screen 0 (measured in the emulator), where the dark
         # column's outline is at overlay x 7 on every row but the last; red left of it, dark interior.
@@ -1132,7 +1132,7 @@ def make_dex_labels(us_path, cn_path, out_dir):
                 if t[y][x][1] in (3, 4, 5):
                     t[y][x] = (pl, 1)
         ink = (3, 4, 5, 0xB)
-        a, b = _word_spans(u, range(4, 22), 9, NSCR(usf[s]).w, ink, 4)[0]
+        a, b = _word_spans(u, range(4, 22), 9, NSCR(usf[8]).w, ink, 4)[0]
         # "NATIONAL" is 81 px for a 73-px box: condense by dropping the middle column of the widest letters
         letters = [list(range(la, lb)) for la, lb in _word_spans(u, range(4, 22), a, b, ink, 1)]
         while sum(map(len, letters)) + len(letters) - 1 > 73:

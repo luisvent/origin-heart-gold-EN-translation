@@ -30,10 +30,10 @@
   {
    "id": 3,
    "zh": "欢迎光临战斗轮盘！{SCROLL}我向您介绍可以和{NEWLINE}朋友一起玩的多人战！{SCROLL}",
-   "en": "Welcome to the Battle Arcade!{SCROLL}I am your guide to the Multi Battle{NEWLINE}challenge.{SCROLL}Please be aware that this challenge{NEWLINE}requires two Trainers.{SCROLL}",
+   "en": "Welcome to the Battle Arcade!{SCROLL}I am your guide to the Multi Battle{NEWLINE}challenge...{SCROLL}which you can take on with a friend!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/3"
+   "origin": "agent",
+   "notes": "US 0110/3 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 4,
@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "这位客人！{NEWLINE}您这里能够参加比赛的{CLEAR}精灵不够{VAR:0132:0}只{SCROLL}要参加比赛需要准备{NEWLINE}种类不同的精灵{CLEAR}{VAR:0132:1}只！{SCROLL}",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:1} different Pokémon{NEWLINE}to enter.{SCROLL}",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:1} Pokémon of different{NEWLINE}species to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/8"
+   "origin": "agent",
+   "notes": "US 0110/8 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 9,
@@ -86,146 +86,146 @@
   {
    "id": 10,
    "zh": "另外,蛋,{VAR:0100:1},{NEWLINE}不能参加比赛！{SCROLL}",
-   "en": "Eggs and {VAR:0100:1} are not allowed{NEWLINE}to enter.{SCROLL}",
+   "en": "Also, eggs and {VAR:0100:1} are not{NEWLINE}allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/10"
+   "origin": "agent",
+   "notes": "US 0110/10 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 11,
    "zh": "另外,蛋,{VAR:0100:1},{NEWLINE}{VAR:0100:2},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, and {VAR:0100:2}{NEWLINE}are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, and {VAR:0100:2}{NEWLINE}are not allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/11"
+   "origin": "agent",
+   "notes": "US 0110/11 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 12,
    "zh": "另外,蛋,{VAR:0100:1},{NEWLINE}{VAR:0100:2},{VAR:0100:3},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}and {VAR:0100:3} are not allowed{CLEAR}to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}and {VAR:0100:3} are not allowed{CLEAR}to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/12"
+   "origin": "agent",
+   "notes": "US 0110/12 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 13,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, and {VAR:0100:4}{CLEAR}are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, and {VAR:0100:4} are not{CLEAR}allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/13"
+   "origin": "agent",
+   "notes": "US 0110/13 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 14,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, and{CLEAR}{VAR:0100:5} are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, and{CLEAR}{VAR:0100:5} are not allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/14"
+   "origin": "agent",
+   "notes": "US 0110/14 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 15,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6}{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, and {VAR:0100:6}{CLEAR}are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}and {VAR:0100:6} are not allowed{CLEAR}to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/15"
+   "origin": "agent",
+   "notes": "US 0110/15 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 16,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, and{CLEAR}{VAR:0100:7} are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, and {VAR:0100:7} are not{CLEAR}allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/16"
+   "origin": "agent",
+   "notes": "US 0110/16 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 17,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, and {VAR:0100:8}{CLEAR}are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, and{CLEAR}{VAR:0100:8} are not allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/17"
+   "origin": "agent",
+   "notes": "US 0110/17 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 18,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8}, and{CLEAR}{VAR:0100:9} are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}and {VAR:0100:9} are not allowed{CLEAR}to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/18"
+   "origin": "agent",
+   "notes": "US 0110/18 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 19,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{VAR:0100:10},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, and {VAR:0100:10}{CLEAR}are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, and {VAR:0100:10} are not{CLEAR}allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/19"
+   "origin": "agent",
+   "notes": "US 0110/19 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 20,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{VAR:0100:10},{VAR:0100:11}{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, and{CLEAR}{VAR:0100:11} are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, and{CLEAR}{VAR:0100:11} are not allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/20"
+   "origin": "agent",
+   "notes": "US 0110/20 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 21,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{VAR:0100:10},{VAR:0100:11}{CLEAR}{VAR:0100:12}{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, and {VAR:0100:12}{CLEAR}are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}and {VAR:0100:12} are not allowed{CLEAR}to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/21"
+   "origin": "agent",
+   "notes": "US 0110/21 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 22,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{VAR:0100:10},{VAR:0100:11}{CLEAR}{VAR:0100:12},{VAR:0100:13},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12}, and{CLEAR}{VAR:0100:13} are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, and {VAR:0100:13} are not{CLEAR}allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/22"
+   "origin": "agent",
+   "notes": "US 0110/22 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 23,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{VAR:0100:10},{VAR:0100:11}{CLEAR}{VAR:0100:12},{VAR:0100:13},{VAR:0100:14},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12},{CLEAR}{VAR:0100:13}, and {VAR:0100:14}{CLEAR}are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, and{CLEAR}{VAR:0100:14} are not allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/23"
+   "origin": "agent",
+   "notes": "US 0110/23 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 24,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{VAR:0100:10},{VAR:0100:11}{CLEAR}{VAR:0100:12},{VAR:0100:13},{VAR:0100:14}{CLEAR}{VAR:0100:15},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12},{CLEAR}{VAR:0100:13}, {VAR:0100:14}, and{CLEAR}{VAR:0100:15} are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}and {VAR:0100:15} are not allowed{CLEAR}to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/24"
+   "origin": "agent",
+   "notes": "US 0110/24 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 25,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{VAR:0100:10},{VAR:0100:11}{CLEAR}{VAR:0100:12},{VAR:0100:13},{VAR:0100:14}{CLEAR}{VAR:0100:15},{VAR:0100:16},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12},{CLEAR}{VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, and {VAR:0100:16}{CLEAR}are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, and {VAR:0100:16} are not{CLEAR}allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/25"
+   "origin": "agent",
+   "notes": "US 0110/25 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 26,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{VAR:0100:10},{VAR:0100:11}{CLEAR}{VAR:0100:12},{VAR:0100:13},{VAR:0100:14}{CLEAR}{VAR:0100:15},{VAR:0100:16},{VAR:0100:17},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12},{CLEAR}{VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, {VAR:0100:16}, and{CLEAR}{VAR:0100:17} are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, {VAR:0100:16}, and{CLEAR}{VAR:0100:17} are not allowed to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/26"
+   "origin": "agent",
+   "notes": "US 0110/26 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 27,
    "zh": "另外,蛋,{VAR:0100:1},{VAR:0100:2},{NEWLINE}{VAR:0100:3},{VAR:0100:4},{VAR:0100:5}{CLEAR}{VAR:0100:6},{VAR:0100:7},{VAR:0100:8}{CLEAR}{VAR:0100:9},{VAR:0100:10},{VAR:0100:11}{CLEAR}{VAR:0100:12},{VAR:0100:13},{VAR:0100:14}{CLEAR}{VAR:0100:15},{VAR:0100:16},{VAR:0100:17}{CLEAR}{VAR:0100:18},{CLEAR}不能参加比赛！{SCROLL}",
-   "en": "Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12},{CLEAR}{VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, {VAR:0100:16},{CLEAR}{VAR:0100:17}, and {VAR:0100:18}{CLEAR}are not allowed to enter.{SCROLL}",
+   "en": "Also, eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, {VAR:0100:16}, {VAR:0100:17},{CLEAR}and {VAR:0100:18} are not allowed{CLEAR}to enter.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/27"
+   "origin": "agent",
+   "notes": "US 0110/27 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 28,
@@ -270,10 +270,10 @@
   {
    "id": 33,
    "zh": "已经等您很久了！{SCROLL}在接着玩上次中断的挑战之前{NEWLINE}保存进度！",
-   "en": "We’ve missed you!{SCROLL}You must save the game before you{NEWLINE}resume your challenge. Please wait.",
+   "en": "We’ve been waiting for you for ages!{SCROLL}Save your progress before resuming{NEWLINE}your challenge!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/33"
+   "origin": "agent",
+   "notes": "US 0110/33 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 34,
@@ -366,10 +366,10 @@
   {
    "id": 45,
    "zh": "开始介绍之前保存进度！",
-   "en": "You must save the game before I{NEWLINE}show you in. Please wait.",
+   "en": "Save your progress before I explain!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/45"
+   "origin": "agent",
+   "notes": "US 0110/45 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 46,
@@ -414,10 +414,10 @@
   {
    "id": 51,
    "zh": "我那只以{NEWLINE}攻击力见长的精灵{CLEAR}被对方的速度给压制住了。{SCROLL}下次,{NEWLINE}我也要弄只速度快的精灵{CLEAR}前来挑战。",
-   "en": "I chose Pokémon that are good at{NEWLINE}attacking.{CLEAR}But my opponent went for speed!{SCROLL}Next time, I’ll try Pokémon with{NEWLINE}superior speed.",
+   "en": "My Pokémon, whose strength is its{NEWLINE}attack power, was overwhelmed by my{CLEAR}opponent’s speed.{SCROLL}Next time, I’ll get a fast Pokémon to{NEWLINE}take the challenge, too.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/51"
+   "origin": "agent",
+   "notes": "US 0110/51 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 52,
@@ -446,10 +446,10 @@
   {
    "id": 55,
    "zh": "我告诉你个秘密,{NEWLINE}像毒或者冰冻状态{CLEAR}可以根据精灵的类型和特性{CLEAR}去防范它,{CLEAR}长见识了吧！",
-   "en": "I’ll tell you something.{SCROLL}Poisoning or freezing events can be{NEWLINE}made ineffective.{SCROLL}...If the Pokémon’s type or ability{NEWLINE}protects it from such status problems.{SCROLL}Might be worth knowing!",
+   "en": "I’ll tell you a secret.{SCROLL}Conditions like poison or freezing can be{NEWLINE}prevented...{SCROLL}depending on a Pokémon’s type and{NEWLINE}Ability.{SCROLL}Learned something new, haven’t you!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0110/55"
+   "origin": "agent",
+   "notes": "US 0110/55 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   }
  ]
 }

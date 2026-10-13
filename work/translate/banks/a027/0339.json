@@ -151,10 +151,10 @@
   {
    "id": 18,
    "zh": "{VAR:0103:0}『这位小妹妹{NEWLINE}照顾了青绵鸟这么久,{CLEAR}即便是收服也应该是她有优先权！{CLEAR}你这样的行为未免太过分了。",
-   "en": "{VAR:0103:0}: This girl has been caring for{NEWLINE}that Swablu all this time.{SCROLL}If anyone gets to catch it, it should be{NEWLINE}her!{SCROLL}What you’re doing is way out of line.",
+   "en": "{VAR:0103:0}: This girl has been caring for{NEWLINE}that Swablu all this time.{SCROLL}Even if someone catches it, she should{NEWLINE}have first priority!{SCROLL}What you’re doing is way out of line.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve first priority, not exclusive entitlement."
   },
   {
    "id": 19,
@@ -599,10 +599,10 @@
   {
    "id": 74,
    "zh": "唔……好吧……{NEWLINE}回到原来的主人那里,{CLEAR}小青绵鸟也会高兴吧！",
-   "en": "Mm... OK... I bet little Swablu will be{NEWLINE}happy to go back to its real owner!",
+   "en": "Mm... OK... I bet little Swablu will be{NEWLINE}happy to go back to its original owner!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve original owner rather than added true/real-owner judgment."
   },
   {
    "id": 75,
@@ -663,10 +663,10 @@
   {
    "id": 82,
    "zh": "{VAR:0103:0}『当时为了找回青绵鸟{NEWLINE}而从你这里带走的卡蒂狗……",
-   "en": "{VAR:0103:0}: About the Growlithe I{NEWLINE}borrowed from you to help find Swablu...",
+   "en": "{VAR:0103:0}: About the Growlithe I took{NEWLINE}with me from here to help find Swablu...",
    "status": "draft",
    "origin": "agent",
-   "notes": "#82/#83 vs #84/#85: Growlithe or Bulbasaur, whichever the Route 5 woman lent (alternate ids, as 0322/0326)."
+   "notes": "#82/#83 vs #84/#85: Growlithe or Bulbasaur, whichever the Route 5 woman lent (alternate ids, as 0322/0326). | AGENT-0321-0380: Preserve took along from here, avoiding invented explicit loan arrangement."
   },
   {
    "id": 83,
@@ -679,10 +679,10 @@
   {
    "id": 84,
    "zh": "{VAR:0103:0}『当时为了找回青绵鸟{NEWLINE}而从你这里带走的妙蛙种子……",
-   "en": "{VAR:0103:0}: About the Bulbasaur I{NEWLINE}borrowed from you to help find Swablu...",
+   "en": "{VAR:0103:0}: About the Bulbasaur I took{NEWLINE}with me from here to help find Swablu...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve took along from here, avoiding invented explicit loan arrangement."
   },
   {
    "id": 85,
@@ -735,10 +735,10 @@
   {
    "id": 91,
    "zh": "青绵鸟在它原来的主人那里还好吗？{NEWLINE}我自己在这里玩的日子好孤单啊……",
-   "en": "Is Swablu doing well with its real owner?{NEWLINE}It’s so lonely playing here by myself...",
+   "en": "Is Swablu doing well with its original{NEWLINE}owner? It’s so lonely playing here{CLEAR}by myself...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve original owner and loneliness."
   },
   {
    "id": 92,

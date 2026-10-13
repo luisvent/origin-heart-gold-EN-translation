@@ -2462,7 +2462,7 @@
   {
    "id": 307,
    "zh": "脚下传来了奇妙的感觉！",
-   "en": "The battlefield got weird!",
+   "en": "A strange feeling rose from{NEWLINE}beneath your feet!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -2470,7 +2470,7 @@
   {
    "id": 308,
    "zh": "脚下的奇妙感觉消失了！",
-   "en": "The weirdness disappeared from the{NEWLINE}battlefield!",
+   "en": "The strange feeling beneath{NEWLINE}your feet faded!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -3486,7 +3486,7 @@
   {
    "id": 435,
    "zh": "脚下传来阵阵奇妙的感觉！",
-   "en": "The battlefield seems weird!",
+   "en": "A strange feeling stirs{NEWLINE}beneath your feet!",
    "status": "draft",
    "origin": "agent",
    "notes": ""

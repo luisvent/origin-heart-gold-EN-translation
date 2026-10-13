@@ -27,7 +27,7 @@ class BuildPathsTests(unittest.TestCase):
             target = chosen if explicit else legacy
             seen = []
 
-            def export(workspace, extract, out, statuses, lenient):
+            def export(workspace, extract, out, statuses, lenient, *, trainer_aliases=None):
                 seen.append(out)
                 out.mkdir(parents=True, exist_ok=True)
                 (out / "fresh.json").write_text("new export")
@@ -35,6 +35,7 @@ class BuildPathsTests(unittest.TestCase):
 
             args = ["--work-dir", str(chosen)] if explicit else []
             with patch.object(B, "BUILD", legacy), patch.object(B.ws, "export", side_effect=export), \
+                 patch.object(B.trainer_display, "plan", return_value={}), \
                  patch.object(B, "sha1", return_value=B.US_SHA1), \
                  patch.object(B.asmpatch, "find_armips", return_value="/armips"), \
                  patch.object(B.asmpatch, "check_armips", return_value=B.asmpatch.PINNED_VERSION), \

@@ -150,10 +150,10 @@
   {
    "id": 18,
    "zh": "小松『你这家伙好大的胆啊,{NEWLINE}我本来以为你会秘密潜入,{CLEAR}没想到居然正大光明地闯进来了！",
-   "en": "Morty: You’ve got some nerve! I{NEWLINE}thought you’d sneak in, but you{CLEAR}just walked right in the front!",
+   "en": "Morty: You’ve got some nerve! I{NEWLINE}thought you’d sneak in, but you just{CLEAR}barged in openly!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: addition: source openly enters, no verified front entrance"
   },
   {
    "id": 19,

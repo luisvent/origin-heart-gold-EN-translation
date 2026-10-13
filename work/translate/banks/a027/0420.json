@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "叮咚！{SCROLL}不能再继续抓了,{NEWLINE}狩猎大赛结束。{SCROLL}",
-   "en": "Ding-dong!{SCROLL}You’re out of room for more Pokémon.{NEWLINE}Your Safari Game is over!{SCROLL}",
+   "en": "Ding-dong!{SCROLL}You can’t catch any more Pokémon.{NEWLINE}Your Safari Game is over.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0427/2"
+   "origin": "agent",
+   "notes": "US 0427/2 | CES006: fidelity: Restore inability to continue catching without inventing storage as its cause."
   },
   {
    "id": 3,

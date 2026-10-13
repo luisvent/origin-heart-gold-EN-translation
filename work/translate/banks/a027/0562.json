@@ -248,7 +248,7 @@
   {
    "id": 30,
    "zh": "啊……输掉之后就冷静多了,{NEWLINE}果然出来旅游还是不能太冲动。{CLEAR}刚才那么突然地拉你对战{CLEAR}真是不好意思,{CLEAR}这个送给你就当做是补偿吧。",
-   "en": "Ah... I’ve cooled down a lot after{NEWLINE}losing. You really shouldn’t get so{CLEAR}worked up on vacation. I’m sorry for{CLEAR}dragging you into a battle out of{CLEAR}nowhere like that. Please take this to{CLEAR}make up for it.",
+   "en": "Ah... I’ve cooled down a lot after{NEWLINE}losing. I really shouldn’t get so{CLEAR}worked up while I’m on vacation. I’m{CLEAR}sorry for dragging you into a battle{CLEAR}out of nowhere like that. Please take{CLEAR}this to make up for it.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -256,7 +256,7 @@
   {
    "id": 31,
    "zh": "啊……输掉之后就冷静多了,{NEWLINE}果然出来旅游还是不能太冲动。",
-   "en": "Ah... I’ve cooled down a lot after{NEWLINE}losing. You really shouldn’t get so{CLEAR}worked up on vacation.",
+   "en": "Ah... I’ve cooled down a lot after{NEWLINE}losing. I really shouldn’t get so{CLEAR}worked up while I’m on vacation.",
    "status": "draft",
    "origin": "agent",
    "notes": ""

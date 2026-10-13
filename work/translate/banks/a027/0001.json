@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "已知未知图腾有与英文字母{NEWLINE}一样多的种类。已确认的{NEWLINE}字母有２６个,而已确认的{NEWLINE}未知图腾种类也是２６种,{NEWLINE}也就是说未知图腾总共有{NEWLINE}２６种,能全部抓齐吗？",
-   "en": "There are as many Unown as there{NEWLINE}are letters in the alphabet.{NEWLINE}Right now, we’re confirming the{NEWLINE}existence of 26 kinds of Unown.{NEWLINE}Do you think you can find{NEWLINE}all 26 of them?",
+   "en": "There are as many kinds of Unown{NEWLINE}as letters in the English alphabet.{NEWLINE}There are 26 confirmed letters{NEWLINE}and 26 confirmed kinds of Unown.{NEWLINE}So there are 26 kinds in all.{NEWLINE}Can you catch every one of them?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0001/9; modernised from US 0001#9"
+   "origin": "agent",
+   "notes": "US 0001/9; modernised from US 0001#9 | CES005-root: Restore repeated 26, English alphabet, completed confirmation, and catch rather than find."
   },
   {
    "id": 10,
@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "研究所的人说{NEWLINE}还有必要去遗迹调查{NEWLINE}一下⋯⋯",
-   "en": "The Researchers were saying{NEWLINE}that they’ll need to examine the{NEWLINE}ruins again, but...?",
+   "en": "The Researchers say they still{NEWLINE}need to investigate the ruins...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0001/17"
+   "origin": "agent",
+   "notes": "US 0001/17 | CES005-root: Remove unsupported contrast and question; retain unfinished thought."
   },
   {
    "id": 18,

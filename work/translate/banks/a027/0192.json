@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "关闭",
-   "en": "CANCEL",
+   "en": "CLOSE",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0194/7"
+   "origin": "agent",
+   "notes": "US 0194/7 | CES-early: meaning: close, consistent identicalsource22"
   },
   {
    "id": 8,

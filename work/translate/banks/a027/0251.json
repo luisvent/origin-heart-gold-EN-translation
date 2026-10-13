@@ -6,7 +6,7 @@
   {
    "id": 0,
    "zh": "尊敬的客人,欢迎乘坐圣安努号游轮！{SCROLL}",
-   "en": "Dear passengers, welcome aboard the{NEWLINE}S.S. Anne!{SCROLL}",
+   "en": "Dear guest, welcome aboard the{NEWLINE}S.S. Anne!{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": ""

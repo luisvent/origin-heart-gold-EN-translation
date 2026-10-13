@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "我研究双子岛的{NEWLINE}盖欧卡沉睡传说好长时间了,{CLEAR}急冻鸟出现在这里绝不是偶然。{CLEAR}根据我的推测,急冻鸟在这里{CLEAR}是负责压制盖欧卡能量的,{CLEAR}一旦急冻鸟被抓走,{CLEAR}盖欧卡很可能就会{CLEAR}从几万年的沉睡中醒来,{CLEAR}然后造成难以估量的生态灾难。{SCROLL}为了保护生态平衡,{NEWLINE}请你不要捕捉急冻鸟好吗？{SCROLL}要停止捕捉急冻鸟吗？",
-   "en": "I’ve been studying the legend of Kyogre{NEWLINE}sleeping in the Seafoam Islands for a{CLEAR}long time.{SCROLL}Articuno being here is no coincidence.{NEWLINE}My guess is that it’s here to hold{CLEAR}Kyogre’s power in check.{SCROLL}If Articuno is caught, Kyogre could{NEWLINE}wake from a sleep of tens of thousands{CLEAR}of years...{SCROLL}...and cause an ecological disaster{NEWLINE}beyond measure.{SCROLL}To protect the balance of nature, would{NEWLINE}you please not catch Articuno?{SCROLL}Stop trying to catch Articuno?",
+   "en": "I’ve been studying the legend of Kyogre{NEWLINE}sleeping in the Seafoam Islands for a{CLEAR}long time.{SCROLL}Articuno being here is no coincidence.{NEWLINE}My guess is that it’s here to hold{CLEAR}Kyogre’s power in check.{SCROLL}If Articuno is caught, Kyogre would{NEWLINE}likely wake from a sleep of tens of{CLEAR}thousands of years...{SCROLL}...and cause an ecological disaster{NEWLINE}beyond measure.{SCROLL}To protect the balance of nature, would{NEWLINE}you please not catch Articuno?{SCROLL}Stop trying to catch Articuno?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve likely awakening, not mere possibility."
   },
   {
    "id": 9,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "请不要这样说,{NEWLINE}一旦急冻鸟被抓走{CLEAR}盖欧卡很可能就会{CLEAR}从几万年的沉睡中醒来,{CLEAR}然后造成难以估量的生态灾难。{SCROLL}为了保护生态平衡,{NEWLINE}请你不要捕捉急冻鸟好吗？{SCROLL}要停止捕捉急冻鸟吗？",
-   "en": "Please don’t say that. If Articuno is{NEWLINE}caught, Kyogre could wake from a sleep{CLEAR}of tens of thousands of years...{SCROLL}...and cause an ecological disaster{NEWLINE}beyond measure.{SCROLL}To protect the balance of nature, would{NEWLINE}you please not catch Articuno?{SCROLL}Stop trying to catch Articuno?",
+   "en": "Please don’t say that. If Articuno is{NEWLINE}caught, Kyogre would likely wake from a{CLEAR}sleep of tens of thousands of years...{SCROLL}...and cause an ecological disaster{NEWLINE}beyond measure.{SCROLL}To protect the balance of nature, would{NEWLINE}you please not catch Articuno?{SCROLL}Stop trying to catch Articuno?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve likely awakening, not mere possibility."
   },
   {
    "id": 11,
@@ -238,10 +238,10 @@
   {
    "id": 29,
    "zh": "吉尔露太『火焰鸟,用你的热焰{NEWLINE}融化这些冰壁。",
-   "en": "Lawrence: Moltres, melt these ice walls{NEWLINE}with your blazing heat.",
+   "en": "Lawrence: Moltres, melt these ice walls{NEWLINE}with your blazing flames.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve blazing flames rather than heat alone."
   },
   {
    "id": 30,
@@ -382,10 +382,10 @@
   {
    "id": 47,
    "zh": "水吾桐『太棒了,我从来没见过{NEWLINE}这么充满压迫感的精灵！{CLEAR}从现在起你就是我们火箭队的一员了！",
-   "en": "Archie: Magnificent! I’ve never seen a{NEWLINE}Pokémon with such presence!{SCROLL}From now on, you’re a member of Team{NEWLINE}Rocket!",
+   "en": "Archie: Magnificent! I’ve never seen a{NEWLINE}Pokémon with such an{CLEAR}intimidating presence!{SCROLL}From now on, you’re a member of{NEWLINE}Team Rocket!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve oppressive/intimidating presence."
   },
   {
    "id": 48,

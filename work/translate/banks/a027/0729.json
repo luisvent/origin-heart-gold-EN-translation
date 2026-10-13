@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "这里是１９号水路{NEWLINE}南　双子岛",
-   "en": "Rt. 19 Fuchsia City to{NEWLINE}Seafoam Islands",
+   "en": "ROUTE 19{NEWLINE}South: Seafoam Islands",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0740/4",
+   "origin": "agent",
+   "notes": "US 0740/4 | SOL-C: south direction restored from Chinese.",
    "category": "sign"
   },
   {

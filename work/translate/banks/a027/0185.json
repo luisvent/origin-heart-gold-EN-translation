@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "蛋孵化了,{NEWLINE}{VAR:0100:0}出生！",
-   "en": "{VAR:0100:0} hatched{NEWLINE}from the Egg!",
+   "en": "The Egg hatched,{NEWLINE}and {VAR:0100:0} was born!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: detail: preserve both source hatching and birth clauses"
   },
   {
    "id": 1,

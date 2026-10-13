@@ -70,18 +70,18 @@
   {
    "id": 8,
    "zh": "精灵替换制御　关",
-   "en": "Switch Pokémon OFF",
+   "en": "Pokémon switch control OFF",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0151/8 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0151/8 | debug/unused (battle debug menu) | CES-early: omission: control of switching"
   },
   {
    "id": 9,
    "zh": "精灵替换制御　开",
-   "en": "Switch Pokémon ON",
+   "en": "Pokémon switch control ON",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0151/9 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0151/9 | debug/unused (battle debug menu) | CES-early: omission: control of switching"
   },
   {
    "id": 10,

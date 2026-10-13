@@ -274,10 +274,10 @@
   {
    "id": 31,
    "zh": "很久很久以前,一之岛上{NEWLINE}住着一个老公公和一个老婆婆{SCROLL}有一天,他们两人在海边{NEWLINE}救回了一对受伤的兄妹。{CLEAR}在老公公跟老婆婆细心的看护下,{CLEAR}两个人所受的伤慢慢的痊愈了。{SCROLL}但是不久后一群强盗{NEWLINE}来到水都群岛烧杀抢劫,{CLEAR}就在群岛陷入危机的时候,{CLEAR}在老公公和老婆婆的面前,{CLEAR}小兄妹的样子发生了变化,{CLEAR}原来他们是幻之口袋妖怪——{CLEAR}拉帝欧斯与拉帝亚斯。{SCROLL}这两只口袋妖怪呼唤了许多{NEWLINE}强力的同伴赶来助阵,{CLEAR}最终击退了无恶不作的强盗。{SCROLL}从那之后拉帝欧斯与拉帝亚斯{NEWLINE}就成为了水都的守护神,{CLEAR}一直在暗中默默地守护着群岛的居民。",
-   "en": "Long, long ago, an old man and an old{NEWLINE}woman lived on One Island.{SCROLL}One day, the two of them rescued an{NEWLINE}injured brother and sister on the{CLEAR}beach. Under the old couple’s loving{CLEAR}care, the siblings’ wounds{CLEAR}slowly healed.{SCROLL}But not long after, a band of bandits{NEWLINE}came to the Alto Mare Islands, burning,{CLEAR}killing and looting. Just as the islands{CLEAR}fell into peril, the siblings changed{CLEAR}form before the old couple’s eyes. They{CLEAR}were the Mythical Pokémon Latios{CLEAR}and Latias!{SCROLL}The two Pokémon called many powerful{NEWLINE}allies to their aid, and in the end they{CLEAR}drove off the wicked bandits.{SCROLL}From then on, Latios and Latias became{NEWLINE}the guardian deities of Alto Mare,{CLEAR}quietly protecting the islanders from{CLEAR}the shadows.",
+   "en": "Long, long ago, an old man and an old{NEWLINE}woman lived on One Island.{SCROLL}One day, the two of them rescued an{NEWLINE}injured older brother and younger{CLEAR}sister on the beach. Under the old{CLEAR}couple’s loving care, the siblings’{CLEAR}wounds slowly healed.{SCROLL}But not long after, a band of bandits{NEWLINE}came to the Alto Mare Islands, burning,{CLEAR}killing and looting. Just as the islands{CLEAR}fell into peril, the siblings changed{CLEAR}form before the old couple’s eyes. They{CLEAR}were the Mythical Pokémon Latios{CLEAR}and Latias!{SCROLL}The two Pokémon called many powerful{NEWLINE}allies to their aid, and in the end they{CLEAR}drove off the wicked bandits.{SCROLL}From then on, Latios and Latias became{NEWLINE}the guardian deities of Alto Mare,{CLEAR}quietly protecting the islanders from{CLEAR}the shadows.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | FULL-CES-0383-0384: Restore elder brother/younger sister relation supporting quiz."
   },
   {
    "id": 32,
@@ -322,10 +322,10 @@
   {
    "id": 37,
    "zh": "传说圣柱王在关东大陆{NEWLINE}制造了岩、冰、钢三个分身,{CLEAR}帮助那里的人们抵抗入侵的强盗。{CLEAR}而当水都群岛遭到强盗袭击的时候,{CLEAR}圣柱王回应水都兄妹的呼唤,{CLEAR}亲自来到了这里,{CLEAR}将入侵者尽数驱赶。{SCROLL}人们为了纪念圣柱王,便将它的形象{NEWLINE}刻到了七之岛祭祀祠堂的墙壁上。",
-   "en": "Legend says Regigigas made three clones{NEWLINE}of rock, ice and steel in the Kanto{CLEAR}region to help the people there fight{CLEAR}off invading bandits. When bandits{CLEAR}attacked the Alto Mare Islands,{CLEAR}Regigigas answered the call of the Alto{CLEAR}Mare siblings, came here in person, and{CLEAR}drove out every last invader.{SCROLL}To honor Regigigas, people carved its{NEWLINE}image into the walls of the Ritual Shrine{CLEAR}on Seven Island.",
+   "en": "Legend says Regigigas made three clones{NEWLINE}of rock, ice and steel in the Kanto{CLEAR}mainland to help the people there fight{CLEAR}off invading bandits. When bandits{CLEAR}attacked the Alto Mare Islands,{CLEAR}Regigigas answered the call of the Alto{CLEAR}Mare siblings, came here in person, and{CLEAR}drove out every last invader.{SCROLL}To honor Regigigas, people carved its{NEWLINE}image into the walls of the Ritual Shrine{CLEAR}on Seven Island.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | FULL-CES-0383-0384: Restore mainland geography."
   },
   {
    "id": 38,
@@ -354,10 +354,10 @@
   {
    "id": 41,
    "zh": "50年前一颗流星从天而降,{NEWLINE}重重地砸在了六之岛上。{CLEAR}后来人们跑去查看,{CLEAR}发现这颗流星其实是{CLEAR}一个尖锐的三棱锥,{CLEAR}这个三棱锥会时不时地自己移动,{CLEAR}仿佛是有生命一般。{CLEAR}但它究竟是什么,至今仍是个迷。",
-   "en": "Fifty years ago, a meteor fell from the{NEWLINE}sky and slammed into Six Island. When{CLEAR}people went to look, they found the{CLEAR}meteor was really a sharp, three-sided{CLEAR}pyramid. The pyramid moved on its own{CLEAR}from time to time, as if it were alive.{CLEAR}But what it really is remains a mystery{CLEAR}to this day.",
+   "en": "Fifty years ago, a meteor fell from the{NEWLINE}sky and slammed into Six Island. When{CLEAR}people went to look, they found the{CLEAR}meteor was really a sharp, triangular{CLEAR}pyramid. The pyramid moved on its own{CLEAR}from time to time, as if it were alive.{CLEAR}But what it really is remains a mystery{CLEAR}to this day.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | FULL-CES-0383-0384: Correct triangular-base pyramid, not three total faces.",
    "qa_ignore": [
     "number_missing"
    ]
@@ -392,10 +392,10 @@
   {
    "id": 45,
    "zh": "传说古时候有一名渔夫,{NEWLINE}捡到了一颗口袋妖怪蛋,{CLEAR}在他的悉心照料下{CLEAR}这颗蛋孵化出了精灵玛纳菲。{SCROLL}玛纳菲为了报答渔夫的孵化之恩,{NEWLINE}就从海底为渔夫带来了很多金银财宝,{CLEAR}最终渔夫过上了富足的生活。{SCROLL}听过这个故事的人{NEWLINE}都疯狂地寻找着玛纳菲,{CLEAR}做着一夜暴富的黄梁美梦。",
-   "en": "Legend says that long ago, a fisherman{NEWLINE}found a Pokémon Egg. Under his careful{CLEAR}care, the Egg hatched into Manaphy.{SCROLL}To repay the fisherman for hatching it,{NEWLINE}Manaphy brought him loads of gold,{CLEAR}silver and treasure from the seabed,{CLEAR}and in the end the fisherman lived a life{CLEAR}of plenty.{SCROLL}Everyone who heard the story went wild{NEWLINE}searching for Manaphy, lost in pipe{CLEAR}dreams of getting rich overnight.",
+   "en": "Legend says that long ago, a fisherman{NEWLINE}found a Pokémon Egg. Under his{CLEAR}attentive care, the Egg hatched{CLEAR}into Manaphy.{SCROLL}To repay the fisherman for hatching it,{NEWLINE}Manaphy brought him loads of gold,{CLEAR}silver and treasure from the seabed,{CLEAR}and in the end the fisherman lived a life{CLEAR}of plenty.{SCROLL}Everyone who heard the story went wild{NEWLINE}searching for Manaphy, lost in pipe{CLEAR}dreams of getting rich overnight.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | FULL-CES-0383-0384: Correct unintended target-language redundancy."
   },
   {
    "id": 46,
@@ -520,10 +520,10 @@
   {
    "id": 61,
    "zh": "愿拉帝欧斯和拉帝亚斯{NEWLINE}能永远陪伴您守护这片土地。",
-   "en": "May Latios and Latias stay by your side{NEWLINE}forever as you protect this land.",
+   "en": "May Latios and Latias forever{NEWLINE}accompany you in protecting this land.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | FULL-CES-0383-0384: Restore shared protecting action and formal address in Spanish."
   },
   {
    "id": 62,

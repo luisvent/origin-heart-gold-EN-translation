@@ -6,9 +6,9 @@
   {
    "id": 0,
    "zh": "欢迎光临！{SCROLL}这里使用{VAR:0132:0}ＢＰ可以购买{NEWLINE}３张刮奖卡哦！{SCROLL}",
-   "en": "Welcome!{SCROLL}Would you like some Scratch-Off Cards?{NEWLINE}They’re three for {VAR:0132:0} BP.{SCROLL}",
+   "en": "Welcome!{SCROLL}You can buy three Scratch-Off Cards{NEWLINE}here for {VAR:0132:0} BP!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0433/0"
   },
   {
@@ -57,10 +57,10 @@
   {
    "id": 6,
    "zh": "使用{VAR:0132:0}ＢＰ{NEWLINE}可以购买３张刮奖卡。{SCROLL}在卡片隐藏着精灵的标记哦。{SCROLL}刮开３次后{NEWLINE}如果发现３个同样的标记,{CLEAR}就可以得到树果和奖品哦！{SCROLL}",
-   "en": "You may buy three Scratch-Off Cards{NEWLINE}for {VAR:0132:0} BP.{SCROLL}Hidden on each Scratch-Off Card are{NEWLINE}icons of Pokémon.{SCROLL}You may scratch the film off a card{NEWLINE}three times.{SCROLL}If the same icon appears three times,{NEWLINE}you will win a prize, like a Berry!{SCROLL}",
+   "en": "You can buy three Scratch-Off Cards{NEWLINE}for {VAR:0132:0} BP.{SCROLL}Pokémon icons are hidden on the cards.{SCROLL}You scratch three times.{SCROLL}If you then find three identical{NEWLINE}icons, you can get Berries and prizes!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0433/6"
+   "origin": "agent",
+   "notes": "US 0433/6 | CONT-20261013: scratch-card grammar/layout correction; source meaning retained; D-2444 remains open."
   },
   {
    "id": 7,
@@ -121,18 +121,18 @@
   {
    "id": 14,
    "zh": "ＢＰ不足,{NEWLINE}请下次再来！",
-   "en": "I’m sorry, but you don’t have enough{NEWLINE}BP. Please come again.",
+   "en": "You don’t have enough BP. Please come{NEWLINE}again!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0433/14"
   },
   {
    "id": 15,
    "zh": "欢迎光临！{SCROLL}这里使用{VAR:0132:0}ＢＰ{NEWLINE}可以购买３张刮奖卡哦！{SCROLL}在卡片隐藏着精灵的标记哦。{SCROLL}刮开３次后{NEWLINE}如果发现３个同样标记,{CLEAR}就可以得到树果和奖品哦！{SCROLL}不管是哪个百变怪标记{NEWLINE}精灵都可以变身！{SCROLL}请好好收集标记吧！{SCROLL}",
-   "en": "Welcome!{NEWLINE}Would you like some Scratch-Off Cards?{SCROLL}You may buy three Scratch-Off Cards{NEWLINE}for {VAR:0132:0} BP.{SCROLL}Hidden on each Scratch-Off Card are{NEWLINE}icons of Pokémon.{SCROLL}You may scratch the obscuring film off{NEWLINE}a card three times.{SCROLL}If the same icon appears three times,{NEWLINE}you will win a prize, like a Berry.{SCROLL}Also, Ditto’s icon can transform into{NEWLINE}any other Pokémon.{SCROLL}Good luck matching Pokémon icons!{SCROLL}",
+   "en": "Welcome!{SCROLL}You can buy three Scratch-Off Cards{NEWLINE}here for {VAR:0132:0} BP!{SCROLL}Pokémon icons are hidden on the cards.{SCROLL}You scratch three times.{SCROLL}If you then find three identical{NEWLINE}icons, you can get Berries and prizes!{SCROLL}Ditto’s icon can transform into any{NEWLINE}other Pokémon!{SCROLL}Make sure to collect matching icons!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0433/15; modernised from US 0433#15"
+   "origin": "agent",
+   "notes": "US 0433/15; modernised from US 0433#15; CES007: D-2444 | CONT-20261013: scratch-card grammar/layout correction; source meaning retained; D-2444 remains open."
   }
  ]
 }

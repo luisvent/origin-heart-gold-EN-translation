@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "{VAR:0101:1}は　だいかつやく　だった！{NEWLINE}せなかが　おおきく　みえる！",
-   "en": "{VAR:0101:1} did a great job! It looks{NEWLINE}very proud!",
+   "en": "{VAR:0101:1} did a great job!{NEWLINE}Its back looks so big!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 2,
@@ -30,18 +30,18 @@
   {
    "id": 3,
    "zh": "{VAR:0101:1}は　やるき　まんまん！{NEWLINE}すこし　からまわり　してた",
-   "en": "{VAR:0101:1} is very eager! It’s{NEWLINE}running in circles...",
+   "en": "{VAR:0101:1} was full of enthusiasm!{NEWLINE}It was spinning its wheels a little.",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 4,
    "zh": "{VAR:0101:3}に　ピンチを　すくわれた！{NEWLINE}ふかい　きずなで　むすばれた",
-   "en": "{VAR:0101:3} saved us from a tough{NEWLINE}situation! It made us closer!",
+   "en": "{VAR:0101:3} saved us from a pinch!{NEWLINE}We formed a deep bond.",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 5,
@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "{VAR:0101:1}は　きびんな　うごき！{NEWLINE}{VAR:0101:3}を　よせつけない！",
-   "en": "{VAR:0101:1} moves very quickly!{NEWLINE}{VAR:0101:3} kept away!",
+   "en": "{VAR:0101:1} moves nimbly!{NEWLINE}It won’t let {VAR:0101:3} get close!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 7,
@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "{VAR:0101:1}の　ラストスパート！{NEWLINE}そこぢからを　みせつけた",
-   "en": "{VAR:0101:1} just hit its second wind!{NEWLINE}It’s showing off its reserve strength!",
+   "en": "{VAR:0101:1}’s final spurt!{NEWLINE}It showed its reserve strength.",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 13,
@@ -222,10 +222,10 @@
   {
    "id": 27,
    "zh": "きょうは　カンが　さえてるみたい{NEWLINE}{VAR:0101:1}は　じしんたっぷり！",
-   "en": "Today, {VAR:0101:1}’s perception is{NEWLINE}clear, and it’s very confident!",
+   "en": "Its intuition seems sharp today!{NEWLINE}{VAR:0101:1} is full of confidence!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 28,
@@ -254,10 +254,10 @@
   {
    "id": 31,
    "zh": "{VAR:0101:1}は　こっちを　みてる{NEWLINE}{VAR:0108:4}が　きになる　みたい！",
-   "en": "{VAR:0101:1} is looking this way and{NEWLINE}focusing on the {VAR:0108:4}.",
+   "en": "{VAR:0101:1} is looking this way.{NEWLINE}It seems interested in {VAR:0108:4}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 32,
@@ -270,18 +270,18 @@
   {
    "id": 33,
    "zh": "⋯⋯　⋯⋯　おや！？{NEWLINE}{VAR:0108:4}が　おちている！{NEWLINE}{VAR:0101:1}は　めずらしい　ものを{NEWLINE}みつけて　だいこうふん！",
-   "en": "...What?{NEWLINE}The {VAR:0108:4} was dropped here!{NEWLINE}{VAR:0101:1} is very excited to have{NEWLINE}found such a rare item!",
+   "en": "... ...What!?{NEWLINE}The {VAR:0108:4} is lying here!{NEWLINE}{VAR:0101:1} is very excited to have{NEWLINE}found such a rare item!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 34,
    "zh": "⋯⋯　⋯⋯　おや！？{NEWLINE}{VAR:0108:4}が　おちている！{NEWLINE}ふしぎな　ことも　あるもんだ！",
-   "en": "...What?{NEWLINE}The {VAR:0108:4} was dropped here!{NEWLINE}Such a strange coincidence!",
+   "en": "... ...What!?{NEWLINE}The {VAR:0108:4} is lying here!{NEWLINE}Strange things do happen!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 35,
@@ -294,10 +294,10 @@
   {
    "id": 36,
    "zh": "きょうは　ちょうしが　いいみたい！{NEWLINE}{VAR:0101:1}は　じしんたっぷり！",
-   "en": "Today seems like a great day!{NEWLINE}{VAR:0101:1} is full of confidence!",
+   "en": "It seems to be in good form today!{NEWLINE}{VAR:0101:1} is full of confidence!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 37,
@@ -310,10 +310,10 @@
   {
    "id": 38,
    "zh": "{VAR:0101:1}の　たくみな　みのこなし{NEWLINE}むだのない　うつくしい　うごきだ！",
-   "en": "The clever way that {VAR:0101:1} moves{NEWLINE}is very graceful!",
+   "en": "{VAR:0101:1} moves skillfully!{NEWLINE}Beautiful moves, with no waste!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 39,
@@ -334,34 +334,34 @@
   {
    "id": 41,
    "zh": "{VAR:0101:1}には　よゆうが　ありそう{NEWLINE}まだまだ　がんばれるみたい！",
-   "en": "{VAR:0101:1} is composed and{NEWLINE}continues to try its hardest!",
+   "en": "{VAR:0101:1} seems to have reserves.{NEWLINE}It looks like it can keep going!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 42,
    "zh": "{VAR:0100:5}と　であった！{NEWLINE}{VAR:0101:1}は　おどろいた　ようすで{NEWLINE}じっと　{VAR:0100:5}を　みている",
-   "en": "Met {VAR:0100:5}!{NEWLINE}{VAR:0101:1} is so startled, all it can{NEWLINE}do is stare blankly at {VAR:0100:5}.",
+   "en": "Met {VAR:0100:5}!{NEWLINE}{VAR:0101:1} seems surprised and{NEWLINE}stares at {VAR:0100:5}.",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 43,
    "zh": "{VAR:0100:5}と　であった！{NEWLINE}{VAR:0100:5}は{NEWLINE}じっと　{VAR:0103:0}を　みている",
-   "en": "Met {VAR:0100:5}!{NEWLINE}{VAR:0100:5} is staring blankly at{NEWLINE}{VAR:0103:0}.",
+   "en": "Met {VAR:0100:5}!{NEWLINE}{VAR:0100:5} is staring intently at{NEWLINE}{VAR:0103:0}.",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 44,
    "zh": "ポケトレで　{VAR:0100:5}を　みつけた！{NEWLINE}おしくも　にげられて　しまった⋯⋯",
-   "en": "Found {VAR:0100:5} with the{NEWLINE}Poké Radar! Unfortunately, it ran away.",
+   "en": "Found {VAR:0100:5} with the{NEWLINE}Poké Radar! Sadly, it got away...",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 45,
@@ -406,10 +406,10 @@
   {
    "id": 50,
    "zh": "ぶっきらぼうに　なげわたされた{NEWLINE}⋯⋯くれるの？",
-   "en": "It threw it at you briskly!{NEWLINE}...Is it giving it to you?",
+   "en": "It brusquely tossed it over.{NEWLINE}...Is it giving it to you?",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 51,
@@ -446,26 +446,26 @@
   {
    "id": 55,
    "zh": "{VAR:0101:1}は　よろこんでる{NEWLINE}どんどん　さきへ　はしっていっちゃう！{NEWLINE}{VAR:0103:0}と　はぐれたことに{NEWLINE}きづいて　あわてて　もどってきた！",
-   "en": "{VAR:0101:1} is so very happy!{NEWLINE}It ran way ahead of {VAR:0103:0} and{NEWLINE}suddenly noticed the distance and{NEWLINE}then came running back confused!",
+   "en": "{VAR:0101:1} is happy!{NEWLINE}It kept running farther ahead!{NEWLINE}Then it noticed it had lost {VAR:0103:0}{NEWLINE}and hurried back in a fluster!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 56,
    "zh": "{VAR:0101:1}は　よろこんでる{NEWLINE}むちゅうで　はしり　まわってる！{NEWLINE}こえを　かけても{NEWLINE}きこえて　ないみたい⋯⋯",
-   "en": "{VAR:0101:1} is very happy!{NEWLINE}It’s running around in circles in a{NEWLINE}daze! It doesn’t seem to hear you...",
+   "en": "{VAR:0101:1} is happy!{NEWLINE}It’s engrossed in running around!{NEWLINE}Even when you call out,{NEWLINE}it doesn’t seem to hear...",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 57,
    "zh": "{VAR:0101:1}は　こっちをむいた{NEWLINE}{VAR:0103:0}の　よこを{NEWLINE}もくもくと　あるいてる{NEWLINE}どんなことを　かんがえてるのかな",
-   "en": "{VAR:0101:1} is walking silently next{NEWLINE}to {VAR:0103:0}. What could it possibly{NEWLINE}be thinking about?",
+   "en": "{VAR:0101:1} turned this way.{NEWLINE}It walks silently beside {VAR:0103:0}.{NEWLINE}What could it be thinking about?",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 58,
@@ -486,18 +486,18 @@
   {
    "id": 60,
    "zh": "{VAR:0101:1}は　ひまそうに　してる{NEWLINE}なにかを　きたいするような　めで{NEWLINE}ずーっと　こっちを　みてる⋯⋯！",
-   "en": "{VAR:0101:1} seems a little bored.{NEWLINE}It seems to be expecting something.{NEWLINE}It’s facing this way and staring...",
+   "en": "{VAR:0101:1} seems bored.{NEWLINE}It keeps staring this way,{NEWLINE}as if expecting something...!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 61,
    "zh": "{VAR:0101:1}は　ひまそうに　してる{NEWLINE}こっちを　じーっと　みてる{NEWLINE}かまって　ほしい{NEWLINE}ふんいきが　でてるような⋯⋯",
-   "en": "{VAR:0101:1} seems a little bored.{NEWLINE}It’s looking at you and staring.{NEWLINE}There’s a sense of eagerness to play.",
+   "en": "{VAR:0101:1} seems bored.{NEWLINE}It stares this way intently.{NEWLINE}It seems to want attention...",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 62,
@@ -558,18 +558,18 @@
   {
    "id": 69,
    "zh": "{VAR:0101:1}と　おさんぽ　かいし{NEWLINE}{VAR:0401:8}を　あるいた！",
-   "en": "{VAR:0101:1} set out on a Stroll{NEWLINE}through {VAR:0401:8}.",
+   "en": "Started a Stroll with {VAR:0101:1}.{NEWLINE}Walked along {VAR:0401:8}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 70,
    "zh": "{VAR:0401:8}を　おさんぽ　かいし！",
-   "en": "Set out on {VAR:0401:8}!",
+   "en": "Started a Stroll on {VAR:0401:8}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 71,
@@ -582,10 +582,10 @@
   {
    "id": 72,
    "zh": "{VAR:0101:1}は　だいまんぞく！{NEWLINE}わすれられない　いちにちに　なりそう！",
-   "en": "{VAR:0101:1} seems so very content!{NEWLINE}This is a day it will never ever forget!",
+   "en": "{VAR:0101:1} is very satisfied!{NEWLINE}This looks like an unforgettable day!",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 73,
@@ -614,10 +614,10 @@
   {
    "id": 76,
    "zh": "{VAR:0101:1}は　うれしそう{NEWLINE}おでかけが　すきに　なったみたい",
-   "en": "{VAR:0101:1} seems very happy.{NEWLINE}It’s grown to enjoy these Strolls.",
+   "en": "{VAR:0101:1} seems happy.{NEWLINE}It seems to like Strolls now.",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 77,
@@ -646,10 +646,10 @@
   {
    "id": 80,
    "zh": "{VAR:0136:7}ほ　あるいた！{NEWLINE}{VAR:0101:1}は{NEWLINE}うれしそうに　はしゃいでる！{NEWLINE}いまにも　とびかかって　きそうだ",
-   "en": "Walked {VAR:0136:7} steps!{NEWLINE}{VAR:0101:1} is so very happy, it’s{NEWLINE}frolicking around! It seems like it will{NEWLINE}jump on your back.",
+   "en": "Walked {VAR:0136:7} steps!{NEWLINE}{VAR:0101:1} is so very happy, it’s{NEWLINE}frolicking around! It seems like it will{NEWLINE}pounce on you.",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 81,
@@ -686,10 +686,10 @@
   {
    "id": 85,
    "zh": "{VAR:0101:1}は　ちょっぴり　きゅうけい{NEWLINE}すこし　ヒマそうに　している",
-   "en": "{VAR:0101:1} is taking a bit of a nap.{NEWLINE}It must be a little tired.",
+   "en": "{VAR:0101:1} is taking a short break.{NEWLINE}It seems a little bored.",
    "status": "draft",
-   "origin": "us",
-   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese"
+   "origin": "agent",
+   "notes": "Pokéwalker stroll log (the hack left it in Japanese); US text, same meaning as the Japanese | CES-early: JP-source reference: restore action, subject, uncertainty, intensity and metaphor; no CN prose claimed"
   },
   {
    "id": 86,

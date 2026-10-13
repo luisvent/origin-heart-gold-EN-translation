@@ -14,18 +14,18 @@
   {
    "id": 1,
    "zh": "音效Ｎｏ{VAR:0134:0}",
-   "en": "Effect No. {VAR:0134:0}",
+   "en": "Sound effect No. {VAR:0134:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "debug/unused (battle effect test menu)"
+   "notes": "debug/unused (battle effect test menu) | CES-early: omission: sound qualifier"
   },
   {
    "id": 2,
    "zh": "音效Ｎａｍｅ{VAR:0106:1}",
-   "en": "Effect name {VAR:0106:1}",
+   "en": "Sound effect name {VAR:0106:1}",
    "status": "draft",
    "origin": "agent",
-   "notes": "debug/unused (battle effect test menu)"
+   "notes": "debug/unused (battle effect test menu) | CES-early: omission: sound qualifier"
   },
   {
    "id": 3,

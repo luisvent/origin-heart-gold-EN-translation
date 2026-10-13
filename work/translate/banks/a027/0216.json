@@ -6,50 +6,50 @@
   {
    "id": 0,
    "zh": "⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯{NEWLINE}⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯{SCROLL}呼噜~呼~呼噜噜⋯⋯{NEWLINE}⋯⋯⋯⋯⋯⋯⋯⋯⋯⋯{SCROLL}什么！已经这么晚了！{NEWLINE}糟了！貌似睡过头了！{SCROLL}",
-   "en": "...{NEWLINE}...{SCROLL}Snore... Zzz... Snnnore...{NEWLINE}...{SCROLL}What?! It’s already this late?!{NEWLINE}Oh no! Looks like I overslept!{SCROLL}",
+   "en": "..............................{NEWLINE}..............................{SCROLL}Snore... Zzz... Snnnore...{NEWLINE}..............................{SCROLL}What?! It’s already this late?!{NEWLINE}Oh no! Looks like I overslept!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": " | RV058: meaning: 呼噜 is snoring, not a yawn; 貌似 kept"
+   "notes": "RV058: meaning: 呼噜 is snoring, not a yawn; 貌似 kept | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,
    "zh": "⋯⋯　⋯⋯　⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}呼噜~呼~呼噜噜⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}咦！天都已经这么亮了！{SCROLL}",
-   "en": "...{NEWLINE}...{SCROLL}Snore... Zzz... Snnnore...{NEWLINE}...{SCROLL}Huh? It’s already become so{NEWLINE}bright outside!{SCROLL}",
+   "en": "...... ...... ......{NEWLINE}...... ...... ......{SCROLL}Snore... Zzz... Snnnore...{NEWLINE}...... ...... ......{SCROLL}Huh? It’s already become so{NEWLINE}bright outside!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0219/1 | RV058: meaning: 呼噜 is snoring, not a yawn"
+   "notes": "US 0219/1 | RV058: meaning: 呼噜 is snoring, not a yawn | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 2,
    "zh": "⋯⋯　⋯⋯　⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}呼噜~呼~呼噜噜⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}什么！已经这么晚了！{NEWLINE}糟了！貌似睡过头了！{SCROLL}",
-   "en": "...{NEWLINE}...{SCROLL}Snore... Zzz... Snnnore...{NEWLINE}...{SCROLL}What?! It’s already this late?!{NEWLINE}Oh no! Looks like I overslept!{SCROLL}",
+   "en": "...... ...... ......{NEWLINE}...... ...... ......{SCROLL}Snore... Zzz... Snnnore...{NEWLINE}...... ...... ......{SCROLL}What?! It’s already this late?!{NEWLINE}Oh no! Looks like I overslept!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0219/2 | RV058: meaning: 呼噜 is snoring, not a yawn; 貌似 kept"
+   "notes": "US 0219/2 | RV058: meaning: 呼噜 is snoring, not a yawn; 貌似 kept | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 3,
    "zh": "⋯⋯　⋯⋯　⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}呵~天快黑了,{NEWLINE}很快就能收工了⋯⋯{SCROLL}⋯⋯啊！！工作时可不能{NEWLINE}老想着回家的事啊！{SCROLL}",
-   "en": "...{NEWLINE}...{SCROLL}Heh... It’s getting dark.{NEWLINE}I can knock off soon...{SCROLL}...Wait! I shouldn’t be thinking{NEWLINE}about going home while I’m working!{SCROLL}",
+   "en": "...... ...... ......{NEWLINE}...... ...... ......{SCROLL}Heh... It’s getting dark.{NEWLINE}I can knock off soon...{SCROLL}...Wait! I shouldn’t be thinking{NEWLINE}about going home while I’m working!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0219/3"
+   "notes": "US 0219/3 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 4,
    "zh": "⋯⋯　⋯⋯　⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}嗯,嗯,嗯嗯嗯⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}嗯？啊！抱歉！抱歉！{NEWLINE}刚才看书看得太入迷了。{SCROLL}",
-   "en": "...{NEWLINE}...{SCROLL}Mm, mm, mmm...{NEWLINE}...{SCROLL}Huh? Oh! Sorry! Sorry!{NEWLINE}I got too absorbed in my book.{SCROLL}",
+   "en": "...... ...... ......{NEWLINE}...... ...... ......{SCROLL}Mm, mm, mmm...{NEWLINE}...... ...... ......{SCROLL}Huh? Oh! Sorry! Sorry!{NEWLINE}I got too absorbed in my book.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0219/4 | RV058: omission: 看书看得太入迷 (too absorbed); 'Interesting' not in zh"
+   "notes": "US 0219/4 | RV058: omission: 看书看得太入迷 (too absorbed); 'Interesting' not in zh | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 5,
    "zh": "⋯⋯　⋯⋯　⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}呼噜~呼~呼噜噜⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}哦呀？在这种时候,{NEWLINE}还有客人呀⋯⋯{SCROLL}",
-   "en": "...{NEWLINE}...{SCROLL}Snore... Zzz... Snnnore...{NEWLINE}...{SCROLL}Huh? A guest?{NEWLINE}At this hour?{SCROLL}",
+   "en": "...... ...... ......{NEWLINE}...... ...... ......{SCROLL}Snore... Zzz... Snnnore...{NEWLINE}...... ...... ......{SCROLL}Huh? A guest?{NEWLINE}At this hour?{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0219/5 | RV058: meaning: 呼噜 is snoring, not a yawn"
+   "notes": "US 0219/5 | RV058: meaning: 呼噜 is snoring, not a yawn | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 6,
@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "起源心金{NEWLINE}完结版4.0——特别版{NEWLINE}欢迎来到这个奇幻的世界{NEWLINE}一起回味最初的感动和快乐",
-   "en": "Pokémon Origin HeartGold{NEWLINE}Final Version 4.0: Special Edition{NEWLINE}Welcome to this world of wonders!{NEWLINE}Relive the first wonder and joy!",
+   "en": "Pokémon Origin HeartGold{NEWLINE}Final Version 4.0: Special Edition{NEWLINE}Welcome to this world of wonders!{NEWLINE}Let’s relive that first emotion and joy!",
    "status": "draft",
    "origin": "agent",
-   "notes": "Hack title card for v4.0 special edition. | RV058: omission: 最初的感动 (first wonder/being moved)"
+   "notes": "Hack title card for v4.0 special edition. | RV058: omission: 最初的感动 (first wonder/being moved) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 8,
@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "另外,写着「Ａ」的按钮,{NEWLINE}通过按Ａ键,{NEWLINE}也能达到同样的效果。",
-   "en": "You can also advance by pressing{NEWLINE}the A Button when you see the{NEWLINE}A Button icon on the Touch Screen.",
+   "en": "Pressing the A Button has the{NEWLINE}same effect as touching the{NEWLINE}button marked “A”.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0219/11"
+   "origin": "agent",
+   "notes": "US 0219/11 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 12,
@@ -190,10 +190,10 @@
   {
    "id": 23,
    "zh": "下方画面上,显示出{NEWLINE}很多按钮的时候,{NEWLINE}会出现这个记号。{NEWLINE}{NEWLINE}那时候,请点击下方画面的按钮{NEWLINE}进行选择。",
-   "en": "If this mark is shown in the{NEWLINE}message window, there are active{NEWLINE}buttons you can touch on the{NEWLINE}Touch Screen below.",
+   "en": "This mark appears when there{NEWLINE}are many buttons below.{NEWLINE}Touch a lower-screen button{NEWLINE}to make your choice.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0219/23"
+   "origin": "agent",
+   "notes": "US 0219/23 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 24,
@@ -214,7 +214,7 @@
   {
    "id": 26,
    "zh": "到此为止的说明{NEWLINE}都明白了吗？{VAR:0200:0}",
-   "en": "Do you understand everything{NEWLINE}so far? {VAR:0200:0}",
+   "en": "Do you understand everything{NEWLINE}so far?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0219/26"
@@ -222,7 +222,7 @@
   {
    "id": 27,
    "zh": "画面下方触摸屏里的按钮,{NEWLINE}请按一下。{VAR:0200:0}",
-   "en": "Please touch a button on the{NEWLINE}Touch Screen below. {VAR:0200:0}",
+   "en": "Please touch a button on the{NEWLINE}Touch Screen below.{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -230,10 +230,10 @@
   {
    "id": 28,
    "zh": "从现在开始的世界中,{NEWLINE}你将作为主人公,{NEWLINE}开始冒险的旅程！",
-   "en": "You are about to enter a world{NEWLINE}where you will embark on a grand{NEWLINE}adventure of your very own.",
+   "en": "You are about to enter a world{NEWLINE}where, as the main character,{NEWLINE}you will begin your adventure!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0219/28"
+   "origin": "agent",
+   "notes": "US 0219/28 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 29,
@@ -302,15 +302,15 @@
   {
    "id": 37,
    "zh": "你是男生吧？{NEWLINE}还是女生呢？{CLEAR}请选择其中一个{VAR:0200:0}",
-   "en": "Are you a boy?{NEWLINE}Or are you a girl?{CLEAR}Won’t you please tell me? {VAR:0200:0}",
+   "en": "Are you a boy?{NEWLINE}Or are you a girl?{CLEAR}Please choose one.{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0219/37"
+   "origin": "agent",
+   "notes": "US 0219/37 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 38,
    "zh": "你是男生,没错吧？{VAR:0200:0}",
-   "en": "So, you’re a boy then? {VAR:0200:0}",
+   "en": "So, you’re a boy then?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -318,7 +318,7 @@
   {
    "id": 39,
    "zh": "你是女生,没错吧？{VAR:0200:0}",
-   "en": "So, you’re a girl then? {VAR:0200:0}",
+   "en": "So, you’re a girl then?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -334,7 +334,7 @@
   {
    "id": 41,
    "zh": "{VAR:0103:0},没错吧？{VAR:0200:0}",
-   "en": "Your name is {VAR:0103:0}? {VAR:0200:0}",
+   "en": "Your name is {VAR:0103:0}?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0219/41"
@@ -342,7 +342,7 @@
   {
    "id": 42,
    "zh": "{VAR:0103:0},没错吧？{VAR:0200:0}",
-   "en": "Your name is {VAR:0103:0}? {VAR:0200:0}",
+   "en": "Your name is {VAR:0103:0}?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0219/42"

@@ -14,7 +14,7 @@
   {
    "id": 1,
    "zh": "我还是第一次遇到{NEWLINE}像你这样强劲的对手！{SCROLL}⋯⋯什么？原来那个{NEWLINE}帮助呆呆兽的人就是你？{SCROLL}哇！跟你这样的人交战,{NEWLINE}我怎么可能会胜利呢！{SCROLL}对了,要是你乐意的话,{NEWLINE}⋯⋯能和我交换电话号码吗？{SCROLL}我想要见证{NEWLINE}你今后的卓越表现！{VAR:0200:0}",
-   "en": "You’re the best I’ve ever battled!{SCROLL}Huh? You’re the one who saved all{NEWLINE}the Slowpoke?{SCROLL}Well, no wonder I couldn’t beat you!{NEWLINE}Would it be OK to get your number?{SCROLL}I don’t want to miss anything you{NEWLINE}do from now on! {VAR:0200:0}",
+   "en": "You’re the best I’ve ever battled!{SCROLL}Huh? You’re the one who saved all{NEWLINE}the Slowpoke?{SCROLL}Well, no wonder I couldn’t beat you!{NEWLINE}Would it be OK to get your number?{SCROLL}I don’t want to miss anything you{NEWLINE}do from now on!{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0691/1; modernised from US 0691#1"
@@ -30,10 +30,10 @@
   {
    "id": 3,
    "zh": "怎么会⋯⋯{NEWLINE}我又不是什么可疑的人！{SCROLL}我只不过是想{NEWLINE}有事的时候{SCROLL}给你打打电话,{NEWLINE}没事的时候,{CLEAR}也给你打打电话而已！",
-   "en": "Oh, but...{NEWLINE}I’m not dangerous!{SCROLL}I just want to call and chat about{NEWLINE}everything and nothing!",
+   "en": "Oh, but... I’m not suspicious!{SCROLL}I just want to call when something{NEWLINE}happens...{SCROLL}And when nothing happens, too!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0691/3"
+   "origin": "agent",
+   "notes": "US 0691/3 | SOL-C: restored CN nuance in phone call."
   },
   {
    "id": 4,
@@ -134,34 +134,34 @@
   {
    "id": 16,
    "zh": "我听说了！{SCROLL}你在广播塔表现活跃啊！{NEWLINE}我觉得你好帅啊！{SCROLL}你是最棒的！{SCROLL}反正,我打电话来{NEWLINE}就是想夸夸你的！{SCROLL}我们下次再聊吧！",
-   "en": "I heard, I heard, I heard!{SCROLL}About your heroic liberation of the{NEWLINE}Radio Tower! You rock so hard!{SCROLL}I just wanted to make sure you knew{NEWLINE}that you’re awesome!{SCROLL}Call you later!",
+   "en": "I heard! You did great at the Radio{NEWLINE}Tower! You looked so cool!{SCROLL}You’re the best! I just called to{NEWLINE}praise you!{SCROLL}Talk to you later!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0691/16"
+   "origin": "agent",
+   "notes": "US 0691/16 | SOL-C: restored CN nuance in phone call."
   },
   {
    "id": 17,
    "zh": "我听说了！{SCROLL}你在广播塔表现活跃啊！{NEWLINE}我觉得你好帅啊！{SCROLL}你是最棒的！{SCROLL}反正,我打电话来{NEWLINE}就是想夸夸你的！{SCROLL}我们下次再聊吧！",
-   "en": "I heard, I heard, I heard!{SCROLL}About your heroic liberation of the{NEWLINE}Radio Tower! You rock so hard!{SCROLL}I just wanted to make sure you knew{NEWLINE}that you’re awesome!{SCROLL}Call you later!",
+   "en": "I heard! You did great at the Radio{NEWLINE}Tower! You looked so cool!{SCROLL}You’re the best! I just called to{NEWLINE}praise you!{SCROLL}Talk to you later!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0691/17"
+   "origin": "agent",
+   "notes": "US 0691/17 | SOL-C: restored CN nuance in phone call."
   },
   {
    "id": 18,
    "zh": "我看到了,{VAR:0103:0}！{NEWLINE}你前往了龙之穴！{SCROLL}你肯定成功了吧！{NEWLINE}别害羞嘛！我相信你肯定行的！{SCROLL}我们下次再聊吧！",
-   "en": "I saw, I saw, I saw you, {VAR:0103:0}!{NEWLINE}I saw you go into the Dragon’s Den!{SCROLL}I’m certain you passed! Aww, no need to{NEWLINE}be modest! You can’t fail!{SCROLL}Call you later!",
+   "en": "I saw you go into the Dragon’s Den,{NEWLINE}{VAR:0103:0}!{SCROLL}You passed, right? Don’t be shy! I know{NEWLINE}you can do it!{SCROLL}Talk to you later!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0691/18"
+   "origin": "agent",
+   "notes": "US 0691/18 | SOL-C: restored CN nuance in phone call."
   },
   {
    "id": 19,
    "zh": "我看到了,{VAR:0103:0}！{NEWLINE}你前往了龙之穴！{SCROLL}你肯定成功了吧！{NEWLINE}别害羞嘛！我相信你肯定行的！{SCROLL}我们下次再聊吧！",
-   "en": "I saw, I saw, I saw you, {VAR:0103:0}!{NEWLINE}I saw you go into the Dragon’s Den!{SCROLL}I’m certain you passed! Aww, no need to{NEWLINE}be modest! You can’t fail!{SCROLL}Call you later!",
+   "en": "I saw you go into the Dragon’s Den,{NEWLINE}{VAR:0103:0}!{SCROLL}You passed, right? Don’t be shy! I know{NEWLINE}you can do it!{SCROLL}Talk to you later!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0691/19"
+   "origin": "agent",
+   "notes": "US 0691/19 | SOL-C: restored CN nuance in phone call."
   },
   {
    "id": 20,

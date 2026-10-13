@@ -215,10 +215,10 @@
   {
    "id": 22,
    "zh": "有着可以用大大的翅膀{NEWLINE}来回飞上一整天的体力。{NEWLINE}会用锋利的鸟嘴战斗。",
-   "en": "Its big wings give it the stamina to{NEWLINE}fly back and forth all day. It battles{NEWLINE}with its sharp beak.",
+   "en": "It has the stamina to fly back and{NEWLINE}forth all day on its big wings. It{NEWLINE}battles with its sharp beak.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:体力"
    ]
@@ -261,10 +261,10 @@
   {
    "id": 27,
    "zh": "无论从多高的地方掉下来，{NEWLINE}只要将身体蜷成一团{NEWLINE}便能反弹起来得救。",
-   "en": "If it fell from a great height, this{NEWLINE}Pokémon could save itself by rolling{NEWLINE}into a ball and bouncing.",
+   "en": "No matter how far it falls, it can save{NEWLINE}itself by curling into a ball and{NEWLINE}bouncing.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/27"
+   "origin": "agent",
+   "notes": "US 0803/27 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 28,
@@ -758,10 +758,10 @@
   {
    "id": 77,
    "zh": "刚出生时连站起来都十分不易。{NEWLINE}但跑得越多，腰腿就会被锻炼得{NEWLINE}越多，速度也会随之增加。",
-   "en": "Newborns can barely stand. But the{NEWLINE}more they run, the stronger their{NEWLINE}legs grow, and the faster they get.",
+   "en": "Newborns can barely stand. But the{NEWLINE}more they run, the stronger their hips{NEWLINE}and legs grow, and the faster they get.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:增加"
    ]
@@ -1150,10 +1150,10 @@
   {
    "id": 117,
    "zh": "身上的刺能够帮它抵御外敌。{NEWLINE}鳍和骨头是好用的中药材。",
-   "en": "The spines on its body protect it from{NEWLINE}enemies. Its fins and bones are{NEWLINE}prized in traditional medicine.",
+   "en": "The spines on its body protect it from{NEWLINE}enemies. Its fins and bones are useful{NEWLINE}in traditional Chinese medicine.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "more_lines_than_zh"
    ]
@@ -1252,10 +1252,10 @@
   {
    "id": 127,
    "zh": "会用2只角夹住猎物，{NEWLINE}在撕碎猎物前不会松开。{NEWLINE}无法撕碎时就会把猎物扔到天边去。",
-   "en": "It grips prey with its two horns and{NEWLINE}won’t let go until it tears them apart.{NEWLINE}If it can’t, it hurls them far away.",
+   "en": "Its two horns grip prey until it tears{NEWLINE}them apart. If it can’t, it hurls them{NEWLINE}to the horizon.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "number_missing"
    ]
@@ -1291,10 +1291,10 @@
   {
    "id": 131,
    "zh": "会让人坐在自己的背上畅游大海。{NEWLINE}据说当它心情好的时候，{NEWLINE}有时还会用悦耳的叫声来唱歌。",
-   "en": "It ferries people across the sea on{NEWLINE}its back. When it is in a good mood, it{NEWLINE}is said to sing with a lovely voice.",
+   "en": "It ferries people across the sea on its{NEWLINE}back. When in a good mood, it is said to{NEWLINE}sometimes sing with a lovely voice.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:叫声"
    ]
@@ -1469,10 +1469,10 @@
   {
    "id": 149,
    "zh": "据说它的住处就在这广阔大海的某处。{NEWLINE}会将遇难的船只引导到陆地边上。",
-   "en": "Its home is said to be somewhere in{NEWLINE}the vast sea. It guides shipwrecked{NEWLINE}boats to land.",
+   "en": "Its home is said to be somewhere in the{NEWLINE}vast sea. It guides ships in distress to{NEWLINE}land.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "more_lines_than_zh"
    ]
@@ -1674,10 +1674,10 @@
   {
    "id": 170,
    "zh": "会从2根触手的前端释放{NEWLINE}正负电来电麻对手。",
-   "en": "It shoots positive and negative{NEWLINE}electricity between the tips of its{NEWLINE}two antennae and zaps its enemies.",
+   "en": "It shoots positive and negative{NEWLINE}electricity from the tips of its two{NEWLINE}antennae to zap its foes.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/170",
+   "origin": "agent",
+   "notes": "US 0803/170 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "number_missing",
     "more_lines_than_zh",
@@ -1709,10 +1709,10 @@
   {
    "id": 173,
    "zh": "有着星星一样的轮廓。{NEWLINE}由于那外形，{NEWLINE}人们相信它是乘着流星而来的。",
-   "en": "Because of its unusual, starlike{NEWLINE}silhouette, people believe that{NEWLINE}it came here on a meteor.",
+   "en": "Its outline is shaped like a star.{NEWLINE}Because of this, people believe it came{NEWLINE}riding on a shooting star.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/173"
+   "origin": "agent",
+   "notes": "US 0803/173 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 174,
@@ -1985,10 +1985,10 @@
   {
    "id": 203,
    "zh": "尾巴上也有着小小的大脑。{NEWLINE}如果有谁靠近的话，它就会对其气味{NEWLINE}产生反应并一口咬过来，需要注意。",
-   "en": "Its tail has a small brain of its{NEWLINE}own. Beware! If you get close, it{NEWLINE}may react to your scent by biting.",
+   "en": "Its tail has a small brain of its own.{NEWLINE}Beware! If anyone gets close, it reacts{NEWLINE}to their scent and bites.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/203"
+   "origin": "agent",
+   "notes": "US 0803/203 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 204,
@@ -2167,10 +2167,10 @@
   {
    "id": 222,
    "zh": "因为头部的前端会不断生长并脱落，{NEWLINE}而新长出来的头部前端又十分好看，{NEWLINE}所以作为宝物很受欢迎。",
-   "en": "It continuously sheds and grows.{NEWLINE}The tip of its head is prized as{NEWLINE}a treasure because of its beauty.",
+   "en": "The tips of its head keep growing and{NEWLINE}breaking off. The beautiful new growth{NEWLINE}is prized as treasure.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/222",
+   "origin": "agent",
+   "notes": "US 0803/222 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:生长"
    ]
@@ -2189,10 +2189,10 @@
   {
    "id": 224,
    "zh": "有着结实的坚硬脑袋。{NEWLINE}会用带吸盘的脚缠住对手，{NEWLINE}然后再一个劲地用头猛撞。",
-   "en": "It traps foes with the suction cups{NEWLINE}on its tentacles, then smashes{NEWLINE}them with its rock-hard head.",
+   "en": "It has a tough, hard head. It wraps its{NEWLINE}suction-cup tentacles around foes,{NEWLINE}then keeps ramming them with its head.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/224",
+   "origin": "agent",
+   "notes": "US 0803/224 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:结实",
     "glossary:坚硬脑袋",
@@ -2309,10 +2309,10 @@
   {
    "id": 236,
    "zh": "永远都是精力充沛的样子。{NEWLINE}为了变强，就算输了一次又一次，{NEWLINE}也会不断地站起来迎战对手。",
-   "en": "It is always bursting with energy.{NEWLINE}To make itself stronger, it{NEWLINE}keeps on fighting even if it loses.",
+   "en": "Always full of energy, it gets up to{NEWLINE}face its foe to grow stronger, even{NEWLINE}after losing over and over.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/236"
+   "origin": "agent",
+   "notes": "US 0803/236 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 237,
@@ -2538,10 +2538,10 @@
   {
    "id": 259,
    "zh": "腰腿十分结实，{NEWLINE}即使是在泥泞的地上也能稳步前进。{NEWLINE}会把身体埋进泥里睡觉。",
-   "en": "Its sturdy legs let it walk steadily{NEWLINE}even on muddy ground. It sleeps{NEWLINE}buried in mud.",
+   "en": "Its strong hips and legs let it walk{NEWLINE}steadily even on muddy ground. It{NEWLINE}sleeps buried in mud.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:睡觉"
    ]
@@ -2642,10 +2642,10 @@
   {
    "id": 269,
    "zh": "受到袭击时会猛烈地{NEWLINE}扇动翅膀撒出剧毒的粉末。{NEWLINE}太阳下山后就会开始活动。",
-   "en": "When attacked, it flaps its wings hard{NEWLINE}to scatter a toxic powder. It{NEWLINE}becomes active after the sun sets.",
+   "en": "When attacked, it flaps its wings hard{NEWLINE}to scatter a highly toxic powder. It{NEWLINE}becomes active after the sun sets.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 270,
@@ -2863,10 +2863,10 @@
   {
    "id": 292,
    "zh": "蜕下的壳有了灵魂。{NEWLINE}从它背上的缝隙向里面窥视的话，{NEWLINE}灵魂好像就会被吸走。",
-   "en": "A shed shell that gained a soul. It is{NEWLINE}said that if you peer into the crack in{NEWLINE}its back, your soul will be sucked out.",
+   "en": "A shed shell that gained a soul. If you{NEWLINE}peer into the crack in its back, it{NEWLINE}seems your soul will be sucked out.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 293,
@@ -3112,10 +3112,10 @@
   {
    "id": 317,
    "zh": "不管是什么都会整个吞掉。{NEWLINE}会将毛孔中分泌出的{NEWLINE}剧毒体液撒向敌人。",
-   "en": "It swallows everything whole. It{NEWLINE}sprays foes with a toxic fluid{NEWLINE}secreted from its pores.",
+   "en": "It swallows everything whole. It sprays{NEWLINE}foes with a highly toxic fluid secreted{NEWLINE}from its pores.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 318,
@@ -3403,10 +3403,10 @@
   {
    "id": 347,
    "zh": "从化石中复活的，{NEWLINE}宝可梦的某个先祖。{NEWLINE}在海中生活，会用爪子捕捉猎物。",
-   "en": "An ancestor of some Pokémon, revived{NEWLINE}from a fossil. It lived in the sea and{NEWLINE}caught prey with its claws.",
+   "en": "An ancestor of some Pokémon, revived{NEWLINE}from a fossil. It lives in the sea and{NEWLINE}catches prey with its claws.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 348,
@@ -4017,10 +4017,10 @@
   {
    "id": 408,
    "zh": "大约1亿年前的宝可梦。{NEWLINE}在丛林中出生长大，{NEWLINE}会用头锤把阻挡它的树木撞断。",
-   "en": "A Pokémon from about 100 million{NEWLINE}years ago. It grew up in jungles and{NEWLINE}headbutted any trees in its way.",
+   "en": "A Pokémon from about 100 million years{NEWLINE}ago. Born and raised in jungles, it{NEWLINE}broke trees in its path with headbutts.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "number_missing",
     "glossary:生长"
@@ -4323,10 +4323,10 @@
   {
    "id": 440,
    "zh": "深信白白圆圆的石头是蛋，{NEWLINE}很小心翼翼地拿着。{NEWLINE}很在意自己卷毛的形状。",
-   "en": "It carefully carries a round, white rock{NEWLINE}that it thinks is an egg. It’s bothered{NEWLINE}by how curly its hair looks.",
+   "en": "It carefully carries a round, white{NEWLINE}rock, convinced it is an egg. It cares a{NEWLINE}lot about the shape of its curl.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/440"
+   "origin": "agent",
+   "notes": "US 0803/440 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 441,
@@ -4639,10 +4639,10 @@
   {
    "id": 473,
    "zh": "从遥远的过去就存在的宝可梦，{NEWLINE}甚至在1万年前的冰层中也发现过它。",
-   "en": "A frozen Mamoswine was dug from ice{NEWLINE}dating back 10,000 years. This Pokémon{NEWLINE}has been around a long, long, long time.",
+   "en": "A Pokémon that has existed since the{NEWLINE}distant past. It has even been found in{NEWLINE}ice from 10,000 years ago.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/473; modernised from US 0803#473",
+   "origin": "agent",
+   "notes": "US 0803/473; modernised from US 0803#473 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "number_missing",
     "more_lines_than_zh"
@@ -4659,10 +4659,10 @@
   {
    "id": 475,
    "zh": "因为有着能敏锐感知对手想法的能力，{NEWLINE}所以可以率先攻击。",
-   "en": "Because it can keenly sense what its{NEWLINE}foe is thinking, it can always{NEWLINE}strike first.",
+   "en": "It keenly senses what its foe is{NEWLINE}thinking, allowing it to strike first.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0803/475 | RV091: addition: \"fast, and fierce\" not in the zh; 敏锐 restored (coordinator, D-2201)",
+   "notes": "US 0803/475 | RV091: addition: \"fast, and fierce\" not in the zh; 敏锐 restored (coordinator, D-2201) | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "more_lines_than_zh"
    ]
@@ -4700,10 +4700,10 @@
   {
    "id": 479,
    "zh": "作为驱动特殊马达的动力能源{NEWLINE}而被长期研究的宝可梦。",
-   "en": "Research continues on this Pokémon,{NEWLINE}which could be the power source of a{NEWLINE}unique motor.",
+   "en": "A Pokémon long studied as an energy{NEWLINE}source for powering special motors.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0803/479",
+   "origin": "agent",
+   "notes": "US 0803/479 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "more_lines_than_zh",
     "glossary:特殊"
@@ -5174,10 +5174,10 @@
   {
    "id": 530,
    "zh": "进化成钢的钻头拥有{NEWLINE}穿透铁板的破坏力。{NEWLINE}在隧道工程里非常活跃。",
-   "en": "Its steel drill can bore through iron{NEWLINE}plates. It plays an active role in{NEWLINE}tunnel construction.",
+   "en": "Its drill evolved into steel and can{NEWLINE}bore through iron plates. It plays an{NEWLINE}active role in tunnel construction.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:进化",
     "glossary:穿透"
@@ -6046,10 +6046,10 @@
   {
    "id": 625,
    "zh": "率领一大群驹刀小兵，{NEWLINE}成群地穷追猎物。{NEWLINE}劈斩司令会给予致命一击。",
-   "en": "It leads a big group of Pawniard to{NEWLINE}hunt down prey. Bisharp delivers the{NEWLINE}finishing blow.",
+   "en": "It leads a big group of Pawniard to hunt{NEWLINE}down prey. Bisharp delivers the killing{NEWLINE}blow.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 626,
@@ -7581,10 +7581,10 @@
   {
    "id": 793,
    "zh": "从究极之洞出现，来到这个世界。{NEWLINE}好像会寄生在宝可梦{NEWLINE}或人类的身上生存下去。",
-   "en": "It emerged into this world from an{NEWLINE}Ultra Wormhole. It seems to survive{NEWLINE}by latching onto Pokémon or people.",
+   "en": "It entered this world through an Ultra{NEWLINE}Wormhole. It seems to survive as a{NEWLINE}parasite on Pokémon or people.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 794,
@@ -7941,10 +7941,10 @@
   {
    "id": 832,
    "zh": "长得长长的角是为了{NEWLINE}向异性求爱而存在的。{NEWLINE}它从不会把角当做武器。",
-   "en": "Its long horns exist to court mates.{NEWLINE}It never uses them as weapons.",
+   "en": "Its long horns exist to court the{NEWLINE}opposite sex. It never uses them as{NEWLINE}weapons.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 833,
@@ -8303,10 +8303,10 @@
   {
    "id": 872,
    "zh": "会吃掉雪来获得寒气，{NEWLINE}并利用体内的器官加强冰冷的程度，{NEWLINE}以此来制作如冰柱般的尖刺。",
-   "en": "It eats snow to take in its cold, then{NEWLINE}chills it further in its body to make{NEWLINE}icicle-like spikes.",
+   "en": "It eats snow to take in its cold. An{NEWLINE}organ inside chills it further to make{NEWLINE}icicle-like spikes.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 873,
@@ -8424,10 +8424,10 @@
   {
    "id": 886,
    "zh": "会在肺部储存能量并进行攻击。{NEWLINE}在多龙梅西亚能独当一面之前，{NEWLINE}会和它一起战斗并照顾它。",
-   "en": "It stores energy in its lungs to{NEWLINE}attack. It fights beside Dreepy and{NEWLINE}cares for them until they grow up.",
+   "en": "It attacks with energy stored in its{NEWLINE}lungs. It fights beside and cares for{NEWLINE}Dreepy until they are independent.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 887,
@@ -8440,10 +8440,10 @@
   {
    "id": 888,
    "zh": "这只宝可梦被认为是沉睡已久的{NEWLINE}藏玛然特的姐姐，{NEWLINE}也有人认为它们之间是劲敌关系。",
-   "en": "This Pokémon is thought to be the{NEWLINE}older sister of Zamazenta, long{NEWLINE}asleep. Some think they are rivals.",
+   "en": "It is thought to be the older sister of{NEWLINE}the long-slumbering Zamazenta. Some{NEWLINE}think they are rivals.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 889,
@@ -8475,10 +8475,10 @@
   {
    "id": 892,
    "zh": "生活在遥远地区的山岳地带。{NEWLINE}通过在断崖绝壁上奔跑来锻炼腰腿，{NEWLINE}磨炼招式。",
-   "en": "It lives in the mountains of a far-off{NEWLINE}land. It trains its legs and hones its{NEWLINE}moves by running up sheer cliffs.",
+   "en": "It lives in the mountains of a far-off{NEWLINE}land. Running on sheer cliffs trains its{NEWLINE}hips and legs and hones its moves.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 893,
@@ -8573,10 +8573,10 @@
   {
    "id": 903,
    "zh": "拥有凌驾其他物种之上的身体能力{NEWLINE}以及剧毒。在寒冷的高地上所向无敌。{NEWLINE}偏好独自行动而不会集结成群。",
-   "en": "Its physical abilities and deadly poison{NEWLINE}outclass other species. Unbeatable in{NEWLINE}cold highlands, it prefers to live alone.",
+   "en": "Its physical prowess and potent poison{NEWLINE}outclass other species. Unbeaten in{NEWLINE}cold highlands, it prefers to go alone.",
    "status": "draft",
    "origin": "agent",
-   "notes": "ext-review B-031",
+   "notes": "ext-review B-031 | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:剧毒"
    ]
@@ -8987,10 +8987,10 @@
   {
    "id": 947,
    "zh": "会在干燥地带流浪。{NEWLINE}有极低的概率会大量出现，{NEWLINE}把一座城镇塞得满满当当。",
-   "en": "It wanders arid lands. On very rare{NEWLINE}occasions, huge numbers appear and{NEWLINE}choke an entire town.",
+   "en": "It wanders arid lands. On very rare{NEWLINE}occasions, huge numbers appear and fill{NEWLINE}an entire town to bursting.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:大量出现"
    ]
@@ -9504,10 +9504,10 @@
   {
    "id": 1004,
    "zh": "曾引起无数斗争的勾玉{NEWLINE}聚集了嫉妒之情。这些嫉妒{NEWLINE}缠绕了火焰，变成了宝可梦。",
-   "en": "Curved jewels that caused countless{NEWLINE}conflicts gathered envy. Wrapped in{NEWLINE}flame, it became this Pokémon.",
+   "en": "Envy gathered in curved jewels that{NEWLINE}caused endless conflicts. It clung to{NEWLINE}flames and became this Pokémon.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:缠绕"
    ]
@@ -9665,10 +9665,10 @@
   {
    "id": 1023,
    "zh": "据说它曾经射出发光的{NEWLINE}刀刃砍断了周围的一切，{NEWLINE}但无其他信息，身份不明。",
-   "en": "It is said to have cut down everything{NEWLINE}around it with shining blades, but{NEWLINE}nothing else is known about it.",
+   "en": "Said to fire shining blades that cut{NEWLINE}everything nearby. No other info{NEWLINE}exists; its identity is unknown.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:发光"
    ]
@@ -9684,10 +9684,10 @@
   {
    "id": 1025,
    "zh": "桃形的壳是剧毒的储存库。{NEWLINE}会制作毒粘糕来款待人和宝可梦。",
-   "en": "Its peach-shaped shell is a store of{NEWLINE}deadly poison. It makes poison mochi{NEWLINE}to treat people and Pokémon.",
+   "en": "Its peach-shaped shell stores highly{NEWLINE}toxic poison. It makes poison mochi to{NEWLINE}treat people and Pokémon.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:剧毒",
     "glossary:款待"
@@ -9720,10 +9720,10 @@
   {
    "id": 1029,
    "zh": "龟甲上的大炮拥有不逊于坦克的威力。{NEWLINE}结实的腰腿使它能在发射的{NEWLINE}冲击力之下用力站稳。",
-   "en": "The cannon on its shell is as powerful{NEWLINE}as a tank’s. Its sturdy legs let it{NEWLINE}stand firm against the recoil.",
+   "en": "Its shell’s cannon is as powerful as a{NEWLINE}tank’s. Its strong hips and legs let it{NEWLINE}stand firm against the recoil.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 1030,
@@ -10340,10 +10340,10 @@
   {
    "id": 1100,
    "zh": "比起夹击，它更擅长用钳子抡打对手。{NEWLINE}长时间战斗后，{NEWLINE}它就会变得无法承受钳子的重量。",
-   "en": "It clubs foes with its pincers more{NEWLINE}than it pinches. After long battles,{NEWLINE}it can no longer bear their weight.",
+   "en": "Its pincers club foes better than they{NEWLINE}pinch. After long battles, it can no{NEWLINE}longer bear their weight.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:夹击"
    ]
@@ -10806,10 +10806,10 @@
   {
    "id": 1152,
    "zh": "脚部随着形态变化而消失。{NEWLINE}据推测，此宝可梦栖息于没有天地{NEWLINE}之分的世界，然而没有手段能证明。",
-   "en": "Its legs vanish when it changes form.{NEWLINE}It is thought to live in a world with{NEWLINE}no up or down, but there is no proof.",
+   "en": "Its legs vanish as it changes form. It{NEWLINE}may live in a world with no up or down,{NEWLINE}but there is no way to prove it.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:变化",
     "glossary:宝可梦"
@@ -11691,10 +11691,10 @@
   {
    "id": 1243,
    "zh": "拥有着巨大的力量的真正的样子。{NEWLINE}传说，因为对财宝的欲望，曾将藏着{NEWLINE}财宝的整个城堡连根拔起夺走。",
-   "en": "Its true form, with enormous power.{NEWLINE}Legend says greed for treasure led it{NEWLINE}to uproot and steal a whole castle.",
+   "en": "Its mighty true form. Legend says{NEWLINE}greed made it uproot and steal a whole{NEWLINE}castle full of treasure.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 1244,
@@ -12773,10 +12773,10 @@
   {
    "id": 1356,
    "zh": "会从食物摄取毒素。{NEWLINE}突显紫色的针是它充满剧毒的证据。",
-   "en": "It takes in toxins from its food. Its{NEWLINE}striking purple spikes are proof that{NEWLINE}it is full of deadly poison.",
+   "en": "It takes in toxins from its food. Its{NEWLINE}striking purple spikes show it is full of{NEWLINE}potent poison.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit.",
    "qa_ignore": [
     "glossary:剧毒"
    ]
@@ -12879,10 +12879,10 @@
   {
    "id": 1367,
    "zh": "能自在操纵可刚可柔的金属外壳。{NEWLINE}性情执着且厌恶孤独，一旦喜爱的{NEWLINE}对象离开自己便会怒不可遏。",
-   "en": "It freely controls its metal shell,{NEWLINE}hard or soft. Clingy and lonely, it{NEWLINE}flies into a rage if its beloved leaves.",
+   "en": "It controls its metal shell, hard or{NEWLINE}soft, at will. Clingy and hating solitude,{NEWLINE}it rages when its beloved leaves.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 1368,
@@ -12938,10 +12938,10 @@
   {
    "id": 1373,
    "zh": "喜欢干净，个性一丝不苟。{NEWLINE}会让花香包裹全身{NEWLINE}来治愈周围的宝可梦们。",
-   "en": "It loves cleanliness and is very{NEWLINE}meticulous. It wraps itself in floral{NEWLINE}scent to soothe nearby Pokémon.",
+   "en": "It loves cleanliness and is very{NEWLINE}meticulous. It wraps itself in floral{NEWLINE}scent to heal nearby Pokémon.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0791: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 1374,

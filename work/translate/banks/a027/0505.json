@@ -14,9 +14,9 @@
   {
    "id": 1,
    "zh": "狩猎场搬到城都地区了……{SCROLL}但是,相对的,{NEWLINE}园长的儿子在这{CLEAR}开了一家名为{CLEAR}联动公园的新店！",
-   "en": "The Safari Zone has been moved{NEWLINE}to Johto...{SCROLL}I hear that now the son of the Warden{NEWLINE}is going to run Pal Park!",
+   "en": "The Safari Zone has been moved{NEWLINE}to Johto...{SCROLL}Instead, the Warden’s son has opened{NEWLINE}a new place here called Pal Park!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0513/1 | US line kept (vanilla: Safari Zone moved to Johto); contradicts the hack’s Fuchsia Safari Zone, probably a leftover."
   },
   {

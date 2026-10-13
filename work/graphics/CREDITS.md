@@ -36,3 +36,13 @@ Obligations for this patch:
 - The Chinese hack itself is built on hg-engine, so the release has to credit hg-engine anyway.
 
 Upstream history: only the 2026-09-27 commit was checked (a shallow clone). hg-engine's CREDITS.md does not name who drew the FAIRY icons. Credit them as "hg-engine contributors".
+
+## Spanish reference graphics (local only)
+
+The user supplied `Origin_HeartGold_v4.0.3_ES_v1.0.0-rc42.xdelta`, based on the project's EN rc4 release. Patch SHA-256: `b823b0c44cc850080b634c22e379d5d3046fd549ea0d9ad233d96f520b9a28a5`. Reconstructed ROM SHA-256: `a5a92ab9d63530cea0a40036dafab47b91ac867bfc9a71cd3541c34e7851d3fe`.
+
+`locales/es/selection.json` records the selected Spanish resources and their hashes. The Pokédex recipe rearranges existing donor pixels while retaining this project's newer layout fixes; it draws no new lettering. Raw art, reconstructed ROMs, contact sheets, and prepared assets remain in ignored `work/extract/` or `work/build/`. The attachment does not establish a public source commit, author attribution, or asset licence; none is invented here. Existing Nintendo, hack, and hg-engine provenance above still applies to inherited artwork.
+
+### Spanish retail supplement (local source, 2026-10-13)
+
+User-supplied Pokémon Edición Oro HeartGold, game code IPKS, SHA-256 `9e0f7a1a4a18d9015936678722ce081d08b6a5d882fd648e89b624307f8f9e19`. Original Nintendo/Game Freak artwork, proprietary; no open licence claimed. Sourced the small NACIONAL Pokédex switch, Pokéathlon tutorial graphics 42/44/46 (`a/2/1/9`), and Spanish GET replacements 13/17 (`a/2/2/4`). Assets are extracted locally, ignored by git, and not published as standalone files. See `locales/es/SOURCES.md` for dependency checks and provenance.

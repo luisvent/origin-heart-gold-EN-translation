@@ -6,18 +6,18 @@
   {
    "id": 0,
    "zh": "欢迎来到战斗前线！{SCROLL}你是第一次来的训练家吧,{NEWLINE}这边请！{SCROLL}",
-   "en": "Welcome to the Battle Frontier!{SCROLL}This is your first visit?{NEWLINE}Right this way, please!{SCROLL}",
+   "en": "Welcome to the Battle Frontier!{SCROLL}A Trainer visiting for the first time,{NEWLINE}are you? Right this way, please!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0103/0"
+   "origin": "agent",
+   "notes": "US 0103/0 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,
    "zh": "哎呀！你有{NEWLINE}战斗记录器啊！真棒！{SCROLL}第一次来的训练家的{NEWLINE}战斗记录器{CLEAR}要升级成{CLEAR}战斗前线版本。{SCROLL}先给我吧,{SCROLL}唔~只要这地方稍微{NEWLINE}弄一下……！{SCROLL}好了！{NEWLINE}给你！{SCROLL}",
-   "en": "Oh! You have a Vs. Recorder! Great!{SCROLL}First-time visitors get their{NEWLINE}Vs. Recorder upgraded to{CLEAR}the Battle Frontier version.{SCROLL}Let me have it for a second.{SCROLL}Hmm, just a little tweak here...!{SCROLL}There! Here you go!{SCROLL}",
+   "en": "Oh! You have a Vs. Recorder! Great!{SCROLL}Trainers visiting for the first time get{NEWLINE}their Vs. Recorder upgraded to the{CLEAR}Battle Frontier version.{SCROLL}Let me have it for a second.{SCROLL}Hmm, just a little tweak here...!{SCROLL}There! Here you go!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 2,
@@ -38,7 +38,7 @@
   {
    "id": 4,
    "zh": "需要我讲解{NEWLINE}哪个项目呢？{VAR:0200:0}",
-   "en": "Which topic should I explain? {VAR:0200:0}",
+   "en": "Which topic should I explain?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0103/4"
@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "战斗前线{NEWLINE}共有５间设施。{SCROLL}车轮战７组训练员的{NEWLINE}战斗塔。{SCROLL}留下精灵的记录的{NEWLINE}战斗舞台。{SCROLL}用租借到的精灵{NEWLINE}进行战斗的战斗工厂。{SCROLL}用积攒到的点数{NEWLINE}进行攻克的战斗城堡。{SCROLL}根据状况不同会出现{NEWLINE}各种戏剧性场面的战斗轮盘。{SCROLL}总有一个{NEWLINE}你会喜欢的！{SCROLL}",
-   "en": "The Battle Frontier has five facilities.{SCROLL}The Battle Tower, where you battle{NEWLINE}seven Trainers one after another.{SCROLL}The Battle Hall, where your Pokémon{NEWLINE}leave their records.{SCROLL}The Battle Factory, where you battle{NEWLINE}with rental Pokémon.{SCROLL}The Battle Castle, which you conquer{NEWLINE}with the points you build up.{SCROLL}And the Battle Arcade, where all kinds{NEWLINE}of dramatic twists happen depending on{CLEAR}the situation.{SCROLL}There’s bound to be one you’ll like!{SCROLL}",
+   "en": "The Battle Frontier has five facilities.{SCROLL}The Battle Tower, where you battle{NEWLINE}seven teams of Trainers one{CLEAR}after another.{SCROLL}The Battle Hall, where your Pokémon{NEWLINE}leave their records.{SCROLL}The Battle Factory, where you battle{NEWLINE}with rental Pokémon.{SCROLL}The Battle Castle, which you conquer{NEWLINE}with the points you build up.{SCROLL}And the Battle Arcade, where all kinds{NEWLINE}of dramatic twists happen depending on{CLEAR}the situation.{SCROLL}There’s bound to be one you’ll like!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0103/5 | RV043: meaning: stale US facility summaries; 'there's bound to be one you'll like'"
+   "notes": "US 0103/5 | RV043: meaning: stale US facility summaries; 'there's bound to be one you'll like' | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 6,
@@ -142,7 +142,7 @@
   {
    "id": 17,
    "zh": "欢迎来到战斗前线！{SCROLL}需要我对战斗塔{NEWLINE}进行说明吗？{VAR:0200:0}",
-   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Tower works? {VAR:0200:0}",
+   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Tower works?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0103/17"
@@ -166,7 +166,7 @@
   {
    "id": 20,
    "zh": "欢迎来到战斗前线！{SCROLL}需要我对战斗工厂{NEWLINE}进行说明吗？{VAR:0200:0}",
-   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Factory works? {VAR:0200:0}",
+   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Factory works?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0103/20"
@@ -190,7 +190,7 @@
   {
    "id": 23,
    "zh": "欢迎来到战斗前线！{SCROLL}需要我对战斗舞台{NEWLINE}进行说明吗？{VAR:0200:0}",
-   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Hall works? {VAR:0200:0}",
+   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Hall works?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0103/23"
@@ -198,10 +198,10 @@
   {
    "id": 24,
    "zh": "战斗舞台就是{NEWLINE}进入战斗前线后{CLEAR}在左前方的建筑。{SCROLL}战斗舞台{NEWLINE}是用喜欢的精灵{CLEAR}进行１ｖｓ１战斗,{CLEAR}看能坚持到第几场的地方。{SCROLL}",
-   "en": "The Battle Hall is at the upper-left{NEWLINE}corner of the Battle Frontier.{SCROLL}Here, you enter one Pokémon of your{NEWLINE}choosing for one-on-one battles.{SCROLL}The objective is to keep your winning{NEWLINE}streak going as long as possible.{SCROLL}",
+   "en": "The Battle Hall is the building ahead on{NEWLINE}the left as you enter the{CLEAR}Battle Frontier.{SCROLL}Here, you use a Pokémon you like for{NEWLINE}one-on-one battles.{SCROLL}See how many battles you can last!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0103/24"
+   "origin": "agent",
+   "notes": "US 0103/24 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 25,
@@ -214,7 +214,7 @@
   {
    "id": 26,
    "zh": "欢迎来到战斗前线！{SCROLL}需要我对战斗城堡{NEWLINE}进行说明吗？{VAR:0200:0}",
-   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Castle works? {VAR:0200:0}",
+   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Castle works?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0103/26"
@@ -238,7 +238,7 @@
   {
    "id": 29,
    "zh": "欢迎来到战斗前线！{SCROLL}需要我对战斗轮盘{NEWLINE}进行说明吗？{VAR:0200:0}",
-   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Arcade works? {VAR:0200:0}",
+   "en": "Welcome to the Battle Frontier!{SCROLL}Should I explain how the{NEWLINE}Battle Arcade works?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0103/29"
@@ -286,10 +286,10 @@
   {
    "id": 35,
    "zh": "我的梦想是将与战斗塔的{NEWLINE}光郎大人的战斗{CLEAR}保存到战斗记录器上！{SCROLL}但是战斗记录器{NEWLINE}忘在家里了……{SCROLL}太悲剧了~！",
-   "en": "My dream is to battle Palmer of the{NEWLINE}Battle Tower.{SCROLL}I want to record it for posterity on{NEWLINE}my Vs. Recorder.{SCROLL}But I left my Vs. Recorder{NEWLINE}at home... I’m heartbroken!",
+   "en": "My dream is to battle Mr. Palmer of the{NEWLINE}Battle Tower.{SCROLL}I want to record it on my Vs. Recorder.{SCROLL}But I left my Vs. Recorder at home...{NEWLINE}How tragic!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0103/35"
+   "origin": "agent",
+   "notes": "US 0103/35 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 36,

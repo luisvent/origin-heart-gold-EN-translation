@@ -118,9 +118,9 @@
   {
    "id": 14,
    "zh": "枯叶市　精灵道馆{SCROLL}道馆馆主　马志士{NEWLINE}所认可的训练家：{CLEAR}{VAR:0103:0}",
-   "en": "Vermilion City Pokémon Gym{SCROLL}Gym Leader: Lt. Surge{NEWLINE}Certified Trainer!{CLEAR}{VAR:0103:0}",
+   "en": "Vermilion City Pokémon Gym{SCROLL}Gym Leader: Lt. Surge{NEWLINE}Recognized Trainers:{CLEAR}{VAR:0103:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0485/14"
   },
   {

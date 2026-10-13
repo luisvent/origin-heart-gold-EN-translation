@@ -6,23 +6,23 @@
   {
    "id": 0,
    "zh": "由于当前记录没有正确读取,{CLEAR}因此读取之前的记录！{NEWLINE}",
-   "en": "The save file is corrupted.{NEWLINE}The previous save file will be loaded.{NEWLINE}",
+   "en": "This save was not read correctly.{NEWLINE}The previous save will be loaded!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0229/0"
+   "origin": "agent",
+   "notes": "US 0229/0 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,
    "zh": "记录的内容已清除！{NEWLINE}",
-   "en": "The save file has been erased.{NEWLINE}",
+   "en": "The save file has been erased!{NEWLINE}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 2,
    "zh": "由于当前的战斗录像记录不正确,{SCROLL}因此读取之前的战斗录像记录！{NEWLINE}",
-   "en": "The most recent Battle Video is{NEWLINE}corrupted.{SCROLL}The previously saved Battle Video will{NEWLINE}be loaded instead.{NEWLINE}",
+   "en": "The latest Battle Video was not{NEWLINE}saved correctly.{SCROLL}The previous Battle Video will{NEWLINE}be loaded!{NEWLINE}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0229/2"
@@ -38,18 +38,18 @@
   {
    "id": 4,
    "zh": "战斗舞台的成绩没有被正确记录,{SCROLL}因此读取之前正确记录的成绩！{NEWLINE}",
-   "en": "The most recent Battle Hall record{NEWLINE}is corrupted.{SCROLL}The previously saved record will be{NEWLINE}loaded instead.{NEWLINE}",
+   "en": "The Battle Hall results were not{NEWLINE}saved correctly.{SCROLL}The previous correct results{NEWLINE}will be loaded!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0229/4"
+   "origin": "agent",
+   "notes": "US 0229/4 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 5,
    "zh": "战斗舞台的成绩已清除！{NEWLINE}",
-   "en": "The Battle Hall record has been erased.{NEWLINE}{NEWLINE}",
+   "en": "The Battle Hall record has been erased!{NEWLINE}{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0229/5"
+   "origin": "agent",
+   "notes": "US 0229/5 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   }
  ]
 }

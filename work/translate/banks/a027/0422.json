@@ -14,9 +14,9 @@
   {
    "id": 1,
    "zh": "要和哪个交换？",
-   "en": "Which will you Switch?",
+   "en": "Which one will you switch it with?",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0429/1"
   },
   {
@@ -86,33 +86,33 @@
   {
    "id": 10,
    "zh": "草原精灵喜欢的{NEWLINE}区块数量",
-   "en": "Number of objects that seem to{NEWLINE}be liked by Pokémon on Plains",
+   "en": "Number of objects liked{NEWLINE}by Pokémon on the Plains",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0429/10"
   },
   {
    "id": 11,
    "zh": "森林精灵喜欢的{NEWLINE}区块数量",
-   "en": "Number of objects that seem to{NEWLINE}be liked by Pokémon in Forest",
+   "en": "Number of objects liked{NEWLINE}by Pokémon in the Forest",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0429/11"
   },
   {
    "id": 12,
    "zh": "岩场精灵喜欢的{NEWLINE}区块数量",
-   "en": "Number of objects that seem to{NEWLINE}be liked by Pokémon on Rocks",
+   "en": "Number of objects liked{NEWLINE}by Pokémon in rocky areas",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0429/12"
   },
   {
    "id": 13,
    "zh": "湖边精灵喜欢的{NEWLINE}区块数量",
-   "en": "Number of objects that seem to{NEWLINE}be liked by Pokémon by Water",
+   "en": "Number of objects liked{NEWLINE}by Pokémon by the water",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0429/13"
   },
   {

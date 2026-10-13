@@ -62,18 +62,18 @@
   {
    "id": 7,
    "zh": "说起我的{VAR:0100:10},{NEWLINE}又比以前厉害了不少,{CLEAR}简直就是气势如虹！{SCROLL}{VAR:0100:11}之流{NEWLINE}很轻松就能搞定！{SCROLL}⋯⋯哎？你也是？{NEWLINE}啊哈哈,那就恭喜你了。{SCROLL}拜拜！",
-   "en": "My {VAR:0100:10}’s become tougher.{NEWLINE}We’ve achieved liftoff!{SCROLL}We can easily beat {VAR:0100:11}!{SCROLL}...Huh? You, too? Isn’t that great?{NEWLINE}Let’s talk later!",
+   "en": "My {VAR:0100:10} is much stronger now.{NEWLINE}We’re on a roll! We can handle{CLEAR}{VAR:0100:11} easily! What, you too? Ha{CLEAR}ha, congratulations! Bye!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0696/7"
+   "origin": "agent",
+   "notes": "US 0696/7 | SOL-C: source nuance restored after exact-ref CN/EN/ES comparison."
   },
   {
    "id": 8,
    "zh": "说起我的{VAR:0100:10},{NEWLINE}又比以前厉害了不少,{CLEAR}简直就是气势如虹！{SCROLL}不过还是让{NEWLINE}{VAR:0100:11}逃走了⋯⋯{CLEAR}我还在犹豫要不要去追它。{SCROLL}拜拜！",
-   "en": "My {VAR:0100:10}’s gotten a lot tougher{NEWLINE}than before. We’ve achieved liftoff!{SCROLL}But a {VAR:0100:11} still got away{NEWLINE}from us... I’m still deciding{CLEAR}whether to chase after it.{SCROLL}Let’s talk later!",
+   "en": "My {VAR:0100:10} is much stronger now.{NEWLINE}We’re on a roll! But a {VAR:0100:11} still{CLEAR}escaped... I’m still deciding whether to{CLEAR}chase it. Bye!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0696/8"
+   "notes": "US 0696/8 | SOL-C: source nuance restored after exact-ref CN/EN/ES comparison."
   },
   {
    "id": 9,

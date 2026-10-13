@@ -336,10 +336,10 @@
   {
    "id": 41,
    "zh": "来吧,好好感受飞速岩石的冲击！",
-   "en": "Come on, feel the impact of flying rock!",
+   "en": "Come on, feel the impact of{NEWLINE}high-speed rock!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve speed of rock impact."
   },
   {
    "id": 42,
@@ -496,10 +496,10 @@
   {
    "id": 61,
    "zh": "我是四天王渡先生的粉丝,{NEWLINE}就是因为崇拜他我才专练龙精灵的。{CLEAR}奈何我天赋不够,{CLEAR}都没有资格去参加石英大会。{CLEAR}好在有东南联盟这个组织,{CLEAR}才让我过了一把当冠军的瘾。",
-   "en": "I’m a fan of Lance of the Elite Four. I{NEWLINE}specialize in Dragon types because I{CLEAR}idolize him. But I don’t have the talent,{CLEAR}and I never even qualified for the{CLEAR}Indigo Conference.{SCROLL}Luckily there’s the Southeast League,{NEWLINE}so I got a taste of being Champion.",
+   "en": "I’m a fan of Mr. Lance of the Elite{NEWLINE}Four. I specialize in Dragon types{CLEAR}because I idolize him. But I don’t have{CLEAR}the talent, and I never even qualified{CLEAR}for the Indigo Conference.{SCROLL}Luckily there’s the Southeast League,{NEWLINE}so I got a taste of being Champion.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore respectful Lance title."
   },
   {
    "id": 62,
@@ -552,10 +552,10 @@
   {
    "id": 68,
    "zh": "我是个天文爱好者,{NEWLINE}根据我的观察,{CLEAR}传说中千年一遇的许愿之星{CLEAR}很可能在不久之后从天而降！",
-   "en": "I’m an amateur astronomer. According{NEWLINE}to my observations, the legendary{CLEAR}wishing star that comes only once in a{CLEAR}thousand years may fall from the sky{CLEAR}before long!",
+   "en": "I’m an amateur astronomer. According{NEWLINE}to my observations, the legendary{CLEAR}wishing star that comes only once in a{CLEAR}thousand years is likely to fall from the{CLEAR}sky before long!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve likelihood, not mere possibility."
   },
   {
    "id": 69,

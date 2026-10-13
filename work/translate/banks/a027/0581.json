@@ -135,7 +135,7 @@
   {
    "id": 15,
    "zh": "多谢惠顾。",
-   "en": "Thank you. Please come again!",
+   "en": "Thank you for shopping with us.",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s); other variants: 3 more v3 TM candidates (tm_v4_matches.jsonl)"
@@ -167,7 +167,7 @@
   {
    "id": 19,
    "zh": "你好像还没有树果培养皿吧？{NEWLINE}正好我们店里有不少存货,{CLEAR}你想要的话{CLEAR}可以5000元一个卖你哦。{CLEAR}怎么样,要买吗？",
-   "en": "Looks like you don’t have Berry Pots{NEWLINE}yet? We happen to have plenty in stock.{CLEAR}If you like, I can sell you a set for{CLEAR}$5000. How about it? Want to buy some?",
+   "en": "Looks like you don’t have Berry Pots{NEWLINE}yet? We have plenty in stock.{CLEAR}If you want one, I can sell it to you{CLEAR}for $5000. What do you say?",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -175,7 +175,7 @@
   {
    "id": 20,
    "zh": "来,这是树果培养皿,请你收好。",
-   "en": "Here are your Berry Pots.{NEWLINE}Please take good care of them.",
+   "en": "Here are your Berry Pots.{NEWLINE}Please take them.",
    "status": "draft",
    "origin": "agent",
    "notes": ""

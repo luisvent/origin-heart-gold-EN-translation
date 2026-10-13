@@ -1,6 +1,48 @@
 {
  "_doc": "Approved values of the scenario files' `baseline` checks (work/tools/scenarios/*.toml), as digests only: sha256 of the observation's canonical JSON. Key: <scenario>/<case>/<lang>/<obs>. Recorded by `emu_harness.py approve --from <report dir> --baselines <key>[,...] --by '<who, date>'` after the user looked at the run's evidence (images stay under work/build). A missing or changed EN baseline judges 'needs approval' (the run passes, the report lists it); a changed CN baseline fails (the Chinese ROM never changes).",
  "approved": {
+  "dex-capacity/category-252/en/dex.digests": {
+   "digest": "2a91cb22a96e14979836aab74c717c79bf10ea6b17608d5671da9e8a7287e65f",
+   "approved_by": "Simon, 2026-10-13",
+   "recorded": "2026-10-13 14:01",
+   "run": "$HOME/.codex/worktrees/translation-locales/poke/work/build/locale-rendering-integration/native-category-readback-final",
+   "rom_sha256": "6fa7b4e739391ca9ea9bfcf90d83eec6407c3c04102e52432bb41bc8ae44a7d3"
+  },
+  "dex-capacity/category-252/es/dex.digests": {
+   "digest": "6d4c5ab0e89cb5ad827d093b1846665c82b28634c8ea96d2893eedfdfa2e6581",
+   "approved_by": "Simon, 2026-10-13",
+   "recorded": "2026-10-13 14:01",
+   "run": "$HOME/.codex/worktrees/translation-locales/poke/work/build/locale-rendering-integration/native-category-readback-final",
+   "rom_sha256": "a5a92ab9d63530cea0a40036dafab47b91ac867bfc9a71cd3541c34e7851d3fe"
+  },
+  "dex-capacity/category-375/en/dex.digests": {
+   "digest": "8369cd543906a4360ef5c5f01f07eb911a86edc882e3c467fdbdc05e11163591",
+   "approved_by": "Simon, 2026-10-13",
+   "recorded": "2026-10-13 14:01",
+   "run": "$HOME/.codex/worktrees/translation-locales/poke/work/build/locale-rendering-integration/native-category-readback-final",
+   "rom_sha256": "6fa7b4e739391ca9ea9bfcf90d83eec6407c3c04102e52432bb41bc8ae44a7d3"
+  },
+  "dex-capacity/category-375/es/dex.digests": {
+   "digest": "b5c2fe1d51822aea752750397a7ac90887130c161fde0b6b4d600845fe130a89",
+   "approved_by": "Simon, 2026-10-13",
+   "recorded": "2026-10-13 14:01",
+   "run": "$HOME/.codex/worktrees/translation-locales/poke/work/build/locale-rendering-integration/native-category-readback-final",
+   "rom_sha256": "a5a92ab9d63530cea0a40036dafab47b91ac867bfc9a71cd3541c34e7851d3fe"
+  },
+  "dex-capacity/control/en/dex.digests": {
+   "digest": "ffbe9e35bb5271797db48607f3b540edd2e714c5a56c8f72b4ecff90511fb415",
+   "approved_by": "Simon, 2026-10-13",
+   "recorded": "2026-10-13 14:01",
+   "run": "$HOME/.codex/worktrees/translation-locales/poke/work/build/locale-rendering-integration/native-category-readback-final",
+   "rom_sha256": "6fa7b4e739391ca9ea9bfcf90d83eec6407c3c04102e52432bb41bc8ae44a7d3"
+  },
+  "dex-capacity/control/es/dex.digests": {
+   "digest": "94971eb339eb3f6e992b7947f7ec890d8ec7c5ceb729f8efb726bf8c30dbbc84",
+   "approved_by": "Simon, 2026-10-13",
+   "recorded": "2026-10-13 14:01",
+   "run": "$HOME/.codex/worktrees/translation-locales/poke/work/build/locale-rendering-integration/native-category-readback-final",
+   "rom_sha256": "a5a92ab9d63530cea0a40036dafab47b91ac867bfc9a71cd3541c34e7851d3fe"
+  },
   "dex/main/cn/dex.digests": {
    "digest": "d6a9cab9ea2a9b78cb38702373c3cb6530c58b50a93a9cd2bd2cec77a088065f",
    "approved_by": "user, 2026-10-09",

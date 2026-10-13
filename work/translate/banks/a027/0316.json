@@ -206,10 +206,10 @@
   {
    "id": 25,
    "zh": "小霞『这就是那个隐藏的通道,{NEWLINE}莉佳很有可能被他们带到下面去了。",
-   "en": "Misty: This must be the hidden passage.{NEWLINE}They’ve probably taken{CLEAR}Erika down there.",
+   "en": "Misty: This is the hidden passage.{NEWLINE}They’ve probably taken {CLEAR}Erika down there.",
    "status": "draft",
    "origin": "agent",
-   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: Secondary CN comparison: restore exact meaning, subjects, register and explicit details"
   },
   {
    "id": 26,
@@ -948,10 +948,10 @@
   {
    "id": 117,
    "zh": "火箭队近期战报3：{NEWLINE}虽然找到了富士博士的哥哥,{CLEAR}但是因为3名训练家{CLEAR}和四天王菊子的出现,{CLEAR}讯问被迫中断。{CLEAR}——赤焰松。",
-   "en": "Team Rocket Battle Report 3:{SCROLL}We found Dr. Fuji’s brother, but the{NEWLINE}interrogation had to be cut short...{SCROLL}...when three Trainers and Agatha of{NEWLINE}the Elite Four showed up.{SCROLL}-Maxie",
+   "en": "Team Rocket Battle Report 3:{SCROLL}We found Dr. Fuji’s older brother, but{NEWLINE}the interrogation had to{CLEAR}be cut short...{SCROLL}...when three Trainers and Agatha of{NEWLINE}the Elite Four showed up.{SCROLL}-Maxie",
    "status": "draft",
    "origin": "agent",
-   "notes": "富士博士 → Dr. Fuji (Mewtwo's creator, Movie 1)."
+   "notes": "富士博士 → Dr. Fuji (Mewtwo's creator, Movie 1). | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 118,
@@ -1284,10 +1284,10 @@
   {
    "id": 159,
    "zh": "小霞『{VAR:0103:0},{NEWLINE}莉佳她们现在身陷火箭队基地,{CLEAR}处境一定很危险。{SCROLL}小霞『你先不用管我了,{NEWLINE}去找莉佳她们要紧。{CLEAR}我这里有一个攀瀑的技能机,{CLEAR}你拿去用吧,应该可以帮得上你。",
-   "en": "Misty: {VAR:0103:0}, Erika and her companion{NEWLINE}are trapped in Team Rocket’s base.{SCROLL}They must be in real danger.{SCROLL}Misty: Don’t worry about me. Finding{NEWLINE}Erika is what matters.{SCROLL}I’ve got a TM for Waterfall here. Take{NEWLINE}it. It should help you out.",
+   "en": "Misty: {VAR:0103:0}, Erika and her companion{NEWLINE}are trapped in Team Rocket’s base.{SCROLL}They must be in real danger.{SCROLL}Misty: Don’t worry about me. Finding{NEWLINE}Erika and her companion {CLEAR}is what matters.{SCROLL}I’ve got a TM for Waterfall here. Take{NEWLINE}it. It should help you out.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: Secondary CN comparison: restore exact meaning, subjects, register and explicit details"
   },
   {
    "id": 160,
@@ -1348,10 +1348,10 @@
   {
    "id": 167,
    "zh": "还没出生的精灵{NEWLINE}恐怕学不会这个技能……{SCROLL}",
-   "en": "A Pokémon that hasn’t hatched yet{NEWLINE}can’t learn this move...{SCROLL}",
+   "en": "I’m afraid a Pokémon that hasn’t{NEWLINE}hatched yet can’t learn this move...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 3 source(s); other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl)"
+   "notes": "v3 TM: 3 source(s); other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl) | CES-early: Restore polite apprehension 恐怕 consistent0320#11"
   },
   {
    "id": 168,
@@ -1388,10 +1388,10 @@
   {
    "id": 172,
    "zh": "{VAR:0101:0}想要记住{NEWLINE}新的阴谋……！{SCROLL}但是{VAR:0101:0}{NEWLINE}已经记住4个技能了！{SCROLL}为了学习阴谋{NEWLINE}要让它忘记其他技能吗？{VAR:0200:0}",
-   "en": "{VAR:0101:0} wants to learn the move{NEWLINE}Nasty Plot...!{SCROLL}But {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}Forget a move to make{NEWLINE}room for Nasty Plot?{VAR:0200:0}",
+   "en": "{VAR:0101:0} wants to learn the new{NEWLINE}move Nasty Plot...!{SCROLL}But {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}Forget a move to make room for{NEWLINE}Nasty Plot?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 173,
@@ -1412,10 +1412,10 @@
   {
    "id": 175,
    "zh": "{VAR:0101:0}完全忘了{NEWLINE}{VAR:0106:1}的用法！{SCROLL}然后……！",
-   "en": "{VAR:0101:0} forgot how to use{NEWLINE}{VAR:0106:1}!{SCROLL}And...!",
+   "en": "{VAR:0101:0} completely forgot how to{NEWLINE}use {VAR:0106:1}!{SCROLL}And then...!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 4 source(s); other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl)"
+   "notes": "v3 TM: 4 source(s); other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl) | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 176,

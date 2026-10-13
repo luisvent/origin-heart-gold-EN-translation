@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "茜罗娜『蛋是孕育{NEWLINE}一切生命的摇篮。{SCROLL}我们居住的这个星球也正如{NEWLINE}蛋一般……{SCROLL}从蛋中诞生的生命{NEWLINE}总有一天会燃尽。{CLEAR}然后,{CLEAR}作为新的生命再度诞生……{SCROLL}阿尔宙斯或许是想让我们{CLEAR}见证这一切……{SCROLL}",
-   "en": "Cynthia: An Egg is the cradle of all life.{NEWLINE}This planet we live on is just{CLEAR}like an Egg...{SCROLL}Life born from an Egg will burn out{NEWLINE}one day. And then it will be born{CLEAR}again as new life...{SCROLL}Perhaps Arceus wanted us to witness{NEWLINE}all of this...{SCROLL}{NEWLINE}",
+   "en": "Cynthia: An Egg is the cradle of all life.{NEWLINE}This planet we live on is just{CLEAR}like an Egg...{SCROLL}Life born from an Egg will burn out{NEWLINE}one day. And then it will be born{CLEAR}again as new life...{SCROLL}Perhaps Arceus wanted us to witness{NEWLINE}all of this...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0146/17; modernised from US 0146#17 | RV050: meaning: 燃尽 burn out / 作为新的生命再度诞生 restored"
+   "notes": "US 0146/17; modernised from US 0146#17 | RV050: meaning: 燃尽 burn out / 作为新的生命再度诞生 restored | CES-early: layout: restore source trailing SCROLL without extra newline"
   },
   {
    "id": 18,
@@ -190,10 +190,10 @@
   {
    "id": 23,
    "zh": "茜罗娜『阿尔宙斯是{NEWLINE}世间万物的起源。{SCROLL}创造出宇宙一切生命的源头。{SCROLL}神话中描述的阿尔宙斯的力量,{NEWLINE}于{VAR:FF00:1}光之舞台{VAR:FF00:0}之上,{CLEAR}得以解放！{SCROLL}",
-   "en": "Cynthia: Arceus is described in{NEWLINE}mythology as being the origin of{CLEAR}everything and the source of{CLEAR}all beings.{SCROLL}It is said that the power of Arceus{NEWLINE}is released on the {VAR:FF00:1}Mystri Stage{VAR:FF00:0}!{SCROLL}",
+   "en": "Cynthia: Arceus is the origin of{NEWLINE}everything.{SCROLL}The source that created all life in the{NEWLINE}universe.{SCROLL}The power of Arceus described in{NEWLINE}mythology is released on the {VAR:FF00:1}{CLEAR}Mystri Stage{VAR:FF00:0}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0146/23; modernised from US 0146#23"
+   "origin": "agent",
+   "notes": "US 0146/23; modernised from US 0146#23 | CES-early: omission: universe life creation and rhetorical sequence"
   },
   {
    "id": 24,

@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "啥ー啊！{NEWLINE}想给你贴纸{CLEAR}你却没有贴纸盒……{SCROLL}但是不用担心,{SCROLL}贴纸盒的话{NEWLINE}姐姐会给你！{SCROLL}",
-   "en": "Shocking!{NEWLINE}I really want to give you some{CLEAR}Seals, but you don’t have a{CLEAR}Seal Case...{SCROLL}But don’t you worry.{NEWLINE}My sister can give you a Seal Case!{SCROLL}",
+   "en": "Shocking! I really want to give you some{NEWLINE}Seals, but you don’t have a{CLEAR}Seal Case...{SCROLL}But don’t you worry. My older sister{NEWLINE}will give you a Seal Case!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0398/2"
+   "origin": "agent",
+   "notes": "US 0398/2 | root-full-comparison-0391-0394-noncontiguous: Match reviewed older-sister relationship and future Seal Case promise in identical source line."
   },
   {
    "id": 3,
@@ -206,10 +206,10 @@
   {
    "id": 25,
    "zh": "非常感谢你愿意帮忙。{NEWLINE}大奶罐就在西边的房间里,{CLEAR}你从那边开始调查就好。",
-   "en": "Thank you so much for helping.{NEWLINE}The Miltank are in the room to the{CLEAR}west. You can start looking there.",
+   "en": "Thank you so much for being willing to{NEWLINE}help. The Miltank are in the room to the{CLEAR}west. You can start looking there.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0391-0394-noncontiguous: Restore gratitude for willingness."
   },
   {
    "id": 26,

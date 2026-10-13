@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "啊,你的精灵怎么样啊？{SCROLL}偶尔和它说说话{NEWLINE}会加深羁绊的！{SCROLL}还是说想来看看你的奖状了？{SCROLL}",
-   "en": "Ah, how are your Pokémon doing?{SCROLL}Talking with them now and then will{NEWLINE}deepen your bond!{SCROLL}Or did you come to look at your award?{SCROLL}",
+   "en": "Ah, how are your Pokémon doing?{SCROLL}Talking with them now and then will{NEWLINE}deepen your bond!{SCROLL}Or did you come to look at your{NEWLINE}award certificate?{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0372/2"
+   "notes": "US 0372/2 | AGENT-0321-0380: Restore certificate of merit rather than generic prize."
   },
   {
    "id": 3,

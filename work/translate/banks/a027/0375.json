@@ -6,18 +6,18 @@
   {
    "id": 0,
    "zh": "能看能摸的{NEWLINE}阿鲁夫遗迹观光！{SCROLL}请一定摸摸{NEWLINE}能推动的石板！",
-   "en": "The Ruins of Alph.{NEWLINE}A look-and-touch tourist site.{CLEAR}Try the sliding stone panels!",
+   "en": "The Ruins of Alph! A tourist site where{NEWLINE}you can look and touch! Be sure to{CLEAR}touch the sliding stone panels!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0382/0"
+   "origin": "agent",
+   "notes": "US 0382/0 | AGENT-0321-0380: Preserve explicit touching invitation."
   },
   {
    "id": 1,
    "zh": "哦,来研究遗迹吗？{NEWLINE}或许将来你能成为博士！",
-   "en": "You’re studying the ruins?{NEWLINE}I see a scientist in the making.",
+   "en": "Oh, you’re studying the ruins? Perhaps{NEWLINE}you’ll become a professor someday!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0382/1"
+   "origin": "agent",
+   "notes": "US 0382/1 | AGENT-0321-0380: Preserve possible future professor rather than present aptitude judgment."
   },
   {
    "id": 2,

@@ -740,10 +740,10 @@
   {
    "id": 86,
    "zh": "在蓝卡中积攒点数,{NEWLINE}根据相应的点数{CLEAR}能够获赠精美的礼品！",
-   "en": "Save up the Blue Card points for some{NEWLINE}choice prizes!",
+   "en": "Save up points on your Blue Card{NEWLINE}for prizes based on your point total!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 87,
@@ -876,10 +876,10 @@
   {
    "id": 103,
    "zh": "从这里向上可以通到{NEWLINE}广播塔的最顶层瞭望台,{CLEAR}那里有精密的广播信号发射装置,{CLEAR}所以未经允许一律不许上去。",
-   "en": "This leads up to the Observation Deck{NEWLINE}at the very top of the Radio Tower.{SCROLL}The broadcast transmitters up there{NEWLINE}are delicate, so no one goes up{CLEAR}without permission.",
+   "en": "This leads up to the Observation Deck{NEWLINE}at the very top of the Radio Tower.{SCROLL}The broadcast transmitters up there{NEWLINE}are precision equipment, so no one goes{CLEAR}up without permission.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012 secondary: restore source precision/conditional."
   },
   {
    "id": 104,
@@ -1144,10 +1144,10 @@
   {
    "id": 136,
    "zh": "在蓝卡中积攒点数,{NEWLINE}根据相应的点数{CLEAR}能够获赠精美的礼品！",
-   "en": "Save up the Blue Card points for some{NEWLINE}choice prizes!",
+   "en": "Save up points on your Blue Card{NEWLINE}for prizes based on your point total!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 137,
@@ -1224,10 +1224,10 @@
   {
    "id": 146,
    "zh": "渡『大伙,听刚才阿波罗的意思,{NEWLINE}坂木应该就在上面。{CLEAR}等会儿如果跟火箭队交手,{CLEAR}由我们四天王拖住干部和小喽啰,{CLEAR}{VAR:0103:0}你专心去打败坂木。",
-   "en": "Lance: Everyone, from what Archer{NEWLINE}said, Giovanni must be up there.{SCROLL}When we clash with Team Rocket,{NEWLINE}we Elite Four will hold off the{CLEAR}Executives and grunts.{SCROLL}{VAR:0103:0}, you focus on beating Giovanni.",
+   "en": "Lance: Everyone, from what Archer{NEWLINE}said, Giovanni must be up there.{SCROLL}If we clash with Team Rocket,{NEWLINE}we Elite Four will hold off the{CLEAR}Executives and grunts.{SCROLL}{VAR:0103:0}, you focus on beating Giovanni.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012 secondary: restore source precision/conditional."
   },
   {
    "id": 147,

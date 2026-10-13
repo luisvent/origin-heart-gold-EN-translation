@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "进入联机大厅了！",
-   "en": "I’ve entered the Union Room.",
+   "en": "I’ve entered the Union Room!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0295/5"
+   "origin": "agent",
+   "notes": "US 0295/5 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 6,
@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "我回去了！{NEWLINE}{VAR:011C:0}！",
-   "en": "I’ve got to go!{NEWLINE}{VAR:011C:0}!",
+   "en": "I’m heading back!{NEWLINE}{VAR:011C:0}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0295/7"
+   "origin": "agent",
+   "notes": "US 0295/7 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 8,
@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "不一起来{VAR:011C:0}吗？",
-   "en": "Want to {VAR:011C:0}?",
+   "en": "Want to {VAR:011C:0}{NEWLINE}together?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0295/11"
+   "origin": "agent",
+   "notes": "US 0295/11 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 12,
@@ -118,18 +118,18 @@
   {
    "id": 14,
    "zh": "我不想{VAR:011C:0}啊{NEWLINE}",
-   "en": "I don’t want to{NEWLINE}{VAR:011C:0}.",
+   "en": "I don’t want to {VAR:011C:0}.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0295/14"
+   "origin": "agent",
+   "notes": "US 0295/14 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 15,
    "zh": "我现在去圆形剧场{NEWLINE}那里等你！",
-   "en": "I’ll go wait at the Colosseum{NEWLINE}now.",
+   "en": "I’ll go wait for you at{NEWLINE}the Colosseum now.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0295/15"
+   "origin": "agent",
+   "notes": "US 0295/15 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 16,
@@ -150,10 +150,10 @@
   {
    "id": 18,
    "zh": "{VAR:011C:0}想交换！{NEWLINE}和我对话吧！",
-   "en": "I want to trade my {VAR:011C:0}.{NEWLINE}Please talk to me.",
+   "en": "I want to trade my {VAR:011C:0}!{NEWLINE}Please talk to me!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0295/18"
+   "origin": "agent",
+   "notes": "US 0295/18 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 19,

@@ -6,7 +6,7 @@
   {
    "id": 0,
    "zh": "欢迎光临！{NEWLINE}欢迎来到彩虹百货！{SCROLL}彩虹百货各楼层的服务分别为：{NEWLINE}１楼……前台服务{CLEAR}２楼……训练家专柜{CLEAR}３楼……技能机专柜{CLEAR}４楼……礼品专柜{CLEAR}５楼……香水香草与树果专柜{CLEAR}６楼……休闲广场{SCROLL}您还可以浏览电梯旁的看板{NEWLINE}查看当前楼层的信息！",
-   "en": "Welcome! Welcome to the Celadon{NEWLINE}Department Store!{SCROLL}Here’s what we have on each floor:{NEWLINE}1F: Service Counter{CLEAR}2F: Trainer’s Market{CLEAR}3F: TM Shop{CLEAR}4F: Wiseman Gifts{CLEAR}5F: Perfume, Herbs & Berries{CLEAR}6F: Rooftop Atrium{SCROLL}You can also check the board by the{NEWLINE}elevator for each floor’s information!",
+   "en": "Welcome! Welcome to the Celadon{NEWLINE}Department Store!{SCROLL}Here’s what we have on each floor:{NEWLINE}1F: Service Counter{CLEAR}2F: Trainer’s Market{CLEAR}3F: TM Shop{CLEAR}4F: Gift Counter{CLEAR}5F: Perfume, Herbs & Berries{CLEAR}6F: Leisure Plaza{SCROLL}You can also check the board by the{NEWLINE}elevator for each floor’s information!",
    "status": "draft",
    "origin": "agent",
    "notes": "The hack renamed 5F (US Battle Collection) to 香水香草与树果专柜 → Perfume, Herbs & Berries; other floor names follow the US.",

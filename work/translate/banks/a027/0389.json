@@ -15,10 +15,10 @@
   {
    "id": 1,
    "zh": "这里是哞哞农场{NEWLINE}请品尝美味的牛奶！",
-   "en": "MooMoo Farm{NEWLINE}Enjoy Our Fresh and Tasty Milk",
+   "en": "MooMoo Farm{NEWLINE}Enjoy our delicious milk!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0396/1"
+   "notes": "US 0396/1 | root-full-comparison-0388-0390: Remove invented fresh and preserve exclamatory invitation."
   },
   {
    "id": 2,
@@ -47,10 +47,10 @@
   {
    "id": 5,
    "zh": "嘿,我是邪恶的火箭队员,{NEWLINE}把你身上带的钱统统都交出来,{CLEAR}不然当心我们揍你哦。{SCROLL}要交出一万元保平安吗？",
-   "en": "Hey, I’m an evil Team Rocket grunt!{NEWLINE}Hand over all the money you’ve{CLEAR}got, or you’ll get a beating!{SCROLL}Hand over $10,000 to stay safe?",
+   "en": "Hey, I’m an evil Team Rocket grunt!{NEWLINE}Hand over all the money you’ve got, or{CLEAR}we’ll give you a beating!{SCROLL}Hand over $10,000 to stay safe?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0388-0390: Restore plural threatening actor even though speaker is a lone impostor."
   },
   {
    "id": 6,
@@ -79,18 +79,18 @@
   {
    "id": 9,
    "zh": "{VAR:0103:0}『知道输了就老老实实{NEWLINE}跟我去附近的城市归案吧。",
-   "en": "{VAR:0103:0}: You know you lost,{NEWLINE}so come quietly to the nearest{CLEAR}city and turn yourself in.",
+   "en": "{VAR:0103:0}: You know you lost, so come{NEWLINE}quietly with me to a nearby city and{CLEAR}turn yourself in.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0388-0390: Restore accompanying player; nearby not necessarily nearest."
   },
   {
    "id": 10,
    "zh": "马志士『喂！{VAR:0103:0}！{NEWLINE}你也是为了哞哞牛奶而来吗？{CLEAR}果然人就是要多吃肉蛋奶{CLEAR}才能保证强壮的体格。{SCROLL}马志士『在补充营养之前,{NEWLINE}要不要跟我来张合影,{CLEAR}纪念一下这不期而遇的重逢？{VAR:0200:0}",
-   "en": "Lt. Surge: Hey! {VAR:0103:0}! You{NEWLINE}here for the Moomoo Milk too?{CLEAR}Meat, eggs and milk, that’s{CLEAR}how you build a strong body!{SCROLL}Lt. Surge: Before we fuel up,{NEWLINE}how about a photo with me to{CLEAR}remember this surprise reunion?{VAR:0200:0}",
+   "en": "Lt. Surge: Hey! {VAR:0103:0}! You here for{NEWLINE}the Moomoo Milk too? Eating plenty of{CLEAR}meat, eggs and milk really is how you{CLEAR}ensure a strong body!{SCROLL}Lt. Surge: Before we fuel up, how about{NEWLINE}a photo with me to remember this{CLEAR}surprise reunion?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0388-0390: Restore explicit plenty and conviction."
   },
   {
    "id": 11,
@@ -388,10 +388,10 @@
   {
    "id": 47,
    "zh": "我的顿甲非常亲人,{NEWLINE}它还是小小象的时候,{CLEAR}经常一个飞跃冲进我的怀里。{CLEAR}可是现在它已经进化成顿甲了,{CLEAR}再像以前那样飞冲我,我可受不了。{CLEAR}但我每次制止它冲向我的时候,{CLEAR}它就会变得很不开心。{SCROLL}我听说有种特别厚实的道具{NEWLINE}叫作护身防具,{CLEAR}如果有那个的话,{CLEAR}应该就不用怕顿甲冲撞我了。",
-   "en": "My Donphan is super affectionate.{NEWLINE}Back when it was a little Phanpy,{CLEAR}it’d often leap right into my arms.{SCROLL}But now that it’s evolved{NEWLINE}into Donphan, I can’t take it{CLEAR}charging at me like it used to.{SCROLL}And every time I stop it from{NEWLINE}charging at me, it gets really upset.{SCROLL}I heard there’s a really thick{NEWLINE}item called a Protector. If I had{CLEAR}one of those, I wouldn’t have to{CLEAR}worry about Donphan ramming me.",
+   "en": "My Donphan is super affectionate. Back{NEWLINE}when it was a little Phanpy, it’d often{CLEAR}leap right into my arms.{SCROLL}But now that it’s evolved into Donphan,{NEWLINE}I can’t take it charging at me like it{CLEAR}used to.{SCROLL}And every time I stop it from charging{NEWLINE}at me, it gets really upset.{SCROLL}I heard there’s a really thick item{NEWLINE}called a Protector. If I had one of{CLEAR}those, I probably wouldn’t have to{CLEAR}worry about Donphan ramming me.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0388-0390: Restore source should/probability of protective effect."
   },
   {
    "id": 48,
@@ -412,10 +412,10 @@
   {
    "id": 50,
    "zh": "多谢你给的护身防具,{NEWLINE}现在顿甲可以放心地冲进我怀里了。",
-   "en": "Thanks for the Protector. Now Donphan{NEWLINE}can charge into my arms all it wants.",
+   "en": "Thanks for the Protector. Now Donphan{NEWLINE}can charge into my arms without worry.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0388-0390: Restore freedom from worry rather than unlimited frequency."
   },
   {
    "id": 51,
@@ -721,10 +721,10 @@
   {
    "id": 88,
    "zh": "水晶『前辈,你和阿金走得好快啊。{NEWLINE}要追上你们可真不容易。{CLEAR}我听说浅葱市的港口开放了,{CLEAR}水都群岛的涨潮季也已经结束,{CLEAR}如果现在坐船去水都群岛,{CLEAR}应该能抓到不少稀有精灵。",
-   "en": "Crystal: You and Gold move so fast.{NEWLINE}It’s really hard to keep up with you.{SCROLL}I heard Olivine City’s harbor is{NEWLINE}open, and high-tide season in{CLEAR}the Alto Mare Islands is over.{SCROLL}If we took a ship to the Alto Mare{NEWLINE}Islands now, we could probably{CLEAR}catch lots of rare Pokémon.",
+   "en": "Crystal: Senpai, you and Gold move so{NEWLINE}fast. It’s really hard{CLEAR}to keep up with you.{SCROLL}I heard Olivine City’s harbor is open,{NEWLINE}and high-tide season in{CLEAR}the Alto Mare Islands is over.{SCROLL}If we took a ship to the Alto Mare{NEWLINE}Islands now, we could probably{CLEAR}catch lots of rare Pokémon.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "Focused CN fidelity: restored senior cousin or Crystal Senpai address (D-2455)."
   },
   {
    "id": 89,

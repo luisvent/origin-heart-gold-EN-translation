@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "……{NEWLINE}……{CLEAR}……{SCROLL}……{NEWLINE}……{CLEAR}……{SCROLL}……{NEWLINE}……{CLEAR}……",
-   "en": "......{SCROLL}......{SCROLL}......",
+   "en": "... ... ...{SCROLL}... ... ...{SCROLL}... ... ...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: timing/repetition: restore nine source ellipsis beats and memorial-silence layout"
   },
   {
    "id": 6,
@@ -62,18 +62,18 @@
   {
    "id": 7,
    "zh": "大王燕,我记得你刚孵化的时候,{NEWLINE}还是一个大眼萌的小可爱,{CLEAR}然后短短几年就成长为了可靠的战士……{SCROLL}呜呜呜……今天我们看你来了！{NEWLINE}呜呜呜……{CLEAR}……{CLEAR}……",
-   "en": "Swellow, I remember when you’d just{NEWLINE}hatched. You were a big-eyed little{CLEAR}cutie, and in just a few short years you{CLEAR}grew into a warrior we could count on...{SCROLL}*sob*... We’ve come to see{NEWLINE}you today! *sob sob*...",
+   "en": "Swellow, I remember when you’d just{NEWLINE}hatched. You were a big-eyed little{CLEAR}cutie, and in just a few short years you{CLEAR}grew into a warrior we could count on...{SCROLL}*sob*... We’ve come to see you today!{NEWLINE}*sob sob*... ... ...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: timing: restore source trailing grieving silences"
   },
   {
    "id": 8,
    "zh": "猫头夜鹰,咱们警队好多精灵{NEWLINE}都是你帮着带大的。{CLEAR}跟火箭队战斗之后{CLEAR}精灵们发现你不见了,{CLEAR}我……{CLEAR}我当时真不知道该怎么跟它们说……{SCROLL}不过你放心,{NEWLINE}现在它们已经接过了你的旗帜,{CLEAR}成为了警队可靠的一员呢！{CLEAR}呜呜呜……{CLEAR}……{CLEAR}……",
-   "en": "Noctowl, you helped raise so many{NEWLINE}of the squad’s Pokémon. After{CLEAR}the battle with Team Rocket, when{CLEAR}they realized you were gone, I...{CLEAR}I didn’t know what to tell them...{SCROLL}But don’t worry. They’ve taken up{NEWLINE}your banner, and now they’re members{CLEAR}of the squad we can count on! *sob*...",
+   "en": "Noctowl, you helped raise so many of{NEWLINE}the squad’s Pokémon. After the battle{CLEAR}with Team Rocket, when they realized{CLEAR}you were gone, I... I didn’t know what{CLEAR}to tell them...{SCROLL}But don’t worry. They’ve taken up your{NEWLINE}banner, and now they’re members of the{CLEAR}squad we can count on! *sob*... ... ...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: timing: restore source trailing grieving silences"
   },
   {
    "id": 9,
@@ -86,18 +86,18 @@
   {
    "id": 10,
    "zh": "你知道吗,猫头夜鹰,{NEWLINE}现在喇叭芽之塔晚上没有你值守了,{CLEAR}大家都在传这里开始闹鬼了呢,{CLEAR}哈哈,呜……{CLEAR}……{CLEAR}……",
-   "en": "You know what, Noctowl? Now that{NEWLINE}you’re not keeping watch over Sprout{CLEAR}Tower at night, everyone says the{CLEAR}place is haunted. Ha ha... *sob*...",
+   "en": "You know what, Noctowl? Now that{NEWLINE}you’re not keeping watch over Sprout{CLEAR}Tower at night, everyone says the place{CLEAR}is haunted. Ha ha... *sob*... ... ...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: timing: restore source trailing grieving silences"
   },
   {
    "id": 11,
    "zh": "大王燕,如果那天不是为了救我,{NEWLINE}或许你也不会陷入火箭队的围攻,{CLEAR}对不起,呜呜呜……{CLEAR}……",
-   "en": "Swellow... If you hadn’t been trying{NEWLINE}to save me that day, maybe Team{CLEAR}Rocket wouldn’t have surrounded{CLEAR}you. I’m so sorry... *sob*...",
+   "en": "Swellow... If you hadn’t been trying to{NEWLINE}save me that day, maybe Team Rocket{CLEAR}wouldn’t have surrounded you. I’m so{CLEAR}sorry... *sob*... ...",
    "status": "draft",
    "origin": "agent",
-   "notes": "Speaker is presumably Whitney (see #105, 小倩小姐)."
+   "notes": "Speaker is presumably Whitney (see #105, 小倩小姐). | CES-early: timing: restore source trailing grieving silences"
   },
   {
    "id": 12,

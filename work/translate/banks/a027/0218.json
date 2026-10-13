@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "能提高水中精灵捕获率,{NEWLINE}有点与众不同的球。",
-   "en": "A somewhat different Poké Ball that{NEWLINE}works especially well on Pokémon{NEWLINE}that live in the sea.",
+   "en": "A somewhat different Poké Ball that{NEWLINE}works especially well on Pokémon in{NEWLINE}water.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/7 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "origin": "agent",
+   "notes": "US 0221/7 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 8,
@@ -98,10 +98,10 @@
   {
    "id": 11,
    "zh": "能使捕获的精灵变得非常亲密,{NEWLINE}感觉不错的球。",
-   "en": "A comfortable Poké Ball that makes a{NEWLINE}caught wild Pokémon quickly grow{NEWLINE}friendly.",
+   "en": "A comfortable Poké Ball that makes a{NEWLINE}caught Pokémon become very{NEWLINE}friendly.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/11"
+   "origin": "agent",
+   "notes": "US 0221/11 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 12,
@@ -149,10 +149,10 @@
   {
    "id": 17,
    "zh": "喷雾式疗伤药。{NEWLINE}回复１只精灵２０ＨＰ。",
-   "en": "A spray-type medicine for wounds.{NEWLINE}It restores the HP of one Pokémon{NEWLINE}by just 20 points.",
+   "en": "A spray-type medicine for wounds. It{NEWLINE}restores the HP of one Pokémon by{NEWLINE}20 points.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/17 | D-1512: rewrapped to 200 px (bag panel frame at x=240).",
+   "origin": "agent",
+   "notes": "US 0221/17 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:伤药",
     "number_missing"
@@ -195,10 +195,10 @@
   {
    "id": 21,
    "zh": "喷雾药剂。{NEWLINE}解除１只精灵的睡眠状态。",
-   "en": "A spray-type medicine.{NEWLINE}It awakens a Pokémon from the{NEWLINE}clutches of sleep.",
+   "en": "A spray-type medicine. It awakens a{NEWLINE}single Pokémon from sleep.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/21",
+   "origin": "agent",
+   "notes": "US 0221/21 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "number_missing"
    ]
@@ -444,10 +444,10 @@
   {
    "id": 43,
    "zh": "１００％树果汁。{NEWLINE}回复１只精灵２０ＨＰ。",
-   "en": "A 100% pure juice made of Berries.{NEWLINE}It restores the HP of one Pokémon{NEWLINE}by just 20 points.",
+   "en": "A 100% pure juice made of Berries. It{NEWLINE}restores the HP of one Pokémon by{NEWLINE}20 points.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/43 | D-1512: rewrapped to 200 px (bag panel frame at x=240).",
+   "origin": "agent",
+   "notes": "US 0221/43 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:树果汁",
     "number_missing"
@@ -639,10 +639,10 @@
   {
    "id": 63,
    "zh": "发出吸引精灵气息的道具。{NEWLINE}在与野生精灵的战斗中{NEWLINE}逃跑绝对成功。",
-   "en": "A doll that attracts Pokémon.{NEWLINE}Use it to flee from any battle with a{NEWLINE}wild Pokémon.",
+   "en": "An item that gives off an aura{NEWLINE}attracting Pokémon. It guarantees{NEWLINE}escape from a wild Pokémon battle.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/63",
+   "origin": "agent",
+   "notes": "US 0221/63 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:逃跑"
    ]
@@ -650,10 +650,10 @@
   {
    "id": 64,
    "zh": "发出吸引精灵气息的道具。{NEWLINE}在与野生精灵的战斗中{NEWLINE}逃跑绝对成功。",
-   "en": "An item that attracts Pokémon.{NEWLINE}Use it to flee from any battle with a{NEWLINE}wild Pokémon.",
+   "en": "An item that gives off an aura{NEWLINE}attracting Pokémon. It guarantees{NEWLINE}escape from a wild Pokémon battle.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/64",
+   "origin": "agent",
+   "notes": "US 0221/64 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:逃跑"
    ]
@@ -710,18 +710,18 @@
   {
    "id": 70,
    "zh": "在浅滩洞窟内发现的盐。{NEWLINE}很咸。",
-   "en": "Pure salt that was discovered deep{NEWLINE}inside the Shoal Cave.{NEWLINE}It is extremely salty.",
+   "en": "Salt discovered inside Shoal Cave. It{NEWLINE}is very salty.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/70"
+   "origin": "agent",
+   "notes": "US 0221/70 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 71,
    "zh": "在浅滩洞窟内发现的漂亮贝壳。{NEWLINE}有蓝白相间的条纹。",
-   "en": "A pretty seashell that was found{NEWLINE}deep inside the Shoal Cave. It is{NEWLINE}striped in blue and white.",
+   "en": "A pretty seashell that was found{NEWLINE}inside the Shoal Cave. It is striped{NEWLINE}in blue and white.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/71 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "origin": "agent",
+   "notes": "US 0221/71 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 72,
@@ -1030,10 +1030,10 @@
   {
    "id": 103,
    "zh": "保存着古代精灵{NEWLINE}遗传基因的琥珀。{NEWLINE}透着带状红光。",
-   "en": "A piece of amber that contains the{NEWLINE}genetic material of an ancient Pokémon.{NEWLINE}It is clear with a reddish tint.",
+   "en": "Amber holding an ancient Pokémon’s{NEWLINE}genetic material. Streaks of red{NEWLINE}light shine through it.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/103"
+   "origin": "agent",
+   "notes": "US 0221/103 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 104,
@@ -1361,10 +1361,10 @@
   {
    "id": 141,
    "zh": "印着昏暗矿坑的信纸。{NEWLINE}可让精灵携带。",
-   "en": "Stationery featuring a print of a{NEWLINE}dimly lit coal mine. Let a Pokémon{NEWLINE}hold it for delivery.",
+   "en": "Stationery featuring a print of a{NEWLINE}dimly lit mine. Let a Pokémon hold it{NEWLINE}for delivery.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/141 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "origin": "agent",
+   "notes": "US 0221/141 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 142,
@@ -1401,10 +1401,10 @@
   {
    "id": 146,
    "zh": "印着彩色便签图案的信纸。{NEWLINE}可让精灵携带。",
-   "en": "Stationery featuring a print of{NEWLINE}colorful letter sets.{NEWLINE}Let a Pokémon hold it for delivery.",
+   "en": "Stationery with a colorful notepaper{NEWLINE}pattern. A Pokémon can hold it.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/146"
+   "origin": "agent",
+   "notes": "US 0221/146 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 147,
@@ -1492,10 +1492,10 @@
   {
    "id": 155,
    "zh": "松饼的材料。{NEWLINE}精灵使用或携带可回复１０ＨＰ。",
-   "en": "A Poffin ingredient. It may be used{NEWLINE}or held by a Pokémon to heal the{NEWLINE}user by just 10 HP.",
+   "en": "A Poffin ingredient. It may be used{NEWLINE}or held by a Pokémon to heal the{NEWLINE}user by 10 HP.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0221/155; D-1519: restored the zh’s 松饼的材料 as “A Poffin ingredient.” (fits 3 lines at ≤200 px, ≤113 chars)",
+   "notes": "US 0221/155; D-1519: restored the zh’s 松饼的材料 as “A Poffin ingredient.” (fits 3 lines at ≤200 px, ≤113 chars) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:携带"
    ]
@@ -2124,10 +2124,10 @@
   {
    "id": 216,
    "zh": "让精灵携带后,即使{NEWLINE}没有参与战斗也能获得经验{NEWLINE}和努力值,很方便的装置。",
-   "en": "An item to be held by a Pokémon. The{NEWLINE}holder gets Exp. Points and EVs from{NEWLINE}battles even if it doesn’t take part.",
+   "en": "A handy device. A Pokémon holding it{NEWLINE}gains Exp. Points and EVs even from{NEWLINE}battles it does not take part in.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0221/216"
+   "notes": "US 0221/216 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 217,
@@ -2193,10 +2193,10 @@
   {
    "id": 223,
    "zh": "让精灵携带后,{NEWLINE}即使战斗中只出击一次{NEWLINE}也能获得２倍金钱。",
-   "en": "An item to be held by a Pokémon.{NEWLINE}It doubles a battle’s prize money if{NEWLINE}the holding Pokémon joins in.",
+   "en": "Doubles a battle’s prize money even{NEWLINE}if the Pokémon holding it enters the{NEWLINE}battle just once.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/223",
+   "origin": "agent",
+   "notes": "US 0221/223 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "number_missing"
    ]
@@ -2630,10 +2630,10 @@
   {
    "id": 267,
    "zh": "带厚镜片的眼睛。{NEWLINE}携带后特殊技能威力１.１倍。",
-   "en": "An item to be held by a Pokémon. It is a{NEWLINE}thick pair of glasses that boosts the{NEWLINE}power of special moves 1.1 times.",
+   "en": "Glasses with thick lenses. When held,{NEWLINE}they boost the power of special{NEWLINE}moves 1.1 times.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0221/267 | RV088: zh 眼睛 is a typo for 眼镜 (glasses); English kept; hack-finding D-2246",
+   "notes": "US 0221/267 | RV088: zh 眼睛 is a typo for 眼镜 (glasses); English kept; hack-finding D-2246 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:携带"
    ]
@@ -2836,10 +2836,10 @@
   {
    "id": 288,
    "zh": "携带后每回合损失１０％ＨＰ。{NEWLINE}受到对手接触攻击时{NEWLINE}会转移到对手身上。",
-   "en": "An item to be held by a Pokémon. The{NEWLINE}holder loses 10% of its HP a turn. It{NEWLINE}latches on to a foe that touches it.",
+   "en": "The holder loses 10% of its HP each{NEWLINE}turn. The item transfers to a foe{NEWLINE}that hits it with a contact attack.",
    "status": "reviewed",
    "origin": "agent",
-   "notes": "US 0221/288; fidelity follow-up applied 2026-10-06 (zh 会转移: certain, not ‘may’; textreview reconcile, D-1534 answer)"
+   "notes": "US 0221/288; fidelity follow-up applied 2026-10-06 (zh 会转移: certain, not ‘may’; textreview reconcile, D-1534 answer) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 289,
@@ -2892,10 +2892,10 @@
   {
    "id": 295,
    "zh": "坚硬的空壳。{NEWLINE}携带后精灵交换绝对成功。",
-   "en": "A tough, discarded carapace to be held{NEWLINE}by a Pokémon. It lets the holder{NEWLINE}switch with a waiting Pokémon in battle.",
+   "en": "A tough, empty shell. It guarantees{NEWLINE}that the Pokémon holding it can{NEWLINE}switch out.",
    "status": "reviewed",
    "origin": "agent",
-   "notes": "US 0221/295"
+   "notes": "US 0221/295 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 296,
@@ -3154,10 +3154,10 @@
   {
    "id": 319,
    "zh": "携带的精灵{NEWLINE}即使在战斗中只出击一次,{NEWLINE}也能获得２倍金钱。",
-   "en": "An item to be held by a Pokémon.{NEWLINE}It doubles a battle’s prize money if{NEWLINE}the holding Pokémon joins in.",
+   "en": "Doubles a battle’s prize money even{NEWLINE}if the Pokémon holding it enters the{NEWLINE}battle just once.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/319",
+   "origin": "agent",
+   "notes": "US 0221/319 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "number_missing"
    ]
@@ -3173,10 +3173,10 @@
   {
    "id": 321,
    "zh": "来历不明的保护装置。{NEWLINE}很重很坚固。{NEWLINE}某些精灵非常喜欢。",
-   "en": "A protective item of some sort.{NEWLINE}It is extremely stiff and heavy.{NEWLINE}It is loved by a certain Pokémon.",
+   "en": "A protective device of unknown{NEWLINE}origin. It is very heavy and sturdy.{NEWLINE}Certain Pokémon love it.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/321"
+   "origin": "agent",
+   "notes": "US 0221/321 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 322,
@@ -3213,10 +3213,10 @@
   {
    "id": 326,
    "zh": "异常尖锐的爪。{NEWLINE}携带后会心率上升１级。",
-   "en": "An item to be held by a Pokémon. A{NEWLINE}sharply hooked claw that raises the{NEWLINE}holder’s critical-hit ratio by 1 stage.",
+   "en": "An exceptionally sharp claw. When{NEWLINE}held, it raises the critical-hit ratio{NEWLINE}by 1 stage.",
    "status": "reviewed",
    "origin": "agent",
-   "notes": "US 0221/326"
+   "notes": "US 0221/326 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 327,
@@ -3237,10 +3237,10 @@
   {
    "id": 329,
    "zh": "用巨大尖锐的爪攻击。",
-   "en": "Sharp, huge claws hook and slash{NEWLINE}the foe quickly and with great{NEWLINE}power.",
+   "en": "Attacks with huge, sharp claws.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/329"
+   "origin": "agent",
+   "notes": "US 0221/329 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 330,
@@ -3374,10 +3374,10 @@
   {
    "id": 344,
    "zh": "使用回合不会被击中。{NEWLINE}连续使用成功率下降。",
-   "en": "It enables the user to evade all{NEWLINE}attacks. Its chance of failing rises{NEWLINE}if it is used in succession.",
+   "en": "Evades attacks for this turn. Its{NEWLINE}chance of success falls if used{NEWLINE}repeatedly.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/344"
+   "origin": "agent",
+   "notes": "US 0221/344 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 345,
@@ -3409,10 +3409,10 @@
   {
    "id": 348,
    "zh": "为发泄不满全力攻击。{NEWLINE}亲密度越低威力越大。",
-   "en": "A full-power attack that grows more{NEWLINE}powerful the less the user likes its{NEWLINE}Trainer.",
+   "en": "A full-power attack to vent{NEWLINE}frustration. Its power rises the{NEWLINE}less friendly the user is.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/348",
+   "origin": "agent",
+   "notes": "US 0221/348 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:亲密度"
    ]
@@ -3474,10 +3474,10 @@
   {
    "id": 354,
    "zh": "为了主人全力攻击。{NEWLINE}亲密度越高威力越大。",
-   "en": "A full-power attack that grows more{NEWLINE}powerful the more the user likes its{NEWLINE}Trainer.",
+   "en": "A full-power attack for its Trainer.{NEWLINE}Its power rises the more friendly{NEWLINE}the user is.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/354",
+   "origin": "agent",
+   "notes": "US 0221/354 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:亲密度"
    ]
@@ -3485,10 +3485,10 @@
   {
    "id": 355,
    "zh": "第１回合潜入地底,{NEWLINE}第２回合攻击。{NEWLINE}能用来脱出洞穴。",
-   "en": "The user burrows, then attacks{NEWLINE}on the second turn. It can also be{NEWLINE}used to exit dungeons.",
+   "en": "The user burrows, then attacks on{NEWLINE}the second turn. It can also be used{NEWLINE}to exit caves.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/355 | D-1512: rewrapped to 200 px (bag panel frame at x=240).",
+   "origin": "agent",
+   "notes": "US 0221/355 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "number_missing"
    ]
@@ -3794,10 +3794,10 @@
   {
    "id": 388,
    "zh": "放出怪异的蓝色火焰。{NEWLINE}能让对手烧伤。",
-   "en": "The user shoots a sinister, bluish{NEWLINE}white flame at the foe to inflict a{NEWLINE}burn.",
+   "en": "The user shoots a strange blue flame{NEWLINE}at the foe to inflict a burn.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/388"
+   "origin": "agent",
+   "notes": "US 0221/388 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 389,
@@ -3911,10 +3911,10 @@
   {
    "id": 401,
    "zh": "高速身体旋转攻击。{NEWLINE}速度比对方越慢威力越大。",
-   "en": "The user tackles the foe from a{NEWLINE}high-speed spin. The slower the{NEWLINE}user, the greater the damage.",
+   "en": "The user attacks with a high-speed{NEWLINE}spin. The slower it is than the foe,{NEWLINE}the greater the power.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/401 | D-1512: rewrapped to 200 px (bag panel frame at x=240).",
+   "origin": "agent",
+   "notes": "US 0221/401 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:威力"
    ]
@@ -3930,10 +3930,10 @@
   {
    "id": 403,
    "zh": "在对手的周围设置尖锐的岩石。{NEWLINE}换上场的精灵会受伤。",
-   "en": "The user lays a trap of levitating{NEWLINE}stones around the foe. The trap{NEWLINE}hurts foes that switch into battle.",
+   "en": "Lays sharp stones around the foes,{NEWLINE}damaging Pokémon that switch into{NEWLINE}battle.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/403 | D-1512: rewrapped to 200 px (bag panel frame at x=240).",
+   "origin": "agent",
+   "notes": "US 0221/403 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:精灵"
    ]
@@ -4060,10 +4060,10 @@
   {
    "id": 417,
    "zh": "消耗１/４ＨＰ制造{NEWLINE}替身抵挡攻击。",
-   "en": "The user makes a copy of itself{NEWLINE}using 1/4 of its HP. The copy serves{NEWLINE}as the user’s decoy.",
+   "en": "The user spends 1/4 of its HP to{NEWLINE}create a substitute that blocks{NEWLINE}attacks.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0221/417 | D-1512: rewrapped to 200 px (bag panel frame at x=240).",
+   "notes": "US 0221/417 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:替身"
    ]
@@ -4071,10 +4071,10 @@
   {
    "id": 418,
    "zh": "将自身的光线{NEWLINE}汇聚于一点后释放。{NEWLINE}１０％特防下降１级。",
-   "en": "The user fires all its light energy{NEWLINE}in one shot. It has a 10% chance to{NEWLINE}lower the foe’s Sp. Def by 1 stage.",
+   "en": "Focuses its light at one point and{NEWLINE}fires it. Has a 10% chance to lower{NEWLINE}the foe’s Sp. Def by 1 stage.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0221/418 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "notes": "US 0221/418 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 419,
@@ -4087,10 +4087,10 @@
   {
    "id": 420,
    "zh": "用锐爪攻击。{NEWLINE}可斩断小树。",
-   "en": "The foe is cut with a scythe or a{NEWLINE}claw. It can also be used to cut{NEWLINE}down thin trees.",
+   "en": "Attacks with sharp claws. It can{NEWLINE}also cut down small trees.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/420 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "origin": "agent",
+   "notes": "US 0221/420 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 421,
@@ -4103,10 +4103,10 @@
   {
    "id": 422,
    "zh": "掀起巨浪攻击所有精灵。{NEWLINE}可以在水面上移动。",
-   "en": "It swamps the entire battlefield with{NEWLINE}a giant wave. It can also be used{NEWLINE}to cross water.",
+   "en": "Attacks all Pokémon with a huge{NEWLINE}wave. It can also be used to travel{NEWLINE}across water.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/422",
+   "origin": "agent",
+   "notes": "US 0221/422 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:精灵"
    ]
@@ -4114,10 +4114,10 @@
   {
    "id": 423,
    "zh": "使出浑身力量攻击。{NEWLINE}可推动沉重的岩石。{NEWLINE}",
-   "en": "The foe is slugged with a punch{NEWLINE}thrown at maximum power. It can also{NEWLINE}be used to move boulders.{NEWLINE}",
+   "en": "Attacks with all its strength. It can{NEWLINE}also push heavy boulders.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/423 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "origin": "agent",
+   "notes": "US 0221/423 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 424,
@@ -4194,10 +4194,10 @@
   {
    "id": 433,
    "zh": "记录了到现在为止{NEWLINE}冒险情况的笔记本。{NEWLINE}",
-   "en": "A notebook that keeps a day-to-day{NEWLINE}record of your adventure so far.{NEWLINE}",
+   "en": "A notebook that keeps a record of{NEWLINE}your adventure so far.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/433"
+   "origin": "agent",
+   "notes": "US 0221/433 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 434,
@@ -4210,10 +4210,10 @@
   {
    "id": 435,
    "zh": "可将各种饰品的精美盒子。{NEWLINE}",
-   "en": "A fancy case for the tidy{NEWLINE}arrangement and storage of whimsical{NEWLINE}Pokémon Accessories.{NEWLINE}",
+   "en": "A fine case for storing various{NEWLINE}Accessories.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/435 | D-1512: rewrapped to 200 px (bag panel frame at x=240).",
+   "origin": "agent",
+   "notes": "US 0221/435 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:盒子"
    ]
@@ -4364,10 +4364,10 @@
   {
    "id": 453,
    "zh": "发出月光般光彩的羽毛。{NEWLINE}里面隐藏着驱散噩梦的力量。",
-   "en": "A feather that glows like the moon.{NEWLINE}It is said to possess the power to{NEWLINE}dispel nightmares.",
+   "en": "A feather that glows like moonlight.{NEWLINE}Hidden within it is the power to dispel{NEWLINE}nightmares.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/453",
+   "origin": "agent",
+   "notes": "US 0221/453 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:噩梦",
     "glossary:月光"
@@ -4481,10 +4481,10 @@
   {
    "id": 466,
    "zh": "可以作为在生日和纪念日,{NEWLINE}以表达感谢之情的花束送给别人。",
-   "en": "A flower sometimes bundled in{NEWLINE}bouquets to convey gratitude on{NEWLINE}special occasions like birthdays.",
+   "en": "A flower given in bouquets to{NEWLINE}express thanks on birthdays,{NEWLINE}anniversaries and other occasions.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/466 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "origin": "agent",
+   "notes": "US 0221/466 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 467,
@@ -4516,10 +4516,10 @@
   {
    "id": 470,
    "zh": "任何时候都可以轻松种植树果{NEWLINE}的便携式培养皿。",
-   "en": "Handy containers for cultivating{NEWLINE}Berries wherever you go.",
+   "en": "Portable containers that make it{NEWLINE}easy to grow Berries at any time.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/470",
+   "origin": "agent",
+   "notes": "US 0221/470 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:树果"
    ]
@@ -4527,10 +4527,10 @@
   {
    "id": 471,
    "zh": "探测到看不见的道具就会{NEWLINE}发出声音和光的最新型的机器。",
-   "en": "It checks for unseen items in the{NEWLINE}area and makes noise and lights{NEWLINE}when it finds something.",
+   "en": "The latest machine for detecting{NEWLINE}unseen items. It emits sound and{NEWLINE}light when it finds one.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/471 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "origin": "agent",
+   "notes": "US 0221/471 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 472,
@@ -4554,10 +4554,10 @@
   {
    "id": 474,
    "zh": "有着治愈心灵的音色,{NEWLINE}非常古老的铃铛。{NEWLINE}",
-   "en": "A very old-fashioned bell with a{NEWLINE}gentle ring that soothes the heart.{NEWLINE}",
+   "en": "A very old bell with a tone that{NEWLINE}soothes the heart.{NEWLINE}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0221/474 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "notes": "US 0221/474 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 475,
@@ -4704,10 +4704,10 @@
   {
    "id": 492,
    "zh": "速度越高的精灵越容易捕捉的{NEWLINE}与众不同的精灵球 ",
-   "en": "A Poké Ball that makes it easier to{NEWLINE}catch fast Pokémon.",
+   "en": "An unusual Poké Ball. The faster the{NEWLINE}Pokémon, the easier it is to catch.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/492"
+   "origin": "agent",
+   "notes": "US 0221/492 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 493,
@@ -4728,10 +4728,10 @@
   {
    "id": 495,
    "zh": "体重越重的精灵越容易捕捉的{NEWLINE}与众不同的精灵球。 ",
-   "en": "A Poké Ball for catching very heavy{NEWLINE}Pokémon.",
+   "en": "An unusual Poké Ball. The heavier the{NEWLINE}Pokémon, the easier it is to catch.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/495"
+   "origin": "agent",
+   "notes": "US 0221/495 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 496,
@@ -4744,10 +4744,10 @@
   {
    "id": 497,
    "zh": "捉到的野生精灵会马上变得亲密的{NEWLINE}与众不同的精灵球。 ",
-   "en": "A Poké Ball that makes caught{NEWLINE}Pokémon more friendly.",
+   "en": "An unusual Poké Ball that makes a{NEWLINE}captured wild Pokémon become{NEWLINE}friendly immediately.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/497 | D-1512: rewrapped to 200 px (bag panel frame at x=240).",
+   "origin": "agent",
+   "notes": "US 0221/497 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:野生"
    ]
@@ -4779,26 +4779,26 @@
   {
    "id": 501,
    "zh": "装载着冒险回忆的纪念相册。{NEWLINE}",
-   "en": "A nice photo album for storing{NEWLINE}all the photos taken along{NEWLINE}your adventure.{NEWLINE}",
+   "en": "A commemorative photo album full of{NEWLINE}memories of your adventures.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/501 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "origin": "agent",
+   "notes": "US 0221/501 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 502,
    "zh": "可以播放让人怀念的音乐。{NEWLINE}打开开关就能进行音乐切换。",
-   "en": "A music player that allows you to{NEWLINE}listen to nostalgic songs. It’s{NEWLINE}operated with a single switch.",
+   "en": "Plays nostalgic music. Turn on the{NEWLINE}switch to change the music.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/502 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "origin": "agent",
+   "notes": "US 0221/502 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 503,
    "zh": "有着治愈心灵的音色,{NEWLINE}非常古老的铃铛。{NEWLINE}",
-   "en": "A very old-fashioned bell with a{NEWLINE}gentle ring that soothes the heart.{NEWLINE}",
+   "en": "A very old bell with a tone that{NEWLINE}soothes the heart.{NEWLINE}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0221/503 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "notes": "US 0221/503 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 504,
@@ -4819,10 +4819,10 @@
   {
    "id": 506,
    "zh": "口袋竞技的资料卡。{NEWLINE}记录着末尾次数。",
-   "en": "It holds Pokéathlon records. It’s a{NEWLINE}card that shows how many{NEWLINE}losses you’ve had.",
+   "en": "It holds Pokéathlon records. It’s a{NEWLINE}card that shows how many times{NEWLINE}you’ve finished last.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/506"
+   "origin": "agent",
+   "notes": "US 0221/506 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 507,
@@ -4966,10 +4966,10 @@
   {
    "id": 524,
    "zh": "口袋竞技的资料卡。{NEWLINE}记录着通信竞技的末尾次数。",
-   "en": "It holds Pokéathlon records. It’s a{NEWLINE}card that shows how many{NEWLINE}Link Pokéathlon losses you’ve had.",
+   "en": "A Pokéathlon data card that records{NEWLINE}how many times you have finished last{NEWLINE}in Link Pokéathlon.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/524"
+   "origin": "agent",
+   "notes": "US 0221/524 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 525,
@@ -4982,10 +4982,10 @@
   {
    "id": 526,
    "zh": "口袋竞技的资料卡。{NEWLINE}记录着竞技末尾的次数。",
-   "en": "It holds Pokéathlon records. It’s a{NEWLINE}card that shows how many times{NEWLINE}you’ve lost an event.",
+   "en": "It holds Pokéathlon records. It’s a{NEWLINE}card that shows how many times{NEWLINE}you’ve finished last in an event.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0221/526"
+   "origin": "agent",
+   "notes": "US 0221/526 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 527,
@@ -5235,18 +5235,18 @@
   {
    "id": 554,
    "zh": "从口中喷出特别灼热{NEWLINE}的火焰进行攻击。{NEWLINE}降低对手的特攻。",
-   "en": "The user breathes out a special,{NEWLINE}searing flame. It lowers the foe’s{NEWLINE}Sp. Atk.",
+   "en": "The user breathes out an especially{NEWLINE}searing flame. It lowers the foe’s{NEWLINE}Sp. Atk.",
    "status": "draft",
    "origin": "agent",
-   "notes": "= 0738 #595"
+   "notes": "= 0738 #595 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 555,
    "zh": "从身体放射出怪异电波，{NEWLINE}让对手沐浴其中，{NEWLINE}从而大幅降低其特攻。",
-   "en": "The user bathes the foe in an eerie{NEWLINE}electric wave. It sharply lowers the{NEWLINE}foe’s Sp. Atk.",
+   "en": "The user emits eerie radio waves from{NEWLINE}its body, bathing the foe in them to{NEWLINE}sharply lower its Sp. Atk.",
    "status": "draft",
    "origin": "agent",
-   "notes": "= 0738 #598",
+   "notes": "= 0738 #598 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:怪异电波"
    ]
@@ -5289,10 +5289,10 @@
   {
    "id": 559,
    "zh": "使出全身力量，猛攻对手。{NEWLINE}",
-   "en": "The user fiercely attacks the foe{NEWLINE}using its entire body.{NEWLINE}",
+   "en": "The user fiercely attacks the foe{NEWLINE}with all its strength.{NEWLINE}",
    "status": "draft",
    "origin": "agent",
-   "notes": "= 0738 #667 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "notes": "= 0738 #667 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 560,
@@ -5406,10 +5406,10 @@
   {
    "id": 572,
    "zh": "连续３次踢对手进行攻击。{NEWLINE}每踢中一次，威力就会提高。",
-   "en": "The user kicks the foe 3 times in{NEWLINE}a row. Each kick is more powerful{NEWLINE}than the last.",
+   "en": "Kicks the foe 3 times in a row. Each{NEWLINE}successful kick increases the power.",
    "status": "draft",
    "origin": "agent",
-   "notes": "= 0738 #813 | D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "notes": "= 0738 #813 | D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 573,
@@ -5449,10 +5449,10 @@
   {
    "id": 577,
    "zh": "珍稀的大蘑菇。{NEWLINE}在一些爱好者{NEWLINE}中非常有人气。",
-   "en": "A rare, large mushroom. It is very{NEWLINE}popular with certain collectors.",
+   "en": "A rare, large mushroom. It is very{NEWLINE}popular with certain enthusiasts.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:大蘑菇"
    ]
@@ -5614,10 +5614,10 @@
   {
    "id": 594,
    "zh": "一次性光苔。携带{NEWLINE}宝可梦受到水招式{NEWLINE}，特防就会提高。",
-   "en": "Single-use moss. If the holder{NEWLINE}is hit by a Water-type move, its{NEWLINE}Sp. Def will rise.",
+   "en": "Single-use luminous moss. If the{NEWLINE}holder is hit by a Water-type move,{NEWLINE}its Sp. Def will rise.",
    "status": "draft",
    "origin": "agent",
-   "notes": "D-1512: rewrapped to 200 px (bag panel frame at x=240).",
+   "notes": "D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "qa_ignore": [
     "glossary:宝可梦"
    ]
@@ -5823,10 +5823,10 @@
   {
    "id": 619,
    "zh": "蝴蝶结形状的工艺{NEWLINE}糖果。小仙奶非常{NEWLINE}喜欢。",
-   "en": "A candy crafted in the shape of a{NEWLINE}ribbon. Milcery loves it.",
+   "en": "A candy crafted in the shape of a{NEWLINE}bow. Milcery loves it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 620,
@@ -5877,10 +5877,10 @@
   {
    "id": 625,
    "zh": "当携带后能力下降{NEWLINE}时，同行宝可梦就{NEWLINE}会自动替换上场。",
-   "en": "An item to be held by a Pokémon. If{NEWLINE}the holder’s stats are lowered, it{NEWLINE}switches out with a party Pokémon.",
+   "en": "When held, lowered stats trigger an{NEWLINE}automatic switch to a Pokémon in the{NEWLINE}party.",
    "status": "draft",
    "origin": "agent",
-   "notes": "D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "notes": "D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 626,
@@ -6088,10 +6088,10 @@
   {
    "id": 648,
    "zh": "光芒晶莹剔透的坠{NEWLINE}饰。携带后不会因{NEWLINE}为对手降低能力。",
-   "en": "A crystal-clear amulet. When{NEWLINE}held, the holder’s stats can’t be{NEWLINE}lowered by the foe.",
+   "en": "An amulet with a crystal-clear glow.{NEWLINE}When held, the holder’s stats can’t{NEWLINE}be lowered by the foe.",
    "status": "draft",
    "origin": "agent",
-   "notes": "D-1512: rewrapped to 200 px (bag panel frame at x=240)."
+   "notes": "D-1512: rewrapped to 200 px (bag panel frame at x=240). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 649,

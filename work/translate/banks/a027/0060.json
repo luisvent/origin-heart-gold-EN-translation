@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "太好了,口呆花。{NEWLINE}美丽花终于接受你了哦。",
-   "en": "Great job, Weepinbell.{NEWLINE}Bellossom finally accepted you!",
+   "en": "Great news, Weepinbell.{NEWLINE}Bellossom finally accepted you!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,
@@ -135,10 +135,10 @@
   {
    "id": 16,
    "zh": "解释就是掩饰,掩饰就是事实",
-   "en": "Excuses mean it’s true",
+   "en": "Excuses hide it; hiding proves it",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "category": "menu_touch_1line"
   },
   {
@@ -176,10 +176,10 @@
   {
    "id": 21,
    "zh": "哇！真的吗？{NEWLINE}那就拜托哥哥了！",
-   "en": "Wow! Really?{NEWLINE}Thanks, mister!",
+   "en": "Wow! Really?{NEWLINE}We’re counting on you, mister!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 22,
@@ -712,10 +712,10 @@
   {
    "id": 88,
    "zh": "阿笔『是吗……{NEWLINE}没事！我完全没往心里去。",
-   "en": "Bugsy: Oh, I see...{NEWLINE}That’s OK. I’m not sad.",
+   "en": "Bugsy: Oh, I see...{NEWLINE}That’s OK! I haven’t taken it to heart.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0062/88"
+   "origin": "agent",
+   "notes": "US 0062/88 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 89,
@@ -736,10 +736,10 @@
   {
    "id": 91,
    "zh": "哇！真的吗？{NEWLINE}那就拜托姐姐了！",
-   "en": "Wow! Really?{NEWLINE}Thanks, miss!",
+   "en": "Wow! Really?{NEWLINE}We’re counting on you, miss!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 92,
@@ -768,10 +768,10 @@
   {
    "id": 95,
    "zh": "{VAR:0103:0}『早恋往往就是这样{NEWLINE}以精灵为契慢慢机开始的。{CLEAR}为了防止精灵交流引发你们早恋,{CLEAR}口呆花和美丽花不要再见面了。{CLEAR}你也快跟我去见你妈妈吧。",
-   "en": "{VAR:0103:0}: Puppy love always starts{NEWLINE}slowly like this, with Pokémon as{CLEAR}the excuse.{SCROLL}To stop your Pokémon from leading you{NEWLINE}two into puppy love, Weepinbell and{CLEAR}Bellossom won’t see each other again.{SCROLL}Now hurry up and come see your mom{NEWLINE}with me.",
+   "en": "{VAR:0103:0}: Puppy love often starts{NEWLINE}slowly like this, with Pokémon{CLEAR}bringing you together.{SCROLL}To stop your Pokémon from leading you{NEWLINE}two into puppy love, Weepinbell and{CLEAR}Bellossom won’t see each other again.{SCROLL}Now hurry up and come see your mom{NEWLINE}with me.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 96,
@@ -840,10 +840,10 @@
   {
    "id": 104,
    "zh": "住嘴！你还跟我狡辨！{NEWLINE}这位路过的训练家都跟我说了,{CLEAR}你们私下单独交流精灵的事{CLEAR}这就是早恋的苗头。{SCROLL}以后不许再跟你那个女同学玩了,{NEWLINE}听到了没有！",
-   "en": "Shut it! Still talking back?!{SCROLL}This passing Trainer told me everything.{NEWLINE}Swapping Pokémon stories in secret,{CLEAR}just the two of you...{CLEAR}That’s how puppy love starts.{SCROLL}You’re not playing with that girl from{NEWLINE}your class anymore. Do you hear me?!",
+   "en": "Shut it! Still making excuses?!{SCROLL}This passing Trainer told me everything.{NEWLINE}Getting together in private over{CLEAR}Pokémon, just the two of you...{CLEAR}That’s how puppy love starts.{SCROLL}You’re not playing with that girl from{NEWLINE}your class anymore. Do you hear me?!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 105,
@@ -928,10 +928,10 @@
   {
    "id": 115,
    "zh": "梨花『你是一个人来的耶。{NEWLINE}居然一个人来约会圣地,{CLEAR}也是够可怜的。",
-   "en": "Karen: And you came alone.{NEWLINE}All by yourself, to the number one date{CLEAR}spot... How pathetic.",
+   "en": "Karen: And you came alone.{NEWLINE}All by yourself, to this haven for{CLEAR}dates... How pathetic.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 116,
@@ -1312,10 +1312,10 @@
   {
    "id": 163,
    "zh": "看来我们的连胜纪录又要延长了。",
-   "en": "Looks like our winning streak just{NEWLINE}got longer.",
+   "en": "Looks like our winning streak is about{NEWLINE}to get even longer.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 164,

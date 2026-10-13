@@ -118,18 +118,18 @@
   {
    "id": 14,
    "zh": "果实最大",
-   "en": "♡Berry Max",
+   "en": "Berry Max",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0166/14 | debug/unused (debug menu)"
+   "origin": "agent",
+   "notes": "US 0166/14 | debug/unused (debug menu) | CES-early: source fidelity: remove invented heart; sourceTM not HM, mailbox/friendship, preserve awkward test-message subject"
   },
   {
    "id": 15,
    "zh": "技能机最大",
-   "en": "♡TM & HM Max",
+   "en": "TM Max",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0166/15 | debug/unused (debug menu)"
+   "origin": "agent",
+   "notes": "US 0166/15 | debug/unused (debug menu) | CES-early: source fidelity: remove invented heart; sourceTM not HM, mailbox/friendship, preserve awkward test-message subject"
   },
   {
    "id": 16,
@@ -254,10 +254,10 @@
   {
    "id": 31,
    "zh": "缎带套",
-   "en": "♡Set Ribbons",
+   "en": "Ribbon set",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0166/31 | debug/unused (debug menu)"
+   "origin": "agent",
+   "notes": "US 0166/31 | debug/unused (debug menu) | CES-early: source fidelity: remove invented heart; sourceTM not HM, mailbox/friendship, preserve awkward test-message subject"
   },
   {
    "id": 32,
@@ -398,10 +398,10 @@
   {
    "id": 49,
    "zh": "邮箱",
-   "en": "Mail",
+   "en": "Mailbox",
    "status": "draft",
-   "origin": "tm_v3",
-   "notes": "v3 TM: 1 source(s); other variants: 1 more v3 TM candidate (tm_v4_matches.jsonl) | debug/unused (debug menu)"
+   "origin": "agent",
+   "notes": "v3 TM: 1 source(s); other variants: 1 more v3 TM candidate (tm_v4_matches.jsonl) | debug/unused (debug menu) | CES-early: source fidelity: remove invented heart; sourceTM not HM, mailbox/friendship, preserve awkward test-message subject"
   },
   {
    "id": 50,
@@ -686,10 +686,10 @@
   {
    "id": 85,
    "zh": "亲密度",
-   "en": "Tameness",
+   "en": "Friendship",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0166/85 | debug/unused (debug menu)"
+   "origin": "agent",
+   "notes": "US 0166/85 | debug/unused (debug menu) | CES-early: source fidelity: remove invented heart; sourceTM not HM, mailbox/friendship, preserve awkward test-message subject"
   },
   {
    "id": 86,
@@ -1062,10 +1062,10 @@
   {
    "id": 132,
    "zh": "测试信息使用招式！",
-   "en": "(Test message){NEWLINE}Pokémon used a move!",
+   "en": "The test message used a move!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0166/132 | debug/unused (debug menu)"
+   "origin": "agent",
+   "notes": "US 0166/132 | debug/unused (debug menu) | CES-early: source fidelity: remove invented heart; sourceTM not HM, mailbox/friendship, preserve awkward test-message subject"
   },
   {
    "id": 133,

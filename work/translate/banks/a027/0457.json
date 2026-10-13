@@ -30,9 +30,9 @@
   {
    "id": 3,
    "zh": "那么,{NEWLINE}我帮你复原吧。{SCROLL}请稍稍等待一下！",
-   "en": "I’ll extract it for you.{SCROLL}Come back after a while!",
+   "en": "I’ll extract it for you.{SCROLL}Please wait a moment!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0464/3"
   },
   {
@@ -1030,7 +1030,7 @@
   {
    "id": 123,
    "zh": "{VAR:FF01:200}赤焰松『所有人都离开中央展台！{VAR:FF01:100}{SCROLL}{VAR:FF01:200}火箭队要回收红色宝珠了！{VAR:FF01:100}",
-   "en": "{VAR:FF01:200}Maxie: Stand back, all of you!{VAR:FF01:100}{SCROLL}{VAR:FF01:200}Team Rocket is taking the Orb!{VAR:FF01:100}",
+   "en": "{VAR:FF01:200}Maxie: Stand back, all of you!{VAR:FF01:100}{SCROLL}{VAR:FF01:200}Team Rocket is taking the Red Orb!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position | seed rejected tm_v3 [line_too_wide] (candidate v3 0457#123; text not kept) | SIZE-200% big text; zh (15 hanzi at 2x) is far wider than the box too. Shortened to fit at 2x. Double-size shout: one line per page (a line break inside {VAR:FF01:200} overflows the box and corrupts memory; heap_audit.md)."

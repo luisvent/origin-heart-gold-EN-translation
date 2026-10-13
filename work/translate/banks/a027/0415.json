@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "成员消失了,{NEWLINE}终止记录通信。",
-   "en": "There are no members.{NEWLINE}Record mixing will be canceled.",
+   "en": "Members have disappeared.{NEWLINE}Record mixing will be canceled.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES006: fidelity: Restore members disappearing rather than asserting none exist."
   },
   {
    "id": 8,
@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "有的成员没有反应,{NEWLINE}终止通信。",
-   "en": "A member is no longer available.{NEWLINE}Record mixing will be canceled.",
+   "en": "A member is not responding.{NEWLINE}Record mixing will be canceled.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES006: fidelity: Restore nonresponse, not unavailability."
   },
   {
    "id": 10,
@@ -126,10 +126,10 @@
   {
    "id": 15,
    "zh": "{VAR:0103:0}回来了。",
-   "en": "{VAR:0103:0} has left.",
+   "en": "{VAR:0103:0} has returned.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0422/15; zh 回来了 \"has come back\"; US has left (回去了?) | Hack text error fixed with user approval (D-1244, D-1496)."
+   "notes": "US 0422/15; zh 回来了 \"has come back\"; US has left (回去了?) | Hack text error fixed with user approval (D-1244, D-1496). | CES006: fidelity: Correct left to returned from 回来了; no gameplay change."
   },
   {
    "id": 16,

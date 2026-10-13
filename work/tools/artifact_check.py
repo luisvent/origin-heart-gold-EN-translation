@@ -93,11 +93,18 @@ def check(a, export_fn=None, verify_fn=None):
                          # text-speed: its checking module and native sources (fix.toml and text-speed.asm are
                          # in the globs above);
                          # text_speed_patch.verify() checks the other fixes' regions against its contract.
-                         build.TOOLS / "text_speed_patch.py",
+                         build.TOOLS / "text_speed_patch.py", build.TOOLS / "trainer_display.py",
                          *(build.text_speed_patch.ASSETS / name for name in
                            ("native.c", "labels.h", "payload.json")))}
+        display = prior.get("trainer_display")
+        export_options = {}
+        if display and display.get("enabled"):
+            aliases = build.trainer_display.plan(a.ws)
+            if aliases != {int(k):v for k,v in display["aliases"].items()}:
+                raise ValueError("trainer display catalogue differs from build receipt")
+            export_options["trainer_aliases"] = aliases
         counts, problems = export_fn(a.ws, a.extract, a.output / "export",
-                                     statuses=tuple(prior["statuses"]), lenient=False)
+                                     statuses=tuple(prior["statuses"]), lenient=False, **export_options)
         report["export"] = {"counts": dict(counts), "problems": problems}
         if problems or not counts.get("strings"):
             report["reason"] = "fresh export has problems or contains zero strings"
@@ -118,12 +125,17 @@ def check(a, export_fn=None, verify_fn=None):
         if not fonts or not prior["graphics"] or not prior["hardcoded"]:
             report.update(status="incomplete", reason="empty verification metadata for glyphs, graphics or hardcoded patches")
             return report
+        verification_options = {"display_report": display} if display and display.get("enabled") else {}
         report["verification"] = verify_fn(a.rom, a.output / "export", font, fonts, cm,
                                             prior["graphics"], prior["hardcoded"], glyph_codes,
-                                            prior.get("narc_bytes"))
+                                            prior.get("narc_bytes"), **verification_options)
         # This is also required for legacy/missing metadata: inspect the ROM
         # before accepting the absence of a feature report as an opt-out.
-        speed = build.verify_text_speed(msgtool.load_rom(a.rom), prior.get("text_speed"))
+        native_rom = msgtool.load_rom(a.rom)
+        if display and display.get("enabled"):
+            build.trainer_display.verify_storage(native_rom, display)
+            report["verification"]["trainer_display"] = build.trainer_display.verify(native_rom, display)
+        speed = build.verify_text_speed(native_rom, prior.get("text_speed"), display)
         report["verification"]["text_speed"] = speed
         if speed["status"] == "passed":
             report["checks"]["text_speed_reproduction"] = build.text_speed_patch.verify_reproducible_payload()

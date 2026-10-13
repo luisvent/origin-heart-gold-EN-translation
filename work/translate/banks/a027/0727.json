@@ -430,10 +430,10 @@
   {
    "id": 53,
    "zh": "原来如此！{NEWLINE}画画接龙吧！",
-   "en": "The last letter of what you draw has{NEWLINE}to be the first letter of what I draw?",
+   "en": "Oh, I see! A drawing relay!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0738/53"
+   "origin": "agent",
+   "notes": "US 0738/53 | SOL-C: unsupported addition/source detail corrected."
   },
   {
    "id": 54,
@@ -1054,10 +1054,10 @@
   {
    "id": 131,
    "zh": "还有什么事的话就再{NEWLINE}跟我说吧！",
-   "en": "If you want to do something with{NEWLINE}me, don’t be shy. Just ask!",
+   "en": "If you need anything else, just tell me!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0738/131"
+   "origin": "agent",
+   "notes": "US 0738/131 | SOL-C: unsupported addition/source detail corrected."
   },
   {
    "id": 132,
@@ -1422,10 +1422,10 @@
   {
    "id": 177,
    "zh": "怎么了？{NEWLINE}有什么不喜欢的东西吗？{SCROLL}这时候{NEWLINE}比起一个人来,{CLEAR}还是和许多朋友{CLEAR}一起玩有趣啊！{SCROLL}",
-   "en": "What’s wrong?{NEWLINE}Are you feeling down about something?{SCROLL}If you’re feeling blue, it’s much{NEWLINE}better to have fun with friends{CLEAR}than to be alone.{SCROLL}",
+   "en": "What’s wrong? Is there something you{NEWLINE}don’t like? It’s more fun to play with{CLEAR}lots of friends than alone.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0738/177"
+   "origin": "agent",
+   "notes": "US 0738/177 | SOL-C: unsupported addition/source detail corrected."
   },
   {
    "id": 178,

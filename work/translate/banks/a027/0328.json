@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "对不起啊,{NEWLINE}接到上面的命令现在……{SCROLL}啊！您是菊子大人说的{NEWLINE}那几位训练家之一,{CLEAR}请吧,请过去吧。",
-   "en": "Sorry. We’re under lockdown by orders{NEWLINE}from above...{SCROLL}Oh! You’re one of the Trainers Agatha{NEWLINE}mentioned. Please, go right ahead.",
+   "en": "Sorry. We’re under lockdown by orders{NEWLINE}from above...{SCROLL}Oh! You’re one of the Trainers Lady{NEWLINE}Agatha mentioned. Please, go{CLEAR}right ahead.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | AGENT-0321-0380: Preserve respectful title for Agatha."
   }
  ]
 }

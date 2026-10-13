@@ -14,41 +14,41 @@
   {
    "id": 1,
    "zh": "多谢惠顾。",
-   "en": "Please come again!",
+   "en": "Thank you for your patronage.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0435/1"
   },
   {
    "id": 2,
    "zh": "是吗,{NEWLINE}那么下次再见。",
-   "en": "Is that right?{NEWLINE}Well, come back anytime!",
+   "en": "Is that so?{NEWLINE}Well, see you next time.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0435/2"
   },
   {
    "id": 3,
    "zh": "下次再来买吧。",
-   "en": "Come back again!",
+   "en": "Come back to buy something next time.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0435/3"
   },
   {
    "id": 4,
    "zh": "是吗？{NEWLINE}那下次再来吧,{CLEAR}嘻嘻嘻。",
-   "en": "Is that right?{NEWLINE}Well, come back anytime!{CLEAR}Hee hee!",
+   "en": "Is that so?{NEWLINE}Then come back next time.{CLEAR}Hee hee!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0435/4"
   },
   {
    "id": 5,
    "zh": "下次再来吧,{NEWLINE}不过我晚上会关店。",
-   "en": "Come back anytime!{NEWLINE}Well, not in the evening. We’re closed.",
+   "en": "Come back next time!{NEWLINE}But I close at night.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0435/5"
   },
   {
@@ -70,9 +70,9 @@
   {
    "id": 8,
    "zh": "还有其他{NEWLINE}想要的东西吗？{VAR:0200:0}",
-   "en": "Do you need anything else?{NEWLINE}Anything at all? {VAR:0200:0}",
+   "en": "Would you like{NEWLINE}anything else? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0435/8"
   },
   {
@@ -174,7 +174,7 @@
   {
    "id": 21,
    "zh": "{VAR:010A:0}已经{NEWLINE}往电脑上传了。{VAR:0202:1}",
-   "en": "The {VAR:010A:0} will be{NEWLINE}sent to your PC.{VAR:0202:1}",
+   "en": "The {VAR:010A:0} has been{NEWLINE}sent to your PC.{VAR:0202:1}",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -206,9 +206,9 @@
   {
    "id": 25,
    "zh": "今天不能还了！",
-   "en": "You can’t buy any more today!",
+   "en": "You can’t return any more today!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0435/25"
   },
   {
@@ -398,9 +398,9 @@
   {
    "id": 49,
    "zh": "好了,{NEWLINE}非常感谢您的惠顾。{VAR:0202:1}",
-   "en": "All right, here you go.{NEWLINE}Come back anytime! {VAR:0202:1}",
+   "en": "All right, here you go.{NEWLINE}Thank you very much!{VAR:0202:1}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0435/49"
   }
  ]

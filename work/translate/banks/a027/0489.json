@@ -22,7 +22,7 @@
   {
    "id": 2,
    "zh": "大哥哥你好呀,{NEWLINE}咱们又见面了！{CLEAR}上次真的谢谢你了呢。",
-   "en": "Hello, mister! We meet again! Thank you{NEWLINE}so much for last time.",
+   "en": "Hello, big brother!{NEWLINE}We meet again! Thanks for last time.",
    "status": "draft",
    "origin": "agent",
    "notes": "#2/#10: male/female player variants (mister/miss)."
@@ -86,7 +86,7 @@
   {
    "id": 10,
    "zh": "大姐姐你好呀,咱们又见面了！上次真的谢谢你了呢。",
-   "en": "Hello, miss! We meet again! Thank you so{NEWLINE}much for last time.",
+   "en": "Hello, big sister!{NEWLINE}We meet again! Thanks for last time.",
    "status": "draft",
    "origin": "agent",
    "notes": ""

@@ -471,10 +471,10 @@
   {
    "id": 57,
    "zh": "呵呵,年轻人,我年轻的时候{NEWLINE}也是一个四处游历的训练家,{CLEAR}所以我对自己的实力非常有信心。{CLEAR}你愿意与我来一场精灵对战吗？",
-   "en": "Heh heh, young one. When I was your{NEWLINE}age, I traveled all over as a Trainer{CLEAR}too, so I’m very sure of my skills. Will{CLEAR}you have a Pokémon battle with me?",
+   "en": "Heh heh, young one. When I was young, I{NEWLINE}traveled all over as a Trainer too, so{CLEAR}I’m very sure of my skills. Will you have{CLEAR}a Pokémon battle with me?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore when young rather than unsupported same age as player."
   },
   {
    "id": 58,
@@ -530,10 +530,10 @@
   {
    "id": 64,
    "zh": "咱们玩的是双打,{NEWLINE}你却只带1只精灵,{CLEAR}我可不能以大欺小、以多欺少啊。",
-   "en": "We’re having a Double Battle,{NEWLINE}but you only brought 1 Pokémon.{CLEAR}I can’t gang up on you like that!",
+   "en": "We’re having a Double Battle, but you{NEWLINE}only brought 1 Pokémon. I can’t bully{CLEAR}someone younger or gang up on you!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore elder bullying younger and numerical advantage both."
   },
   {
    "id": 65,

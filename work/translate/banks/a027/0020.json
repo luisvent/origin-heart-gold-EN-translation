@@ -297,10 +297,10 @@
   {
    "id": 36,
    "zh": "稍微尝了下柑果饮料！",
-   "en": "Tasted the Aprijuice!",
+   "en": "Tasted a little Aprijuice!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0021/36"
+   "origin": "agent",
+   "notes": "US 0021/36 | CES-early: omission: retain small amount tasted"
   },
   {
    "id": 37,
@@ -425,10 +425,10 @@
   {
    "id": 52,
    "zh": "柑果饮料没做成！{NEWLINE}把柑果放进榨汁机{NEWLINE}跑起来搅拌吧！",
-   "en": "The Aprijuice is not done!{NEWLINE}Put Apricorns in the Apriblender{NEWLINE}and blend by walking!",
+   "en": "The Aprijuice is not done!{NEWLINE}Put Apricorns in the Apriblender{NEWLINE}and blend by running!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0021/52"
+   "origin": "agent",
+   "notes": "US 0021/52 | CES-early: meaning: source says run, not walk"
   },
   {
    "id": 53,
@@ -457,10 +457,10 @@
   {
    "id": 56,
    "zh": "有点辛辣的味道！",
-   "en": "It’s a spicy flavor.",
+   "en": "It’s a little spicy!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0021/56"
+   "origin": "agent",
+   "notes": "US 0021/56 | CES-early: omission: retain a little"
   },
   {
    "id": 57,
@@ -481,18 +481,18 @@
   {
    "id": 59,
    "zh": "咳嗽不止的辛辣！",
-   "en": "So spicy, it causes coughing!",
+   "en": "So spicy, you can’t stop coughing!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0021/59"
+   "origin": "agent",
+   "notes": "US 0021/59 | CES-early: omission: retain continuous coughing"
   },
   {
    "id": 60,
    "zh": "响彻苍穹的辛辣！",
-   "en": "A resounding spiciness!",
+   "en": "A spiciness that echoes through the{NEWLINE}sky!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0021/60"
+   "origin": "agent",
+   "notes": "US 0021/60 | CES-early: omission: retain sky image"
   },
   {
    "id": 61,
@@ -577,10 +577,10 @@
   {
    "id": 71,
    "zh": "涩味弥漫全身！",
-   "en": "A pervadingly dry taste!",
+   "en": "A dry taste that fills your whole body!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0021/71"
+   "origin": "agent",
+   "notes": "US 0021/71 | CES-early: omission: retain whole body"
   },
   {
    "id": 72,
@@ -1041,10 +1041,10 @@
   {
    "id": 129,
    "zh": "什么都说不出来的味道！{NEWLINE}相互融合的味道⋯{NEWLINE}不知道到底算什么！",
-   "en": "An indescribable flavor!{NEWLINE}Its tastes are evenly balanced.{NEWLINE}I can’t tell what kind of flavor!",
+   "en": "An indescribable flavor!{NEWLINE}Its tastes blend together...{NEWLINE}I can’t tell what kind of flavor!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0021/129 | RV074: addition: 'incredible' praise not in zh 什么都说不出来 (D-1641)"
+   "notes": "US 0021/129 | RV074: addition: 'incredible' praise not in zh 什么都说不出来 (D-1641) | CES-early: meaning: blend rather than asserted even balance"
   },
   {
    "id": 130,

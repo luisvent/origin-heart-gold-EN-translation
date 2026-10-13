@@ -9,8 +9,9 @@ records must be (expectations, per ROM language or on both). Every run (scenario
 process (one emulator per process; the machine-wide emulator cap applies). The runner writes one JSON result
 per scenario and a summary, and exits 1 on a failed expectation, 2 on a schema error.
 
-    <venv>/bin/python work/tools/emu_harness.py scenarios [--only id,...] [--lang cn|en|both] [--jobs 3]
-        [--out DIR] [--rom-cn R] [--rom-en R] [--sav-dir D]        ('suite' is an alias)
+    <venv>/bin/python work/tools/emu_harness.py scenarios [--only id,...] [--lang cn|en|es|both|all] [--locales en,es] [--jobs 3]
+        [--out DIR] [--rom-cn R] [--rom-en R] [--rom-es R] [--sav-dir D] [--sav-dir-es D]
+        ('suite' is an alias; both remains CN+EN, all is CN+EN+ES)
     python3 work/tools/emu_scenarios.py validate [FILE ...]     schema check only (no emulator)
 
 Format: see work/notes/emu_harness.md ('Scenario files') and the files in work/tools/scenarios/.
@@ -36,7 +37,8 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 SCENARIO_DIR = TOOLS / "scenarios"
-LANGS = ("cn", "en")
+BASE_LANGS = ("cn", "en")
+LANGS = (*BASE_LANGS, "es")
 SETUP = "__setup__"
 
 
@@ -58,7 +60,7 @@ EXPECT_KEYS = {"obs", "lang", "note", *EXPECT_OPS}
 OBSERVE_KINDS = ("party", "ram", "flag", "var", "position", "location", "clock", "bag", "crop", "message", "text_fit")
 OBSERVE_KEYS = {"observe", "size", "fields", "screen_name", *OBSERVE_KINDS}
 TABLE_OPS = {"encounters": {"op", "observe", "count", "walk", "span", "tiles", "max_steps", "shots"},
-             "dexcapture": {"op", "observe", "first", "last"}}
+             "dexcapture": {"op", "observe", "first", "last", "category_id", "category_readback"}}
 PARTY_FIELDS = {"slot", "species", "item", "form", "moves", "pp", "ability"}
 PARITY_KEYS = {"differ", "fields"}
 DIFFER_KEYS = {"why", *LANGS}
@@ -194,6 +196,15 @@ def check_step(where, step):
         else:
             for k in ("first", "last"):
                 _type(f"{where}.{k}", step.get(k), int, "a Pokedex number")
+            if "category_readback" in step:
+                if type(step["category_readback"]) is not bool or "category_id" not in step:
+                    _err(f"{where}.category_readback", "a boolean with an explicit category_id")
+            if "category_id" in step:
+                category_id = step["category_id"]
+                if type(category_id) is not int or not 0 <= category_id < 1441:
+                    _err(f"{where}.category_id", "a bank 0803 message id from 0 to 1440")
+                if step["first"] != step["last"]:
+                    _err(f"{where}.category_id", "category read verification requires first == last")
         if "observe" in step:
             _type(f"{where}.observe", step["observe"], str, "an observation name")
         return
@@ -226,8 +237,8 @@ def check_expect(where, exp):
     ops = [k for k in EXPECT_OPS if k in exp]
     if len(ops) != 1:
         _err(where, f"name exactly one check ({', '.join(EXPECT_OPS)}), got {ops or 'none'}")
-    if exp.get("lang", "both") not in ("both", *LANGS):
-        _err(f"{where}.lang", "both, cn or en")
+    if exp.get("lang", "all") not in ("both", "all", *LANGS):
+        _err(f"{where}.lang", "both, all, cn, en or es")
     op, want = ops[0], exp[ops[0]]
     if op in ("in", "set", "approved") and not isinstance(want, list):
         _err(f"{where}.{op}", "must be a list")
@@ -515,7 +526,8 @@ def judge(expect, observations, lang, scenario="", case="", base_dir=None, appro
     rows = []
     approved = load_approvals()["approved"] if approvals is None else approvals
     for e in expect:
-        if e.get("lang", "both") not in ("both", lang):
+        scope = e.get("lang", "all")
+        if scope not in ("all", lang) and not (scope == "both" and lang in BASE_LANGS):
             continue
         op = next(k for k in EXPECT_OPS if k in e)
         got = get_path(observations, e["obs"])
@@ -531,10 +543,14 @@ def judge(expect, observations, lang, scenario="", case="", base_dir=None, appro
             if want == digest:
                 row.update(**{"pass": True}, note="equals the approved baseline")
             elif want is None:
-                row.update(**{"pass": True}, pending=True, note="needs approval: no approved baseline yet")
+                row.update(**{"pass": lang != "es"}, pending=True,
+                           note="needs approval: no approved baseline yet")
             elif lang == "en":
                 row.update(**{"pass": True}, pending=True,
                            note="needs approval: differs from the approved baseline (the English build changed)")
+            elif lang == "es":
+                row.update(**{"pass": False}, pending=True,
+                           note="needs approval: Spanish baseline differs from its own approved baseline")
             else:
                 row.update(**{"pass": False}, note="differs from the approved baseline (the Chinese ROM never "
                                                     "changes: the harness or the scenario did)")
@@ -651,36 +667,76 @@ def compare_observation(case, obs, a, b, differ, fields):
     return rows
 
 
-def parity(scn, runs, langs=LANGS):
-    """The Chinese-vs-English verdict (D-1002). Per case and observation one row: 'equal', 'differs-declared'
-    (listed in [parity] differ; its per-ROM checks are judged with the expectations), 'MISMATCH' (with both
-    values or the differing leaves) or 'unavailable' (a run of the case failed; its verdict says why).
-    Not judged when only one ROM ran."""
+def _parity_pair(scn, runs, target):
+    """Compare one translated ROM with the untouched Chinese control."""
     p = scn.get("parity", {})
     differ, fields = p.get("differ", {}), p.get("fields", {})
-    if set(langs) != set(LANGS):
-        return {"judged": False, "note": "one ROM only: parity needs both", "rows": [], "counts": {}}
     rows = []
     for case in scn["cases"]:
         by = {r["lang"]: r for r in runs if r["case"] == case["id"]}
-        if any(by.get(lang, {}).get("observations") is None for lang in LANGS):
+        if any(by.get(lang, {}).get("observations") is None for lang in ("cn", target)):
             rows.append({"case": case["id"], "obs": "*", "status": UNAVAILABLE,
                          "note": "a run of this case has no observations (see its verdict)"})
             continue
-        cn, en = by["cn"]["observations"], by["en"]["observations"]
-        names = sorted(set(cn) | set(en) | {d.split(".")[0] for d in differ if d.split(".")[0] in cn or
-                                            d.split(".")[0] in en})
+        cn, translated = by["cn"]["observations"], by[target]["observations"]
+        names = sorted(set(cn) | set(translated) | {d.split(".")[0] for d in differ if d.split(".")[0] in cn or
+                                                    d.split(".")[0] in translated})
         for obs in names:
-            rows += compare_observation(case["id"], obs, cn.get(obs, _MISSING), en.get(obs, _MISSING), differ,
-                                        fields)
+            rows += compare_observation(case["id"], obs, cn.get(obs, _MISSING),
+                                        translated.get(obs, _MISSING), differ, fields)
+    if target == "es":
+        for row in rows:
+            row["pair"] = "cn/es"
+            if "en" in row:
+                row["es"] = row.pop("en")
+            for diff in row.get("diff", []):
+                if "en" in diff:
+                    diff["es"] = diff.pop("en")
     counts = {k: sum(r["status"] == k for r in rows) for k in (EQUAL, DECLARED, MISMATCH, UNAVAILABLE)}
     stale = sorted({r["obs"] for r in rows if r["status"] == DECLARED and r.get("equal_anyway")} -
                    {r["obs"] for r in rows if r["status"] == DECLARED and not r.get("equal_anyway")})
     out = {"judged": True, "counts": counts, "rows": sorted(rows, key=lambda r: r["status"] != MISMATCH),
            "declared": differ, "fields": fields}
     if stale:
-        out["declared_but_equal"] = stale      # a declaration that may no longer be needed
+        out["declared_but_equal"] = stale
     return out
+
+
+def parity(scn, runs, langs=BASE_LANGS):
+    """CN/EN legacy parity, or an explicit CN/EN plus CN/ES matrix."""
+    chosen = set(langs)
+    if chosen == set(BASE_LANGS):
+        return _parity_pair(scn, runs, "en")
+    if chosen == set(LANGS):
+        en = _parity_pair(scn, runs, "en")
+        es = _parity_pair(scn, runs, "es")
+        en_rows = [{"pair": "cn/en", **r} for r in en["rows"]]
+        rows = sorted(en_rows + es["rows"], key=lambda r: r["status"] != MISMATCH)
+        counts = {k: en["counts"][k] + es["counts"][k] for k in (EQUAL, DECLARED, MISMATCH, UNAVAILABLE)}
+        out = {"judged": True, "counts": counts, "rows": rows,
+               "pairs": {"cn/en": en, "cn/es": es}, "declared": en["declared"], "fields": en["fields"]}
+        stale = [f"cn/en:{x}" for x in en.get("declared_but_equal", [])] + [
+            f"cn/es:{x}" for x in es.get("declared_but_equal", [])]
+        if stale:
+            out["declared_but_equal"] = stale
+        return out
+    return {"judged": False, "note": "parity needs Chinese and a translated ROM selected together", "rows": [],
+            "counts": {}}
+
+
+def require_es_checks(scenarios, standalone=False):
+    """A declared difference needs an ES assertion; ES-only runs need an assertion too."""
+    missing = []
+    for scn in scenarios:
+        for case in scn["cases"]:
+            if standalone and not any(e.get("lang", "all") in ("all", "es") for e in case["expect"]):
+                missing.append(f"{scn['id']}/{case['id']}: ES-only run needs an explicit/applicable expectation")
+            for path in scn["parity"]["differ"]:
+                if not any(e.get("lang") == "es" and
+                           (e["obs"] == path or e["obs"].startswith(path + ".")) for e in case["expect"]):
+                    missing.append(f"{scn['id']}/{case['id']}: [parity.differ.{path}] needs an explicit ES check")
+    if missing:
+        raise ScenarioError("\n".join(missing))
 
 
 def scenario_verdict(runs, par):
@@ -765,12 +821,47 @@ def table_op(h, step, tag):
     if step["op"] == "dexcapture":
         import emu_dex
         from PIL import Image
-        emu_dex.open_dex_list(h)
-        shots = Path(h.out) / f"dex_{tag}"
-        done, errors = emu_dex.capture_entries(h, step["first"], step["last"], shots)
-        return {"captured": done, "errors": errors,
-                "digests": {p.stem: hashlib.sha256(Image.open(p).convert("RGB").tobytes()).hexdigest()
-                            for p in sorted(shots.glob("*.png"))}}
+        old_templates, old_cache = emu_dex.TEMPLATES, emu_dex._T
+        emu_dex.TEMPLATES = Path(h.out) / "dex_digit_templates.json"
+        emu_dex._T = None
+        category_id = step.get("category_id")
+        observed_category_ids = []
+        trace_installed = False
+        try:
+            if category_id is not None:
+                import emu_textfit
+                h.check_code({emu_textfit.READ_INTO: emu_textfit.CODE_SIGS[emu_textfit.READ_INTO]})
+                def trace_category(h):
+                    md = h.reg.r0
+                    if h.u16(md + 4) == 27 and h.u16(md + 6) == 803:
+                        observed_category_ids.append(h.reg.r1 & 0xFFFF)
+                h.on_exec(emu_textfit.READ_INTO, trace_category, exclusive=True)
+                trace_installed = True
+            emu_dex.open_dex_list(h)
+            shots = Path(h.out) / f"dex_{tag}"
+            done, errors = emu_dex.capture_entries(h, step["first"], step["last"], shots)
+            result = {"captured": done, "errors": errors,
+                      "digests": {p.stem: hashlib.sha256(Image.open(p).convert("RGB").tobytes()).hexdigest()
+                                  for p in sorted(shots.glob("*.png"))}}
+            if category_id is not None:
+                verified = bool(observed_category_ids) and observed_category_ids[-1] == category_id
+                result.update(observed_category_ids=observed_category_ids, category_read_verified=verified)
+                if not verified:
+                    errors.append({"category_id_expected": category_id,
+                                   "category_id_last_observed": observed_category_ids[-1] if observed_category_ids else None,
+                                   "error": "bank 0803 category read not verified"})
+            if step.get("category_readback"):
+                if result.get("category_read_verified"):
+                    expected = emu_textfit.target_text("a027", 803, category_id, tag)
+                    result["category_rendering"] = emu_textfit.read_dex_category(
+                        shots / f"{step['first']:04d}.png", expected, h.rom, tag)
+                else:
+                    result["category_rendering"] = {"verdict": "incomplete", "reason": "native category ID not verified"}
+            return result
+        finally:
+            if trace_installed:
+                h.on_exec(emu_textfit.READ_INTO, None)
+            emu_dex.TEMPLATES, emu_dex._T = old_templates, old_cache
     raise ValueError(f"unknown table op {step['op']!r}")
 
 
@@ -902,13 +993,18 @@ def add_child_arguments(p):
 def add_arguments(p):
     import emu_harness as E
     p.add_argument("--only", help="comma list of scenario ids (also runs files marked default = false)")
-    p.add_argument("--lang", choices=("cn", "en", "both"), default="both")
+    p.add_argument("--lang", choices=("cn", "en", "es", "both", "all"), default="both",
+                   help="both keeps CN+EN; all runs CN+EN+ES with both CN parity comparisons")
+    p.add_argument("--locales", choices=("en,es", "cn,en,es"),
+                   help="target-only EN+ES or full CN+EN+ES matrix; overrides default --lang both")
     p.add_argument("--jobs", type=int, default=3, help="runs in parallel (each opens one emulator; live emulators "
                    "are capped machine-wide by EMU_HARNESS_MAX_EMULATORS, default 6)")
     p.add_argument("--out", help="new folder for this run (default work/build/harness/scenarios/run-<time>)")
     p.add_argument("--rom-cn", default=str(E.DEF_ROM_CN))
     p.add_argument("--rom-en", default=str(E.DEF_ROM_EN))
+    p.add_argument("--rom-es", help="Spanish ROM, required when Spanish is selected by --lang or --locales")
     p.add_argument("--sav-dir", default=str(E.DEF_SAVES), help="battery saves the scenarios' start.save names")
+    p.add_argument("--sav-dir-es", help="optional Spanish battery-save directory; defaults to --sav-dir")
     p.add_argument("--baselines", default=str(E.DEF_OUT / "baselines" / "scenarios"),
                    help="local values of approved baselines (outside git; `approve` writes them): the changed leaves "
                         "of a baseline that needs approval")
@@ -936,8 +1032,25 @@ def run(a):
     except ScenarioError as e:
         print(f"scenario schema error(s):\n{e}", file=sys.stderr)
         return 2
-    langs = list(LANGS) if a.lang == "both" else [a.lang]
-    roms = {"cn": a.rom_cn, "en": a.rom_en}
+    locales = getattr(a, "locales", None)
+    if locales and a.lang != "both":
+        print("--locales cannot be combined with an explicit --lang selection", file=sys.stderr)
+        return 2
+    langs = list(locales.split(",")) if locales else (
+        list(BASE_LANGS if a.lang == "both" else LANGS) if a.lang in ("both", "all") else [a.lang])
+    roms = {"cn": a.rom_cn, "en": a.rom_en, "es": getattr(a, "rom_es", None)}
+    if "es" in langs and not roms["es"]:
+        print("--rom-es is required when Spanish runs are selected", file=sys.stderr)
+        return 2
+    saves = {lang: a.sav_dir for lang in langs}
+    if "es" in langs and getattr(a, "sav_dir_es", None):
+        saves["es"] = a.sav_dir_es
+    if "es" in langs:
+        try:
+            require_es_checks(scns, standalone="cn" not in langs)
+        except ScenarioError as e:
+            print(f"Spanish scenario schema error(s):\n{e}", file=sys.stderr)
+            return 2
     for lang in langs:
         if not Path(roms[lang]).exists():
             print(f"ROM not found: {roms[lang]}", file=sys.stderr)
@@ -954,7 +1067,7 @@ def run(a):
     def child(scn, case_id, lang, state_in=None, state_out=None, gen_slot=None):
         d = out / scn["id"] / lang / case_id
         args = ["scenario-run", "--file", scn["file"], "--case", case_id, "--lang", lang, "--rom", roms[lang],
-                "--sav-dir", a.sav_dir, "--out", d]
+                "--sav-dir", saves[lang], "--out", d]
         if state_in:
             args += ["--state-in", state_in]
         if state_out:
@@ -965,6 +1078,8 @@ def run(a):
             r = E.run_child(args, timeout=scn["timeout"])
         except Exception as e:      # a crash or a timeout is the run's verdict, with the message
             r = {"case": case_id, "lang": lang, "observations": None, **E.child_error(e)}
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "raw-result.json").write_text(json.dumps(r, ensure_ascii=False, indent=2))
         return scn, case_id, lang, r
 
     with cf.ThreadPoolExecutor(max(1, a.jobs)) as ex:
@@ -1046,8 +1161,10 @@ def summarise(scns, results, langs, rom_ids, out, seconds):
 
 def print_summary(summary):
     for m in summary["mismatches"]:
-        detail = (f"cn={_short(m['cn'])} en={_short(m['en'])}" if "cn" in m else
-                  "; ".join(f"{d['path']}: cn={_short(d['cn'], 60)} en={_short(d['en'], 60)}" for d in m["diff"][:5]))
+        target = "es" if m.get("pair") == "cn/es" else "en"
+        detail = (f"cn={_short(m['cn'])} {target}={_short(m[target])}" if "cn" in m else
+                  "; ".join(f"{d['path']}: cn={_short(d['cn'], 60)} {target}={_short(d[target], 60)}"
+                            for d in m["diff"][:5]))
         print(f"MISMATCH {m['scenario']}/{m['case']} {m['obs']}: {detail}")
     for e in summary["failed_expectations"]:
         print(f"FAILED   {e['scenario']}/{e['case']}/{e['lang']} {e['obs']} {e['check']} {_short(e['want'], 60)}: "

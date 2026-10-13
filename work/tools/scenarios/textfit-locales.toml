@@ -1,0 +1,21 @@
+id = "textfit-locales"
+description = "Native field glyph readback in each selected locale, including multi-page placeholders"
+default = false
+refs = ["a027/0060#27"]
+steps = [{ observe = "dialogue", text_fit = "60#27" }]
+
+[start]
+save = "full_bag_6mons.sav"
+clock = "2026-10-09T12:00:00"
+
+[[expect]]
+obs = "dialogue.verdict"
+equals = "pass"
+
+[[expect]]
+obs = "dialogue.codes"
+equals = []
+
+[parity]
+# Translations may need different numbers of pages; each locale judges its own expected pages.
+fields = { dialogue = ["verdict", "codes"] }

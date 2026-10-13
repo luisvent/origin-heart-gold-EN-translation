@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "怎么处理胶囊？",
-   "en": "What would you like to do?",
+   "en": "What will you do with the Capsule?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0011/8"
+   "origin": "agent",
+   "notes": "US 0011/8 | CES-early: omission: retain Capsule object"
   },
   {
    "id": 9,

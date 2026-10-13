@@ -222,9 +222,9 @@
   {
    "id": 27,
    "zh": "这是我最珍贵的精灵,{NEWLINE}只给你一个人看。",
-   "en": "My Pokémon are my treasures.{NEWLINE}I’ll let you see them. Just you.",
+   "en": "This is my most precious Pokémon.{NEWLINE}I’ll show it only to you.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/27"
   },
   {
@@ -326,7 +326,7 @@
   {
    "id": 40,
    "zh": "这个精灵也是老爸{NEWLINE}花钱给我买的⋯⋯{SCROLL}",
-   "en": "My father’s money bought me these{NEWLINE}Pokémon, too...{SCROLL}",
+   "en": "My father bought me this Pokémon,{NEWLINE}too...{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0724/40 | RV083: omission: dropped 也 and trailing ⋯⋯"
@@ -630,9 +630,9 @@
   {
    "id": 78,
    "zh": "我的精灵是和爸爸{NEWLINE}一起找到的。",
-   "en": "I went and caught my Pokémon with{NEWLINE}my daddy.",
+   "en": "I found my Pokémon together{NEWLINE}with my dad.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/78"
   },
   {
@@ -750,9 +750,9 @@
   {
    "id": 93,
    "zh": "我为心爱的ｂａｂｙ们歌唱,{NEWLINE}为了ｂａｂｙ们,我要战斗！",
-   "en": "This is going out to all the ladies.{NEWLINE}Babes, I sing and battle for you!",
+   "en": "I sing for my beloved babes!{NEWLINE}I fight for my babes!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/93"
   },
   {
@@ -846,7 +846,7 @@
   {
    "id": 105,
    "zh": "竟然能和我ｂａｔｔｌｅ,{NEWLINE}你真是ｈａｐｐｙ的ｋｉｄ啊",
-   "en": "Getting to battle me? You’re such a{NEWLINE}happy kid!",
+   "en": "Getting to battle me?{NEWLINE}You’re such a happy kid!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -2486,9 +2486,9 @@
   {
    "id": 310,
    "zh": "我还要继续旋转齿轮,{NEWLINE}直到追上你的那一天⋯⋯{SCROLL}",
-   "en": "I will shift my gears higher and higher{NEWLINE}until I catch up to you...{SCROLL}",
+   "en": "I’ll keep turning my gears until{NEWLINE}the day I catch up to you...{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/310"
   },
   {
@@ -2718,7 +2718,7 @@
   {
    "id": 339,
    "zh": "可爱的训练师！{NEWLINE}我要让你千~疮~百~孔~",
-   "en": "Cute little Trainer!{NEWLINE}I’ll rip you to shreds!",
+   "en": "Cute little Trainer!{NEWLINE}I’ll leave you ri~ddled~with~holes~!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -2838,9 +2838,9 @@
   {
    "id": 354,
    "zh": "就让我来教育教育{NEWLINE}你和你的精灵吧。",
-   "en": "You and your Pokémon could use an{NEWLINE}obedience lesson from me.",
+   "en": "Let me teach you and your Pokémon{NEWLINE}a thing or two.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/354"
   },
   {
@@ -2934,9 +2934,9 @@
   {
    "id": 366,
    "zh": "虽然也能使用超能力,{NEWLINE}硬要我选的话,还是喜欢魔术。",
-   "en": "I can use psychic power, but I prefer{NEWLINE}ordinary sleight-of-hand magic tricks.",
+   "en": "I can use psychic power, but if I{NEWLINE}had to choose, I prefer magic.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/366"
   },
   {
@@ -3366,7 +3366,7 @@
   {
    "id": 420,
    "zh": "你这家伙！别发呆！！{NEWLINE}让我来教育你！",
-   "en": "You there! Stop spacing out!! Let me{NEWLINE}whip you into shape!",
+   "en": "You there! Stop spacing out!{NEWLINE}Let me teach you!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -3422,9 +3422,9 @@
   {
    "id": 427,
    "zh": "啊⋯⋯舒爽⋯⋯{NEWLINE}太棒了⋯⋯{SCROLL}",
-   "en": "Oh, yeah... That’s it...{NEWLINE}Perfection doesn’t come better...{SCROLL}",
+   "en": "Ah... That feels so good...{NEWLINE}Wonderful...{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/427"
   },
   {
@@ -4374,9 +4374,9 @@
   {
    "id": 546,
    "zh": "我今天已经累了,{NEWLINE}可以明天再来么？",
-   "en": "Listen, I’m feeling bushed today.{NEWLINE}Can we do this tomorrow first thing?",
+   "en": "Listen, I’m feeling bushed today.{NEWLINE}Can we do this tomorrow?",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/546"
   },
   {
@@ -4502,9 +4502,9 @@
   {
    "id": 562,
    "zh": "不错吧？招式和性格{NEWLINE}都是最棒的。{SCROLL}",
-   "en": "How’s that for classy? My Pokémon are{NEWLINE}tops in both moves and character.{SCROLL}",
+   "en": "How’s that for classy? My Pokémon are{NEWLINE}tops in both moves and Nature.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/562"
   },
   {
@@ -4838,9 +4838,9 @@
   {
    "id": 604,
    "zh": "呼,我赢了,怎么办啊！{NEWLINE}这人会不会发火啊⋯⋯{SCROLL}",
-   "en": "Oh, wow! I won! What’ll I do?{NEWLINE}You’re not mad at me, are you?{SCROLL}",
+   "en": "Oh, wow! I won! What’ll I do?{NEWLINE}Will this person get angry...?{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/604"
   },
   {
@@ -5550,15 +5550,15 @@
   {
    "id": 693,
    "zh": "啊！母亲大地啊！{NEWLINE}请保佑我吧！！",
-   "en": "Mother Nature, I beseech you!{NEWLINE}Please, lend me strength!",
+   "en": "Ah, Mother Earth!{NEWLINE}Please protect me!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/693"
   },
   {
    "id": 694,
    "zh": "噢！母亲大地啊！{NEWLINE}我把这份胜利献给你！{SCROLL}",
-   "en": "Oh! Mother Nature! I dedicate this{NEWLINE}victory to you!{SCROLL}",
+   "en": "Oh, Mother Earth! I dedicate this{NEWLINE}victory to you!{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6246,7 +6246,7 @@
   {
    "id": 780,
    "zh": "今天我要为粉丝们{NEWLINE}线上礼物！",
-   "en": "Today I have a gift for my fans!",
+   "en": "Today I have an online gift{NEWLINE}for my fans!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6606,9 +6606,9 @@
   {
    "id": 825,
    "zh": "啊！等一下！{NEWLINE}来邮件了！",
-   "en": "Oh! Hold on a second!{NEWLINE}Incoming text message!",
+   "en": "Oh! Hold on a second!{NEWLINE}Incoming message!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/825"
   },
   {
@@ -6678,9 +6678,9 @@
   {
    "id": 834,
    "zh": "在我的理论面前,{NEWLINE}你能撑下去么？",
-   "en": "How will you counter my implacable logic?",
+   "en": "Can you hold up against my theory?",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0724/834"
   },
   {
@@ -7518,7 +7518,7 @@
   {
    "id": 939,
    "zh": "那么⋯⋯我们就开始比赛吧。",
-   "en": "Very well... Let us begin.",
+   "en": "Very well... Let us begin the battle.",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0724/939; Darach"

@@ -1577,3 +1577,34 @@ per case the party, the steps, the branch bytes, counters, bounded samples (obje
 pointer, the follower's own pointer) and screenshots; existing reports are not overwritten. One emulator
 per run, about 40 s. Results of 2026-10-08 and the melonDS check still to do:
 [bulbasaur_reflection_fix.md](bulbasaur_reflection_fix.md).
+
+## English and Spanish rendering matrix (2026-10-13)
+
+`textfit` accepts `--locales en,es` and an explicit `--rom-es`. English remains the default. Each target uses its own catalogue, placeholder-name pools, ROM font, glyph readback, ROM SHA-256 and result rows. Missing Spanish inputs are errors; there is no English-text fallback. `--sav-es` can select a separate compatible Spanish battery save. The existing save and engine-signature checks still apply.
+
+```sh
+.venv/bin/python work/tools/emu_harness.py textfit \
+  --locales en,es --rom-en /path/to/english.nds --rom-es /path/to/spanish.nds \
+  --sav /path/to/full_bag_6mons.sav \
+  --refs 'a027/0060#27,battle_string/0002#32' \
+  --require-complete --jobs 1 --save all \
+  --out work/build/harness/textfit/en-es-smoke
+```
+
+`--require-complete` fails the run if any selected reference is unsupported, empty or not rendered, including references omitted by `--limit` sampling. Without it, a successful supported subset can coexist with `coverage_complete=false`; never interpret that as full selection coverage. All-unsupported or empty runs cannot pass. The general text-fit windows remain field and battle. In field tests the ROM's stored message is read and compared with the current catalogue; battle tests insert the expanded catalogue text into the native battle printer. A battle pass proves candidate rendering, not that the tested ROM contains that candidate. No test builds or updates a ROM.
+
+`scenarios --locales en,es` runs target-only checks; `--locales cn,en,es` adds independent CN/EN and CN/ES parity. Legacy `--lang both` still means CN+EN; `--lang all` means all three. `--sav-dir-es` is available for separate Spanish fixtures. A scenario that declares text differences must supply explicit Spanish assertions. Spanish baseline digests are separate from English, and an absent or changed ES baseline cannot pass. Existing English baseline workflow is preserved. No baseline was approved by this change.
+
+```sh
+.venv/bin/python work/tools/emu_harness.py scenarios \
+  --only textfit-locales,dex-capacity --locales en,es \
+  --rom-en /path/to/english.nds --rom-es /path/to/spanish.nds \
+  --sav-dir /path/to/save-fixtures --jobs 1 \
+  --out work/build/harness/scenarios/en-es-rendering
+```
+
+Both new scenarios are opt-in (`default=false`). `textfit-locales` asserts native field glyph readback. `dex-capacity` checks a fitting control and two D-2464 candidates. Its `dexcapture` step accepts `category_id` for a single displayed Dex number, traces native bank-0803 reads, and requires the final read to match that catalogue ID. Displayed Dex numbers are not interchangeable with catalogue IDs: the local ROM's displayed No.0596 is Vullaby, using category #629, not #596 Galvantula.
+
+With `category_readback=true`, a verified category read is followed by exact glyph comparison in the native top-screen category panel. The observed local EN/ES layouts use x=120, y=40, 127 visible columns; EN uses font 4 and ES font 0. Foreground/shadow pixels are read against the selected ROM's font. Wrong text, unknown glyphs, clipping, wrong native ID or missing evidence fail rather than inheriting English character limits. A different ROM font/layout must be validated independently. Digit templates are learned separately for each scenario run, not shared across locales.
+
+The category readback result and whole-panel baseline are different checks. An unapproved Spanish baseline still makes the scenario fail/pending even when the category ID and glyph checks pass. These representative tests do not verify all 145 category findings, the 480 name findings, other UI consumers, AI routing, or fork-specific move mechanics. All AI extension/candidate `compile_ready` flags remain false.

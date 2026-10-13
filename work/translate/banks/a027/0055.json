@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "原来如此,原来如此！{SCROLL}一切都是因为你和铃声吧！",
-   "en": "I see, I see! So it was all because of{NEWLINE}you and the ringing of the bell!",
+   "en": "I see, I see!{SCROLL}So it was all because of you and the{NEWLINE}ringing of the bell!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0057/5 | RV040: omission: US line dropped 原来如此 twice, 一切, 铃声"
+   "notes": "US 0057/5 | RV040: omission: US line dropped 原来如此 twice, 一切, 铃声 | CES-early: layout: restore deliberate source paragraph break"
   },
   {
    "id": 6,
@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "小松『铃铛塔是确认人类和精灵{CLEAR}羁绊的地方。{SCROLL}你可能天生具有那种素质……{SCROLL}能和我互换一下电话号码吗？{SCROLL}我想多看看你和精灵{NEWLINE}之间的羁绊。{VAR:0200:0}",
-   "en": "Morty: The Bell Tower is a place where{NEWLINE}the bond between people and Pokémon{CLEAR}is confirmed.{SCROLL}You may have been born with that{NEWLINE}quality... Can we exchange numbers?{SCROLL}I’d like to see more of the bond{NEWLINE}between you and your Pokémon. {VAR:0200:0}",
+   "en": "Morty: The Bell Tower is a place where{NEWLINE}the bond between people and Pokémon{CLEAR}is confirmed.{SCROLL}You may have been born with that{NEWLINE}quality...{SCROLL}Can we exchange numbers?{SCROLL}I’d like to see more of the bond{NEWLINE}between you and your Pokémon. {VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0057/7 | RV040: meaning: 确认…羁绊 = confirming the bond; 那种素质 = that quality"
+   "notes": "US 0057/7 | RV040: meaning: 确认…羁绊 = confirming the bond; 那种素质 = that quality | CES-early: layout: restore source separate question paragraph"
   },
   {
    "id": 8,
@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "小松『能在周二的晚上{NEWLINE}给我打电话吗？{SCROLL}那时候我可以再和你比试。",
-   "en": "Morty: Could you give me a call on{NEWLINE}Tuesday nights?{CLEAR}I can battle you again then.",
+   "en": "Morty: Could you give me a call on{NEWLINE}Tuesday nights?{SCROLL}I can battle you again then.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0057/9 [D-2064 meaning-review-30: independently LLM-reviewed source-faithful correction; not human-approved.] | RV040: grammar: zh is a request with a question (能…吗？); kept D-2064 content"
+   "notes": "US 0057/9 [D-2064 meaning-review-30: independently LLM-reviewed source-faithful correction; not human-approved.] | RV040: grammar: zh is a request with a question (能…吗？); kept D-2064 content | CES-early: layout: restore source paragraph break"
   },
   {
    "id": 10,

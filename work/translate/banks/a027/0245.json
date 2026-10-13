@@ -30,15 +30,15 @@
   {
    "id": 3,
    "zh": "因为队长{VAR:0101:0}{NEWLINE}离开了,因此队伍解散了。",
-   "en": "The leader, {VAR:0101:0}, has left.{NEWLINE}This group will be disbanded.",
+   "en": "The leader, {VAR:0101:0}, left.{NEWLINE}The group disbanded.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0252/3"
   },
   {
    "id": 4,
    "zh": "若放弃队长职位队伍就会自动解散{NEWLINE}确定要放弃吗？",
-   "en": "If the leader leaves, the group will{NEWLINE}disband. Is that OK?",
+   "en": "If you give up being leader, the{NEWLINE}group disbands. Are you sure?",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -46,17 +46,17 @@
   {
    "id": 5,
    "zh": "队员都走掉了,{NEWLINE}因此队伍解散。",
-   "en": "There are no members.{NEWLINE}The group will be disbanded.",
+   "en": "There are no members.{NEWLINE}The group disbanded.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0252/5"
   },
   {
    "id": 6,
    "zh": "放弃了画画。",
-   "en": "The drawing session was ended.",
+   "en": "You gave up drawing.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0252/6"
   },
   {
@@ -78,9 +78,9 @@
   {
    "id": 9,
    "zh": "来画训练师签名吧！",
-   "en": "Sign your autograph!",
+   "en": "Draw your Trainer signature!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0252/9"
   },
   {

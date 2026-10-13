@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "你的精灵⋯⋯{NEWLINE}好可爱好漂亮！{CLEAR}你也一定非常喜欢精灵吧。{SCROLL}对了！要是你乐意的话,{NEWLINE}我们交换一下电话号码吧？{SCROLL}平时多交流交流吧,{NEWLINE}肯定很有意思的。{VAR:0200:0}",
-   "en": "Your Pokémon is so cute and adorable!{NEWLINE}You love Pokémon just like I do!{SCROLL}Want to trade phone numbers?{NEWLINE}Let’s chat! It’ll be so much fun!{VAR:0200:0}",
+   "en": "Your Pokémon is cute and beautiful!{SCROLL}You must love Pokémon too!{SCROLL}Want to swap phone numbers?{SCROLL}We could chat more. It’d be fun!{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0690/1"
+   "origin": "agent",
+   "notes": "US 0690/1 | SOL-C: CN says cute and beautiful; restored beauty and invitation nuance."
   },
   {
    "id": 2,

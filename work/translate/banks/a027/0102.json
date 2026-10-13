@@ -46,18 +46,18 @@
   {
    "id": 5,
    "zh": "……你很年轻啊{SCROLL}……　……　……{NEWLINE}……　……　……{SCROLL}……好！{NEWLINE}我也可能会鼓起勇气{CLEAR}进行挑战！{SCROLL}",
-   "en": "...You look quite young.{SCROLL}...{NEWLINE}...{SCROLL}I will pull myself together and{NEWLINE}challenge the Battle Frontier...{CLEAR}Maybe!{SCROLL}",
+   "en": "...You look quite young.{SCROLL}... ... ...{NEWLINE}... ... ...{SCROLL}...All right! Maybe I too will work up{NEWLINE}the courage to take the challenge!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0104/5"
+   "origin": "agent",
+   "notes": "US 0104/5 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 6,
    "zh": "我也可能会鼓起勇气{NEWLINE}去战斗前线{CLEAR}进行挑战！{SCROLL}……　……　……{NEWLINE}也有可能不去！{SCROLL}",
-   "en": "I will pull myself together and{NEWLINE}challenge the Battle Frontier!{SCROLL}...{NEWLINE}Or I might not!{SCROLL}",
+   "en": "Maybe I too will work up the courage to{NEWLINE}challenge the Battle Frontier!{SCROLL}... ... ...{NEWLINE}Or maybe I won’t!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0104/6"
+   "origin": "agent",
+   "notes": "US 0104/6 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "这里是战斗前线{SCROLL}召集！全国的高手们{NEWLINE}勇夺第一！",
-   "en": "This Is the Battle Frontier{SCROLL}Come, Proud Trainers{NEWLINE}Aim for the Top!",
+   "en": "This Is the Battle Frontier{SCROLL}Calling the Nation’s Finest! Aim for{NEWLINE}First Place!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0104/9"
+   "origin": "agent",
+   "notes": "US 0104/9 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 10,
@@ -246,10 +246,10 @@
   {
    "id": 30,
    "zh": "光郎『冠军大人,如您所见。{NEWLINE}战斗前线是我们这一群人的心血结晶,{CLEAR}每个人都为之沉迷和自豪,{CLEAR}我们也希望您能在这里{CLEAR}找到不一样的对战乐趣。{SCROLL}光郎『今天的营业已经开始了,{NEWLINE}我们现在要回到各自的设施主持比赛,{CLEAR}期待能在战斗前线向您挑战学习。",
-   "en": "Palmer: As you can see, Champion,{NEWLINE}the Battle Frontier is the fruit{CLEAR}of all our hard work. Every one of{CLEAR}us is hooked on it and proud of it.{SCROLL}We hope you’ll find a different{NEWLINE}kind of battling fun here.{SCROLL}Palmer: We’re open for today,{NEWLINE}so we’re heading back to run our own{CLEAR}facilities. We look forward to learning{CLEAR}from you at the Battle Frontier.",
+   "en": "Palmer: As you can see, Champion, the{NEWLINE}Battle Frontier is the fruit of all our{CLEAR}hard work. Every one of us is hooked on{CLEAR}it and proud of it.{SCROLL}We hope you’ll find a different kind of{NEWLINE}battling fun here.{SCROLL}Palmer: We’re open for today, so we’re{NEWLINE}heading back to run our own facilities.{CLEAR}We look forward to challenging you and{CLEAR}learning from you at the{CLEAR}Battle Frontier.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 31,
@@ -270,10 +270,10 @@
   {
    "id": 33,
    "zh": "嘉德丽雅『请您务必让我见识一下{NEWLINE}连娜姿小姐都佩服的超强意志力。",
-   "en": "Caitlin: Please, let me see{NEWLINE}the tremendous willpower{CLEAR}that even Sabrina admires.",
+   "en": "Caitlin: Please, let me see the{NEWLINE}tremendous willpower that even Miss{CLEAR}Sabrina admires.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 34,
@@ -358,10 +358,10 @@
   {
    "id": 44,
    "zh": "哇哇哇哇！这……石头变成了精灵！{NEWLINE}这也太不可思议了！{CLEAR}这到底是什么精灵啊？",
-   "en": "Whoa whoa whoa! Th-the stone turned{NEWLINE}into a Pokémon! That’s incredible!{CLEAR}What kind of Pokémon is it?",
+   "en": "Whoa whoa whoa whoa! Th-the stone{NEWLINE}turned into a Pokémon! That’s{CLEAR}incredible! What kind of Pokémon is it?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 45,
@@ -438,10 +438,10 @@
   {
    "id": 54,
    "zh": "奇怪,你怎么没反应啊？",
-   "en": "Huh? Why isn’t anything happening?",
+   "en": "Huh? Why aren’t you responding?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 55,

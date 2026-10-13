@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "前面会出现的精灵{NEWLINE}会与29号路有点不同。{SCROLL}要想收集不同的精灵{NEWLINE}就要到不同的地方寻找哦！",
-   "en": "The Pokémon up ahead differ a little{NEWLINE}from those on Route 29.{SCROLL}If you want to catch them all,{NEWLINE}you have to look everywhere.",
-   "status": "reviewed",
+   "en": "The Pokémon up ahead differ a little{NEWLINE}from those on Route 29.{SCROLL}To collect different Pokémon, look in{NEWLINE}different places!",
+   "status": "draft",
    "origin": "agent",
-   "notes": "US 0374/1"
+   "notes": "US 0374/1 | AGENT-0321-0380: Restore slight difference from Route29 and finding different species, not catch-all embellishment."
   }
  ]
 }

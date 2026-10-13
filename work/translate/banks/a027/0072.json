@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "小银『根据我收集的情报,{NEWLINE}阿鲁夫遗迹应该封印着一只{CLEAR}传说中的超强精灵。{CLEAR}要是能得到这样一只精灵,{CLEAR}可比100只弱鸡精灵强多了……",
-   "en": "Silver: According to the intel I’ve{NEWLINE}gathered, a legendary, super-strong{CLEAR}Pokémon is sealed in the Ruins of Alph.{CLEAR}Getting a Pokémon like that would{CLEAR}beat having 100 weakling Pokémon...",
+   "en": "Silver: According to the intel I’ve{NEWLINE}gathered, a legendary, super-strong{CLEAR}Pokémon should be sealed in the{CLEAR}Ruins of Alph. Getting one like that{CLEAR}would beat having 100{CLEAR}weakling Pokémon...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 5,

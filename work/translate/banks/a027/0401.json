@@ -65,10 +65,10 @@
   {
    "id": 7,
    "zh": "跟我没关系,别找我",
-   "en": "Not my problem",
+   "en": "Not my problem. Don’t ask me.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: restore details and expressive phrasing",
    "category": "menu_touch_1line"
   },
   {

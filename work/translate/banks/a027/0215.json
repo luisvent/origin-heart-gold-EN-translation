@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "火焰舞台",
-   "en": "Fiery",
+   "en": "Fiery Stage",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0218/4"
+   "origin": "agent",
+   "notes": "US 0218/4 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 5,
@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "影院",
-   "en": "Theater",
+   "en": "Cinema",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0218/17"
+   "origin": "agent",
+   "notes": "US 0218/17 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   }
  ]
 }

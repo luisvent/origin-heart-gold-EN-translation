@@ -6,9 +6,9 @@
   {
    "id": 0,
    "zh": "电车没来啊！{SCROLL}这样的话,我就得{NEWLINE}自己背客人啦……{SCROLL}这个,办不到啊。",
-   "en": "The train hasn’t come in...{SCROLL}I know! I’ll carry the passengers on{NEWLINE}my back!{SCROLL}That won’t work.",
+   "en": "The train hasn’t come!{SCROLL}Then I’ll have to carry the passengers{NEWLINE}on my back...{SCROLL}No, I can’t do that.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0587/0"
   },
   {

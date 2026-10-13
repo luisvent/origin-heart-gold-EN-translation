@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "哇哇！真的是胖丁呢！{NEWLINE}这样一来我的壶壶就能顺利入睡{CLEAR}酿出好喝的树果汁了。{SCROLL}真不知道该怎么感谢你才好,{NEWLINE}这是我酿树果汁用的一些树果,{CLEAR}送给你吧。{SCROLL}",
-   "en": "Wow! It really is a Jigglypuff!{SCROLL}Now my Shuckle can fall asleep and brew{NEWLINE}some tasty Berry juice.{SCROLL}I don’t know how to thank you. Here are{NEWLINE}some of the Berries I use for my juice.{CLEAR}Please take them.{SCROLL}",
+   "en": "Wow, wow! It really is a Jigglypuff!{SCROLL}Now my Shuckle can fall asleep and brew{NEWLINE}some tasty Berry juice.{SCROLL}I don’t know how to thank you. Here are{NEWLINE}some of the Berries I use for my juice.{CLEAR}Please take them.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve repeated delighted exclamation."
   },
   {
    "id": 13,
@@ -225,10 +225,10 @@
   {
    "id": 27,
    "zh": "呜呜……嗯……{NEWLINE}谢谢你把真像告诉我,{CLEAR}不然我真的很难鼓起勇气{CLEAR}去直面这个现实。{SCROLL}这个礼物我本来想送给那个女孩的,{NEWLINE}现在留着也没什么用了,{CLEAR}不如就送给你吧。",
-   "en": "*sob*... Mm...{NEWLINE}Thank you for telling me the truth.{SCROLL}Otherwise I could never have worked up{NEWLINE}the courage to face it.{SCROLL}I was going to give this present to{NEWLINE}that girl. It’s no use to me now,{CLEAR}so you can have it.",
+   "en": "*sob* *sob*... Mm... Thank you for{NEWLINE}telling me the truth.{SCROLL}Otherwise I would have really struggled{NEWLINE}to work up the courage to face it.{SCROLL}I was going to give this present to that{NEWLINE}girl. It’s no use to me now, so you can{CLEAR}have it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Great difficulty, not absolute impossibility."
   },
   {
    "id": 28,
@@ -371,18 +371,18 @@
   {
    "id": 45,
    "zh": "{VAR:0103:0}『北边的自然公园里{NEWLINE}确实有一个跟老头约会的女孩,{CLEAR}穿着蓝色上衣红色短裙,{CLEAR}一头长发好像染过。{CLEAR}笑起来脸上会有酒窝,很可爱。{CLEAR}不知道是不是你说的那个女孩。",
-   "en": "{VAR:0103:0}: There really is a girl on a{NEWLINE}date with an old man in the National{CLEAR}Park up north.{SCROLL}She was wearing a blue top and a{NEWLINE}red skirt, and had long hair that{CLEAR}looked dyed.{SCROLL}She gets dimples when she smiles.{NEWLINE}Really cute.{SCROLL}I don’t know if she’s the girl you mean.",
+   "en": "{VAR:0103:0}: There really is a girl on a{NEWLINE}date with an old man in the National{CLEAR}Park up north.{SCROLL}She was wearing a blue top and a short{NEWLINE}red skirt, and had long hair that{CLEAR}looked dyed.{SCROLL}She gets dimples when she smiles.{NEWLINE}Really cute.{SCROLL}I don’t know if she’s the girl you mean.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Retain short skirt detail."
   },
   {
    "id": 46,
    "zh": "那里确实有一个跟老头约会的女孩",
-   "en": "She’s dating an old man",
+   "en": "A girl does date an old man there",
    "status": "draft",
    "origin": "agent",
-   "notes": " | RV039: meaning: 约会 = dating",
+   "notes": " | RV039: meaning: 约会 = dating | AGENT-0321-0380: Restore assertion and location within verified224px font4 single-line touch menu; ES uses complete-meaning noun phrase.",
    "category": "menu_touch_1line"
   },
   {
@@ -445,10 +445,10 @@
   {
    "id": 54,
    "zh": "{VAR:0103:0}『这里交给小松馆主就好,{NEWLINE}我还是先去广播塔找坂木吧。",
-   "en": "{VAR:0103:0}: I’ll leave this to Morty.{NEWLINE}I should go find Giovanni at the{CLEAR}Radio Tower.",
+   "en": "{VAR:0103:0}: I’ll leave this to Gym Leader{NEWLINE}Morty. I should go find Giovanni at the{CLEAR}Radio Tower.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Gym Leader title."
   }
  ]
 }

@@ -278,10 +278,10 @@
   {
    "id": 34,
    "zh": "与朋友的关卡记录不同,{SCROLL}请切断电源后重新选择精灵,{CLEAR}再来挑战吧！",
-   "en": "You and your friend have chosen{NEWLINE}different challenges.{SCROLL}Please turn off the power, select new{NEWLINE}Pokémon, and enter again!",
+   "en": "Your progress record differs from{NEWLINE}your friend’s.{SCROLL}Please turn off the power, select new{NEWLINE}Pokémon, and enter again!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0018/34"
+   "origin": "agent",
+   "notes": "US 0018/34 | CES-early: meaning: stage progress records differ, not chosen challenges"
   }
  ]
 }

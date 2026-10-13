@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "虽然也有只看重天赋素质的{NEWLINE}训练师,{CLEAR}但通过道具或者药物{CLEAR}合理运用,{CLEAR}也能极大地拓展{CLEAR}精灵的才能。",
-   "en": "Some Trainers rely on a Pokémon’s{NEWLINE}potential alone. But you can use items{CLEAR}and medicines to help improve a{CLEAR}Pokémon’s capabilities.",
+   "en": "Some Trainers value only innate{NEWLINE}potential. But using items and medicines{CLEAR}properly can greatly expand a{CLEAR}Pokémon’s capabilities.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0101/0"
+   "origin": "agent",
+   "notes": "US 0101/0 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,

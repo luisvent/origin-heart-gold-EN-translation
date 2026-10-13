@@ -685,7 +685,7 @@
   {
    "id": 84,
    "zh": "我完全被骗了！没想到吉尔露太先生{NEWLINE}居然是火箭队的人。{CLEAR}莉佳姐姐和百合姐姐她们没有事吧？{CLEAR}拜托大哥哥你去找找莉佳姐姐她们吧？",
-   "en": "I was completely fooled!{SCROLL}I never thought Mr. Lawrence was with{NEWLINE}Team Rocket.{SCROLL}Are Sis Erika and Sis Yuri all right?{NEWLINE}Mister, would you please go look for Sis{CLEAR}Erika and the others?",
+   "en": "I was completely fooled!{SCROLL}I never thought Mr. Lawrence was with{NEWLINE}Team Rocket.{SCROLL}Are Sis Erika and Sis Yuri all right?{SCROLL}Big brother, please go look for Sis{NEWLINE}Erika and the others?",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -693,7 +693,7 @@
   {
    "id": 85,
    "zh": "我完全被骗了！没想到吉尔露太先生{NEWLINE}居然是火箭队的人。{CLEAR}莉佳姐姐和百合姐姐她们没有事吧？{CLEAR}拜托大姐姐你去找找莉佳姐姐她们吧？",
-   "en": "I was completely fooled!{SCROLL}I never thought Mr. Lawrence was with{NEWLINE}Team Rocket.{SCROLL}Are Sis Erika and Sis Yuri all right?{NEWLINE}Miss, would you please go look for Sis{CLEAR}Erika and the others?",
+   "en": "I was completely fooled!{SCROLL}I never thought Mr. Lawrence was with{NEWLINE}Team Rocket.{SCROLL}Are Sis Erika and Sis Yuri all right?{SCROLL}Big sister, please go look for Sis{NEWLINE}Erika and the others?",
    "status": "draft",
    "origin": "agent",
    "notes": ""

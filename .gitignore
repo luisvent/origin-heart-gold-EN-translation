@@ -35,6 +35,15 @@
 # the banks now. They hold official Nintendo text, the v3 hack's text and
 # pret constants. The seeding scripts that made them were removed on 2026-10-09 (git history).
 /work/translate/ref/
+# Default and custom locale bank/resource paths stay private; tracked config skeletons are exempt.
+/work/translate/locales/*/**
+!/work/translate/locales/*/locale.json
+!/work/translate/locales/*/glossary.json
+!/work/translate/locales/*/voices.json
+/work/translate/locales/*/banks/
+/work/translate/locales/es/reference/
+/work/translate/locales/es/import-report.json
+/work/translate/locales/*/decisions.jsonl
 /work/translate/us_ref.json
 /work/translate/us_reuse.jsonl
 /work/translate/tm_v3.jsonl

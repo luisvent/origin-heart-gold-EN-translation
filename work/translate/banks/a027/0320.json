@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "听精灵联盟的最近通报说,{NEWLINE}似乎有一个犯罪组织在秘密活动。{SCROLL}秘密组织、惊天阴谋什么的,{NEWLINE}都是媒体在夸大其词吧！",
-   "en": "The Pokémon League’s latest bulletin{NEWLINE}says some criminal organization is{CLEAR}operating in secret.{SCROLL}Secret organizations, earth-shattering{NEWLINE}conspiracies... The media’s just blowing{CLEAR}it all out of proportion, right?",
+   "en": "The Pokémon League’s latest bulletin{NEWLINE}says it seems some criminal organization{CLEAR}is operating in secret.{SCROLL}Secret organizations, earth-shattering{NEWLINE}conspiracies... The media’s just blowing{CLEAR}it all out of proportion, right?",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 2,
@@ -118,10 +118,10 @@
   {
    "id": 14,
    "zh": "{VAR:0101:0}完全忘了{NEWLINE}{VAR:0106:1}的用法！{SCROLL}然后……！",
-   "en": "{VAR:0101:0} forgot all about{NEWLINE}{VAR:0106:1}!{SCROLL}And...!",
+   "en": "{VAR:0101:0} completely forgot how to{NEWLINE}use {VAR:0106:1}!{SCROLL}And then...!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position, flags page_breaks_lost; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl)"
+   "notes": "v3 TM: 1 source(s), same position, flags page_breaks_lost; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl) | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 15,
@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "{VAR:0101:0}想要记住{NEWLINE}新的音速拳……！{SCROLL}但是{VAR:0101:0}{NEWLINE}已经记住4个技能了！{SCROLL}为了学习音速拳{NEWLINE}要让它忘记其他技能吗？{VAR:0200:0}",
-   "en": "{VAR:0101:0} wants to learn Mach{NEWLINE}Punch...!{SCROLL}But {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}Should it forget a move{NEWLINE}to learn Mach Punch?{VAR:0200:0}",
+   "en": "{VAR:0101:0} wants to learn the new{NEWLINE}move Mach Punch...!{SCROLL}But {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}Should it forget a move to learn{NEWLINE}Mach Punch?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 18,

@@ -911,6 +911,20 @@ def check_bank(bank: dict, cfg: dict | None = None, fset_name: str | None = None
             issues.append({"narc": bank["narc"], "bank": bank["bank"], "id": _e["id"], "level": level,
                            "code": code, "msg": msg, "category": cname})
 
+        # Only D-2487's five full display names use separately bounded storage.
+        # All other names, including raw Frontier/player names, retain old limits.
+        import trainer_display
+        display_alias = (bank["narc"] == "a027" and bank["bank"] == 719
+                         and trainer_display.eligible(e["id"], en))
+        storage_text = en
+        if display_alias:
+            try:
+                trainer_display.encoded(en)
+                storage_text = trainer_display.key(e["id"])
+                cat = dict(cat, line_px=224)
+                cat.pop("max_chars", None)
+            except ValueError as ex:
+                add("error", "display_name", str(ex))
         check_misc(zh, en, add)
         check_tags(zh, en, add)
         check_chars(en, cat.get("font", 1), fset, cm_en, add)
@@ -926,7 +940,7 @@ def check_bank(bank: dict, cfg: dict | None = None, fset_name: str | None = None
             if "max_chars" not in cat:
                 check_glossary_names(zh, en, add)
         if cspec is not None:
-            check_name_buffer(e["id"], en, cspec, cm_en, add)
+            check_name_buffer(e["id"], storage_text, cspec, cm_en, add)
         if e.get("zh_changed"):
             add("warning", "zh_changed", "source changed; was %r" % e.get("zh_old"))
     return issues

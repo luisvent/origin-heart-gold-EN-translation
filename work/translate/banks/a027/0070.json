@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "嗯？{NEWLINE}那是精灵图鉴！{CLEAR}能给我看看吗？{SCROLL}哦~{NEWLINE}有好多精灵了啊。{SCROLL}什么！{SCROLL}这个精灵是？{SCROLL}很像遗迹的墙上画着的{NEWLINE}神秘图案……{SCROLL}如果那个图案是精灵的话{NEWLINE}那应该还有更多的……{SCROLL}好！我把你的图鉴升级一下吧！{CLEAR}跟我来！{SCROLL}",
-   "en": "Hm? That’s a Pokédex, isn’t it?{NEWLINE}May I see it?{SCROLL}There are so many kinds of Pokémon.{NEWLINE}Hm? What’s this?{SCROLL}What is this Pokémon?{NEWLINE}It looks like the strange writing on the{CLEAR}walls of the ruins.{SCROLL}If those drawings are really Pokémon,{NEWLINE}there should be many more.{SCROLL}I know! Let me upgrade your Pokédex.{NEWLINE}Follow me.{SCROLL}",
+   "en": "Hm? That’s a Pokédex! May I see it?{SCROLL}Oh! You’ve got lots of Pokémon in it.{SCROLL}What?!{SCROLL}What is this Pokémon?{SCROLL}It looks like the mysterious drawings on{NEWLINE}the walls of the ruins...{SCROLL}If those drawings are Pokémon, there{NEWLINE}should be many more...{SCROLL}Right! Let me upgrade your Pokédex!{NEWLINE}Follow me!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0072/0"
+   "origin": "agent",
+   "notes": "US 0072/0 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,
@@ -22,26 +22,26 @@
   {
    "id": 2,
    "zh": "啊呀,对不起对不起！{NEWLINE}我老是慌里慌张…！{CLEAR}对不起了,{CLEAR}你没受伤吧？{SCROLL}",
-   "en": "Are you OK?{NEWLINE}I was in a hurry and...{CLEAR}Sorry, did I hurt you?{SCROLL}",
+   "en": "Oh, sorry, sorry! I’m always in such a{NEWLINE}fluster...! Sorry, you’re not hurt,{CLEAR}are you?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0072/2"
+   "origin": "agent",
+   "notes": "US 0072/2 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 3,
    "zh": "什、什么？{NEWLINE}那精灵是……！{SCROLL}从神奥地区来的{NEWLINE}名叫阿尔宙斯的精灵…！？{SCROLL}",
-   "en": "No way!{NEWLINE}Could it be a Pokémon from Sinnoh...{CLEAR}The one they call Arceus...?{SCROLL}",
+   "en": "W-what? That Pokémon is...!{SCROLL}The Pokémon from Sinnoh called{NEWLINE}Arceus...?!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0072/3; modernised from US 0072#3"
+   "origin": "agent",
+   "notes": "US 0072/3; modernised from US 0072#3 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 4,
    "zh": "原来如此吗,{NEWLINE}就是因为阿尔宙斯…{SCROLL}虽然不知道是为什么,{NEWLINE}但也只能这么认为了…{SCROLL}",
-   "en": "Oh, could it be...?{NEWLINE}Arceus causing all this...?{SCROLL}I cannot explain it any other way...{SCROLL}",
+   "en": "So that’s it? It’s because of Arceus...{SCROLL}Though I don’t know why, that’s the{NEWLINE}only explanation I can think of...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0072/4; modernised from US 0072#4"
+   "origin": "agent",
+   "notes": "US 0072/4; modernised from US 0072#4 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 5,
@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "这里是阿鲁夫遗迹,{SCROLL}对这个遗迹进行探险,{NEWLINE}力争成为化石博士吧！",
-   "en": "Ruins of Alph. Explore the ruins and{NEWLINE}strive to become a fossil professor!",
+   "en": "Ruins of Alph.{SCROLL}Explore the ruins and strive to become{NEWLINE}a fossil professor!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0072/8 | RV031: meaning: 力争 ‘strive’, not ‘feel free’"
+   "notes": "US 0072/8 | RV031: meaning: 力争 ‘strive’, not ‘feel free’ | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 9,
@@ -118,10 +118,10 @@
   {
    "id": 14,
    "zh": "水晶『嗯？有女孩走丢了？{SCROLL}水晶『我在阿鲁夫遗迹{NEWLINE}逛了有一会儿了,{CLEAR}但是并没有看到这样的女孩。{CLEAR}不过既然是只有6岁的小孩子,{CLEAR}应该不会走太远吧,{CLEAR}前辈再在遗迹的各个石室里{CLEAR}找找看怎么样？",
-   "en": "Crystal: Huh? A girl’s gone missing?{SCROLL}Crystal: I’ve been exploring{NEWLINE}the Ruins of Alph for a while, but I{CLEAR}haven’t seen a girl like that. Still,{CLEAR}if she’s only 6, she can’t have{CLEAR}gone far. Why don’t you search{CLEAR}each of the ruins’ chambers again?",
+   "en": "Crystal: Huh? A girl’s gone missing?{SCROLL}Crystal: I’ve been exploring the Ruins{NEWLINE}of Alph for a while, but I haven’t seen{CLEAR}a girl like that. Still, if she’s only 6,{CLEAR}she probably hasn’t gone far. Why don’t{CLEAR}you search each of the ruins’{CLEAR}chambers again?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 15,

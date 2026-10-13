@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "进行保存",
-   "en": "Progress save",
+   "en": "Save",
    "status": "draft",
    "origin": "agent",
-   "notes": "debug/unused (debug menu)"
+   "notes": "debug/unused (debug menu) | CES-early: meaning: 进行保存 perform save, not progress noun"
   },
   {
    "id": 6,

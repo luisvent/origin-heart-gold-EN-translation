@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "请想一句对战前的话吧。",
-   "en": "Your feeling at the battle’s start?",
+   "en": "Think of a phrase to say before battle.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: meaning: requested words before battle, not feelings at its start"
   },
   {
    "id": 2,
@@ -54,18 +54,18 @@
   {
    "id": 6,
    "zh": "确定这样吗？",
-   "en": "Is this your answer?",
+   "en": "Is this OK?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0283/6"
+   "origin": "agent",
+   "notes": "US 0283/6 | CES-early: meaning: confirms phrasing, not necessarily an answer"
   },
   {
    "id": 7,
    "zh": "请输入些话！",
-   "en": "Please enter a phrase or word.",
+   "en": "Please enter a phrase or word!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0283/7"
+   "origin": "agent",
+   "notes": "US 0283/7 | CES-early: voice: source exclamation"
   },
   {
    "id": 8,

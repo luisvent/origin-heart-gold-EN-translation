@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "触摸下面的画面吧！{VAR:0200:0}",
-   "en": "Please touch the bottom screen.{VAR:0200:0}",
+   "en": "Please touch the bottom screen!{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0214/0"
+   "origin": "agent",
+   "notes": "US 0214/0 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,
@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "操作上面的画面吧！{VAR:0200:2}",
-   "en": "Please operate the top screen.{VAR:0200:2}",
+   "en": "Please operate the top screen!{VAR:0200:2}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0214/2"
+   "origin": "agent",
+   "notes": "US 0214/2 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 3,

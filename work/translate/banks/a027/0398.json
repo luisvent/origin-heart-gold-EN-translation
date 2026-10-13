@@ -47,7 +47,7 @@
   {
    "id": 5,
    "zh": "那哥哥你有参加过石英大会吗？",
-   "en": "So have you ever been in the{NEWLINE}Indigo Conference, mister?",
+   "en": "So have you ever been in the{NEWLINE}Indigo Conference, big brother?",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -71,7 +71,7 @@
   {
    "id": 8,
    "zh": "我的零用钱都快花光了,{NEWLINE}我打电话问我爸妈要点零用钱来,{CLEAR}大哥哥你稍等一等哈。",
-   "en": "I’ve spent almost all my allowance.{NEWLINE}I’ll call my mom and dad and ask{CLEAR}for more. Just wait a sec, mister.",
+   "en": "I’ve spent almost all my allowance.{NEWLINE}I’ll call my mom and dad and ask{CLEAR}for more. Just wait a sec, big brother.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -130,10 +130,10 @@
   {
    "id": 15,
    "zh": "我对你的经历很感兴趣",
-   "en": "Tell me your Badge story",
+   "en": "Your experience interests me",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | root-full-comparison-0398: Restore stated interest instead of command; verify menu width.",
    "category": "menu_touch_1line"
   },
   {
@@ -256,10 +256,10 @@
   {
    "id": 30,
    "zh": "是吧是吧,只要是去过的人{NEWLINE}都会有这种经历的。",
-   "en": "Right? Anyone who’s been there{NEWLINE}has had that happen.",
+   "en": "Right? Right? Anyone who’s been there{NEWLINE}has had that happen.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore repeated affirmation-seeking question."
   },
   {
    "id": 31,
@@ -288,18 +288,18 @@
   {
    "id": 34,
    "zh": "是吧是吧,只要是去过的人{NEWLINE}都会有这种感受的。",
-   "en": "Right? Anyone who’s been there{NEWLINE}feels the same way.",
+   "en": "Right? Right? Anyone who’s been there{NEWLINE}feels the same way.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore repeated affirmation-seeking question."
   },
   {
    "id": 35,
    "zh": "{VAR:0103:0}『阿四馆主的{NEWLINE}格斗系精灵非常强大,{CLEAR}你当时是怎么取胜的呢？",
-   "en": "{VAR:0103:0}: Chuck’s Fighting-type Pokémon{NEWLINE}are really strong. How did you beat him?",
+   "en": "{VAR:0103:0}: Gym Leader Chuck’s{NEWLINE}Fighting-type Pokémon are really{CLEAR}strong. How did you beat him?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore Gym Leader title."
   },
   {
    "id": 36,
@@ -328,10 +328,10 @@
   {
    "id": 39,
    "zh": "{VAR:0103:0}『你觉得蜜柑馆主{NEWLINE}是个什么样的人呢？",
-   "en": "{VAR:0103:0}: What do you{NEWLINE}think Jasmine is like?",
+   "en": "{VAR:0103:0}: What do you think Gym Leader{NEWLINE}Jasmine is like?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore Gym Leader title."
   },
   {
    "id": 40,
@@ -360,10 +360,10 @@
   {
    "id": 43,
    "zh": "{VAR:0103:0}『蜜柑馆主虽然使用钢系精灵,{NEWLINE}但她本人可是很温柔善良的。{CLEAR}你说的那些大概是根据{CLEAR}「钢系精灵使用者」这个概念{CLEAR}自己联想的吧？{CLEAR}你根本就没有见过蜜柑馆主,{CLEAR}更不可能从她那赢得钢铁徽章。{CLEAR}你的徽章大概是从烟墨市的{CLEAR}某个训练家那偷来的吧？",
-   "en": "{VAR:0103:0}: Jasmine uses{NEWLINE}Steel-type Pokémon, but she’s{CLEAR}actually very gentle and kind.{SCROLL}You probably made all that up{NEWLINE}from the idea of a Steel-type user.{CLEAR}You’ve never even met Jasmine, let{CLEAR}alone won the Mineral Badge from her.{SCROLL}You stole your Badges from some{NEWLINE}Trainer in Blackthorn City, didn’t you?",
+   "en": "{VAR:0103:0}: Gym Leader Jasmine uses{NEWLINE}Steel-type Pokémon, but she’s actually{CLEAR}very gentle and kind.{SCROLL}You probably made all that up from the{NEWLINE}idea of a Steel-type user. You’ve never{CLEAR}even met Gym Leader Jasmine, let alone{CLEAR}won the Mineral Badge from her.{SCROLL}You probably stole your Badges from{NEWLINE}some Trainer in Blackthorn City,{CLEAR}didn’t you?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore repeated Gym Leader title and probable theft accusation."
   },
   {
    "id": 44,
@@ -392,10 +392,10 @@
   {
    "id": 47,
    "zh": "{VAR:0103:0}『就你这样的实力,{NEWLINE}别说8枚徽章了,{CLEAR}恐怕赢取1枚徽章都难吧。",
-   "en": "{VAR:0103:0}: With skills like yours, forget{NEWLINE}8 Badges. I doubt you could win even 1.",
+   "en": "{VAR:0103:0}: With skills like yours, forget 8{NEWLINE}Badges. You’d probably struggle to{CLEAR}earn even 1.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore likely difficulty, not inability."
   },
   {
    "id": 48,
@@ -432,15 +432,15 @@
   {
    "id": 52,
    "zh": "前面这位哥哥很厉害哦,{NEWLINE}他可是拥有8枚徽章的高级训练家！",
-   "en": "This guy’s really strong! He’s{NEWLINE}a Senior Trainer with 8 Badges!",
+   "en": "The older boy up ahead is really{NEWLINE}strong! He’s a Senior Trainer{CLEAR}with 8 Badges!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore explicit person ahead."
   },
   {
    "id": 53,
    "zh": "原来那个黄头发的大哥哥{NEWLINE}是个骗子啊,{CLEAR}好险啊,零用钱差点就被骗走了。",
-   "en": "So that blond guy was a con{NEWLINE}artist! That was close. He nearly{CLEAR}conned me out of my allowance.",
+   "en": "So that older blond boy was a con{NEWLINE}artist! That was close. He nearly{CLEAR}conned me out of my allowance.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -448,7 +448,7 @@
   {
    "id": 54,
    "zh": "我要跟这个大哥哥学习精灵对战,{NEWLINE}成为高级训练家！{CLEAR}只是……我的零用钱花完了,{CLEAR}也不知道爸妈能不能再给我点。",
-   "en": "I’m going to learn Pokémon battling{NEWLINE}from this guy and become a Senior{CLEAR}Trainer! It’s just... I’ve spent{CLEAR}all my allowance, and I don’t know{CLEAR}if Mom and Dad will give me any more.",
+   "en": "I’m going to learn Pokémon battling{NEWLINE}from this older boy and become a Senior{CLEAR}Trainer! It’s just... I’ve spent{CLEAR}all my allowance, and I don’t know{CLEAR}if Mom and Dad will give me any more.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -563,10 +563,10 @@
   {
    "id": 68,
    "zh": "因为这一带人迹罕至,{NEWLINE}所以我在这里收养了很多{CLEAR}受到重伤无法自愈的野生精灵。{SCROLL}我目前正在为精灵们{NEWLINE}采集美味的野果,{CLEAR}而我的快龙正在河对岸{CLEAR}照看那些精灵。",
-   "en": "Hardly anyone comes around here,{NEWLINE}so I take in wild Pokémon that are{CLEAR}too badly hurt to heal on their own.{SCROLL}Right now I’m gathering tasty wild{NEWLINE}fruit for them, while my Dragonite{CLEAR}looks after them across the river.",
+   "en": "Hardly anyone comes around here, so{NEWLINE}I’ve taken in many wild Pokémon that{CLEAR}are too badly hurt to heal on their own.{SCROLL}Right now I’m gathering tasty wild fruit{NEWLINE}for them, while my Dragonite looks after{CLEAR}them across the river.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore many and established sheltering action."
   },
   {
    "id": 69,
@@ -651,10 +651,10 @@
   {
    "id": 79,
    "zh": "啊哟喂！疼死我了！{NEWLINE}这快龙怎么这么暴躁！",
-   "en": "Ow-ow-ow! That hurts like crazy!{NEWLINE}Why is this Dragonite so vicious?!",
+   "en": "Ow-ow-ow! That hurts like crazy! Why is{NEWLINE}this Dragonite so hot-tempered?!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore volatility rather than malice."
   },
   {
    "id": 80,
@@ -683,10 +683,10 @@
   {
    "id": 83,
    "zh": "你们快跑啊,一会儿快龙发起狂来,{NEWLINE}可能会伤害到你们的！",
-   "en": "Run, you two! When Dragonite goes{NEWLINE}berserk in a moment, it might hurt you!",
+   "en": "Run, all of you! When Dragonite goes{NEWLINE}berserk in a moment, it might hurt you!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Preserve plural without unsupported exact number."
   },
   {
    "id": 84,
@@ -951,10 +951,10 @@
   {
    "id": 116,
    "zh": "好嘞,这是您的东西,请拿好。",
-   "en": "There you go. Here’s your item.",
+   "en": "There you go. Here’s your item. Please{NEWLINE}take it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0398: Restore explicit courteous request to take item."
   },
   {
    "id": 117,

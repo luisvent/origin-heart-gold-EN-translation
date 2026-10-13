@@ -126,9 +126,9 @@
   {
    "id": 15,
    "zh": "阿杏　『唔斯！",
-   "en": "Janine: Bah!",
+   "en": "Janine: Osu!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0497/15"
   },
   {
@@ -174,7 +174,7 @@
   {
    "id": 21,
    "zh": "你说彩虹大厦楼顶{NEWLINE}有人在用素利拍帮人入睡？{CLEAR}嗯,确实可以去试试,{CLEAR}死马当作活马医吧。",
-   "en": "You say someone on the roof of the{NEWLINE}Celadon Condominiums uses a Hypno to{CLEAR}help people sleep?{SCROLL}Hmm, I might as well give it a try.{NEWLINE}Nothing else has worked.",
+   "en": "You say someone on the roof of the{NEWLINE}Celadon Condominiums uses a Hypno to{CLEAR}help people sleep?{SCROLL}Hmm, I might as well give it a try.{NEWLINE}Even if it’s a long shot.",
    "status": "draft",
    "origin": "agent",
    "notes": ""

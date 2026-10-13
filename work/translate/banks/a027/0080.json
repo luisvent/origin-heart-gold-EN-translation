@@ -222,10 +222,10 @@
   {
    "id": 27,
    "zh": "炎帝『Eeen……{SCROLL}炎帝『我……竟然……输了……",
-   "en": "Entei: Eeen...{SCROLL}Entei: I... have... lost...",
+   "en": "Entei: Eeen...{SCROLL}Entei: I... actually... lost...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 28,
@@ -430,18 +430,18 @@
   {
    "id": 53,
    "zh": "{VAR:0103:0}『跟超梦的攻击比起来,{NEWLINE}这个还好啦。",
-   "en": "{VAR:0103:0}: Compared to Mewtwo’s{NEWLINE}attacks, that was nothing.",
+   "en": "{VAR:0103:0}: Compared to Mewtwo’s{NEWLINE}attacks, that wasn’t too bad.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 54,
    "zh": "炎帝『Eeen——tei！{SCROLL}炎帝『你……很难对付……{NEWLINE}绝对不能放过！",
-   "en": "Entei: Eeen-tei!{SCROLL}Entei: You... are troublesome...{NEWLINE}I cannot let you go!",
+   "en": "Entei: Eeen-tei!{SCROLL}Entei: You... are hard to deal with... I{NEWLINE}cannot let you go!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 55,
@@ -854,10 +854,10 @@
   {
    "id": 106,
    "zh": "小美『叔叔,小美回来了。{NEWLINE}我偷偷跑出去这么长时间{CLEAR}都没有提前告诉你,{CLEAR}真是对不起！",
-   "en": "Molly: I’m back, mister. I’m{NEWLINE}really sorry I snuck off for{CLEAR}so long without telling you!",
+   "en": "Molly: Molly’s back, mister. I’m really{NEWLINE}sorry I snuck off for so long without{CLEAR}telling you!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 107,

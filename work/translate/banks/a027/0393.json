@@ -258,10 +258,10 @@
   {
    "id": 31,
    "zh": "你们说的道理我都懂,我都懂……{SCROLL}如果上天非要安排六尾{NEWLINE}代替小火龙活在这个世界上,{CLEAR}也就只能这样了……",
-   "en": "I understand what you’re saying. I do,{NEWLINE}I do...{SCROLL}If heaven insists that Vulpix go on{NEWLINE}living in this world in Charmander’s{CLEAR}place, then I suppose that’s how it has{CLEAR}to be...",
+   "en": "I understand everything you’re all{NEWLINE}saying. I understand...{SCROLL}If heaven insists that Vulpix go on{NEWLINE}living in this world in Charmander’s{CLEAR}place, then I suppose that’s how it has{CLEAR}to be...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0393: Restore plural addressees and exact twofold understand repetition."
   },
   {
    "id": 32,
@@ -298,10 +298,10 @@
   {
    "id": 36,
    "zh": "啊,好！好的！",
-   "en": "Ah, yes! I will!",
+   "en": "Ah, yes! Yes!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0393: Restore deliberate repeated yes."
   },
   {
    "id": 37,
@@ -442,10 +442,10 @@
   {
    "id": 54,
    "zh": "其实道理我都懂,我都懂……{NEWLINE}我就是不能接受,{CLEAR}为什么偏偏是我的小火龙……{CLEAR}为什么……",
-   "en": "I know. I understand, I do... I just{NEWLINE}can’t accept it. Why did it have to be{CLEAR}my Charmander... Why...",
+   "en": "I do understand it all. I understand...{NEWLINE}I just can’t accept it. Why did it have{CLEAR}to be my Charmander... Why...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0393: Restore twofold understanding and explicit actually emphasis."
   },
   {
    "id": 55,
@@ -474,10 +474,10 @@
   {
    "id": 58,
    "zh": "我啊……就是个无能的主人,{NEWLINE}不仅没能保护好小火龙,{CLEAR}还想要伤害其他人和精灵,{CLEAR}是我太冲动了。",
-   "en": "Me... I’m just a useless owner. Not only{NEWLINE}did I fail to protect Charmander, I{CLEAR}wanted to hurt other people and{CLEAR}Pokémon too. I was too rash.",
+   "en": "Me... I’m just an incompetent owner.{NEWLINE}Not only did I fail to protect{CLEAR}Charmander, I wanted to hurt other{CLEAR}people and Pokémon too. I was too rash.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0393: Restore inability/competence rather than general worthlessness."
   },
   {
    "id": 59,
@@ -516,10 +516,10 @@
   {
    "id": 63,
    "zh": "谢谢你愿意帮忙。{NEWLINE}那个救生员就在三之岛东侧的海域,{CLEAR}他最亲密的精灵是一只乘龙,{CLEAR}你帮我解决那只乘龙就好了。",
-   "en": "Thank you for helping. That lifeguard is{NEWLINE}in the waters east of Three Island. His{CLEAR}closest Pokémon is a Lapras. Just take{CLEAR}care of that Lapras for me.",
+   "en": "Thank you for being willing to help. That{NEWLINE}lifeguard is in the waters east of Three{CLEAR}Island. His closest Pokémon is a Lapras.{CLEAR}Just take care of that Lapras for me.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0393: Restore willingness."
   },
   {
    "id": 64,
@@ -636,10 +636,10 @@
   {
    "id": 78,
    "zh": "{VAR:0103:0}『这只精灵是……？{NEWLINE}我好想没怎么见过啊。",
-   "en": "{VAR:0103:0}: What is this Pokémon...? I{NEWLINE}don’t think I’ve ever seen one.",
+   "en": "{VAR:0103:0}: What is this Pokémon...? I{NEWLINE}don’t think I’ve seen one much before.",
    "status": "draft",
    "origin": "agent",
-   "notes": "zh 好想 read as 好像."
+   "notes": "zh 好想 read as 好像. | root-full-comparison-0393: Restore limited familiarity rather than absolute never."
   },
   {
    "id": 79,
@@ -684,10 +684,10 @@
   {
    "id": 84,
    "zh": "做什么？{NEWLINE}玛纳菲可是我们发财的金钥匙。{CLEAR}今天既然遇到了,我就必须弄到手。",
-   "en": "What do we want? Manaphy is our golden{NEWLINE}key to riches. Now that we’ve run into{CLEAR}it, I’ve gotta have it.",
+   "en": "What do we want? Manaphy is our golden{NEWLINE}key to riches. Now that we’ve run into{CLEAR}it today, I’ve gotta have it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0393: Restore explicit today."
   },
   {
    "id": 85,
@@ -886,10 +886,10 @@
   {
    "id": 109,
    "zh": "{VAR:0103:0}『这个很简单,{NEWLINE}只要你带着蛋到处走一走,{CLEAR}它就会孵化了。",
-   "en": "{VAR:0103:0}: That’s easy. Just carry the{NEWLINE}Egg around with you, and it’ll hatch.",
+   "en": "{VAR:0103:0}: That’s easy. Just walk around{NEWLINE}with the Egg, and it’ll hatch.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0393: Restore explicit walking as hatching instruction."
   },
   {
    "id": 110,
@@ -1041,10 +1041,10 @@
   {
    "id": 128,
    "zh": "好的,愉快的饭后运动,{NEWLINE}现在开始！",
-   "en": "All right! Some fun after-dinner{NEWLINE}exercise, starting now!",
+   "en": "All right! Some fun after-meal exercise,{NEWLINE}starting now!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0393: Remove unsupported dinner time; source just after eating."
   },
   {
    "id": 129,
@@ -1081,10 +1081,10 @@
   {
    "id": 133,
    "zh": "哇,您是联盟冠军{VAR:0103:0}大人吧！{NEWLINE}我是您的忠实粉丝,{CLEAR}真高兴能在这里见到您。{CLEAR}我一直以来有个愿望{CLEAR}就是能与自己的偶像交交手。{CLEAR}不知道您能满足我的这个小小愿望吗？",
-   "en": "Wow, you’re League Champion {VAR:0103:0}!{NEWLINE}I’m your biggest fan. I’m so happy to{CLEAR}meet you here. I’ve always dreamed of{CLEAR}battling my idol. Could you grant me this{CLEAR}little wish?",
+   "en": "Wow, you’re League Champion {VAR:0103:0}!{NEWLINE}I’m a devoted fan of yours. I’m so{CLEAR}happy to meet you here. I’ve always{CLEAR}dreamed of battling my idol. Could you{CLEAR}grant me this little wish?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0393: Restore faithful fan, not invented superlative."
   },
   {
    "id": 134,
@@ -1129,10 +1129,10 @@
   {
    "id": 139,
    "zh": "研钵山里面很容易迷路,{CLEAR}要注意啊！",
-   "en": "Mt. Mortar is like a maze inside.{CLEAR}Be careful. Don’t get lost in there.",
+   "en": "It’s easy to get lost inside Mt. Mortar.{CLEAR}Be careful!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0400/0"
+   "origin": "agent",
+   "notes": "US 0400/0 | root-full-comparison-0393: Restore direct warning without invented maze metaphor and preserve source pause."
   },
   {
    "id": 140,

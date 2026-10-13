@@ -636,7 +636,7 @@
   {
    "id": 75,
    "zh": "什么？邀请我再去参加试炼？{SCROLL}真是不好意思,{NEWLINE}我现在已经信心全无了,{CLEAR}一听到试炼两个字我就想吐,{CLEAR}你还是另请高明吧。",
-   "en": "What? You want me to try the trial{NEWLINE}again?{SCROLL}Sorry, but I’ve lost all my confidence.{CLEAR}Just hearing the word ‘trial’ makes me{NEWLINE}feel sick.{CLEAR}You’d better find someone else.",
+   "en": "What? You want me to{NEWLINE}try the trial again?{SCROLL}Sorry, but I’ve lost all confidence.{NEWLINE}Just hearing the word “trial” makes{CLEAR}me want to throw up.{CLEAR}You’d better ask someone else.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -700,7 +700,7 @@
   {
    "id": 83,
    "zh": "再出海几次之后,{NEWLINE}我和帝王拿波就要退休了。{CLEAR}虽然很舍不得这片大海,{CLEAR}但年龄和身体已经不允许我{CLEAR}再像年轻时那样在海上乘风破浪了。",
-   "en": "A few more voyages, and then Empoleon{NEWLINE}and I will retire.{CLEAR}I’ll miss this sea terribly.{CLEAR}But at my age, I just can’t brave the{CLEAR}waves the way I used to.",
+   "en": "After a few more voyages, Empoleon{NEWLINE}and I will retire.{CLEAR}I’ll miss this sea terribly.{CLEAR}But my age and health won’t let me{CLEAR}ride the waves as I did in my youth.",
    "status": "draft",
    "origin": "agent",
    "notes": ""

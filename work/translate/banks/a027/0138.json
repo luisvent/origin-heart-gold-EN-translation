@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "这个前面是{NEWLINE}单人用的５条线路,{CLEAR}只有各项都取得胜利的{CLEAR}非常优秀的口袋竞技员{CLEAR}才能进去。",
-   "en": "Only the Pokéathletes who have{NEWLINE}come in first in five of the courses{CLEAR}are allowed here.",
+   "en": "Only outstanding Pokéathletes who have{NEWLINE}won all five single-player courses are{CLEAR}allowed ahead.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0140/1"
+   "origin": "agent",
+   "notes": "US 0140/1 | CES005-0127-0138-0139: Restore all five and single-player qualifier."
   },
   {
    "id": 2,

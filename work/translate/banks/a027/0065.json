@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "达马兰奇『你们两人都在卡吉镇{NEWLINE}与火箭队直接战斗过了,{CLEAR}所以应该能够意识到{CLEAR}这股邪恶的力量依然强大,{CLEAR}并且还躲在暗处蠢蠢欲动。{SCROLL}达马兰奇『为了对藏匿的火箭队{NEWLINE}进行武力震慑,{CLEAR}为了应对火箭队未来可能的威胁,{CLEAR}也为了向地区的民众{CLEAR}展示我们精灵联盟训练家的实力{CLEAR}并选拔更多优秀的训练家。{CLEAR}我决定将今年的石英大会{CLEAR}改在白银山举行,{CLEAR}并将今年的大会命名为「白银大会」。",
-   "en": "Goodshow: You two have both fought{NEWLINE}Team Rocket directly in Mahogany Town.{SCROLL}So you must realize that this evil force{NEWLINE}is still powerful, and still lurking in the{CLEAR}shadows, waiting to strike.{SCROLL}Goodshow: To deter the Team Rocket{NEWLINE}members in hiding and prepare for any{CLEAR}future threat from them...{SCROLL}...and to show the people of the{NEWLINE}region the strength of Pokémon League{CLEAR}Trainers and select more{CLEAR}outstanding Trainers...{SCROLL}...I have decided to hold this year’s{NEWLINE}Indigo Conference on Mt. Silver and to{CLEAR}name it the Silver Conference.",
+   "en": "Goodshow: You two have both fought{NEWLINE}Team Rocket directly in Mahogany Town.{SCROLL}So you must realize that this evil force{NEWLINE}is still powerful, and still lurking in the{CLEAR}shadows, waiting to strike.{SCROLL}Goodshow: To deter the Team Rocket{NEWLINE}members in hiding with a show of force{CLEAR}and prepare for any future threat{CLEAR}from them...{SCROLL}...and to show the people of the region{NEWLINE}the strength of Pokémon League{CLEAR}Trainers and select more{CLEAR}outstanding Trainers...{SCROLL}...I have decided to hold this year’s{NEWLINE}Indigo Conference on Mt. Silver and to{CLEAR}name it the Silver Conference.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 5,

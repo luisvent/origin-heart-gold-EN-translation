@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "欢迎来到ＷｉーＦｉ广场！{SCROLL}为到来的客人们{NEWLINE}准备了触控玩具的出租！{SCROLL}",
-   "en": "Welcome to the Wi-Fi Plaza!{SCROLL}Every guest is loaned a Tap Toy.{NEWLINE}Here’s yours!{SCROLL}",
+   "en": "Welcome to the Wi-Fi Plaza!{SCROLL}Every guest is loaned a Tap Toy.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0777/0"
+   "origin": "agent",
+   "notes": "US 0777/0 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 1,
@@ -150,10 +150,10 @@
   {
    "id": 18,
    "zh": "ＷｉーＦｉ广场的入口{NEWLINE}附近的地球仪{CLEAR}被称为游客指示图。{SCROLL}游客指示图会告诉您{NEWLINE}来到ＷｉーＦｉ广场游玩的{CLEAR}朋友们的居住地{CLEAR}和那边的大致时间。{CLEAR}这些您都能知道！{SCROLL}请检查按下按键后{NEWLINE}出来的控制板和{CLEAR}不时飞出来的气球！{SCROLL}",
-   "en": "There is a giant globe located near the{NEWLINE}entrance of the Wi-Fi Plaza.{SCROLL}The globe, named Visitor Profiles,{NEWLINE}shows the locations and the local times{CLEAR}of visitors to the Wi-Fi Plaza.{SCROLL}To see the visitors, check the panel{NEWLINE}that appears by pressing the A Button.{SCROLL}You should also check the balloons that{NEWLINE}occasionally float by.{SCROLL}",
+   "en": "There is a globe located near the{NEWLINE}entrance of the Wi-Fi Plaza.{SCROLL}The globe, named Visitor Profiles, shows{NEWLINE}the locations and the approximate{CLEAR}local times of visitors{CLEAR}to the Wi-Fi Plaza.{SCROLL}To see the visitors, check the panel{NEWLINE}that appears by pressing the A Button.{SCROLL}You should also check the balloons that{NEWLINE}occasionally float by.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0777/18"
+   "origin": "agent",
+   "notes": "US 0777/18 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 19,
@@ -222,10 +222,10 @@
   {
    "id": 27,
    "zh": "ＷｉーＦｉ广场的时间{NEWLINE}进入后半的话,{CLEAR}周围就会变黑,{CLEAR}照明会改变。{SCROLL}那个时候请享受不同的气氛！{SCROLL}",
-   "en": "When your remaining visiting time drops{NEWLINE}below half, the spotlights in the{CLEAR}Wi-Fi Plaza are turned on.{SCROLL}We hope you will enjoy the different{NEWLINE}atmosphere it creates.{SCROLL}",
+   "en": "When the Wi-Fi Plaza’s visiting time{NEWLINE}enters its second half, the{CLEAR}surroundings grow dark and the{CLEAR}lighting changes.{SCROLL}Please enjoy the different atmosphere!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0777/27"
+   "origin": "agent",
+   "notes": "US 0777/27 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 28,
@@ -606,10 +606,10 @@
   {
    "id": 75,
    "zh": "欢迎来到ＷｉーＦｉ广场！{SCROLL}我现在推荐的是{NEWLINE}和朋友们聊天！{SCROLL}开始可能有点害羞{NEWLINE}您可能不知道　聊各种话题啊{CLEAR}还能交换触控玩具{CLEAR}是很快乐的哟！{SCROLL}",
-   "en": "Hi, welcome to the Wi-Fi Plaza!{SCROLL}Do you want to know what I recommend?{NEWLINE}Chatting with friends!{SCROLL}It might seem a little intimidating,{NEWLINE}but don’t be scared!{SCROLL}You can not only chat, you can also{NEWLINE}trade Tap Toys, too.{SCROLL}Don’t be shy!{NEWLINE}It’s a lot of fun!{SCROLL}",
+   "en": "Welcome to the Wi-Fi Plaza!{SCROLL}What I recommend now is chatting with{NEWLINE}friends!{SCROLL}You may feel a little shy at first. You{NEWLINE}might not know this, but you can chat{CLEAR}about all sorts of things and trade Tap{CLEAR}Toys too. It’s lots of fun!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0777/75"
+   "origin": "agent",
+   "notes": "US 0777/75 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 76,
@@ -638,10 +638,10 @@
   {
    "id": 79,
    "zh": "欢迎来到ＷｉーＦｉ广场！{SCROLL}我现在推荐的是{NEWLINE}广场游客调查哟！{SCROLL}是一个了解ＷｉーＦｉ广场里{NEWLINE}大家的情况的机会！{SCROLL}广场游客调查的接待{NEWLINE}持续到照明开始的时候！{CLEAR}请不要忘记　挑战试试哦！{SCROLL}",
-   "en": "Hi, welcome to the Wi-Fi Plaza!{SCROLL}Do you want to know what I recommend?{NEWLINE}A Plaza Survey!{SCROLL}It’s an opportunity to get to know{NEWLINE}about the visitors to the Wi-Fi Plaza.{SCROLL}You can have your say in a survey until{NEWLINE}the spotlights are turned on.{SCROLL}Don’t forget to get your voice heard in{NEWLINE}the Trainer community!{SCROLL}",
+   "en": "Hi, welcome to the Wi-Fi Plaza!{SCROLL}Do you want to know what I recommend?{NEWLINE}A Plaza Survey!{SCROLL}It’s an opportunity to get to know{NEWLINE}about the visitors to the Wi-Fi Plaza.{SCROLL}You can have your say in a survey until{NEWLINE}the spotlights are turned on.{SCROLL}Don’t forget to give it a try!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0777/79"
+   "origin": "agent",
+   "notes": "US 0777/79 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 80,
@@ -702,10 +702,10 @@
   {
    "id": 87,
    "zh": "能来参加广场游客调查{NEWLINE}非常感谢！{SCROLL}结果在照明开始时间左右,{SCROLL}到精灵游行结束之前{NEWLINE}可以查看！{SCROLL}请一定来看看！{SCROLL}",
-   "en": "Thank you for participating in our Plaza{NEWLINE}Survey.{SCROLL}The results will be available when the{NEWLINE}spotlights are turned on in the Plaza.{SCROLL}Afterward, the results can be viewed{NEWLINE}until the end of the Pokémon Parade.{SCROLL}Be sure to come back and see the{NEWLINE}results!{SCROLL}",
+   "en": "Thank you for participating in our Plaza{NEWLINE}Survey.{SCROLL}The results will be available around{NEWLINE}when the spotlights are turned on in{CLEAR}the Plaza.{SCROLL}Afterward, the results can be viewed{NEWLINE}until the end of the Pokémon Parade.{SCROLL}Be sure to come back and see the{NEWLINE}results!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0777/87"
+   "origin": "agent",
+   "notes": "US 0777/87 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 88,
@@ -790,18 +790,18 @@
   {
    "id": 98,
    "zh": "结果在{NEWLINE}照明开始时间左右{SCROLL}到精灵游行结束之前{NEWLINE}可以查看！{SCROLL}请一定来看看！{SCROLL}",
-   "en": "The results will be available when the{NEWLINE}spotlights are turned on in the Plaza.{SCROLL}Afterward, the results can be viewed{NEWLINE}until the end of the Pokémon Parade.{SCROLL}Be sure to come back and see the{NEWLINE}results!{SCROLL}",
+   "en": "The results will be available around{NEWLINE}when the spotlights are turned on in{CLEAR}the Plaza.{SCROLL}Afterward, the results can be viewed{NEWLINE}until the end of the Pokémon Parade.{SCROLL}Be sure to come back and see the{NEWLINE}results!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0777/98"
+   "origin": "agent",
+   "notes": "US 0777/98 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 99,
    "zh": "参加特别广场游客调查{CLEAR}非常感谢！{SCROLL}结果在{NEWLINE}照明开始时间左右,{SCROLL}到精灵游行结束之前{NEWLINE}可以查看！{SCROLL}请一定来看看！{SCROLL}",
-   "en": "Thank you for participating in our{NEWLINE}Special Plaza Survey.{SCROLL}The results will be available when the{NEWLINE}spotlights are turned on in the Plaza.{SCROLL}Afterward, the results can be viewed{NEWLINE}until the end of the Pokémon Parade.{SCROLL}Be sure to come back and see the{NEWLINE}results!{SCROLL}",
+   "en": "Thank you for participating in our{NEWLINE}Special Plaza Survey.{SCROLL}The results will be available around{NEWLINE}when the spotlights are turned on in{CLEAR}the Plaza.{SCROLL}Afterward, the results can be viewed{NEWLINE}until the end of the Pokémon Parade.{SCROLL}Be sure to come back and see the{NEWLINE}results!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0777/99"
+   "origin": "agent",
+   "notes": "US 0777/99 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 100,

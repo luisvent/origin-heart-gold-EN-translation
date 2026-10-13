@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "用长尾巴或长手{NEWLINE}拍打对方。",
-   "en": "The foe is physically{NEWLINE}pounded with a long{NEWLINE}tail or a foreleg, etc.",
+   "en": "The foe is struck with{NEWLINE}a long tail or arm.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/1"
+   "origin": "agent",
+   "notes": "US 0749/1 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 2,
@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "将对手从两侧夹住。",
-   "en": "Huge, impressive{NEWLINE}pincers grip and{NEWLINE}squeeze the foe.",
+   "en": "The foe is gripped and{NEWLINE}squeezed from both{NEWLINE}sides.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/11"
+   "origin": "agent",
+   "notes": "US 0749/11 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 12,
@@ -126,10 +126,10 @@
   {
    "id": 15,
    "zh": "用刀刃和爪攻击。{NEWLINE}可以切断小树。",
-   "en": "The foe is cut with a{NEWLINE}scythe or a claw. It{NEWLINE}can also be used to{NEWLINE}cut down thin trees.",
+   "en": "The foe is cut with a{NEWLINE}blade or claw. It can{NEWLINE}also cut down small{NEWLINE}trees.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/15"
+   "origin": "agent",
+   "notes": "US 0749/15 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 16,
@@ -398,18 +398,18 @@
   {
    "id": 49,
    "zh": "用吼声攻击对手,{NEWLINE}１００％概率降低{NEWLINE}对手１级特攻。",
-   "en": "The foe is hit with a{NEWLINE}destructive shock{NEWLINE}wave that always{NEWLINE}inflicts 20 HP damage.",
+   "en": "The foe is hit with a{NEWLINE}destructive shock{NEWLINE}wave that always{NEWLINE}inflicts 1 HP damage.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0749/49; retranslated from the hack zh (R002/R003); Slot is Sonic Boom (0739) but the hack's zh describes a Snarl-like effect (yell, 100% Sp. Atk -1); translated the zh. | Hack text error fixed with user approval (D-0816, D-1496)."
+   "notes": "US 0749/49; retranslated from the hack zh (R002/R003); Slot is Sonic Boom (0739) but the hack's zh describes a Snarl-like effect (yell, 100% Sp. Atk -1); translated the zh. | Hack text error fixed with user approval (D-0816, D-1496).; D-2478: specific user approval; native evidence D-2475, successful hits deal 1 HP"
   },
   {
    "id": 50,
    "zh": "封住对方一个技能。",
-   "en": "For several turns,{NEWLINE}this move prevents{NEWLINE}the foe from using the{NEWLINE}move it last used.",
+   "en": "Prevents the foe from{NEWLINE}using one of its{NEWLINE}moves.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/50"
+   "origin": "agent",
+   "notes": "US 0749/50 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 51,
@@ -518,10 +518,10 @@
   {
    "id": 64,
    "zh": "用尖锐的嘴攻击。",
-   "en": "The foe is jabbed with{NEWLINE}a sharply pointed{NEWLINE}beak or horn.",
+   "en": "The foe is attacked{NEWLINE}with a sharp beak.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/64"
+   "origin": "agent",
+   "notes": "US 0749/64 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 65,
@@ -550,18 +550,18 @@
   {
    "id": 68,
    "zh": "将本回合受到的{NEWLINE}物理伤害加倍奉还。",
-   "en": "A retaliation move{NEWLINE}that counters any{NEWLINE}physical attack,{NEWLINE}inflicting double the{NEWLINE}damage taken.",
+   "en": "Returns double the{NEWLINE}damage taken from{NEWLINE}physical attacks this{NEWLINE}turn.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/68"
+   "origin": "agent",
+   "notes": "US 0749/68 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 69,
    "zh": "用力抛开对手。{NEWLINE}造成和自己等级{NEWLINE}相同的伤害。",
-   "en": "The foe is thrown{NEWLINE}using the power of{NEWLINE}gravity. It inflicts{NEWLINE}damage equal to the{NEWLINE}user’s level.",
+   "en": "The foe is thrown{NEWLINE}forcefully. Inflicts{NEWLINE}damage equal to the{NEWLINE}user’s level.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/69"
+   "origin": "agent",
+   "notes": "US 0749/69 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 70,
@@ -806,10 +806,10 @@
   {
    "id": 100,
    "zh": "和野生精灵的战斗{NEWLINE}强制结束。{NEWLINE}也可以去到最后进入{NEWLINE}有精灵中心的城市。",
-   "en": "Use it to flee from{NEWLINE}any wild Pokémon. It{NEWLINE}can also warp to the{NEWLINE}last Pokémon Center{NEWLINE}visited.",
+   "en": "Ends a wild Pokémon{NEWLINE}battle. Also returns{NEWLINE}to the last town{NEWLINE}entered that has a{NEWLINE}Pokémon Center.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/100"
+   "origin": "agent",
+   "notes": "US 0749/100 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 101,
@@ -846,10 +846,10 @@
   {
    "id": 105,
    "zh": "让细胞再生,{NEWLINE}回复一半ＨＰ。",
-   "en": "A self-healing move.{NEWLINE}The user restores its{NEWLINE}own HP by up to half{NEWLINE}of its max HP.",
+   "en": "Regenerates cells to{NEWLINE}restore half the{NEWLINE}user’s HP.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/105"
+   "origin": "agent",
+   "notes": "US 0749/105 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 106,
@@ -918,10 +918,10 @@
   {
    "id": 114,
    "zh": "发出黑色的雾气。{NEWLINE}使全场精灵的{NEWLINE}能力变化返回原样。",
-   "en": "The user creates a{NEWLINE}haze that eliminates{NEWLINE}every stat change{NEWLINE}among all the Pokémon{NEWLINE}engaged in battle.",
+   "en": "Creates a black haze{NEWLINE}that resets all{NEWLINE}Pokémon’s stat{NEWLINE}changes on the field.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/114"
+   "origin": "agent",
+   "notes": "US 0749/114 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 115,
@@ -1014,10 +1014,10 @@
   {
    "id": 126,
    "zh": "用大字火焰灼烧对手。{NEWLINE}对手１０％概率烧伤。",
-   "en": "The foe is hit by an{NEWLINE}intense blast of{NEWLINE}all-consuming fire. It{NEWLINE}has a 10% chance to{NEWLINE}burn the target.",
+   "en": "A flame shaped like{NEWLINE}the Chinese character{NEWLINE}for ‘big’ hits the foe.{NEWLINE}It has a 10% burn{NEWLINE}chance.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0749/126; retranslated from the hack zh (R002/R003)"
+   "notes": "US 0749/126; retranslated from the hack zh (R002/R003) | Source-fidelity followup: 大字火焰 names the flame’s shape; verbalized without a CJK glyph."
   },
   {
    "id": 127,
@@ -1110,10 +1110,10 @@
   {
    "id": 138,
    "zh": "吃掉对方的梦。{NEWLINE}可以恢复伤害{NEWLINE}ＨＰ的一半。",
-   "en": "An attack that works{NEWLINE}only on a sleeping{NEWLINE}foe. It absorbs half{NEWLINE}the damage caused to{NEWLINE}heal the user’s HP.",
+   "en": "Eats the foe’s dream.{NEWLINE}Restores the user’s{NEWLINE}HP by half the damage{NEWLINE}dealt.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/138"
+   "origin": "agent",
+   "notes": "US 0749/138 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 139,
@@ -1198,18 +1198,18 @@
   {
    "id": 149,
    "zh": "用神奇的念波攻击,{NEWLINE}伤害会随机浮动。",
-   "en": "The foe is attacked{NEWLINE}with an odd, hot{NEWLINE}energy wave. The{NEWLINE}attack varies in{NEWLINE}intensity.",
+   "en": "Attacks with a{NEWLINE}strange psychic wave.{NEWLINE}The damage varies{NEWLINE}randomly.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/149"
+   "origin": "agent",
+   "notes": "US 0749/149 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 150,
    "zh": "不攻击只是{NEWLINE}嘭嘭地弹跳。{NEWLINE}什么都不会发生⋯⋯",
-   "en": "The user just flops{NEWLINE}and splashes around{NEWLINE}to no effect at all...",
+   "en": "The user does not{NEWLINE}attack, just bounces{NEWLINE}around. Nothing{NEWLINE}happens...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/150"
+   "origin": "agent",
+   "notes": "US 0749/150 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 151,
@@ -1326,10 +1326,10 @@
   {
    "id": 165,
    "zh": "ＰＰ耗尽时才会出现的{NEWLINE}无需ＰＰ的攻击。{NEWLINE}自己也会受到伤害。",
-   "en": "An attack that is{NEWLINE}used in desperation{NEWLINE}only if the user has{NEWLINE}no PP. It also hurts{NEWLINE}the user slightly.",
+   "en": "Used only when PP{NEWLINE}runs out, this attack{NEWLINE}needs no PP. It also{NEWLINE}damages the user.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/165"
+   "origin": "agent",
+   "notes": "US 0749/165 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 166,
@@ -1390,10 +1390,10 @@
   {
    "id": 173,
    "zh": "自己睡觉的时候{NEWLINE}发出鼾声攻击。{NEWLINE}对手３０％概率害怕。",
-   "en": "An attack usable only{NEWLINE}while the user is{NEWLINE}asleep. It has a 30%{NEWLINE}chance to make the{NEWLINE}foe flinch.",
+   "en": "Attacks by snoring{NEWLINE}while asleep. It has a{NEWLINE}30% chance to make{NEWLINE}the foe flinch.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0749/173; retranslated from the hack zh (R002/R003)"
+   "notes": "US 0749/173; retranslated from the hack zh (R002/R003) | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 174,
@@ -1750,10 +1750,10 @@
   {
    "id": 218,
    "zh": "发泄不满的攻击,{NEWLINE}亲密度越低威力越大。",
-   "en": "A full-power attack{NEWLINE}that grows more{NEWLINE}powerful the less the{NEWLINE}user likes its Trainer.",
+   "en": "An attack that vents{NEWLINE}frustration. The{NEWLINE}lower the friendship,{NEWLINE}the greater its{NEWLINE}power.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/218"
+   "origin": "agent",
+   "notes": "US 0749/218 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 219,
@@ -1814,10 +1814,10 @@
   {
    "id": 226,
    "zh": "可以把特殊状态传递{NEWLINE}给换出来的精灵。",
-   "en": "The user switches{NEWLINE}places with a party{NEWLINE}Pokémon in waiting,{NEWLINE}passing along any{NEWLINE}stat changes.",
+   "en": "The user switches{NEWLINE}places with a party{NEWLINE}Pokémon, passing{NEWLINE}along temporary{NEWLINE}effects.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/226"
+   "origin": "agent",
+   "notes": "US 0749/226 | Source-fidelity followup: 特殊状态 kept broad as temporary effects; does not claim status ailments pass."
   },
   {
    "id": 227,
@@ -1950,10 +1950,10 @@
   {
    "id": 243,
    "zh": "将本回合受到的{NEWLINE}特殊伤害两倍返还。",
-   "en": "A retaliation move{NEWLINE}that counters any{NEWLINE}special attack,{NEWLINE}inflicting double the{NEWLINE}damage taken.",
+   "en": "Returns double the{NEWLINE}damage taken from{NEWLINE}special attacks this{NEWLINE}turn.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/243"
+   "origin": "agent",
+   "notes": "US 0749/243 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 244,
@@ -2142,10 +2142,10 @@
   {
    "id": 267,
    "zh": "用自然之力攻击。{NEWLINE}根据场所的不同{NEWLINE}会变化成{NEWLINE}不同的技能。",
-   "en": "An attack that makes{NEWLINE}use of nature’s{NEWLINE}power. Its effects{NEWLINE}vary depending on the{NEWLINE}user’s environment.",
+   "en": "Attacks with nature’s{NEWLINE}power. The move used{NEWLINE}changes depending on{NEWLINE}the location.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/267"
+   "origin": "agent",
+   "notes": "US 0749/267 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 268,
@@ -2598,10 +2598,10 @@
   {
    "id": 324,
    "zh": "发出神奇的光线,{NEWLINE}对手１０％概率混乱。",
-   "en": "The user attacks with{NEWLINE}a sinister beam of{NEWLINE}light. It has a 10%{NEWLINE}chance to confuse the{NEWLINE}target.",
+   "en": "The user attacks with{NEWLINE}a mysterious beam of{NEWLINE}light. It has a 10%{NEWLINE}chance to confuse the{NEWLINE}target.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0749/324; retranslated from the hack zh (R002/R003)"
+   "notes": "US 0749/324; retranslated from the hack zh (R002/R003) | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 325,
@@ -2766,10 +2766,10 @@
   {
    "id": 345,
    "zh": "撒落施加魔法的{NEWLINE}树叶攻击对手。{NEWLINE}必中技。",
-   "en": "The user scatters{NEWLINE}curious leaves that{NEWLINE}chase the foe. This{NEWLINE}attack will not miss.",
+   "en": "Scatters enchanted{NEWLINE}leaves to attack the{NEWLINE}foe. This attack{NEWLINE}never misses.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/345"
+   "origin": "agent",
+   "notes": "US 0749/345 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 346,
@@ -2886,10 +2886,10 @@
   {
    "id": 360,
    "zh": "旋转身体攻击。{NEWLINE}速度比对手越慢{NEWLINE}威力越高。",
-   "en": "The user tackles the{NEWLINE}foe with a high-speed{NEWLINE}spin. The slower the{NEWLINE}user, the greater the{NEWLINE}damage.",
+   "en": "Spins to attack. The{NEWLINE}slower the user is{NEWLINE}compared with the{NEWLINE}foe, the greater the{NEWLINE}power.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/360"
+   "origin": "agent",
+   "notes": "US 0749/360 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 361,
@@ -3222,10 +3222,10 @@
   {
    "id": 402,
    "zh": "用坚硬的种子攻击。",
-   "en": "The user slams a{NEWLINE}barrage of{NEWLINE}hard-shelled seeds{NEWLINE}down on the foe from{NEWLINE}above.",
+   "en": "The user attacks the{NEWLINE}foe with hard seeds.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/402"
+   "origin": "agent",
+   "notes": "US 0749/402 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 403,
@@ -3310,10 +3310,10 @@
   {
    "id": 413,
    "zh": "挥动翅膀进行{NEWLINE}低空飞行攻击。{NEWLINE}自己也会受伤。",
-   "en": "The user tucks in its{NEWLINE}wings and charges{NEWLINE}from a low altitude.{NEWLINE}The user also takes{NEWLINE}serious damage.",
+   "en": "The user flaps its{NEWLINE}wings and attacks{NEWLINE}from a low altitude.{NEWLINE}The user also takes{NEWLINE}damage.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/413"
+   "origin": "agent",
+   "notes": "US 0749/413 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 414,
@@ -3350,10 +3350,10 @@
   {
    "id": 418,
    "zh": "像子弹般快速{NEWLINE}击出钢铁之拳。{NEWLINE}先制技。",
-   "en": "The user strikes with{NEWLINE}a tough punch as fast{NEWLINE}as a bullet. This move{NEWLINE}always goes first.",
+   "en": "The user strikes with{NEWLINE}a steel fist as fast{NEWLINE}as a bullet. This move{NEWLINE}has priority.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/418"
+   "origin": "agent",
+   "notes": "US 0749/418 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 419,
@@ -3366,10 +3366,10 @@
   {
    "id": 420,
    "zh": "快速地释放出{NEWLINE}冰之碎片攻击。{NEWLINE}先制技。",
-   "en": "The user flash{NEWLINE}freezes chunks of ice{NEWLINE}and hurls them. This{NEWLINE}move always goes{NEWLINE}first.",
+   "en": "The user swiftly{NEWLINE}launches shards of{NEWLINE}ice. This move has{NEWLINE}priority.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/420"
+   "origin": "agent",
+   "notes": "US 0749/420 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 421,
@@ -3478,10 +3478,10 @@
   {
    "id": 434,
    "zh": "召唤陨石攻击。{NEWLINE}使用后自己{NEWLINE}特攻下降２级。",
-   "en": "Comets are summoned{NEWLINE}down from the sky.{NEWLINE}Afterward, the user’s{NEWLINE}Sp. Atk falls by 2{NEWLINE}stages.",
+   "en": "Meteorites are{NEWLINE}summoned to attack.{NEWLINE}The user’s Sp. Atk{NEWLINE}then falls by 2{NEWLINE}stages.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0749/434; retranslated from the hack zh (R002/R003)"
+   "notes": "US 0749/434; retranslated from the hack zh (R002/R003) | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 435,
@@ -3622,10 +3622,10 @@
   {
    "id": 452,
    "zh": "用坚硬的躯体撞击。{NEWLINE}自己也会受伤。",
-   "en": "The user slams its{NEWLINE}rugged body into the{NEWLINE}foe to attack. The{NEWLINE}user also sustains{NEWLINE}serious damage.",
+   "en": "The user slams its{NEWLINE}hard body into the{NEWLINE}foe. The user also{NEWLINE}takes damage.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/452"
+   "origin": "agent",
+   "notes": "US 0749/452 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 453,
@@ -3662,10 +3662,10 @@
   {
    "id": 457,
    "zh": "拼上命的强烈撞击。{NEWLINE}自己也会受伤。",
-   "en": "The user delivers a{NEWLINE}life-endangering{NEWLINE}attack at full power.{NEWLINE}The user also takes{NEWLINE}terrible damage.",
+   "en": "A fierce, life-risking{NEWLINE}charge. The user also{NEWLINE}takes damage.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0749/457"
+   "origin": "agent",
+   "notes": "US 0749/457 | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 458,
@@ -3686,9 +3686,9 @@
   {
    "id": 460,
    "zh": "释放切裂空间{NEWLINE}的巨大能量。{NEWLINE}容易发动会心一击。",
-   "en": "The user tears the{NEWLINE}foe along with the{NEWLINE}space around it. This{NEWLINE}move has a high{NEWLINE}critical-hit ratio.",
+   "en": "The user releases{NEWLINE}enormous energy that{NEWLINE}tears through space.{NEWLINE}This move has a high{NEWLINE}critical-hit ratio.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0749/460"
   },
   {
@@ -4302,10 +4302,10 @@
   {
    "id": 537,
    "zh": "旋转揉成团的身体压{NEWLINE}扁对手。有时会使对{NEWLINE}手畏缩。",
-   "en": "The user rolls its{NEWLINE}balled-up body over{NEWLINE}the foe. It may make{NEWLINE}the foe flinch.",
+   "en": "The user rolls its{NEWLINE}balled-up body over{NEWLINE}the foe to flatten it.{NEWLINE}It may make the foe{NEWLINE}flinch.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 538,
@@ -4974,10 +4974,10 @@
   {
    "id": 621,
    "zh": "用许多手臂，无视对{NEWLINE}手的守住或看穿等招{NEWLINE}式进行连续攻击，自{NEWLINE}己的防御会降低。",
-   "en": "The user strikes with{NEWLINE}many arms, ignoring{NEWLINE}Protect and Detect.{NEWLINE}It lowers the user’s{NEWLINE}Defense.",
+   "en": "Strikes repeatedly{NEWLINE}with many arms,{NEWLINE}ignoring Protect and{NEWLINE}Detect. The user’s{NEWLINE}Defense falls.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 622,
@@ -5006,7 +5006,7 @@
   {
    "id": 625,
    "zh": "通过Ｚ力量制造出能{NEWLINE}量弹，全力撞向对手{NEWLINE}。威力会根据原来的{NEWLINE}招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user makes an energy{NEWLINE}orb and hurls it.{NEWLINE}Power varies with the{NEWLINE}base move.",
+   "en": "With Z-Power, the{NEWLINE}user makes an energy{NEWLINE}orb and hurls it at{NEWLINE}full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5022,7 +5022,7 @@
   {
    "id": 627,
    "zh": "通过Ｚ力量猛烈地飞{NEWLINE}向天空，朝对手全力{NEWLINE}落下。威力会根据原{NEWLINE}来的招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user soars and{NEWLINE}plunges onto the foe.{NEWLINE}Power varies with the{NEWLINE}base move.",
+   "en": "With Z-Power, the{NEWLINE}user soars and{NEWLINE}plunges onto the foe{NEWLINE}at full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5038,7 +5038,7 @@
   {
    "id": 629,
    "zh": "通过Ｚ力量使毒沼涌{NEWLINE}起，全力让对手沉下{NEWLINE}去。威力会根据原来{NEWLINE}的招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user sinks the foe in{NEWLINE}a poison swamp. Power{NEWLINE}varies with the base{NEWLINE}move.",
+   "en": "With Z-Power, the{NEWLINE}user sinks the foe in{NEWLINE}a poison swamp at full{NEWLINE}force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5054,7 +5054,7 @@
   {
    "id": 631,
    "zh": "通过Ｚ力量潜入地里{NEWLINE}最深处，全力撞上对{NEWLINE}手。威力会根据原来{NEWLINE}的招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user burrows deep and{NEWLINE}rams the foe. Power{NEWLINE}varies with the base{NEWLINE}move.",
+   "en": "With Z-Power, the{NEWLINE}user burrows deep and{NEWLINE}rams the foe at full{NEWLINE}force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5070,7 +5070,7 @@
   {
    "id": 633,
    "zh": "通过Ｚ力量召唤大大{NEWLINE}的岩山，全力撞向对{NEWLINE}手。威力会根据原来{NEWLINE}的招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user calls up a huge{NEWLINE}rock mountain to ram{NEWLINE}the foe. Power varies{NEWLINE}with the base move.",
+   "en": "With Z-Power, the{NEWLINE}user calls up a huge{NEWLINE}rock mountain to ram{NEWLINE}the foe at full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": "RV087: omission: zh 全力撞向对手 (rams the foe) was dropped"
@@ -5086,7 +5086,7 @@
   {
    "id": 635,
    "zh": "通过Ｚ力量将吐出的{NEWLINE}丝线全力束缚对手。{NEWLINE}威力会根据原来的招{NEWLINE}式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user binds the foe{NEWLINE}with spun silk. Power{NEWLINE}varies with the base{NEWLINE}move.",
+   "en": "With Z-Power, the{NEWLINE}user binds the foe{NEWLINE}with spun silk at full{NEWLINE}force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5102,7 +5102,7 @@
   {
    "id": 637,
    "zh": "通过Ｚ力量召唤强烈{NEWLINE}的怨念，全力降临到{NEWLINE}对手身上。威力会根{NEWLINE}据原来的招式而改变{NEWLINE}。",
-   "en": "With Z-Power, the{NEWLINE}user brings strong{NEWLINE}grudges down on the{NEWLINE}foe. Power varies with{NEWLINE}the base move.",
+   "en": "With Z-Power, the{NEWLINE}user brings strong{NEWLINE}grudges down on the{NEWLINE}foe at full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5118,7 +5118,7 @@
   {
    "id": 639,
    "zh": "通过Ｚ力量进行高速{NEWLINE}旋转，全力撞上对手{NEWLINE}。威力会根据原来的{NEWLINE}招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user spins fast and{NEWLINE}rams the foe. Power{NEWLINE}varies with the base{NEWLINE}move.",
+   "en": "With Z-Power, the{NEWLINE}user spins fast and{NEWLINE}rams the foe at full{NEWLINE}force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5134,7 +5134,7 @@
   {
    "id": 641,
    "zh": "通过Ｚ力量喷出熊熊{NEWLINE}烈火，全力撞向对手{NEWLINE}。威力会根据原来的{NEWLINE}招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user spews raging{NEWLINE}flames at the foe.{NEWLINE}Power varies with the{NEWLINE}base move.",
+   "en": "With Z-Power, the{NEWLINE}user spews raging{NEWLINE}flames at the foe at{NEWLINE}full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5150,7 +5150,7 @@
   {
    "id": 643,
    "zh": "通过Ｚ力量制造大大{NEWLINE}的潮旋，全力吞没对{NEWLINE}手。威力会根据原来{NEWLINE}的招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user makes a huge{NEWLINE}whirlpool to swallow{NEWLINE}the foe. Power varies{NEWLINE}with the base move.",
+   "en": "With Z-Power, the{NEWLINE}user makes a huge{NEWLINE}whirlpool to swallow{NEWLINE}the foe at full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5166,10 +5166,10 @@
   {
    "id": 645,
    "zh": "通过Ｚ力量借助花草{NEWLINE}的能量，全力攻击对{NEWLINE}手。威力会根据原来{NEWLINE}的招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user attacks with the{NEWLINE}energy of flowers.{NEWLINE}Power varies with the{NEWLINE}base move.",
+   "en": "With Z-Power, attacks{NEWLINE}with the energy of{NEWLINE}flowers and grass at{NEWLINE}full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 646,
@@ -5182,7 +5182,7 @@
   {
    "id": 647,
    "zh": "通过Ｚ力量将蓄积的{NEWLINE}强大电流全力撞向对{NEWLINE}手。威力会根据原来{NEWLINE}的招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user unleashes a{NEWLINE}mighty stored{NEWLINE}current. Power varies{NEWLINE}with the base move.",
+   "en": "With Z-Power, the{NEWLINE}user unleashes a{NEWLINE}mighty stored current{NEWLINE}at full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5198,7 +5198,7 @@
   {
    "id": 649,
    "zh": "通过Ｚ力量操纵对手{NEWLINE}，全力使其感受到痛{NEWLINE}苦。威力会根据原来{NEWLINE}的招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user controls the foe{NEWLINE}and makes it suffer.{NEWLINE}Power varies with the{NEWLINE}base move.",
+   "en": "With Z-Power, the{NEWLINE}user controls the foe{NEWLINE}and makes it suffer at{NEWLINE}full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5214,7 +5214,7 @@
   {
    "id": 651,
    "zh": "通过Ｚ力量急剧降低{NEWLINE}气温，全力冰冻对手{NEWLINE}。威力会根据原来的{NEWLINE}招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user chills the air and{NEWLINE}freezes the foe.{NEWLINE}Power varies with the{NEWLINE}base move.",
+   "en": "With Z-Power, the{NEWLINE}user chills the air and{NEWLINE}freezes the foe at{NEWLINE}full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5230,7 +5230,7 @@
   {
    "id": 653,
    "zh": "通过Ｚ力量将气场实{NEWLINE}体化，向对手全力发{NEWLINE}动袭击。威力会根据{NEWLINE}原来的招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user gives form to its{NEWLINE}aura and strikes the{NEWLINE}foe. Power varies with{NEWLINE}the base move.",
+   "en": "With Z-Power, the{NEWLINE}user gives form to its{NEWLINE}aura and strikes the{NEWLINE}foe at full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": "RV087: grammar: 'gives its aura form to strike' was unclear; zh 将气场实体化，向对手全力发动袭击"
@@ -5246,7 +5246,7 @@
   {
    "id": 655,
    "zh": "通过Ｚ力量收集恶能{NEWLINE}量，全力将对手吸入{NEWLINE}。威力会根据原来的{NEWLINE}招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user gathers dark{NEWLINE}energy and sucks the{NEWLINE}foe in. Power varies{NEWLINE}with the base move.",
+   "en": "With Z-Power, the{NEWLINE}user gathers dark{NEWLINE}energy and sucks the{NEWLINE}foe in at full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5262,7 +5262,7 @@
   {
    "id": 657,
    "zh": "通过Ｚ力量制造魅惑{NEWLINE}空间，全力捉弄对手{NEWLINE}。威力会根据原来的{NEWLINE}招式而改变。",
-   "en": "With Z-Power, the{NEWLINE}user toys with the foe{NEWLINE}in a charming space.{NEWLINE}Power varies with the{NEWLINE}base move.",
+   "en": "With Z-Power, the{NEWLINE}user toys with the foe{NEWLINE}in a charming space at{NEWLINE}full force.{CLEAR}Power varies with the{NEWLINE}base move.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5326,10 +5326,10 @@
   {
    "id": 665,
    "zh": "挥舞强力而沉重的拳头，{NEWLINE}给予对手伤害。{NEWLINE}自己的速度会降低。",
-   "en": "The user swings its{NEWLINE}heavy fist down on the{NEWLINE}foe. It lowers the{NEWLINE}user’s Speed.",
+   "en": "The user swings a{NEWLINE}powerful, heavy fist{NEWLINE}at the foe. It lowers{NEWLINE}the user’s Speed.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 666,
@@ -5342,10 +5342,10 @@
   {
    "id": 667,
    "zh": "使出全身力量，猛攻对手。",
-   "en": "The user fiercely{NEWLINE}attacks the foe using{NEWLINE}its entire body.",
+   "en": "The user fiercely{NEWLINE}attacks the foe with{NEWLINE}all its strength.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 668,
@@ -5574,7 +5574,7 @@
   {
    "id": 696,
    "zh": "通过Ｚ力量得到强壮{NEWLINE}肉体的炽焰咆哮虎将{NEWLINE}全力撞向对手进行攻{NEWLINE}击。",
-   "en": "With Z-Power,{NEWLINE}Incineroar gains a{NEWLINE}mighty body and slams{NEWLINE}into the foe.",
+   "en": "With Z-Power,{NEWLINE}Incineroar gains a{NEWLINE}mighty body and rams{NEWLINE}the foe at full force.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5582,7 +5582,7 @@
   {
    "id": 697,
    "zh": "通过Ｚ力量召唤大量{NEWLINE}水的西狮海壬将全力{NEWLINE}攻击对手。",
-   "en": "With Z-Power,{NEWLINE}Primarina summons a{NEWLINE}mass of water to{NEWLINE}attack the foe.",
+   "en": "With Z-Power,{NEWLINE}Primarina summons a{NEWLINE}mass of water to hit{NEWLINE}the foe at full force.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5590,7 +5590,7 @@
   {
    "id": 698,
    "zh": "通过Ｚ力量得到阿罗{NEWLINE}拉之力的土地神宝可{NEWLINE}梦将全力进行攻击。{NEWLINE}对手的剩余HP会减{NEWLINE}少很多。",
-   "en": "With Z-Power, a{NEWLINE}guardian deity{NEWLINE}attacks with Alola’s{NEWLINE}power. The foe’s HP{NEWLINE}drops greatly.",
+   "en": "With Z-Power, a{NEWLINE}guardian deity{NEWLINE}attacks at full force{NEWLINE}with Alola’s power.{CLEAR}The foe’s HP drops{NEWLINE}greatly.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5614,7 +5614,7 @@
   {
    "id": 701,
    "zh": "通过Ｚ力量使得认真{NEWLINE}起来的卡比兽跃动巨{NEWLINE}大身躯，全力向对手{NEWLINE}发动袭击。",
-   "en": "With Z-Power, a{NEWLINE}serious Snorlax moves{NEWLINE}its huge body and{NEWLINE}attacks the foe.",
+   "en": "With Z-Power, a{NEWLINE}serious Snorlax moves{NEWLINE}its huge body to hit{NEWLINE}the foe at full force.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6270,10 +6270,10 @@
   {
    "id": 783,
    "zh": "用储存在颊囊里的能{NEWLINE}量进行攻击，并提高{NEWLINE}自己的速度。其属性{NEWLINE}会随着莫鲁贝可的样{NEWLINE}子而改变。",
-   "en": "The user attacks with{NEWLINE}energy stored in its{NEWLINE}cheeks, raising its{NEWLINE}Speed. Its type{NEWLINE}changes with its mode.",
+   "en": "Attacks with{NEWLINE}cheek-pouch energy{NEWLINE}and raises Speed. Its{NEWLINE}type changes with{NEWLINE}Morpeko’s form.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 784,
@@ -6350,10 +6350,10 @@
   {
    "id": 793,
    "zh": "装作低头认错的样子，{NEWLINE}用凌乱的头发进行突刺。{NEWLINE}攻击必定会命中。",
-   "en": "The user pretends to{NEWLINE}bow, then stabs with{NEWLINE}its messy hair. It{NEWLINE}never misses.",
+   "en": "The user pretends to{NEWLINE}bow in apology, then{NEWLINE}stabs with its messy{NEWLINE}hair. It never misses.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 794,
@@ -6974,10 +6974,10 @@
   {
    "id": 871,
    "zh": "如唱歌一样喷出熊熊{NEWLINE}燃烧的火焰烧焦对手{NEWLINE}。会提高自己的特攻{NEWLINE}。",
-   "en": "The user blows out{NEWLINE}raging flames as if{NEWLINE}singing. It raises the{NEWLINE}user’s Sp. Atk.",
+   "en": "The user spews raging{NEWLINE}flames as if singing,{NEWLINE}scorching the foe. It{NEWLINE}raises the user’s Sp.{NEWLINE}Atk.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 872,
@@ -7038,10 +7038,10 @@
   {
    "id": 879,
    "zh": "边变形边高速奔走，{NEWLINE}并以未知的电击贯穿{NEWLINE}对手。若针对到弱点{NEWLINE}，威力会进一步。",
-   "en": "The user transforms{NEWLINE}and dashes, zapping{NEWLINE}the foe with a strange{NEWLINE}shock. It is stronger{NEWLINE}if super effective.",
+   "en": "The user transforms{NEWLINE}and dashes, piercing{NEWLINE}the foe with a strange{NEWLINE}shock. Stronger if{NEWLINE}super effective.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 880,
@@ -7246,10 +7246,10 @@
   {
    "id": 905,
    "zh": "第１回合收集电力提{NEWLINE}高特攻，第２回合将{NEWLINE}高压的电力发射出去{NEWLINE}。下雨天气时能立刻{NEWLINE}发射。",
-   "en": "The user charges up{NEWLINE}on turn 1, raising{NEWLINE}Sp. Atk, and fires on{NEWLINE}turn 2. In rain, it{NEWLINE}fires at once.",
+   "en": "Gathers electricity on{NEWLINE}turn 1 to raise Sp.{NEWLINE}Atk, fires high{NEWLINE}voltage on turn 2. In{NEWLINE}rain, fires at once.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 906,
@@ -7302,10 +7302,10 @@
   {
    "id": 912,
    "zh": "用手臂或钳子压迫对{NEWLINE}手。对手剩余的ＨＰ{NEWLINE}越多，威力越大。",
-   "en": "The user crushes the{NEWLINE}foe with its arms or{NEWLINE}claws. The more HP{NEWLINE}the foe has left, the{NEWLINE}stronger it is.",
+   "en": "The user crushes the{NEWLINE}foe with its arms or{NEWLINE}pincers. The more HP{NEWLINE}the foe has left, the{NEWLINE}stronger it is.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 913,
@@ -7358,10 +7358,10 @@
   {
    "id": 919,
    "zh": "用由毒形成的锁链缠{NEWLINE}住对手注入毒素加以{NEWLINE}侵蚀。有时会让对手{NEWLINE}陷入剧毒状态。",
-   "en": "The user wraps the{NEWLINE}foe in a chain of{NEWLINE}poison that eats into{NEWLINE}it. It may badly{NEWLINE}poison the foe.",
+   "en": "The user binds the foe{NEWLINE}in a poison chain,{NEWLINE}injecting venom that{NEWLINE}eats into it. It may{NEWLINE}badly poison the foe.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SUBAGENT-MOVES: CN fidelity review; restored omitted detail or removed unsupported specificity."
   },
   {
    "id": 920,

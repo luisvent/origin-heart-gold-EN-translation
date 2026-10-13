@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "我的硬币被那只黑暗鸦给抢走了,{NEWLINE}我想去要回来结果它就啄我。{CLEAR}吓得我只能躲在栅栏后面。{CLEAR}哥哥你应该是很厉害的训练家吧,{CLEAR}你能帮我把硬币拿回来吗？",
-   "en": "That Murkrow snatched my coin! I{NEWLINE}tried to get it back, but it pecked me.{SCROLL}I got so scared I’m{NEWLINE}hiding behind the fence.{SCROLL}Big brother, you must be{NEWLINE}a really strong Trainer. Can{CLEAR}you get my coin back for me?",
+   "en": "That Murkrow snatched my coin! I tried{NEWLINE}to get it back, but it pecked me.{SCROLL}I got so scared that all I could do was{NEWLINE}hide behind the fence.{SCROLL}Big brother, you must be a really{NEWLINE}strong Trainer. Can you get my coin{CLEAR}back for me?",
    "status": "draft",
    "origin": "agent",
-   "notes": "Male player (哥哥); #7 female."
+   "notes": "Male player (哥哥); #7 female. | root-full-comparison-0385-0387: Restore only possible response due to fear."
   },
   {
    "id": 3,
@@ -64,10 +64,10 @@
   {
    "id": 7,
    "zh": "我的硬币被那只黑暗鸦给抢走了,{NEWLINE}我想去要回来结果它就啄我。{CLEAR}吓得我只能躲在栅栏后面。{CLEAR}姐姐你应该是很厉害的训练家吧,{CLEAR}你能帮我把硬币拿回来吗？",
-   "en": "That Murkrow snatched my coin! I{NEWLINE}tried to get it back, but it pecked me.{SCROLL}I got so scared I’m{NEWLINE}hiding behind the fence.{SCROLL}Big sister, you must be{NEWLINE}a really strong Trainer. Can{CLEAR}you get my coin back for me?",
+   "en": "That Murkrow snatched my coin! I tried{NEWLINE}to get it back, but it pecked me.{SCROLL}I got so scared that all I could do was{NEWLINE}hide behind the fence.{SCROLL}Big sister, you must be a really strong{NEWLINE}Trainer. Can you get my coin back{CLEAR}for me?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0385-0387: Restore only possible response due to fear."
   },
   {
    "id": 8,
@@ -88,18 +88,18 @@
   {
    "id": 10,
    "zh": "其实这个硬币其实是我朋友{NEWLINE}送给我的生日礼物。{CLEAR}我那个朋友已经搬到很远的地方去了,{CLEAR}不知道以后还能不能再见到他。{CLEAR}所以我也就特别重视{CLEAR}他送我的这枚硬币。",
-   "en": "That coin was actually a{NEWLINE}birthday present from my friend.{SCROLL}He moved somewhere really far away, and{NEWLINE}I don’t know if I’ll ever see him again.{SCROLL}That’s why the coin he gave{NEWLINE}me means so much to me.",
+   "en": "Actually, this coin was actually a{NEWLINE}birthday present from my friend.{SCROLL}He moved somewhere really far away, and{NEWLINE}I don’t know if I’ll ever see him again.{SCROLL}That’s why the coin he gave me means so{NEWLINE}much to me.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0385-0387: Preserve repeated 其实 under user instruction; D-2169 typo hypothesis remains unapproved."
   },
   {
    "id": 11,
    "zh": "哇！真的是我的硬币！{SCROLL}谢谢哥哥帮我拿回来,{NEWLINE}这是我平时爱吃的零食,{CLEAR}送给哥哥一些吧。",
-   "en": "Wow! It really is my coin!{SCROLL}Thanks for getting it back,{NEWLINE}big brother. These are my{CLEAR}favorite snacks. Have some!",
+   "en": "Wow! It really is my coin!{SCROLL}Thanks for getting it back, big brother.{NEWLINE}These are snacks I usually like to eat.{CLEAR}Have some!",
    "status": "draft",
    "origin": "agent",
-   "notes": "Male; #17 female."
+   "notes": "Male; #17 female. | root-full-comparison-0385-0387: Restore normally liked snacks without invented favorite superlative."
   },
   {
    "id": 12,
@@ -145,10 +145,10 @@
   {
    "id": 17,
    "zh": "哇！真的是我的硬币！{SCROLL}谢谢姐姐帮我拿回来,{NEWLINE}这是我平时爱吃的零食,{CLEAR}送给姐姐一些吧。",
-   "en": "Wow! It really is my coin!{SCROLL}Thanks for getting it back,{NEWLINE}big sister. These are my{CLEAR}favorite snacks. Have some!",
+   "en": "Wow! It really is my coin!{SCROLL}Thanks for getting it back, big sister.{NEWLINE}These are snacks I usually like to eat.{CLEAR}Have some!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0385-0387: Restore normally liked snacks without invented favorite superlative."
   },
   {
    "id": 18,
@@ -292,10 +292,10 @@
   {
    "id": 35,
    "zh": "你好像很厉害,{NEWLINE}还是不打了……",
-   "en": "You look really strong...{NEWLINE}Maybe I’ll skip the battle...",
+   "en": "You look really strong... I’d better{NEWLINE}not battle...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0385-0387: Restore decision to avoid battle rather than added maybe."
   },
   {
    "id": 36,

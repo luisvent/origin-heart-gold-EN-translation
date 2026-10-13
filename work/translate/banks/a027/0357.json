@@ -14,18 +14,18 @@
   {
    "id": 1,
    "zh": "对了对了,我听说啊{NEWLINE}好像有一种身体圆滚滚、黑乎乎{CLEAR}头顶长叶子的精灵呢。{SCROLL}",
-   "en": "Oh yes, I’ve heard of a round, dark{NEWLINE}Pokémon with leaves on its head.{SCROLL}",
+   "en": "Oh yes, oh yes, I’ve heard of a round,{NEWLINE}dark Pokémon with leaves on its head.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0364/1"
+   "notes": "US 0364/1 | AGENT-0321-0380: Restore repeated oh yes."
   },
   {
    "id": 2,
    "zh": "我听最近来访的训练家说{NEWLINE}有一种对训练师很忠诚、{CLEAR}善于吼叫的火系的精灵。{SCROLL}",
-   "en": "A Trainer who visited recently told me{NEWLINE}about a Fire-type Pokémon.{SCROLL}It’s very loyal to its Trainer and loves{NEWLINE}to bark.{SCROLL}",
+   "en": "A Trainer who visited recently told me{NEWLINE}about a Fire-type Pokémon.{SCROLL}It’s very loyal to its Trainer and is{NEWLINE}good at barking.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore good at barking rather than loves barking."
   },
   {
    "id": 3,
@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "对了对了,我听说啊{NEWLINE}好像有一种身体圆滚滚、黑乎乎{CLEAR}头顶长叶子的精灵呢。{SCROLL}",
-   "en": "Oh yes, I’ve heard of a round, dark{NEWLINE}Pokémon with leaves on its head.{SCROLL}",
+   "en": "Oh yes, oh yes, I’ve heard of a round,{NEWLINE}dark Pokémon with leaves on its head.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0364/7"
+   "notes": "US 0364/7 | AGENT-0321-0380: Restore repeated oh yes."
   },
   {
    "id": 8,
@@ -102,34 +102,34 @@
   {
    "id": 12,
    "zh": "哦哦,愿意给我看吗！{NEWLINE}谢谢你啊！{SCROLL}",
-   "en": "You will show me?{NEWLINE}How good of you!{SCROLL}",
+   "en": "Oh, oh, you’ll show me! Thank you!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0364/12"
+   "origin": "agent",
+   "notes": "US 0364/12 | AGENT-0321-0380: Restore repeated oh and explicit thanks."
   },
   {
    "id": 13,
    "zh": "真遗憾啊……",
-   "en": "You don’t have it?{NEWLINE}That’s too bad...",
+   "en": "That’s too bad...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0364/13"
+   "origin": "agent",
+   "notes": "US 0364/13 | AGENT-0321-0380: Remove invented question about possession."
   },
   {
    "id": 14,
    "zh": "嗯……{SCROLL}我听说的精灵{NEWLINE}好像不是这个啊……",
-   "en": "Hm?{SCROLL}That’s not the Pokémon that I was{NEWLINE}told about...",
+   "en": "Hm?{SCROLL}That doesn’t seem to be the Pokémon{NEWLINE}that I was told about...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0364/14"
+   "origin": "agent",
+   "notes": "US 0364/14 | AGENT-0321-0380: Restore seems uncertainty."
   },
   {
    "id": 15,
    "zh": "哦哦,这就是{VAR:0100:0}吗！{NEWLINE}真是漂亮的精灵啊！{SCROLL}为了感谢你给我看这么棒的东西{NEWLINE}这个送给你啦~！{SCROLL}",
-   "en": "Wow!{NEWLINE}That Pokémon is called {VAR:0100:0}!{SCROLL}It’s a wonderful Pokémon!{NEWLINE}As a token of my appreciation,{CLEAR}I would like to give this to you!{SCROLL}",
+   "en": "Oh, oh, so this is {VAR:0100:0}! What a{NEWLINE}beautiful Pokémon!{SCROLL}To thank you for showing me something{NEWLINE}so wonderful, here, take this~!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0364/15"
+   "origin": "agent",
+   "notes": "US 0364/15 | AGENT-0321-0380: Restore recognition question, beauty and explicit gift thanks."
   },
   {
    "id": 16,
@@ -150,10 +150,10 @@
   {
    "id": 18,
    "zh": "满是灰尘的机器上{NEWLINE}盖着布巾……{CLEAR}现在好像没在使用。",
-   "en": "There is a dusty machine under{NEWLINE}the cloth cover...{CLEAR}It has not been used for some time.",
+   "en": "There is a dusty machine under the{NEWLINE}cloth cover... It doesn’t seem to be in{CLEAR}use now.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0364/18"
+   "origin": "agent",
+   "notes": "US 0364/18 | AGENT-0321-0380: Restore present apparent disuse, not invented duration."
   },
   {
    "id": 19,
@@ -166,18 +166,18 @@
   {
    "id": 20,
    "zh": "你好啊训练家,{NEWLINE}请先不要紧张和惊奇。{CLEAR}虽然听起来有点不可思议,{CLEAR}但是请你务必听我把话讲完。",
-   "en": "Hello there, Trainer. Please, don’t be{NEWLINE}alarmed.{SCROLL}I know this sounds hard to believe, but{NEWLINE}please hear me out.",
+   "en": "Hello there, Trainer. Please, don’t be{NEWLINE}alarmed or surprised.{SCROLL}I know this sounds hard to believe, but{NEWLINE}please hear me out.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Trainer address and surprise alongside alarm."
   },
   {
    "id": 21,
    "zh": "正辉『我是精灵装置发明家,{NEWLINE}我的名字叫正辉。{CLEAR}你们经常使用的口袋妖怪传送系统{CLEAR}就是我主导开发的。{SCROLL}正辉『我今天发现传送系统有问题{NEWLINE}就进到传送仓里进行维修,{CLEAR}结果传送装置突然开始运行,{CLEAR}居然把我变成了小拉达的样子！{SCROLL}正辉『根据我的分析,这应该是{NEWLINE}传送系统感染了电脑病毒所引起的。{CLEAR}因为传送系统可以将实体生物{CLEAR}转存到系统的存储空间里,{CLEAR}所以利用这一点,{CLEAR}就可以进入到传送系统内,{CLEAR}找出并消灭里面的病毒。",
-   "en": "Bill: I’m Bill, the Pokémon gadget{NEWLINE}inventor.{SCROLL}I led the development of the Pokémon{NEWLINE}Storage System you all use.{SCROLL}Bill: Today I found a fault in the{NEWLINE}transfer system and went into the{CLEAR}transfer pod to fix it.{SCROLL}Then the machine suddenly started up...{NEWLINE}and turned me into a Rattata!{SCROLL}Bill: By my analysis, the transfer{NEWLINE}system has caught a computer virus.{SCROLL}The system can store living things in its{NEWLINE}memory space.{SCROLL}So someone could use that to go inside{NEWLINE}and wipe out the virus.",
+   "en": "Bill: I’m Bill, the Pokémon{NEWLINE}gadget inventor.{SCROLL}I led the development of the Pokémon{NEWLINE}Storage System you all use.{SCROLL}Bill: Today I found a fault in the{NEWLINE}transfer system and went into the{CLEAR}transfer pod to fix it.{SCROLL}Then the machine suddenly started up...{NEWLINE}and turned me into a Rattata!{SCROLL}Bill: By my analysis, the transfer{NEWLINE}system seems to have caught a{CLEAR}computer virus.{SCROLL}The system can store living things in its{NEWLINE}memory space.{SCROLL}So someone could use that to go inside{NEWLINE}and wipe out the virus.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore likely virus cause rather than categorical diagnosis."
   },
   {
    "id": 22,
@@ -398,18 +398,18 @@
   {
    "id": 49,
    "zh": "小霞『谢礼什么的我就不要了,{NEWLINE}你还是给{VAR:0103:0}吧。{CLEAR}他在旅行中应该用得到。",
-   "en": "Misty: I don’t need a reward or{NEWLINE}anything. Give it to {VAR:0103:0} instead.{SCROLL}He’ll need it on his journey.",
+   "en": "Misty: I don’t need a reward or{NEWLINE}anything. Give it to {VAR:0103:0} instead.{SCROLL}He should find it useful on his journey.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore likely usefulness rather than certain need."
   },
   {
    "id": 50,
    "zh": "小霞『谢礼什么的我就不要了,{NEWLINE}你还是给{VAR:0103:0}吧。{CLEAR}她在旅行中应该用得到。",
-   "en": "Misty: I don’t need a reward or{NEWLINE}anything. Give it to {VAR:0103:0} instead.{SCROLL}She’ll need it on her journey.",
+   "en": "Misty: I don’t need a reward or{NEWLINE}anything. Give it to {VAR:0103:0} instead.{SCROLL}She should find it useful on{NEWLINE}her journey.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore likely usefulness rather than certain need."
   },
   {
    "id": 51,

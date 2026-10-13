@@ -132,10 +132,10 @@
   {
    "id": 9,
    "zh": "　　　　　{VAR:FF00:2}メインで　{VAR:0132:0}かい　ダンス！{VAR:FF00:0}",
-   "en": "{VAR:FF00:2}Lead dance no. {VAR:0132:0}!{VAR:FF00:0}",
+   "en": "{VAR:FF00:2}Dance {VAR:0132:0} times as lead!{VAR:FF00:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "DP Super Contest dance round text (Japanese leftover). rc5 fix 2026-10-04: translated from the Japanese instead of left blank, so the hack’s control codes are kept (was blank like US HGSS).",
+   "notes": "DP Super Contest dance round text (Japanese leftover). rc5 fix 2026-10-04: translated from the Japanese instead of left blank, so the hack’s control codes are kept (was blank like US HGSS). | CES-early: Japanese 回 is count, no ordinal 目; preserve repetition count",
    "qa_ignore": [
     "empty",
     "tag_mismatch",

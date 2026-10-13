@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "哈哈哈,也许是感受到了冠军大人身上{NEWLINE}与众不同的训练家气质,{CLEAR}拉帝亚斯才破例{CLEAR}把冠军大人带到这里来的吧。",
-   "en": "Ha ha ha! Perhaps Latias sensed your{NEWLINE}extraordinary presence as a Trainer,{CLEAR}Champion. That must be why it made an{CLEAR}exception and brought you here.",
+   "en": "Ha ha ha! Perhaps Latias sensed your{NEWLINE}extraordinary presence as a Trainer,{CLEAR}Champion, and that is why it made an{CLEAR}exception and brought you{CLEAR}here, Champion.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve speculative reason, Trainer presence rather than combat talent, repeated Champion."
   },
   {
    "id": 18,
@@ -366,18 +366,18 @@
   {
    "id": 45,
    "zh": "小豪『可恶,只能来硬的了。{NEWLINE}两位前辈,咱们跟这个狗冠军车轮战吧。",
-   "en": "Goh: Dammit, we’ll have to use force.{NEWLINE}You two, let’s wear this damn Champion{CLEAR}down, one after another.",
+   "en": "Goh: Dammit, we’ll have to use force.{NEWLINE}You two veterans, let’s wear this damn{CLEAR}Champion down, one after another.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Retain senior-experience address and insulting Champion title."
   },
   {
    "id": 46,
    "zh": "一树『嗯,或许打着打着就有机会了。",
-   "en": "Will: Mm. Maybe we’ll get an opening{NEWLINE}along the way.",
+   "en": "Will: Mm. Maybe an opening will come up{NEWLINE}as we battle.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Opening during battle, not on physical path."
   },
   {
    "id": 47,
@@ -510,10 +510,10 @@
   {
    "id": 63,
    "zh": "火箭队正在四处收集精灵,{NEWLINE}随时可能发动对精灵联盟的战争,{CLEAR}现在看来水都群岛{CLEAR}想偏安一方恐怕是不可能了。{CLEAR}拉帝欧斯和拉帝亚斯{CLEAR}是传说中守护水都的精灵,{CLEAR}既然冠军大人与它们兄妹有缘,{CLEAR}不如就让它们兄妹跟随冠军大人{CLEAR}一起对抗火箭队如何？",
-   "en": "Team Rocket is gathering Pokémon{NEWLINE}everywhere. They could start a war{CLEAR}against the Pokémon League at any time.{CLEAR}It seems the Alto Mare Islands can no{CLEAR}longer keep to themselves in peace.{SCROLL}Latios and Latias are the legendary{NEWLINE}Pokémon that protect Alto Mare. Since{CLEAR}the two of them share a bond with you,{CLEAR}Champion, why not let them go with you{CLEAR}and fight Team Rocket together?",
+   "en": "Team Rocket is gathering Pokémon{NEWLINE}everywhere. They could start a war{CLEAR}against the Pokémon League at any time.{CLEAR}It seems the Alto Mare Islands can no{CLEAR}longer keep to themselves in peace.{SCROLL}Latios and Latias are the legendary{NEWLINE}Pokémon that protect Alto Mare. Since{CLEAR}the siblings share a bond with you,{CLEAR}Champion, why not let the siblings go{CLEAR}with you, Champion, and fight Team{CLEAR}Rocket together?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore sibling relationship and repeated Champion address."
   },
   {
    "id": 64,
@@ -622,10 +622,10 @@
   {
    "id": 77,
    "zh": "这颗宝珠名为心之水滴,{NEWLINE}让拉帝欧斯或者拉帝亚斯带上它,{CLEAR}才能发挥出它们兄妹的真正力量。{SCROLL}如此一来,拉帝欧斯、拉帝亚斯{NEWLINE}还有心之水滴,{CLEAR}就都托付给冠军大人您了,{CLEAR}希望它们能在对抗火箭队的战斗中{CLEAR}帮得上忙。",
-   "en": "This orb is called the Soul Dew. When{NEWLINE}Latios or Latias holds it, the siblings{CLEAR}can bring out their true power.{SCROLL}And so I entrust Latios, Latias and the{NEWLINE}Soul Dew to you, Champion. I hope they{CLEAR}will help you in the fight against{CLEAR}Team Rocket.",
+   "en": "This orb is called the Soul Dew. Only{NEWLINE}when Latios or Latias holds it, can the{CLEAR}siblings bring out their true power.{SCROLL}And so I entrust Latios, Latias and the{NEWLINE}Soul Dew to you, Champion. I hope they{CLEAR}will help you in the fight against{CLEAR}Team Rocket.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Only holding enables true power; preserve Champion honorific/polite address."
   },
   {
    "id": 78,

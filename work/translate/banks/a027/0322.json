@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "这里的精灵都是{NEWLINE}心灵或者肉体上受过创伤的孩子,{CLEAR}请你不要打他们的主意！",
-   "en": "The Pokémon here have all been hurt, in{NEWLINE}body or in heart.{SCROLL}Please leave them alone!",
+   "en": "These little Pokémon have all suffered{NEWLINE}wounds to body or heart.{SCROLL}Please don’t set your sights on them!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | AGENT-0321-0380: Restore tender children address and warning against targeting."
   },
   {
    "id": 2,
@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "这么具有攻击性！{NEWLINE}哈哈,有潜力有潜力。{CLEAR}我会把你也带走的。{SCROLL}好了大狼犬,{NEWLINE}把这些精灵统统打趴下吧。",
-   "en": "So feisty! Ha ha, you’ve got potential.{NEWLINE}I’ll take you too.{SCROLL}All right, Mightyena. Knock all these{NEWLINE}Pokémon flat!",
+   "en": "So feisty! Ha ha, you’ve got potential,{NEWLINE}you’ve got potential. I’ll take you too.{SCROLL}All right, Mightyena. Knock all these{NEWLINE}Pokémon flat!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | AGENT-0321-0380: Restore repeated potential."
   },
   {
    "id": 8,
@@ -198,10 +198,10 @@
   {
    "id": 24,
    "zh": "{VAR:0103:0}『居然敢明目张胆地抢精灵,{NEWLINE}你们真是越来越过分了！",
-   "en": "{VAR:0103:0}: Stealing Pokémon right out in{NEWLINE}the open? You’re going too far!",
+   "en": "{VAR:0103:0}: You dare steal Pokémon right{NEWLINE}out in the open? You’re going further{CLEAR}and further!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | AGENT-0321-0380: Restore escalating behavior越来越."
   },
   {
    "id": 25,
@@ -262,10 +262,10 @@
   {
    "id": 32,
    "zh": "我收养了很多被人遗弃或者{NEWLINE}在战斗中受伤的精灵,{CLEAR}帮它们在这里恢复身心的创伤。",
-   "en": "I take in Pokémon that were abandoned{NEWLINE}or hurt in battle, and help them heal,{CLEAR}body and heart.",
+   "en": "I take in many Pokémon abandoned or{NEWLINE}hurt in battle, and help them heal here,{CLEAR}body and heart.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | AGENT-0321-0380: Restore many adopted Pokémon and here."
   },
   {
    "id": 33,

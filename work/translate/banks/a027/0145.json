@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "不明原因地来到了这样的地方,{CLEAR}你看来很困惑呢。{SCROLL}想要回家的话,{NEWLINE}那就用凯西的{CLEAR}超能力送你回去吧？{VAR:0200:0}",
-   "en": "You seem so out of place, not even{NEWLINE}knowing why you are here.{SCROLL}Do you want my Abra to use a{NEWLINE}special power to take you home? {VAR:0200:0}",
+   "en": "You seem confused, having come to a{NEWLINE}place like this without knowing why.{SCROLL}If you want to go home,{NEWLINE}shall I send you back with Abra’s{CLEAR}psychic power? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0147/10; modernised from US 0147#10"
+   "origin": "agent",
+   "notes": "US 0147/10; modernised from US 0147#10 | CES-early: meaning: bewildered and Psychic power not out-of-place or vague special"
   },
   {
    "id": 11,

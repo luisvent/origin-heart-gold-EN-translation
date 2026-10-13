@@ -103,17 +103,17 @@
   {
    "id": 12,
    "zh": "金黄市　精灵道馆{NEWLINE}道馆馆主　娜姿{CLEAR}超能少女",
-   "en": "Saffron City Pokémon Gym{NEWLINE}Leader: Sabrina{CLEAR}The Mistress of Psychic-Type Pokémon!",
+   "en": "Saffron City Pokémon Gym{NEWLINE}Leader: Sabrina{CLEAR}The Psychic Girl!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0529/12"
   },
   {
    "id": 13,
    "zh": "这里是西鲁夫公司{NEWLINE}总部大楼",
-   "en": "Silph Co.{NEWLINE}Office Building",
+   "en": "Silph Co.{NEWLINE}Headquarters",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0529/13"
   },
   {

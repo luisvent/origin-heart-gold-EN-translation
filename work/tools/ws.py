@@ -175,8 +175,10 @@ def cmd_init(a):
 # export
 # --------------------------------------------------------------------------------------
 
-def export(ws: Path, extract: Path, out: Path, statuses=("tm", "draft", "reviewed"), lenient=False, narcs=None):
+def export(ws: Path, extract: Path, out: Path, statuses=("tm", "draft", "reviewed"), lenient=False, narcs=None, trainer_aliases=None):
     import msgtool as m
+    import trainer_display
+    trainer_aliases = trainer_aliases or {}
     cm_en = m.Charmap.load([str(tm.CHARMAP_EN)])
     counts = Counter()
     problems = []
@@ -209,6 +211,8 @@ def export(ws: Path, extract: Path, out: Path, statuses=("tm", "draft", "reviewe
                 try:
                     m.encode_text(en, cm_en)
                     if cspec is not None:
+                        if narc == "a027" and src["bank"] == 719:
+                            en = trainer_display.stored_text(s["id"], en, trainer_aliases)
                         en = m.stored_name_text(en, cm_en, compress=s["id"] not in cspec["raw_ids"],
                                                 max_units=cspec["max_units"])
                         counts["compressed"] += en.startswith("{COMPRESSED}")

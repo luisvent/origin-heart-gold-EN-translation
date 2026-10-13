@@ -161,10 +161,10 @@
   {
    "id": 19,
    "zh": "你们这些小鬼就被碾碎在{NEWLINE}火箭队滚滚向前的车轮下吧！",
-   "en": "You brats are going{NEWLINE}to be crushed under the wheels{CLEAR}of Team Rocket’s march!",
+   "en": "You brats will be crushed under Team{NEWLINE}Rocket’s ever-advancing wheels!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: meaning/omission: retain advancing-wheel metaphor"
   },
   {
    "id": 20,

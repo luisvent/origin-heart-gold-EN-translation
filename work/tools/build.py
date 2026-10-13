@@ -104,6 +104,7 @@ import msgtool as m  # noqa: E402
 import narcpatch  # noqa: E402
 import text_speed_patch  # noqa: E402
 import textmetrics as tm  # noqa: E402
+import trainer_display  # noqa: E402
 import ws  # noqa: E402
 
 ROM_CN = WORK / "rom" / "origin_v4.0.3_cn.nds"
@@ -315,19 +316,22 @@ def verify_name_bank(data: bytes, spec: dict) -> str:
     return f"ok ({n_comp} compressed, {n_plain} plain, all fit u16[{spec['max_units']}])"
 
 
-def verify_text_speed(rom, speed_report=None):
+def verify_text_speed(rom, speed_report=None, display_report=None):
     """Verify enabled builds and reject native code without its build metadata.
 
     Reports predating this feature remain valid only for ROMs without its
     footprint. An explicit opt-out is recorded for new builds, never inferred
     from a missing or empty enabled report.
     """
+    tail = trainer_display.verify(rom, display_report) if display_report else None
     sections = rom.loadArm9().sections
     main = next((s for s in sections if s.ramAddress == 0x02000000), None)
     if main is None or len(main.data) < 0x20a1c:
         raise ValueError("Cannot establish text-speed status: ARM9 layout missing")
     task = struct.unpack_from("<I", main.data, 0x20a18)[0]
     native = any(s.ramAddress == 0x01ff8000 and len(s.data) > 0x620 for s in sections)
+    if tail and tail.get("enabled") and tail["base"] == 0x01ff8620:
+        native = False
     native = native or 0x01ff8620 <= (task & ~1) < 0x01ffa000
     if speed_report is None:
         if native:
@@ -347,11 +351,11 @@ def verify_text_speed(rom, speed_report=None):
         return {"status": "not-enabled", "metadata": "explicit-opt-out"}
     if not native:
         raise ValueError("Enabled text-speed metadata has no native ROM payload")
-    return text_speed_patch.verify(rom, speed_report)
+    return text_speed_patch.verify(rom, speed_report, native_tail=tail)
 
 
 def verify_rom(out_rom: Path, export_dir: Path, us_font_narc: bytes, fonts, cm, gfx_report=(), hc_report=None,
-               glyph_codes=None, narc_report=None):
+               glyph_codes=None, narc_report=None, display_report=None):
     import ndspy.rom
     rom = ndspy.rom.NintendoDSRom.fromFile(str(out_rom))
     res = {"title": rom.name.decode("ascii", "replace"), "code": bytes(rom.idCode).decode("ascii", "replace"),
@@ -408,7 +412,8 @@ def verify_rom(out_rom: Path, export_dir: Path, us_font_narc: bytes, fonts, cm, 
     if narc_report:
         res["narc_bytes"] = narcpatch.verify(functools.partial(m.get_file, rom), narc_report)
     if hc_report is not None:
-        res["hardcoded"] = asmpatch.verify(rom, hc_report)
+        res["hardcoded"] = asmpatch.verify(trainer_display.before_display(rom, display_report)
+                                              if display_report and display_report.get("enabled") else rom, hc_report)
     return res
 
 
@@ -479,10 +484,18 @@ def main(argv=None):
                        "without": ",".join(a.without) if a.without else None, "without_kinds": list(without_kinds),
                        "applied": [f["id"] for f in active]}
     log(f"fixes: {len(active)} selected: {', '.join(f['id'] for f in active)}")
+    # Full names require their matching formatter; never emit visible opaque keys
+    # from a --no-hardcoded build or silently fall back under --lenient.
+    try:
+        trainer_aliases = trainer_display.plan(Path(a.ws))
+        if trainer_aliases and a.no_hardcoded:
+            raise ValueError("full trainer names require native display support")
+    except (ValueError, asmpatch.AsmError) as ex:
+        sys.exit(str(ex))
     # the assembler for the strings/code/data fixes: checked now, before the export, so a missing or wrong
     # armips stops the build at once
     armips = None
-    if asmpatch.asm_fixes(active):
+    if asmpatch.asm_fixes(active) or trainer_aliases:
         try:
             armips = asmpatch.find_armips(a.armips)
             version = asmpatch.check_armips(armips)
@@ -510,12 +523,14 @@ def main(argv=None):
     if export_dir.exists():
         shutil.rmtree(export_dir)
     log(f"export workspace ({','.join(statuses)}) -> {export_dir}")
-    counts, problems = ws.export(Path(a.ws), Path(a.extract), export_dir, statuses, a.lenient)
+    counts, problems = ws.export(
+        Path(a.ws), Path(a.extract), export_dir, statuses, a.lenient, trainer_aliases=trainer_aliases)
     unenc = [p for p in problems if p[3].startswith("unencodable")]
     for p in problems[:20]:
         print("  %s/%04d #%d: %s" % p, file=sys.stderr)
-    if unenc and not a.lenient:
+    if unenc and (not a.lenient or trainer_aliases):
         sys.exit(f"{len(unenc)} unencodable strings; fix them (qa.py check) or pass --lenient")
+    trainer_display.verify_export(export_dir, trainer_aliases)
     report["export"] = dict(counts, problems=len(problems))
     log(f"export: {dict(counts)}; problems {len(problems)}")
     bsha = sha1(base)
@@ -601,6 +616,9 @@ def main(argv=None):
         log(f"hardcoded: {len(hc_report['strings'])} strings written "
             f"({sum(r['mode'] == 'relocated' for r in hc_report['strings'])} relocated), "
             f"{hc_report['todo']} untranslated, {len(hc_report['code_regions'])} code/data regions (armips)")
+    display_report = trainer_display.apply(rom, trainer_aliases, armips)
+    trainer_display.verify_storage(rom, display_report)
+    report["trainer_display"] = display_report
     if speeding:
         speed_report = dict(text_speed_patch.receipt(
             rom, text_speed_patch.registry_code_patches(active, hc_report)), enabled=True)
@@ -618,9 +636,11 @@ def main(argv=None):
     if not a.no_verify:
         log("verify: ndspy parse, NARC round-trip, text == export, glyphs, graphics, hardcoded")
         report["verify"] = verify_rom(out_rom, export_dir, us_font, fonts, cm, gfx_report, hc_report,
-                                      glyph_codes, narc_report)
+                                      glyph_codes, narc_report, display_report)
         checked = m.load_rom(out_rom)
-        report["verify"]["text_speed"] = verify_text_speed(checked, speed_report)
+        report["verify"]["text_speed"] = verify_text_speed(checked, speed_report, display_report)
+        trainer_display.verify_storage(checked, display_report)
+        report["verify"]["trainer_display"] = trainer_display.verify(checked, display_report)
         log(f"verify ok: {report['verify']}")
 
     # 6. patch

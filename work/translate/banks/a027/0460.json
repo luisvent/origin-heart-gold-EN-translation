@@ -127,17 +127,17 @@
   {
    "id": 15,
    "zh": "自行车热潮的策划者,{SCROLL}自行车店老板,华蓝市总店",
-   "en": "Trendsetter of the Bicycle Boom{SCROLL}Cerulean Bike Main Shop",
+   "en": "Planner of the Bicycle Boom{SCROLL}Cerulean Bike Shop owner, main store",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0467/15"
   },
   {
    "id": 16,
    "zh": "……这里贴着告示！{SCROLL}停下你罪恶的行为,{NEWLINE}大家一起构建和谐小镇。{CLEAR}　　　　……华蓝市警署",
-   "en": "There’s a notice here...{SCROLL}Stamp out thievery and make the city{NEWLINE}a friendlier, more cheerful place!{CLEAR}Cerulean Police",
+   "en": "There’s a notice here...{SCROLL}Stop your criminal acts! Together,{NEWLINE}let’s build a harmonious town!{CLEAR}Cerulean Police",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0467/16"
   },
   {
