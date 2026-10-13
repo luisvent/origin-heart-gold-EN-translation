@@ -63,7 +63,12 @@ payload/main.bin        the resident code for the main region (ai_lead first)
 ```
 
 Thumb symbols carry bit 0. `symbols` lists every global and static function and object the linker placed, so the test
-bench never hard-codes an address.
+bench never hard-codes an address. Linker interworking veneers (`__*_from_thumb`) are not listed.
+
+Added by the builder (2026-10-13): each hook also carries `after` (the BL bytes for that layout); `regions.itcm` has a
+`limit`; `overlay10.copied` gives overlay 11's expected size and bss; a `room` block reports used and free bytes per
+region. `payload.json` pins `builder/build.py` and every source by sha256, so editing either needs a payload rebuild.
+The Spanish-layout payload for the test bench is written to `work/build/advanced-ai/es/payload/`.
 
 ## Installer (`builder/install.py`) and verifier (`builder/verify.py`)
 

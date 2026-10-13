@@ -19,11 +19,11 @@ Everything for the feature lives in this directory. Its tests live in [testbench
 | Phase | State |
 |---|---|
 | Plan | Written: [PLAN.md](PLAN.md) |
-| 0. Environment and measurements | Not started: waiting for the build-tool installs |
-| 1. Faithful extraction | Not started |
-| 2. English build of the engine | Not started |
-| 3. Test bench and runtime verification | Not started |
-| 4. Options setting | Not started |
+| 0. Environment and measurements | Tools installed; rc8 standard build and rc8 release reproduced; measurements in progress |
+| 1. Faithful extraction | Done: sources vendored (0db9bb3), golden test reproduces rc44 byte for byte (7b12fad) |
+| 2. English build of the engine | English payload built (7b12fad); installer in progress |
+| 3. Test bench and runtime verification | In progress |
+| 4. Options setting | In progress |
 | 5. Review and merge | Not started |
 
 ## Layout
