@@ -70,6 +70,11 @@ Added by the builder (2026-10-13): each hook also carries `after` (the BL bytes 
 region. `payload.json` pins `builder/build.py` and every source by sha256, so editing either needs a payload rebuild.
 The Spanish-layout payload for the test bench is written to `work/build/advanced-ai/es/payload/`.
 
+Added after review (2026-10-13): in the English layout `regions.itcm.bss` is non-zero. It runs from the end of the
+itcm code through `.itcm_bss` (0x01FFEDA4–0x01FFFDD8), so the boot's autoload zeroes the AI's work RAM; real hardware
+does not clear ITCM at power-on. The test records from 0x01FFFF8C stay outside it. The installer writes every
+region's bss into its autoload entry and the verifier checks it.
+
 ## Installer (`builder/install.py`) and verifier (`builder/verify.py`)
 
 `install.py --input <English ROM with difficulty> --out <ROM>` writes into a copy, never in place:
