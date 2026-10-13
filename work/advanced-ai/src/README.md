@@ -25,3 +25,9 @@ Nothing here is built by hand. `../builder/build.py --layout en` compiles and li
 `advai.c`, `replace.c` and `lead.c` are compiled as one unit (`advai.c` includes neither; the builder writes a unit
 file that includes all three). `advai.c` also holds a host build (`HOST_ENGINE_H`) for the PC simulator, which the
 test bench uses.
+
+## Changes from the Spanish sources
+
+| Change | Where | Defined by |
+|---|---|---|
+| `AI_NO_STEER`: `steer_marked` returns 0, so luck steering is off in singles and doubles and flag 0x218 is never read; zeroed storage stands in for `steer.s`'s `steer_stash`, `steer_ledgers` and `steer_dstash` | `advai.c` | `builder/layouts/en.json` only, so the `es` build stays byte-identical to rc44 |

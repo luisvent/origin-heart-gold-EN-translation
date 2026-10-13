@@ -6455,9 +6455,13 @@ extern SteerLedger steer_ledgers[2];
 
 static int steer_marked(const Ctx *c)
 {
+#ifdef AI_NO_STEER
+    return 0;                       /* the English build (builder/layouts/en.json): no hard mode, no steering */
+#else
     u8 *main = AT(bptr, MAIN_PTR);
     void *setup = OK_PTR(main) ? AT(vptr, (u32)main + MAIN_SETUP) : 0;
     return OK_PTR(setup) && (AT(u8, (u32)setup + SETUP_MARK + 0x34 * c->client) & 1) && check_flag(FLAG_HARD);
+#endif
 }
 
 static int steer_gate(const Ctx *c)
@@ -6887,6 +6891,12 @@ enum { DS_IDLE, DS_ARMED, DS_LIVE, DS_APPLIED, DS_DONE, DS_TAG, DS_WORD, DS_END,
 #ifndef HOST_ENGINE_H
 extern SteerDStash steer_dstash;    /* tools/asm/steer.s, main RAM */
 _Static_assert(sizeof(SteerDStash) == 56, "steer.s steer_dstash, tools/dlcheck.py DSTASH");
+#ifdef AI_NO_STEER
+/* the English build has no steer.s: steer_marked is 0, so nothing arms these and they stay zero (slot bss) */
+SteerStash steer_stash;
+SteerLedger steer_ledgers[2];
+SteerDStash steer_dstash;
+#endif
 /* the steering Pokemon's order, for its partner deciding after it (dsteer_follow); p_*: the player's other Pokemon */
 static struct { u8 live, id, p_live; s8 prio, p_prio; s32 spd, p_spd; } g_dlead;
 static u8 g_dfell;                  /* bit (side): a client of that side answered through overlay 11 this turn */

@@ -31,4 +31,13 @@ file shows every difference from the Spanish original.
 
 | File here | Spanish source | What it is |
 |---|---|---|
-| `builder/build.py` | `work_es/tools/build.py` at the same commit: `AI_CFLAGS`, `link_ai`, `resident_sections`, `reached_sections`, `map_sections`, `map_entries`, `slot_spill`, `largest_first`, `ROOM_REGION`, `room_line`, `ai_overlay_entry` | The AI's compile and link steps, rewritten as one standalone builder that reads its memory layout from `builder/layouts/` |
+| `builder/build.py` | `work_es/tools/build.py` at the same commit: `AI_CFLAGS`, `link_ai`, `resident_sections`, `reached_sections`, `map_sections`, `map_entries`, `slot_spill`, `largest_first`, `ROOM_REGION`, `room_line`; the fields of `ai_overlay_entry` | The AI's compile and link steps, rewritten as one standalone builder that reads its memory layout from `builder/layouts/`. The y9 entry's fields go into `payload.json` (`overlay10`); the installer writes the entry |
+
+## Changes made here
+
+Each change to a taken file is its own commit. They are all behind switches the `es` layout leaves off, so
+`testbench/unit/test_golden.py` still rebuilds rc44's bytes from these files.
+
+| File | Change |
+|---|---|
+| `src/advai.c` | `AI_NO_STEER` (set by `builder/layouts/en.json`): `steer_marked` returns 0, which compiles luck steering out; zeroed definitions of `steer_stash`, `steer_ledgers` and `steer_dstash`, which the Spanish build kept in `steer.s` |
