@@ -18,10 +18,12 @@ from build import (ROOT, SOURCE, OUTPUT, BASE, LIMIT, LLD, require, sha, pin, bu
 
 BASES = {'arm9.bin': 0x02000000, 'itcm.bin': 0x01FF8000,
          'overlay9.bin': 0x021E4DA0, 'overlay14.bin': 0x022007E0, 'overlay50.bin': 0x021E4980}
-# Completed 69-fix RC8 baseline. Every difference from the RC7 baseline (47 fixes,
-# SHA-256 18b6d147...) is attributed in work/notes/rc8_difficulty_compatibility_20261013.md;
-# the RC7 review is work/notes/rc7_difficulty_compatibility_20261010.md.
-INPUT_SHA = 'f23e22632620454698c9a8f96b6e834737327b86fa5e5b9c3247d58f7a4d492d'
+# Standard build of main after rc8 (trainer full names, D-2487). Every difference from
+# the rc8 baseline (SHA-256 f23e2263...) is attributed in
+# work/notes/main_difficulty_compatibility_20261013.md; the rc8 and rc7 reviews are
+# work/notes/rc8_difficulty_compatibility_20261013.md and rc7_difficulty_compatibility_20261010.md.
+# One accepted input per version: rebuild rc8 from its tag, whose pin is f23e2263.
+INPUT_SHA = '96793c3981717374cebb71c361114165a18d91e646f99263bb6522866ded3c3c'
 OV_PINS = {9: (39040, 'f66e9ff1ec5525797654017d246c4d61f2ae70382d25e83df0e1680dbb890b0d'),
            14: (337216, '7c98bd2050bc3ffc71ebe3a31be6dd9680d2bf090c2b2206ee7b36bbfe5c93c1')}
 ITEM_RANGES = [(0x02202954,0x0220297E,'c0e1c2238dc930beb13445bd0e936066f3cd47b1b681472b6efa1255b5fd3304'),
@@ -63,10 +65,11 @@ def bounds(arm, overlays):
     low = struct.unpack_from('<I',main,0xD1A1C)[0]
     high = struct.unpack_from('<I',main,0xD1970)[0]
     require((low,high) == (0x02264920,0x023E0000), 'original arena bounds / double install')
-    require(struct.unpack_from('<I',main,0xD1A28)[0] == 0x01FF8FC0, 'ITCM arena extent')
+    # TEXT SPEED ends at 0x01FF8FC0; trainer display (work/tools/trainer_display.py) follows to 0x01FF9140.
+    require(struct.unpack_from('<I',main,0xD1A28)[0] == 0x01FF9140, 'ITCM arena extent')
     max_overlay = max(o.ramAddress+o.ramSize+o.bssSize for o in overlays.values())
     require(bss_end <= max_overlay <= low < BASE < LIMIT == 0x023E0000, 'overlay/arena/resident overlap')
-    require([(len(s.data),s.bssSize) for s in arm.sections] == [(1115808,0),(4032,0),(96,32)], 'autoload sizes')
+    require([(len(s.data),s.bssSize) for s in arm.sections] == [(1115808,0),(4416,0),(96,32)], 'autoload sizes')
     for s in arm.sections:
         require(s.ramAddress+len(s.data)+s.bssSize <= BASE or s.ramAddress >= 0x027E0000, 'autoload collision')
     return {'original_arena_low':low,'original_arena_high':high,'arena_high':BASE,
@@ -371,7 +374,7 @@ def execute(input_path, stage):
     status='built, installed, reopened and logically verified; native acceptance pending'
     receipt={'format':1,'status':DEV_LABEL+'; '+status if dev_tools() else status,'tool_mode':tool_mode(),
              'input':pin(input_path),'output':dict(pin(temp),path=str(OUTPUT/'candidate.nds')),
-             'input_selection':'pinned completed 47-fix RC7 English baseline; compatibility review retained',
+             'input_selection':'pinned main standard build after rc8; work/notes/main_difficulty_compatibility_20261013.md',
              'sources':sources,'tools':tools,'layout':layout,'build':report,'guards':guards,
              'dependency_guards':comp['dependencies'],
              'item_frame_guards':[{'start':a,'end':b,'sha256':h} for a,b,h in ITEM_RANGES],

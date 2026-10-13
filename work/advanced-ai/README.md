@@ -87,5 +87,6 @@ The feature changes only these files elsewhere. Each change is listed here when 
 | `work/research/difficulty-armips/tests/`: `drivers/options_check.c`, `support.py`, `native_ui.py`, `native_ui_oracles.py`, `evidence.py`, `test_framework.py` | Host tests for the row; the native UI driver walks six focus positions | 4 |
 | `work/research/difficulty-armips/native/runtime.c`, `items.c`; `tests/drivers/runtime_check.c`, `items_check.c` | Difficulty's pointer checks end at 0x023D4000, below the AI's main code | 4 |
 | `work/research/difficulty-armips/build.py`, `install.py`, `verify.py`, `tests/run.py`, `tests/test_installer.py`, and the receipt path in every `tests/` driver (`support.RECEIPT`) | Opt-in development tools mode, `DIFFICULTY_DEV_TOOLS=1`, with its own output folder ([dev-tools-mode.md](../research/difficulty-armips/research/dev-tools-mode.md)) | 4 |
+| `work/research/difficulty-armips/install.py`, `compatibility.json`, `research/items-revival-pins.json`, `native/integration_contract.json`; `work/notes/main_difficulty_compatibility_20261013.md` | Difficulty re-pinned from the rc8 standard build to main's (trainer full names in ITCM); review in the note | 4 |
 | `CHANGELOG.md`, release notes, credits | The optional feature and its Spanish origin | 5 |
 | `AGENTS.md` | One line pointing to this directory | 5 |
