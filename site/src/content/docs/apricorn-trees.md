@@ -20,7 +20,11 @@ The game keeps one "picked or not" record per tree *type*, and several trees sha
 | E (Black) | Route 9, Route 37 |
 | F (White) | Route 4, Azalea Town |
 
-So take one Apricorn from each group, then do the rest of the list. Trees that are not in a group are separate. How long a tree takes to fill up again was not tested.
+So take one Apricorn from each group, then do the rest of the list. Trees that are not in a group are separate.
+
+## When trees refill
+
+Player testing reports that picked trees refill when the game clock naturally rolls over from **11:59 p.m. to midnight**, just like Apricorn Ball crafting. You do not need to wait a full 24 hours after picking: collect before midnight, let the clock tick over, then collect again. For repeated farming, the reported method is to set the clock to 11:59 p.m. and let it naturally reach midnight each time.
 
 ## Black
 
@@ -95,5 +99,6 @@ So take one Apricorn from each group, then do the rest of the list. Trees that a
 ## Notes
 
 - **Two more trees exist in the game's files but never appear in normal play** (one on Route 4, one in a cave in Fuchsia City), so they are not listed.
-- **Not tested:** how long a picked tree takes to refill, and the exact route up to the Route 25 shelf during the festival.
+- **Respawn timing** comes from player testing; it was not retested in our emulator.
+- **Not tested:** the exact route up to the Route 25 shelf during the festival.
 - The Route 29 tree and the Route 38 tree match what the [quest guide](../guide/) already says about Uncle Apricorn and Magician Lott.
