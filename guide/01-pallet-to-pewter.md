@@ -9,8 +9,6 @@
 - [Viridian City: the Meowth thief (Charmander starters only)](#viridian-city-the-meowth-thief-charmander-starters-only)
 - [Viridian City: the Pikachu thief (Bulbasaur starters only)](#viridian-city-the-pikachu-thief-bulbasaur-starters-only)
 - [Viridian City: the Mankey thief (Pikachu starters only)](#viridian-city-the-mankey-thief-pikachu-starters-only)
-- [Viridian City: Yellow's first Pokémon (the Gym's Virtue trial)](#viridian-city-yellows-first-pokémon-the-gyms-virtue-trial)
-- [Viridian Gym: the Wisdom quiz (two ways to pass)](#viridian-gym-the-wisdom-quiz-two-ways-to-pass)
 - [Viridian City: Pokémon Academy exchange students (missable early)](#viridian-city-pokémon-academy-exchange-students-missable-early)
 - [Route 2: the Rocket warehouse Poké Ball (starter-dependent gift)](#route-2-the-rocket-warehouse-poké-ball-starter-dependent-gift)
 - [Route 2 East: the abandoned Charmander (Pikachu starters only)](#route-2-east-the-abandoned-charmander-pikachu-starters-only)
@@ -25,6 +23,8 @@
 - [Victory Road: "Which one is the real Blue?"](#victory-road-which-one-is-the-real-blue)
 - [Victory Road 1F: the fake item ball (Lv. 70 Electrode)](#victory-road-1f-the-fake-item-ball-lv-70-electrode)
 - [Romance route: Victory Road confessions, Yellow's dates and your house](#romance-route-victory-road-confessions-yellows-dates-and-your-house)
+- [Viridian City: Yellow's first Pokémon (the Gym's Virtue trial)](#viridian-city-yellows-first-pokémon-the-gyms-virtue-trial)
+- [Viridian Gym: the Wisdom quiz (two ways to pass)](#viridian-gym-the-wisdom-quiz-two-ways-to-pass)
 - [Pallet Town: Lance's visit home (after the final Hall of Fame)](#pallet-town-lances-visit-home-after-the-final-hall-of-fame)
 
 ## Pallet Town: send-off gifts (one per starter, before Viridian)
@@ -127,46 +127,6 @@ With any other starter, the Meowth resident only says a general line about livin
 **Notes:** Losing leaves Mankey in place, so you can try again. Blue's scene in Viridian (he stops you south-west of the Pokémon Center and gives you his number) hides the Mankey. If it played while the quest was running, the Fast Ball would be lost. That can't happen in normal play: the scene sits on the only way into town from Route 1, so it has always played before you can reach the keeper (see [Known issues](known-issues.md#pallet-town-to-pewter-city)). Tested in an emulator: you can't walk around Blue, the way round is a pond.
 
 *Source:* script file 739 (scripts 12 and 29, reward L5100: item 492; keeper script 29, L1571–L1619, starts the quest only with 1288, 1330 and 1335 set; 1330 and 1335 are set by the Route 1 tutorial, file 168 @586/@594; Blue scene L3339 sets flag 1330 (the Mankey's hide flag), and the keeper then pays only if 1336 is clear). Reachability of Blue's trigger: see the send-off gifts source above. Positions: keeper ≈1019,255; Mankey ≈1050,246.
-
-## Viridian City: Yellow's first Pokémon (the Gym's Virtue trial)
-<!-- quest: kind=main; id=q-0006 -->
-
-**Where:** Yellow, the girl standing with her uncle and his Doduo just south of the Viridian Mart.
-
-**Who gets it / when:** anyone, once the Viridian Gym has reopened. Until then the man at the Gym door says Giovanni is away; the Gym reopens after Granny Mae's ultimate-move trial on Two Island, when Blue says he's heading to the Viridian Gym ([Two Island: Granny Mae's ultimate-move trial](06-sevii-islands-indigo.md#two-island-granny-maes-ultimate-move-trial)). Then talk to the man just inside the Gym door again, from directly in front of him (coming from the door): he is now the **Virtue examiner**. From the side he only says your virtue qualifies you, and nothing happens. Before that, Yellow only chats about her uncle's Doduo.
-
-**How it works:**
-1. The examiner says you must help someone in Viridian City.
-2. Talk to Yellow and answer **Yes** to "This little girl wants a Pokémon. Help her out?".
-3. You need a plain **Poké Ball** in your Bag. It is taken and handed to Yellow. Without one, your character goes off to buy one; come back and ask again.
-4. You're taken to Route 2 and battle a **Lv. 5 Rattata** (a scripted battle, so you have to win). Yellow throws the ball and catches it. If you lose, you white out and the ball is gone: bring another Poké Ball and ask Yellow again.
-5. Back in Viridian, Yellow gives you her thanks gift.
-
-**Reward:** 1 **Big Pearl**, and the examiner now lets you through ("That's proof enough of your virtue").
-
-**Notes:** This is the Gym's first trial. The Wisdom quiz and the Skill trainers come next (next entry). Yellow's story continues later (Viridian Forest rescue, [romance route](#romance-route-victory-road-confessions-yellows-dates-and-your-house)).
-
-*Source:* script files 739 (script 11, L3006 → L4727, L6951; Yellow ≈1041,260; checks flag 1228; `TakeItem 4` at L4854 before the warp, `TrainerBattle 632` at L7145, a loss → L4959 `WhiteOut`; Big Pearl = item 89 at L7648; L7600 clears 1695, which the examiner reads as "trial done"), 741 (Gym guard, script 2: checks flag 1705; L1161 checks the player's row first (z ≠ 43 → L3217, line 447#31 only); the examiner sets flag 1228 at L1226 and approves at L3249 (sets 1632) once 1695 is clear). Flag 1705 is set only in file 782 (Two Island, after Granny Mae's trial, L5318/L5370).
-
-## Viridian Gym: the Wisdom quiz (two ways to pass)
-<!-- quest: kind=main; id=q-0007 -->
-
-**Where:** the second examiner inside the Viridian Gym, after the Virtue trial.
-
-**How it works:** five questions. Any wrong answer and he still asks the rest, then turns you away at the end without saying which one was wrong. You can retry at once. There are **two** valid answer sets. The honest one:
-
-| # | Question | Answer | Position |
-|---|---|---|---|
-| 1 | Why do you want to be a Pokémon Trainer? | **It's my childhood dream** | 2nd |
-| 2 | What do you think catching Pokémon depends on? | **Mutual trust** | 4th |
-| 3 | As a Pokémon Trainer, what's the key to beating your opponent? | **Bonds with Pokémon** | 3rd |
-| 4 | How do you see Pokémon? | **Partners in battle** or **Family I live with** | 1st or 2nd |
-| 5 | What matters most in holding together an organization as big as the Pokémon League? | **Shared ideals** | 4th |
-
-The Team Rocket set ("You ignored the empty slogans and told the truth... worthy of meeting Lord Giovanni!"): **To make money** (4th), **Force and conquest** (2nd), **Powerful Pokémon** (1st), **Tools for my goals** (3rd), **Big cash rewards** (3rd).
-**Reward:** passage to the Skill trial and Giovanni. Both answer sets count as a pass.
-
-*Source:* script file 741 (script 6, L1293/L3339, flag 1631).
 
 ## Viridian City: Pokémon Academy exchange students (missable early)
 <!-- quest: kind=side; id=q-0008 -->
@@ -405,6 +365,46 @@ Cynthia's dates run the same way at the Pokémon Academy in Viridian City. Other
 **Notes:** the dates only check that you haven't locked your partner out and that you have confessed to *someone*. They don't check that you confessed to that partner (see [Known issues](known-issues.md#pallet-town-to-pewter-city)).
 
 *Source:* script files 109 (scripts 14, 18, 21, 24; each checks flag 1618 (route on), its partner's lock flag and 1645, and checks the player's gender first except script 21; scripts 14, 18 and 21 reach `HealParty`, script 24 (Gold) reaches none; confession spots 1F 20,17 and 43,40, 2F 16,32 and 57,37), 739 (script 40, L4140/L5395/L5333; Yellow ≈1041,261; checks flag 2261 = final Hall of Fame, set in file 822; flag 1645 = confessed; flag 2143 = Yellow excluded; date 2: HealParty @10519, MultiBattle @11662, @11800, @11963, @12101 with no heal between (each loss → L4959), next HealParty @12969), 859 (script 18, Cynthia's dates), 736 (script 4: @165 `CheckFlag 106` → L559, Cynthia's version, before the 2143 Yellow check), 843 (script 1 L363 `CheckFlag 106` → L4292 End before any partner branch; 106 is set with the starter, 738 @3946/@4080, and never cleared; hack finding D-1391; script 4, house 2F scene), 842 (scripts 12–15, "Rest in my room": L6462 Heart Mail 143, L6707 Grass Mail 137, L6887 Bubble Mail 139, L7063 checks Snow Mail 144 but L8417 takes Bubble Mail 139). Flag 1645 is also set by files 758 (Cerulean Gym, Misty), 923 (zone 85: the Indigo Plateau slope in this hack, Steven/Cynthia) and 110 (Victory Road 3F). Date progress is var 0x40b5: date 1 sets it to 3, date 2 (at 3) to 4, the Mom visit runs at 4 (stage 5→6). Emulator (`emu_harness.py guide0107 --case mom_visit,living`): with Yellow as the partner and flag 106 set as every save has it, 739 L10063 → zone 504 scene shows lines 442#58–62 and object 7 (Cynthia); with 106 cleared the same run shows Yellow (object 4, lines 25–31). At var 0x40b5 = 6 the 2F PC (with the Cascade Badge) shows nothing and the player can walk on; with 106 cleared it starts the love-letter scene (537#22–24).
+
+## Viridian City: Yellow's first Pokémon (the Gym's Virtue trial)
+<!-- quest: kind=main; id=q-0006 -->
+
+**Where:** Yellow, the girl standing with her uncle and his Doduo just south of the Viridian Mart.
+
+**Who gets it / when:** anyone, once the Viridian Gym has reopened. Until then the man at the Gym door says Giovanni is away; the Gym reopens after Granny Mae's ultimate-move trial on Two Island, when Blue says he's heading to the Viridian Gym ([Two Island: Granny Mae's ultimate-move trial](06-sevii-islands-indigo.md#two-island-granny-maes-ultimate-move-trial)). Then talk to the man just inside the Gym door again, from directly in front of him (coming from the door): he is now the **Virtue examiner**. From the side he only says your virtue qualifies you, and nothing happens. Before that, Yellow only chats about her uncle's Doduo.
+
+**How it works:**
+1. The examiner says you must help someone in Viridian City.
+2. Talk to Yellow and answer **Yes** to "This little girl wants a Pokémon. Help her out?".
+3. You need a plain **Poké Ball** in your Bag. It is taken and handed to Yellow. Without one, your character goes off to buy one; come back and ask again.
+4. You're taken to Route 2 and battle a **Lv. 5 Rattata** (a scripted battle, so you have to win). Yellow throws the ball and catches it. If you lose, you white out and the ball is gone: bring another Poké Ball and ask Yellow again.
+5. Back in Viridian, Yellow gives you her thanks gift.
+
+**Reward:** 1 **Big Pearl**, and the examiner now lets you through ("That's proof enough of your virtue").
+
+**Notes:** This is the Gym's first trial. The Wisdom quiz and the Skill trainers come next (next entry). Yellow's story continues later (Viridian Forest rescue, [romance route](#romance-route-victory-road-confessions-yellows-dates-and-your-house)).
+
+*Source:* script files 739 (script 11, L3006 → L4727, L6951; Yellow ≈1041,260; checks flag 1228; `TakeItem 4` at L4854 before the warp, `TrainerBattle 632` at L7145, a loss → L4959 `WhiteOut`; Big Pearl = item 89 at L7648; L7600 clears 1695, which the examiner reads as "trial done"), 741 (Gym guard, script 2: checks flag 1705; L1161 checks the player's row first (z ≠ 43 → L3217, line 447#31 only); the examiner sets flag 1228 at L1226 and approves at L3249 (sets 1632) once 1695 is clear). Flag 1705 is set only in file 782 (Two Island, after Granny Mae's trial, L5318/L5370).
+
+## Viridian Gym: the Wisdom quiz (two ways to pass)
+<!-- quest: kind=main; id=q-0007 -->
+
+**Where:** the second examiner inside the Viridian Gym, after the Virtue trial.
+
+**How it works:** five questions. Any wrong answer and he still asks the rest, then turns you away at the end without saying which one was wrong. You can retry at once. There are **two** valid answer sets. The honest one:
+
+| # | Question | Answer | Position |
+|---|---|---|---|
+| 1 | Why do you want to be a Pokémon Trainer? | **It's my childhood dream** | 2nd |
+| 2 | What do you think catching Pokémon depends on? | **Mutual trust** | 4th |
+| 3 | As a Pokémon Trainer, what's the key to beating your opponent? | **Bonds with Pokémon** | 3rd |
+| 4 | How do you see Pokémon? | **Partners in battle** or **Family I live with** | 1st or 2nd |
+| 5 | What matters most in holding together an organization as big as the Pokémon League? | **Shared ideals** | 4th |
+
+The Team Rocket set ("You ignored the empty slogans and told the truth... worthy of meeting Lord Giovanni!"): **To make money** (4th), **Force and conquest** (2nd), **Powerful Pokémon** (1st), **Tools for my goals** (3rd), **Big cash rewards** (3rd).
+**Reward:** passage to the Skill trial and Giovanni. Both answer sets count as a pass.
+
+*Source:* script file 741 (script 6, L1293/L3339, flag 1631).
 
 ## Pallet Town: Lance's visit home (after the final Hall of Fame)
 <!-- quest: kind=main; id=q-0022 -->

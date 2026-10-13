@@ -70,6 +70,8 @@ export default defineConfig({
             { label: "Moves", link: "/moves/" },
             { label: "TMs and HMs", link: "/tms/" },
             { label: "Abilities", link: "/abilities/" },
+            { label: "Overworld abilities", slug: "overworld-abilities" },
+            { label: "Apricorn trees", slug: "apricorn-trees" },
             { label: "Trainers", link: "/trainers/" },
             { label: "Move tutors", link: "/tutors/" },
             { label: "Reference sources", link: "/reference-sources/" },
