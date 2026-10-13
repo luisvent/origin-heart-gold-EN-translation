@@ -28,8 +28,9 @@ it lives. Module names are unique across the test bench. Run every tool with the
 | `simpool.py` | The machine-wide simulator pool | `tools/simpool.py` |
 | `aidata.py` | `Data(rom)`: species, moves, type chart, stats, damage; names from `names.json` | `tools/aidata.py` |
 | `names.json`, `names.py` | The frozen English names by ROM id (species, moves, abilities, items, trainer classes, natures); `names.py make` regenerates the JSON | Spanish `text/en` 0232, 0720, 0033 and `glossary/names_*.json` |
-| `savetool.py` | `Save`, `Mon`: battery saves and party Pokémon | `tools/savetool.py` (without `make`) |
-| `saves.py` | `path(name)`: a test save checked by SHA-256; `make` writes them from the Spanish commit | replaces the Spanish `tests/*.dsv` |
+| `savetool.py` | `Save`, `Mon`: battery saves and party Pokémon, from a file or bytes; `image()`/`dsv()`: raw `.sav` and DeSmuME `.dsv` | `tools/savetool.py` (its `make` is in `saves.py`) |
+| `saves.py` | The test saves: `make --base SAVE` derives all six from a save of your own game (the Spanish `make()` after a normalisation, listed in its docstring); `make` takes the reference ones from the Spanish commit; `path(name)` hands out a save whose SHA-256 is its manifest entry's or the reference one; `reference()`, `describe()`: where the saves came from | replaces the Spanish `tests/*.dsv` and `savetool.make` |
+| `test_saves.py` | Unit tests of the derivation (made-up saves, no emulator); with the reference `party_nostatus` and a ROM in place, it also derives all six reference saves byte for byte | new |
 | `text.py` | `codes_to_text`, `text_to_codes`, `decode_bank` (our `work/tools/charmap_en.tsv`) | `tools/gen4text.py` |
 | `romio.py` | `read_file`, `read_narc`, `replace_file` | `tools/romio.py` (no fixed paths) |
 | `randteams.py` | Random teams and item/move lists | from `tools/aifuzz.py` |
@@ -41,8 +42,12 @@ it lives. Module names are unique across the test bench. Run every tool with the
 
 - The project venv (py-desmume 0.0.9, ndspy, pillow).
 - An AI build's `payload.json` (`--payload`, or `ADVAI_PAYLOAD`), for every tool that runs the AI.
-- The test saves: `ADVAI_ES_REPO=/path/to/spanish/repo .venv/bin/python work/advanced-ai/testbench/lib/saves.py make`
-  (reads the Spanish repository at `dc8577c` with `git show`; `--es-repo DIR` works too).
+- The test saves, either derived from a save of your own game,
+  `.venv/bin/python work/advanced-ai/testbench/lib/saves.py make --base /path/to/your/save.sav [--rom ROM]` (`--rom`, for
+  the growth rates, defaults to `work/build/advanced-ai/base/rc8_release.nds`), or the reference ones,
+  `ADVAI_ES_REPO=/path/to/spanish/repo .venv/bin/python work/advanced-ai/testbench/lib/saves.py make` (`git show` of
+  the Spanish repository at `dc8577c`; `--es-repo DIR` works too). Both write `work/build/advanced-ai/saves/` and its
+  `manifest.json` (each save's SHA-256 and source).
 
 ## Environment
 
@@ -54,7 +59,7 @@ it lives. Module names are unique across the test bench. Run every tool with the
 | `ADVAI_EMU_SLOTS` | `EMU_HARNESS_MAX_EMULATORS` or 6 | emulator pool size (0: no pool) |
 | `ADVAI_SIM_SLOTS` | 6 | simulator pool size |
 | `ADVAI_FPT` | 8 | frames per tile when walking |
-| `ADVAI_ES_REPO` | — (required by `saves.py make` and `names.py`; or `--es-repo`) | the Spanish workspace repository |
+| `ADVAI_ES_REPO` | — (needed by `saves.py make` without `--base`, and by `names.py`; or `--es-repo`) | the Spanish workspace repository |
 
 ## Self-tests
 
@@ -62,6 +67,7 @@ it lives. Module names are unique across the test bench. Run every tool with the
 .venv/bin/python work/advanced-ai/testbench/lib/emupool.py --selftest
 .venv/bin/python work/advanced-ai/testbench/lib/simpool.py --selftest
 .venv/bin/python work/advanced-ai/testbench/lib/names.py check
-.venv/bin/python work/advanced-ai/testbench/lib/saves.py check
+.venv/bin/python work/advanced-ai/testbench/lib/saves.py check          # each save's source
+.venv/bin/python -m unittest discover -s work/advanced-ai/testbench/lib -p 'test_*.py'
 .venv/bin/python work/advanced-ai/testbench/lib/payload.py show --payload PAYLOAD [--rom ROM]
 ```

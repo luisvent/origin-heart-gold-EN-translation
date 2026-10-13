@@ -1,7 +1,9 @@
 """Edit HeartGold battery saves (.dsv) for the runtime tests.
 
-Ported from the Spanish workspace's tools/savetool.py (dc8577c) without `make` (the test saves come from lib/saves.py,
-found by SHA-256); place() reads the map's camera type from a ROM given as an argument.
+Ported from the Spanish workspace's tools/savetool.py (dc8577c); its `make` lives in lib/saves.py (derive). Changes:
+place() takes the camera type as an argument (or reads it from a ROM), a Save can be made from bytes and give its bytes
+back, and image()/dsv() convert between a raw 512 KiB battery image (melonDS, flashcarts) and DeSmuME's .dsv (the image
+and DeSmuME's 122-byte footer).
 
 Offsets are in the general save block (size 0xF7CC, two slots at 0 and 0x40000; the newer slot by
 the footer counter is edited and its CRC is fixed). Party Pokémon use the Gen 4 format: blocks A-D
@@ -30,6 +32,12 @@ CAMERA = LOCATION + 0x6A          # the map's camera type, a byte: every warp co
 MAP_HEADERS = 0x020F37C4          # arm9: 24 bytes per map, +0x14 bits 12-17 the camera type
 OBJECTS, OBJECT_SIZE = 0x2480, 0x50   # saved map objects; the player is the first; flags bit 0 = active
 FACING = {'up': 0, 'down': 1, 'left': 2, 'right': 3}
+IMAGE_SIZE = 0x80000              # the battery image: 4 Mbit flash
+SAVE_MAGIC = 0x20060623           # a slot footer's magic
+# DeSmuME's .dsv footer after the image: a text marker, its backup info (u32 size, padding size, type, address size,
+# memory size, 0) and an end marker; every .dsv of the test bench carries this one (4 Mbit flash, 3-byte addresses)
+DSV_FOOTER = (b'|<--Snip above here to create a raw sav by excluding this DeSmuME savedata footer:'
+              + struct.pack('<6I', IMAGE_SIZE, IMAGE_SIZE, 6, 3, IMAGE_SIZE, 0) + b'|-DESMUME SAVE-|')
 BLOCK_ORDERS = ['ABCD', 'ABDC', 'ACBD', 'ACDB', 'ADBC', 'ADCB', 'BACD', 'BADC', 'BCAD', 'BCDA', 'BDAC', 'BDCA',
                 'CABD', 'CADB', 'CBAD', 'CBDA', 'CDAB', 'CDBA', 'DABC', 'DACB', 'DBAC', 'DBCA', 'DCAB', 'DCBA']
 
@@ -96,13 +104,32 @@ class Mon:
         self.blocks['D'][0x1C] &= 0x80
 
 
+def image(data):
+    """The raw 512 KiB battery image of a raw save (.sav, exactly the image) or a DeSmuME .dsv (the image and a
+    footer that ends with DeSmuME's end marker); ValueError for anything else."""
+    data = bytes(data)
+    if len(data) == IMAGE_SIZE:
+        return data
+    if len(data) > IMAGE_SIZE and data.endswith(b'|-DESMUME SAVE-|'):
+        return data[:IMAGE_SIZE]
+    raise ValueError('not a 512 KiB battery save: %d bytes (a raw .sav is exactly %d bytes; a DeSmuME .dsv ends with '
+                     'its footer)' % (len(data), IMAGE_SIZE))
+
+
+def dsv(img):
+    """A DeSmuME .dsv of a raw image: the image and DSV_FOOTER."""
+    return image(img) + DSV_FOOTER
+
+
 class Save:
-    def __init__(self, path):
-        self.data = bytearray(open(path, 'rb').read())
+    def __init__(self, path=None, data=None):
+        self.data = bytearray(open(path, 'rb').read() if data is None else data)
         counts = []
         for base in (0, SLOT_B):
             cnt, _, magic = struct.unpack_from('<III', self.data, base + FOOTER)
-            counts.append(cnt if magic == 0x20060623 else -1)
+            counts.append(cnt if magic == SAVE_MAGIC else -1)
+        if max(counts) < 0:
+            raise ValueError('no HeartGold save slot (footer magic %08X) in either half of the image' % SAVE_MAGIC)
         self.base = SLOT_B if counts[1] > counts[0] else 0
 
     def u(self, fmt, off):
@@ -150,11 +177,14 @@ class Save:
         v = self.u('<B', byte)[0]
         self.put('<B', byte, v | 1 << flag % 8 if on else v & ~(1 << flag % 8))
 
-    def place(self, map_id, x, y, facing, rom):
-        """Put the player on (map_id, x, y) with that map's camera type (from `rom`'s arm9), and switch off every other
-        saved map object."""
+    def place(self, map_id, x, y, facing, rom=None, camera=None):
+        """Put the player on (map_id, x, y) with a camera type (`camera`, else that map's from `rom`'s arm9; neither:
+        the camera byte stays), and switch off every other saved map object."""
         self.put('<5i', LOCATION, map_id, -1, x, y, FACING[facing])
-        self.put('<B', CAMERA, map_camera(map_id, rom))
+        if camera is None and rom is not None:
+            camera = map_camera(map_id, rom)
+        if camera is not None:
+            self.put('<B', CAMERA, camera)
         self.put('<6h', OBJECTS + 0x20, x, 0, y, x, 0, y)
         for n in range(1, 64):
             off = OBJECTS + OBJECT_SIZE * n
@@ -162,11 +192,16 @@ class Save:
             if flags & 1:
                 self.put('<I', off, flags & ~1)
 
-    def write(self, path):
+    def to_bytes(self):
+        """The save with its edited slot's CRC fixed."""
         crc = crc16_ccitt(self.data[self.base:self.base + FOOTER])
         self.put('<H', FOOTER + 0xE, crc)
+        return bytes(self.data)
+
+    def write(self, path):
+        data = self.to_bytes()
         with open(path, 'wb') as f:
-            f.write(self.data)
+            f.write(data)
 
 
 def map_camera(map_id, rom):

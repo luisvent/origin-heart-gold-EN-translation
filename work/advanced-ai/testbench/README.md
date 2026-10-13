@@ -1,12 +1,33 @@
 # Advanced AI test bench
 
+## Play against the AI
+
+From the repository root, on the `feature/advanced-ai` branch:
+
+1. Python 3.14 environment: `python3 -m venv .venv && .venv/bin/pip install -r work/tools/requirements-runtime.txt`.
+2. Put your own Pokémon HeartGold (USA) ROM at `work/rom/Pokemon - HeartGold Version (USA).nds`.
+3. Download the release patch `Origin_HeartGold_v4.0.3_EN_v1.0.0-rc8.xdelta` from the repository's GitHub releases
+   and apply it: `xdelta3 -d -s "work/rom/Pokemon - HeartGold Version (USA).nds" Origin_HeartGold_v4.0.3_EN_v1.0.0-rc8.xdelta work/build/advanced-ai/base/rc8_release.nds`.
+4. Install the AI: `.venv/bin/python work/advanced-ai/builder/install.py --input work/build/advanced-ai/base/rc8_release.nds --out work/build/advanced-ai/ai.nds`.
+5. Make the test saves from a save of your own game (a raw 512 KiB `.sav` from melonDS or a flashcart, or a DeSmuME
+   `.dsv`; at least one Pokémon that is not an Egg): `.venv/bin/python work/advanced-ai/testbench/lib/saves.py make --base /path/to/your/save.sav`.
+6. Play: `.venv/bin/python work/advanced-ai/testbench/versus/aiplay.py 3 --rom work/build/advanced-ai/ai.nds --payload work/advanced-ai/payload/payload.json`.
+   Click the window once, then: DS A = X, B = Z, X = S, Y = A, L = Q, R = W, Start = Enter, Select = Right Shift,
+   D-pad = arrow keys, touch screen = left mouse button. Close the window or press Ctrl+C to stop; every battle is
+   logged under `work/build/advanced-ai/runs/aivsai/human/`.
+
+The ROMs and saves are yours and stay out of git (`*.nds`, `*.dsv`, `*.sav` are ignored).
+
+## The test bench
+
 Every test and test tool for the advanced trainer AI lives here: our own unit tests and the test bench ported from the
 Spanish translation (commit `dc8577c`) ([PLAN.md](../PLAN.md), phases 1 and 3). Each ported tool's docstring and its
 directory's README say what changed from the Spanish tool.
 
 ```
 T=work/advanced-ai/testbench
-ADVAI_ES_REPO=/path/to/spanish/repo .venv/bin/python $T/lib/saves.py make   # once: the test saves, checked by SHA-256
+.venv/bin/python $T/lib/saves.py make --base /path/to/your/save.sav        # once: the test saves (or, the reference
+ADVAI_ES_REPO=/path/to/spanish/repo .venv/bin/python $T/lib/saves.py make  #   ones, from the Spanish repository)
 .venv/bin/python $T/run.py static|quick|deep --rom ROM --payload PAYLOAD [--workers N] [--list] [--only STEP,...]
                  [--options-receipt RECEIPT] [--record]     # exit 1 when a step failed
 ```
@@ -14,6 +35,12 @@ ADVAI_ES_REPO=/path/to/spanish/repo .venv/bin/python $T/lib/saves.py make   # on
 The payload is the AI build's `payload.json`: `work/advanced-ai/payload/payload.json` for ours,
 `work/build/advanced-ai/es/payload/payload.json` (the builder's `--layout es`) for the Spanish rc44. Every tool imports
 the others by bare name after `import tbpaths` (`lib/README.md`, "Import convention").
+
+**Saves and references.** The references in `references/` were recorded with the reference saves (the Spanish
+workspace's, `saves.py make` from its repository). Saves derived from your own game (`make --base`, `lib/saves.py`
+lists what is normalised and what still comes from your save) run every tool, but they are other bytes: every tier
+prints where its saves came from, the deep tier compares the AI-vs-AI logs with the reference only with the reference
+saves (otherwise it judges the win range alone and says so), and `--record` refuses other saves.
 
 An **AI build** is our standard build, then the difficulty installer, then the AI installer. A change to any of the
 three makes a new AI build, and the tiers below run on it.
@@ -40,7 +67,7 @@ Every directory gets its own README when it is created: what is in it, what it n
 Run output goes to the ignored `work/build/advanced-ai/runs/` (a tier's to `runs/tiers/<tier>_<layout>_<time>/`).
 `--layout en` compiles the host AI with `en.json`'s `-DAI_NO_STEER`; the simulator's and the host build's output goes
 to `work/build/advanced-ai/{sim,hostai}/<ROM>[_<layout>]/`. Pre-battle saves are made locally by `lib/saves.py` and
-found by SHA-256, like our `--emu` saves, and are never committed (`*.dsv` and `*.sav` are ignored). The Spanish Violet
+checked by SHA-256 against their manifest, and are never committed (`*.dsv` and `*.sav` are ignored). The Spanish Violet
 Gym save's lead has edited stats (998/297 HP after a battle): the bench, AI-vs-AI and property tests replace both
 parties before every battle, and the checks that fight with the save's own party cap its HP first, since the AI's range
 check would otherwise hand every turn to overlay 11.
@@ -49,7 +76,7 @@ check would otherwise hand every turn to overlay 11.
 
 | Tier | When | What runs | Time |
 |---|---|---|---|
-| Static | Every `check.py` run, fast and `--full` | `unit/`; the bench's claim checks against ROM data (no emulator); the self-tests of `aiprops`, `aivsai_report`, `aivsai_live`, `score_round`, `aitune`; `versus/test_*.py`; `hostai/replay.py` and `sim/bench_check.py` on the ROM's bench record (skipped until the quick tier made one) | about 1 min (28-66 s on the English AI build, most of it the unit tests) |
+| Static | Every `check.py` run, fast and `--full` | `unit/`; the bench's claim checks against ROM data (no emulator); the self-tests of `aiprops`, `aivsai_report`, `aivsai_live`, `score_round`, `aitune`; `versus/test_*.py` and `lib/test_*.py` (trainer names, the save derivation); `hostai/replay.py` and `sim/bench_check.py` on the ROM's bench record (skipped until the quick tier made one) | about 1 min (28-66 s on the English AI build, most of it the unit tests) |
 | Quick | Every AI build: the `ai` part of `check.py --full --emu` | `bench/` (365 graded scenarios; 364 on our data, see `bench/README.md`); `checks/`: `aimode_check` (each setting, doubles, partner, Gym trainer, story character), `lead_check`, `read_check`, `menulock` (the foe's four no-PP cases), `ai_smoke`, `options_trainer_ai` (with `--options-receipt`); a short `props/` run (20 positions, seed 1) | 18.5 min with 3 emulators on the English AI build (bench 6.7 min, checks 9.4 min, props 2.3 min) |
 | Deep | Any change to the AI, to the overlay-14 code it hooks, or to the engine code it calls; every release candidate | `versus/`: 80 games (seed 101) compared with the reference; the full `props/` run (100 positions, seed 1); `checks/`: `fscheck` (foresight), `storycheck` (story battles with the AI on), `itcm_arena`; `fuzz/aifuzz.py --double --mode advanced` | 61 min with 3 emulators (AI-vs-AI 18.6 min, props 11.5, story 9.2, fuzz 17.3, foresight and arena 4.8) |
 

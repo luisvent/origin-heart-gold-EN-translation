@@ -18,7 +18,8 @@ References (testbench/references/<layout>/, the payload's layout: 'en' for our b
   bench.json     the bench score and every scenario's action; quick passes when the score is at or above it, with 0
                  fallbacks, every decision from overlay 10, 0 errors and no more runs with clipped text (bench_record.json: the whole run, which hostai/replay.py
                  and sim/bench_check.py replay)
-  aivsai.json    the 80 games' log digests and the win count; deep passes when every log is byte-identical, else when
+  aivsai.json    the 80 games' log digests and the win count; deep passes when every log is byte-identical (only
+                 compared when the saves are the reference ones: lib/saves.py), else when
                  the advanced AI wins 80-94% of the counted games (the differing games are printed); either way no
                  more fallbacks than the reference
   aiprops.json   the property tests' seeds and sizes; a run passes with no violation other than the reference's
@@ -26,7 +27,8 @@ References (testbench/references/<layout>/, the payload's layout: 'en' for our b
                  serve (fallbacks, misread positions) than the reference
 Every judged step reports the AI's fallbacks (decisions overlay 11's code made for it) and fails on more than the
 reference has, so an AI that silently hands its turns back never passes.
---record writes the references from this run (a new reference needs a reviewer's sign-off: see references/README.md).
+--record writes the references from this run (a new reference needs a reviewer's sign-off: see references/README.md;
+it needs the reference test saves). Every tier prints where its saves came from (lib/saves.py describe).
 Run output: work/build/advanced-ai/runs/tiers/<tier>_<time>/.
 """
 import argparse
@@ -43,6 +45,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, 'lib'))
 import tbpaths  # noqa: E402,F401  (puts every test bench directory on sys.path)
 import payload  # noqa: E402
+import saves  # noqa: E402
 
 PY = sys.executable
 REFS = os.path.join(HERE, 'references')
@@ -91,6 +94,7 @@ STEPS = [
     Step('selftest-live', ('static',), 'testbench-a', 'versus/aivsai_live.py', lambda c: ['--selftest']),
     Step('selftest-score', ('static',), 'testbench-a', 'versus/score_round.py', lambda c: ['--selftest']),
     Step('versus-tests', ('static',), 'testbench-a', 'versus', kind='unittest'),    # versus/test_*.py
+    Step('lib-tests', ('static',), 'testbench-a', 'lib', kind='unittest'),          # lib/test_*.py (the saves)
     Step('hostai-replay', ('static',), 'testbench-b', 'hostai/replay.py', lambda c: ['--rom', c.rom, '--layout', c.layout],
          skip_codes=(2,)),          # 2: no bench record on this ROM yet (the quick tier makes one)
     Step('sim-bench-check', ('static',), 'testbench-b', 'sim/bench_check.py', lambda c: ['--rom', c.rom, '--layout', c.layout],
@@ -268,11 +272,14 @@ def versus_step(c, step):
         return False, text + '; no reference (references/%s/aivsai.json): run with --record after review' % c.layout
     if fallbacks > ref.get('fallbacks', 0):
         return False, text + '; more fallbacks than the reference (%d)' % ref.get('fallbacks', 0)
+    rate = wins / counted if counted else 0
+    ok = WIN_RANGE[0] <= rate <= WIN_RANGE[1]
+    if not c.saves_reference:       # the logs were recorded from the reference saves: only the win range can judge
+        return ok, text + ' (%.1f%%, range %d-%d%%); logs not compared: the saves are not the reference ones' % (
+            100 * rate, 100 * WIN_RANGE[0], 100 * WIN_RANGE[1])
     differ = sorted(k for k in set(ref['logs']) | set(digests) if ref['logs'].get(k) != digests.get(k))
     if not differ:
         return True, text + '; all %d logs byte-identical to the reference' % len(digests)
-    rate = wins / counted if counted else 0
-    ok = WIN_RANGE[0] <= rate <= WIN_RANGE[1]
     return ok, text + ' (%.1f%%, range %d-%d%%); %d logs differ from the reference: %s' % (
         100 * rate, 100 * WIN_RANGE[0], 100 * WIN_RANGE[1], len(differ), ', '.join(differ))
 
@@ -300,9 +307,13 @@ def main():
             print('%-18s %-12s %-28s %s' % (s.name, s.owner, s.tool, 'PENDING' if s.pending() else 'ready'))
         return 0
     c.stamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+    c.saves_reference, saves_line = saves.reference(), saves.describe()
+    if c.record and not c.saves_reference:
+        ap.error('--record needs the reference saves (%s)' % saves_line)
     c.out = tbpaths.run_dir('tiers', '%s_%s_%s' % (c.tier, c.layout, c.stamp))
     print('%s tier on %s (payload %s, layout %s), %d workers; output %s' % (
         c.tier, tbpaths.rel(c.rom), tbpaths.rel(c.payload), c.layout, c.workers, tbpaths.rel(c.out)), flush=True)
+    print(saves_line, flush=True)
     rows, t0 = [], time.time()
     for s in steps:
         print('- %s' % s.name, flush=True)
@@ -324,7 +335,7 @@ def main():
             ok, text = (None if code in s.skip_codes else code == 0), 'exit %d' % code
         rows.append((s.name, {True: 'pass', False: 'FAIL', None: 'SKIP'}[ok], '%s (%.0f s)' % (text, time.time() - t)))
         print('    %s: %s' % (rows[-1][1], rows[-1][2]), flush=True)
-    summary = ['%s tier: %s' % (c.tier, tbpaths.rel(c.rom))] + ['  %-18s %-7s %s' % r for r in rows]
+    summary = ['%s tier: %s' % (c.tier, tbpaths.rel(c.rom))] + ['  %-18s %-7s %s' % r for r in rows] + ['  ' + saves_line]
     failed = [r for r in rows if r[1] == 'FAIL']
     summary.append('%d passed, %d failed, %d skipped, %d pending in %.0f s' % (
         sum(r[1] == 'pass' for r in rows), len(failed), sum(r[1] == 'SKIP' for r in rows),
