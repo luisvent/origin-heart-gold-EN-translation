@@ -206,10 +206,10 @@
   {
    "id": 25,
    "zh": "莉佳『当然没问题。{NEWLINE}不过也不急在这一时,{CLEAR}先去我们香水店看看怎么样？",
-   "en": "Erika: Of course.{SCROLL}But there’s no rush. Why don’t we stop{NEWLINE}by my perfume shop first?",
+   "en": "Erika: Of course.{SCROLL}But there’s no rush. Why don’t we stop{NEWLINE}by our perfume shop first?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve collective shop ownership."
   },
   {
    "id": 26,
@@ -318,10 +318,10 @@
   {
    "id": 39,
    "zh": "阿桔『我试过了各种毒液,{NEWLINE}都无法溶化前面的这层屏障。{CLEAR}不知道志霸先生的绝对力量{CLEAR}或者菊子女士和娜姿小姐的超能力{CLEAR}能不能破开这道屏障。",
-   "en": "Koga: I have tried every kind of venom,{NEWLINE}and none can dissolve this barrier{CLEAR}before us.{SCROLL}I wonder whether Bruno’s sheer{NEWLINE}strength, or the psychic powers of{CLEAR}Agatha and Sabrina, could break{CLEAR}through it.",
+   "en": "Koga: I have tried every kind of venom,{NEWLINE}and none can dissolve this barrier{CLEAR}before us.{SCROLL}I wonder if Mr. Bruno’s sheer strength,{NEWLINE}or the psychic powers of Ms. Agatha and{CLEAR}Miss Sabrina, could pierce it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve respectful titles in formal Koga speech."
   },
   {
    "id": 40,
@@ -366,10 +366,10 @@
   {
    "id": 45,
    "zh": "大吾『{VAR:0103:0},我刚要挑战浅红道馆,{NEWLINE}阿桔先生就接到精灵联盟的通知{CLEAR}要来解决金黄市的突发情况。{CLEAR}我本来以为四天王和馆主们齐聚这里,{CLEAR}一定能迅速解决事件。{CLEAR}谁知道现在连金黄市都进不去,{CLEAR}更别提跟火箭队战斗了。",
-   "en": "Steven: {VAR:0103:0}, I was just about to{NEWLINE}challenge the Fuchsia Gym when Koga was{CLEAR}notified by the Pokémon League that he{CLEAR}had to come deal with the emergency in{CLEAR}Saffron City.{SCROLL}I thought that with the Elite Four and{NEWLINE}the Gym Leaders all gathered here, this{CLEAR}would be settled quickly.{SCROLL}Who knew we couldn’t even get into{NEWLINE}Saffron City, let alone fight{CLEAR}Team Rocket?",
+   "en": "Steven: {VAR:0103:0}, I was just about to{NEWLINE}challenge the Fuchsia Gym when Mr. Koga{CLEAR}was notified by the Pokémon League that{CLEAR}he had to come deal with the emergency{CLEAR}in Saffron City.{SCROLL}I thought that with the Elite Four and{NEWLINE}the Gym Leaders all gathered here, this{CLEAR}would be settled quickly.{SCROLL}Who knew we couldn’t even get into{NEWLINE}Saffron City, let alone fight{CLEAR}Team Rocket?",
    "status": "draft",
    "origin": "agent",
-   "notes": " | RV011: omission: 跟火箭队战斗 named Team Rocket; removed stray split ellipsis"
+   "notes": " | RV011: omission: 跟火箭队战斗 named Team Rocket; removed stray split ellipsis | AGENT-0321-0380: Restore named opponent Team Rocket and remove added ellipsis; preserve respectful Koga title."
   },
   {
    "id": 46,

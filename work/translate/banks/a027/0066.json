@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "胡桃『请一定收听我和大木博士{NEWLINE}的精灵讲座啊！",
-   "en": "Mary: Please tune in to me on{NEWLINE}Professor Oak’s Pokémon Talk show.",
+   "en": "Mary: Please be sure to tune in to{NEWLINE}Pokémon Talk with Professor Oak and me!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0068/6"
+   "origin": "agent",
+   "notes": "US 0068/6 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "世治『火箭队吗……{NEWLINE}他们有一样是欠缺的,{CLEAR}那就是音乐！{SCROLL}音乐能治愈人们的心灵,{SCROLL}喜欢音乐的人是不可能在广播塔上{CLEAR}做出这种坏事的……！",
-   "en": "Ben: Team Rocket... There is something{NEWLINE}they lack. It is music! Music heals{CLEAR}people’s hearts. Music lovers would{CLEAR}never do such horrible things at a place{CLEAR}like the Radio Tower!",
+   "en": "Ben: Team Rocket... There is something{NEWLINE}they lack. It is music!{SCROLL}Music heals people’s hearts.{SCROLL}Music lovers would never do such{NEWLINE}horrible things at a place like the{CLEAR}Radio Tower!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0068/10 | RV037: meaning: 治愈 = heals"
+   "notes": "US 0068/10 | RV037: meaning: 治愈 = heals | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 11,
@@ -118,10 +118,10 @@
   {
    "id": 14,
    "zh": "重要的是{NEWLINE}火箭队和兰斯！{SCROLL}精灵什么的无所谓！",
-   "en": "Team Rocket and Proton are all I need!{SCROLL}Who cares about Pokémon?",
+   "en": "Team Rocket and Proton are{NEWLINE}what matter!{SCROLL}Who cares about Pokémon?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0068/14"
+   "origin": "agent",
+   "notes": "US 0068/14 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 15,
@@ -134,10 +134,10 @@
   {
    "id": 16,
    "zh": "台长『呃……嗯,小茜馆主,{NEWLINE}很抱歉地通知您,{CLEAR}您参加「最强训练家」节目录制的时间{CLEAR}得推迟到下周了。{SCROLL}台长『请您下周同一时间再来我台{NEWLINE}录制「最强训练家」第二期节目吧。",
-   "en": "Director: Er... Well, Whitney,{NEWLINE}I’m very sorry to tell you this,{SCROLL}but your recording for ‘The Strongest{NEWLINE}Trainer’ will have to be pushed back{CLEAR}to next week.{SCROLL}Director: Please come back next{NEWLINE}week at the same time to record the{CLEAR}second episode.",
+   "en": "Director: Er... Well, Whitney, I’m very{NEWLINE}sorry to tell you this,{SCROLL}but your recording for ‘The Strongest{NEWLINE}Trainer’ will have to be pushed back to{CLEAR}next week.{SCROLL}Director: Please come back next week at{NEWLINE}the same time to record the second{CLEAR}episode of ‘The Strongest Trainer.’",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 17,
@@ -166,10 +166,10 @@
   {
    "id": 20,
    "zh": "台长『小茜馆主,您虽然是{NEWLINE}让人仰望的道馆馆主,{CLEAR}可是像您这样身份的馆主{CLEAR}在全地区有十六位之多,{CLEAR}在您之上还有联盟四天王{CLEAR}这些更强的训练家。{SCROLL}台长『我想,比起每个城市{NEWLINE}都有的道馆馆主,{CLEAR}听众们一定对{CLEAR}更难得一见的训练家更感兴趣。{CLEAR}所以这第一期节目嘉宾的位置,{CLEAR}就只能暂时委屈您让出来了。",
-   "en": "Director: Whitney, you’re a Gym Leader{NEWLINE}people look up to...{SCROLL}But there are sixteen Gym Leaders like{NEWLINE}you across the region, and above you{CLEAR}there are even stronger Trainers,{CLEAR}like the Elite Four.{SCROLL}Director: I believe our listeners will{NEWLINE}be more interested in a Trainer they{CLEAR}rarely get to hear from than in the Gym{CLEAR}Leaders every city has.{SCROLL}So I’m afraid we have to ask you to give{NEWLINE}up the first guest slot, just for now.",
+   "en": "Director: Whitney, you’re a Gym Leader{NEWLINE}people look up to...{SCROLL}But there are sixteen Gym Leaders like{NEWLINE}you across the region, and above you{CLEAR}there are even stronger Trainers, like{CLEAR}the Elite Four.{SCROLL}Director: I believe our listeners will be{NEWLINE}more interested in a Trainer they{CLEAR}rarely get to see than in the Gym{CLEAR}Leaders every city has.{SCROLL}So I’m afraid we have to ask you to give{NEWLINE}up the first guest slot, just for now.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 21,
@@ -592,10 +592,10 @@
   {
    "id": 73,
    "zh": "胡桃『真是一段传奇的训练家经历！{NEWLINE}谢谢冠军大人来到我们广播台{CLEAR}为大家讲述自己的故事,谢谢您！",
-   "en": "Mary: What a legendary journey!{SCROLL}Thank you so much for coming to our{NEWLINE}station to share your story with{CLEAR}everyone, Champion!",
+   "en": "Mary: What a legendary journey as a{NEWLINE}Trainer!{SCROLL}Thank you for coming to our station to{NEWLINE}share your story with everyone,{CLEAR}Champion. Thank you!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 74,

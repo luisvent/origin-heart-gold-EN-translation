@@ -537,7 +537,7 @@
   {
    "id": 66,
    "zh": "谢谢大哥哥帮忙救回了{NEWLINE}莉佳姐姐和臭臭花。{CLEAR}我的精灵们会一招{CLEAR}特别实用的草系技能「种子爆弹」,{CLEAR}如果大哥哥的精灵想学的话,{CLEAR}我可以教它们哦。{SCROLL}怎么样,要学习种子爆弹吗？{SCROLL}",
-   "en": "Thank you for helping rescue Sis Erika{NEWLINE}and Gloom, mister!{SCROLL}My Pokémon know a really handy{NEWLINE}Grass-type move called Seed Bomb. If{CLEAR}your Pokémon want to learn it, I can{CLEAR}teach them!{SCROLL}How about it? Want to learn Seed Bomb?{SCROLL}",
+   "en": "Thank you for helping rescue Sis Erika{NEWLINE}and Gloom, big brother!{SCROLL}My Pokémon know a really handy{NEWLINE}Grass-type move called Seed Bomb. If{CLEAR}your Pokémon want to learn it, I can{CLEAR}teach them!{SCROLL}How about it? Want to learn Seed Bomb?{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": "#66/#67: male/female player variants (mister/miss). Speaker is presumably Kaya."
@@ -545,7 +545,7 @@
   {
    "id": 67,
    "zh": "谢谢大姐姐帮忙救回了{NEWLINE}莉佳姐姐和臭臭花。{CLEAR}我的精灵们会一招{CLEAR}特别实用的草系技能「种子爆弹」,{CLEAR}如果大姐姐的精灵想学的话,{CLEAR}我可以教它们哦。{SCROLL}怎么样,要学习种子爆弹吗？{SCROLL}",
-   "en": "Thank you for helping rescue Sis Erika{NEWLINE}and Gloom, miss!{SCROLL}My Pokémon know a really handy{NEWLINE}Grass-type move called Seed Bomb. If{CLEAR}your Pokémon want to learn it, I can{CLEAR}teach them!{SCROLL}How about it? Want to learn Seed Bomb?{SCROLL}",
+   "en": "Thank you for helping rescue Sis Erika{NEWLINE}and Gloom, big sister!{SCROLL}My Pokémon know a really handy{NEWLINE}Grass-type move called Seed Bomb. If{CLEAR}your Pokémon want to learn it, I can{CLEAR}teach them!{SCROLL}How about it? Want to learn Seed Bomb?{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": ""

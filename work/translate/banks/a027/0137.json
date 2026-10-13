@@ -6,18 +6,18 @@
   {
    "id": 0,
    "zh": "好孩子的口袋竞技员{NEWLINE}你ー好ー！{SCROLL}⋯⋯　⋯⋯　⋯⋯{SCROLL}怎么了,看上去好像没什么精神？{NEWLINE}再一次,你好！{SCROLL}好了！{SCROLL}哥哥的名字是奇志！{NEWLINE}是口袋竞技的司会{CLEAR}请多关照！{SCROLL}若是在口袋竞技{NEWLINE}有什么不明白的事情！{CLEAR}我会从头到尾的告诉你哦！{SCROLL}",
-   "en": "Hellooo, good little Pokéathlete!{SCROLL}...{SCROLL}What’s wrong? You don’t look very{NEWLINE}lively. Once more, hello!{SCROLL}Good!{SCROLL}Big bro’s name is Maximo! I’m the{NEWLINE}Pokéathlon MC. Nice to meet you!{SCROLL}If there’s anything you don’t get about{NEWLINE}the Pokéathlon, I’ll tell you all about{CLEAR}it from start to finish!{SCROLL}",
+   "en": "Hellooo, good little Pokéathlete!{SCROLL}... ... ...{SCROLL}What’s wrong? You don’t look very{NEWLINE}lively. Once more, hello!{SCROLL}Good!{SCROLL}Big bro’s name is Maximo! I’m the{NEWLINE}Pokéathlon MC. Nice to meet you!{SCROLL}If there’s anything you don’t{NEWLINE}understand about the Pokéathlon, I’ll{CLEAR}explain it from start to finish!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0139/0 | RV039: voice: 哥哥 self-reference kept (as in #1, #17); clauses aligned"
+   "notes": "US 0139/0 | RV039: voice: 哥哥 self-reference kept (as in #1, #17); clauses aligned | CES005-0136-0137: Restore stretched greeting, full pause, big-brother self-address and explanation promise."
   },
   {
    "id": 1,
    "zh": "奇志『你好！{SCROLL}哥哥会把口袋竞技的事情{NEWLINE}从头到尾讲给你听！{SCROLL}",
-   "en": "Maximo: Hello!{SCROLL}Big bro here will tell you all about the{NEWLINE}Pokéathlon, from start to finish!{SCROLL}{SCROLL}",
+   "en": "Maximo: Hello!{SCROLL}Big bro here will tell you all about the{NEWLINE}Pokéathlon, from start to finish!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0136-0137: Remove duplicated terminal SCROLL absent from source."
   },
   {
    "id": 2,
@@ -54,82 +54,82 @@
   {
    "id": 6,
    "zh": "那么我就来说明一下「跨栏」！{SCROLL}冲刺跨栏跑就是比赛速度的比赛,{SCROLL}当靠近栏架时让精灵跳起来,{SCROLL}只要时机对了,就能越过栏架。{SCROLL}以３只的合计时间来计分,{SCROLL}像哥哥一样,{NEWLINE}这是敏捷型的精灵擅长的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什么吗？{SCROLL}",
-   "en": "I’ll explain “Hurdle Dash” for you.{NEWLINE}It is an event to test your speed.{SCROLL}Your Pokémon needs to jump{NEWLINE}when the Hurdle comes near.{SCROLL}If it jumps at the right time,{NEWLINE}it will go over the Hurdle!{SCROLL}The total time of the three Pokémon{NEWLINE}gives you the event score.{SCROLL}This is an event for speedy Pokémon{NEWLINE}that move quickly like me!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
+   "en": "I’ll explain “Hurdle Dash” for you. It is{NEWLINE}an event to test your speed.{SCROLL}Your Pokémon needs to jump when the{NEWLINE}Hurdle comes near.{SCROLL}If it jumps at the right time, it will go{NEWLINE}over the Hurdle!{SCROLL}The total time of the three Pokémon{NEWLINE}gives you the event score.{SCROLL}This is an event for speedy Pokémon{NEWLINE}that move quickly like big bro here!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/6"
+   "origin": "agent",
+   "notes": "US 0139/6 | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 7,
    "zh": "那么我就来说明一下「抢旗」！{SCROLL}抢旗就是把被放置在海滨沙滩的{CLEAR}小旗拿回来,以拿回来的数量{CLEAR}定输赢的比赛。{SCROLL}小旗不是拿到就行,{SCROLL}要带回来才能得分！{SCROLL}是适合像哥哥这样{NEWLINE}速度快技术好的{CLEAR}精灵才拿手的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什么吗？{SCROLL}",
-   "en": "I’ll explain “Pennant Capture”{NEWLINE}for you.{SCROLL}Your Pokémon grab Pennants on{NEWLINE}the beach.{SCROLL}Grabbing Pennants doesn’t add to{NEWLINE}your score.{SCROLL}You have to come back with{NEWLINE}the Pennants.{SCROLL}This is an event for speedy and skillful{NEWLINE}Pokémon that move like I do!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
+   "en": "I’ll explain “Pennant Capture” for you.{SCROLL}Your Pokémon bring back Pennants from{NEWLINE}the beach. The number brought back{CLEAR}decides who wins.{SCROLL}Grabbing Pennants doesn’t add to your{NEWLINE}score.{SCROLL}You have to come back with the{NEWLINE}Pennants.{SCROLL}This is an event for speedy and skillful{NEWLINE}Pokémon that move like big bro does!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/7"
+   "origin": "agent",
+   "notes": "US 0139/7 | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 8,
    "zh": "那么我就来说明一下「抢位置」！{SCROLL}抢位置就是跟对手相互推挤的比赛,{SCROLL}只要在圆环里面就能得分。{SCROLL}这个比赛是以３只的合计点{CLEAR}计算得分！{SCROLL}像哥哥这样力量强大的顽强的精灵{CLEAR}所拿手的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什么吗？{SCROLL}",
-   "en": "I’ll explain “Circle Push” for you!{SCROLL}In Circle Push, your Pokémon push{NEWLINE}against your opponents’ Pokémon.{SCROLL}You get points as long as your Pokémon{NEWLINE}stay inside a Circle.{SCROLL}Your score is the three Pokémon’s{NEWLINE}combined points!{SCROLL}This is an event for powerful Pokémon{NEWLINE}with stamina that are strong like me!{SCROLL}Do you understand? OK, do you have any{NEWLINE}more questions?{SCROLL}",
+   "en": "I’ll explain “Circle Push” for you!{SCROLL}In Circle Push, your Pokémon push{NEWLINE}against your opponents’ Pokémon.{SCROLL}You get points as long as your Pokémon{NEWLINE}stay inside a Circle.{SCROLL}Your score is the three Pokémon’s{NEWLINE}combined points!{SCROLL}This is an event for powerful Pokémon{NEWLINE}with stamina that are strong like big{CLEAR}bro here!{SCROLL}Do you understand? OK, do you have any{NEWLINE}more questions?{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0139/8; ext-review RA-011"
+   "notes": "US 0139/8; ext-review RA-011 | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 9,
    "zh": "那么我就来说明一下「劈石板」！{SCROLL}正如其名是把石板破坏掉的比赛,{SCROLL}以破坏掉的石板的个数来计分,{CLEAR}非常容易明白吧。{SCROLL}是像哥哥这样力量强大的精灵{CLEAR}所擅长的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什么吗？{SCROLL}",
-   "en": "I’ll explain “Block Smash” for you.{NEWLINE}You smash Blocks as the name suggests.{SCROLL}The number of Blocks you smash{NEWLINE}will be the score you’ll get.{SCROLL}It’s so simple, isn’t it?{SCROLL}This is an event for powerful Pokémon{NEWLINE}that are strong like me!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
+   "en": "I’ll explain “Block Smash” for you. You{NEWLINE}smash Blocks as the name suggests.{SCROLL}The number of Blocks you smash will be{NEWLINE}the score you’ll get.{SCROLL}It’s so simple, isn’t it?{SCROLL}This is an event for powerful Pokémon{NEWLINE}that are strong like big bro here!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/9"
+   "origin": "agent",
+   "notes": "US 0139/9 | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 10,
    "zh": "那么我就来说明一下「抢飞碟」！{SCROLL}抢飞碟是用跳的方式接住{CLEAR}飞过来的飞碟的比赛,{SCROLL}飞碟是越在后面接点数越高,{SCROLL}以那点数的合计来计分。{SCROLL}是像哥哥这样强弹跳力和有力量的{CLEAR}精灵擅长的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什么吗？{SCROLL}",
-   "en": "I’ll explain “Disc Catch” for you.{NEWLINE}Your Pokémon jump and catch{CLEAR}Discs that come flying toward them.{SCROLL}The longer you wait before they catch{NEWLINE}the Discs, the more points you get.{CLEAR}The total points will decide the score.{SCROLL}This is an event for powerful and jumpy{NEWLINE}Pokémon that move like me!{SCROLL}Do you understand what I mean?{NEWLINE}OK, do you have any other questions?{SCROLL}",
+   "en": "I’ll explain “Disc Catch” for you. Your{NEWLINE}Pokémon jump and catch Discs that come{CLEAR}flying toward them.{SCROLL}The farther back they catch the Discs,{NEWLINE}the more points you get. The total{CLEAR}points will decide the score.{SCROLL}This is an event for powerful,{NEWLINE}high-jumping Pokémon that move like big{CLEAR}bro here!{SCROLL}Do you understand what I mean? OK, do{NEWLINE}you have any other questions?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/10"
+   "origin": "agent",
+   "notes": "US 0139/10 | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 11,
    "zh": "那么我就来说明一下「蹦床」！{SCROLL}蹦床,顾名思义{NEWLINE}就是在蹦床上蹦了,{CLEAR}然后尽量去碰那些亮着的灯！{SCROLL}碰到灯点数就会增加,{CLEAR}以点数计分。{SCROLL}是像哥哥这样弹跳力比较好的精灵{CLEAR}所擅长的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什么吗？{SCROLL}",
-   "en": "I’ll explain “Lamp Jump” for you.{NEWLINE}Your Pokémon bounce to jump high{CLEAR}and touch as many Lamps as they can.{SCROLL}The more Lamps they touch, the more{NEWLINE}points you get.{SCROLL}The total points will decide the score.{SCROLL}This is an event for jumpy Pokémon{NEWLINE}that are jumpy like me!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
+   "en": "I’ll explain “Lamp Jump” for you. As the{NEWLINE}name suggests, your Pokémon bounce on{CLEAR}trampolines and try to touch the{CLEAR}lit Lamps!{SCROLL}The more Lamps they touch, the more{NEWLINE}points you get.{SCROLL}The total points will decide the score.{SCROLL}This is an event for jumpy Pokémon that{NEWLINE}are jumpy like big bro here!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/11"
+   "origin": "agent",
+   "notes": "US 0139/11 | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 12,
    "zh": "那么我就来说明一下「赛跑」！{SCROLL}赛跑就是把３只精灵交替{SCROLL}在９０秒内到底能跑多远{CLEAR}的竞技比赛,{SCROLL}以跑的距离来计分。{SCROLL}是像哥哥这样顽强有速度的精灵{CLEAR}所擅长的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什么吗？{SCROLL}",
-   "en": "I’ll explain “Relay Run” for you.{NEWLINE}Your three Pokémon run in turns as far{CLEAR}as they can in 90 seconds.{SCROLL}The distance of the Relay will decide{NEWLINE}the score.{SCROLL}This is an event for speedy Pokémon{NEWLINE}with stamina... Ones just like me!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
-   "status": "reviewed",
+   "en": "I’ll explain “Relay Run” for you. Your{NEWLINE}three Pokémon run in turns as far as{CLEAR}they can in 90 seconds.{SCROLL}The distance of the Relay will decide the{NEWLINE}score.{SCROLL}This is an event for speedy Pokémon with{NEWLINE}stamina... Ones just like big bro here!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
+   "status": "draft",
    "origin": "agent",
-   "notes": "US 0139/12"
+   "notes": "US 0139/12 | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 13,
    "zh": "那么我就来说明一下「撞人」！{SCROLL}让对手的精灵从环落下的比赛,{SCROLL}阻挡成功就得1点{NEWLINE}用跳的方式把对方{CLEAR}压制住就得２点,{SCROLL}若让对方落下的话{NEWLINE}就能得到１０点。{SCROLL}是像哥哥这样顽强的精灵{CLEAR}所擅长的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什吗？{SCROLL}",
-   "en": "I’ll explain “Ring Drop” for you.{NEWLINE}Your Pokémon try to knock other{CLEAR}Pokémon out of the Ring.{SCROLL}A tackle gives you one point.{NEWLINE}A stomp on another Pokémon{CLEAR}gives you two points.{SCROLL}If your Pokémon knock another Pokémon{NEWLINE}off the Ring, making them drop, you get{CLEAR}ten points.{SCROLL}This is an event for Pokémon with{NEWLINE}stamina just like I have!{SCROLL}Do you understand what I mean?{NEWLINE}OK, do you have any more questions?{SCROLL}",
+   "en": "I’ll explain “Ring Drop” for you. Your{NEWLINE}Pokémon try to knock other Pokémon out{CLEAR}of the Ring.{SCROLL}Successfully blocking gives you one{NEWLINE}point. Jumping onto an opponent to pin{CLEAR}it down gives you two points.{SCROLL}If your Pokémon knock another Pokémon{NEWLINE}off the Ring, making them drop, you get{CLEAR}ten points.{SCROLL}This is an event for Pokémon with{NEWLINE}stamina just like big bro has!{SCROLL}Do you understand what I mean? OK, do{NEWLINE}you have any more questions?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/13"
+   "origin": "agent",
+   "notes": "US 0139/13 | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 14,
    "zh": "那么我就来说明一下「扔雪球」！{SCROLL}扔雪球就是说可能你不明白⋯⋯{CLEAR}哎,就照字面意思理解了！{SCROLL}以击中对方的雪球的数量计分！{SCROLL}是像哥哥这样力量强大又有技术{CLEAR}的精灵所擅长的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什么吗？{SCROLL}",
-   "en": "I’ll explain “Snow Throw” for you.{SCROLL}Snow Throw is... well, you might not get{NEWLINE}it... Ah, just take it literally!{SCROLL}The more Snowballs that hit the other{NEWLINE}Pokémon, the higher your score!{SCROLL}This is an event for powerful and{NEWLINE}skillful Pokémon... Ones just like me!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
+   "en": "I’ll explain “Snow Throw” for you.{SCROLL}Snow Throw is... well, you might not get{NEWLINE}it... Ah, just take it literally!{SCROLL}The more Snowballs that hit the other{NEWLINE}Pokémon, the higher your score!{SCROLL}This is an event for powerful and{NEWLINE}skillful Pokémon... Ones just like big{CLEAR}bro here!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0139/14 | RV039: addition: US added how about a Snowball fight"
+   "notes": "US 0139/14 | RV039: addition: US added how about a Snowball fight | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 15,
    "zh": "那么我就来说明一下「足球」！{SCROLL}就是把球打到对手的球门里,{SCROLL}只要是对手的球门{NEWLINE}随便哪里都是１点,{CLEAR}黄金球的话就是２点,{SCROLL}以团队的进球数决定名次,{SCROLL}按名次得分。{SCROLL}是像哥哥那样有力量有技术的{CLEAR}精灵所擅长的比赛！{SCROLL}明白了吗？{NEWLINE}那么,还有什么吗？{SCROLL}",
-   "en": "I’ll explain “Goal Roll” for you.{SCROLL}Your Pokémon hit the ball into the other{NEWLINE}teams’ Goals.{SCROLL}Anywhere in another team’s Goal is{NEWLINE}worth one point, and a gold ball is{CLEAR}worth two.{SCROLL}The number of goals a team scores{NEWLINE}decides its rank,{SCROLL}and the rank decides the score.{SCROLL}This is an event for powerful and{NEWLINE}skillful Pokémon... Ones just like me!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
+   "en": "I’ll explain “Goal Roll” for you.{SCROLL}Your Pokémon hit the ball into the other{NEWLINE}teams’ Goals.{SCROLL}Anywhere in another team’s Goal is{NEWLINE}worth one point, and a gold ball is{CLEAR}worth two.{SCROLL}The number of goals a team scores{NEWLINE}decides its rank,{SCROLL}and the rank decides the score.{SCROLL}This is an event for powerful and{NEWLINE}skillful Pokémon... Ones just like big{CLEAR}bro here!{SCROLL}Do you understand what I mean?{SCROLL}OK, do you have any more questions?{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0139/15 | RV039: meaning: most balls -> any part of an opponent Goal"
+   "notes": "US 0139/15 | RV039: meaning: most balls -> any part of an opponent Goal | CES005-0136-0137: Restore repeated big-brother voice and source-specific event mechanics."
   },
   {
    "id": 16,
@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "你问哥哥吗？{NEWLINE}什么呀,你是{CLEAR}对哥哥有兴趣啊！{SCROLL}哈哈哈{NEWLINE}没有什么好害羞的！{SCROLL}哥哥我啊{NEWLINE}⋯⋯　⋯⋯　⋯⋯{CLEAR}⋯⋯　⋯⋯　⋯⋯{CLEAR}⋯⋯其实是双胞胎！{SCROLL}哥哥是双胞胎的弟弟,{NEWLINE}哥哥我{CLEAR}也有个哥哥！{SCROLL}嗯,听得懂我{NEWLINE}所说的意思吗？{CLEAR}那么,还有什么吗？{SCROLL}",
-   "en": "Me? You’re asking about big bro? Oh, so{NEWLINE}you’re interested in big bro!{SCROLL}Hahaha! Nothing to be shy about!{SCROLL}Big bro is...{NEWLINE}...{CLEAR}...{CLEAR}...actually a twin!{SCROLL}Big bro is the younger twin. So big bro{NEWLINE}has a big bro too!{SCROLL}Do you get what I mean? OK, do you have{NEWLINE}any more questions?{SCROLL}",
+   "en": "Me? You’re asking about big bro? Oh, so{NEWLINE}you’re interested in big bro!{SCROLL}Hahaha! Nothing to be shy about!{SCROLL}Big bro is{NEWLINE}... ... ...{CLEAR}... ... ...{CLEAR}...actually a twin!{SCROLL}Big bro is the younger twin. So big bro{NEWLINE}has a big bro too!{SCROLL}Do you get what I mean? OK, do you have{NEWLINE}any more questions?{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0139/17 | “ ” → ‘ ’ (D-0028, width) | RV039: addition: some people call me big brother was added; closing question restored"
+   "notes": "US 0139/17 | “ ” → ‘ ’ (D-0028, width) | RV039: addition: some people call me big brother was added; closing question restored | CES005-0136-0137: Restore repeated dramatic ellipsis groups."
   },
   {
    "id": 18,
@@ -206,10 +206,10 @@
   {
    "id": 25,
    "zh": "{VAR:0103:0}选手{NEWLINE}一直以华丽的动作{CLEAR}让人移不开视线！{SCROLL}⋯⋯　⋯⋯　⋯⋯{NEWLINE}哇,是本人！？",
-   "en": "Pokéathlete {VAR:0103:0} is{NEWLINE}always splendid!{SCROLL}I can’t take my eyes off{NEWLINE}that Pokéathlete!{SCROLL}...{NEWLINE}Wait... Wow! Is that really you?",
+   "en": "Pokéathlete {VAR:0103:0} always moves so{NEWLINE}splendidly that I can’t take my eyes{CLEAR}off them!{SCROLL}... ... ...{NEWLINE}Wow, is that really you?!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/25"
+   "origin": "agent",
+   "notes": "US 0139/25 | CES005-0136-0137: Restore gorgeous movements rather than generic brilliance and deliberate pause."
   },
   {
    "id": 26,
@@ -230,10 +230,10 @@
   {
    "id": 28,
    "zh": "我、我的目标是用鲤鱼王、{NEWLINE}鲤鱼王来达成所有比赛的胜利！",
-   "en": "Er... I...I will try to win at every{NEWLINE}course with Magikarp!",
+   "en": "M-my goal is to use Magikarp, Magikarp{NEWLINE}to win every course!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/28; modernised from US 0139#28"
+   "origin": "agent",
+   "notes": "US 0139/28; modernised from US 0139#28 | CES005-0136-0137: Restore repeated Pokémon name and stammered goal."
   },
   {
    "id": 29,
@@ -270,10 +270,10 @@
   {
    "id": 33,
    "zh": "哇！！{NEWLINE}{VAR:0103:0}选手！{SCROLL}我是你的超级粉丝！{NEWLINE}好激动！{CLEAR}怎么办,{CLEAR}签名！！请给我签名！！",
-   "en": "Yikes!{NEWLINE}Pokéathlete {VAR:0103:0}!{SCROLL}I am a huge fan of yours!{NEWLINE}Oh my...what should I do?{CLEAR}Can you give me an autograph?",
+   "en": "Wow! Pokéathlete {VAR:0103:0}!{SCROLL}I’m a huge fan! I’m so excited! What do{NEWLINE}I do? An autograph!! Please give me{CLEAR}an autograph!!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/33"
+   "origin": "agent",
+   "notes": "US 0139/33 | CES005-0136-0137: Restore excited admission and repeated autograph request, remove invented number-one/mom."
   },
   {
    "id": 34,
@@ -302,18 +302,18 @@
   {
    "id": 37,
    "zh": "讨厌,{NEWLINE}是{VAR:0103:0}选手啊！{SCROLL}哦哦,近看还真像我儿子！{CLEAR}我会帮你加油的！",
-   "en": "Oh my!{NEWLINE}It’s Pokéathlete {VAR:0103:0}!{SCROLL}You look just like my son.{CLEAR}I’m rooting for you.",
+   "en": "Oh my! It’s Pokéathlete {VAR:0103:0}!{SCROLL}Up close, you really look just like my{NEWLINE}son. I’m rooting for you.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/37"
+   "origin": "agent",
+   "notes": "US 0139/37 | CES005-0136-0137: Restore up-close observation."
   },
   {
    "id": 38,
    "zh": "讨厌,{NEWLINE}是{VAR:0103:0}选手！{SCROLL}哦哦,近看还真像我女儿！{CLEAR}我会帮你加油的！",
-   "en": "Oh my!{NEWLINE}It’s Pokéathlete {VAR:0103:0}!{SCROLL}You look just like my daughter.{CLEAR}I’m rooting for you.",
+   "en": "Oh my! It’s Pokéathlete {VAR:0103:0}!{SCROLL}Up close, you really look just like my{NEWLINE}daughter. I’m rooting for you.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/38"
+   "origin": "agent",
+   "notes": "US 0139/38 | CES005-0136-0137: Restore up-close observation."
   },
   {
    "id": 39,
@@ -398,10 +398,10 @@
   {
    "id": 49,
    "zh": "现在完成中！",
-   "en": "I’m watching intently!",
+   "en": "Finishing up now!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0139/49"
+   "origin": "agent",
+   "notes": "US 0139/49 | CN 现在完成中: completing now; retained source wording rather than inferred spectator line."
   },
   {
    "id": 50,

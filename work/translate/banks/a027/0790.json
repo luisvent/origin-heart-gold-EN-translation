@@ -190,10 +190,10 @@
   {
    "id": 23,
    "zh": "符合条件的精灵",
-   "en": "No matching Pokémon were found.",
+   "en": "Matching Pokémon",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0802/23"
+   "origin": "agent",
+   "notes": "US 0802/23; Native CN/EN/ES failed-search screens show #23 and #24 together. #23 is the matching-Pokémon noun phrase; negation belongs to #24. D-2020 search-fragment issue verified; no Chinese source correction. User explicitly approved the faithful paired wording on 2026-10-13."
   },
   {
    "id": 24,

@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "这为小姐该不会是……{NEWLINE}换上女装的阿金吧？",
-   "en": "This young lady couldn’t be...{NEWLINE}Gold in a dress, could she?",
+   "en": "This young lady couldn’t be... Gold{NEWLINE}dressed in women’s clothes, could she?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Women’s clothes not necessarily a dress."
   },
   {
    "id": 6,
@@ -134,10 +134,10 @@
   {
    "id": 16,
    "zh": "嗯,水晶你从小自理能力就很强,{NEWLINE}奶奶相信你没问题的。",
-   "en": "Mm-hmm. Crystal, you’ve been able to{NEWLINE}look after yourself ever since you were{CLEAR}little. Grandma knows you’ll be fine.",
+   "en": "Mm-hmm. Crystal, you’ve been able to{NEWLINE}look after yourself ever since you were{CLEAR}little. Grandma believes you’ll be fine.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Belief/trust rather than factual knowledge."
   },
   {
    "id": 17,

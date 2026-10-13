@@ -143,10 +143,10 @@
   {
    "id": 17,
    "zh": "{VAR:0103:0}『哼哼,是我赢了！{NEWLINE}好了,快把图鉴还给我！",
-   "en": "{VAR:0103:0}: Hmph, I win! Now hand over my{NEWLINE}Pokédex!",
+   "en": "{VAR:0103:0}: Hmph, hmph, I win! Now hand{NEWLINE}over my Pokédex!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve repeated smug hum."
   },
   {
    "id": 18,
@@ -407,10 +407,10 @@
   {
    "id": 50,
    "zh": "咳咳,虽说只是个小鬼,{NEWLINE}但是看起来很厉害的样子,{CLEAR}咱们一起上吧！",
-   "en": "Ahem. It’s just a kid, but a tough one.{SCROLL}Let’s both go at once!",
+   "en": "Ahem. It’s just a kid, but looks tough.{SCROLL}Let’s both go at once!",
    "status": "draft",
    "origin": "agent",
-   "notes": "RV012: addressee: no pronoun in zh, player of either gender (D-1224, D-1769)"
+   "notes": "RV012: addressee: no pronoun in zh, player of either gender (D-1224, D-1769) | AGENT-0321-0380: Restore appearance uncertainty in EN."
   },
   {
    "id": 51,
@@ -463,10 +463,10 @@
   {
    "id": 57,
    "zh": "{VAR:0103:0}『嗯嗯,已经没事了,{NEWLINE}你们快回去吧。{CLEAR}以后不要再被坏人抓住了。{SCROLL}{VAR:0103:0}『当然,{NEWLINE}以后不准再对路人恶作剧啦,{CLEAR}知道了吗？",
-   "en": "{VAR:0103:0}: Yep, you’re safe now. Hurry{NEWLINE}on home, all of you. Don’t get caught by{CLEAR}bad guys again.{SCROLL}{VAR:0103:0}: And no more pranks on people{NEWLINE}passing by. Got it?",
+   "en": "{VAR:0103:0}: Yep, yep, you’re safe now.{NEWLINE}Hurry on home, all of you. Don’t get{CLEAR}caught by bad guys again.{SCROLL}{VAR:0103:0}: And of course, no more pranks{NEWLINE}on people passing by. Got it?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve repeated assent and of course."
   },
   {
    "id": 58,
@@ -659,10 +659,10 @@
   {
    "id": 81,
    "zh": "有人说这个季节是放生巴大蝴{NEWLINE}让他们交配繁衍的季节。{SCROLL}可是这只巴大蝴是我从绿毛虫时期{NEWLINE}一点点养到现在的,{CLEAR}我好舍不得把它放生啊！{SCROLL}你说我该怎么办呢？",
-   "en": "They say this is the season to release{NEWLINE}Butterfree so they can find a mate and{CLEAR}have babies.{SCROLL}But I raised this Butterfree myself, all{NEWLINE}the way from a Caterpie. I can’t bear{CLEAR}to let it go!{SCROLL}What do you think I should do?",
+   "en": "They say this is the season to release{NEWLINE}Butterfree so they can mate and{CLEAR}have babies.{SCROLL}But I raised this Butterfree myself, all{NEWLINE}the way from a Caterpie. I can’t bear{CLEAR}to let it go!{SCROLL}What do you think I should do?",
    "status": "draft",
    "origin": "agent",
-   "notes": "Butterfree debate: #81 → choices #88 (keep) / #89 (release) / #90 (don’t ask me), then follow-up arguments #91–#108 with two-option menus; endings #109 (keep: the media push release to sell goods), #110 (take it to the Day Care), #111 (release → #112–#116), #117 (keep)."
+   "notes": "Butterfree debate: #81 → choices #88 (keep) / #89 (release) / #90 (don’t ask me), then follow-up arguments #91–#108 with two-option menus; endings #109 (keep: the media push release to sell goods), #110 (take it to the Day Care), #111 (release → #112–#116), #117 (keep). | AGENT-0321-0380: Preserve explicit mating rather than only finding partner."
   },
   {
    "id": 82,
@@ -683,10 +683,10 @@
   {
    "id": 84,
    "zh": "你和杰尼龟的旅行还顺利吗？{SCROLL}我正准备把这几个调皮的小家伙{NEWLINE}训练成合格的警卫呢！",
-   "en": "How’s your journey with Squirtle going?{SCROLL}I’m training these little rascals to be a{NEWLINE}proper police squad!",
+   "en": "How’s your journey with Squirtle going?{SCROLL}I’m getting ready to train these little{NEWLINE}rascals into qualified guards!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve preparing to train and qualified officers rather than invented squad."
   },
   {
    "id": 85,
@@ -733,19 +733,19 @@
   {
    "id": 90,
    "zh": "我只是个路过的训练家,你别问我了。",
-   "en": "Just passing by. Don’t ask me.",
+   "en": "Passing Trainer. Don’t ask me.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0321-0380: Restore Trainer role in passing-by refusal. Verified menu_touch_1line constraint; compact wording preserves meaning, contextual subject where needed. ES Trainer role remains contextually implicit because full explicit formulation exceeds verified one-line width; targeted review recorded.",
    "category": "menu_touch_1line"
   },
   {
    "id": 91,
    "zh": "可是我也很想让巴大蝴{NEWLINE}拥有自己的小宝宝啊。{CLEAR}我这样为了我的快乐{CLEAR}而强行让巴大蝴留在身边的行为,{CLEAR}不会太自私了吗？",
-   "en": "But I really want Butterfree to have{NEWLINE}babies of its own, too.{SCROLL}Keeping Butterfree with me just to make{NEWLINE}myself happy... Isn’t that selfish?",
+   "en": "But I really want Butterfree to have{NEWLINE}babies of its own, too.{SCROLL}Forcing Butterfree to stay with me just{NEWLINE}to make myself happy... Isn’t{CLEAR}that selfish?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve forcing Butterfree to stay for personal happiness."
   },
   {
    "id": 92,
@@ -759,19 +759,19 @@
   {
    "id": 93,
    "zh": "你可以带巴大蝴去饲育屋试试。",
-   "en": "You could try the Day-Care.",
+   "en": "Take Butterfree to Day-Care.",
    "status": "draft",
    "origin": "agent",
-   "notes": "RV012: name: Day-Care (D-0966)",
+   "notes": "RV012: name: Day-Care (D-0966) | AGENT-0321-0380: Preserve taking Butterfree to Day-Care. Verified menu_touch_1line constraint; compact wording preserves meaning, contextual subject where needed.",
    "category": "menu_touch_1line"
   },
   {
    "id": 94,
    "zh": "这个世界上有那么多的训练家,{NEWLINE}每个训练家都会饲养好多精灵,{CLEAR}难道他们都会放生自己的精灵{CLEAR}让他们去交配吗？",
-   "en": "The world’s full of Trainers, and they{NEWLINE}all raise lots of Pokémon.{SCROLL}Do they all release their Pokémon to go{NEWLINE}have babies?",
+   "en": "The world’s full of Trainers, and they{NEWLINE}all raise lots of Pokémon.{SCROLL}Do they all release their Pokémon to{NEWLINE}go mate?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve explicit mating."
   },
   {
    "id": 95,
@@ -846,10 +846,10 @@
   {
    "id": 103,
    "zh": "我知道我也有权利{NEWLINE}让巴大蝴放弃交配留在我身边,{CLEAR}可是这样的话我不就太自私了吗？",
-   "en": "I know I have the right to keep{NEWLINE}Butterfree and not let it breed...{SCROLL}But wouldn’t that make me way too{NEWLINE}selfish?",
+   "en": "I know I have the right to keep{NEWLINE}Butterfree and not let it mate...{SCROLL}But wouldn’t that make me way{NEWLINE}too selfish?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve mating rather than raising young."
   },
   {
    "id": 104,
@@ -880,10 +880,10 @@
   {
    "id": 107,
    "zh": "感情这么深的话,放不放生也不重要了。",
-   "en": "With a bond that deep, it’s fine.",
+   "en": "With that bond, release is moot.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0321-0380: Preserve explicit release/no-release equivalence. Verified menu_touch_1line constraint; compact wording preserves meaning, contextual subject where needed.",
    "category": "menu_touch_1line"
   },
   {
@@ -914,10 +914,10 @@
   {
    "id": 111,
    "zh": "没错,我只顾着{NEWLINE}我跟巴大蝴之间的感情了,{CLEAR}完全没有考虑巴大蝴对繁衍的渴望。{SCROLL}我如果再固执地{NEWLINE}把巴大蝴留在身边就太自私了！",
-   "en": "You’re right. I was only thinking about{NEWLINE}my feelings for Butterfree. I never{CLEAR}thought about its wish to have a family.{SCROLL}If I stubbornly keep Butterfree with{NEWLINE}me, I’ll be too selfish!",
+   "en": "You’re right. I was only thinking about{NEWLINE}my feelings for Butterfree. I never{CLEAR}thought about its desire to breed.{SCROLL}If I stubbornly keep Butterfree with{NEWLINE}me, I’ll be too selfish!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve desire to reproduce without family euphemism."
   },
   {
    "id": 112,
@@ -946,10 +946,10 @@
   {
    "id": 115,
    "zh": "没错,巴大蝴只有{NEWLINE}回归到大自然中繁衍生息,{CLEAR}才能展现出它真正的美丽,{CLEAR}哪怕那时已经没有我陪在它身边了……",
-   "en": "That’s right. Only by going back to{NEWLINE}nature to raise a family can Butterfree{CLEAR}show its true beauty...{SCROLL}Even if I’m not by its side anymore...",
+   "en": "That’s right. Only by going back to{NEWLINE}nature to live and breed can Butterfree{CLEAR}show its true beauty...{SCROLL}Even if I’m not by its side anymore...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve breeding and living naturally without family euphemism."
   },
   {
    "id": 116,

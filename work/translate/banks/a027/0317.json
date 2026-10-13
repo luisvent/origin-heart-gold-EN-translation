@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "常磐森林是{NEWLINE}天然的迷宫呢。{CLEAR}小心别迷路啊！",
-   "en": "Viridian Forest is like a maze inside.{NEWLINE}Be careful. Don’t get lost in there.",
+   "en": "Viridian Forest is a natural maze. Be{NEWLINE}careful not to get lost!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0324/0"
+   "origin": "agent",
+   "notes": "US 0324/0 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 1,
@@ -102,18 +102,18 @@
   {
    "id": 12,
    "zh": "哇！一次买这么多！{NEWLINE}那大叔给你打个9折。{SCROLL}球拿好,祝你抓虫成功！",
-   "en": "Whoa! Buying that many at once! Then{NEWLINE}this old guy’ll give you 10% off.{SCROLL}Here are your balls. Good luck catching{NEWLINE}bugs!",
+   "en": "Whoa! Buying that many at once! Then{NEWLINE}this middle-aged fellow’ll give {CLEAR}you 10% off.{SCROLL}Here are your balls. Good luck catching{NEWLINE}bugs!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position | RV010: voice: 大叔 self-reference kept"
+   "notes": "v3 TM: 1 source(s), same position | RV010: voice: 大叔 self-reference kept | CES-early: Secondary CN comparison: restore exact meaning, subjects, register and explicit details"
   },
   {
    "id": 13,
    "zh": "没拿够钱的话,大叔可不卖啊！",
-   "en": "If you didn’t bring enough money, this{NEWLINE}old guy isn’t selling!",
+   "en": "If you didn’t bring enough money, this{NEWLINE}middle-aged fellow isn’t selling!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position | RV010: omission: 没拿够钱 and 大叔 kept"
+   "notes": "v3 TM: 1 source(s), same position | RV010: omission: 没拿够钱 and 大叔 kept | CES-early: Secondary CN comparison: restore exact meaning, subjects, register and explicit details"
   },
   {
    "id": 14,
@@ -158,10 +158,10 @@
   {
    "id": 19,
    "zh": "啊啊啊,好烫好烫,{NEWLINE}被烫伤了。{CLEAR}原来这就是熔岩蜗牛的皮肤吗？{CLEAR}真是充满了火焰的力量。{CLEAR}谢谢你让我摸到了真的熔岩蜗牛,{CLEAR}这个作为谢礼送给你。",
-   "en": "Aaah! Hot, hot, hot! I got burned!{SCROLL}So this is what Magcargo’s skin is like?{NEWLINE}It’s truly filled with the power of fire.{SCROLL}Thanks for letting me touch a real{NEWLINE}Magcargo. Take this as thanks.",
+   "en": "Aaah! Hot, hot! I got burned!{SCROLL}So this is what Magcargo’s skin is like?{NEWLINE}It’s truly filled with the power of fire.{SCROLL}Thanks for letting me touch a real{NEWLINE}Magcargo. Take this as thanks.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: CN repeats 好烫 twice; remove translator-added third repetition, preserving intensity and all other words"
   },
   {
    "id": 20,

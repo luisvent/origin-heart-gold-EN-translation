@@ -198,18 +198,18 @@
   {
    "id": 23,
    "zh": "这只精灵真的是不眠特性吗？{NEWLINE}据我所知好像不是这样哦。",
-   "en": "Does that Pokémon really have{NEWLINE}Insomnia? As far as I know, it doesn’t.",
+   "en": "Does that Pokémon really have{NEWLINE}Insomnia? As far as I know, it doesn’t{CLEAR}seem to.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 24,
    "zh": "原来咕咕是不眠特性啊,{NEWLINE}我以前都不知道呢。{CLEAR}但是以我的水平很那抓到咕咕,{CLEAR}请问你有咕咕吗？{CLEAR}有的话可以跟我的松果球交换吗？",
-   "en": "So Hoothoot has Insomnia!{NEWLINE}I never knew that.{SCROLL}But I’m not good enough to catch{NEWLINE}a Hoothoot. Do you have one?{SCROLL}If you do, would you{NEWLINE}trade it for my Pineco?",
+   "en": "So Hoothoot has Insomnia! I never knew{NEWLINE}that.{SCROLL}But With my skills, catching a Hoothoot{NEWLINE}is really hard. Do you have one?{SCROLL}If you do, would you trade it for my{NEWLINE}Pineco?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 25,
@@ -238,10 +238,10 @@
   {
    "id": 28,
    "zh": "太好了,这样我就为小胖丁{NEWLINE}找到了一位忠实听众。{CLEAR}我会好好照顾咕咕,{CLEAR}让它和小胖丁成为朋友的。",
-   "en": "Wonderful! Now I’ve found a loyal{NEWLINE}listener for my little Jigglypuff.{SCROLL}I’ll take good care of Hoothoot and{NEWLINE}help it become friends with Jigglypuff.",
+   "en": "Wonderful! Now I’ve found a loyal{NEWLINE}listener for my little Jigglypuff.{SCROLL}I’ll take good care of Hoothoot and{NEWLINE}help it become friends with{CLEAR}little Jigglypuff.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 29,
@@ -262,10 +262,10 @@
   {
    "id": 31,
    "zh": "咕咕,小胖丁,{NEWLINE}从今天起你们就是朋友了,{CLEAR}要好好相处哦。",
-   "en": "Hoothoot, Jigglypuff, from{NEWLINE}today on you’re friends.{CLEAR}Be good to each other, OK?",
+   "en": "Hoothoot, little Jigglypuff, from today{NEWLINE}on you’re friends. Be good to each{CLEAR}other, OK?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 32,
@@ -394,10 +394,10 @@
   {
    "id": 47,
    "zh": "这里哪有什么研究员打扮的人啊,{NEWLINE}是不是你们看错了。",
-   "en": "There’s nobody dressed{NEWLINE}as a researcher here.{CLEAR}You must have seen wrong.",
+   "en": "There’s nobody dressed as a{NEWLINE}researcher here. Could you{CLEAR}be mistaken?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 48,

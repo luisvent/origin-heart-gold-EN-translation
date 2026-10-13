@@ -6,9 +6,9 @@
   {
    "id": 0,
    "zh": "很想要３Ｄ龙啊⋯⋯{NEWLINE}但是硬币还缺{CLEAR}１００枚啊⋯⋯",
-   "en": "I wanted Porygon, but I was short{NEWLINE}by 100 Coins...",
+   "en": "I really want Porygon...{NEWLINE}But I’m still 100 Coins short...",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0509/0; modernised from US 0509#0"
   },
   {
@@ -22,17 +22,17 @@
   {
    "id": 2,
    "zh": "俺们觉醒了！{SCROLL}你问觉醒了什么？{SCROLL}俺们知道精灵{NEWLINE}在记住觉醒力量时,{SCROLL}会学会哪种{NEWLINE}类型的技能咯！厉害吧。{SCROLL}怎么样？让俺们看看{NEWLINE}你的精灵能记住{CLEAR}哪种类型的觉醒力量吧！{VAR:0200:0}",
-   "en": "I woke up and realized my potential!{SCROLL}So, what potential was woken in me?{NEWLINE}What’s my hidden power, you ask?{SCROLL}It’s a power that lets me see the{NEWLINE}Hidden Power of a Pokémon.{SCROLL}When they learn that move, I can tell{NEWLINE}what type the move will be.{SCROLL}So, want me to use my hidden power?{SCROLL}I’ll tell you what type your{NEWLINE}Pokémon’s Hidden Power will be. {VAR:0200:0}",
+   "en": "We’ve had an awakening!{SCROLL}What have we awakened to, you ask?{SCROLL}We can tell what type of move a Pokémon{NEWLINE}will learn when it learns Hidden Power!{SCROLL}Impressive, huh?{SCROLL}Want us to see your Pokémon’s{NEWLINE}Hidden Power type? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0509/2"
   },
   {
    "id": 3,
    "zh": "你的精灵记住了哪种类型的觉醒力量{CLEAR}让俺们看看吧！{VAR:0200:0}",
-   "en": "I’ll tell you what type your Pokémon’s{NEWLINE}Hidden Power will be.{SCROLL}My own hidden power lets me{NEWLINE}do that. {VAR:0200:0}",
+   "en": "Let us see your Pokémon’s{NEWLINE}Hidden Power type! {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0509/3"
   },
   {
@@ -54,9 +54,9 @@
   {
    "id": 6,
    "zh": "如果你想了解的话,{NEWLINE}就问觉醒了的俺们吧！",
-   "en": "If you want to know, ask me, and I’ll{NEWLINE}activate my hidden power for you.",
+   "en": "If you want to know, ask us,{NEWLINE}the awakened ones!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0509/6"
   },
   {
@@ -150,9 +150,9 @@
   {
    "id": 18,
    "zh": "欢迎光临！{SCROLL}游戏积攒的硬币{NEWLINE}请在这里交换成{CLEAR}你喜欢的精灵！{VAR:0200:0}",
-   "en": "Welcome!{SCROLL}We exchange your coins for{NEWLINE}fabulous prizes! {VAR:0200:0}",
+   "en": "Welcome!{SCROLL}Exchange the Coins you’ve won here{NEWLINE}for the Pokémon you like! {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0509/18"
   },
   {

@@ -22,9 +22,9 @@
   {
    "id": 2,
    "zh": "还能放{VAR:0133:0}个。",
-   "en": "There are {VAR:0133:0} left to place.",
+   "en": "You can still place {VAR:0133:0} more.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/2"
   },
   {
@@ -310,159 +310,159 @@
   {
    "id": 38,
    "zh": "草丛。{NEWLINE}草原的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A thick tuft of grass.{NEWLINE}The Pokémon on the{NEWLINE}Plains seem to like it.",
+   "en": "A tuft of grass. The{NEWLINE}Pokémon on the Plains seem{NEWLINE}to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/38"
   },
   {
    "id": 39,
    "zh": "火热颜色的花。{NEWLINE}草原的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A very intensely colored flower.{NEWLINE}The Pokémon on the{NEWLINE}Plains seem to like it.",
+   "en": "A fiery-colored flower. The{NEWLINE}Pokémon on the Plains seem{NEWLINE}to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/39"
   },
   {
    "id": 40,
    "zh": "颜色温柔的花。{NEWLINE}草原的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A very tenderly colored flower.{NEWLINE}The Pokémon on the{NEWLINE}Plains seem to like it.",
+   "en": "A softly colored flower.{NEWLINE}The Pokémon on the Plains{NEWLINE}seem to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/40"
   },
   {
    "id": 41,
    "zh": "稍微有点矮的树。{NEWLINE}森林的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A somewhat short tree.{NEWLINE}The Pokémon in the{NEWLINE}Forest seem to like it.",
+   "en": "A somewhat short tree. The{NEWLINE}Pokémon in the Forest seem{NEWLINE}to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/41"
   },
   {
    "id": 42,
    "zh": "树被砍掉留下的树桩。{NEWLINE}森林的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A remainder from a tree that was{NEWLINE}cut down. The Pokémon in the{NEWLINE}Forest seem to like it.",
+   "en": "A stump left after a tree was{NEWLINE}cut down. The Pokémon in the{NEWLINE}Forest seem to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/42"
   },
   {
    "id": 43,
    "zh": "树枝堆。{NEWLINE}森林的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A pile of broken branches.{NEWLINE}The Pokémon in the{NEWLINE}Forest seem to like it.",
+   "en": "A pile of branches. The{NEWLINE}Pokémon in the Forest seem{NEWLINE}to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/43"
   },
   {
    "id": 44,
    "zh": "小小的圆石。{NEWLINE}岩场的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A smallish round rock.{NEWLINE}The Pokémon in the{NEWLINE}rocky Areas seem to like it.",
+   "en": "A smallish round rock. The{NEWLINE}Pokémon in rocky areas{NEWLINE}seem to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/44"
   },
   {
    "id": 45,
    "zh": "大大的石头。{NEWLINE}岩场的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A big, scraggy rock.{NEWLINE}The Pokémon in the{NEWLINE}rocky Areas seem to like it.",
+   "en": "A very big rock. The{NEWLINE}Pokémon in rocky areas{NEWLINE}seem to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/45"
   },
   {
    "id": 46,
    "zh": "表面长着青苔的石头。{NEWLINE}岩场的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A mossy rock.{NEWLINE}The Pokémon in the{NEWLINE}rocky Areas seem to like it.",
+   "en": "A rock with moss growing on its{NEWLINE}surface. The Pokémon in rocky{NEWLINE}areas seem to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/46"
   },
   {
    "id": 47,
    "zh": "地面上的一个水池。{NEWLINE}湖边的精灵{NEWLINE}似乎很喜欢。",
-   "en": "Water collected on the ground.{NEWLINE}The Pokémon by the{NEWLINE}water seem to like it.",
+   "en": "A pool of water on the ground.{NEWLINE}The Pokémon by the water{NEWLINE}seem to like it very much.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/47"
   },
   {
    "id": 48,
    "zh": "能用冲浪进入的湖。{NEWLINE}湖边的精灵{NEWLINE}似乎很喜欢。",
-   "en": "A lake you can enter using Surf.{NEWLINE}The Pokémon by the{NEWLINE}water seem to like it.",
+   "en": "A lake you can enter using{NEWLINE}Surf. The Pokémon by the water{NEWLINE}seem to like it very much.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0430/48"
+   "notes": "US 0430/48; CES007: D-2442"
   },
   {
    "id": 49,
    "zh": "能喷出冷冷的好喝的水。{NEWLINE}湖边的的精灵{NEWLINE}似乎很喜欢。",
-   "en": "Cool, delicious drinking{NEWLINE}water. The Pokémon by the{NEWLINE}water seem to like it.",
+   "en": "It dispenses cold, delicious{NEWLINE}drinking water. The Pokémon by the{NEWLINE}water seem to like it very much.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0430/49"
+   "origin": "agent",
+   "notes": "US 0430/49; CES007: D-2442, D-2443"
   },
   {
    "id": 50,
    "zh": "细长的长凳。{NEWLINE}公园和休息场所{NEWLINE}经常能看到。",
-   "en": "A long and thin bench.{NEWLINE}The kind you would find in{NEWLINE}any park or rest area.",
+   "en": "A long, thin bench.{NEWLINE}Often seen in parks{NEWLINE}and rest areas.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/50"
   },
   {
    "id": 51,
    "zh": "横排的短栅栏。{NEWLINE}连着放几个能围住{NEWLINE}池子或者花田。",
-   "en": "A short, horizontal fence.{NEWLINE}If you used a few of these, you could{NEWLINE}probably enclose a lake or flower patch.",
+   "en": "A short, horizontal fence.{NEWLINE}Place several together to{NEWLINE}enclose a pond or flower patch.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/51"
   },
   {
    "id": 52,
    "zh": "纵排的短栅栏。{NEWLINE}连着放几个能围住{NEWLINE}池子或者花田。",
-   "en": "A short, vertical fence.{NEWLINE}If you used a few of these, you could{NEWLINE}probably enclose a lake or flower patch.",
+   "en": "A short, vertical fence. Place{NEWLINE}several together to enclose{NEWLINE}a pond or flower patch.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/52"
   },
   {
    "id": 53,
    "zh": "横排的长栅栏。{NEWLINE}连着放几个能围住{NEWLINE}池子或者花田。",
-   "en": "A long, horizontal fence.{NEWLINE}If you used a few of these, you could{NEWLINE}probably enclose a lake or flower patch.",
+   "en": "A long, horizontal fence.{NEWLINE}Place several together to{NEWLINE}enclose a pond or flower patch.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/53"
   },
   {
    "id": 54,
    "zh": "纵排的长栅栏。{NEWLINE}连着放几个能围住{NEWLINE}池子或者花田。",
-   "en": "A long, vertical fence.{NEWLINE}If you used a few of these, you could{NEWLINE}probably enclose a lake or flower patch.",
+   "en": "A long, vertical fence. Place{NEWLINE}several together to enclose{NEWLINE}a pond or flower patch.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/54"
   },
   {
    "id": 55,
    "zh": "木头做的告示牌。{NEWLINE}插在地上做标示。",
-   "en": "A signboard made of wood. If you{NEWLINE}planted a stake in the ground, you{NEWLINE}could post this sign on it.",
+   "en": "A wooden signboard.{NEWLINE}Set it in the{NEWLINE}ground as a marker.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/55"
   },
   {
    "id": 56,
    "zh": "以自己为原型的石像。{NEWLINE}竖起这个自己就会{NEWLINE}感觉到光荣了。",
-   "en": "A stone statue made in your image.{NEWLINE}If you placed this, you could really{NEWLINE}get the sense of being a great hero.",
+   "en": "A stone statue made in{NEWLINE}your image. Put it up{NEWLINE}and you’ll feel honored.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/56"
   },
   {
    "id": 57,
    "zh": "画着自己的旗子。{NEWLINE}竖起这个自己就会{NEWLINE}感觉到很自豪。",
-   "en": "A flag with a picture of you on it.{NEWLINE}If you placed this, you would really{NEWLINE}feel proud of yourself.",
+   "en": "A flag with a picture of{NEWLINE}you on it. Put it up and{NEWLINE}you’ll feel very proud.",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0430/57; ext-review RCA-023"
@@ -470,25 +470,25 @@
   {
    "id": 58,
    "zh": "照亮周围的街灯。{NEWLINE}将起放置在黑暗中{NEWLINE}就能照亮道路。",
-   "en": "An electric light that illuminates the{NEWLINE}Area. If placed in the darkness, it could{NEWLINE}create a beautiful path of light.",
+   "en": "A streetlamp that lights up{NEWLINE}its surroundings. Put it in{NEWLINE}the dark to light up the road.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0430/58"
+   "origin": "agent",
+   "notes": "US 0430/58; CES007: D-2443"
   },
   {
    "id": 59,
    "zh": "指向右边的路标。{NEWLINE}看到的人可能会跟着{NEWLINE}箭头的方向走。",
-   "en": "A sign pointing right. Any person who{NEWLINE}sees this would naturally want to go find{NEWLINE}out what it could be pointing to.",
+   "en": "A sign pointing right. People{NEWLINE}who see it may follow the{NEWLINE}direction of the arrow.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/59"
   },
   {
    "id": 60,
    "zh": "指向左边的路标。{NEWLINE}看到的人可能会跟着{NEWLINE}箭头的方向走。",
-   "en": "A sign pointing left. Any person who{NEWLINE}sees this would naturally want to go find{NEWLINE}out what it could be pointing to.",
+   "en": "A sign pointing left. People{NEWLINE}who see it may follow the{NEWLINE}direction of the arrow.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0430/60"
   },
   {

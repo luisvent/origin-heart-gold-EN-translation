@@ -1,0 +1,49 @@
+id = "dex-capacity"
+description = "Native Pokédex panels: fitting control and two D-2464 candidates with native message ID and category glyph readback"
+default = false
+refs = ["D-2464", "a027/0803#1", "a027/0803#252", "a027/0803#375"]
+steps = [{ op = "dexcapture", observe = "dex", first = "${species}", last = "${species}", category_id = "${category_id}", category_readback = true }]
+
+[start]
+save = "full_bag_6mons.sav"
+clock = "2026-10-09T12:00:00"
+
+[[case]]
+id = "control"
+params = { species = 1, category_id = 1 }
+[[case]]
+id = "category-252"
+params = { species = 252, category_id = 252 }
+[[case]]
+id = "category-375"
+params = { species = 375, category_id = 375 }
+
+[[expect]]
+obs = "dex.errors"
+equals = []
+[[expect]]
+obs = "dex.captured"
+equals = ["${species}"]
+
+[[expect]]
+obs = "dex.category_read_verified"
+equals = true
+[[expect]]
+obs = "dex.category_rendering.verdict"
+lang = "en"
+equals = "pass"
+[[expect]]
+obs = "dex.category_rendering.verdict"
+lang = "es"
+equals = "pass"
+
+[parity.differ."dex.category_rendering"]
+why = "Each locale has its own wording, native font and rendered widths"
+en = { path = "verdict", equals = "pass" }
+es = { path = "verdict", equals = "pass" }
+
+[parity.differ."dex.digests"]
+why = "Native text and panel pixels vary by locale; inspect each locale independently"
+cn = { baseline = true, note = "Chinese control panel" }
+en = { baseline = true, note = "English panel requires its own reviewed baseline" }
+es = { baseline = true, note = "Spanish panel requires its own reviewed baseline; inherited English width limits are not proof" }

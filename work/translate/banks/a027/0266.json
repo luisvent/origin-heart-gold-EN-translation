@@ -158,10 +158,10 @@
   {
    "id": 19,
    "zh": "以第一为目标的训练师{NEWLINE}接受命运考验的地方。",
-   "en": "The fate of many Trainers{NEWLINE}aiming for the top rests here.",
+   "en": "Aspiring top Trainers face{NEWLINE}fate’s test here.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/19 | D-1524: rewrapped to 168 px (town picture at x=193 on the Pokégear map)."
+   "origin": "agent",
+   "notes": "US 0273/19 | D-1524: rewrapped to 168 px (town picture at x=193 on the Pokégear map). | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 20,
@@ -246,10 +246,10 @@
   {
    "id": 30,
    "zh": "以清澈著称的大湖。",
-   "en": "A huge lake full of clear, blue water.",
+   "en": "A great lake famed{NEWLINE}for its clear water.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/30"
+   "origin": "agent",
+   "notes": "US 0273/30 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 31,
@@ -278,18 +278,18 @@
   {
    "id": 34,
    "zh": "蕴藏着不可思议力量的{NEWLINE}流星雨山。",
-   "en": "A mountain where a star fell.{NEWLINE}It now holds a mysterious power.",
+   "en": "A meteor-shower mountain that holds{NEWLINE}a mysterious power.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/34"
+   "origin": "agent",
+   "notes": "US 0273/34 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 35,
    "zh": "就算崩塌了也能{NEWLINE}再次开通的洞窟。",
-   "en": "A cave that had collapsed once.{NEWLINE}It has been reconstructed.",
+   "en": "A cave that can reopen{NEWLINE}even after it collapses.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/35"
+   "origin": "agent",
+   "notes": "US 0273/35 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 36,
@@ -318,10 +318,10 @@
   {
    "id": 39,
    "zh": "与精灵们的共处,{NEWLINE}专职修行的塔。",
-   "en": "A tower where they study diligently{NEWLINE}to learn to live with Pokémon.",
+   "en": "A tower devoted to training{NEWLINE}alongside Pokémon.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/39"
+   "origin": "agent",
+   "notes": "US 0273/39 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 40,
@@ -342,18 +342,18 @@
   {
    "id": 42,
    "zh": "被闪电造成的大火{NEWLINE}烧毁的塔。",
-   "en": "A tower that was hit by lightning, and{NEWLINE}subsequently caught fire and burned.",
+   "en": "A tower destroyed by a fire{NEWLINE}sparked by lightning.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/42"
+   "origin": "agent",
+   "notes": "US 0273/42 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 43,
    "zh": "很大的美丽公园,{NEWLINE}旁边就是口袋竞技场。",
-   "en": "A spacious and beautiful park. It’s{NEWLINE}connected to the Pokéathlon Dome.",
+   "en": "A vast, beautiful park next to{NEWLINE}the Pokéathlon Dome.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/43"
+   "origin": "agent",
+   "notes": "US 0273/43 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 44,
@@ -374,18 +374,18 @@
   {
    "id": 46,
    "zh": "地下深处与大海连接,{NEWLINE}会有海水灌进来。",
-   "en": "Deep underground, it’s connected to{NEWLINE}the ocean. The water flows here.",
+   "en": "It connects to the sea deep below,{NEWLINE}and seawater floods in.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/46"
+   "origin": "agent",
+   "notes": "US 0273/46 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 47,
    "zh": "口渴了的呆呆兽{NEWLINE}用来喝水的井。",
-   "en": "When Slowpoke are thirsty, they come{NEWLINE}here to drink.",
+   "en": "A well where thirsty Slowpoke{NEWLINE}come to drink.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/47; modernised from US 0273#47"
+   "origin": "agent",
+   "notes": "US 0273/47; modernised from US 0273#47 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 48,
@@ -406,10 +406,10 @@
   {
    "id": 50,
    "zh": "全国所有的高手{NEWLINE}聚集的地方。",
-   "en": "A place where people from all over{NEWLINE}come to show off their strength.",
+   "en": "A place where experts from{NEWLINE}all over the country gather.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/50"
+   "origin": "agent",
+   "notes": "US 0273/50 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 51,
@@ -422,10 +422,10 @@
   {
    "id": 52,
    "zh": "种着很多做碳用的{NEWLINE}树的森林。",
-   "en": "A large forest full of trees that are{NEWLINE}used to make charcoal.",
+   "en": "A forest with many trees planted{NEWLINE}for making charcoal.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/52"
+   "origin": "agent",
+   "notes": "US 0273/52 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 53,
@@ -438,26 +438,26 @@
   {
    "id": 54,
    "zh": "以一望无尽的宽阔为傲的{NEWLINE}天然大洞窟。",
-   "en": "A naturally large cavern that is{NEWLINE}incredibly spacious.",
+   "en": "A vast natural cavern that seems{NEWLINE}to stretch on without end.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/54"
+   "origin": "agent",
+   "notes": "US 0273/54 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 55,
    "zh": "连接４４号道路和烟墨市的{NEWLINE}冰冻洞窟。",
-   "en": "A cave that connects Route 44 to{NEWLINE}Blackthorn City.",
+   "en": "An icy cave connecting Route 44{NEWLINE}and Blackthorn City.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/55"
+   "origin": "agent",
+   "notes": "US 0273/55 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 56,
    "zh": "由于海上漩涡{NEWLINE}而无法靠近的４个岛。",
-   "en": "Four islands that are protected by{NEWLINE}whirlpools and are difficult to reach.",
+   "en": "Four islands you cannot approach{NEWLINE}because of the sea’s whirlpools.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/56"
+   "origin": "agent",
+   "notes": "US 0273/56 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 57,
@@ -502,10 +502,10 @@
   {
    "id": 62,
    "zh": "虫精灵很多,还残留有{NEWLINE}原始自然风貌的森林。",
-   "en": "A forest filled with nature and{NEWLINE}Bug-type Pokémon.",
+   "en": "A forest rich in Bug Pokémon that{NEWLINE}still has its primeval landscape.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/62"
+   "origin": "agent",
+   "notes": "US 0273/62 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 63,
@@ -526,10 +526,10 @@
   {
    "id": 65,
    "zh": "古代传说交结的{NEWLINE}被冰雪之墙阻断的暴雪地带。",
-   "en": "A snow-covered area of old legends,{NEWLINE}surrounded by a wall of snow.",
+   "en": "Old legends meet in a blizzard zone{NEWLINE}cut off by walls of ice and snow.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/65"
+   "origin": "agent",
+   "notes": "US 0273/65 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 66,
@@ -558,10 +558,10 @@
   {
    "id": 69,
    "zh": "用喷气式水力{NEWLINE}推进的定期船。",
-   "en": "A boat that traverses ocean paths{NEWLINE}using hydraulic power.",
+   "en": "A scheduled ferry propelled{NEWLINE}by water jets.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/69"
+   "origin": "agent",
+   "notes": "US 0273/69 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 70,
@@ -630,10 +630,10 @@
   {
    "id": 78,
    "zh": "由小小的岩山和短差{NEWLINE}构成迷宫的路。",
-   "en": "A road that forms a maze crossing a{NEWLINE}small, rocky mountain.",
+   "en": "A maze-like road made of small{NEWLINE}rocky hills and ledges.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/78"
+   "origin": "agent",
+   "notes": "US 0273/78 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 79,
@@ -662,18 +662,18 @@
   {
    "id": 82,
    "zh": "狭窄的通路上给与{NEWLINE}训练师们锻炼的道路。",
-   "en": "A difficult, narrow path where many{NEWLINE}Trainers await you.",
+   "en": "A road whose narrow paths{NEWLINE}give Trainers practice.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/82"
+   "origin": "agent",
+   "notes": "US 0273/82 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 83,
    "zh": "与海水一同吹来的{NEWLINE}舒服的海边小路。",
-   "en": "A pleasant coastal road where the{NEWLINE}breeze blows and waves roar.",
+   "en": "A pleasant seaside path with{NEWLINE}a breeze blowing off the water.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/83"
+   "origin": "agent",
+   "notes": "US 0273/83 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 84,
@@ -694,10 +694,10 @@
   {
    "id": 86,
    "zh": "大海上的坡路,{NEWLINE}自行车道。",
-   "en": "An easy path of Cycling Road running{NEWLINE}above the sea.",
+   "en": "Cycling Road, a sloping road{NEWLINE}above the sea.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/86"
+   "origin": "agent",
+   "notes": "US 0273/86 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 87,
@@ -758,18 +758,18 @@
   {
    "id": 94,
    "zh": "穿越林道的前方有个{NEWLINE}能俯瞰大海的高台。",
-   "en": "A path that winds through the forest{NEWLINE}and comes out overlooking the sea.",
+   "en": "Beyond a woodland path stands{NEWLINE}a height overlooking the sea.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/94"
+   "origin": "agent",
+   "notes": "US 0273/94 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 95,
    "zh": "那蜿蜒起伏宛如是{NEWLINE}试炼般的山路。",
-   "en": "An unimaginably difficult mountain road{NEWLINE}that gives the impression of a test.",
+   "en": "A winding, undulating mountain road{NEWLINE}that feels like a trial.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/95"
+   "origin": "agent",
+   "notes": "US 0273/95 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 96,
@@ -782,10 +782,10 @@
   {
    "id": 97,
    "zh": "连接神圣的白银山,{NEWLINE}人迹罕至的隐藏山路。",
-   "en": "A vacant and hidden mountain road{NEWLINE}that continues to Mt. Silver.",
+   "en": "A secluded, seldom-traveled road{NEWLINE}to sacred Mt. Silver.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/97"
+   "origin": "agent",
+   "notes": "US 0273/97 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 98,
@@ -806,10 +806,10 @@
   {
    "id": 100,
    "zh": "虽然很短但起伏很高的{NEWLINE}令人怀念的自然道路。",
-   "en": "A short, nostalgic path winding{NEWLINE}through nature.",
+   "en": "A short, nostalgic natural path{NEWLINE}with steep rises and falls.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/100"
+   "origin": "agent",
+   "notes": "US 0273/100 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 101,
@@ -838,10 +838,10 @@
   {
    "id": 104,
    "zh": "池子的水色让人觉得舒服,{NEWLINE}明朗且很适合走动的道路。",
-   "en": "A bright path with a lake that’s easy{NEWLINE}on the eyes and easy to traverse.",
+   "en": "A bright, easy path with soothing{NEWLINE}colors in the pond’s water.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/104"
+   "origin": "agent",
+   "notes": "US 0273/104 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 105,
@@ -910,10 +910,10 @@
   {
    "id": 113,
    "zh": "跳动着被宁静的泉水与{NEWLINE}安逸的绿色洗净的心的道路。",
-   "en": "A wonderful path with a few pleasant{NEWLINE}springs and abundant greenery.",
+   "en": "A path that stirs hearts cleansed by{NEWLINE}calm springs and soothing greenery.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/113"
+   "origin": "agent",
+   "notes": "US 0273/113 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 114,
@@ -926,26 +926,26 @@
   {
    "id": 115,
    "zh": "连接山脚与草原,{NEWLINE}村民返回村庄的道路。",
-   "en": "A way home that runs from the base of{NEWLINE}the mountain to the plains.",
+   "en": "A road from foothills to grasslands{NEWLINE}that villagers take home.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/115"
+   "origin": "agent",
+   "notes": "US 0273/115 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 116,
    "zh": "为冒险这一行为感到颤抖的{NEWLINE}落差陡峭的山路。",
-   "en": "A road on a cliff that strikes fear in{NEWLINE}the hearts of those who dare to pass.",
+   "en": "A steep mountain road whose drops{NEWLINE}make you tremble at adventure.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0273/116"
+   "origin": "agent",
+   "notes": "US 0273/116 | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   },
   {
    "id": 117,
    "zh": "越过高山前往度假区,{NEWLINE}空气清晰的登山道。",
-   "en": "A mountain trail with crisp air that{NEWLINE}crosses over to the Resort Zone.",
+   "en": "A crisp-air trail over high mountains{NEWLINE}to the Resort Zone.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0273/117 | Hack rewrote the US Safari Zone description to mention the Resort Zone (度假区). | D-1524: reworded to fit 208 px in two lines (US: 'A mountain trail with crisp air that crosses the heights to the Resort Zone.')."
+   "notes": "US 0273/117 | Hack rewrote the US Safari Zone description to mention the Resort Zone (度假区). | D-1524: reworded to fit 208 px in two lines (US: 'A mountain trail with crisp air that crosses the heights to the Resort Zone.'). | CES-early: meaning: restore source terrain, action, detail, uncertainty/intensity; keep verified map limits in subsequent QA"
   }
  ]
 }

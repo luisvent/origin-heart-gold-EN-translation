@@ -246,26 +246,26 @@
   {
    "id": 30,
    "zh": "将{VAR:0101:0}送给了{VAR:0103:1}！",
-   "en": "{VAR:0101:0} will be sent to{NEWLINE}{VAR:0103:1}.",
+   "en": "{VAR:0101:0} was sent to{NEWLINE}{VAR:0103:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0183/30"
+   "origin": "agent",
+   "notes": "US 0183/30 | CES-early: meaning: completed sending/receiving, source goodbye and exclamation"
   },
   {
    "id": 31,
    "zh": "再见！{VAR:0101:0}！",
-   "en": "Take care, {VAR:0101:0}!",
+   "en": "Goodbye, {VAR:0101:0}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0183/31"
+   "origin": "agent",
+   "notes": "US 0183/31 | CES-early: meaning: completed sending/receiving, source goodbye and exclamation"
   },
   {
    "id": 32,
    "zh": "得到了{VAR:0103:1}赠送的{VAR:0101:0}！",
-   "en": "{VAR:0103:1} sent over{NEWLINE}{VAR:0101:0}!",
+   "en": "You received {VAR:0101:0}{NEWLINE}from {VAR:0103:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0183/32"
+   "origin": "agent",
+   "notes": "US 0183/32 | CES-early: meaning: completed sending/receiving, source goodbye and exclamation"
   },
   {
    "id": 33,

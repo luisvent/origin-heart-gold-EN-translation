@@ -182,7 +182,7 @@
   {
    "id": 22,
    "zh": "小次郎『那我们就成全你的愿望！",
-   "en": "James: ...we’ll make it double!",
+   "en": "James: ...then we’ll grant your wish!",
    "status": "draft",
    "origin": "agent",
    "notes": "Parody of the canon dub opener (D-1437)."
@@ -262,7 +262,7 @@
   {
    "id": 32,
    "zh": "{VAR:0103:0}『既然知道本姑娘的厉害{NEWLINE}就赶紧把人质放了。",
-   "en": "{VAR:0103:0}: Now that you know what yours{NEWLINE}truly can do, let the hostages go now!",
+   "en": "{VAR:0103:0}: You know what this girl{NEWLINE}can do. Release the hostages!",
    "status": "draft",
    "origin": "agent",
    "notes": "RV018: voice: 本姑娘 swagger self-reference kept"

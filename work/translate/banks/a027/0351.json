@@ -63,10 +63,10 @@
   {
    "id": 7,
    "zh": "为病重的精灵送药？{NEWLINE}那又怎么样！{CLEAR}从我们的地盘过,{CLEAR}想不打招呼就走可不行。",
-   "en": "Medicine for a sick Pokémon? So what!{NEWLINE}Nobody crosses our turf without paying{CLEAR}their respects first.",
+   "en": "Medicine for a seriously ill Pokémon? So{NEWLINE}what! Nobody crosses our turf without{CLEAR}paying their respects first.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore seriously ill severity."
   },
   {
    "id": 8,
@@ -95,10 +95,10 @@
   {
    "id": 11,
    "zh": "好啊,我早就想加入你们了",
-   "en": "Sure! I’ve wanted to join!",
+   "en": "Sure! I’ve long wanted to join!",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0321-0380: Restore long-held desire.",
    "category": "menu_touch_1line"
   },
   {
@@ -129,10 +129,10 @@
   {
    "id": 15,
    "zh": "没错,自由万岁,我要加入你们",
-   "en": "Long live freedom! I’m in!",
+   "en": "Right! Freedom! I’m joining you!",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0321-0380: Restore initial affirmation.",
    "category": "menu_touch_1line"
   },
   {
@@ -155,19 +155,19 @@
   {
    "id": 18,
    "zh": "没错,受约束的那就不叫自由",
-   "en": "True, rules aren’t freedom",
+   "en": "Right, limits mean no freedom",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0321-0380: Restore affirmation and bounded freedom rather than equating rules with freedom.",
    "category": "menu_touch_1line"
   },
   {
    "id": 19,
    "zh": "那我也有阻止你们霸占道路的自由",
-   "en": "Then I’m free to stop you!",
+   "en": "I’m free to end your roadblock!",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | AGENT-0321-0380: Restore plural addressees and road-occupation object.",
    "category": "menu_touch_1line"
   },
   {
@@ -317,10 +317,10 @@
   {
    "id": 38,
    "zh": "富子『近几年来,我们拉拉美族{NEWLINE}一直在协助浅红市的护林员们{CLEAR}保护这一带的生态。{CLEAR}这附近的肯泰罗能这么有活力,{CLEAR}也有我的一份功劳哦。{SCROLL}富子『你如果也喜欢肯泰罗的话,{NEWLINE}可以去摸摸它们哦,它们很乖的。",
-   "en": "Lara: For the past few years, the{NEWLINE}Laramie tribe has been helping Fuchsia{CLEAR}City’s rangers protect the wildlife{CLEAR}around here. The Tauros here are this{CLEAR}lively partly thanks to me!{SCROLL}Lara: If you like Tauros too, go ahead{NEWLINE}and pet them. They’re very gentle.",
+   "en": "Lara: For the past few years, the{NEWLINE}Laramie tribe has been helping Fuchsia{CLEAR}City’s rangers protect the ecology{CLEAR}around here. The Tauros here are this{CLEAR}lively partly thanks to me!{SCROLL}Lara: If you like Tauros too, go ahead{NEWLINE}and pet them. They’re very gentle.",
    "status": "draft",
    "origin": "agent",
-   "notes": "[D-0634 rename 2026-09-29: the Larami tribe → the Laramie tribe] | [D-0633 rename 2026-09-29: Tomiko → Lara]; ext-review RV-002"
+   "notes": "[D-0634 rename 2026-09-29: the Larami tribe → the Laramie tribe] | [D-0633 rename 2026-09-29: Tomiko → Lara]; ext-review RV-002 | AGENT-0321-0380: Restore protecting local ecology, not only wildlife."
   },
   {
    "id": 39,

@@ -44,6 +44,54 @@ class ShippedScenarios(unittest.TestCase):
         self.assertEqual([c["id"] for c in petilil["cases"]], ["petilil_day"])
         self.assertEqual(petilil["cases"][0]["steps"][0], "gen:548,10,241")
 
+    def test_dex_digit_templates_are_isolated_per_run_and_restored(self):
+        import emu_dex
+        with tempfile.TemporaryDirectory() as d:
+            h = mock.Mock(out=d)
+            old_templates, old_cache = emu_dex.TEMPLATES, emu_dex._T
+            emu_dex._T = {"old": "cache"}
+            def capture(*args):
+                self.assertEqual(emu_dex.TEMPLATES, Path(d) / "dex_digit_templates.json")
+                self.assertIsNone(emu_dex._T)
+                return [], []
+            try:
+                with mock.patch.dict("sys.modules", {"PIL": mock.MagicMock()}), mock.patch.object(
+                        emu_dex, "open_dex_list"), mock.patch.object(
+                        emu_dex, "capture_entries", side_effect=capture):
+                    result = S.table_op(h, {"op": "dexcapture", "first": 1, "last": 1}, "es")
+                self.assertEqual(result, {"captured": [], "errors": [], "digests": {}})
+                self.assertEqual(emu_dex.TEMPLATES, old_templates)
+                self.assertEqual(emu_dex._T, {"old": "cache"})
+            finally:
+                emu_dex.TEMPLATES, emu_dex._T = old_templates, old_cache
+
+    def test_dex_category_read_hook_matching_wrong_and_absent(self):
+        import emu_dex
+        import emu_textfit
+        for observed_ids, expected_verified in (([1, 252], True), ([252, 629], False), ([], False)):
+            with self.subTest(observed_ids=observed_ids), tempfile.TemporaryDirectory() as d:
+                h = mock.Mock(out=d)
+                h.reg.r0 = 0x1000
+                h.u16.side_effect = lambda addr: {0x1004: 27, 0x1006: 803}[addr]
+                hooks = {}
+                h.on_exec.side_effect = lambda addr, callback, **kwargs: hooks.__setitem__(addr, callback)
+                def capture(*args):
+                    for observed in observed_ids:
+                        h.reg.r1 = observed
+                        hooks[emu_textfit.READ_INTO](h)
+                    return [252], []
+                with mock.patch.dict("sys.modules", {"PIL": mock.MagicMock()}), mock.patch.object(
+                        emu_dex, "open_dex_list"), mock.patch.object(
+                        emu_dex, "capture_entries", side_effect=capture):
+                    result = S.table_op(h, {"op": "dexcapture", "first": 252, "last": 252,
+                                            "category_id": 252}, "es")
+                self.assertEqual(result["observed_category_ids"], observed_ids)
+                self.assertEqual(result["category_read_verified"], expected_verified)
+                self.assertEqual(bool(result["errors"]), not expected_verified)
+                self.assertIsNone(hooks[emu_textfit.READ_INTO])
+                h.check_code.assert_called_once_with(
+                    {emu_textfit.READ_INTO: emu_textfit.CODE_SIGS[emu_textfit.READ_INTO]})
+
 
 class SchemaErrors(unittest.TestCase):
     def check(self, text, fragment, name="t"):
@@ -75,6 +123,14 @@ class SchemaErrors(unittest.TestCase):
         self.check('id = "t"\ndescription = "x"\nsteps = ["flag:5=2"]', "0 or 1")
         self.check('id = "t"\ndescription = "x"\nsteps = ["pocket:shoes"]', "unknown pocket")
 
+    def test_dex_category_id_requires_one_valid_message(self):
+        self.check('id = "t"\ndescription = "x"\nsteps = [{op="dexcapture",first=1,last=2,'
+                   'category_id=1}]', "requires first == last")
+        self.check('id = "t"\ndescription = "x"\nsteps = [{op="dexcapture",first=1,last=1,'
+                   'category_id=1441}]', "0 to 1440")
+        self.check('id = "t"\ndescription = "x"\nsteps = [{op="dexcapture",first=1,last=1,'
+                   'category_id=true}]', "0 to 1440")
+
     def test_partial_teleport(self):
         self.check(MINIMAL.format(id="t", extra="[start]\nmap = 3\nx = 1"), "needs all of map, x, y")
 
@@ -88,7 +144,7 @@ class SchemaErrors(unittest.TestCase):
     def test_expectation_needs_one_check(self):
         self.check(MINIMAL.format(id="t", extra='[[expect]]\nobs = "where"'), "exactly one check")
         self.check(MINIMAL.format(id="t", extra='[[expect]]\nobs = "where"\nequals = 1\nlang = "jp"'),
-                   "both, cn or en")
+                   "both, all, cn, en or es")
 
     def test_unknown_param(self):
         self.check('id = "t"\ndescription = "x"\nsteps = ["gen:${sp},5"]', "unknown parameter ${sp}")
@@ -474,6 +530,139 @@ expect = [{ obs = "mon.form", equals = "${f}" }, { obs = "mon.form", equals = 9,
                                    sav_dir=d, baselines=d, dir=d)
             with mock.patch("sys.stderr"):
                 self.assertEqual(S.run(a), 2)
+
+
+class SpanishMatrix(unittest.TestCase):
+    def test_language_scopes_and_separate_baseline(self):
+        with tempfile.TemporaryDirectory() as d:
+            exp = [{"obs": "x", "equals": 1}, {"obs": "x", "equals": 2, "lang": "en"},
+                   {"obs": "x", "equals": 3, "lang": "both"}, {"obs": "x", "equals": 4, "lang": "es"}]
+            rows = S.judge(exp, {"x": 1}, "es")
+            self.assertEqual([r["want"] for r in rows], [1, 4])
+            exp = [{"obs": "dex.digests", "baseline": True, "lang": "es"}]
+            obs = {"dex": {"digests": {"p1": "es-pixels"}}}
+            en_digest = S.value_digest(obs["dex"]["digests"])
+            row = S.judge(exp, obs, "es", "dex", "main", d,
+                          {"dex/main/en/dex.digests": {"digest": en_digest}})[0]
+            self.assertFalse(row["pass"])
+            self.assertTrue(row["pending"])
+            self.assertEqual(row["key"], "dex/main/es/dex.digests")
+            row = S.judge(exp, obs, "es", "dex", "main", d,
+                          {"dex/main/es/dex.digests": {"digest": en_digest}})[0]
+            self.assertTrue(row["pass"])
+            self.assertNotIn("pending", row)
+
+    def test_three_rom_parity_has_distinct_pairs(self):
+        scn = {"cases": [{"id": "main"}], "parity": {"differ": {}, "fields": {}}}
+        runs = runs_of({"number": 25}, {"number": 25}, case="main")
+        runs.append({"case": "main", "lang": "es", "observations": {"number": 26}, "verdict": "observed"})
+        matrix = S.parity(scn, runs, langs=S.LANGS)
+        self.assertEqual(matrix["counts"][S.EQUAL], 1)
+        self.assertEqual(matrix["counts"][S.MISMATCH], 1)
+        self.assertEqual(matrix["pairs"]["cn/en"]["counts"][S.EQUAL], 1)
+        self.assertEqual(matrix["pairs"]["cn/es"]["counts"][S.MISMATCH], 1)
+        mismatch = matrix["rows"][0]
+        self.assertEqual(mismatch["pair"], "cn/es")
+        self.assertEqual((mismatch["cn"], mismatch["es"]), (25, 26))
+        self.assertNotIn("en", mismatch)
+        self.assertEqual(S.scenario_verdict(runs, matrix), "fail")
+
+    def test_category_scenario_judges_real_result_shape(self):
+        scenario = S.load(S.SCENARIO_DIR / "dex-capacity.toml")
+        S.require_es_checks([scenario], standalone=True)
+        case = scenario["cases"][0]
+        observation = {"dex": {"captured": [1], "errors": [], "category_read_verified": True,
+                        "category_rendering": {"verdict": "pass"}, "digests": {"0001": "abc"}}}
+        with tempfile.TemporaryDirectory() as folder:
+            checks = S.judge(case["expect"], observation, "es", scenario["id"], case["id"], folder, {})
+        self.assertTrue(all(row["pass"] for row in checks if row["check"] != "baseline"))
+        self.assertTrue(any(row.get("pending") and not row["pass"] for row in checks))
+
+    def test_dex_needs_explicit_spanish_digest_check(self):
+        import copy
+        shipped = S.load(S.SCENARIO_DIR / "dex.toml")
+        S.require_es_checks([shipped])
+        self.assertTrue(any(e.get("lang") == "es" and e.get("baseline")
+                            for e in shipped["cases"][0]["expect"]))
+        missing = copy.deepcopy(shipped)
+        for case in missing["cases"]:
+            case["expect"] = [e for e in case["expect"] if e.get("lang") != "es"]
+        with self.assertRaisesRegex(S.ScenarioError, "needs an explicit ES check"):
+            S.require_es_checks([missing])
+
+    def test_es_only_cannot_succeed_without_any_expectation(self):
+        with tempfile.TemporaryDirectory() as d:
+            scn = S.load(write(d, MINIMAL.format(id="t", extra="")))
+            with self.assertRaisesRegex(S.ScenarioError, "ES-only run needs"):
+                S.require_es_checks([scn], standalone=True)
+            scn["cases"][0]["expect"].append({"obs": "where", "equals": [1, 2], "lang": "es"})
+            S.require_es_checks([scn], standalone=True)
+
+    def test_all_requires_rom_es_and_uses_separate_save_dir(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            sdir = root / "scn"
+            sdir.mkdir()
+            (sdir / "simple.toml").write_text('id = "simple"\ndescription = "x"\nsteps = [{ observe = "x", var = 1 }]')
+            for lang in S.LANGS:
+                (root / f"{lang}.nds").write_bytes(lang.encode())
+            a = argparse.Namespace(only=None, lang="all", jobs=3, out=str(root / "run"),
+                                   rom_cn=str(root / "cn.nds"), rom_en=str(root / "en.nds"), rom_es=None,
+                                   sav_dir=str(root / "common"), sav_dir_es=str(root / "spanish"),
+                                   baselines=str(root / "b"), approvals=str(root / "a"), dir=str(sdir))
+            with mock.patch("sys.stderr"):
+                self.assertEqual(S.run(a), 2)
+            self.assertFalse((root / "run").exists())
+            a.rom_es = str(root / "es.nds")
+            calls = []
+            def fake_child(args, timeout=900):
+                calls.append(args)
+                lang = args[args.index("--lang") + 1]
+                return {"case": "main", "lang": lang, "observations": {"x": 1}, "seconds": 0.1}
+            with mock.patch.object(E, "run_child", fake_child), mock.patch("builtins.print"):
+                self.assertEqual(S.run(a), 0)
+            self.assertEqual({c[c.index("--lang") + 1] for c in calls}, set(S.LANGS))
+            es_args = next(c for c in calls if c[c.index("--lang") + 1] == "es")
+            self.assertEqual(es_args[es_args.index("--sav-dir") + 1], str(root / "spanish"))
+            summary = json.loads((root / "run" / "summary.json").read_text())
+            self.assertEqual(summary["langs"], list(S.LANGS))
+            self.assertEqual(set(summary["roms"]), set(S.LANGS))
+            self.assertEqual(summary["scenarios"][0]["parity"][S.EQUAL], 2)
+
+    def test_en_es_locales_runs_without_chinese_or_parity(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            sdir = root / "scn"
+            sdir.mkdir()
+            (sdir / "simple.toml").write_text(
+                'id = "simple"\ndescription = "x"\nsteps = [{ observe = "x", var = 1 }]\n'
+                '[[case]]\nid = "main"\n[[case.expect]]\nobs = "x"\nequals = 1\n')
+            for lang in ("en", "es"):
+                (root / f"{lang}.nds").write_bytes(lang.encode())
+            a = argparse.Namespace(only=None, lang="both", locales="en,es", jobs=2,
+                                   out=str(root / "run"), rom_cn=str(root / "absent-cn.nds"),
+                                   rom_en=str(root / "en.nds"), rom_es=str(root / "es.nds"),
+                                   sav_dir=str(root / "common"), sav_dir_es=None,
+                                   baselines=str(root / "b"), approvals=str(root / "a"), dir=str(sdir))
+            calls = []
+            def fake_child(args, timeout=900):
+                calls.append(args)
+                lang = args[args.index("--lang") + 1]
+                return {"case": "main", "lang": lang, "observations": {"x": 1}, "seconds": 0.1}
+            with mock.patch.object(E, "run_child", fake_child), mock.patch("builtins.print"):
+                self.assertEqual(S.run(a), 0)
+            self.assertEqual({c[c.index("--lang") + 1] for c in calls}, {"en", "es"})
+            summary = json.loads((root / "run" / "summary.json").read_text())
+            self.assertEqual(summary["langs"], ["en", "es"])
+            self.assertFalse(summary["mismatches"])
+            self.assertIn("parity needs Chinese", summary["scenarios"][0]["parity"])
+
+    def test_locales_conflicts_with_nondefault_lang(self):
+        with tempfile.TemporaryDirectory() as d:
+            a = argparse.Namespace(only=None, lang="all", locales="en,es", dir=d)
+            with mock.patch("sys.stderr"):
+                self.assertEqual(S.run(a), 2)
+
 
 
 if __name__ == "__main__":

@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "希罗娜『果然在旅行中不断磨练,{NEWLINE}才能成长得更加迅速。{CLEAR}这是我跟捉虫少年们学的新技能,{CLEAR}对你应该也有帮助,{CLEAR}你拿着试试吧！",
-   "en": "Cynthia: It’s true.{NEWLINE}You grow fastest when you keep{CLEAR}honing yourself on the road.{SCROLL}This is a new move I learned from the{NEWLINE}Bug Catchers. It should help you too.{SCROLL}Take it and give it a try!",
+   "en": "Cynthia: It’s true. You grow faster{NEWLINE}when you keep honing yourself on{CLEAR}the road.{SCROLL}This is a new move I learned from the{NEWLINE}Bug Catchers. It should help you too.{SCROLL}Take it and give it a try!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES005-0130: Restore comparative rather than superlative."
   },
   {
    "id": 9,
@@ -246,10 +246,10 @@
   {
    "id": 30,
    "zh": "小次郎『你这股拼劲有当火箭队的潜质,{NEWLINE}不如加入我们吧,{CLEAR}有五险一金还和年终奖哟。",
-   "en": "James: With drive like that, you’ve got{NEWLINE}what it takes to be in Team Rocket. Why{CLEAR}not join us?{SCROLL}Full benefits, and a year-end bonus{NEWLINE}too!",
+   "en": "James: With drive like that, you’ve got{NEWLINE}what it takes to be in Team Rocket. Why{CLEAR}not join us?{SCROLL}Five kinds of insurance, a housing fund,{NEWLINE}and a year-end bonus too!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position | 五险一金 (Chinese statutory benefits package) → 'Full benefits'."
+   "notes": "v3 TM: 1 source(s), same position | 五险一金 (Chinese statutory benefits package) → 'Full benefits'. | CES005-0130: Preserve specific 五险一金 employment-package joke; D1635 ambiguity resolved by current user keep-all-details instruction."
   },
   {
    "id": 31,
@@ -318,10 +318,10 @@
   {
    "id": 39,
    "zh": "喵喵『下次不要再让我们撞见你们喵。",
-   "en": "Meowth: Don’t let us catch you around{NEWLINE}here again, meow.",
+   "en": "Meowth: Don’t let us run into you again,{NEWLINE}meow.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES005-0130: Remove invented restriction of threat to current location."
   },
   {
    "id": 40,
@@ -454,18 +454,18 @@
   {
    "id": 56,
    "zh": "小蓝『这个不重要啦,{NEWLINE}倒是你,居然主动找火箭队麻烦,{CLEAR}他们可是个很危险的犯罪组织,{CLEAR}你可算是惹火上身咯。",
-   "en": "Green: That’s not important. But you...{NEWLINE}picking a fight{CLEAR}with Team Rocket on your own?{SCROLL}They’re a really dangerous{NEWLINE}criminal organization.{CLEAR}You’re just asking for trouble.",
+   "en": "Green: That’s not important. But you...{NEWLINE}going out of your way to pick a fight{CLEAR}with Team Rocket?{SCROLL}They’re a really dangerous criminal{NEWLINE}organization. You’re just asking{CLEAR}for trouble.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES005-0130: Restore actively seeking confrontation, not necessarily acting alone."
   },
   {
    "id": 57,
    "zh": "小赤『这个不重要,{NEWLINE}倒是你,居然主动找火箭队麻烦,{CLEAR}他们可是个很危险的犯罪组织,{CLEAR}跟他们扯上关系可不是好事。",
-   "en": "Red: That’s not important. But you...{NEWLINE}picking a fight{CLEAR}with Team Rocket on your own?{SCROLL}They’re a really dangerous criminal{NEWLINE}organization. Getting mixed up with them{CLEAR}is bad news.",
+   "en": "Red: That’s not important. But you...{NEWLINE}going out of your way to pick a fight{CLEAR}with Team Rocket?{SCROLL}They’re a really dangerous criminal{NEWLINE}organization. Getting mixed up with them{CLEAR}is bad news.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES005-0130: Restore actively seeking confrontation, not necessarily acting alone."
   },
   {
    "id": 58,
@@ -718,10 +718,10 @@
   {
    "id": 89,
    "zh": "小赤『我把我的电话号码{NEWLINE}留给你吧,{CLEAR}以后有空互相联系也方便！",
-   "en": "Red: I’ll leave you my phone number.{SCROLL}That way we can keep in touch!",
+   "en": "Red: I’ll leave you my phone number.{SCROLL}That’ll make it easy to keep in touch{NEWLINE}when we have time!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES005-0130: Restore convenient contact and when-time condition."
   },
   {
    "id": 90,
@@ -758,10 +758,10 @@
   {
    "id": 94,
    "zh": "你说你跑个什么劲啊,{NEWLINE}我又不是要你的命。{CLEAR}你乖乖跟我去火箭队的尖兵训练营,{CLEAR}凭你的神奇天赋,只要认真训练,{CLEAR}绝对可以成为世界上最强的训练家。{CLEAR}就算那个新的联盟冠军{VAR:0103:0}{CLEAR}也不会是你的对手。",
-   "en": "What are you running for? I’m not going{NEWLINE}to kill you.{SCROLL}Just come quietly with me to Team{NEWLINE}Rocket’s boot camp.{SCROLL}With your amazing gift, if you train{NEWLINE}hard, you could become the strongest{CLEAR}Trainer in the world.{SCROLL}Even that new League Champion,{NEWLINE}{VAR:0103:0}, wouldn’t stand a chance{CLEAR}against you.",
+   "en": "What are you running for? I’m not going{NEWLINE}to kill you.{SCROLL}Just come quietly with me to Team{NEWLINE}Rocket’s boot camp.{SCROLL}With your amazing gift, if you train{NEWLINE}hard, you can definitely become the{CLEAR}strongest Trainer in the world.{SCROLL}Even that new League Champion,{NEWLINE}{VAR:0103:0}, wouldn’t stand a chance{CLEAR}against you.",
    "status": "draft",
    "origin": "agent",
-   "notes": "#92–116: post-game Yellow scene (player is League Champion). #103/#110 = male player (哥哥), #104/#111 = female player (姐姐); the English drops the honorific, as in 0446.; ext-review RV-022"
+   "notes": "#92–116: post-game Yellow scene (player is League Champion). #103/#110 = male player (哥哥), #104/#111 = female player (姐姐); the English drops the honorific, as in 0446.; ext-review RV-022 | CES005-0130: Restore emphatic certainty of recruiter promise."
   },
   {
    "id": 95,
@@ -902,10 +902,10 @@
   {
    "id": 112,
    "zh": "{VAR:0103:0}『嗯,相信你可以的！{SCROLL}{VAR:0103:0}『你叔叔应该也等着急了,{NEWLINE}你快先回常磐市吧！",
-   "en": "{VAR:0103:0}: Yeah, I know you can do it!{SCROLL}{VAR:0103:0}: Your uncle must be worried{NEWLINE}sick. Hurry back to Viridian City!",
+   "en": "{VAR:0103:0}: Yeah, I believe you can do it!{SCROLL}{VAR:0103:0}: Your uncle must be getting{NEWLINE}anxious waiting too. Hurry back to{CLEAR}Viridian City!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES005-0130: Restore belief, anxious waiting, also; remove intensified sick/dead-with-worry image."
   },
   {
    "id": 113,
@@ -942,10 +942,10 @@
   {
    "id": 117,
    "zh": "小蓝『这个乔伊一定有什么古怪……",
-   "en": "Green: There’s something fishy about{NEWLINE}this Nurse Joy...",
+   "en": "Green: There’s definitely something{NEWLINE}fishy about this Nurse Joy...",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES005-0130: Restore explicit certainty."
   },
   {
    "id": 118,
@@ -1014,10 +1014,10 @@
   {
    "id": 126,
    "zh": "太好了,谢谢你愿意帮忙。{SCROLL}请你站到北侧的高地上,{NEWLINE}烈雀们看到后就会觉得你在挑衅,{CLEAR}然后它们很可能会向你发起攻击。{CLEAR}你只需要击败鸟群吓跑它们就好,{CLEAR}不必真的伤害到烈雀们。{CLEAR}拜托了。",
-   "en": "Wonderful, thank you for helping.{SCROLL}Please stand on the high ground to the{NEWLINE}north. When the Spearow see you,{CLEAR}they’ll think you’re challenging them...{SCROLL}...and they’ll probably attack you.{SCROLL}You only need to beat the flock to{NEWLINE}scare them off. There’s no need to{CLEAR}actually hurt them.{SCROLL}I’m counting on you.",
+   "en": "Wonderful, thank you for being willing to{NEWLINE}help.{SCROLL}Please stand on the high ground to the{NEWLINE}north. When the Spearow see you,{CLEAR}they’ll think you’re challenging them...{SCROLL}...and they’ll probably attack you.{SCROLL}You only need to beat the flock to{NEWLINE}scare them off. There’s no need to{CLEAR}actually hurt them.{SCROLL}I’m counting on you.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES005-0130: Restore willing rather than already completed help."
   },
   {
    "id": 127,
@@ -1345,10 +1345,10 @@
   {
    "id": 167,
    "zh": "还没出生的精灵{NEWLINE}恐怕学不会这个技能……{SCROLL}",
-   "en": "A Pokémon that hasn’t hatched yet{NEWLINE}can’t learn this move...{SCROLL}",
+   "en": "I’m afraid a Pokémon that hasn’t{NEWLINE}hatched yet can’t learn this move...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 3 source(s), same position; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl)"
+   "notes": "v3 TM: 3 source(s), same position; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl) | CES005-0130: Restore 恐怕 softening/concern qualifier without changing prohibition."
   },
   {
    "id": 168,
@@ -1401,10 +1401,10 @@
   {
    "id": 174,
    "zh": "{VAR:0101:0}完全忘了{NEWLINE}{VAR:0106:1}的用法！{SCROLL}然后……！",
-   "en": "{VAR:0101:0} forgot how to use{NEWLINE}{VAR:0106:1}!{SCROLL}And...!",
+   "en": "{VAR:0101:0} completely forgot how to{NEWLINE}use {VAR:0106:1}!{SCROLL}And...!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 4 source(s), same position; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl)"
+   "notes": "v3 TM: 4 source(s), same position; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl) | CES005-0130: Restore completely."
   },
   {
    "id": 175,

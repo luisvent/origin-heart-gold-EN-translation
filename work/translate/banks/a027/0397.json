@@ -127,10 +127,10 @@
   {
    "id": 15,
    "zh": "嗯嗯,我明白你也很喜欢我。{NEWLINE}可是如果能回到月亮上的家,{CLEAR}你和你的父母应该都会很高兴吧。",
-   "en": "Yeah, I know you like me a lot too.{NEWLINE}But if you could go back to your{CLEAR}home on the moon, you and your{CLEAR}parents would both be so happy.",
+   "en": "Yeah, yeah, I know you like me a lot{NEWLINE}too. But if you could go back to your{CLEAR}home on the moon, you and your parents{CLEAR}would all probably be so happy,{CLEAR}wouldn’t you?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0395-0397: Restore repeated assent and expected happiness as a question."
   },
   {
    "id": 16,
@@ -327,10 +327,10 @@
   {
    "id": 40,
    "zh": "哼哼,我的赫拉克罗斯{NEWLINE}可不是一般的厉害,{CLEAR}今天就让你开开眼界！",
-   "en": "Heh heh. My Heracross is no ordinary{NEWLINE}Pokémon. Today I’ll open your eyes!",
+   "en": "Heh heh. My Heracross is{NEWLINE}extraordinarily strong. Today I’ll open{CLEAR}your eyes!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0395-0397: Restore extraordinary strength, not unspecified unusualness."
   },
   {
    "id": 41,
@@ -407,10 +407,10 @@
   {
    "id": 50,
    "zh": "我弟弟经常带着我的精灵出去玩,{NEWLINE}虽然看到他这么喜欢口袋妖怪{CLEAR}我是很高兴。{CLEAR}但我更希望他能多培养自己的精灵,{CLEAR}而不是总跟我的精灵待在一起。",
-   "en": "My little brother always takes{NEWLINE}my Pokémon out to play. I’m glad{CLEAR}to see he loves Pokémon so much.{SCROLL}But I’d rather he raised his{NEWLINE}own Pokémon instead of always{CLEAR}hanging around with mine.",
+   "en": "My little brother often takes my{NEWLINE}Pokémon out to play. I’m glad to see he{CLEAR}loves Pokémon so much.{SCROLL}But I’d rather he raised his own{NEWLINE}Pokémon instead of always hanging{CLEAR}around with mine.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0395-0397: Restore frequency often rather than always; later always remains source-authentic."
   },
   {
    "id": 51,
@@ -543,10 +543,10 @@
   {
    "id": 67,
    "zh": "啊……哥哥我……我只是不想输嘛……",
-   "en": "Ah... B-big brother, I... I{NEWLINE}just didn’t want to lose...",
+   "en": "Ah... Big brother, I... I just didn’t{NEWLINE}want to lose...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0395-0397: Restore stutter on I, not invented stutter on brother."
   },
   {
    "id": 68,
@@ -769,10 +769,10 @@
   {
    "id": 95,
    "zh": "啊,啊！都是因为你来打扰,{NEWLINE}蚊香蝌蚪逃掉了。{CLEAR}你要怎么陪我啊！",
-   "en": "Aaah! Because you disturbed me,{NEWLINE}the Poliwag got away. How are{CLEAR}you going to make it up to me?!",
+   "en": "Ah, ah! Because you disturbed me, the{NEWLINE}Poliwag got away. How are you going to{CLEAR}make it up to me?!",
    "status": "draft",
    "origin": "agent",
-   "notes": "RV047: zh typo 陪 for 赔 (compensate); translated as intended, see hack-finding D-2181"
+   "notes": "RV047: zh typo 陪 for 赔 (compensate); translated as intended, see hack-finding D-2181 | root-full-comparison-0395-0397: Restore two interjections rather than single lengthened scream."
   },
   {
    "id": 96,

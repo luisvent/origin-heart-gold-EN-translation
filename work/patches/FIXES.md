@@ -57,6 +57,7 @@ Stages (and the order of this list): font → graphics → NARC bytes → hardco
 | [`victory-road-arch-movement-wait`](#victory-road-arch-movement-wait) | narc | yes | – | Victory Road exterior: the arch in front of the stairs no longer freezes the final chapter |
 | [`outfit-chooser-strings`](#outfit-chooser-strings) | strings | yes | – | Outfit chooser labels (hardcoded in overlay 58) |
 | [`pcbox-name-width`](#pcbox-name-width) | data | yes | – | PC box header: species-name window wide enough for 10 characters |
+| [`ability-banner`](#ability-banner) | code | **no** | – | Keep English ability pop-up names inside their window |
 | [`antipiracy`](#antipiracy) | code | yes | – | Real hardware: the six DS Protect entry points return the genuine-cart values |
 | [`battle-faint-cry`](#battle-faint-cry) | code | yes | – | Battles: a Pokémon that faints cries (the low faint cry) and makes the faint sound again, on both sides |
 | [`battle-heal-hpbar-switched-out`](#battle-heal-hpbar-switched-out) | code | yes | – | Battle: a Potion on a Pokémon that is forced out the same turn no longer freezes (Maxie gauntlet) |
@@ -2467,6 +2468,68 @@ Nothing else on the screen changes.
     window                          4,  1, 19, 12, 2, 15, 0x109
 .endarea
 
+.close
+```
+
+</details>
+
+## ability-banner
+
+**Keep English ability pop-up names inside their window**
+
+- Kind: code
+- Enabled: no
+- Requires: nothing
+- Decisions: D-2500
+- Source: `work/patches/ability-banner/fix.toml`
+
+**Why (the Chinese hack):**
+
+The hack's ability banner creates a 15-tile (120-pixel) window but anchors the ability row
+at pixel 132. Its staggering adjustment brings short Chinese names inward; longer English names
+retain that out-of-window anchor, so Battle Armor is clipped.
+Status: disabled. Isolated English layout repair, reviewed by a separate agent; pending activation.
+
+**What (old → new):**
+
+Anchor the ability row at pixel 112, leaving eight pixels at the right. Set nickname
+padding to 16 to clear the player-side screen edge. The original row staggering
+adjustment and nonnegative clamps stay in place.
+Window allocation, font, banner graphics, animation, timings and ability logic stay intact.
+
+**Evidence:**
+
+- work/notes/ability_banner_fix.md
+
+**Touches:**
+
+- `overlay14+0x25F2A` (RAM 0x0222670A) `ability-banner-right-edge`: 2 bytes, was `2284`
+- `overlay14+0x25F2C` (RAM 0x0222670C) `ability-banner-nickname-padding`: 2 bytes, was `3108`
+
+**Disassembly snapshot:** [`ability-banner.listing`](ability-banner/ability-banner.listing) (every edit, old → new; `python3 work/tools/asmpatch.py listing --write ability-banner`)
+
+**Source** (`work/patches/ability-banner/ability-banner.asm`, armips; the new bytes):
+
+<details>
+<summary>ability-banner.asm</summary>
+
+```asm
+; ability-banner - Keep English ability pop-up names inside their window. D-2500 (pending).
+
+.nds
+.thumb
+.include "../include/guards.inc"
+.open "overlay14.bin", 0x022007E0
+.org 0x0222670A
+.area 2
+ expect16 0x2284
+ mov r2, #112 ; 120 pixels less 8 pixels of right padding
+.endarea
+.org 0x0222670C
+.area 2
+ expect16 0x3108
+ add r1, #16 ; player-side banner begins partly offscreen
+.endarea
 .close
 ```
 

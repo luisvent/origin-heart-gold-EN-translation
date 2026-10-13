@@ -78,7 +78,7 @@
   {
    "id": 9,
    "zh": "{VAR:0103:0}『真是个贪吃的孩子,{NEWLINE}如果吃饱了就快回去吧。",
-   "en": "{VAR:0103:0}: What a greedy little guy. If{NEWLINE}you’re full, hurry on back.",
+   "en": "{VAR:0103:0}: What a greedy little one. If{NEWLINE}you’re full, hurry on back.",
    "status": "draft",
    "origin": "agent",
    "notes": ""

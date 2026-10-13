@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "阿笔馆主,我听说有一伙人{NEWLINE}强行闯进了呆呆兽之井,{CLEAR}岩铁先生已经带人跟到井里去查看了,{CLEAR}您要不要也去看看怎么回事？",
-   "en": "Bugsy, I heard a gang forced their{NEWLINE}way into Slowpoke Well. Mr. Kurt{CLEAR}has already taken some people{CLEAR}down the well to check. Should you{CLEAR}go and see what’s going on too?",
+   "en": "Gym Leader Bugsy, I heard a gang{NEWLINE}forced their way into Slowpoke Well.{CLEAR}Mr. Kurt has already taken some people{CLEAR}down the well to check. Should you go{CLEAR}and see what’s going on too?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "阿笔『我们要抓的虫精灵,{NEWLINE}都像那只狩猎凤蝶一样,{CLEAR}趴在树木的枝头吮吸树汁。{CLEAR}它们非常警觉,{CLEAR}直接抓捕是不行的。{SCROLL}阿笔『经过多次尝试失败后,{NEWLINE}我和伙伴们想出了一个可行的方法,{CLEAR}那就是用「蜂蜜」涂抹在{CLEAR}虫精灵附近的「苔藓石头」上,{CLEAR}虫精灵闻到「附近」的蜂蜜气息后,{CLEAR}会以「最快的速度」跳到地面,{CLEAR}然后选择「最短的路径」{CLEAR}跑向石头吮吸蜂蜜。{CLEAR}在这个过程中我们不能出现在{CLEAR}精灵的行进路线上,{CLEAR}否则他们就会逃走。",
-   "en": "Bugsy: The Bug Pokémon we’re catching{NEWLINE}are all like that Beautifly there.{CLEAR}They cling to the branches and suck{CLEAR}the sap. They’re very alert, so{CLEAR}grabbing them directly won’t work.{SCROLL}Bugsy: After failing many times, my{NEWLINE}team and I came up with a method{CLEAR}that works. We spread Honey on a{CLEAR}mossy rock near the Bug Pokémon.{CLEAR}When they smell Honey nearby, they{CLEAR}jump down to the ground as fast as{CLEAR}they can and take the shortest path{CLEAR}to the rock to lick the Honey. While{CLEAR}they do that, we can’t be anywhere{CLEAR}on their route, or they’ll run away.",
+   "en": "Bugsy: The Bug Pokémon we’re{NEWLINE}catching are all like that Beautifly{CLEAR}there. They cling to the branches{CLEAR}and suck the sap. They’re very{CLEAR}alert, so grabbing them directly{CLEAR}won’t work.{SCROLL}Bugsy: After failing many times, my{NEWLINE}team and I came up with a method{CLEAR}that works. We spread “Honey” on{CLEAR}a “mossy rock” near the Bug{CLEAR}Pokémon. When they smell Honey{CLEAR}“nearby”, they jump down to the{CLEAR}ground “as fast as they can” and{CLEAR}take the “shortest path” to the{CLEAR}rock to lick the Honey. While they{CLEAR}do that, we can’t be anywhere on{CLEAR}their route, or they’ll run away.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 11,
@@ -358,10 +358,10 @@
   {
    "id": 44,
    "zh": "哇,你就是联盟冠军{VAR:0103:0}呀,{NEWLINE}如果不是阿笔馆主这么称呼你,{CLEAR}我都认不出来呢。",
-   "en": "Whoa, so you’re League Champion{NEWLINE}{VAR:0103:0}! If Bugsy hadn’t called you{CLEAR}that, I wouldn’t have recognized you.",
+   "en": "Whoa, so you’re League Champion{NEWLINE}{VAR:0103:0}! If Gym Leader Bugsy hadn’t{CLEAR}called you that, I wouldn’t have{CLEAR}recognized you.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 45,
@@ -435,10 +435,10 @@
   {
    "id": 53,
    "zh": "这是你的蜂蜜,请拿好。",
-   "en": "Here’s your Honey.{NEWLINE}Take good care of it.",
+   "en": "Here’s your Honey. Please take it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 54,
@@ -782,10 +782,10 @@
   {
    "id": 96,
    "zh": "小梅『原来如此,多谢尊驾指点迷津。{NEWLINE}小女子还要去森林出口与舍妹汇合,{CLEAR}就先与尊驾别过了。",
-   "en": "Koume: I see. Many thanks for showing{NEWLINE}me the way, honored traveler.{CLEAR}This humble maiden must go meet{CLEAR}her sister at the forest exit,{CLEAR}so I shall take my leave of you.",
+   "en": "Koume: I see. Many thanks for showing{NEWLINE}me the way, honored traveler. This{CLEAR}humble maiden must go meet her younger{CLEAR}sister at the forest exit, so I shall{CLEAR}take my leave of you.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 97,
@@ -798,18 +798,18 @@
   {
    "id": 98,
    "zh": "小梅『竟让尊驾与舍妹如此费心,{NEWLINE}小女子当真羞愧万分。{CLEAR}尊驾不辞劳苦的一片热情,{CLEAR}小女子感激不尽。{CLEAR}烦请尊驾这就引小女子出去吧。",
-   "en": "Koume: To have troubled you and{NEWLINE}my sister so... This humble maiden{CLEAR}is truly ashamed. Your tireless{CLEAR}kindness, honored traveler, leaves{CLEAR}me endlessly grateful. Might I{CLEAR}trouble you to lead me out now?",
+   "en": "Koume: To have troubled you and my{NEWLINE}younger sister so... This humble maiden{CLEAR}is truly ashamed. Your tireless{CLEAR}kindness, honored traveler, leaves me{CLEAR}endlessly grateful. Might I trouble you{CLEAR}to lead me out now?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 99,
    "zh": "{VAR:0103:0}『小梅小姐,从这里出去{NEWLINE}就可以离开桐树林了,{CLEAR}你的妹妹就在前面通道等你。",
-   "en": "{VAR:0103:0}: Miss Koume, this way leads{NEWLINE}out of Ilex Forest. Your sister is{CLEAR}waiting for you in the passage up ahead.",
+   "en": "{VAR:0103:0}: Miss Koume, this way leads out{NEWLINE}of Ilex Forest. Your younger sister is{CLEAR}waiting for you in the passage up ahead.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 100,
@@ -822,10 +822,10 @@
   {
    "id": 101,
    "zh": "小梅『小女子这就去与妹妹会合,{NEWLINE}改日再与尊驾相见。",
-   "en": "Koume: This humble maiden shall{NEWLINE}go meet her sister now. Until we{CLEAR}meet again, honored traveler.",
+   "en": "Koume: This humble maiden shall go meet{NEWLINE}her younger sister now. Until we meet{CLEAR}again, honored traveler.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 102,
@@ -838,10 +838,10 @@
   {
    "id": 103,
    "zh": "你妹妹让我带你出去",
-   "en": "Your sister sent me for you",
+   "en": "Your sister sent me to get you out",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "category": "menu_touch_1line"
   },
   {
@@ -1203,10 +1203,10 @@
   {
    "id": 148,
    "zh": "你好,我是桐树林的护林员。{NEWLINE}我的职责是带着杰尼龟们{CLEAR}做好桐树林的消防工作。{SCROLL}最近有一只流浪的戴鲁比{NEWLINE}进入了桐树林,{CLEAR}这种火系精灵很可能引发火灾,{CLEAR}本来发生这种事{CLEAR}应该由我们消防护林员出动抓捕,{CLEAR}但是我的杰尼龟们腿太短{CLEAR}试了好几次都追不上戴鲁比,{CLEAR}如果你有看到戴鲁比,{CLEAR}请帮忙顺道抓住它好吗？",
-   "en": "Hello, I’m an Ilex Forest ranger.{NEWLINE}My job is fire prevention in{CLEAR}the forest with my Squirtle.{SCROLL}Recently a stray Houndour wandered{NEWLINE}into Ilex Forest. A Fire type like{CLEAR}that could easily start a fire.{CLEAR}Normally we fire rangers would go{CLEAR}and catch it, but my Squirtle’s legs{CLEAR}are too short. They tried again and{CLEAR}again and couldn’t catch up with it.{CLEAR}If you see the Houndour, could you{CLEAR}catch it for me while you’re at it?",
+   "en": "Hello, I’m an Ilex Forest ranger. My job{NEWLINE}is fire prevention in the forest with my{CLEAR}Squirtle team.{SCROLL}Recently a stray Houndour wandered{NEWLINE}into Ilex Forest. A Fire type like that{CLEAR}could easily start a fire. Normally we{CLEAR}fire rangers would go and catch it, but{CLEAR}my Squirtle’s legs are too short. They{CLEAR}tried again and again and couldn’t catch{CLEAR}up with it. If you see the Houndour,{CLEAR}could you catch it for me while you’re{CLEAR}at it?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 149,

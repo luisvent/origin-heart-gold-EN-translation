@@ -347,10 +347,10 @@
   {
    "id": 42,
    "zh": "一边吃饭一边看电视最下饭了。",
-   "en": "Watching TV while you eat makes the{NEWLINE}food go down even better.",
+   "en": "Nothing makes food go down better than{NEWLINE}watching TV while you eat.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0132: Restore superlative appetite claim."
   },
   {
    "id": 43,
@@ -363,10 +363,10 @@
   {
    "id": 44,
    "zh": "什么？！你也想玩电脑？{NEWLINE}不行不行,我还没玩够呢。{SCROLL}你要是不跟我抢着玩电脑的话,{NEWLINE}我就把我的姆克鸟的绝招{CLEAR}「勇鸟猛攻」教给你作为补偿。{CLEAR}怎么样,要学吗？{SCROLL}",
-   "en": "What?! You want to use the computer{NEWLINE}too? No way, I’m not done yet.{SCROLL}If you don’t fight me for the computer,{NEWLINE}I’ll teach you my Staravia’s signature{CLEAR}move, Brave Bird, to make up for it. How{CLEAR}about it? Want to learn it?{SCROLL}",
+   "en": "What?! You want to use the computer{NEWLINE}too? No, no, I haven’t played{CLEAR}enough yet.{SCROLL}If you don’t fight me for the computer,{NEWLINE}I’ll teach you my Staravia’s signature{CLEAR}move, Brave Bird, to make up for it. How{CLEAR}about it? Want to learn it?{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0132: Restore repeated refusal and not enough playing."
   },
   {
    "id": 45,

@@ -6,26 +6,26 @@
   {
    "id": 0,
    "zh": "哞哞没精神……{NEWLINE}不给它很多它最喜欢的{CLEAR}橘果的话……{SCROLL}",
-   "en": "Our Miltank is down... It won’t{NEWLINE}perk up unless we give it lots{CLEAR}of its favorite Oran Berries...{SCROLL}",
+   "en": "Moomoo is down... It won’t{NEWLINE}perk up unless we give it lots{CLEAR}of its favorite Oran Berries...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "Name fidelity: 哞哞 is this Miltank’s nickname Moomoo, confirmed by the matching official USA Route 39 scene (work/extract/us/a027/0398.json), distinct from generic 大奶罐 in this bank."
   },
   {
    "id": 1,
    "zh": "谢谢！{NEWLINE}哞哞非常精神！{SCROLL}把这个贴纸当做谢礼{NEWLINE}送给你！{SCROLL}",
-   "en": "Thank you! Our Miltank{NEWLINE}is full of energy!{SCROLL}Please take this Seal as thanks!{SCROLL}",
+   "en": "Thank you! Moomoo{NEWLINE}is full of energy!{SCROLL}Please take this Seal as thanks!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "Name fidelity: 哞哞 is this Miltank’s nickname Moomoo, confirmed by the matching official USA Route 39 scene (work/extract/us/a027/0398.json), distinct from generic 大奶罐 in this bank."
   },
   {
    "id": 2,
    "zh": "啥ー啊！{NEWLINE}想给你贴纸{CLEAR}你却没有贴纸盒……{SCROLL}但是不用担心,{SCROLL}贴纸盒的话{NEWLINE}姐姐会给你！{SCROLL}",
-   "en": "Shocking!{NEWLINE}I really want to give you some{CLEAR}Seals, but you don’t have a{CLEAR}Seal Case...{SCROLL}But don’t you worry.{NEWLINE}My sister can give you a Seal Case!{SCROLL}",
+   "en": "Shocking! I really want to give you some{NEWLINE}Seals, but you don’t have a{CLEAR}Seal Case...{SCROLL}But don’t you worry. My older sister{NEWLINE}will give you a Seal Case!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "Same zh as 0391 #2 (US line); reused."
+   "notes": "Same zh as 0391 #2 (US line); reused. | root-full-comparison-0388-0390: Restore older-sister relationship and future promise."
   },
   {
    "id": 3,
@@ -38,26 +38,26 @@
   {
    "id": 4,
    "zh": "哞哞非常精神！{SCROLL}",
-   "en": "Our Miltank is full of energy!{SCROLL}",
+   "en": "Moomoo is full of energy!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "Name fidelity: 哞哞 is this Miltank’s nickname Moomoo, confirmed by the matching official USA Route 39 scene (work/extract/us/a027/0398.json), distinct from generic 大奶罐 in this bank."
   },
   {
    "id": 5,
    "zh": "哞哞没精神……{NEWLINE}不给它很多它最喜欢的{CLEAR}橘果的话……{SCROLL}",
-   "en": "Our Miltank is down... It won’t{NEWLINE}perk up unless we give it lots{CLEAR}of its favorite Oran Berries...{SCROLL}",
+   "en": "Moomoo is down... It won’t{NEWLINE}perk up unless we give it lots{CLEAR}of its favorite Oran Berries...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "Name fidelity: 哞哞 is this Miltank’s nickname Moomoo, confirmed by the matching official USA Route 39 scene (work/extract/us/a027/0398.json), distinct from generic 大奶罐 in this bank."
   },
   {
    "id": 6,
    "zh": "谢谢！{NEWLINE}哞哞非常精神！{SCROLL}把这个贴纸当做谢礼{NEWLINE}送给你！{SCROLL}",
-   "en": "Thank you! Our Miltank{NEWLINE}is full of energy!{SCROLL}Please take this Seal as thanks!{SCROLL}",
+   "en": "Thank you! Moomoo{NEWLINE}is full of energy!{SCROLL}Please take this Seal as thanks!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "Name fidelity: 哞哞 is this Miltank’s nickname Moomoo, confirmed by the matching official USA Route 39 scene (work/extract/us/a027/0398.json), distinct from generic 大奶罐 in this bank."
   },
   {
    "id": 7,

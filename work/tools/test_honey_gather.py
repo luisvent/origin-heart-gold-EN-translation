@@ -104,9 +104,13 @@ class Collector(Thumb):
 class HoneyGatherTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        try:
+            assembler = asmpatch.find_armips()
+        except asmpatch.AsmError as exc:
+            raise unittest.SkipTest(str(exc)) from exc
         cls.native = hardcoded.RomView(msgtool.load_rom(str(ROM))).get("overlay14")
         cls.fix = next(f for f in fixes.load_all() if f["id"] == "honey-gather")
-        cls.patched = asmpatch.assemble([cls.fix], {"overlay14": cls.native}, asmpatch.find_armips())[0]["overlay14"]
+        cls.patched = asmpatch.assemble([cls.fix], {"overlay14": cls.native}, assembler)[0]["overlay14"]
 
     def test_all_levels_and_rolls(self):
         for level in range(1, 101):

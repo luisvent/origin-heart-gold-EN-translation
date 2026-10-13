@@ -110,10 +110,10 @@
   {
    "id": 13,
    "zh": "小绿『根据我刚才的调查,{NEWLINE}塔的这一层应该没有什么古怪,{CLEAR}你再去更高层看看如何？",
-   "en": "Blue: From what I just checked, there’s{NEWLINE}nothing weird on this floor.{SCROLL}How about checking the higher floors?",
+   "en": "Blue: From what I just checked, there{NEWLINE}should be nothing weird on this floor.{SCROLL}How about checking the higher floors?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: uncertainty: restore source should, not confirmed absence"
   },
   {
    "id": 14,

@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "{VAR:0103:0}『发生这种事错不在你,{NEWLINE}给你们带来痛苦的是火箭队。{CLEAR}你不必有自责的情绪,{CLEAR}快进去与叔叔阿姨见面吧。",
-   "en": "{VAR:0103:0}: None of this was your{NEWLINE}fault. Team Rocket is the one{CLEAR}who caused you all that pain. You{CLEAR}don’t need to blame yourself.{CLEAR}Go on in and see your parents.",
+   "en": "{VAR:0103:0}: None of this was your fault.{NEWLINE}Team Rocket is the one who caused all of{CLEAR}you that pain. You don’t need to blame{CLEAR}yourself. Go on in and see{CLEAR}your parents.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore pain caused to whole family rather than only child."
   },
   {
    "id": 6,
@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "{VAR:0103:0}『我想时间已经证明了,{NEWLINE}你们对彼此长相的记忆模糊,{CLEAR}并没有冲淡这份亲情与思念。{CLEAR}你大胆地去就对了。",
-   "en": "{VAR:0103:0}: I think time has already{NEWLINE}proven it. Even if you can’t{CLEAR}remember each other’s faces, that{CLEAR}hasn’t dulled your love or how much{CLEAR}you’ve missed each other. Just go.",
+   "en": "{VAR:0103:0}: I think time has already{NEWLINE}proven it. Your memories of each{CLEAR}other’s faces may be blurry, but that{CLEAR}hasn’t dulled your family bond or how{CLEAR}much you miss each other. Go ahead{CLEAR}with confidence.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore blurred mutual facial memories rather than total inability and confident encouragement."
   },
   {
    "id": 9,
@@ -112,10 +112,10 @@
   {
    "id": 13,
    "zh": "你穿的那个是跑鞋吧？{SCROLL}穿着它跑步{NEWLINE}真~是很~爽呢~！{SCROLL}不过跑步的时候,{NEWLINE}听到你的脚步声{CLEAR}野生的精灵啊{CLEAR}训练师也会靠过来的,{CLEAR}小心点哦！",
-   "en": "Oh! You’re wearing the Running Shoes.{SCROLL}They make you feel like you are flying,{NEWLINE}don’t they?{SCROLL}But beware of wild Pokémon and{NEWLINE}Trainers!{SCROLL}When you run, the noise will{NEWLINE}attract them.",
+   "en": "Oh! Are those Running Shoes{NEWLINE}you’re wearing?{SCROLL}Running in them feels sooo~ gooood~!{SCROLL}But when you run, wild Pokémon and{NEWLINE}Trainers will hear your footsteps and{CLEAR}come closer.{SCROLL}Be careful!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0375/13"
+   "origin": "agent",
+   "notes": "US 0375/13 | AGENT-0321-0380: Restore playful stretched delivery and running pleasure without invented flying metaphor."
   },
   {
    "id": 14,
@@ -216,10 +216,10 @@
   {
    "id": 26,
    "zh": "巴鲁郎有三种进化形态,{NEWLINE}分别是沙瓦郎、艾比郎、卡波郎。{SCROLL}当巴鲁郎的攻击个体值{NEWLINE}比防御个体值高时,{CLEAR}巴鲁郎会进化成沙瓦郎。{CLEAR}当攻击个体值低于防御个体值时,{CLEAR}巴鲁郎会进化成艾比郎。{CLEAR}而当两者相等时,则会进化成卡波郎。{SCROLL}这是否意味着,世界上不可能存在{NEWLINE}6V的沙瓦郎和艾比郎呢？",
-   "en": "Tyrogue has three evolutions:{NEWLINE}Hitmonlee, Hitmonchan and Hitmontop.{SCROLL}If Tyrogue’s Attack IV is higher{NEWLINE}than its Defense IV, it evolves{CLEAR}into Hitmonlee. If its Attack{CLEAR}IV is lower than its Defense IV, it{CLEAR}evolves into Hitmonchan. If they’re{CLEAR}equal, it evolves into Hitmontop.{SCROLL}So does that mean there’s no such{NEWLINE}thing as a 6IV Hitmonlee or Hitmonchan?",
+   "en": "Tyrogue has three evolutions:{NEWLINE}Hitmonlee, Hitmonchan and Hitmontop.{SCROLL}If Tyrogue’s Attack IV is higher than{NEWLINE}its Defense IV, it evolves into{CLEAR}Hitmonlee. If its Attack IV is lower{CLEAR}than its Defense IV, it evolves into{CLEAR}Hitmonchan. If they’re equal, it evolves{CLEAR}into Hitmontop.{SCROLL}So does that mean there’s no such thing{NEWLINE}as a Hitmonlee or Hitmonchan with 6{CLEAR}perfect IVs?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Clarify six perfect IVs explicit source meaning."
   },
   {
    "id": 27,
@@ -443,18 +443,18 @@
   {
    "id": 54,
    "zh": "{VAR:0103:0}『我是为了调查三圣兽的事情,{NEWLINE}才到这来的。{CLEAR}倒是你,来30号路是为了看小蓝吗？",
-   "en": "{VAR:0103:0}: I’m here looking into the{NEWLINE}legendary beasts. What about you? Did{CLEAR}you come to Route 30 to see Green?",
+   "en": "{VAR:0103:0}: I’m here looking into the{NEWLINE}three legendary beasts. What about{CLEAR}you? Did you come to Route 30 to{CLEAR}see Green?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore number of legendary beasts."
   },
   {
    "id": 55,
    "zh": "{VAR:0103:0}『我是为了调查三圣兽的事情,{NEWLINE}才到这来的。{CLEAR}你来30号路是为了找小赤吗？",
-   "en": "{VAR:0103:0}: I’m here looking into{NEWLINE}the legendary beasts. Did you{CLEAR}come to Route 30 to find Red?",
+   "en": "{VAR:0103:0}: I’m here looking into the{NEWLINE}three legendary beasts. Did you come to{CLEAR}Route 30 to find Red?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore number of legendary beasts."
   },
   {
    "id": 56,
@@ -587,10 +587,10 @@
   {
    "id": 72,
    "zh": "{VAR:0103:0}『炎帝曾经扮演过小美的父亲,{NEWLINE}我想它一定也能感受到{CLEAR}你心中对家庭温暖的那份真挚渴望,{CLEAR}所以才会选择成为你的伙伴。",
-   "en": "{VAR:0103:0}: Entei once played{NEWLINE}Molly’s father. I think it could{CLEAR}feel how sincerely you long for{CLEAR}the warmth of a family. That’s{CLEAR}why it chose to be your partner.",
+   "en": "{VAR:0103:0}: Entei once played Molly’s{NEWLINE}father. I think it must also have felt{CLEAR}how sincerely you long for the warmth{CLEAR}of a family. That’s why it chose to be{CLEAR}your partner.",
    "status": "draft",
    "origin": "agent",
-   "notes": "Entei played Molly's father in the film Spell of the Unown (小美 = Molly)."
+   "notes": "Entei played Molly's father in the film Spell of the Unown (小美 = Molly). | AGENT-0321-0380: Restore strong must certainty within explicit I think inference."
   },
   {
    "id": 73,

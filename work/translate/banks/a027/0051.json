@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "夏伯『从见到你们的那刻起{NEWLINE}我就知道你们不是那种{CLEAR}把对战当儿戏的肤浅游客。{CLEAR}给你们的谜题{CLEAR}其实只是我的个人兴趣啦,哈哈哈。{SCROLL}夏伯『红莲岛是著名的旅游景点,{NEWLINE}你们如果不着急走的话,{CLEAR}欢迎你们在岛上多留几天,{CLEAR}我们的餐馆也随时对你们开放哦。",
-   "en": "Blaine: The moment I met you, I knew{NEWLINE}you weren’t shallow tourists who treat{CLEAR}battling like a game. The riddles I gave{CLEAR}you were just a little hobby of mine.{CLEAR}Hah hah hah!{SCROLL}Blaine: Cinnabar Island is a famous{NEWLINE}tourist spot. If you’re in no hurry,{CLEAR}stay on the island a few more days. My{CLEAR}restaurant is always open to you too!",
+   "en": "Blaine: The moment I met you, I knew{NEWLINE}you weren’t shallow tourists who treat{CLEAR}battling like a game. The riddles I gave{CLEAR}you were just a little hobby of mine.{CLEAR}Hah hah hah!{SCROLL}Blaine: Cinnabar Island is a famous{NEWLINE}tourist spot. If you’re in no hurry,{CLEAR}stay on the island a few more days. Our{CLEAR}restaurant is always open to you too!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: meaning: source our restaurant, not my restaurant"
   },
   {
    "id": 5,
@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "你来的正好,{NEWLINE}我正想验证上次的对战心得呢。{SCROLL}",
-   "en": "You’re just in time.{NEWLINE}I was hoping to test what{CLEAR}I learned from our last battle.{SCROLL}",
+   "en": "You’re just in time. I was hoping to{NEWLINE}test what I learned from my{CLEAR}last battle.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: meaning: prior battle not necessarily against present addressee"
   },
   {
    "id": 10,
@@ -134,18 +134,18 @@
   {
    "id": 16,
    "zh": "你与精灵之间的默契,{NEWLINE}是比火光更耀眼的颜色。",
-   "en": "The bond between you and your Pokémon{NEWLINE}shines brighter than any firelight.",
+   "en": "The understanding between you and your{NEWLINE}Pokémon is a color more dazzling{CLEAR}than firelight.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: metaphor: retain source color image and mutual understanding"
   },
   {
    "id": 17,
    "zh": "你与精灵之间的默契,{NEWLINE}是比火光更耀眼的颜色。{SCROLL}",
-   "en": "The bond between you and your Pokémon{NEWLINE}shines brighter than any firelight.{SCROLL}",
+   "en": "The understanding between you and your{NEWLINE}Pokémon is a color more dazzling{CLEAR}than firelight.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: metaphor: retain source color image and mutual understanding"
   },
   {
    "id": 18,

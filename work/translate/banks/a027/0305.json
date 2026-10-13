@@ -6,18 +6,18 @@
   {
    "id": 0,
    "zh": "欢迎,{NEWLINE}这里是口袋竞技的接待处,{SCROLL}您的精灵要参加试试吗？{VAR:0200:0}",
-   "en": "Welcome!{NEWLINE}This is the reception for admission.{SCROLL}Will you try the Pokéathlon? {VAR:0200:0}",
+   "en": "Welcome! This is the Pokéathlon{NEWLINE}reception.{SCROLL}Would your Pokémon like to take{NEWLINE}part?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/0"
+   "origin": "agent",
+   "notes": "US 0312/0 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 1,
    "zh": "欢迎,这里是全明星杯的{NEWLINE}接待处。{SCROLL}要挑战口袋竞技员限定的{CLEAR}炽烈激战吗？{VAR:0200:0}",
-   "en": "Welcome. This is the reception for the{NEWLINE}Supreme Cup.{SCROLL}Top Pokéathletes are waiting for you.{NEWLINE}Would you like to try{CLEAR}the challenge? {VAR:0200:0}",
+   "en": "Welcome. This is the Supreme Cup{NEWLINE}reception.{SCROLL}Would you like to take on a fierce{NEWLINE}battle{CLEAR}exclusively for Pokéathletes?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/1"
+   "origin": "agent",
+   "notes": "US 0312/1 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 2,
@@ -110,50 +110,50 @@
   {
    "id": 13,
    "zh": "全明星杯是{NEWLINE}由各地区精选{SCROLL}出来口袋竞技员{NEWLINE}参加的特殊赛事。{SCROLL}在全明星杯拿到冠军的话{SCROLL}就能得到比平常更多的点数。{SCROLL}请一定要试试挑战{NEWLINE}那些精英精灵们啊。{SCROLL}",
-   "en": "The Supreme Cup is a special course{NEWLINE}only for the top Pokéathletes{CLEAR}from all over the world.{SCROLL}You will earn more points than usual{NEWLINE}when you win a Supreme Cup!{SCROLL}Please, challenge the{NEWLINE}top Pokéathletes!{SCROLL}",
+   "en": "The Supreme Cup is a special course only{NEWLINE}for the top Pokéathletes selected from{CLEAR}every region.{SCROLL}You will earn more points than usual{NEWLINE}when you win a Supreme Cup!{SCROLL}Please, challenge the top{NEWLINE}Pokéathletes!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/13"
+   "origin": "agent",
+   "notes": "US 0312/13 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 14,
    "zh": "速度竞技{NEWLINE}是由３个以{CLEAR}速度为主的赛事{CLEAR}组成的。{SCROLL}跨越障碍冲向第一吧！{NEWLINE}「跨栏」{SCROLL}快速收集旗子吧！{NEWLINE}「抢旗」{SCROLL}讲究３只精灵间的配合！{NEWLINE}「赛跑」{SCROLL}拿到冠军就能得到{NEWLINE}速度奖章。{SCROLL}请一定要带着有自信的{NEWLINE}３只敏捷的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Speed Course consists of three{NEWLINE}events that require good{CLEAR}Speed Performance.{SCROLL}“Hurdle Dash”{NEWLINE}Jump over the Hurdles to be{CLEAR}number one!{SCROLL}“Pennant Capture”{NEWLINE}Capture Pennants quickly!{SCROLL}“Relay Run”{NEWLINE}Show your teamwork!{SCROLL}When you win, you will be awarded{NEWLINE}the Speed Medal.{SCROLL}Choose three Pokémon with good Speed{NEWLINE}for these events.{SCROLL}",
+   "en": "The Speed Course consists of three{NEWLINE}events that require{CLEAR}good Speed Performance.{SCROLL}“Hurdle Dash” Jump over the Hurdles to{NEWLINE}be number one!{SCROLL}“Pennant Capture” Capture Pennants{NEWLINE}quickly!{SCROLL}“Relay Run” Show the teamwork between{NEWLINE}three Pokémon!{SCROLL}When you win, you will be awarded the{NEWLINE}Speed Medal.{SCROLL}Choose three Pokémon with good Speed{NEWLINE}for these events.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/14"
+   "origin": "agent",
+   "notes": "US 0312/14 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 15,
    "zh": "力量竞技{NEWLINE}是由３个以{CLEAR}力量为主的赛事{CLEAR}组成的。{SCROLL}将结在一起的石板击碎吧！{NEWLINE}「劈石板」{SCROLL}推进圈里吧！{NEWLINE}「抢位置」{SCROLL}不断狂踢形成射门吧！{NEWLINE}「足球」{SCROLL}拿到冠军就能得到{NEWLINE}力量奖章。{SCROLL}请一定要带着有自信的{NEWLINE}３只强壮的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Power Course consists of three{NEWLINE}events that require good{CLEAR}Power Performance.{SCROLL}“Block Smash”{NEWLINE}Smash all the Blocks!{SCROLL}“Circle Push”{NEWLINE}Push them out while you stay in!{SCROLL}“Goal Roll”{NEWLINE}Drive them out and roll the balls{CLEAR}toward the Goal!{SCROLL}When you win, you will be awarded{NEWLINE}the Power Medal.{SCROLL}Choose three Pokémon with good Power{NEWLINE}for these events.{SCROLL}",
+   "en": "The Power Course consists of three{NEWLINE}events that require{CLEAR}good Power Performance.{SCROLL}“Block Smash” Smash the joined-up{NEWLINE}Blocks!{SCROLL}“Circle Push” Push your way into the{NEWLINE}Circle!{SCROLL}“Goal Roll” Keep kicking furiously to{NEWLINE}score!{SCROLL}When you win, you will be awarded the{NEWLINE}Power Medal.{SCROLL}Choose three Pokémon with good Power{NEWLINE}for these events.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/15"
+   "origin": "agent",
+   "notes": "US 0312/15 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 16,
    "zh": "耐力竞技{NEWLINE}是由３个以{CLEAR}耐力为主的赛事{CLEAR}组成的。{SCROLL}将对手挤出圈外吧！{NEWLINE}「撞人」{SCROLL}３只精灵的体力是关键！{NEWLINE}「赛跑」{SCROLL}在体力耗尽前不断破坏吧！{NEWLINE}「劈石板」{SCROLL}拿到冠军就能得到{NEWLINE}耐力奖章。{SCROLL}请一定要带着有自信的{NEWLINE}３只持久的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Stamina Course consists of three{NEWLINE}events that require good{CLEAR}Stamina Performance.{SCROLL}“Ring Drop”{NEWLINE}Blow them away and stay on the Ring!{SCROLL}“Relay Run”{NEWLINE}The Stamina of all three is key!{SCROLL}“Block Smash”{CLEAR}Smash away as long as your{NEWLINE}Stamina holds!{SCROLL}When you win, you will be awarded{NEWLINE}the Stamina Medal.{SCROLL}Choose three Pokémon with good Stamina{NEWLINE}for these events.{SCROLL}",
+   "en": "The Stamina Course consists of three{NEWLINE}events that require{CLEAR}good Stamina Performance.{SCROLL}“Ring Drop” Push your opponents out of{NEWLINE}the Ring!{SCROLL}“Relay Run” The Stamina of all three is{NEWLINE}key!{SCROLL}“Block Smash” Smash away as long as{NEWLINE}your Stamina holds!{SCROLL}When you win, you will be awarded the{NEWLINE}Stamina Medal.{SCROLL}Choose three Pokémon with good Stamina{NEWLINE}for these events.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/16"
+   "origin": "agent",
+   "notes": "US 0312/16 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 17,
    "zh": "跳跃竞技{NEWLINE}是由３个以{CLEAR}弹跳力为主的赛事{CLEAR}组成的。{SCROLL}用跳床朝着天空跳吧！{NEWLINE}「蹦床」{SCROLL}跳着接住飞碟！{NEWLINE}「抢飞碟」{SCROLL}用跳跃华丽地躲开栏吧！{NEWLINE}「跨栏」{SCROLL}拿到冠军就能得到{NEWLINE}跳跃奖章。{SCROLL}请一定要带着有自信的{NEWLINE}３只好弹跳的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Jump Course consists of three{NEWLINE}events that require good{CLEAR}Jump Performance.{SCROLL}“Lamp Jump”{NEWLINE}Jump to the sky and hit Lamps!{SCROLL}“Disc Catch”{NEWLINE}Jump and catch flying Discs!{SCROLL}“Hurdle Dash”{NEWLINE}Jump over the Hurdles cleanly!{SCROLL}When you win, you will be awarded{NEWLINE}the Jump Medal.{SCROLL}Choose three Pokémon with good Jump{NEWLINE}for these events.{SCROLL}",
+   "en": "The Jump Course consists of three{NEWLINE}events that require{CLEAR}good Jump Performance.{SCROLL}“Lamp Jump” Jump toward the sky on the{NEWLINE}trampoline!{SCROLL}“Disc Catch” Jump and catch flying{NEWLINE}Discs!{SCROLL}“Hurdle Dash” Jump over the Hurdles{NEWLINE}cleanly!{SCROLL}When you win, you will be awarded the{NEWLINE}Jump Medal.{SCROLL}Choose three Pokémon with good Jump{NEWLINE}for these events.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/17"
+   "origin": "agent",
+   "notes": "US 0312/17 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 18,
    "zh": "技巧竞技{NEWLINE}是由３个以{CLEAR}技术为主的赛事{CLEAR}组成的。{SCROLL}精准地扔雪球吧！{NEWLINE}「扔雪球」{SCROLL}目标明天,漂亮射门！{NEWLINE}「足球」{SCROLL}快速切换抢旗子吧！{NEWLINE}「抢旗」{SCROLL}拿到冠军就能得到{NEWLINE}技巧奖章。{SCROLL}请一定要带着有自信的{NEWLINE}３只技巧的精灵{CLEAR}来参加啊。{SCROLL}",
-   "en": "The Skill Course consists of three{NEWLINE}events that require good{CLEAR}Technique Performance.{SCROLL}“Snow Throw”{NEWLINE}Aim for them and throw Snow!{SCROLL}“Goal Roll”{NEWLINE}Roll the balls into the Goal!{SCROLL}“Pennant Capture”{NEWLINE}Switch quickly and grab Pennants!{SCROLL}When you win, you will be awarded{NEWLINE}the Skill Medal.{SCROLL}Choose three Pokémon with good Skill{NEWLINE}for these events.{SCROLL}",
+   "en": "The Skill Course consists of three{NEWLINE}events that require{CLEAR}good Skill Performance.{SCROLL}“Snow Throw” Aim for them and throw{NEWLINE}Snow!{SCROLL}“Goal Roll” Aim for tomorrow with a{NEWLINE}splendid shot!{SCROLL}“Pennant Capture” Switch quickly and{NEWLINE}grab Pennants!{SCROLL}When you win, you will be awarded the{NEWLINE}Skill Medal.{SCROLL}Choose three Pokémon with good Skill{NEWLINE}for these events.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0312/18 | RV069: meaning: 快速切换 = switch quickly; D-1780"
+   "notes": "US 0312/18 | RV069: meaning: 快速切换 = switch quickly; D-1780 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 19,
@@ -190,34 +190,34 @@
   {
    "id": 23,
    "zh": "恭喜！{NEWLINE}根据这次的成绩,{CLEAR}{VAR:0103:0}选手{CLEAR}能够进入博物馆的「信赖」{CLEAR}房间了。{SCROLL}",
-   "en": "Considering the performance this time,{NEWLINE}Pokéathlete {VAR:0103:0} will be{CLEAR}permitted to go to the “Trust” room.{CLEAR}Congratulations!{SCROLL}",
+   "en": "Considering the performance this time,{NEWLINE}Pokéathlete {VAR:0103:0} will be permitted{CLEAR}to go to the “Trust” room in the{CLEAR}museum. Congratulations!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/23"
+   "origin": "agent",
+   "notes": "US 0312/23 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 24,
    "zh": "恭喜！{NEWLINE}根据这次的成绩,{CLEAR}{VAR:0103:0}选手{CLEAR}能够进入博物馆的「可能性」{CLEAR}房间了。{SCROLL}",
-   "en": "Considering the performance this time,{NEWLINE}Pokéathlete {VAR:0103:0} will be{CLEAR}permitted to go to the{CLEAR}“Potential” room.{CLEAR}Congratulations!{SCROLL}",
+   "en": "Considering the performance this time,{NEWLINE}Pokéathlete {VAR:0103:0} will be permitted{CLEAR}to go to the “Potential” room in the{CLEAR}museum. Congratulations!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/24"
+   "origin": "agent",
+   "notes": "US 0312/24 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 25,
    "zh": "恭喜！{NEWLINE}根据这次的成绩,{CLEAR}{VAR:0103:0}选手{CLEAR}能够进入博物馆的「友情」{CLEAR}房间了。{SCROLL}",
-   "en": "Considering the performance this time,{NEWLINE}Pokéathlete {VAR:0103:0} will be{CLEAR}permitted to go to the{CLEAR}“Friendship” room.{CLEAR}Congratulations!{SCROLL}",
+   "en": "Considering the performance this time,{NEWLINE}Pokéathlete {VAR:0103:0} will be permitted{CLEAR}to go to the “Friendship” room in the{CLEAR}museum. Congratulations!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/25"
+   "origin": "agent",
+   "notes": "US 0312/25 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 26,
    "zh": "欢迎,这里是通信口袋竞技的{NEWLINE}接待处。{SCROLL}您的精灵能与朋友{NEWLINE}一起在 同一赛事中{CLEAR}进行比赛。{SCROLL}要参加{NEWLINE}通信口袋竞技吗？{VAR:0200:0}",
-   "en": "Welcome.{NEWLINE}This is the reception for the{CLEAR}Link Pokéathlon.{SCROLL}You can compete with your friends{NEWLINE}on the same course.{SCROLL}Would you like to try it? {VAR:0200:0}",
+   "en": "Welcome. This is the reception for{NEWLINE}the Link Pokéathlon.{SCROLL}Your Pokémon can compete with{NEWLINE}friends on the same course.{SCROLL}Would you like to try it? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/26"
+   "origin": "agent",
+   "notes": "US 0312/26 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 27,
@@ -342,18 +342,18 @@
   {
    "id": 42,
    "zh": "技术＆力量竞技{NEWLINE}是由结合了技术和力量的{CLEAR}４场赛事{CLEAR}所组成的。{SCROLL}目标明天,漂亮射门！{NEWLINE}「足球」{SCROLL}瞄准目标扔吧！　{NEWLINE}「扔雪球」{SCROLL}灵巧地移动拿旗子吧！{NEWLINE}「抢旗」{SCROLL}击碎石板吧！{NEWLINE}「劈石板」{SCROLL}拿到冠军后就能得到{NEWLINE}技巧奖章与力量奖章。{SCROLL}请一定要带着对技巧与{NEWLINE}力量有自信的３只精灵{CLEAR}和朋友们一起来参加啊。{SCROLL}",
-   "en": "The Skill & Power Course consists of{NEWLINE}four events that require good{CLEAR}Skill and Power Performance.{SCROLL}“Goal Roll”{NEWLINE}Aim at the Goal and shoot!{SCROLL}“Snow Throw”{NEWLINE}Steady, aim, and fire away!{SCROLL}“Pennant Capture”{NEWLINE}Show your moves and collect Pennants!{SCROLL}“Block Smash”{NEWLINE}Blocks keep coming! Smash them all!{SCROLL}When you win, you will be awarded{NEWLINE}the Skill Medal and the Power Medal.{SCROLL}Choose three Pokémon with good{NEWLINE}Skill and Power for these events, and{CLEAR}bring your friends as well.{SCROLL}",
+   "en": "The Skill & Power Course consists of{NEWLINE}four events that require good Skill and{CLEAR}Power Performance.{SCROLL}“Goal Roll” Aim for tomorrow with a{NEWLINE}splendid shot!{SCROLL}“Snow Throw” Steady, aim, and fire{NEWLINE}away!{SCROLL}“Pennant Capture” Show your moves and{NEWLINE}collect Pennants!{SCROLL}“Block Smash” Smash the Blocks!{SCROLL}When you win, you will be awarded the{NEWLINE}Skill Medal and the Power Medal.{SCROLL}Choose three Pokémon with good Skill{NEWLINE}and Power for these events, and bring{CLEAR}your friends as well.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/42"
+   "origin": "agent",
+   "notes": "US 0312/42 | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 43,
    "zh": "力量＆耐力竞技{NEWLINE}是由结合了力量与耐力的{CLEAR}４场赛事{CLEAR}所组成的。{SCROLL}击碎石板吧！{NEWLINE}「劈石板」{SCROLL}将对手推出圈外吧！{NEWLINE}「抢位置」{SCROLL}一直射到精疲力尽吧！{NEWLINE}「足球」{SCROLL}将对手击出圈外！{NEWLINE}「撞人」{SCROLL}拿到冠军后就能得到{NEWLINE}耐力奖章与力量奖章。{SCROLL}请一定要带着对力量与{NEWLINE}耐力有自信的３只精灵{CLEAR}和朋友们一起来参加啊。{SCROLL}",
-   "en": "The Power & Stamina Course consists{NEWLINE}of four events that require good{CLEAR}Power and Stamina Performance.{SCROLL}“Block Smash”{NEWLINE}Blocks keep coming! Smash them all!{SCROLL}“Circle Push”{NEWLINE}Push them away and stay in the Circle!{SCROLL}“Goal Roll”{NEWLINE}Keep rolling until your energy{CLEAR}runs out!{SCROLL}“Ring Drop”{NEWLINE}Drop them off the Ring and stay on top!{SCROLL}When you win, you will be awarded{NEWLINE}the Power Medal and the Stamina Medal.{SCROLL}Choose three Pokémon with good{NEWLINE}Power and Stamina for these events,{CLEAR}and bring your friends as well.{SCROLL}",
+   "en": "The Power & Stamina Course consists of{NEWLINE}four events that require good Power{CLEAR}and Stamina Performance.{SCROLL}“Block Smash” Smash the Blocks!{SCROLL}“Circle Push” Push your opponents out{NEWLINE}of the Circle!{SCROLL}“Goal Roll” Keep shooting until your{NEWLINE}energy runs out!{SCROLL}“Ring Drop” Knock your opponents out{NEWLINE}of the Ring!{SCROLL}When you win, you will be awarded the{NEWLINE}Power Medal and the Stamina Medal.{SCROLL}Choose three Pokémon with good Power{NEWLINE}and Stamina for these events, and bring{CLEAR}your friends as well.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0312/43"
+   "origin": "agent",
+   "notes": "US 0312/43 | CES-early: Secondary CN comparison: restore exact meaning, subjects, register and explicit details"
   },
   {
    "id": 44,

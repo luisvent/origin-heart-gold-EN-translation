@@ -230,7 +230,7 @@
   {
    "id": 28,
    "zh": "显示桔红色火焰的{NEWLINE}贴纸",
-   "en": "A Seal showing orange flames",
+   "en": "A Seal showing reddish-orange flames",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -238,7 +238,7 @@
   {
    "id": 29,
    "zh": "显示大量{NEWLINE}桔红色火焰的贴纸",
-   "en": "A Seal showing lots{NEWLINE}of orange flames",
+   "en": "A Seal showing lots{NEWLINE}of reddish-orange flames",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -414,7 +414,7 @@
   {
    "id": 51,
    "zh": "漂亮的闪亮散烁着{NEWLINE}的特别贴纸",
-   "en": "A special Seal with{NEWLINE}a pretty sparkle",
+   "en": "A special Seal that scatters{NEWLINE}pretty sparkles",
    "status": "draft",
    "origin": "agent",
    "notes": ""

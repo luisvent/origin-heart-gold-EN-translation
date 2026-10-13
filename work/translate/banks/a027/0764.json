@@ -54,18 +54,18 @@
   {
    "id": 6,
    "zh": "参加{VAR:0300:0}的受理完毕！{SCROLL}",
-   "en": "Registration for {VAR:0300:0}{NEWLINE}is now closed.{SCROLL}",
+   "en": "Registration for {VAR:0300:0}{NEWLINE}is complete!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0776/6"
   },
   {
    "id": 7,
    "zh": "在做好准备前请稍等{SCROLL}",
-   "en": "Readying the registration system.{NEWLINE}Please wait.{SCROLL}",
+   "en": "Please wait until preparations are{NEWLINE}complete.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0776/7"
+   "origin": "agent",
+   "notes": "US 0776/7 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 8,
@@ -262,10 +262,10 @@
   {
    "id": 32,
    "zh": "好像已经乘不下了⋯⋯{SCROLL}",
-   "en": "There’s no more room on the Floats...{SCROLL}",
+   "en": "There seems to be no more room on the{NEWLINE}Floats...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0776/32"
+   "origin": "agent",
+   "notes": "US 0776/32 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 33,
@@ -278,10 +278,10 @@
   {
    "id": 34,
    "zh": "「{VAR:0300:0}」{SCROLL}瞄准旋转的吞食兽的嘴巴{NEWLINE}把树果放进去吧！{SCROLL}只有连续放入{NEWLINE}得分才会增加！{SCROLL}进入狂热时间后{NEWLINE}能得到额外的分数！{SCROLL}瞄准了再放,{NEWLINE}还是不断地扔进去,{CLEAR}就看你自己了！{SCROLL}",
-   "en": "{VAR:0300:0}{SCROLL}Flick Berries into the mouth of a{NEWLINE}rotating Swalot.{SCROLL}Score bonus points for getting Berries{NEWLINE}in consecutively.{SCROLL}Score even more during Fever Time.{SCROLL}Take deliberate aim or fire randomly--{NEWLINE}the choice is yours!{SCROLL}",
+   "en": "{VAR:0300:0}{SCROLL}Flick Berries into the mouth of a{NEWLINE}rotating Swalot.{SCROLL}Score bonus points for getting Berries{NEWLINE}in consecutively.{SCROLL}Score even more during Fever Time.{SCROLL}Take deliberate aim or keep throwing--{NEWLINE}the choice is yours!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0776/34; modernised from US 0776#34"
+   "origin": "agent",
+   "notes": "US 0776/34; modernised from US 0776#34 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 35,
@@ -294,7 +294,7 @@
   {
    "id": 36,
    "zh": "「{VAR:0300:0}」{SCROLL}把泵从上面直直压下,{NEWLINE}充入大量的空气,{CLEAR}一个一个地打破气球！{SCROLL}一下一下压下到泵变红的话{NEWLINE}充入的空气就会增加！{SCROLL}然后如果好好配合{NEWLINE}周围的小果然的话,{CLEAR}就能充入更多的空气！{SCROLL}不过就算是相同的小果然,{NEWLINE}碰到细的小果然的话,{CLEAR}空气也会减少,要小心！{SCROLL}",
-   "en": "{VAR:0300:0}{SCROLL}Press down on the pump from{NEWLINE}directly above to pump maximum{CLEAR}air into a balloon until it pops.{SCROLL}Pressing the pump hard will make it{NEWLINE}turn red, increasing its capacity.{SCROLL}The circling Wynaut can also help.{SCROLL}Line a Wynaut up with the pump to{NEWLINE}boost the air volume, but beware:{SCROLL}lining up the pump with a skinny{NEWLINE}Wynaut reduces the air volume.{SCROLL}",
+   "en": "{VAR:0300:0}{SCROLL}Press down on the pump from{NEWLINE}directly above to pump maximum{CLEAR}air into a balloon until it pops.{SCROLL}Press the pump repeatedly until it{NEWLINE}turns red to pump in more air.{SCROLL}The circling Wynaut can also help.{SCROLL}Line a Wynaut up with the pump to{NEWLINE}boost the air volume, but beware:{SCROLL}lining up the pump with a skinny{NEWLINE}Wynaut reduces the air volume.{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0776/36; modernised from US 0776#36 | RV121: addition: removed 'Pop balloons until time runs out.', not in the Chinese (D-2201)"

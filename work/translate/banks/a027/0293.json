@@ -414,26 +414,26 @@
   {
    "id": 51,
    "zh": "电脑的邮箱{NEWLINE}已经满了！{VAR:0207}",
-   "en": "Your PC’s Mailbox is full.{VAR:0207}",
+   "en": "Your PC’s Mailbox is full!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/51"
+   "origin": "agent",
+   "notes": "US 0300/51 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 52,
    "zh": "将精灵身上的{NEWLINE}信件取下了！{VAR:0207}",
-   "en": "Mail was taken from the{NEWLINE}Pokémon.{VAR:0207}",
+   "en": "Mail was taken from the Pokémon!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/52"
+   "origin": "agent",
+   "notes": "US 0300/52 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 53,
    "zh": "{VAR:0101:0}想学习新的{NEWLINE}{VAR:0106:1}⋯⋯{VAR:0207}{NEWLINE}{SCROLL}但是{VAR:0101:0}记住４个技能已是极限了！{VAR:0207}{NEWLINE}{SCROLL}要{VAR:0106:1}忘记其他的技能吗？",
-   "en": "{VAR:0101:0} wants to learn the{NEWLINE}move {VAR:0106:1}.{VAR:0207}{NEWLINE}{SCROLL}However, {VAR:0101:0} already{NEWLINE}knows four moves.{VAR:0207}{NEWLINE}{SCROLL}Should a move be deleted and{NEWLINE}replaced with {VAR:0106:1}?",
+   "en": "{VAR:0101:0} wants to learn the new move{NEWLINE}{VAR:0106:1}...{VAR:0207}{SCROLL}But four moves is the limit for{NEWLINE}{VAR:0101:0}!{VAR:0207}{SCROLL}Forget another move to learn{NEWLINE}{VAR:0106:1}?",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0300/53 | seed rejected us [tag_mismatch] (candidate US 0300#53; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#53; text not kept)"
+   "notes": "US 0300/53 | seed rejected us [tag_mismatch] (candidate US 0300#53; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#53; text not kept) | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 54,
@@ -454,10 +454,10 @@
   {
    "id": 56,
    "zh": "那么⋯⋯不学习{VAR:0106:1}吗？",
-   "en": "Stop trying to teach{NEWLINE}{VAR:0106:1}?",
+   "en": "Then... should it not learn{NEWLINE}{VAR:0106:1}?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/56"
+   "origin": "agent",
+   "notes": "US 0300/56 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 57,
@@ -478,10 +478,10 @@
   {
    "id": 59,
    "zh": "{VAR:0101:0}将{VAR:0106:1}放弃了！{VAR:0207}",
-   "en": "{VAR:0101:0} did not learn the{NEWLINE}move {VAR:0106:1}.{VAR:0207}",
+   "en": "{VAR:0101:0} gave up learning{NEWLINE}{VAR:0106:1}!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/59"
+   "origin": "agent",
+   "notes": "US 0300/59 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 60,
@@ -494,26 +494,26 @@
   {
    "id": 61,
    "zh": "１{VAR:0201:20}　２{VAR:0201:20}⋯{VAR:0201:20}⋯{VAR:0201:20}砰！{VAR:0202:3}{VAR:0202:5}{VAR:0207}{NEWLINE}{SCROLL}{VAR:0101:0}将{VAR:0106:1}{NEWLINE}的使用方法完全忘记了！{VAR:0207}{NEWLINE}{SCROLL}而后⋯⋯！{VAR:0207}",
-   "en": "1, {VAR:0201:20}2, and{VAR:0201:20}... {VAR:0201:20}... {VAR:0201:20}... Poof!{VAR:0202:3}{VAR:0202:5}{VAR:0207}{NEWLINE}{SCROLL}{VAR:0101:0} forgot how to{NEWLINE}use {VAR:0106:1}.{VAR:0207}{NEWLINE}{SCROLL}And...{VAR:0207}",
+   "en": "1, {VAR:0201:20}2, and{VAR:0201:20}... {VAR:0201:20}... {VAR:0201:20}... Poof!{VAR:0202:3}{VAR:0202:5}{VAR:0207}{SCROLL}{VAR:0101:0} completely forgot how to{NEWLINE}use {VAR:0106:1}!{VAR:0207}{SCROLL}And then...!{VAR:0207}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0300/61 | seed rejected us [tag_mismatch] (candidate US 0300#61; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#61; text not kept)"
+   "notes": "US 0300/61 | seed rejected us [tag_mismatch] (candidate US 0300#61; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#61; text not kept) | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 62,
    "zh": "{VAR:0101:0}将新技能{NEWLINE}{VAR:0106:1}记住了！{VAR:0202:4}{VAR:0202:2}{VAR:0207}",
-   "en": "{VAR:0101:0} learned{NEWLINE}{VAR:0106:1}!{VAR:0202:4}{VAR:0202:2}{VAR:0207}",
+   "en": "{VAR:0101:0} learned the new move{NEWLINE}{VAR:0106:1}!{VAR:0202:4}{VAR:0202:2}{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/62"
+   "origin": "agent",
+   "notes": "US 0300/62 | CES-early: CN fidelity: restore omitted detail/emphasis"
   },
   {
    "id": 63,
    "zh": "{VAR:0101:0}和{VAR:0106:1}的相性{NEWLINE}很差！{VAR:0207}{NEWLINE}{SCROLL}{VAR:0106:1}无法学习！{VAR:0207}",
-   "en": "{VAR:0101:0} and {VAR:0106:1}{NEWLINE}are not compatible.{VAR:0207}{NEWLINE}{SCROLL}{VAR:0106:1} can’t be learned.{VAR:0207}",
+   "en": "{VAR:0101:0} and {VAR:0106:1} are not{NEWLINE}compatible!{VAR:0207}{SCROLL}{VAR:0106:1} can’t be learned!{VAR:0207}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0300/63 | seed rejected us [tag_mismatch] (candidate US 0300#63; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#63; text not kept)"
+   "notes": "US 0300/63 | seed rejected us [tag_mismatch] (candidate US 0300#63; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#63; text not kept) | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 64,
@@ -526,90 +526,90 @@
   {
    "id": 65,
    "zh": "{VAR:0101:0}的体力{NEWLINE}{VAR:0134:1}回复了！{VAR:0207}",
-   "en": "{VAR:0101:0}’s HP was restored{NEWLINE}by {VAR:0134:1} point(s).{VAR:0207}",
+   "en": "{VAR:0101:0}’s HP was restored by {VAR:0134:1}{NEWLINE}point(s)!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/65"
+   "origin": "agent",
+   "notes": "US 0300/65 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 66,
    "zh": "{VAR:0101:0}所中的毒{NEWLINE}被完全清除了！{VAR:0207}",
-   "en": "{VAR:0101:0} was cured of its{NEWLINE}poisoning.{VAR:0207}",
+   "en": "{VAR:0101:0} was cured of its poisoning!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/66"
+   "origin": "agent",
+   "notes": "US 0300/66 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 67,
    "zh": "{VAR:0101:0}的麻痹状态{NEWLINE}被解除了！{VAR:0207}",
-   "en": "{VAR:0101:0} was cured of{NEWLINE}paralysis.{VAR:0207}",
+   "en": "{VAR:0101:0} was cured of paralysis!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/67"
+   "origin": "agent",
+   "notes": "US 0300/67 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 68,
    "zh": "{VAR:0101:0}的烧伤{NEWLINE}被治好了！{VAR:0207}",
-   "en": "{VAR:0101:0}’s{NEWLINE}burn was healed.{VAR:0207}",
+   "en": "{VAR:0101:0}’s burn was healed!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/68"
+   "origin": "agent",
+   "notes": "US 0300/68 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 69,
    "zh": "{VAR:0101:0}身上的冰{NEWLINE}被熔化了！{VAR:0207}",
-   "en": "{VAR:0101:0} was{NEWLINE}thawed out.{VAR:0207}",
+   "en": "{VAR:0101:0} was thawed out!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/69"
+   "origin": "agent",
+   "notes": "US 0300/69 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 70,
    "zh": "技能点恢复了！{VAR:0207}　",
-   "en": "PP was restored.{VAR:0207}",
+   "en": "PP was restored!{VAR:0207}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0300/70 | seed rejected us [tag_mismatch] (candidate US 0300#70; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#70; text not kept)"
+   "notes": "US 0300/70 | seed rejected us [tag_mismatch] (candidate US 0300#70; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#70; text not kept) | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 71,
    "zh": "{VAR:0101:0}变精神了！{NEWLINE}{VAR:0207}",
-   "en": "{VAR:0101:0}{NEWLINE}regained health.{NEWLINE}{VAR:0207}",
+   "en": "{VAR:0101:0} regained health!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/71"
+   "origin": "agent",
+   "notes": "US 0300/71 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 72,
    "zh": "{VAR:0101:0}变回健康状态了！{NEWLINE}{VAR:0207}",
-   "en": "{VAR:0101:0}{NEWLINE}became healthy.{NEWLINE}{VAR:0207}",
+   "en": "{VAR:0101:0} became healthy!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/72"
+   "origin": "agent",
+   "notes": "US 0300/72 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 73,
    "zh": "{VAR:0106:0}的技能点{NEWLINE}上升了！{VAR:0207}",
-   "en": "{VAR:0106:0}’s PP{NEWLINE}increased.{VAR:0207}",
+   "en": "{VAR:0106:0}’s PP increased!{VAR:0207}",
    "status": "draft",
-   "origin": "tm_v3",
-   "notes": "v3 TM: 1 source(s), same position, flags var_mismatch"
+   "origin": "agent",
+   "notes": "v3 TM: 1 source(s), same position, flags var_mismatch | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 74,
    "zh": "{VAR:0101:0}的混乱解除了！{NEWLINE}{VAR:0207}",
-   "en": "{VAR:0101:0} snapped out of its{NEWLINE}confusion.{NEWLINE}{VAR:0207}",
+   "en": "{VAR:0101:0} snapped out of its{NEWLINE}confusion!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/74"
+   "origin": "agent",
+   "notes": "US 0300/74 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 75,
    "zh": "{VAR:0101:0}的着迷状态解除了！{NEWLINE}{VAR:0207}",
-   "en": "{VAR:0101:0} got over its{NEWLINE}infatuation.{NEWLINE}{VAR:0207}",
+   "en": "{VAR:0101:0} got over its infatuation!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/75"
+   "origin": "agent",
+   "notes": "US 0300/75 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 76,
@@ -630,10 +630,10 @@
   {
    "id": 78,
    "zh": "不取下信件就{NEWLINE}无法持有道具！{VAR:0207}",
-   "en": "Must remove Mail before the{NEWLINE}Pokémon is allowed to hold an item.{VAR:0207}",
+   "en": "Must remove Mail before the Pokémon is{NEWLINE}allowed to hold an item!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/78"
+   "origin": "agent",
+   "notes": "US 0300/78 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 79,
@@ -662,18 +662,18 @@
   {
    "id": 82,
    "zh": "{VAR:0101:0}没有持有任何道具！{NEWLINE}{VAR:0207}",
-   "en": "{VAR:0101:0} isn’t holding{NEWLINE}anything.{NEWLINE}{VAR:0207}",
+   "en": "{VAR:0101:0} isn’t holding anything!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/82"
+   "origin": "agent",
+   "notes": "US 0300/82 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 83,
    "zh": "从{VAR:0101:0}那里{NEWLINE}拿到了{VAR:0108:1}！{VAR:0207}",
-   "en": "Received the {VAR:0108:1}{NEWLINE}from {VAR:0101:0}.{VAR:0207}",
+   "en": "Received the {VAR:0108:1} from{NEWLINE}{VAR:0101:0}!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/83"
+   "origin": "agent",
+   "notes": "US 0300/83 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 84,
@@ -686,10 +686,10 @@
   {
    "id": 85,
    "zh": "拿回了{VAR:0108:1}{NEWLINE}携带了{VAR:0108:2}！{VAR:0207}",
-   "en": "The {VAR:0108:1} was taken and{NEWLINE}replaced with the {VAR:0108:2}.{VAR:0207}",
+   "en": "The {VAR:0108:1} was taken and{NEWLINE}replaced with the {VAR:0108:2}!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/85"
+   "origin": "agent",
+   "notes": "US 0300/85 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 86,
@@ -742,10 +742,10 @@
   {
    "id": 92,
    "zh": "{VAR:0101:0}醒过来了！{NEWLINE}{VAR:0207}",
-   "en": "{VAR:0101:0}{NEWLINE}woke up.{NEWLINE}{VAR:0207}",
+   "en": "{VAR:0101:0} woke up!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/92"
+   "origin": "agent",
+   "notes": "US 0300/92 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 93,
@@ -798,10 +798,10 @@
   {
    "id": 99,
    "zh": "能够参加的精灵{NEWLINE}只有２只！{VAR:0207}",
-   "en": "No more than two Pokémon{NEWLINE}may enter.{VAR:0207}",
+   "en": "No more than two Pokémon may enter!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/99"
+   "origin": "agent",
+   "notes": "US 0300/99 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 100,
@@ -830,106 +830,106 @@
   {
    "id": 103,
    "zh": "没有集齐２只！{VAR:0207}",
-   "en": "Two Pokémon are needed.{VAR:0207}",
+   "en": "Two Pokémon are needed!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/103"
+   "origin": "agent",
+   "notes": "US 0300/103 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 104,
    "zh": "{VAR:0101:0}有些亲近了！{VAR:0207}{NEWLINE}{SCROLL}{VAR:010D:1}的努力值下降了！{VAR:0207}",
-   "en": "{VAR:0101:0} became more friendly.{VAR:0207}{NEWLINE}{SCROLL}However, its {VAR:010D:1} EVs fell!{VAR:0207}",
+   "en": "{VAR:0101:0} became a little friendlier!{VAR:0207}{SCROLL}Its {VAR:010D:1} EVs fell!{VAR:0207}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0300/104 | seed rejected us [tag_mismatch] (candidate US 0300#104; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#104; text not kept)"
+   "notes": "US 0300/104 | seed rejected us [tag_mismatch] (candidate US 0300#104; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#104; text not kept) | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 105,
    "zh": "{VAR:0101:0}已经是最亲密了！{VAR:0207}{NEWLINE}{SCROLL}{VAR:010D:1}的努力值下降了！{VAR:0207}",
-   "en": "{VAR:0101:0} adores you!{VAR:0207}{NEWLINE}{SCROLL}Its {VAR:010D:1} EVs fell!{VAR:0207}",
+   "en": "{VAR:0101:0} is already as friendly as{NEWLINE}can be!{VAR:0207}{SCROLL}Its {VAR:010D:1} EVs fell!{VAR:0207}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0300/105 | seed rejected us [tag_mismatch] (candidate US 0300#105; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#105; text not kept)"
+   "notes": "US 0300/105 | seed rejected us [tag_mismatch] (candidate US 0300#105; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#105; text not kept) | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 106,
    "zh": "{VAR:0101:0}有些亲近了！{VAR:0207}{NEWLINE}{SCROLL}{VAR:010D:1}的努力值无法再下降了！{VAR:0207}",
-   "en": "{VAR:0101:0} became more friendly.{VAR:0207}{NEWLINE}{SCROLL}Its {VAR:010D:1} EVs can’t go lower.{VAR:0207}",
+   "en": "{VAR:0101:0} became a little friendlier!{VAR:0207}{SCROLL}Its {VAR:010D:1} EVs can’t go lower!{VAR:0207}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0300/106 | seed rejected us [tag_mismatch] (candidate US 0300#106; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#106; text not kept)"
+   "notes": "US 0300/106 | seed rejected us [tag_mismatch] (candidate US 0300#106; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | seed rejected tm_v3 [tag_mismatch] (candidate v3 0293#106; text not kept) | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 107,
    "zh": "给{VAR:0101:0}{NEWLINE}带上了{VAR:0108:1}！{VAR:0207}",
-   "en": "{VAR:0101:0} was given the{NEWLINE}{VAR:0108:1} to hold.{VAR:0207}",
+   "en": "{VAR:0101:0} was given the {VAR:0108:1}{NEWLINE}to hold!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/107"
+   "origin": "agent",
+   "notes": "US 0300/107 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 108,
    "zh": "没有集齐３只！{VAR:0207}",
-   "en": "Three Pokémon are needed.{VAR:0207}",
+   "en": "Three Pokémon are needed!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/108"
+   "origin": "agent",
+   "notes": "US 0300/108 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 109,
    "zh": "没有集齐４只！{VAR:0207}",
-   "en": "Four Pokémon are needed.{VAR:0207}",
+   "en": "Four Pokémon are needed!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/109"
+   "origin": "agent",
+   "notes": "US 0300/109 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 110,
    "zh": "没有集齐５只！{VAR:0207}",
-   "en": "Five Pokémon are needed.{VAR:0207}",
+   "en": "Five Pokémon are needed!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/110"
+   "origin": "agent",
+   "notes": "US 0300/110 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 111,
    "zh": "没有集齐６只！{VAR:0207}",
-   "en": "Six Pokémon are needed.{VAR:0207}",
+   "en": "Six Pokémon are needed!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/111"
+   "origin": "agent",
+   "notes": "US 0300/111 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 112,
    "zh": "能参加的精灵{NEWLINE}只有１只！{VAR:0207}",
-   "en": "No more than one Pokémon{NEWLINE}may enter.{VAR:0207}",
+   "en": "No more than one Pokémon may enter!{VAR:0207}",
    "status": "draft",
-   "origin": "tm_v3",
-   "notes": "US 0300/115 | seed rejected us [ambiguous US match] (candidate US 0300#115; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch"
+   "origin": "agent",
+   "notes": "US 0300/115 | seed rejected us [ambiguous US match] (candidate US 0300#115; text not kept) | v3 TM: 1 source(s), same position, flags var_mismatch | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 113,
    "zh": "能参加的精灵{NEWLINE}只有３只！{VAR:0207}",
-   "en": "No more than three Pokémon{NEWLINE}may enter.{VAR:0207}",
+   "en": "No more than three Pokémon may enter!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/113"
+   "origin": "agent",
+   "notes": "US 0300/113 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 114,
    "zh": "能参加的精灵{NEWLINE}只有４只！{VAR:0207}",
-   "en": "No more than four Pokémon{NEWLINE}may enter.{VAR:0207}",
+   "en": "No more than four Pokémon may enter!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/114"
+   "origin": "agent",
+   "notes": "US 0300/114 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 115,
    "zh": "能参加的精灵{NEWLINE}只有５只！{VAR:0207}",
-   "en": "No more than five Pokémon{NEWLINE}may enter.{VAR:0207}",
+   "en": "No more than five Pokémon may enter!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/115"
+   "origin": "agent",
+   "notes": "US 0300/115 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 116,
@@ -942,10 +942,10 @@
   {
    "id": 117,
    "zh": "已经持有了道具,{NEWLINE}无法再持有信件了！{VAR:0207}",
-   "en": "This Pokémon is holding an item.{NEWLINE}It cannot hold Mail.{VAR:0207}",
+   "en": "This Pokémon is holding an item. It{NEWLINE}cannot hold Mail!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/117"
+   "origin": "agent",
+   "notes": "US 0300/117 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 118,
@@ -1326,18 +1326,18 @@
   {
    "id": 165,
    "zh": "已有相同的精灵！{VAR:0207}",
-   "en": "Identical Pokémon are not permitted.{VAR:0207}",
+   "en": "You already have an identical Pokémon!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/165"
+   "origin": "agent",
+   "notes": "US 0300/165 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 166,
    "zh": "已有持有相同道具的精灵！{VAR:0207}",
-   "en": "Some Pokémon are holding identical{NEWLINE}items.{VAR:0207}",
+   "en": "Some Pokémon are holding identical{NEWLINE}items!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/166"
+   "origin": "agent",
+   "notes": "US 0300/166 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 167,
@@ -1422,10 +1422,10 @@
   {
    "id": 177,
    "zh": "{VAR:0101:0}的等级升到了{VAR:0134:1}！{NEWLINE}{VAR:0202:4}{VAR:0202:2}！{VAR:0207}",
-   "en": "{VAR:0101:0} was elevated to{NEWLINE}Lv. {VAR:0134:1}.{VAR:0202:4}{VAR:0202:2}{VAR:0207}",
+   "en": "{VAR:0101:0} grew to Lv. {VAR:0134:1}!{VAR:0202:4}{VAR:0202:2}{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/177"
+   "origin": "agent",
+   "notes": "US 0300/177 | CES-early: CN fidelity: restore omitted detail/emphasis"
   },
   {
    "id": 178,
@@ -1502,10 +1502,10 @@
   {
    "id": 187,
    "zh": "没有选中相同的精灵。{VAR:0207}",
-   "en": "You must use the same kind{NEWLINE}of Pokémon.{VAR:0207}",
+   "en": "You haven’t selected the same kind of{NEWLINE}Pokémon.{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/187"
+   "origin": "agent",
+   "notes": "US 0300/187 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 188,
@@ -1526,18 +1526,18 @@
   {
    "id": 190,
    "zh": "在这个场所无法给它持有{NEWLINE}{VAR:0108:0}！{VAR:0207}",
-   "en": "The {VAR:0108:0} cannot be{NEWLINE}given here.{VAR:0207}",
+   "en": "The {VAR:0108:0} cannot be given here!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/190"
+   "origin": "agent",
+   "notes": "US 0300/190 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 191,
    "zh": "带有心之水滴的精灵{NEWLINE}不能参加ＧＳ杯！{VAR:0207}",
-   "en": "Pokémon holding a Soul Dew cannot be{NEWLINE}entered in the GS Cup.{VAR:0207}",
+   "en": "Pokémon holding a Soul Dew cannot be{NEWLINE}entered in the GS Cup!{VAR:0207}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0300/191"
+   "origin": "agent",
+   "notes": "US 0300/191 | CES-early: Source exclamation restored; wording and functional page controls retained"
   },
   {
    "id": 192,
@@ -1574,10 +1574,10 @@
   {
    "id": 196,
    "zh": "{VAR:0100:0,0}的性格受到了{NEWLINE}{VAR:FF00:1}{VAR:0108:1}{VAR:FF00:0}的影响{SCROLL}",
-   "en": "{VAR:0100:0,0}’s nature was changed{NEWLINE}by the {VAR:FF00:1}{VAR:0108:1}{VAR:FF00:0}.{SCROLL}",
+   "en": "{VAR:0100:0,0}’s nature was affected by{NEWLINE}the {VAR:FF00:1}{VAR:0108:1}{VAR:FF00:0}.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: D1766: use source affected, does not assert stronger actual nature-changing mechanics; implementation remains unverified"
   }
  ]
 }

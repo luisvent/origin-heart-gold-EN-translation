@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "精灵训练师学校",
-   "en": "Trainer Profiles",
+   "en": "Pokémon Trainer School",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s)"
+   "notes": "v3 TM: 1 source(s) | CES006: fidelity: Source title is Trainer School, not Profiles."
   },
   {
    "id": 1,
@@ -22,26 +22,26 @@
   {
    "id": 2,
    "zh": "一直注视着你,现在是{NEWLINE}精灵训练师学校的时间！",
-   "en": "We’re always watching you!{NEWLINE}It’s time for Trainer Profiles!",
+   "en": "We’re always watching you!{NEWLINE}It’s time for Pokémon Trainer School!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0420/2"
+   "origin": "agent",
+   "notes": "US 0420/2 | CES006: fidelity: Restore source program title consistently."
   },
   {
    "id": 3,
    "zh": "让我连系起{NEWLINE}各个小镇的每个人,{NEWLINE}这里是街角频道。",
-   "en": "That town, this town,{NEWLINE}bringing people together.{NEWLINE}The Street Corner Channel.",
+   "en": "Let me bring together everyone from{NEWLINE}every town.{NEWLINE}This is the Street Corner Channel.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0420/3"
+   "origin": "agent",
+   "notes": "US 0420/3 | CES006: fidelity: Restore first-person linking everyone across towns."
   },
   {
    "id": 4,
    "zh": "最喜欢虫类的男孩子,{NEWLINE}在树丛里也毫不客气地{NEWLINE}冲刺的活泼孩子,{NEWLINE}临机应变地冲上野山{NEWLINE}这样的补充ｚ！",
-   "en": "This boy loves Bug types! He’s so{NEWLINE}energetic, and he doesn’t mind running{NEWLINE}through thick grass to catch Bug-type{NEWLINE}Pokémon! He does what he wants, on the{NEWLINE}hills and in the fields, this Bug Catcher!",
+   "en": "A boy who loves Bug types most, an{NEWLINE}energetic kid who charges through the{NEWLINE}bushes without holding back, ready to{NEWLINE}dash up wild hills as the situation calls{NEWLINE}for it.{NEWLINE}That’s the Bug Catcher!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0420/4"
+   "origin": "agent",
+   "notes": "US 0420/4 | CES006: fidelity: Restore superlative, bushes and responding to circumstances; remove added capture motive/fields. Existing pure typo finding D-2237 applies."
   },
   {
    "id": 5,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "拥有如维纳斯般的曲线,{NEWLINE}以及美丽的脸庞。{NEWLINE}昵称叫做美人鱼,{NEWLINE}她每天都在水中度过,{NEWLINE}肚子饿了也当做是减肥,{NEWLINE}有着大量的狂热追随者,{NEWLINE}酒窝中还残留着水滴,{NEWLINE}散着步也会想去游唦。{NEWLINE}她就是这样的比基尼大姐ｚ！",
-   "en": "Curves like Venus and a beautiful face.{NEWLINE}Nicknamed “Mermaid,” she spends every{NEWLINE}day in the water, and when she’s{NEWLINE}hungry, she calls it a diet. Tons of{NEWLINE}devoted fans, drops of water still in{NEWLINE}her dimples, wanting to swim even while{NEWLINE}out on a walk. That’s the Swimmer!",
+   "en": "Curves like Venus and a beautiful face.{NEWLINE}Nicknamed “Mermaid,” she spends every{NEWLINE}day in the water, and when she’s{NEWLINE}hungry, she calls it a diet. Tons of{NEWLINE}devoted fans, drops of water still in{NEWLINE}her dimples, wanting to swim even while{NEWLINE}out on a walk.{NEWLINE}That’s the bikini-clad Swimmer!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0420/10 | RV070: meaning: zh: every day in water, hunger as diet, wants to swim on walks; US early afternoon"
+   "notes": "US 0420/10 | RV070: meaning: zh: every day in water, hunger as diet, wants to swim on walks; US early afternoon | CES006: fidelity: Restore explicit bikini detail with existing Swimmer name."
   },
   {
    "id": 11,
@@ -126,18 +126,18 @@
   {
    "id": 15,
    "zh": "可以紧抱,可以蹭脸,{NEWLINE}想永远在一起生活,{NEWLINE}被美丽的精灵所环绕,{NEWLINE}嘴里轻声嘟囔着你的名字,{NEWLINE}它们的热情会让你感到眼晕。{NEWLINE}深爱着可爱的精灵的{NEWLINE}超喜欢俱乐部ｚ！",
-   "en": "Hold it close, cheek to cheek. I always{NEWLINE}want to be with you, surrounded by{NEWLINE}wonderful Pokémon. I’ll mutter your{NEWLINE}name. So happy, I’m dizzy.{NEWLINE}I love Pokémon! That’s a Pokéfan!",
+   "en": "Hugging close, rubbing cheeks, wanting{NEWLINE}to live together forever, surrounded{NEWLINE}by beautiful Pokémon, quietly murmuring{NEWLINE}your name. Their enthusiasm makes you{NEWLINE}dizzy.{NEWLINE}A Pokéfan who dearly loves cute{NEWLINE}Pokémon!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0420/15"
+   "origin": "agent",
+   "notes": "US 0420/15 | CES006: fidelity: Restore rubbing cheeks, living together forever, beautiful/cute Pokémon and their enthusiasm causing dizziness; preserve ambiguous subjects."
   },
   {
    "id": 16,
    "zh": "在船上是暴徒,{NEWLINE}乘风破浪,{NEWLINE}疯狂欢闹,{NEWLINE}到了陆地就乖了。{NEWLINE}他就是这样的船员ｚ！",
-   "en": "A thug on a boat, plunging on{NEWLINE}through the waves. Dancing and singing{NEWLINE}and having a merry old time. But gentle{NEWLINE}as kittens once they get back on land.{NEWLINE}That’s a Sailor!",
+   "en": "A thug on a boat, riding the wind and{NEWLINE}breaking through the waves, wildly{NEWLINE}making merry, but well-behaved once he{NEWLINE}gets on land.{NEWLINE}That’s the Sailor!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0420/16 | tone review: 在船上是暴徒 = a thug on the boat, contrasted with tame on land; kept (D-0627)"
+   "notes": "US 0420/16 | tone review: 在船上是暴徒 = a thug on the boat, contrasted with tame on land; kept (D-0627) | CES006: fidelity: Remove invented singing/dancing and kitten simile; restore wild merrymaking/tame contrast."
   },
   {
    "id": 17,
@@ -158,10 +158,10 @@
   {
    "id": 19,
    "zh": "啊呜！啊呜！啊呜呜！{NEWLINE}满脸胡渣子的大叔,{NEWLINE}无视旁人,大声呐喊,{NEWLINE}听到远处山上传来啊呜呜{NEWLINE}的回音时非常兴奋。{NEWLINE}他就是这样的登山男ｚ！",
-   "en": "Yaho... Yaho... Yahohoho...{NEWLINE}Singing in a loud voice without worrying{NEWLINE}about what’s around. A bearded man{NEWLINE}shouts out to the sky. From the far{NEWLINE}mountain. Yahohoho... So happy that the{NEWLINE}echo came back to the Hiker!",
+   "en": "Awoo! Awoo! Awoooo!{NEWLINE}A middle-aged man with a face full of{NEWLINE}stubble, ignoring those around him and{NEWLINE}shouting loudly. He gets very excited{NEWLINE}when he hears his “Awoooo” echo back{NEWLINE}from the distant mountains.{NEWLINE}That’s the Hiker!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0420/19"
+   "origin": "agent",
+   "notes": "US 0420/19 | CES006: fidelity: Restore three shouted cries, stubble, middle-aged man and distant echo; remove singing and sky."
   }
  ]
 }

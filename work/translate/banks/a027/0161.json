@@ -142,18 +142,18 @@
   {
    "id": 17,
    "zh": "とうろく＋",
-   "en": "♡Register One",
+   "en": "Register +",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icons; retain plus/PC and clear action"
   },
   {
    "id": 18,
    "zh": "とうろくAll",
-   "en": "♡Register All",
+   "en": "Register All",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icons; retain plus/PC and clear action"
   },
   {
    "id": 19,
@@ -286,10 +286,10 @@
   {
    "id": 35,
    "zh": "しゃしんFULL",
-   "en": "♡Photos FULL",
+   "en": "Photos FULL",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icons; retain plus/PC and clear action"
   },
   {
    "id": 36,
@@ -470,34 +470,34 @@
   {
    "id": 58,
    "zh": "カプセル PC",
-   "en": "♡Ball Capsules",
+   "en": "Capsules PC",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icons; retain plus/PC and clear action"
   },
   {
    "id": 59,
    "zh": "カプセルフル",
-   "en": "♡Ball Capsules (full)",
+   "en": "Capsules full",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icons; retain plus/PC and clear action"
   },
   {
    "id": 60,
    "zh": "カプセルすこし",
-   "en": "♡Ball Capsules (fewer)",
+   "en": "Capsules few",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icons; retain plus/PC and clear action"
   },
   {
    "id": 61,
    "zh": "カプセルクリア",
-   "en": "♡Ball Capsules (none)",
+   "en": "Clear Capsules",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icons; retain plus/PC and clear action"
   },
   {
    "id": 62,

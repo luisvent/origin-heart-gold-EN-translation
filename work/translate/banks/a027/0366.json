@@ -14,18 +14,18 @@
   {
    "id": 1,
    "zh": "您好啊{VAR:0103:0}先生,{NEWLINE}我是在这一带锻炼的训练家。{SCROLL}我刚刚遇到个充满活力的少年,{NEWLINE}跟我说联盟冠军来到了若叶镇。{CLEAR}我还想着他是不是在胡说,{CLEAR}结果就看到您走了过来。{SCROLL}不过现实中看本人{NEWLINE}跟电视里还真不一样啊。{CLEAR}如果不是我这样的铁杆粉丝,{CLEAR}恐怕很难一眼认出您吧。",
-   "en": "Hello, Mr. {VAR:0103:0}. I’m a Trainer who{NEWLINE}trains around here.{SCROLL}I just met a really energetic boy who{NEWLINE}said the League Champion had come to{CLEAR}New Bark Town.{SCROLL}I figured he was making it up, and then{NEWLINE}I saw you walking this way!{SCROLL}But you do look different in person than{NEWLINE}on TV.{SCROLL}Only a die-hard fan like me could{NEWLINE}recognize you at a glance!",
+   "en": "Hello, Mr. {VAR:0103:0}. I’m a Trainer who{NEWLINE}trains around here.{SCROLL}I just met a really energetic boy who{NEWLINE}said the League Champion had come to{CLEAR}New Bark Town.{SCROLL}I wondered if he was making it up, and{NEWLINE}then I saw you walking this way!{SCROLL}But you do look different in person than{NEWLINE}on TV.{SCROLL}Anyone who isn’t a die-hard fan like me{NEWLINE}would probably struggle to recognize{CLEAR}you at a glance!",
    "status": "draft",
    "origin": "agent",
-   "notes": "Route 29 fan: male (#1, Mr.) / female (#2, Ms.) player."
+   "notes": "Route 29 fan: male (#1, Mr.) / female (#2, Ms.) player. | AGENT-0321-0380: Restore honorific, respectful address, wondered-if and probable difficulty."
   },
   {
    "id": 2,
    "zh": "您好啊{VAR:0103:0}小姐,{NEWLINE}我是在这一带锻炼的训练家。{SCROLL}我刚刚遇到个充满活力的少年,{NEWLINE}跟我说联盟冠军来到了若叶镇。{CLEAR}我还想着他是不是在胡说,{CLEAR}结果就看到您走了过来。{SCROLL}不过现实中看本人{NEWLINE}跟电视里还真不一样啊。{CLEAR}如果不是我这样的铁杆粉丝,{CLEAR}恐怕很难一眼认出您吧。",
-   "en": "Hello, Ms. {VAR:0103:0}. I’m a Trainer who{NEWLINE}trains around here.{SCROLL}I just met a really energetic boy who{NEWLINE}said the League Champion had come to{CLEAR}New Bark Town.{SCROLL}I figured he was making it up, and then{NEWLINE}I saw you walking this way!{SCROLL}But you do look different in person than{NEWLINE}on TV.{SCROLL}Only a die-hard fan like me could{NEWLINE}recognize you at a glance!",
+   "en": "Hello, Ms. {VAR:0103:0}. I’m a Trainer who{NEWLINE}trains around here.{SCROLL}I just met a really energetic boy who{NEWLINE}said the League Champion had come to{CLEAR}New Bark Town.{SCROLL}I wondered if he was making it up, and{NEWLINE}then I saw you walking this way!{SCROLL}But you do look different in person than{NEWLINE}on TV.{SCROLL}Anyone who isn’t a die-hard fan like me{NEWLINE}would probably struggle to recognize{CLEAR}you at a glance!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore honorific, respectful address, wondered-if and probable difficulty."
   },
   {
    "id": 3,
@@ -269,10 +269,10 @@
   {
    "id": 32,
    "zh": "啊！你拿着的那个,{NEWLINE}是岩铁先生做的柑果盒吧！{CLEAR}真是精美,不愧是大师的作品,{CLEAR}比我做的柑果盒好多了。{SCROLL}你能不能把你的柑果盒卖给我呀,{NEWLINE}我出5000元,外加我做的柑果盒,{CLEAR}这样保证不影响你收集柑果。{SCROLL}怎么样,要交换吗？",
-   "en": "Ah! That thing you’re holding... It’s an{NEWLINE}Apricorn Box made by Kurt!{SCROLL}So exquisite. The work of a true{NEWLINE}master, far better than mine.{SCROLL}Would you sell me your Apricorn Box?{SCROLL}I’ll pay $5000, plus one of my own{NEWLINE}boxes.{SCROLL}That way you can still collect{NEWLINE}Apricorns.{SCROLL}So, what do you say? Want to trade?",
+   "en": "Ah! That thing you’re holding... It’s an{NEWLINE}Apricorn Box made by Mr. Kurt!{SCROLL}So exquisite. The work of a true{NEWLINE}master, far better than mine.{SCROLL}Would you sell me your Apricorn Box?{SCROLL}I’ll pay $5000, plus one of my{NEWLINE}own boxes.{SCROLL}That way you can still{NEWLINE}collect Apricorns.{SCROLL}So, what do you say? Want to trade?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Mr Kurt honorific."
   },
   {
    "id": 33,
@@ -285,18 +285,18 @@
   {
    "id": 34,
    "zh": "确实,岩铁先生的柑果盒是珍品,{NEWLINE}那我出2万元加我做的柑果盒{CLEAR}以及一套柑果球套装,{CLEAR}你总该同意跟我交换了吧？",
-   "en": "True, Kurt’s Apricorn Box is a rare{NEWLINE}treasure.{SCROLL}Then I’ll give you $20000, one of my{NEWLINE}boxes and an Apricorn Ball set.{SCROLL}Surely you’ll trade now?",
+   "en": "True, Mr. Kurt’s Apricorn Box is a{NEWLINE}rare treasure.{SCROLL}Then I’ll give you $20000, one of my{NEWLINE}boxes and an Apricorn Ball set.{SCROLL}Surely you’ll trade now?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Mr Kurt honorific."
   },
   {
    "id": 35,
    "zh": "你既然这么喜欢岩铁先生做的柑果盒,{NEWLINE}那就拿着当传家宝吧！",
-   "en": "If you love Kurt’s Apricorn Box that{NEWLINE}much, keep it as a family heirloom!",
+   "en": "If you love Mr. Kurt’s Apricorn Box{NEWLINE}that much, keep it as a family heirloom!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Mr Kurt honorific."
   },
   {
    "id": 36,
@@ -317,10 +317,10 @@
   {
    "id": 38,
    "zh": "岩铁先生做的柑果盒固然精美,{NEWLINE}但实际装柑果的效果,{CLEAR}与我做的普通柑果盒并没有两样。",
-   "en": "Kurt’s Apricorn Box sure is beautiful.{SCROLL}But for actually holding Apricorns, it’s{NEWLINE}no different from my ordinary ones.",
+   "en": "Mr. Kurt’s Apricorn Box sure{NEWLINE}is beautiful.{SCROLL}But for actually holding Apricorns, it’s{NEWLINE}no different from my ordinary ones.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Mr Kurt honorific."
   },
   {
    "id": 39,
@@ -389,10 +389,10 @@
   {
    "id": 47,
    "zh": "为了向那位永不言弃的运动员致敬,{NEWLINE}我要好好锻炼,{CLEAR}将来用我最喜欢的{CLEAR}带条纹的黄色精灵组合,{CLEAR}拿下口袋竞技的全项目冠军！",
-   "en": "To honor that athlete who never gave{NEWLINE}up, I’m going to train hard.{SCROLL}Someday I’ll win every Pokéathlon event{NEWLINE}with my favorite striped yellow Pokémon!",
+   "en": "To honor that athlete who never gave{NEWLINE}up, I’m going to train hard.{SCROLL}Someday I’ll win every Pokéathlon event{NEWLINE}with a team of my favorite striped{CLEAR}yellow Pokémon!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore combination/team of favorite Pokémon, not single one."
   },
   {
    "id": 48,

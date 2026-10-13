@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "你还记得吗？{SCROLL}我和你战斗的那一瞬间！{SCROLL}要不要再来一次对战,{NEWLINE}找回当时的那份感动？{SCROLL}我在{VAR:0104:3}等你。",
-   "en": "Do you remember?{SCROLL}The moment we first battled!{SCROLL}I want to battle with you again, to{NEWLINE}relive that tense moment!{SCROLL}I’m waiting on {VAR:0104:3}.",
+   "en": "Remember our first battle? Want to{NEWLINE}battle again and relive that thrill? I’ll{CLEAR}be waiting at {VAR:0104:3}.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0697/9"
+   "origin": "agent",
+   "notes": "US 0697/9 | SOL-C: source nuance restored after exact-ref CN/EN/ES comparison."
   },
   {
    "id": 10,

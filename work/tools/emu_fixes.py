@@ -93,6 +93,8 @@ COVERAGE = {
 }
 # fix id -> why no scenario of this command covers it (honest gaps; see work/notes/emu_harness.md)
 UNCOVERED = {
+    "ability-banner": "Dedicated emu_ability_banner.py verifies native single-battle banners on both sides; "
+                      "run separately. Doubles placement remains unverified; see work/notes/ability_banner_fix.md.",
     "overworld-pokemon-sprites": "No scenario in this unified runner; emu_overworld_sprites.py (run separately, cases pewter, "
                                  "lighthouse, pewter-talk) shows the Pewter Jigglypuff and the Lighthouse Ampharos and the Pewter "
                                  "text/cry on the Chinese ROM, a build without the fix and the fixed build; "

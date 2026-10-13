@@ -420,10 +420,10 @@
   {
    "id": 51,
    "zh": "我也想一夜暴富",
-   "en": "I want to get rich overnight",
+   "en": "I also want to get rich overnight",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "category": "menu_touch_1line"
   },
   {
@@ -608,26 +608,26 @@
   {
    "id": 74,
    "zh": "你好啊大哥哥,{NEWLINE}我记得我刚刚在跟素利拍玩,{CLEAR}可为什么大哥哥会突然出现在这里,{CLEAR}莫非你是素利拍变的吗？{CLEAR}太神奇了！",
-   "en": "Hi, mister. I remember I was just{NEWLINE}playing with Hypno. So why did you{CLEAR}suddenly show up here? Are you Hypno in{CLEAR}disguise? That’s amazing!",
+   "en": "Hi, mister. I remember I was just{NEWLINE}playing with Hypno. So why did you{CLEAR}suddenly show up here? Did Hypno turn{CLEAR}into you? That’s amazing!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 75,
    "zh": "你好啊大姐姐,{NEWLINE}我记得我刚刚在跟素利拍玩,{CLEAR}可为什么大姐姐会突然出现在这里,{CLEAR}莫非你是素利拍变的吗？{CLEAR}太神奇了！",
-   "en": "Hi, miss. I remember I was just playing{NEWLINE}with Hypno. So why did you suddenly{CLEAR}show up here? Are you Hypno in{CLEAR}disguise? That’s amazing!",
+   "en": "Hi, miss. I remember I was just playing{NEWLINE}with Hypno. So why did you suddenly{CLEAR}show up here? Did Hypno turn into you?{CLEAR}That’s amazing!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 76,
    "zh": "{VAR:0103:0}『我只是刚好路过,{NEWLINE}看到素利拍想用催眠术攻击你,{CLEAR}所以就跑过来阻止它。",
-   "en": "{VAR:0103:0}: I was just passing by and saw{NEWLINE}Hypno trying to use Hypnosis on you, so{CLEAR}I ran over to stop it.",
+   "en": "{VAR:0103:0}: I was just passing by and saw{NEWLINE}Hypno trying to attack you with{CLEAR}Hypnosis, so I ran over to stop it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 77,

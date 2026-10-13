@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "参加比赛的就是这些人！",
-   "en": "These players have been accepted.",
+   "en": "These are the participants!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0236/0"
+   "origin": "agent",
+   "notes": "US 0236/0 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,
@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "有人不方便玩,{NEWLINE}广场游戏终止。",
-   "en": "Someone had to drop out.{NEWLINE}The Plaza Game will be canceled.",
+   "en": "Someone is unable to play.{NEWLINE}The Plaza Game will be canceled.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0236/6"
+   "origin": "agent",
+   "notes": "US 0236/6 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
@@ -158,10 +158,10 @@
   {
    "id": 19,
    "zh": "但是触控玩具{NEWLINE}已经无法提升力量了！",
-   "en": "Your Tap Toy can’t be powered up{NEWLINE}anymore.",
+   "en": "But your Tap Toy can’t be{NEWLINE}powered up anymore!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0236/19"
+   "origin": "agent",
+   "notes": "US 0236/19 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 20,

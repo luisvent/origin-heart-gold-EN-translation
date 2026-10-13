@@ -2366,7 +2366,7 @@
   {
    "id": 292,
    "zh": "没有击中{VAR:0102:0,0}！",
-   "en": "{VAR:0102:0,0} avoided the attack!",
+   "en": "The attack missed {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -2374,7 +2374,7 @@
   {
    "id": 293,
    "zh": "没有击中野生的{VAR:0102:0,0}！",
-   "en": "The wild {VAR:0102:0,0} avoided the attack!",
+   "en": "The attack missed the wild{NEWLINE}{VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -2382,7 +2382,7 @@
   {
    "id": 294,
    "zh": "没有击中对手的{VAR:0102:0,0}！",
-   "en": "The foe’s {VAR:0102:0,0}{NEWLINE}avoided the attack!",
+   "en": "The attack missed the foe’s{NEWLINE}{VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -2390,7 +2390,7 @@
   {
    "id": 295,
    "zh": "没有击中{VAR:0100:10,0}的{VAR:0102:0,0}！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0}{NEWLINE}avoided the attack!",
+   "en": "The attack missed{NEWLINE}{VAR:0100:10,0}’s {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -2462,7 +2462,7 @@
   {
    "id": 304,
    "zh": "{VAR:0102:0,0}的{NEWLINE}样子发生了变化！",
-   "en": "{VAR:0102:0,0} transformed!",
+   "en": "{VAR:0102:0,0} changed its appearance!",
    "status": "draft",
    "origin": "agent",
    "notes": "",
@@ -2473,7 +2473,7 @@
   {
    "id": 305,
    "zh": "野生的{VAR:0102:0,0}的{NEWLINE}样子发生了变化！",
-   "en": "The wild {VAR:0102:0,0} transformed!",
+   "en": "The wild {VAR:0102:0,0} changed{NEWLINE}its appearance!",
    "status": "draft",
    "origin": "agent",
    "notes": "",
@@ -2484,7 +2484,7 @@
   {
    "id": 306,
    "zh": "对手的{VAR:0102:0,0}的{NEWLINE}样子发生了变化！",
-   "en": "The foe’s {VAR:0102:0,0} transformed!",
+   "en": "The foe’s {VAR:0102:0,0} changed{NEWLINE}its appearance!",
    "status": "draft",
    "origin": "agent",
    "notes": "",
@@ -2495,7 +2495,7 @@
   {
    "id": 307,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}的{NEWLINE}样子发生了变化！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0}{NEWLINE}transformed!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} changed{NEWLINE}its appearance!",
    "status": "draft",
    "origin": "agent",
    "notes": "",
@@ -4974,7 +4974,7 @@
   {
    "id": 606,
    "zh": "{VAR:0102:0,0}{NEWLINE}吸引了攻击！",
-   "en": "{VAR:0102:0,0} took the attack!",
+   "en": "{VAR:0102:0,0} drew the attack!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -4982,7 +4982,7 @@
   {
    "id": 607,
    "zh": "野生的{VAR:0102:0,0}{NEWLINE}吸引了攻击！",
-   "en": "The wild {VAR:0102:0,0} took the attack!",
+   "en": "The wild {VAR:0102:0,0} drew the attack!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -4990,7 +4990,7 @@
   {
    "id": 608,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}吸引了攻击！",
-   "en": "The foe’s {VAR:0102:0,0} took the attack!",
+   "en": "The foe’s {VAR:0102:0,0} drew the attack!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5486,7 +5486,7 @@
   {
    "id": 670,
    "zh": "{VAR:0102:0,0}{NEWLINE}无法拿出平时的水平！",
-   "en": "{VAR:0102:0,0} can’t get it going!",
+   "en": "{VAR:0102:0,0} can’t perform as usual!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5494,7 +5494,7 @@
   {
    "id": 671,
    "zh": "野生的{VAR:0102:0,0}{NEWLINE}无法拿出平时的水平！",
-   "en": "The wild {VAR:0102:0,0} can’t get it going!",
+   "en": "The wild {VAR:0102:0,0}{NEWLINE}can’t perform as usual!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5998,7 +5998,7 @@
   {
    "id": 734,
    "zh": "{VAR:0102:0,0}{NEWLINE}高高地跳了起来！",
-   "en": "{VAR:0102:0,0} sprang up!",
+   "en": "{VAR:0102:0,0} leapt high!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6006,7 +6006,7 @@
   {
    "id": 735,
    "zh": "野生的{VAR:0102:0,0}{NEWLINE}高高地跳了起来！",
-   "en": "The wild {VAR:0102:0,0} sprang up!",
+   "en": "The wild {VAR:0102:0,0} leapt high!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6014,7 +6014,7 @@
   {
    "id": 736,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}高高地跳了起来！",
-   "en": "The foe’s {VAR:0102:0,0} sprang up!",
+   "en": "The foe’s {VAR:0102:0,0} leapt high!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6022,7 +6022,7 @@
   {
    "id": 737,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}{NEWLINE}高高地跳了起来！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} sprang up!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} leapt high!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6030,7 +6030,7 @@
   {
    "id": 738,
    "zh": "{VAR:0102:0,0}周围的{NEWLINE}空气产生了旋涡！",
-   "en": "{VAR:0102:0,0} whipped up a whirlwind!",
+   "en": "Air swirled around {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6038,7 +6038,7 @@
   {
    "id": 739,
    "zh": "野生的{VAR:0102:0,0}周围的{NEWLINE}空气产生了旋涡！",
-   "en": "The wild {VAR:0102:0,0} whipped up a{NEWLINE}whirlwind!",
+   "en": "Air swirled around the wild{NEWLINE}{VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6046,7 +6046,7 @@
   {
    "id": 740,
    "zh": "对手的{VAR:0102:0,0}周围的{NEWLINE}空气产生了旋涡！",
-   "en": "The foe’s {VAR:0102:0,0} whipped up a{NEWLINE}whirlwind!",
+   "en": "Air swirled around the foe’s{NEWLINE}{VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6054,7 +6054,7 @@
   {
    "id": 741,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}周围的{NEWLINE}空气产生了旋涡！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} whipped up{NEWLINE}a whirlwind!",
+   "en": "Air swirled around{NEWLINE}{VAR:0100:10,0}’s {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6734,7 +6734,7 @@
   {
    "id": 826,
    "zh": "{VAR:0102:0,0}{NEWLINE}削减了体力并释放了全部力量！",
-   "en": "{VAR:0102:0,0} cut its own HP and maximized{NEWLINE}its Attack!",
+   "en": "{VAR:0102:0,0} cut its own HP and{NEWLINE}unleashed all its power!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -8974,7 +8974,7 @@
   {
    "id": 1106,
    "zh": "{VAR:0102:0,0}{NEWLINE}被{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "{VAR:0102:0,0} was clamped by {VAR:0102:1,0}!",
+   "en": "{VAR:0102:1,0}’s shell clamped{NEWLINE}{VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -8982,7 +8982,7 @@
   {
    "id": 1107,
    "zh": "{VAR:0102:0,0}{NEWLINE}被野生的{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "{VAR:0102:0,0} was clamped by the wild{NEWLINE}{VAR:0102:1,0}!",
+   "en": "The wild {VAR:0102:1,0}’s shell clamped{NEWLINE}{VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -8990,7 +8990,7 @@
   {
    "id": 1108,
    "zh": "{VAR:0102:0,0}{NEWLINE}被对手的{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "{VAR:0102:0,0} was clamped by the foe’s{NEWLINE}{VAR:0102:1,0}!",
+   "en": "The foe’s {VAR:0102:1,0}’s shell clamped{NEWLINE}{VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -8998,7 +8998,7 @@
   {
    "id": 1109,
    "zh": "{VAR:0102:0,0}{NEWLINE}被{VAR:0100:11,0}的{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "{VAR:0102:0,0} was clamped by{NEWLINE}{VAR:0100:11,0}’s {VAR:0102:1,0}!",
+   "en": "{VAR:0100:11,0}’s {VAR:0102:1,0}’s shell{NEWLINE}clamped {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9006,7 +9006,7 @@
   {
    "id": 1110,
    "zh": "野生的{VAR:0102:0,0}{NEWLINE}被{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "The wild {VAR:0102:0,0} was clamped by{NEWLINE}{VAR:0102:1,0}!",
+   "en": "{VAR:0102:1,0}’s shell clamped{NEWLINE}the wild {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9014,7 +9014,7 @@
   {
    "id": 1111,
    "zh": "野生的{VAR:0102:0,0}{NEWLINE}被野生的{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "The wild {VAR:0102:0,0} was clamped by the{NEWLINE}wild {VAR:0102:1,0}!",
+   "en": "The wild {VAR:0102:1,0}’s shell clamped{NEWLINE}the wild {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9022,7 +9022,7 @@
   {
    "id": 1112,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}被{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "The foe’s {VAR:0102:0,0} was clamped by{NEWLINE}{VAR:0102:1,0}!",
+   "en": "{VAR:0102:1,0}’s shell clamped{NEWLINE}the foe’s {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9030,7 +9030,7 @@
   {
    "id": 1113,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}被对手的{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "The foe’s {VAR:0102:0,0} was clamped by{NEWLINE}the foe’s {VAR:0102:1,0}!",
+   "en": "The foe’s {VAR:0102:1,0}’s shell clamped{NEWLINE}the foe’s {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9038,7 +9038,7 @@
   {
    "id": 1114,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}{NEWLINE}被{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} was{NEWLINE}clamped by {VAR:0102:1,0}!",
+   "en": "{VAR:0102:1,0}’s shell clamped{NEWLINE}{VAR:0100:10,0}’s {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9046,7 +9046,7 @@
   {
    "id": 1115,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}{NEWLINE}被{VAR:0100:11,0}的{VAR:0102:1,0}的贝壳夹住了！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0}{NEWLINE}was clamped{CLEAR}by {VAR:0100:11,0}’s {VAR:0102:1,0}!",
+   "en": "{VAR:0100:11,0}’s {VAR:0102:1,0}’s shell{NEWLINE}clamped {VAR:0100:10,0}’s {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page)"
@@ -9182,7 +9182,7 @@
   {
    "id": 1132,
    "zh": "{VAR:0102:0,0}{NEWLINE}没有可用来施展的招式！",
-   "en": "{VAR:0102:0,0} has no moves left!",
+   "en": "{VAR:0102:0,0} has no usable moves!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9190,7 +9190,7 @@
   {
    "id": 1133,
    "zh": "野生的{VAR:0102:0,0}{NEWLINE}没有可用来施展的招式！",
-   "en": "The wild {VAR:0102:0,0} has no moves left!",
+   "en": "The wild {VAR:0102:0,0} has no{NEWLINE}usable moves!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9198,7 +9198,7 @@
   {
    "id": 1134,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}没有可用来施展的招式！",
-   "en": "The foe’s {VAR:0102:0,0} has no moves{NEWLINE}left!",
+   "en": "The foe’s {VAR:0102:0,0} has no{NEWLINE}usable moves!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9206,7 +9206,7 @@
   {
    "id": 1135,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}{NEWLINE}没有可用来施展的招式！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} has no{NEWLINE}moves left!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} has no{NEWLINE}usable moves!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9406,7 +9406,7 @@
   {
    "id": 1160,
    "zh": "{VAR:0102:0,0}{NEWLINE}扭曲了时空！",
-   "en": "{VAR:0102:0,0} twisted the dimensions!",
+   "en": "{VAR:0102:0,0} twisted space and time!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9414,7 +9414,7 @@
   {
    "id": 1161,
    "zh": "野生的{VAR:0102:0,0}{NEWLINE}扭曲了时空！",
-   "en": "The wild {VAR:0102:0,0} twisted the{NEWLINE}dimensions!",
+   "en": "The wild {VAR:0102:0,0} twisted{NEWLINE}space and time!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9422,7 +9422,7 @@
   {
    "id": 1162,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}扭曲了时空！",
-   "en": "The foe’s {VAR:0102:0,0} twisted the{NEWLINE}dimensions!",
+   "en": "The foe’s {VAR:0102:0,0} twisted{NEWLINE}space and time!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9430,7 +9430,7 @@
   {
    "id": 1163,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}{NEWLINE}扭曲了时空！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} twisted{NEWLINE}the dimensions!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} twisted{NEWLINE}space and time!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9918,7 +9918,7 @@
   {
    "id": 1224,
    "zh": "{VAR:0102:0,0}因势头过猛{NEWLINE}而撞到了地面！",
-   "en": "{VAR:0102:0,0} kept going and crashed!",
+   "en": "{VAR:0102:0,0} kept going and{NEWLINE}crashed into the ground!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9926,7 +9926,7 @@
   {
    "id": 1225,
    "zh": "野生的{VAR:0102:0,0}因势头过猛{NEWLINE}而撞到了地面！",
-   "en": "The wild {VAR:0102:0,0} kept going and{NEWLINE}crashed!",
+   "en": "The wild {VAR:0102:0,0} kept going and{NEWLINE}crashed into the ground!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9934,7 +9934,7 @@
   {
    "id": 1226,
    "zh": "对手的{VAR:0102:0,0}因势头过猛{NEWLINE}而撞到了地面！",
-   "en": "The foe’s {VAR:0102:0,0} kept going and{NEWLINE}crashed!",
+   "en": "The foe’s {VAR:0102:0,0} kept going and{NEWLINE}crashed into the ground!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -9942,7 +9942,7 @@
   {
    "id": 1227,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}因势头过猛{NEWLINE}而撞到了地面！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} kept going{NEWLINE}and crashed!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} kept going{NEWLINE}and crashed into the ground!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -11806,7 +11806,7 @@
   {
    "id": 1460,
    "zh": "{VAR:0102:0,0}{NEWLINE}将破灭之愿托付给了未来！",
-   "en": "{VAR:0102:0,0} chose Doom Desire as its{NEWLINE}destiny!",
+   "en": "{VAR:0102:0,0} entrusted Doom Desire to{NEWLINE}the future!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -11814,7 +11814,7 @@
   {
    "id": 1461,
    "zh": "野生的{VAR:0102:0,0}{NEWLINE}将破灭之愿托付给了未来！",
-   "en": "The wild {VAR:0102:0,0} chose Doom Desire{NEWLINE}as its destiny!",
+   "en": "The wild {VAR:0102:0,0} entrusted{NEWLINE}Doom Desire to the future!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -11822,7 +11822,7 @@
   {
    "id": 1462,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}将破灭之愿托付给了未来！",
-   "en": "The foe’s {VAR:0102:0,0} chose Doom Desire{NEWLINE}as its destiny!",
+   "en": "The foe’s {VAR:0102:0,0} entrusted{NEWLINE}Doom Desire to the future!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -11830,7 +11830,7 @@
   {
    "id": 1463,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}{NEWLINE}将破灭之愿托付给了未来！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} chose Doom{NEWLINE}Desire as its destiny!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} entrusted{NEWLINE}Doom Desire to the future!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12126,7 +12126,7 @@
   {
    "id": 1500,
    "zh": "火花也溅射到了{NEWLINE}对手的{VAR:0102:0,0}的身上！",
-   "en": "The bursting flame hit the foe’s{NEWLINE}{VAR:0102:0,0}!",
+   "en": "Sparks also struck the foe’s{NEWLINE}{VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12134,7 +12134,7 @@
   {
    "id": 1501,
    "zh": "火花也溅射到了{NEWLINE}{VAR:0100:10,0}的{VAR:0102:0,0}的身上！",
-   "en": "The bursting flame hit {VAR:0100:10,0}’s{NEWLINE}{VAR:0102:0,0}!",
+   "en": "Sparks also struck {VAR:0100:10,0}’s{NEWLINE}{VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12382,7 +12382,7 @@
   {
    "id": 1532,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}被击落，掉到了地面！",
-   "en": "The foe’s {VAR:0102:0,0} fell straight{NEWLINE}down!",
+   "en": "The foe’s {VAR:0102:0,0} was knocked to{NEWLINE}the ground!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12390,7 +12390,7 @@
   {
    "id": 1533,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}{NEWLINE}被击落，掉到了地面！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} fell{NEWLINE}straight down!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} was{NEWLINE}knocked to the ground!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12926,7 +12926,7 @@
   {
    "id": 1600,
    "zh": "{VAR:0102:0,0}{NEWLINE}因没有吃树果而无法使出招式！",
-   "en": "{VAR:0102:0,0} hasn’t eaten any held{NEWLINE}Berry, so it can’t possibly belch!",
+   "en": "{VAR:0102:0,0} can’t use this move{NEWLINE}without eating a Berry!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12934,7 +12934,7 @@
   {
    "id": 1601,
    "zh": "野生的{VAR:0102:0,0}{NEWLINE}因没有吃树果而无法使出招式！",
-   "en": "The wild {VAR:0102:0,0} hasn’t eaten any{NEWLINE}held Berry, so it can’t possibly belch!",
+   "en": "The wild {VAR:0102:0,0} can’t use{NEWLINE}this move without eating a Berry!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12942,7 +12942,7 @@
   {
    "id": 1602,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}因没有吃树果而无法使出招式！",
-   "en": "The foe’s {VAR:0102:0,0} hasn’t eaten any{NEWLINE}held Berry, so it can’t possibly belch!",
+   "en": "The foe’s {VAR:0102:0,0} can’t use{NEWLINE}this move without eating a Berry!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12950,7 +12950,7 @@
   {
    "id": 1603,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}{NEWLINE}因没有吃树果而无法使出招式！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} hasn’t{NEWLINE}eaten any held Berry, so it can’t{CLEAR}possibly belch!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} can’t use{NEWLINE}this move{CLEAR}without eating a Berry!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12958,7 +12958,7 @@
   {
    "id": 1604,
    "zh": "因为输电，{VAR:0102:0,0}的{NEWLINE}招式变成了电属性！",
-   "en": "{VAR:0102:0,0}’s moves have been{NEWLINE}electrified!",
+   "en": "Electrify made {VAR:0102:0,0}’s moves{NEWLINE}Electric-type!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12966,7 +12966,7 @@
   {
    "id": 1605,
    "zh": "因为输电，野生的{VAR:0102:0,0}的{NEWLINE}招式变成了电属性！",
-   "en": "The wild {VAR:0102:0,0}’s moves have been{NEWLINE}electrified!",
+   "en": "Electrify made the wild {VAR:0102:0,0}’s{NEWLINE}moves Electric-type!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12974,7 +12974,7 @@
   {
    "id": 1606,
    "zh": "因为输电，对手的{VAR:0102:0,0}的{NEWLINE}招式变成了电属性！",
-   "en": "The foe’s {VAR:0102:0,0}’s moves have been{NEWLINE}electrified!",
+   "en": "Electrify made the foe’s {VAR:0102:0,0}’s{NEWLINE}moves Electric-type!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -12982,7 +12982,7 @@
   {
    "id": 1607,
    "zh": "因为输电，{VAR:0100:10,0}的{VAR:0102:0,0}的{NEWLINE}招式变成了电属性！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0}’s moves{NEWLINE}have been electrified!",
+   "en": "Electrify made {VAR:0100:10,0}’s{NEWLINE}{VAR:0102:0,0}’s moves Electric-type!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -15166,7 +15166,7 @@
   {
    "id": 1880,
    "zh": "{VAR:0102:0,0}的{NEWLINE}陷阱甲壳没有被触发！",
-   "en": "{VAR:0102:0,0}’s shell trap didn’t work!",
+   "en": "{VAR:0102:0,0}’s shell trap{NEWLINE}wasn’t triggered!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -15174,7 +15174,7 @@
   {
    "id": 1881,
    "zh": "野生的{VAR:0102:0,0}的{NEWLINE}陷阱甲壳没有被触发！",
-   "en": "The wild {VAR:0102:0,0}’s shell trap didn’t{NEWLINE}work!",
+   "en": "The wild {VAR:0102:0,0}’s shell trap wasn’t{NEWLINE}triggered!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -15182,7 +15182,7 @@
   {
    "id": 1882,
    "zh": "对手的{VAR:0102:0,0}的{NEWLINE}陷阱甲壳没有被触发！",
-   "en": "The foe’s {VAR:0102:0,0}’s shell trap{NEWLINE}didn’t work!",
+   "en": "The foe’s {VAR:0102:0,0}’s shell trap{NEWLINE}wasn’t triggered!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -15190,7 +15190,7 @@
   {
    "id": 1883,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}的{NEWLINE}陷阱甲壳没有被触发！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0}’s shell{NEWLINE}trap didn’t work!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0}’s shell{NEWLINE}trap wasn’t triggered!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -15390,7 +15390,7 @@
   {
    "id": 1908,
    "zh": "对手的{VAR:0102:0,0}{NEWLINE}浑身充满了牵绊之力！",
-   "en": "The foe’s {VAR:0102:0,0} became fully{NEWLINE}charged due to its bond{CLEAR}with its Trainer!",
+   "en": "The foe’s {VAR:0102:0,0} was filled{NEWLINE}with the power of bonds!",
    "status": "draft",
    "origin": "agent",
    "notes": "RV105: layout: one-word orphan after {CLEAR}"
@@ -15398,7 +15398,7 @@
   {
    "id": 1909,
    "zh": "{VAR:0100:10,0}的{VAR:0102:0,0}{NEWLINE}浑身充满了牵绊之力！",
-   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} became{NEWLINE}fully charged due to its bond{CLEAR}with its Trainer!",
+   "en": "{VAR:0100:10,0}’s {VAR:0102:0,0} was filled{NEWLINE}with the power of bonds!",
    "status": "draft",
    "origin": "agent",
    "notes": "RV105: layout: one-word orphan after {CLEAR}"
@@ -17470,7 +17470,7 @@
   {
    "id": 2168,
    "zh": "对手的{VAR:0102:0,0}的蜜{NEWLINE}散发出了甜甜香气！",
-   "en": "A supersweet aroma is wafting from the{NEWLINE}syrup covering the foe’s {VAR:0102:0,0}!",
+   "en": "A supersweet aroma is wafting from the{NEWLINE}honey on the foe’s {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -17478,7 +17478,7 @@
   {
    "id": 2169,
    "zh": "{VAR:0100:0,10}的{VAR:0102:0,0}的蜜{NEWLINE}散发出了甜甜香气！",
-   "en": "A supersweet aroma is wafting from{NEWLINE}the syrup covering{CLEAR}{VAR:0100:0,10}’s {VAR:0102:0,0}!",
+   "en": "A supersweet aroma is wafting from{NEWLINE}the honey on{CLEAR}{VAR:0100:0,10}’s {VAR:0102:0,0}!",
    "status": "draft",
    "origin": "agent",
    "notes": "RV105: layout: one-word orphan after {CLEAR}"

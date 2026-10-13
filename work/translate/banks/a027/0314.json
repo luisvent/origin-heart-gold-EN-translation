@@ -446,10 +446,10 @@
   {
    "id": 55,
    "zh": "这只尼多兰不知道被谁遗弃了,{NEWLINE}似乎在等它的主人回来。{CLEAR}我在看到尼多兰第一眼的时候{CLEAR}就被它坚守的执着所打动,{CLEAR}所以就下定决心要收留它、照顾它！{SCROLL}为了给尼多兰舒适的收纳环境,{NEWLINE}我特意去到城都地区{CLEAR}向岩铁先生学习了如何做柑果球。{SCROLL}如今学成归来,{NEWLINE}本该做一个崭新的柑果球{CLEAR}来收服尼多兰。{CLEAR}可事到临头我才发现,{CLEAR}尼比市附近的柑果做出的球{CLEAR}似乎都不太适合收纳尼多兰……{SCROLL}要是能有绿柑果做出的朋友球就好了……",
-   "en": "Someone abandoned this Nidoran♀. It{NEWLINE}seems to be waiting for its Trainer to{CLEAR}come back.{SCROLL}The first time I saw it, I was so moved{NEWLINE}by its devotion that I made up my mind{CLEAR}to take it in and look after it!{SCROLL}To give it a comfortable ball to live in,{NEWLINE}I went all the way to Johto to learn to{CLEAR}make Apricorn Balls from Kurt.{SCROLL}Now that I’m back,{NEWLINE}I ought to make a brand-new{CLEAR}Apricorn Ball to catch it with.{SCROLL}But now that the time’s come,{NEWLINE}I’ve realized the balls made{CLEAR}from Apricorns around Pewter City{CLEAR}don’t really suit Nidoran♀...{SCROLL}If only I had a Friend Ball made from a{NEWLINE}Green Apricorn...",
+   "en": "Someone abandoned this Nidoran♀. It{NEWLINE}seems to be waiting for its Trainer to{CLEAR}come back.{SCROLL}The first time I saw it, I was so moved{NEWLINE}by its devotion that I made up my mind{CLEAR}to take it in and look after it!{SCROLL}To give it a comfortable ball to live in,{NEWLINE}I went all the way to Johto to learn to{CLEAR}make Apricorn Balls from Kurt.{SCROLL}Now that I’m back, I ought to make a{NEWLINE}brand-new Apricorn Ball to{CLEAR}catch it with.{SCROLL}But now that the time’s come, I’ve{NEWLINE}realized the balls made from Apricorns{CLEAR}around Pewter City don’t seem{CLEAR}to suit Nidoran♀...{SCROLL}If only I had a Friend Ball made from a{NEWLINE}Green Apricorn...",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 56,
@@ -486,10 +486,10 @@
   {
    "id": 60,
    "zh": "看尼多兰这么热情……{NEWLINE}莫非是它的训练家！？{CLEAR}不,应该不是,{CLEAR}看这个训练家的样子,{CLEAR}好像根本不认识尼多兰。",
-   "en": "Nidoran♀ is so excited... Could he be its{NEWLINE}Trainer!?{SCROLL}No, can’t be. From the look of this{NEWLINE}Trainer, he doesn’t seem to know{CLEAR}Nidoran♀ at all.",
+   "en": "Nidoran♀ is so excited... Could he be its{NEWLINE}Trainer!?{SCROLL}No, probably not. From the look of this{NEWLINE}Trainer, he doesn’t seem to know{CLEAR}Nidoran♀ at all.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 2 source(s), same position"
+   "notes": "v3 TM: 2 source(s), same position | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 61,

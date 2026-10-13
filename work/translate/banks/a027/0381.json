@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "我的朋友在睡觉吧？{NEWLINE}总是在睡觉呢！",
-   "en": "My pal was snoozing, right?{NEWLINE}Heh, he’s always sleeping.",
+   "en": "My friend was sleeping, right? Always{NEWLINE}sleeping!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0388/8"
+   "origin": "agent",
+   "notes": "US 0388/8 | FULL-CES-0381-0382: Remove invented laugh and preserve emphasis."
   },
   {
    "id": 9,
@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "听说有跟它说话就会蠕动的树{NEWLINE}把路给堵住了,{SCROLL}听说用杰尼龟喷壶对它洒水,{NEWLINE}还大闹起来了呢。",
-   "en": "A strange tree is blocking the road.{NEWLINE}It wriggles around if you talk to it.{SCROLL}I heard it became wild when someone{NEWLINE}watered it with a Squirt Bottle.",
+   "en": "I heard a tree that wriggles when you{NEWLINE}talk to it is blocking the road.{SCROLL}I heard it even went wild when someone{NEWLINE}watered it with a Squirt Bottle.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0388/11; modernised from US 0388#11"
+   "origin": "agent",
+   "notes": "US 0388/11; modernised from US 0388#11 | FULL-CES-0381-0382: Restore hearsay in first assertion."
   },
   {
    "id": 12,

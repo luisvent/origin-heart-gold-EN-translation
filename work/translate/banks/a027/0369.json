@@ -1012,10 +1012,10 @@
   {
    "id": 125,
    "zh": "呜呜呜,真的是太感人了！{NEWLINE}两位情侣在我们的仪式上{CLEAR}交换了相守一生的誓言。{CLEAR}下面请两位用深情的拥吻,{CLEAR}为今天的祝福仪式画上圆满的句号！{SCROLL}各位来宾请为他们送上祝福的掌声！",
-   "en": "Waaah, that’s so moving!{SCROLL}Our couple has just exchanged{NEWLINE}vows to stay together for life!{SCROLL}Now, please seal today’s blessing{NEWLINE}ceremony with a loving kiss!{SCROLL}Everyone, give them{NEWLINE}a round of applause!",
+   "en": "*sniff* This is so moving! Our couple has{NEWLINE}exchanged vows to be together for life{CLEAR}at our ceremony. Now, please seal{CLEAR}today’s blessing ceremony with a{CLEAR}passionate embrace and kiss!{SCROLL}Everyone, please give them a round of{NEWLINE}applause!",
    "status": "draft",
    "origin": "agent",
-   "notes": "Same zh as 0445 #230; English copied."
+   "notes": "Same zh as 0445 #230; English copied. | CES003: Restore ceremony setting and embrace alongside kiss; identical CN to CES002 0445#230."
   },
   {
    "id": 126,
@@ -1036,10 +1036,10 @@
   {
    "id": 128,
    "zh": "{VAR:0103:0}『仪式结束了,大家也都散了……",
-   "en": "{VAR:0103:0}: The ceremony’s over,{NEWLINE}and everyone’s gone home...",
+   "en": "{VAR:0103:0}: The ceremony’s over, and{NEWLINE}everyone’s gone...",
    "status": "draft",
    "origin": "agent",
-   "notes": "Same zh as 0445 #233; English copied."
+   "notes": "Same zh as 0445 #233; English copied. | CES003: CN 散了 does not specify a home destination; reuse CES002 0445#233."
   },
   {
    "id": 129,

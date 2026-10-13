@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "最喜欢的就是花蜜,只靠一点点花粉就可{NEWLINE}以找出花圃的所在。",
-   "en": "It loves the honey of flowers and{NEWLINE}can locate flower patches that{NEWLINE}have even tiny amounts of pollen.",
+   "en": "It loves flower nectar. With just a tiny{NEWLINE}bit of pollen, it can find where the{NEWLINE}flower bed is.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/12"
+   "origin": "agent",
+   "notes": "US 0805/12 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 13,
@@ -166,10 +166,10 @@
   {
    "id": 20,
    "zh": "为了刨磨不断生长的门牙,有着啃咬坚硬{NEWLINE}物体的习性,连混凝土块墙都能啃碎。",
-   "en": "It whittles its constantly growing{NEWLINE}fangs by gnawing on hard things.{NEWLINE}It can chew apart cinder walls.",
+   "en": "It gnaws hard things to file down its{NEWLINE}ever-growing incisors. It can chew{NEWLINE}concrete walls to pieces.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/20"
+   "origin": "agent",
+   "notes": "US 0805/20 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 21,
@@ -238,10 +238,10 @@
   {
    "id": 29,
    "zh": "生性讨厌战斗,由毒角中分泌出来的毒液{NEWLINE}只要一滴就致命。",
-   "en": "While it does not prefer to fight,{NEWLINE}even one drop of the poison it{NEWLINE}secretes from barbs can be fatal.",
+   "en": "It dislikes fighting, but a single drop of{NEWLINE}the poison secreted from its horn is{NEWLINE}lethal.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/29"
+   "origin": "agent",
+   "notes": "US 0805/29 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 30,
@@ -278,10 +278,10 @@
   {
    "id": 34,
    "zh": "尾巴的一击足以使电线杆像火柴棒一样{NEWLINE}轻易地断成两截。",
-   "en": "One swing of its mighty tail{NEWLINE}can snap a telephone pole{NEWLINE}as if it were a matchstick.",
+   "en": "One blow from its tail can snap a power{NEWLINE}pole in two as easily as a matchstick.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/34"
+   "origin": "agent",
+   "notes": "US 0805/34 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 35,
@@ -310,10 +310,10 @@
   {
    "id": 38,
    "zh": "据说在九条尾巴里蕴藏着不为人知的的{NEWLINE}神秘力量,寿命似乎长达一千年。",
-   "en": "Its nine tails are said to be{NEWLINE}imbued with a mystic power. It{NEWLINE}can live for a thousand years.",
+   "en": "Its nine tails are said to hold an{NEWLINE}unknown, mysterious power. It seems to{NEWLINE}live as long as a thousand years.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/38"
+   "origin": "agent",
+   "notes": "US 0805/38 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 39,
@@ -398,10 +398,10 @@
   {
    "id": 49,
    "zh": "拍打翅膀撒播鳞粉,鳞粉一旦沾到身体,{NEWLINE}毒素就会慢慢地渗进皮肤里。",
-   "en": "It flutters its wings to scatter{NEWLINE}dustlike scales. The scales leach{NEWLINE}toxins if they contact skin.",
+   "en": "It flaps its wings to scatter scales. If{NEWLINE}they touch the body, their toxins{NEWLINE}slowly seep into the skin.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/49"
+   "origin": "agent",
+   "notes": "US 0805/49 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 50,
@@ -462,10 +462,10 @@
   {
    "id": 57,
    "zh": "跟它对看就会生气,逃跑也会生气,打倒{NEWLINE}的话还是生气。",
-   "en": "It grows angry if you see its eyes{NEWLINE}and gets angrier if you run. If{NEWLINE}you beat it, it gets even madder.",
+   "en": "It gets angry if you meet its gaze. It{NEWLINE}gets angry if you run away. If you beat{NEWLINE}it, it is still angry.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/57"
+   "origin": "agent",
+   "notes": "US 0805/57 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 58,
@@ -486,10 +486,10 @@
   {
    "id": 60,
    "zh": "有着连内脏都能看透的透明肌肤,刚长出{NEWLINE}的脚还未适应行走。",
-   "en": "Its skin is so thin, its internal{NEWLINE}organs are visible. It has trouble{NEWLINE}walking on its newly grown feet.",
+   "en": "Its skin is transparent enough to see{NEWLINE}its organs. Its newly grown feet are{NEWLINE}not yet used to walking.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/60"
+   "origin": "agent",
+   "notes": "US 0805/60 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 61,
@@ -862,10 +862,10 @@
   {
    "id": 107,
    "zh": "屈起手臂蓄力后击出拳连混凝土都能粉{NEWLINE}碎,不过战斗３分钟就要休息。",
-   "en": "The arm-twisting punches it throws{NEWLINE}pulverize even concrete. It rests{NEWLINE}after three minutes of fighting.",
+   "en": "It bends its arms to power punches{NEWLINE}that crush even concrete. After three{NEWLINE}minutes of battle, it must rest.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/107"
+   "origin": "agent",
+   "notes": "US 0805/107 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 108,
@@ -886,10 +886,10 @@
   {
    "id": 110,
    "zh": "以垃圾中分解出的瓦斯为食成长,极少情{NEWLINE}况下还能看到有三个头的稀有品种。",
-   "en": "It grows by feeding on gases{NEWLINE}released by garbage. Though very{NEWLINE}rare, triplets have been found.",
+   "en": "It grows by feeding on gas from rotting{NEWLINE}garbage. Rare three-headed ones can{NEWLINE}very occasionally be seen.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/110"
+   "origin": "agent",
+   "notes": "US 0805/110 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 111,
@@ -1006,9 +1006,9 @@
   {
    "id": 125,
    "zh": "停电的原因有一般是因为电击兽在发电{NEWLINE}所出现并吞食了电气。",
-   "en": "Half of all blackouts occur when{NEWLINE}this Pokémon appears at power{NEWLINE}plants and eats electricity.",
+   "en": "Power outages usually happen when{NEWLINE}Electabuzz appears at power plants{NEWLINE}and devours electricity.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0805/125; zh 有一般 read as a typo for 一半 (half)."
   },
   {
@@ -1182,10 +1182,10 @@
   {
    "id": 147,
    "zh": "由于目击者稀少,而被称为幻影的精灵,{NEWLINE}时常发现其蜕皮留下的皮肤。",
-   "en": "It is called the “Mirage Pokémon”{NEWLINE}because so few have seen{NEWLINE}it. Its shed skin has been found.",
+   "en": "Few have seen it, so it is called the{NEWLINE}“Mirage Pokémon.” Its shed skin is{NEWLINE}often found.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/147"
+   "origin": "agent",
+   "notes": "US 0805/147 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 148,
@@ -1238,10 +1238,10 @@
   {
    "id": 154,
    "zh": "其散出的气息拥有能使枯萎的花草复苏{NEWLINE}再生的神奇力量。",
-   "en": "Its breath has the{NEWLINE}fantastic ability to revive{NEWLINE}dead plants and flowers.",
+   "en": "Its breath has the wondrous power to{NEWLINE}revive withered plants and flowers.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/154"
+   "origin": "agent",
+   "notes": "US 0805/154 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 155,
@@ -1302,10 +1302,10 @@
   {
    "id": 162,
    "zh": "妈妈用细长的身体裹住孩子一起入眠,一{NEWLINE}旦有危险就依靠敏捷的移动将敌人一下逼{NEWLINE}入死角。",
-   "en": "The mother puts its offspring to{NEWLINE}sleep by curling up around them.{NEWLINE}It corners foes with speed.",
+   "en": "The mother wraps her long body around{NEWLINE}her young to sleep with them. In{NEWLINE}danger, it swiftly corners the foe.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/162"
+   "origin": "agent",
+   "notes": "US 0805/162 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 163,
@@ -1702,10 +1702,10 @@
   {
    "id": 212,
    "zh": "举起那有着引人注目的花纹的巨钳并不{NEWLINE}只是威慑用的,被劈到也是非常非常危{NEWLINE}险的。",
-   "en": "It raises its huge, boldly patterned{NEWLINE}pincers not just to intimidate. Getting{NEWLINE}struck by them is very dangerous.",
+   "en": "It raises its huge, boldly patterned{NEWLINE}pincers for more than intimidation. A{NEWLINE}blow from them is very, very dangerous.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 213,
@@ -1878,10 +1878,10 @@
   {
    "id": 234,
    "zh": "目不转睛地盯着犄角看的话,会感觉到一{NEWLINE}种似乎要被吸入漩涡的不可思议的感觉。",
-   "en": "Staring at its antlers creates{NEWLINE}an odd sensation as if one were{NEWLINE}being drawn into their centers.",
+   "en": "Staring fixedly at its antlers gives an{NEWLINE}odd feeling, as though you were being{NEWLINE}sucked into a whirlpool.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/234"
+   "origin": "agent",
+   "notes": "US 0805/234 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 235,
@@ -1894,10 +1894,10 @@
   {
    "id": 236,
    "zh": "以勇猛好斗著称,经常找比自己块头大的{NEWLINE}对手挑战,因此身上总是挂着很多很多的{NEWLINE}伤口。",
-   "en": "It is famous for its eagerness to{NEWLINE}fight and always nurses injuries{NEWLINE}from challenging larger foes.",
+   "en": "Famed for its brave, combative nature,{NEWLINE}it often challenges larger foes and is{NEWLINE}always covered in many, many wounds.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/236"
+   "origin": "agent",
+   "notes": "US 0805/236 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 237,
@@ -1958,10 +1958,10 @@
   {
    "id": 244,
    "zh": "据说,炎帝振声一吼时,就预示着世界某{NEWLINE}处的火山将要喷发了。",
-   "en": "It is said that when{NEWLINE}it roars, a volcano erupts{NEWLINE}somewhere around the globe.",
+   "en": "It is said that Entei’s roar foretells a{NEWLINE}volcanic eruption somewhere in the{NEWLINE}world.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/244"
+   "origin": "agent",
+   "notes": "US 0805/244 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 245,
@@ -2182,10 +2182,10 @@
   {
    "id": 272,
    "zh": "一听到欢快的音乐,无穷的力量就会从身{NEWLINE}体中涌出,随着音乐舞个不停。",
-   "en": "If it hears festive music, all its{NEWLINE}muscles fill with energy. It can’t{NEWLINE}help breaking out into a dance.",
+   "en": "When it hears lively music, boundless{NEWLINE}power surges through its body and it{NEWLINE}dances along without stopping.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/272"
+   "origin": "agent",
+   "notes": "US 0805/272 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 273,
@@ -2278,18 +2278,18 @@
   {
    "id": 284,
    "zh": "拥有眼睛模样的触角,４只翅膀能前后左{NEWLINE}右地移动。",
-   "en": "Its antennae have eye patterns{NEWLINE}on them. Its four wings enable it{NEWLINE}to hover and fly in any direction.",
+   "en": "Its antennae look like eyes. Its four{NEWLINE}wings let it move forward, backward,{NEWLINE}left and right.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/284"
+   "origin": "agent",
+   "notes": "US 0805/284 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 285,
    "zh": "由头顶撒下有毒孢子,一旦吸入孢子就会{NEWLINE}腰酸背痛腿抽筋。",
-   "en": "It spouts poison spores from the{NEWLINE}top of its head. These spores{NEWLINE}cause pain all over if inhaled.",
+   "en": "It scatters poisonous spores from its{NEWLINE}head. Inhaling them causes lower back{NEWLINE}pain, aching backs and leg cramps.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/285"
+   "origin": "agent",
+   "notes": "US 0805/285 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 286,
@@ -2318,10 +2318,10 @@
   {
    "id": 289,
    "zh": "全世界最最最懒的精灵,看起来是在打瞌{NEWLINE}睡,其实是在积蓄反击的力量。",
-   "en": "The world’s laziest Pokémon.{NEWLINE}When it is lounging, it is actually{NEWLINE}saving energy for striking back.",
+   "en": "The world’s very, very, very laziest{NEWLINE}Pokémon. It looks like it is dozing, but{NEWLINE}is storing power to strike back.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/289"
+   "origin": "agent",
+   "notes": "US 0805/289 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 290,
@@ -2686,10 +2686,10 @@
   {
    "id": 335,
    "zh": "祖祖辈辈世世代代与饭匙蛇战斗,锋利的{NEWLINE}尖爪是其最厉害的武器。",
-   "en": "It has feuded with Seviper for{NEWLINE}many generations. Its sharp{NEWLINE}claws are its biggest weapons.",
+   "en": "Ancestor after ancestor, generation{NEWLINE}after generation, it fights Seviper. Its{NEWLINE}sharp claws are its best weapon.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0805/335"
+   "origin": "agent",
+   "notes": "US 0805/335 | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 336,
@@ -3326,10 +3326,10 @@
   {
    "id": 415,
    "zh": "从出生起就是３只一体。为了取悦蜂后,{NEWLINE}总是辛勤地采集花蜜。",
-   "en": "It is three in one from birth.{NEWLINE}It always works hard gathering{NEWLINE}honey to please its queen.",
+   "en": "It is three in one from birth. It always{NEWLINE}works hard gathering nectar to please{NEWLINE}its queen.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0798: restore CN meaning/details; verified 216px, 3-line Pokédex limit."
   },
   {
    "id": 416,

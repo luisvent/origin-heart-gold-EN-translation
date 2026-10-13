@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "好大的地球仪！{SCROLL}说起来,地球仪的仪{NEWLINE}是什么意思？",
-   "en": "What a huge globe!{SCROLL}Come to think of it, where does the word{NEWLINE}“globe” come from?",
+   "en": "What a huge globe!{SCROLL}Come to think of it, what does the word{NEWLINE}“globe” mean?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 9,

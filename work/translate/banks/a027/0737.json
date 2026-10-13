@@ -89,10 +89,10 @@
   {
    "id": 10,
    "zh": "也就是说要放弃学{NEWLINE}{VAR:0106:1}是吗？{CLEAR}你确定？{VAR:0200:0}",
-   "en": "So you want to give up on{NEWLINE}{VAR:0106:1}, am I right? {VAR:0200:0}",
+   "en": "So you want to give up on{NEWLINE}{VAR:0106:1}, right?{CLEAR}Are you sure?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0748/10"
+   "origin": "agent",
+   "notes": "US 0748/10 | SOL-C: restored omitted CN explicit confirmation question."
   },
   {
    "id": 11,

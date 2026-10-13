@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "把{VAR:0100:0}送给{VAR:0103:2}！",
-   "en": "{VAR:0100:0} will be{NEWLINE}sent to {VAR:0103:2}.",
+   "en": "{VAR:0100:0} will be{NEWLINE}sent to {VAR:0103:2}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0179/0"
+   "origin": "agent",
+   "notes": "US 0179/0 | CES-early: meaning: preserve recipient, completed deposit aspect and source exclamation intensity"
   },
   {
    "id": 1,
@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "{VAR:0103:2}把{VAR:0100:1}送给了你！",
-   "en": "{VAR:0103:2} sent over{NEWLINE}{VAR:0100:1}.",
+   "en": "{VAR:0103:2} sent you{NEWLINE}{VAR:0100:1}!",
    "status": "draft",
-   "origin": "us",
-   "notes": ""
+   "origin": "agent",
+   "notes": " | CES-early: meaning: preserve recipient, completed deposit aspect and source exclamation intensity"
   },
   {
    "id": 3,
@@ -38,18 +38,18 @@
   {
    "id": 4,
    "zh": "把{VAR:0100:0}寄存了",
-   "en": "{VAR:0100:0} will be put on offer.",
+   "en": "{VAR:0100:0} was deposited.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0179/4"
+   "origin": "agent",
+   "notes": "US 0179/4 | CES-early: meaning: preserve recipient, completed deposit aspect and source exclamation intensity"
   },
   {
    "id": 5,
    "zh": "把{VAR:0100:1}拿了出来！",
-   "en": "{VAR:0100:1} was taken out.",
+   "en": "{VAR:0100:1} was taken out!",
    "status": "draft",
-   "origin": "us",
-   "notes": ""
+   "origin": "agent",
+   "notes": " | CES-early: meaning: preserve recipient, completed deposit aspect and source exclamation intensity"
   }
  ]
 }

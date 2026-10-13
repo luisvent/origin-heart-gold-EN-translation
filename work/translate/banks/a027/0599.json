@@ -320,7 +320,7 @@
   {
    "id": 39,
    "zh": "坂木『差不多该结束了。{NEWLINE}超梦,给他的精灵最后一击！",
-   "en": "Giovanni: Time to end this. Mewtwo,{NEWLINE}finish it off!",
+   "en": "Giovanni: Time to end this. Mewtwo,{NEWLINE}finish off their Pokémon!",
    "status": "draft",
    "origin": "agent",
    "notes": "zh ‘give his Pokémon the final blow’ (他 even for a female player); English avoids the pronoun."
@@ -456,7 +456,7 @@
   {
    "id": 56,
    "zh": "{VAR:FF01:200}{VAR:0103:0}『你的野心就到此为止吧！{VAR:FF01:100}",
-   "en": "{VAR:FF01:200}{VAR:0103:0}: Your scheme ends here!{VAR:FF01:100}",
+   "en": "{VAR:FF01:200}{VAR:0103:0}: Your ambition ends here!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
    "notes": "SIZE-200% line split with {NEWLINE} to fit at 2x (as D-0553); zh ‘your ambition ends here’. Check in game. Double-size shout: one line per page (a line break inside {VAR:FF01:200} overflows the box and corrupts memory; heap_audit.md)."

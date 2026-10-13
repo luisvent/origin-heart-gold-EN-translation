@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "阿金『不听不听,王八念经。{NEWLINE}我要用最快的方式孵化这颗蛋,{CLEAR}才不听你的呢。拜拜咯！",
-   "en": "Gold: La la la, not listening!{NEWLINE}You sound like a turtle chanting{CLEAR}sutras! I’m hatching this Egg{CLEAR}the fastest way there is, and I’m{CLEAR}not listening to you. Bye-bye!",
+   "en": "Gold: Not listening, not listening! You{NEWLINE}sound like a turtle chanting sutras!{CLEAR}I’m hatching this Egg the fastest way{CLEAR}there is, and I’m not listening to{CLEAR}you. Bye-bye!",
    "status": "draft",
    "origin": "agent",
-   "notes": "不听不听,王八念经 (childish taunt) → ‘La la la, not listening! You sound like a turtle chanting sutras!’"
+   "notes": "不听不听,王八念经 (childish taunt) → ‘La la la, not listening! You sound like a turtle chanting sutras!’ | AGENT-0321-0380: Restore repeated not-listening rather than added la-la."
   },
   {
    "id": 8,
@@ -257,10 +257,10 @@
   {
    "id": 31,
    "zh": "呀,谢谢你的伤药。{NEWLINE}用过之后脚终于不那么疼了。{SCROLL}其实我是为了跟舞蹈大师斗舞{NEWLINE}才会在这里蹦来跳去练习的。{CLEAR}但以我现在这个样子{CLEAR}短时间内应该是没法再跳舞了。{SCROLL}如果你对舞蹈感兴趣{NEWLINE}可以沿着34号路的水路往南走,{CLEAR}水路尽头有一片隐秘的树林,{CLEAR}经常会有训练家去那里{CLEAR}跟舞蹈大师斗舞。",
-   "en": "Oh, thanks for the Potion. My{NEWLINE}ankle finally doesn’t hurt so much.{SCROLL}Actually, I was hopping around here{NEWLINE}practicing for a dance-off with the{CLEAR}dance master. But the way I am now,{CLEAR}I won’t be dancing again for a while.{SCROLL}If you’re into dancing, follow{NEWLINE}the water on Route 34 south. At{CLEAR}the end of it there’s a hidden{CLEAR}grove where Trainers often go for{CLEAR}dance-offs with the dance master.",
+   "en": "Oh, thanks for the Potion. My ankle{NEWLINE}finally doesn’t hurt so much.{SCROLL}Actually, I was hopping around here{NEWLINE}practicing for a dance-off with the{CLEAR}dance master. But the way I am now, I{CLEAR}probably won’t be dancing again for{CLEAR}a while.{SCROLL}If you’re into dancing, follow the water{NEWLINE}on Route 34 south. At the end of it{CLEAR}there’s a hidden grove where Trainers{CLEAR}often go for dance-offs with the{CLEAR}dance master.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve should uncertainty about inability to dance."
   },
   {
    "id": 32,
@@ -718,10 +718,10 @@
   {
    "id": 88,
    "zh": "{VAR:0103:0}『我会在这里打倒你,{NEWLINE}不是打倒身为道馆馆主的你,{CLEAR}而是为了全地区的人们和精灵{CLEAR}打倒身为火箭队首领的你！",
-   "en": "{VAR:0103:0}: I’ll defeat you here. Not you{NEWLINE}as a Gym Leader, but you as the boss{CLEAR}of Team Rocket, for the sake of the{CLEAR}people and Pokémon of every region!",
+   "en": "{VAR:0103:0}: I’ll defeat you here. Not you{NEWLINE}as a Gym Leader, but you as the boss of{CLEAR}Team Rocket, for the sake of the people{CLEAR}and Pokémon of the whole region!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: 全地区 is the whole region, not every region."
   },
   {
    "id": 89,
@@ -910,10 +910,10 @@
   {
    "id": 112,
    "zh": "我们认可你了,{NEWLINE}你有资格成为舞蹈大师的主人。",
-   "en": "We accept you. You’re worthy of{NEWLINE}being the dance master’s Trainer.",
+   "en": "We accept you. You’re worthy of being{NEWLINE}the dance master’s owner.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve ownership relationship explicitly."
   },
   {
    "id": 113,
@@ -1009,10 +1009,10 @@
   {
    "id": 124,
    "zh": "你拿着的那个,{NEWLINE}不是满金道馆的正式徽章吗！？{CLEAR}你居然能打败那个大魔王小茜。{SCROLL}谢谢你刚才给我提出的战术建议,{NEWLINE}我会仔细研究这些战术,{CLEAR}争取找出打败小茜的方法。{CLEAR}作为给我建议的谢礼,{CLEAR}这个你就收下吧。",
-   "en": "That thing you’re holding... Isn’t that{NEWLINE}the Goldenrod Gym’s Plain Badge?! You{CLEAR}actually beat that demon queen Whitney.{SCROLL}Thanks for the strategy tips{NEWLINE}earlier. I’ll study them carefully{CLEAR}and find a way to beat Whitney.{CLEAR}Take this as thanks for the advice.",
+   "en": "That thing you’re holding... Isn’t that{NEWLINE}the Goldenrod Gym’s Plain Badge?! You{CLEAR}actually beat that demon queen Whitney.{SCROLL}Thanks for the strategy tips earlier.{NEWLINE}I’ll study them carefully and try to{CLEAR}find a way to beat Whitney. Take this as{CLEAR}thanks for the advice.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Strive to find solution rather than guaranteed outcome."
   },
   {
    "id": 125,
@@ -1137,10 +1137,10 @@
   {
    "id": 140,
    "zh": "沙菲雅『呜呜呜……都怪我,{NEWLINE}非要到草丛里玩才会弄成这样。",
-   "en": "Sapphire: *sob*... It’s all my fault{NEWLINE}for wanting to play in the tall grass.",
+   "en": "Sapphire: *sob* *sob* *sob*... It’s all{NEWLINE}my fault for insisting on playing in the{CLEAR}tall grass.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Insistence on playing caused incident."
   },
   {
    "id": 141,
@@ -1185,18 +1185,18 @@
   {
    "id": 146,
    "zh": "路比『啊,不。{NEWLINE}这点伤对于我来说很稀松平常啦。{CLEAR}你不用放在心上。",
-   "en": "Ruby: Ah, no. A scratch like this is{NEWLINE}nothing for me. Don’t worry about it.",
+   "en": "Ruby: Ah, no. Injuries like this are an{NEWLINE}everyday thing for me. Don’t worry{CLEAR}about it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Ordinary injury not specifically scratch."
   },
   {
    "id": 147,
    "zh": "{VAR:0103:0}『沙菲雅的父亲{NEWLINE}正准备带沙菲雅赶火车,{CLEAR}你的父亲千里先生{CLEAR}也说要你们快点回去,{CLEAR}所以还是别再外面继续逛了。",
-   "en": "{VAR:0103:0}: Sapphire’s dad is getting{NEWLINE}ready to take her to catch a train, and{CLEAR}your dad, Norman, says you both need{CLEAR}to come back quickly. So you’d better{CLEAR}not keep wandering around out here.",
+   "en": "{VAR:0103:0}: Sapphire’s dad is getting{NEWLINE}ready to take her to catch a train, and{CLEAR}your dad, Mr. Norman, says you both{CLEAR}need to come back quickly. So you’d{CLEAR}better not keep wandering around{CLEAR}out here.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Retain Mr. Norman title."
   },
   {
    "id": 148,
@@ -1349,18 +1349,18 @@
   {
    "id": 166,
    "zh": "{VAR:0103:0}『这里就交给阿笔馆主吧,{NEWLINE}我还是先去广播塔找到坂木要紧。",
-   "en": "{VAR:0103:0}: I’ll leave this to{NEWLINE}Bugsy. Finding Giovanni at{CLEAR}the Radio Tower comes first.",
+   "en": "{VAR:0103:0}: I’ll leave this to Gym Leader{NEWLINE}Bugsy. Finding Giovanni at the Radio{CLEAR}Tower comes first.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Gym Leader title."
   },
   {
    "id": 167,
    "zh": "我正在跟向日种子训练呢,{NEWLINE}突然就冲出来一大帮火箭队,{CLEAR}真是吓死个人。{CLEAR}还好阿笔馆主带人即时赶到,{CLEAR}不然我的向日种子可能就被抢走了。",
-   "en": "I was training with my Sunkern when a{NEWLINE}whole gang of Team Rocket burst out.{CLEAR}It scared me half to death. Luckily{CLEAR}Bugsy and his people got here in time,{CLEAR}or my Sunkern might have been stolen.",
+   "en": "I was training with my Sunkern when a{NEWLINE}whole gang of Team Rocket burst out. It{CLEAR}scared me half to death. Luckily Gym{CLEAR}Leader Bugsy and his people got here in{CLEAR}time, or my Sunkern might have{CLEAR}been stolen.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Gym Leader and uncertainty of theft."
   }
  ]
 }

@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "客人{NEWLINE}请往这边！{SCROLL}",
-   "en": "Oh, hello!{NEWLINE}Right this way, please!{SCROLL}",
+   "en": "Dear guest, right this way, please!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0267/0"
+   "origin": "agent",
+   "notes": "US 0267/0 | CES-early: meaning: explicit guest address rather than invented hello"
   },
   {
    "id": 1,
@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "那么说明一下ＷｉーＦｉ俱乐部{NEWLINE}的游戏方法！{SCROLL}中央的柜台可以连接到{CLEAR}ＷｉーＦｉ联络！{SCROLL}登录在朋友卡片里的朋友,{CLEAR}使用ＷｉーＦｉ联络,{SCROLL}就能使用精灵对战{SCROLL}精灵交换等等的机能了。",
-   "en": "Let me explain how the Pokémon Wi-Fi{NEWLINE}Club is set up.{SCROLL}From the middle counter, you may use{NEWLINE}Nintendo Wi-Fi Connection.{SCROLL}Over Nintendo WFC, you may conduct{NEWLINE}trades and battles with friends{CLEAR}that you’ve registered in{CLEAR}your Pal Pad.",
+   "en": "Let me explain how to use the Pokémon{NEWLINE}Wi-Fi Club!{SCROLL}You can connect to Nintendo Wi-Fi{NEWLINE}Connection at the middle counter!{SCROLL}By connecting over Nintendo Wi-Fi{NEWLINE}Connection with friends registered in{CLEAR}your Pal Pad,{SCROLL}you can have Pokémon battles,{SCROLL}trade Pokémon, and use other features.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0267/6 | seed rejected us [tag_mismatch] (candidate US 0267#6; text not kept)"
+   "notes": "US 0267/6 | seed rejected us [tag_mismatch] (candidate US 0267#6; text not kept) | CES-early: meaning/format: retain every source feature and four intentional SCROLL pauses"
   },
   {
    "id": 7,
@@ -228,18 +228,18 @@
   {
    "id": 27,
    "zh": "非常抱歉⋯⋯{NEWLINE}穿黑衣服的人,{CLEAR}干坏事的人,{CLEAR}加入火箭队的人,{SCROLL}我们恕不接待。",
-   "en": "Pardon us for the inconvenience...{NEWLINE}but people wearing black clothing,{CLEAR}people who engage in unlawful{CLEAR}activities, and people who are{CLEAR}members of Team Rocket{CLEAR}are barred from participating.",
+   "en": "Pardon us for the inconvenience... but{NEWLINE}as for people wearing black clothing,{CLEAR}people who do bad things, and members{CLEAR}of Team Rocket,{SCROLL}we cannot serve them.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0267/27"
+   "origin": "agent",
+   "notes": "US 0267/27 | CES-early: meaning/format: bad deeds not specifically unlawful acts; source refusal afterSCROLL"
   },
   {
    "id": 28,
    "zh": "非常抱歉,{SCROLL}若叶镇的空木博士{NEWLINE}有来电话说{CLEAR}锯齿耳朵的皮丘{CLEAR}无法通过,{SCROLL}请先把它存入电脑,{NEWLINE}然后再来。",
-   "en": "Pardon us for the inconvenience.{SCROLL}We have received word from Professor{NEWLINE}Elm in New Bark Town that a Pichu{SCROLL}with spiky ears cannot be allowed{NEWLINE}to enter.{SCROLL}Please place it in your PC Box and{NEWLINE}enter again.",
+   "en": "Pardon us for the inconvenience.{SCROLL}We received a phone call from Professor{NEWLINE}Elm in New Bark Town that a Pichu with{CLEAR}spiky ears cannot be allowed to enter.{SCROLL}Please place it in your PC Box and enter{NEWLINE}again.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0267/28; modernised from US 0267#28"
+   "origin": "agent",
+   "notes": "US 0267/28; modernised from US 0267#28 | CES-early: meaning/format: source phone call; preserve source2paragraph pauses, remove invented break midnoun"
   },
   {
    "id": 29,

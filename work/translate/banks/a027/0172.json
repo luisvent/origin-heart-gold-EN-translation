@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "セーブはかい",
-   "en": "Save data corrupted",
+   "en": "Corrupt save data",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: corruption-test command not state/deletion, retain external qualifier"
   },
   {
    "id": 12,
@@ -134,10 +134,10 @@
   {
    "id": 16,
    "zh": "がいぶセーブはかい",
-   "en": "Destroy the outside saved file",
+   "en": "Corrupt external save data",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: corruption-test command not state/deletion, retain external qualifier"
   },
   {
    "id": 17,

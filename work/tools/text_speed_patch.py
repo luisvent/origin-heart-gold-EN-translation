@@ -471,7 +471,7 @@ def receipt(rom,code_patches=None):
             'arm9_code_patches':{'normalised_to_expect':[c[0] for c in cps],
                                  'held_value':[c[0] for c in cps if c[4] is not None and main[c[2]:c[2]+len(c[4])]==c[4]]}}
 
-def verify(rom,report,code_patches=None):
+def verify(rom,report,code_patches=None,native_tail=None):
     payload=load_payload()
     if report['source_code_sha256']!=source_digest():raise ValueError('Patch source changed')
     if digest(rom.arm9)!=report['arm9_sha256']:raise ValueError('Patched ARM9 changed')
@@ -500,6 +500,10 @@ def verify(rom,report,code_patches=None):
     # This catches future build composition mistakes even if a fresh receipt was
     # recorded after a hook, allocation or default was accidentally overwritten.
     end=(BASE+len(blob)+31)&~31
+    if native_tail and native_tail.get('enabled'):
+        if native_tail['base'] != end:
+            raise ValueError('Additional native payload does not follow text speed')
+        end = native_tail['itcm_end']
     if (sections[0].ramAddress!=0x02000000 or sections[1].ramAddress!=0x01ff8000
             or sections[1].bssSize or len(sections[1].data)!=end-0x01ff8000):
         raise ValueError('Native runtime section layout changed')

@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "嗯……{SCROLL}以现在的趋势来说,{NEWLINE}这句话很适合你。{SCROLL}{VAR:011C:0}！{SCROLL}在适当的时候用上吧。",
-   "en": "Very well...{SCROLL}The trendy thing for you to say{NEWLINE}would be...{SCROLL}{VAR:011C:0}!{SCROLL}Use it when the time is right.",
+   "en": "Hmm...{SCROLL}With the current trends, this saying{NEWLINE}suits you.{SCROLL}{VAR:011C:0}!{SCROLL}Use it when the time is right.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0355/2 | RV013: meaning: zh says use it at the right time (hack text differs from US)"
+   "notes": "US 0355/2 | RV013: meaning: zh says use it at the right time (hack text differs from US) | AGENT-0321-0380: Restore appropriate timing rather than another trendy assertion."
   },
   {
    "id": 3,
@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "适当的时候{NEWLINE}用上适当的妙语吧。",
-   "en": "I hope you’ll use trendy sayings in{NEWLINE}trendy ways.",
+   "en": "Use the right trendy saying at the{NEWLINE}right time.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore appropriate phrase at appropriate time."
   },
   {
    "id": 5,

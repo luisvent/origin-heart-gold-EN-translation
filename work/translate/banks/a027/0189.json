@@ -2184,10 +2184,10 @@
   {
    "id": 261,
    "zh": "红草绳",
-   "en": "RED ROPE",
+   "en": "RED STRAW ROPE",
    "status": "draft",
    "origin": "agent",
-   "notes": "红草绳: context unknown (quiz answer?); literal."
+   "notes": "红草绳: context unknown (quiz answer?); literal. | CES-early: detail: source straw material, side distinction, older brother relationship, reflexive leave, energy and focused strength/mental concentration"
   },
   {
    "id": 262,
@@ -2452,10 +2452,10 @@
   {
    "id": 292,
    "zh": "强的一方",
-   "en": "STRENGTH",
+   "en": "THE STRONGER SIDE",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0191/292",
+   "origin": "agent",
+   "notes": "US 0191/292 | CES-early: detail: source straw material, side distinction, older brother relationship, reflexive leave, energy and focused strength/mental concentration",
    "category": "menu_touch_1line"
   },
   {
@@ -2470,10 +2470,10 @@
   {
    "id": 294,
    "zh": "弱的一方",
-   "en": "WEAKNESS",
+   "en": "THE WEAKER SIDE",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0191/294",
+   "origin": "agent",
+   "notes": "US 0191/294 | CES-early: detail: source straw material, side distinction, older brother relationship, reflexive leave, energy and focused strength/mental concentration",
    "category": "menu_touch_1line"
   },
   {
@@ -2496,10 +2496,10 @@
   {
    "id": 297,
    "zh": "关于哥哥",
-   "en": "ABOUT MAXIMO",
+   "en": "ABOUT BIG BROTHER",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0191/297",
+   "origin": "agent",
+   "notes": "US 0191/297 | CES-early: detail: source straw material, side distinction, older brother relationship, reflexive leave, energy and focused strength/mental concentration",
    "category": "menu_touch_1line"
   },
   {
@@ -2825,10 +2825,10 @@
   {
    "id": 335,
    "zh": "Ｂ　从成员中退出",
-   "en": "B BUTTON: REMOVE FROM MEMBERS",
+   "en": "B BUTTON: LEAVE THE GROUP",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0191/335"
+   "origin": "agent",
+   "notes": "US 0191/335 | CES-early: detail: source straw material, side distinction, older brother relationship, reflexive leave, energy and focused strength/mental concentration"
   },
   {
    "id": 336,
@@ -3636,10 +3636,10 @@
   {
    "id": 429,
    "zh": "释放能量攻击。{NEWLINE}１０％特防下降１级。",
-   "en": "Fires off gathered energy. Has a 10%{NEWLINE}chance to lower Sp. Def by 1 stage.",
+   "en": "Releases energy to attack. Has a 10%{NEWLINE}chance to lower Sp. Def by 1 stage.",
    "status": "reviewed",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES-early: detail: source straw material, side distinction, older brother relationship, reflexive leave, energy and focused strength/mental concentration"
   },
   {
    "id": 430,
@@ -3692,18 +3692,18 @@
   {
    "id": 436,
    "zh": "集中力量让肌肉收缩,{NEWLINE}物攻和物防上升１级。",
-   "en": "The user tenses its muscles, raising{NEWLINE}Attack and Defense by 1 stage each.",
+   "en": "The user gathers strength and tenses{NEWLINE}its muscles, raising Attack and{CLEAR}Defense by 1 stage each.",
    "status": "reviewed",
    "origin": "agent",
-   "notes": "US 0191/436"
+   "notes": "US 0191/436 | CES-early: detail: source straw material, side distinction, older brother relationship, reflexive leave, energy and focused strength/mental concentration"
   },
   {
    "id": 437,
    "zh": "集中精神让心平静,{NEWLINE}特攻和特防上升１级。",
-   "en": "The user calms its mind, raising Sp. Atk{NEWLINE}and Sp. Def by 1 stage each.",
+   "en": "The user concentrates to calm its mind,{NEWLINE}raising Sp. Atk and Sp. Def by 1 stage.",
    "status": "reviewed",
    "origin": "agent",
-   "notes": "US 0191/437"
+   "notes": "US 0191/437 | CES-early: detail: source straw material, side distinction, older brother relationship, reflexive leave, energy and focused strength/mental concentration"
   },
   {
    "id": 438,

@@ -679,17 +679,17 @@
   {
    "id": 83,
    "zh": "我终于乘上风了！{NEWLINE}",
-   "en": "The wind is finally with us!{NEWLINE}",
+   "en": "The wind is finally with me!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/83"
   },
   {
    "id": 84,
    "zh": "我还能飞！{NEWLINE}",
-   "en": "We can still fly!{NEWLINE}",
+   "en": "I can still fly!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/84"
   },
   {
@@ -871,17 +871,17 @@
   {
    "id": 107,
    "zh": "我终于乘上风了！{NEWLINE}",
-   "en": "The wind is finally with us!{NEWLINE}",
+   "en": "The wind is finally with me!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/107"
   },
   {
    "id": 108,
    "zh": "我还能飞！{NEWLINE}",
-   "en": "We can still fly!{NEWLINE}",
+   "en": "I can still fly!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/108"
   },
   {
@@ -1843,9 +1843,9 @@
   {
    "id": 227,
    "zh": "现在要坚持！{NEWLINE}",
-   "en": "We’re standing firm!{NEWLINE}",
+   "en": "Hold on!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/227"
   },
   {
@@ -1963,9 +1963,9 @@
   {
    "id": 242,
    "zh": "要坚持住！{NEWLINE}",
-   "en": "We’re standing firm!{NEWLINE}",
+   "en": "Hold on!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/242"
   },
   {
@@ -2067,9 +2067,9 @@
   {
    "id": 255,
    "zh": "难对付的是你啊⋯⋯{NEWLINE}",
-   "en": "Looks like you’re the stronger one...{NEWLINE}",
+   "en": "You’re the hard one to beat...{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/255"
   },
   {
@@ -2259,9 +2259,9 @@
   {
    "id": 279,
    "zh": "难对付的是你啊⋯⋯{NEWLINE}",
-   "en": "Looks like you’re the stronger one...{NEWLINE}",
+   "en": "You’re the hard one to beat...{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/279"
   },
   {
@@ -2347,9 +2347,9 @@
   {
    "id": 290,
    "zh": "好像快不行了⋯⋯{NEWLINE}哎呀,真是的。{NEWLINE}",
-   "en": "Not good. Seriously not good.{NEWLINE}",
+   "en": "Looks like I can’t go on...{NEWLINE}Oh, dear.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/290"
   },
   {
@@ -3866,9 +3866,9 @@
   {
    "id": 475,
    "zh": "钓到精灵时{NEWLINE}传到钓竿上的手感！{CLEAR}那真是钓鱼的妙趣啊！{NEWLINE}",
-   "en": "The tug you feel on the fishing line when{NEWLINE}you hook a Pokémon...{SCROLL}That’s the best feeling ever for an{NEWLINE}angler like me.{NEWLINE}",
+   "en": "The tug you feel on the rod when{NEWLINE}you hook a Pokémon...{CLEAR}That’s the joy of fishing!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/475"
   },
   {
@@ -4059,9 +4059,9 @@
   {
    "id": 498,
    "zh": "去岩山隧道吧,{NEWLINE}去抓大岩蛇！{SCROLL}",
-   "en": "I should go to Rock Tunnel to get{NEWLINE}myself an Onix.{SCROLL}",
+   "en": "Go to Rock Tunnel and catch an Onix!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/498; modernised from US 0728#498"
   },
   {
@@ -4755,7 +4755,7 @@
   {
    "id": 582,
    "zh": "战斗就这里吧。{NEWLINE}",
-   "en": "Guess this is where the battle ends.{NEWLINE}",
+   "en": "Let’s battle here.{NEWLINE}",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position"
@@ -4854,9 +4854,9 @@
   {
    "id": 594,
    "zh": "难以置信。{NEWLINE}",
-   "en": "How could I lose?{NEWLINE}",
+   "en": "Unbelievable.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/594"
   },
   {
@@ -5228,9 +5228,9 @@
   {
    "id": 640,
    "zh": "唔~还是你更强啊。{NEWLINE}",
-   "en": "Oh! You’re really strong!{NEWLINE}",
+   "en": "Oh! You’re stronger than me!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/640"
   },
   {
@@ -5255,9 +5255,9 @@
   {
    "id": 643,
    "zh": "⋯⋯好强！{NEWLINE}",
-   "en": "You’re too much!{NEWLINE}",
+   "en": "So strong!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/643"
   },
   {
@@ -5367,9 +5367,9 @@
   {
    "id": 657,
    "zh": "身上有六只精灵后{NEWLINE}再抓精灵的话,{CLEAR}抓到的精灵会通过电脑通信{CLEAR}自动送到箱子里！{NEWLINE}",
-   "en": "You can catch Pokémon even if you have{NEWLINE}six with you.{SCROLL}If you catch one, it’ll go to your Box{NEWLINE}automatically.{NEWLINE}",
+   "en": "If you already have six Pokémon with{NEWLINE}you and catch another, the PC{CLEAR}automatically sends it to your Box.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/657",
    "qa_ignore": [
     "glossary:电脑"
@@ -5491,9 +5491,9 @@
   {
    "id": 671,
    "zh": "哦！你来啦,年轻人！{NEWLINE}大叔我今天可不会再输给你了！{SCROLL}",
-   "en": "Oh look, a kid challenger!{NEWLINE}This old man ain’t losing today!{SCROLL}",
+   "en": "Oh, you came, youngster!{NEWLINE}I won’t lose to you again today!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/671"
   },
   {
@@ -5627,9 +5627,9 @@
   {
    "id": 688,
    "zh": "好！马上对战吧！{SCROLL}我和精灵可{NEWLINE}都是精神抖擞的哦！{SCROLL}",
-   "en": "All righty, then!{NEWLINE}My Pokémon and I are raring to go!{SCROLL}",
+   "en": "All right! Let’s battle now!{NEWLINE}My Pokémon and I are raring to go!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/688"
   },
   {
@@ -5651,17 +5651,17 @@
   {
    "id": 691,
    "zh": "唔⋯⋯要不要送到{NEWLINE}培育屋那儿去呢？{NEWLINE}",
-   "en": "Hmm... Maybe I should take them to{NEWLINE}Pokémon Day Care? What should I do?{NEWLINE}",
+   "en": "Hmm... Should I take them to{NEWLINE}Pokémon Day Care?{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/691"
   },
   {
    "id": 692,
    "zh": "来得正好！{SCROLL}和我精心培养的精灵{NEWLINE}对战吧！{SCROLL}",
-   "en": "Hey, you’re back!{SCROLL}Battle my carefully trained Pokémon!{SCROLL}",
+   "en": "Perfect timing!{SCROLL}Battle my carefully raised Pokémon!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/692"
   },
   {
@@ -5844,17 +5844,17 @@
   {
    "id": 714,
    "zh": "练习还不行的话就特训！{NEWLINE}因为我的目标{CLEAR}是道馆馆主！{NEWLINE}",
-   "en": "If you fail in practice, then you have{NEWLINE}to try harder! I’m aiming to be a{CLEAR}Gym Leader!{NEWLINE}",
+   "en": "If practice isn’t enough, I’ll train{NEWLINE}even harder! I’m aiming to be a{CLEAR}Gym Leader!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/714"
   },
   {
    "id": 715,
    "zh": "我在班里{NEWLINE}可是最强的精灵训练师！{SCROLL}",
-   "en": "I’m the best in my class at Pokémon.{SCROLL}",
+   "en": "I’m the strongest Pokémon Trainer{NEWLINE}in my class!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/715"
   },
   {
@@ -5868,9 +5868,9 @@
   {
    "id": 717,
    "zh": "我为了能在班上炫耀{NEWLINE}做了不少努力呢。{NEWLINE}",
-   "en": "I’m trying hard so I can be the star in{NEWLINE}my class.{NEWLINE}",
+   "en": "I’ve worked hard so I can show off{NEWLINE}in my class.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/717"
   },
   {
@@ -6026,9 +6026,9 @@
   {
    "id": 736,
    "zh": "只要有虫精灵,{NEWLINE}刀山火海我也去啊。{SCROLL}",
-   "en": "I’ll go anywhere if bug Pokémon{NEWLINE}appear there.{SCROLL}",
+   "en": "I’d brave mountains of blades and seas{NEWLINE}of fire for Bug Pokémon!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/736"
   },
   {
@@ -6311,9 +6311,9 @@
   {
    "id": 770,
    "zh": "你的精灵很强吗？{SCROLL}要是很强的话,{NEWLINE}教我些窍门吧。{SCROLL}",
-   "en": "Hey, are you good at Pokémon?{SCROLL}If you’re really good, I want you to{NEWLINE}teach me some things.{SCROLL}",
+   "en": "Are your Pokémon strong?{SCROLL}If so, teach me a few tricks.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/770"
   },
   {
@@ -6621,9 +6621,9 @@
   {
    "id": 808,
    "zh": "就这么浮在海上的话{NEWLINE}一定会被大海漂走的。{NEWLINE}",
-   "en": "While I float like this, the waves carry{NEWLINE}me along.{NEWLINE}",
+   "en": "If I keep floating like this, the sea{NEWLINE}will carry me away.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/808"
   },
   {
@@ -7136,9 +7136,9 @@
   {
    "id": 872,
    "zh": "那之后怎么样了？{NEWLINE}看到传说中的鸟精灵了吗？{SCROLL}",
-   "en": "How has it been?{NEWLINE}Did you see the legendary Pokémon?{SCROLL}",
+   "en": "How has it been? Did you see any{NEWLINE}of the legendary bird Pokémon?{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/872"
   },
   {
@@ -7192,9 +7192,9 @@
   {
    "id": 879,
    "zh": "我要赢！{NEWLINE}一定要赢！{SCROLL}",
-   "en": "I’m gonna win for sure!{SCROLL}",
+   "en": "I want to win!{NEWLINE}I have to win!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/879"
   },
   {
@@ -7296,9 +7296,9 @@
   {
    "id": 892,
    "zh": "精灵对战的时候{NEWLINE}你在想什么呢？{SCROLL}光是使用厉害的技能{NEWLINE}也不行。{SCROLL}",
-   "en": "What is your battle strategy?{NEWLINE}It is foolish to use strong{CLEAR}moves indiscriminately.{SCROLL}",
+   "en": "What are you thinking during a{NEWLINE}Pokémon battle?{SCROLL}Just using powerful moves isn’t{NEWLINE}enough, either.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/892; layout rebalance 2026-10-09 (prompt icons / single-word page)",
    "qa_ignore": [
     "glossary:精灵"
@@ -7475,9 +7475,9 @@
   {
    "id": 914,
    "zh": "人生最大的喜悦{NEWLINE}就是遇到精灵的时候！{NEWLINE}",
-   "en": "The best thing ever to happen to me was{NEWLINE}discovering Pokémon.{NEWLINE}",
+   "en": "The greatest joy in life is meeting{NEWLINE}Pokémon!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/914"
   },
   {
@@ -7579,9 +7579,9 @@
   {
    "id": 927,
    "zh": "我没有还能{NEWLINE}战斗的精灵了⋯⋯{NEWLINE}",
-   "en": "I don’t have any Pokémon left...{NEWLINE}",
+   "en": "I don’t have any Pokémon left{NEWLINE}that can battle...{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/927"
   },
   {
@@ -8133,9 +8133,9 @@
   {
    "id": 994,
    "zh": "在海面上输掉了！{NEWLINE}",
-   "en": "I lost on my home field...{NEWLINE}",
+   "en": "I lost on the sea’s surface!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/994"
   },
   {
@@ -8700,9 +8700,9 @@
   {
    "id": 1063,
    "zh": "干嘛？{NEWLINE}盯着人家脸看⋯⋯{SCROLL}⋯⋯啊！是你{NEWLINE}约我的吗？{SCROLL}",
-   "en": "What?{NEWLINE}Staring at people’s faces.{SCROLL}...Oh, didn’t I make a promise to{NEWLINE}someone? Was that you?{SCROLL}",
+   "en": "What? Why are you staring at me...?{SCROLL}Oh! Was it you I arranged to meet?{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1063"
   },
   {
@@ -8732,9 +8732,9 @@
   {
    "id": 1067,
    "zh": "呀啊！{NEWLINE}你来了啊！{SCROLL}",
-   "en": "Yay!{NEWLINE}You kept your promise and came back!{SCROLL}",
+   "en": "Oh! You came!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1067"
   },
   {
@@ -8962,9 +8962,9 @@
   {
    "id": 1095,
    "zh": "唔唔⋯⋯你到底是谁！{NEWLINE}",
-   "en": "Ugh... What are you?!{NEWLINE}",
+   "en": "Ugh... Who are you?!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1095"
   },
   {
@@ -8989,7 +8989,7 @@
   {
    "id": 1098,
    "zh": "为了防备意外情况发生,{NEWLINE}我特意守在这里驱逐碍事者。{SCROLL}",
-   "en": "I’m posted here specially to drive{NEWLINE}off troublemakers, just in case.{SCROLL}",
+   "en": "I’m standing guard here deliberately{NEWLINE}to drive off troublemakers in case{CLEAR}something unexpected happens.{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position"
@@ -9360,9 +9360,9 @@
   {
    "id": 1144,
    "zh": "哈哈哈~{NEWLINE}你可真是精力充沛啊！{NEWLINE}",
-   "en": "Wa ha ha! You’re a feisty one!{NEWLINE}",
+   "en": "Ha ha ha! You’re full of energy!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1144"
   },
   {
@@ -9472,7 +9472,7 @@
   {
    "id": 1158,
    "zh": "问我们在这里干什么？{SCROLL}既然你诚心诚意的发问了,{NEWLINE}那我就大发慈悲地揍扁你！{SCROLL}",
-   "en": "You want to know what we’re doing here?{SCROLL}Prepare for trouble! I’ll make it double{NEWLINE}and beat you flat!{SCROLL}",
+   "en": "You want to know what we’re doing here?{SCROLL}Since you asked so sincerely,{NEWLINE}I’ll be merciful and beat you flat!{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position; motto parody, canon dub opener (D-1437)"
@@ -10100,7 +10100,7 @@
   {
    "id": 1235,
    "zh": "你休想乱动电脑上的{NEWLINE}紧急锁闭门控制程序！{SCROLL}",
-   "en": "Don’t you dare touch the{NEWLINE}emergency lockdown door{CLEAR}controls on that computer!{SCROLL}",
+   "en": "Don’t you dare touch the emergency{NEWLINE}lockdown door control program{CLEAR}on that computer!{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position",
@@ -10462,9 +10462,9 @@
   {
    "id": 1278,
    "zh": "没见过你啊~{SCROLL}",
-   "en": "It’s a stranger--someone we{NEWLINE}don’t know.{SCROLL}",
+   "en": "I haven’t seen you before...{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1278"
   },
   {
@@ -10486,9 +10486,9 @@
   {
    "id": 1281,
    "zh": "我们有两个人的,{NEWLINE}你也多带点精灵来吧！{NEWLINE}",
-   "en": "We fight as a team. Come back later with{NEWLINE}more Pokémon.{NEWLINE}",
+   "en": "There are two of us. Bring more{NEWLINE}Pokémon to battle us!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1281"
   },
   {
@@ -11234,9 +11234,9 @@
   {
    "id": 1373,
    "zh": "我的精灵都用尽了？！{NEWLINE}",
-   "en": "My Pokémon bucket is empty!{NEWLINE}",
+   "en": "I’m out of Pokémon?!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1373"
   },
   {
@@ -11330,7 +11330,7 @@
   {
    "id": 1385,
    "zh": "利塔『恋爱中的女人{NEWLINE}很性急的。{SCROLL}不过和他在一起{NEWLINE}也不会无聊！{SCROLL}",
-   "en": "Rita: A woman in love is impatient.{SCROLL}But if she’s with her boyfriend,{NEWLINE}waiting is never a chore!{SCROLL}",
+   "en": "A woman in love is impatient.{SCROLL}But she’s never bored with him!{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0728/1385"
@@ -11354,9 +11354,9 @@
   {
    "id": 1388,
    "zh": "无论准备得如何周全,{NEWLINE}该失败的时候还是会失败的。{NEWLINE}",
-   "en": "It doesn’t matter what kind of{NEWLINE}preparation you’ve done.{CLEAR}If you lose, you lose.{NEWLINE}",
+   "en": "No matter how well you prepare,{NEWLINE}when it’s time to fail, you still fail.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1388"
   },
   {
@@ -11386,9 +11386,9 @@
   {
    "id": 1392,
    "zh": "终于来了~！{NEWLINE}我都没吃饭,就等你呢！{SCROLL}",
-   "en": "Hey, you’re back! I haven’t eaten{NEWLINE}anything while I waited!{SCROLL}",
+   "en": "You finally came! I haven’t eaten{NEWLINE}while waiting for you!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1392"
   },
   {
@@ -11952,9 +11952,9 @@
   {
    "id": 1462,
    "zh": "啊~啊,结束了吗。{NEWLINE}",
-   "en": "Aaahh...that’s it.{NEWLINE}",
+   "en": "Ah... Is it over already?{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1462"
   },
   {
@@ -12067,17 +12067,17 @@
   {
    "id": 1476,
    "zh": "太好了！{NEWLINE}我要穿户外唦裤！{SCROLL}",
-   "en": "Phew!{NEWLINE}I’ve worn my best swim trunks today!{SCROLL}",
+   "en": "Great! I’ll put on my outdoor{NEWLINE}swim trunks!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1476"
   },
   {
    "id": 1477,
    "zh": "就算穿了好唦裤,{NEWLINE}赢不了的时候还是赢不了。{NEWLINE}",
-   "en": "Even if you’re wearing your best pants,{NEWLINE}if you don’t win--you just don’t win.{NEWLINE}",
+   "en": "Even in my best swim trunks,{NEWLINE}if I can’t win, I can’t win.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1477"
   },
   {
@@ -12155,9 +12155,9 @@
   {
    "id": 1487,
    "zh": "没抓到的精灵永远是最大的,{NEWLINE}这话真是对啊！{NEWLINE}",
-   "en": "It’s said that the Pokémon that{NEWLINE}escaped were huge. It’s the truth!{NEWLINE}",
+   "en": "The Pokémon that got away is{NEWLINE}always the biggest. So true!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1487"
   },
   {
@@ -12187,9 +12187,9 @@
   {
    "id": 1491,
    "zh": "我是因为有耐心{NEWLINE}才开始钓鱼的呢,{SCROLL}还是因为钓鱼{NEWLINE}才有耐心的呢。{SCROLL}这是个问题！{SCROLL}",
-   "en": "Question is...did I become a fisherman{NEWLINE}because I’m patient, or did I get more{CLEAR}patient because I’m a fisherman?{SCROLL}",
+   "en": "Here’s a question: did I start{NEWLINE}fishing because I was patient, or{CLEAR}did fishing make me patient?{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1491"
   },
   {
@@ -12275,17 +12275,17 @@
   {
    "id": 1502,
    "zh": "因为实在是太像了,{NEWLINE}所以我们还给他起了个{CLEAR}外号叫蚊香蛙老师！{NEWLINE}",
-   "en": "Due to the incredible resemblance,{NEWLINE}we called our teacher{CLEAR}Professor Poliwhirl!{NEWLINE}",
+   "en": "He looked so much like one that{NEWLINE}we nicknamed him Teacher Poliwhirl!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1502; modernised from US 0728#1502"
   },
   {
    "id": 1503,
    "zh": "游唦是全身运动,{NEWLINE}最适合锻炼体力了！{SCROLL}",
-   "en": "Swimming is a full-body exercise, so it’s{NEWLINE}really good for building strength!{SCROLL}",
+   "en": "Swimming works the whole body.{NEWLINE}It’s perfect for building stamina!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1503",
    "qa_ignore": [
     "glossary:体力"
@@ -12388,9 +12388,9 @@
   {
    "id": 1515,
    "zh": "小乐『要和我们{NEWLINE}对战的话{CLEAR}就要多带些精灵来。{NEWLINE}",
-   "en": "Day: If you want to battle Pokémon{NEWLINE}with us, you’ll have to bring more...{NEWLINE}",
+   "en": "Day: If you want to battle us,{NEWLINE}bring more Pokémon.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1515"
   },
   {
@@ -12420,9 +12420,9 @@
   {
    "id": 1519,
    "zh": "小奇『要和我们{NEWLINE}对战的话{CLEAR}就多带些精灵来吧。{NEWLINE}",
-   "en": "Dani: If you want to battle Pokémon{NEWLINE}with us, you’ll have to bring more...{NEWLINE}",
+   "en": "Dani: If you want to battle us,{NEWLINE}bring more Pokémon.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1519"
   },
   {
@@ -12647,17 +12647,17 @@
   {
    "id": 1547,
    "zh": "谭『你还是再多带点{NEWLINE}精灵来吧！{NEWLINE}",
-   "en": "Thom: You should carry more Pokémon{NEWLINE}with you, right?{NEWLINE}",
+   "en": "Thom: You should bring more{NEWLINE}Pokémon with you!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1547"
   },
   {
    "id": 1548,
    "zh": "安『我们两个{NEWLINE}可不是泛泛之辈哦！{SCROLL}",
-   "en": "Kae: The two of us aren’t just some{NEWLINE}boring pair!{SCROLL}",
+   "en": "Kae: The two of us are no{NEWLINE}ordinary pair!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1548"
   },
   {
@@ -12671,9 +12671,9 @@
   {
    "id": 1550,
    "zh": "安『看来你不只是一个{NEWLINE}普通的训练师啊！{NEWLINE}",
-   "en": "Kae: I figured you were an ordinary{NEWLINE}lone Trainer. Boy, was I wrong!{NEWLINE}",
+   "en": "Kae: You’re clearly no{NEWLINE}ordinary Trainer!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1550"
   },
   {
@@ -12775,9 +12775,9 @@
   {
    "id": 1563,
    "zh": "哎呀呀,年轻的训练家,{NEWLINE}和大叔我较量较量吧！{SCROLL}",
-   "en": "Hey hey there, you young Trainer!{NEWLINE}Won’t you battle with me?{SCROLL}",
+   "en": "Hey there, young Trainer!{NEWLINE}Battle this old man!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1563"
   },
   {
@@ -12823,9 +12823,9 @@
   {
    "id": 1569,
    "zh": "你到底是什么人？{NEWLINE}",
-   "en": "What in the world are you?{NEWLINE}",
+   "en": "Who are you, really?{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1569"
   },
   {
@@ -12999,7 +12999,7 @@
   {
    "id": 1591,
    "zh": "真是潜力无穷的年轻人。{NEWLINE}",
-   "en": "What a young one, with{NEWLINE}boundless potential.{NEWLINE}",
+   "en": "What a young person with{NEWLINE}boundless potential.{NEWLINE}",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position"
@@ -13007,7 +13007,7 @@
   {
    "id": 1592,
    "zh": "果然,你们很强啊。{NEWLINE}",
-   "en": "Just as I thought,{NEWLINE}you really are strong.{NEWLINE}",
+   "en": "As I thought, you’re all strong.{NEWLINE}",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position"
@@ -13474,9 +13474,9 @@
   {
    "id": 1650,
    "zh": "咔~嚓。{NEWLINE}",
-   "en": "Crash!{NEWLINE}",
+   "en": "Crack!{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1650"
   },
   {
@@ -13546,7 +13546,7 @@
   {
    "id": 1659,
    "zh": "这都无法打败你？！{NEWLINE}看来只能认输了。{NEWLINE}",
-   "en": "Even that can’t beat you?! Looks{NEWLINE}like we have to admit defeat.{NEWLINE}",
+   "en": "Even that couldn’t beat you?!{NEWLINE}I’ll have to admit defeat.{NEWLINE}",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position"
@@ -13642,7 +13642,7 @@
   {
    "id": 1671,
    "zh": "就凭你们——！！！{NEWLINE}",
-   "en": "By the likes of you...!!!{NEWLINE}",
+   "en": "The likes of you two...?!{NEWLINE}",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position"
@@ -13882,9 +13882,9 @@
   {
    "id": 1701,
    "zh": "急着进攻了⋯⋯{NEWLINE}",
-   "en": "Tch! I tried to rush things...{NEWLINE}",
+   "en": "I rushed my attack...{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1701"
   },
   {
@@ -13930,9 +13930,9 @@
   {
    "id": 1707,
    "zh": "是我培育得还不够吗？{NEWLINE}",
-   "en": "Maybe I didn’t train enough?{NEWLINE}",
+   "en": "Maybe I haven’t raised my{NEWLINE}Pokémon well enough?{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1707"
   },
   {
@@ -13978,9 +13978,9 @@
   {
    "id": 1713,
    "zh": "原来如此~{NEWLINE}还有这种战术啦。{NEWLINE}",
-   "en": "I see. So that’s how you battle.{NEWLINE}",
+   "en": "I see... So there’s a{NEWLINE}tactic like that, too.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0728/1713"
   },
   {

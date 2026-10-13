@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "原来如此,原来如此,{SCROLL}阿尔宙斯和未知图腾力量的影响下{CLEAR}产生了巨大的能量,{CLEAR}让你飞到了{CLEAR}神都遗迹吗？{SCROLL}未知图腾和阿鲁夫的遗迹和{NEWLINE}还有阿尔宙斯⋯⋯{CLEAR}谜题越来越复杂了！{SCROLL}我的好奇心{NEWLINE}也越来越强烈了！{SCROLL}什么时候一定{NEWLINE}要解开这个谜！{SCROLL}",
-   "en": "I see.{SCROLL}The power of Arceus and Unown affected{NEWLINE}each other to create a huge energy,{CLEAR}which sent you to the Sinjoh Ruins...?{SCROLL}Unown, the Ruins of Alph, and Arceus...{CLEAR}The mystery deepens...{SCROLL}It has made me even more inquisitive!{SCROLL}I will one day solve all the mysteries!{SCROLL}",
+   "en": "I see, I see.{SCROLL}The power of Arceus and Unown created{NEWLINE}tremendous energy, which sent you{CLEAR}to the Sinjoh Ruins...?{SCROLL}Unown, the Ruins of Alph, and Arceus...{CLEAR}The mystery grows ever more complex!{SCROLL}My curiosity keeps growing too!{SCROLL}One day, I must solve this mystery!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0084/5; modernised from US 0084#5"
+   "origin": "agent",
+   "notes": "US 0084/5; modernised from US 0084#5 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   }
  ]
 }

@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "那么,就先帮客人{NEWLINE}把精灵寄存起来,{CLEAR}再进行精灵出租！{SCROLL}请好好考虑后再选择哦！！{SCROLL}",
-   "en": "First, we will hold your Pokémon in{NEWLINE}exchange for you renting our Pokémon.{SCROLL}May I suggest choosing Pokémon after{NEWLINE}appropriate deliberation?{SCROLL}",
+   "en": "First, we’ll hold your Pokémon, then{NEWLINE}rent you Pokémon!{SCROLL}Please think carefully before you{NEWLINE}choose!!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0195/0"
+   "origin": "agent",
+   "notes": "US 0195/0 | CES-early: meaning: sequential deposit then rent; ES prior reverses rental direction; restore imperative and doubled exclamation"
   },
   {
    "id": 1,
@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "请往里走！",
-   "en": "Please go in.",
+   "en": "Please go in!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0195/2"
+   "origin": "agent",
+   "notes": "US 0195/2 | CES-early: intensity: source exclamation"
   },
   {
    "id": 3,
@@ -134,10 +134,10 @@
   {
    "id": 16,
    "zh": "成功突破了战斗工厂的７场战斗{NEWLINE}恭喜恭喜！{SCROLL}您的知识真是渊博啊。{CLEAR}赠予您战斗点！{SCROLL}",
-   "en": "You have cleared your seventh Battle{NEWLINE}Factory match! Congratulations!{SCROLL}In recognition of your deep knowledge{NEWLINE}in matters pertaining to Pokémon,{CLEAR}we present you with BP!{SCROLL}",
+   "en": "You cleared 7 Battle Factory matches!{NEWLINE}Congratulations, congratulations!{SCROLL}Your knowledge is truly extensive. We{NEWLINE}present you with Battle Points!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0195/16"
+   "origin": "agent",
+   "notes": "US 0195/16 | CES-early: detail: seven cleared matches, repeated congratulations, no invented subject limitation"
   },
   {
    "id": 17,
@@ -174,10 +174,10 @@
   {
    "id": 21,
    "zh": "注意注意！{NEWLINE}根据我的调查{CLEAR}你这次的交战对手⋯⋯{SCROLL}将会派出{VAR:0100:1}{NEWLINE}或者{VAR:0100:3}{NEWLINE}或者{VAR:0100:5}！{SCROLL}",
-   "en": "Attention, attention!{NEWLINE}According to my research,{CLEAR}your next opponent...{SCROLL}will send out {VAR:0100:1},{NEWLINE}{VAR:0100:3} or {VAR:0100:5}!{SCROLL}",
+   "en": "Attention, attention! According to my{NEWLINE}research, your next opponent...{SCROLL}will send out {VAR:0100:1} or {VAR:0100:3}{NEWLINE}or {VAR:0100:5}!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0195/21 | zh uses 或者 (or) for the predicted Pokémon/moves; US had \"and\"."
+   "notes": "US 0195/21 | zh uses 或者 (or) for the predicted Pokémon/moves; US had \"and\". | CES-early: repetition: preserve both source or alternatives"
   },
   {
    "id": 22,
@@ -318,10 +318,10 @@
   {
    "id": 39,
    "zh": "列木『呜~我还是输了！！{CLEAR}啊！！真是不甘心啊！！{CLEAR}明明已经从您身上{CLEAR}学到了很多对战技巧,{CLEAR}明明我用自己的精灵{CLEAR}而您用借来的精灵,{CLEAR}明明有这么多优势{CLEAR}最终我还是输了。{SCROLL}列木『……！{SCROLL}列木『我明白了,{NEWLINE}刚刚那些借来的精灵{CLEAR}他们看您的眼神,{CLEAR}那是充满了友情和信任的眼神,{CLEAR}即使是刚借来的精灵,{CLEAR}都能快速让它们喜欢上您。{CLEAR}或许这种与精灵沟通的能力,{CLEAR}才是我最需要向您学习的吧。{SCROLL}列木『请冠军大人下次{NEWLINE}再多借些别的精灵,{CLEAR}让我学习一下{CLEAR}您是如何跟精灵沟通的吧！{SCROLL}",
-   "en": "Thorton: Ugh, I lost again!! Argh!!{NEWLINE}This is so frustrating!! I’ve already{CLEAR}learned so much about battling{CLEAR}from you. I used my own Pokémon{CLEAR}while you used rentals. I had all{CLEAR}these advantages, and I still lost.{SCROLL}Thorton: ......!{SCROLL}Thorton: I get it now. Those rental{NEWLINE}Pokémon just now... the way they looked{CLEAR}at you was full of friendship and trust.{CLEAR}Even Pokémon you’d only just rented{CLEAR}took a liking to you so fast. Maybe{CLEAR}that knack for connecting with Pokémon{CLEAR}is what I most need to learn from you.{SCROLL}Thorton: Champion, next time rent{NEWLINE}some other Pokémon, and let me{CLEAR}learn how you connect with them!{SCROLL}",
+   "en": "Thorton: Ugh, I lost again!! Argh!!{NEWLINE}This is so frustrating!! Even though{CLEAR}I’d already learned so much about{CLEAR}battling from you, even though I used{CLEAR}my own Pokémon while you used rentals,{CLEAR}even though I had all these{CLEAR}advantages, I still lost.{SCROLL}Thorton: ......!{SCROLL}Thorton: I get it now. Those rental{NEWLINE}Pokémon just now... the way they looked{CLEAR}at you was full of friendship and trust.{CLEAR}Even Pokémon you’d only just rented{CLEAR}took a liking to you so fast. Maybe that{CLEAR}knack for connecting with Pokémon is{CLEAR}what I most need to learn from you.{SCROLL}Thorton: Champion, next time rent some{NEWLINE}other Pokémon, and let me learn how you{CLEAR}connect with them!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: voice: retain three repeated 明明 concessions and many advantages rather than all"
   }
  ]
 }

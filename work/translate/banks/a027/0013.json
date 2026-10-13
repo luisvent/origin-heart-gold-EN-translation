@@ -942,10 +942,10 @@
   {
    "id": 117,
    "zh": "战斗录像查找中⋯⋯",
-   "en": "Loading Battle Video...",
+   "en": "Searching for Battle Videos...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0013/117"
+   "origin": "agent",
+   "notes": "US 0013/117 | CES-early: meaning: search rather than load"
   },
   {
    "id": 118,
@@ -1846,18 +1846,18 @@
   {
    "id": 230,
    "zh": "您的精灵有问题,{NEWLINE}无法传送。",
-   "en": "There appears to be a problem with your{NEWLINE}Pokémon. Data was not sent.",
+   "en": "There is a problem with your Pokémon.{NEWLINE}Data can’t be sent.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0013/230"
+   "origin": "agent",
+   "notes": "US 0013/230 | CES-early: meaning: preserve certainty and inability"
   },
   {
    "id": 231,
    "zh": "通信对象的精灵有问题,{NEWLINE}无法传送。",
-   "en": "There appears to be a problem with a{NEWLINE}player’s Pokémon. Data was not sent.",
+   "en": "There is a problem with your link{NEWLINE}partner’s Pokémon. Data can’t be sent.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0013/231"
+   "origin": "agent",
+   "notes": "US 0013/231 | CES-early: meaning: identify communication partner and preserve certainty"
   },
   {
    "id": 232,
@@ -2190,10 +2190,10 @@
   {
    "id": 273,
    "zh": "箱子一次只能{NEWLINE}传送一个。",
-   "en": "Only one Box Data may be sent at a time.",
+   "en": "Only one Box’s data may be{NEWLINE}sent at a time.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0013/273"
+   "origin": "agent",
+   "notes": "US 0013/273 | CES-early: grammar: data is uncountable"
   },
   {
    "id": 274,

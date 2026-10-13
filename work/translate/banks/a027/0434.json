@@ -22,9 +22,9 @@
   {
    "id": 2,
    "zh": "让{VAR:0100:0}的体力回复了！",
-   "en": "{VAR:0100:0} will be fully{NEWLINE}restored.",
+   "en": "{VAR:0100:0}’s HP was restored!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0441/2"
   },
   {
@@ -118,9 +118,9 @@
   {
    "id": 14,
    "zh": "１０连胜达成,{NEWLINE}恭喜了！{SCROLL}作为客人和{VAR:0100:0}的{NEWLINE}伟大胜利的报酬{CLEAR}给你战斗点！{SCROLL}",
-   "en": "You have cleared your tenth Battle Hall{NEWLINE}match! Congratulations!{SCROLL}For your stupendous win streak, you{NEWLINE}and {VAR:0100:0} are awarded BP!{SCROLL}",
+   "en": "Congratulations on ten straight{NEWLINE}Battle Hall wins!{SCROLL}As a reward for the great victory{NEWLINE}you and {VAR:0100:0} achieved,{CLEAR}you receive Battle Points!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0441/14"
   },
   {

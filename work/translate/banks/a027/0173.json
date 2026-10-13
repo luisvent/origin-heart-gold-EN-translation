@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "ポリゴンのいろ　ディフューズ",
-   "en": "Polygon Color: diffused",
+   "en": "Polygon Color: diffuse",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: translate full debug label, preserve controls and source detail"
   },
   {
    "id": 10,
@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "ほうしゃこう　エミッション",
-   "en": "Radiant Light: emitted",
+   "en": "Radiant Light: emission",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: translate full debug label, preserve controls and source detail"
   },
   {
    "id": 13,
@@ -702,10 +702,10 @@
   {
    "id": 87,
    "zh": "エンカウント",
-   "en": "No. of Pokémon encounter",
+   "en": "Encounter",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: translate full debug label, preserve controls and source detail"
   },
   {
    "id": 88,
@@ -774,10 +774,10 @@
   {
    "id": 96,
    "zh": "ずかん",
-   "en": "Pokedex",
+   "en": "Pokédex",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: translate full debug label, preserve controls and source detail"
   },
   {
    "id": 97,
@@ -830,10 +830,10 @@
   {
    "id": 103,
    "zh": "SELECT　ぜんポケモンデータはき{NEWLINE}key   A=1 right=10 up=100{NEWLINE}key   Y=-1 left=-10 down=-100{NEWLINE}L  + key かいし　へんこう{NEWLINE}R  + key おわり　へんこう{NEWLINE}START　　せってい{NEWLINE}B        デバックしゅうりょう{NEWLINE}",
-   "en": "SELECT: Trash all Pokémon data{NEWLINE}key   A=1 right=10 up=100{NEWLINE}key   Y=-1 left=-10 down=-100{NEWLINE}L: Start to change{NEWLINE}R: End to change{NEWLINE}START: Settings{NEWLINE}B: Exit from the debug",
+   "en": "SELECT: Discard all Pokémon data{NEWLINE}key   A=1 right=10 up=100{NEWLINE}key   Y=-1 left=-10 down=-100{NEWLINE}L + key: Change start{NEWLINE}R + key: Change end{NEWLINE}START: Set{NEWLINE}B: Exit debug{NEWLINE}",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: translate full debug label, preserve controls and source detail"
   },
   {
    "id": 104,
@@ -862,42 +862,42 @@
   {
    "id": 107,
    "zh": "ぜんこくずかんフラグセット",
-   "en": "♡National Pokédex flag ON",
+   "en": "National Pokédex flag ON",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 108,
    "zh": "シンオウずかんセット",
-   "en": "♡Set Sinnoh Pokédex",
+   "en": "Set Sinnoh Pokédex",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 109,
    "zh": "ゼンコクずかんセット",
-   "en": "♡Set National Pokédex",
+   "en": "Set National Pokédex",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 110,
    "zh": "ゼンコクみた",
-   "en": "♡Seen National Pokédex",
+   "en": "Seen National Pokédex",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 111,
    "zh": "シンオウみた",
-   "en": "♡Seen Sinnoh Pokédex",
+   "en": "Seen Sinnoh Pokédex",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 112,
@@ -918,74 +918,74 @@
   {
    "id": 114,
    "zh": "げんごぜんセット",
-   "en": "♡Set all languages",
+   "en": "Set all languages",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 115,
    "zh": "げんごランダムセット",
-   "en": "♡Set a random-select language",
+   "en": "Set a random-select language",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 116,
    "zh": "えいごセット",
-   "en": "♡Set English",
+   "en": "Set English",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 117,
    "zh": "フランスごセット",
-   "en": "♡Set French",
+   "en": "Set French",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 118,
    "zh": "イタリアごセット",
-   "en": "♡Set Italian",
+   "en": "Set Italian",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 119,
    "zh": "ドイツごセット",
-   "en": "♡Set German",
+   "en": "Set German",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 120,
    "zh": "スペインごセット",
-   "en": "♡Set Spanish",
+   "en": "Set Spanish",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 121,
    "zh": "アンノーンＡーＺセット",
-   "en": "♡Set Unown from A to Z",
+   "en": "Set Unown from A to Z",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 122,
    "zh": "アンノーンぜんセット",
-   "en": "♡Set full set of Unown",
+   "en": "Set full set of Unown",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart absent from source"
   },
   {
    "id": 123,
@@ -1174,10 +1174,10 @@
   {
    "id": 146,
    "zh": "ひろば　ロックながい",
-   "en": "Plaza: Delay the lock timing",
+   "en": "Plaza: long lock",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: translate full debug label, preserve controls and source detail"
   },
   {
    "id": 147,

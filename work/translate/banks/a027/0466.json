@@ -501,7 +501,7 @@
   {
    "id": 60,
    "zh": "玉绪『能得小松馆主之认可{NEWLINE}被推荐来此地参加石英大会,{CLEAR}实乃吾之荣幸。{SCROLL}玉绪『若不尽竭心力,{NEWLINE}有何面目复见小松馆主与家乡姐妹。",
-   "en": "Tamao: To be recognized by Gym Leader{NEWLINE}Morty and recommended for the Indigo{CLEAR}Conference is truly an honor.{SCROLL}Tamao: Should I fail to give my all, how{NEWLINE}could I ever again face Master Morty{CLEAR}and my sisters at home?",
+   "en": "Tamao: To be recognized by Gym Leader{NEWLINE}Morty and recommended for the Indigo{CLEAR}Conference is truly an honor.{SCROLL}Tamao: Should I fail to give my all,{NEWLINE}how could I face Gym Leader Morty{CLEAR}and my sisters back home?",
    "status": "draft",
    "origin": "agent",
    "notes": "玉绪 = Tamao (trainer 0719 #551/#750; Ecruteak dancer recommended by Morty)."
@@ -621,7 +621,7 @@
   {
    "id": 75,
    "zh": "您的背包里好像还有违规药品呢。{NEWLINE}建议您找这边的售货员女士{CLEAR}帮您整理一下再来。",
-   "en": "It looks like you still have prohibited{NEWLINE}medicine in your Bag.{SCROLL}Please have the clerk over here sort it{NEWLINE}out for you, then come back.",
+   "en": "It looks like you still have prohibited{NEWLINE}medicine in your Bag.{SCROLL}Please ask the saleswoman here to{NEWLINE}sort them out, then come back.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -629,7 +629,7 @@
   {
    "id": 76,
    "zh": "您的背包里好像还有驱虫喷雾呢。{NEWLINE}建议您找这边的售货员女士{CLEAR}帮您整理一下再来。",
-   "en": "It looks like you still have Repels in{NEWLINE}your Bag.{SCROLL}Please have the clerk over here sort it{NEWLINE}out for you, then come back.",
+   "en": "It looks like you still have Repels in{NEWLINE}your Bag.{SCROLL}Please ask the saleswoman here to{NEWLINE}sort them out, then come back.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -637,7 +637,7 @@
   {
    "id": 77,
    "zh": "您的背包里好像还有穿洞绳呢。{NEWLINE}建议您找这边的售货员女士{CLEAR}帮您整理一下再来。",
-   "en": "It looks like you still have Escape{NEWLINE}Ropes in your Bag.{SCROLL}Please have the clerk over here sort it{NEWLINE}out for you, then come back.",
+   "en": "It looks like you still have Escape{NEWLINE}Ropes in your Bag.{SCROLL}Please ask the saleswoman here to{NEWLINE}sort them out, then come back.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -1165,7 +1165,7 @@
   {
    "id": 143,
    "zh": "水晶『我会努力的前辈！",
-   "en": "Crystal: I’ll give it my all!",
+   "en": "Crystal: I’ll give it my all, Senpai!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -1744,7 +1744,7 @@
   {
    "id": 215,
    "zh": "水晶『{VAR:0103:0}前辈！请等一等！",
-   "en": "Crystal: {VAR:0103:0}! Please wait!",
+   "en": "Crystal: {VAR:0103:0}, Senpai! Please wait!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -1760,7 +1760,7 @@
   {
    "id": 217,
    "zh": "水晶『{VAR:0103:0}前辈……{NEWLINE}这场战斗或许真的非常危险,{CLEAR}所以我担心有些话如果现在不说,{CLEAR}以后可能就没机会说了。",
-   "en": "Crystal: {VAR:0103:0}... This battle could{NEWLINE}be really dangerous.{SCROLL}So I’m worried that if I don’t say some{NEWLINE}things now,{SCROLL}I might never get the chance.",
+   "en": "Crystal: {VAR:0103:0}, Senpai...{SCROLL}This battle could{NEWLINE}be really dangerous.{SCROLL}So I’m worried that if I don’t say some{NEWLINE}things now,{SCROLL}I might never get the chance.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -1776,10 +1776,10 @@
   {
    "id": 219,
    "zh": "水晶『我记得在吉野市{NEWLINE}初次跟前辈见面时,{CLEAR}前辈在孤儿院跟孩子们{CLEAR}畅谈自己旅行的经历,{CLEAR}而我坐在旁边静静地听着。{CLEAR}仿佛就像是……像是……{CLEAR}像是一位慈祥的父亲{CLEAR}给自己的孩子们讲故事一样。",
-   "en": "Crystal: I remember the first time I met{NEWLINE}you, in Cherrygrove City.{SCROLL}You were at the orphanage, telling the{NEWLINE}children all about your travels, and I{CLEAR}sat beside you, quietly listening.{SCROLL}It was just like... like...{SCROLL}Like a kind father telling stories to his{NEWLINE}children.",
+   "en": "Crystal: I remember the first time I met{NEWLINE}you, Senpai, in Cherrygrove City.{SCROLL}Senpai, you were at the orphanage,{NEWLINE}telling the children all about your{CLEAR}travels, and I sat beside you,{CLEAR}listening quietly.{SCROLL}It was just like... like...{SCROLL}Like a kind father telling stories to his{NEWLINE}children.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CN–EN–ES targeted followup: Restore CN 前辈 repetitions in Crystal confession under D-2455 provisional Senpai; preserve intensity."
   },
   {
    "id": 220,
@@ -1792,10 +1792,10 @@
   {
    "id": 221,
    "zh": "水晶『不、不是的！我的意思是说,{NEWLINE}我希望我未来孩子的父亲,{CLEAR}能够像前辈一样温柔又强大！",
-   "en": "Crystal: N-no, that’s not it! What I{NEWLINE}mean is...{SCROLL}I hope the father of my future children{NEWLINE}will be kind and strong, just like you!",
+   "en": "Crystal: N-no, that’s not it! What I{NEWLINE}mean is...{SCROLL}I hope the father of my future children{NEWLINE}will be kind and strong,{CLEAR}just like you, Senpai!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CN–EN–ES targeted followup: Restore CN 前辈 repetitions in Crystal confession under D-2455 provisional Senpai; preserve intensity."
   },
   {
    "id": 222,
@@ -1808,10 +1808,10 @@
   {
    "id": 223,
    "zh": "水晶『谢谢前辈的夸奖……{NEWLINE}其实我在跟前辈的旅行中,{CLEAR}不断地感受着前辈{CLEAR}如阳光般温暖的气息,{CLEAR}但是在烟墨市跟前辈告别之后,{CLEAR}我就像失去了阳光的向日葵,{CLEAR}完全不知道自己该看向哪里。{CLEAR}今天好不容易又一次跟前辈见面了,{CLEAR}我想直面曾经照耀自己的太阳,{CLEAR}告诉前辈您——{CLEAR}我喜欢你,{VAR:0103:0}前辈！",
-   "en": "Crystal: Thank you... The truth is,{NEWLINE}traveling with you, I kept feeling your{CLEAR}warmth, like sunshine.{SCROLL}But after we said goodbye in Blackthorn{NEWLINE}City, I was like a sunflower without the{CLEAR}sun. I had no idea where to look.{SCROLL}Today I’ve finally gotten to see you{NEWLINE}again, and I want to face the sun that{CLEAR}once shone on me...{SCROLL}And tell you... I love you, {VAR:0103:0}!",
+   "en": "Crystal: Thank you, Senpai... The truth{NEWLINE}is, traveling with you, Senpai, I kept{CLEAR}feeling your warmth, Senpai,{CLEAR}like sunshine.{SCROLL}But after we said goodbye, Senpai, in{NEWLINE}Blackthorn City, I was like a sunflower{CLEAR}without the sun. I had no idea where{CLEAR}to look.{SCROLL}Today I finally get to see you again,{NEWLINE}Senpai. I want to face the sun that{CLEAR}once shone on me...{SCROLL}And tell you, {VAR:0103:0}, Senpai... I love{NEWLINE}you, Senpai!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CN–EN–ES targeted followup: Restore CN 前辈 repetitions in Crystal confession under D-2455 provisional Senpai; preserve intensity."
   },
   {
    "id": 224,
@@ -1824,7 +1824,7 @@
   {
    "id": 225,
    "zh": "水晶『前辈……！",
-   "en": "Crystal: Oh...!",
+   "en": "Crystal: Senpai...!",
    "status": "draft",
    "origin": "agent",
    "notes": "前辈 (senpai) dropped in Crystal's lines; the player's name is used where the zh has the tag."
@@ -1840,7 +1840,7 @@
   {
    "id": 227,
    "zh": "水晶『好的前辈！",
-   "en": "Crystal: I will!",
+   "en": "Crystal: I will, Senpai!",
    "status": "draft",
    "origin": "agent",
    "notes": ""

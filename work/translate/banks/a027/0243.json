@@ -186,7 +186,7 @@
   {
    "id": 21,
    "zh": "虽然能生吃,{NEWLINE}但是煮的时候产生出来的{NEWLINE}淡味能成为料理的特别味道。",
-   "en": "Edible raw, but the mild flavor it{NEWLINE}gives off when boiled makes it a{NEWLINE}special ingredient.",
+   "en": "Edible raw. Boiling brings out{NEWLINE}a mild flavor that gives dishes{NEWLINE}a special taste.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -411,7 +411,7 @@
   {
    "id": 48,
    "zh": "搜集起来放置的话苦味会消失{NEWLINE}因此作为长期吃的材料是最好的。",
-   "en": "Its bitterness fades if it is{NEWLINE}stored, making it ideal for{NEWLINE}keeping a long time.",
+   "en": "Its bitterness fades if it is{NEWLINE}stored, making it ideal as food{NEWLINE}over a long time.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -514,7 +514,7 @@
   {
    "id": 59,
    "zh": "正体不明的果实{NEWLINE}似乎有在夜空闪烁着的群星的力量",
-   "en": "A Berry of unknown origin. It{NEWLINE}seems to hold the power of the{NEWLINE}stars twinkling in the night sky.",
+   "en": "A Berry of unknown identity. It{NEWLINE}seems to hold the power of the{NEWLINE}stars twinkling in the night sky.",
    "status": "draft",
    "origin": "agent",
    "notes": ""

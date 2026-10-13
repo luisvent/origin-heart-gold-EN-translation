@@ -30,9 +30,9 @@
   {
    "id": 3,
    "zh": "我呢,光注意　{NEWLINE}可爱的玛力露{CLEAR}战斗的视频了。",
-   "en": "My Battle Videos starring only cute{NEWLINE}little Marill are the ones I like best.",
+   "en": "I only watch Battle Videos{NEWLINE}of cute Marill.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0602/3; modernised from US 0602#3"
   },
   {
@@ -54,17 +54,17 @@
   {
    "id": 6,
    "zh": "神奇的战斗录像,{NEWLINE}神奇的战斗录像,{SCROLL}放这个了哦,{NEWLINE}放这个了哦,{SCROLL}怎样呢？{NEWLINE}怎样呢怎样呢！",
-   "en": "My mysterious Battle Video.{NEWLINE}My mysterious Battle Video.{SCROLL}What’s on it?{NEWLINE}What’s on it?{SCROLL}It’s a mystery!{NEWLINE}It’s a mystery! And I mean it!",
+   "en": "Amazing Battle Videos!{NEWLINE}Amazing Battle Videos!{SCROLL}I’ll play this one!{NEWLINE}I’ll play this one!{SCROLL}How is it? How is it?{NEWLINE}How is it?!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0602/6"
   },
   {
    "id": 7,
    "zh": "满金市的取字{NEWLINE}造句游戏开始啦！{SCROLL}满……满金市往南是{NEWLINE}桐树林{SCROLL}金……锦绣繁华的{NEWLINE}满金市的地下通道{SCROLL}市……是穿黑衣的{NEWLINE}火箭队在我睡觉时{CLEAR}偷走了我的东西！",
-   "en": "Let me attempt the alphabet rap using{NEWLINE}Goldenrod, dig?{SCROLL}G... Go south from here for the{NEWLINE}Ilex Forest.{SCROLL}O... Over land is not where you’ll find{NEWLINE}the Goldenrod Tunnel.{SCROLL}L... Looking like criminals in their black{NEWLINE}pajamas is Team Rocket.{SCROLL}D... Um... D... is...{NEWLINE}Yeah, I know, lame-o.{CLEAR}You give it a try!",
+   "en": "Let’s play the Goldenrod{NEWLINE}acrostic game!{SCROLL}G... Go south of Goldenrod{NEWLINE}to reach Ilex Forest.{SCROLL}O... Oh, Goldenrod’s Underground{NEWLINE}is splendid and bustling!{SCROLL}L... Last night, Team Rocket{NEWLINE}in black stole my things{CLEAR}while I was asleep!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0602/7; US line kept: vanilla Goldenrod acrostic (满金市) left unchanged by the hack; the US localisation adapts the wordplay."
   },
   {

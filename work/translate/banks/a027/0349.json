@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "下面是自行车道{SCROLL}乘自行车飞奔下去{NEWLINE}真是太爽了！{SCROLL}什么高速船,什么列车,{NEWLINE}也许很多人更愿意乘坐{CLEAR}这些舒适、帅气的交通工具,{CLEAR}可你喜欢自行车吧？",
-   "en": "Cycling Road starts here.{NEWLINE}It’s all downhill,{CLEAR}so it’s totally exhilarating.{SCROLL}Some people prefer comfortable and cool{NEWLINE}transportation such as the Fast Ship{CLEAR}and the Magnet Train.{CLEAR}You prefer the Bicycle, don’t you?",
+   "en": "The Cycling Road is below. Speeding{NEWLINE}downhill on a Bicycle feels amazing!{SCROLL}Fast Ships, trains... Maybe lots of{NEWLINE}people prefer comfortable, cool{CLEAR}transport like that. But you like{CLEAR}Bicycles, don’t you?",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0356/0 | RV013: meaning: 舒适 = comfortable; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "US 0356/0 | RV013: meaning: 舒适 = comfortable; layout rebalance 2026-10-09 (prompt icons / single-word page) | AGENT-0321-0380: Restore comfortable rather than practical transport."
   },
   {
    "id": 1,
@@ -30,10 +30,10 @@
   {
    "id": 3,
    "zh": "最近自行车道上{NEWLINE}好像有一些年轻人喜欢霸占道路,{CLEAR}你不要管他们,请尽快把药送过去。{CLEAR}事关精灵的生死,要快啊。",
-   "en": "Lately some young people have been{NEWLINE}hogging the Cycling Road. Don’t mind{CLEAR}them. Please deliver the medicine as{CLEAR}fast as you can.{SCROLL}A Pokémon’s life is at stake. Hurry!",
+   "en": "Lately it seems some young people have{NEWLINE}been hogging the Cycling Road. Don’t{CLEAR}mind them. Please deliver the medicine{CLEAR}as fast as you can.{SCROLL}A Pokémon’s life is at stake. Hurry!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore source seems uncertainty about young people occupying road."
   },
   {
    "id": 4,

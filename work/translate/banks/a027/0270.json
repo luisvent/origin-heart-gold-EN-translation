@@ -70,10 +70,10 @@
   {
    "id": 8,
    "zh": "比赛第一名次数",
-   "en": "Event 1st Place",
+   "en": "Event 1st Places",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0277/8"
+   "origin": "agent",
+   "notes": "US 0277/8 | CES-early: consistency: plural count of first-place finishes"
   },
   {
    "id": 9,

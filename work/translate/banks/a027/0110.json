@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "猫老大的精灵像{NEWLINE}眼睛闪出红光……！{SCROLL}感觉好像被谁{NEWLINE}在哪里盯着一样……",
-   "en": "It’s a Persian statue...{NEWLINE}Its eyes are glowing red...{SCROLL}You feel that somebody may be{NEWLINE}watching...",
+   "en": "The Persian statue’s eyes flash red...!{SCROLL}It feels like someone is watching you{NEWLINE}from somewhere...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0112/2; modernised from US 0112#2"
+   "origin": "agent",
+   "notes": "US 0112/2; modernised from US 0112#2 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 3,
@@ -46,7 +46,7 @@
   {
    "id": 5,
    "zh": "发现秘密按钮！{SCROLL}闪着红色的灯,{CLEAR}要试着按一下吗？{VAR:0200:0}",
-   "en": "A secret switch!{SCROLL}A red light is flashing.{CLEAR}Will you try pressing it? {VAR:0200:0}",
+   "en": "A secret switch!{SCROLL}A red light is flashing.{CLEAR}Will you try pressing it?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0112/5 | RV046: addition: US 'in a suspicious manner' not in zh (闪着红色的灯, 要试着按一下吗)"
@@ -54,7 +54,7 @@
   {
    "id": 6,
    "zh": "发现秘密按钮！{SCROLL}闪着蓝色的灯,{CLEAR}要试着按一下吗？{VAR:0200:0}",
-   "en": "A secret switch!{SCROLL}A blue light is flashing.{CLEAR}Will you try pressing it? {VAR:0200:0}",
+   "en": "A secret switch!{SCROLL}A blue light is flashing.{CLEAR}Will you try pressing it?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0112/6 | RV046: meaning: zh 闪着蓝色的灯 (flashing blue light), 要试着按一下吗 (try pressing)"

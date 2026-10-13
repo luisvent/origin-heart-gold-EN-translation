@@ -40,7 +40,7 @@
    "zh": "下一张卡",
    "en": "NEXT CARD",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0432/4"
   },
   {
@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "{VAR:0132:0}请选择要刮的卡{NEWLINE}{VAR:0200:0}",
-   "en": "Please select card no. {VAR:0132:0}.{VAR:0200:0}",
+   "en": "{VAR:0132:0}: Choose a card to scratch.{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0432/12"
+   "origin": "agent",
+   "notes": "US 0432/12; D-2478: specific user approval; native evidence selection counter 1, 2, 3, unnumbered cards"
   }
  ]
 }

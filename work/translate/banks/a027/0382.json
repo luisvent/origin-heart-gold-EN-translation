@@ -38,26 +38,26 @@
   {
    "id": 4,
    "zh": "啊啊啊！{NEWLINE}口袋竞技还没开始啊~！{SCROLL}哇,等不及了？{NEWLINE}那就绕城都地区跑１周！",
-   "en": "Arrgh!{SCROLL}When is the Pokéathlon going to{NEWLINE}be ready?{SCROLL}I can’t just sit here and wait!{NEWLINE}I’ll go on an around-Johto run!",
+   "en": "Aaah! The Pokéathlon hasn’t started{NEWLINE}yet~!{SCROLL}Whoa, can’t wait? Then run one lap{NEWLINE}around Johto!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0389/4"
+   "origin": "agent",
+   "notes": "US 0389/4 | FULL-CES-0381-0382: Restore literal question/response and one circuit; implied subject remains uncertain."
   },
   {
    "id": 5,
    "zh": "好！等的就是这个时刻！{SCROLL}让你们看看{NEWLINE}我和精灵的友情！",
-   "en": "I’ve been waiting for this moment!{SCROLL}Behold my friendship with my Pokémon!",
+   "en": "All right! This is the moment I’ve been{NEWLINE}waiting for!{SCROLL}Let me show you my friendship with my{NEWLINE}Pokémon!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0389/5"
+   "origin": "agent",
+   "notes": "US 0389/5 | FULL-CES-0381-0382: Restore opening exclamation and intended demonstration."
   },
   {
    "id": 6,
    "zh": "要只是和精灵一起跑跑,{NEWLINE}我或许也能参加吧。",
-   "en": "I wonder if I can participate, too.{NEWLINE}It’s only running with Pokémon, right?",
+   "en": "If it’s just running with Pokémon, maybe{NEWLINE}I could take part too.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0389/6"
+   "origin": "agent",
+   "notes": "US 0389/6 | FULL-CES-0381-0382: Restore conditional uncertainty rather than assuming event only running."
   },
   {
    "id": 7,

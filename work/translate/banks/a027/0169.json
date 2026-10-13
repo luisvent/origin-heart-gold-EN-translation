@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "たかさへんこう",
-   "en": "Change player’s height",
+   "en": "Change height",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: no invented player; angles not axes"
   },
   {
    "id": 6,
@@ -134,26 +134,26 @@
   {
    "id": 16,
    "zh": "アングルX",
-   "en": "X-axis",
+   "en": "Angle X",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: no invented player; angles not axes"
   },
   {
    "id": 17,
    "zh": "アングルY",
-   "en": "Y-axis",
+   "en": "Angle Y",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: no invented player; angles not axes"
   },
   {
    "id": 18,
    "zh": "アングルZ",
-   "en": "Z-axis",
+   "en": "Angle Z",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: no invented player; angles not axes"
   },
   {
    "id": 19,

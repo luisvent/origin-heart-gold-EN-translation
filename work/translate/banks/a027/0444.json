@@ -277,9 +277,9 @@
   {
    "id": 32,
    "zh": "相册{NEWLINE}好像装满了,{SCROLL}请在电脑{NEWLINE}整理相册的照片。",
-   "en": "Your Photo Album is full.{SCROLL}Access your PC and delete{NEWLINE}some pictures.{NEWLINE}",
+   "en": "Your Photo Album is full.{SCROLL}Organize its photos on the PC.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0451/32"
   },
   {

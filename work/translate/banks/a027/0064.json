@@ -270,10 +270,10 @@
   {
    "id": 33,
    "zh": "在蓝卡中积攒点数,{NEWLINE}根据相应的点数{CLEAR}能够获赠精美的礼品！",
-   "en": "Save up the Blue Card points for some{NEWLINE}choice prizes!",
+   "en": "Save up points on your Blue Card{NEWLINE}for prizes based on your point total!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0066/33"
+   "origin": "agent",
+   "notes": "US 0066/33 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 34,

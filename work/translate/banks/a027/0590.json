@@ -6,9 +6,9 @@
   {
    "id": 0,
    "zh": "欢迎光临,{SCROLL}请问您要到几楼。{VAR:0200:0}",
-   "en": "Thank you for shopping with us today.{SCROLL}To which floor may I take you? {VAR:0200:0}",
+   "en": "Welcome.{SCROLL}To which floor may I take you? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0598/0"
   },
   {

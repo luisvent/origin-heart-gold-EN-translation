@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "本来想买点度假区特产带回去的,{NEWLINE}可是一看价格都好贵啊……",
-   "en": "I wanted to buy some Resort Zone{NEWLINE}souvenirs to take home, but one look at{CLEAR}the prices... Yikes.",
+   "en": "I wanted to buy some Resort Zone{NEWLINE}specialties to take home, but when I{CLEAR}looked at the prices, everything{CLEAR}was so expensive...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0131: Restore local specialties and explicit expensive prices, not invented Yikes reaction."
   },
   {
    "id": 12,
@@ -241,10 +241,10 @@
   {
    "id": 29,
    "zh": "欢迎来到度假区！{NEWLINE}前面是我们度假区的游乐场所{CLEAR}——联动公园。{SCROLL}在那里您可以捕捉到{NEWLINE}城都地区几乎遇不到的稀有精灵,{CLEAR}请进去看看吧！",
-   "en": "Welcome to the Resort Zone! Up ahead is{NEWLINE}our main attraction, the Pal Park.{SCROLL}There you can catch rare Pokémon you{NEWLINE}almost never see in Johto. Please go{CLEAR}take a look!",
+   "en": "Welcome to the Resort Zone! Up ahead is{NEWLINE}our recreation area, the Pal Park.{SCROLL}There you can catch rare Pokémon you{NEWLINE}almost never see in Johto. Please go{CLEAR}take a look!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0131: Remove invented main-attraction ranking."
   },
   {
    "id": 30,

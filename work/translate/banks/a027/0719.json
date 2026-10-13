@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "大针蜂群",
-   "en": "Beedrill",
+   "en": "Beedrill swarm",
    "status": "draft",
-   "origin": "tm_v3",
-   "notes": "v3 TM: 1 source(s), same position"
+   "origin": "agent",
+   "notes": "v3 TM: 1 source(s), same position; D-2487 user-approved full visible opponent name; unique packed internal key with guarded native formatter, not a visible abbreviation."
   },
   {
    "id": 18,
@@ -478,10 +478,10 @@
   {
    "id": 59,
    "zh": "烈雀群",
-   "en": "Spearow",
+   "en": "Spearow flock",
    "status": "draft",
-   "origin": "tm_v3",
-   "notes": "v3 TM: 1 source(s), same position"
+   "origin": "agent",
+   "notes": "v3 TM: 1 source(s), same position; D-2487 user-approved full visible opponent name; unique packed internal key with guarded native formatter, not a visible abbreviation."
   },
   {
    "id": 60,
@@ -5077,10 +5077,10 @@
   {
    "id": 632,
    "zh": "野生的小拉达",
-   "en": "Rattata",
+   "en": "Wild Rattata",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0729/632",
+   "notes": "US 0729/632; D-2487 user-approved full visible opponent name; unique packed internal key with guarded native formatter, not a visible abbreviation.",
    "qa_ignore": [
     "glossary:野生"
    ]
@@ -5352,10 +5352,10 @@
   {
    "id": 666,
    "zh": "沼王和乌波",
-   "en": "Quagsire",
+   "en": "Quagsire and Wooper",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0729/666 | Quagsire and Wooper group; shortened",
+   "notes": "US 0729/666 | Quagsire and Wooper group; shortened; D-2487 user-approved full visible opponent name; unique packed internal key with guarded native formatter, not a visible abbreviation.",
    "qa_ignore": [
     "glossary:乌波"
    ]
@@ -5987,10 +5987,10 @@
   {
    "id": 745,
    "zh": "熔岩虫群",
-   "en": "Slugma",
+   "en": "Slugma group",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "; D-2487 user-approved full visible opponent name; unique packed internal key with guarded native formatter, not a visible abbreviation."
   },
   {
    "id": 746,

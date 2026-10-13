@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "阿四『要照了，{NEWLINE}别眨眼啊！{SCROLL}",
-   "en": "Chuck: Say cheese!{NEWLINE}Don’t close your eyes!{SCROLL}",
+   "en": "Chuck: I’m taking it now. Don’t blink!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0407/6"
+   "origin": "agent",
+   "notes": "US 0407/6 | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 7,
@@ -190,10 +190,10 @@
   {
    "id": 23,
    "zh": "阿金『我说你们两个,{NEWLINE}不要臭小鬼、臭小鬼地叫啊！{CLEAR}我可是冠军{VAR:0103:0}的得力帮手,{CLEAR}专门收拾你们火箭队的！",
-   "en": "Gold: Hey, you two, quit calling{NEWLINE}me a stinking brat! I’m Champion{CLEAR}{VAR:0103:0}’s right-hand man, and I’m{CLEAR}here to take out Team Rocket!",
+   "en": "Gold: Hey, you two, quit going on about{NEWLINE}a stinking brat, a stinking brat! I’m{CLEAR}Champion {VAR:0103:0}’s right-hand man, and{CLEAR}I’m here to take out Team Rocket!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 24,
@@ -246,10 +246,10 @@
   {
    "id": 30,
    "zh": "{VAR:0103:0}『那么只要在雷公出现之前{NEWLINE}破坏掉那个装置,{CLEAR}应该就能阻止你们的计划。",
-   "en": "{VAR:0103:0}: Then all I have to do is{NEWLINE}destroy that device before Raikou{CLEAR}shows up, and your plan is over.",
+   "en": "{VAR:0103:0}: Then all I have to do is{NEWLINE}destroy that device before Raikou{CLEAR}shows up, and that should stop{CLEAR}your plan.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 31,
@@ -366,10 +366,10 @@
   {
    "id": 45,
    "zh": "一树『站起来雷公,{NEWLINE}吸取电能继续战斗！",
-   "en": "Will: Get up, Raikou.{NEWLINE}Absorb the power and keep fighting!",
+   "en": "Will: Get up, Raikou. Absorb the{NEWLINE}electrical energy and keep fighting!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 46,
@@ -478,10 +478,10 @@
   {
    "id": 59,
    "zh": "一树『哼,没想到借助雷公的力量{NEWLINE}还是打不过你,{CLEAR}但只要装置还在,{CLEAR}雷公就可以吸取电能恢复体力。",
-   "en": "Will: Hmph. Even with Raikou’s power{NEWLINE}I can’t beat you. But as long as{CLEAR}the device is still here, Raikou can{CLEAR}absorb power from it and recover.",
+   "en": "Will: Hmph. Even with Raikou’s power I{NEWLINE}can’t beat you. But as long as the{CLEAR}device is still here, Raikou can absorb{CLEAR}electrical energy from it and recover.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 60,
@@ -881,10 +881,10 @@
   {
    "id": 109,
    "zh": "你看到这条瀑布了吗？{NEWLINE}每年的这个季节,{CLEAR}千针鱼们都会顺瀑布而上{CLEAR}到上面的池塘产下宝宝。{SCROLL}但是最近千针鱼在这片水域{NEWLINE}的出生数量明显下降了,{CLEAR}我怀疑是水源污染造成的这种情况,{CLEAR}目前正在调查研究。",
-   "en": "See this waterfall? Every year at this{NEWLINE}time, Qwilfish swim up the waterfall{CLEAR}to lay their eggs in the pond above.{SCROLL}But lately the number of Qwilfish{NEWLINE}born in these waters has dropped{CLEAR}sharply. I suspect water pollution is{CLEAR}behind it, and I’m looking into it now.",
+   "en": "See this waterfall? Every year at this{NEWLINE}time, Qwilfish swim up the waterfall to{CLEAR}lay their eggs in the pond above.{SCROLL}But lately the number of Qwilfish born in{NEWLINE}these waters has noticeably dropped. I{CLEAR}suspect water pollution is behind it,{CLEAR}and I’m looking into it now.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 110,
@@ -1091,10 +1091,10 @@
   {
    "id": 135,
    "zh": "{VAR:0103:0}『做坏事的人{NEWLINE}都这么擅长逃跑吗……",
-   "en": "{VAR:0103:0}: Why are people{NEWLINE}who do bad things always{CLEAR}so good at running away...",
+   "en": "{VAR:0103:0}: Are all people who do bad{NEWLINE}things so good at running away...?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 136,
@@ -1117,10 +1117,10 @@
   {
    "id": 138,
    "zh": "{VAR:0103:0}『其实瀑布上游的池塘{NEWLINE}有人在用网捕捉千针鱼卖钱。{CLEAR}这可能是千针鱼数量下降的主要原因。",
-   "en": "{VAR:0103:0}: Actually, someone’s{NEWLINE}been catching Qwilfish with a net{CLEAR}in the pond above the waterfall{CLEAR}to sell. That’s probably the main{CLEAR}reason there are fewer Qwilfish.",
+   "en": "{VAR:0103:0}: Actually, someone’s been{NEWLINE}catching Qwilfish with a net in the pond{CLEAR}above the waterfall to sell. That could{CLEAR}be the main reason there are{CLEAR}fewer Qwilfish.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 139,
@@ -1133,10 +1133,10 @@
   {
    "id": 140,
    "zh": "{VAR:0103:0}『你放心吧,{NEWLINE}我已经赶跑了捕捉的人,{CLEAR}现在不会有人再威胁到千针鱼了。",
-   "en": "{VAR:0103:0}: Don’t worry. I’ve already{NEWLINE}chased off the poacher. Nothing’s{CLEAR}threatening the Qwilfish now.",
+   "en": "{VAR:0103:0}: Don’t worry. I’ve already{NEWLINE}chased off the poacher. No one’s{CLEAR}threatening the Qwilfish now.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 141,
@@ -1182,18 +1182,18 @@
   {
    "id": 146,
    "zh": "我感觉像艾路雷朵、风速狗、{NEWLINE}还有路卡利欧这些口袋妖怪,{CLEAR}天生就爱帮助其他人和精灵。{SCROLL}真希望我将来也能{NEWLINE}拥有一只这样的口袋妖怪。",
-   "en": "I feel like Pokémon such as Gallade,{NEWLINE}Arcanine and Lucario are just born{CLEAR}to help other people and Pokémon.{SCROLL}I really hope I can have a{NEWLINE}Pokémon like that someday.",
+   "en": "I feel like Pokémon such as Gallade,{NEWLINE}Arcanine and Lucario are born loving to{CLEAR}help other people and Pokémon.{SCROLL}I really hope I can have a Pokémon like{NEWLINE}that someday.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 147,
    "zh": "你在旅行途中应该见到过{NEWLINE}某些岩壁上有凸起的颗粒吧？{CLEAR}如果你的精灵会攀岩术,{CLEAR}就能沿着那些凸起爬上岩壁了。{SCROLL}据说研钵山有位隐居的攀岩达人,{NEWLINE}你如果想让精灵学攀岩术的话,{CLEAR}可以去那里找他试试。",
-   "en": "On your travels, you must have{NEWLINE}seen rock walls with little bumps{CLEAR}sticking out, right? If your Pokémon{CLEAR}know Rock Climb, they can climb{CLEAR}up those walls using the bumps.{SCROLL}They say a reclusive rock-climbing{NEWLINE}master lives on Mt. Mortar. If{CLEAR}you want your Pokémon to learn{CLEAR}Rock Climb, go look for him there.",
+   "en": "On your travels, you must have seen{NEWLINE}rock walls with little bumps sticking{CLEAR}out, right? If your Pokémon know Rock{CLEAR}Climb, they can climb up those walls{CLEAR}using the bumps.{SCROLL}They say a reclusive rock-climbing{NEWLINE}master lives on Mt. Mortar. If you want{CLEAR}your Pokémon to learn Rock Climb, you{CLEAR}could try looking for him there.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CN–EN–ES full review 2026-10-12: CN comparison: exact subjects, repetition, uncertainty and meaning"
   },
   {
    "id": 148,

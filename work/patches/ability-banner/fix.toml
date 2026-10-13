@@ -1,0 +1,32 @@
+id = "ability-banner"
+title = "Keep English ability pop-up names inside their window"
+kind = "code"
+enabled = false
+decisions = ["D-2500"]
+requires = []
+asm = "ability-banner.asm"
+why = """
+The hack's ability banner creates a 15-tile (120-pixel) window but anchors the ability row
+at pixel 132. Its staggering adjustment brings short Chinese names inward; longer English names
+retain that out-of-window anchor, so Battle Armor is clipped.
+Status: disabled. Isolated English layout repair, reviewed by a separate agent; pending activation.
+"""
+what = """
+Anchor the ability row at pixel 112, leaving eight pixels at the right. Set nickname
+padding to 16 to clear the player-side screen edge. The original row staggering
+adjustment and nonnegative clamps stay in place.
+Window allocation, font, banner graphics, animation, timings and ability logic stay intact.
+"""
+evidence = ["work/notes/ability_banner_fix.md"]
+[[code]]
+id = "ability-banner-right-edge"
+file = "overlay14"
+offset = "0x25F2A"
+expect = "0x2284"
+notes = "Right anchor inside the 120-pixel window."
+[[code]]
+id = "ability-banner-nickname-padding"
+file = "overlay14"
+offset = "0x25F2C"
+expect = "0x3108"
+notes = "Nickname x=16 clears the player-side banner's offscreen leading edge."

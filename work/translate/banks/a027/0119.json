@@ -299,10 +299,10 @@
   {
    "id": 34,
    "zh": "装作没看见继续前进",
-   "en": "Pretend not to see",
+   "en": "Pretend not to see; move on",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "category": "menu_touch_1line"
   },
   {
@@ -720,10 +720,10 @@
   {
    "id": 86,
    "zh": "只是往洞穴里走了这么一点路,{NEWLINE}我的小磁怪就已经感应到{CLEAR}地磁场的异常了,{CLEAR}果然研钵山的深处是有什么的吧！",
-   "en": "We’ve only gone a little way into the{NEWLINE}cave, and my Magnemite already senses{CLEAR}something strange in the geomagnetic{CLEAR}field. There really is something{CLEAR}in the depths of Mt. Mortar!",
+   "en": "We’ve only gone a little way into the{NEWLINE}cave, and my Magnemite already senses{CLEAR}something strange in the geomagnetic{CLEAR}field. There really must be something in{CLEAR}the depths of Mt. Mortar!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 87,
@@ -752,10 +752,10 @@
   {
    "id": 90,
    "zh": "呀呼,探险探险！",
-   "en": "Woo-hoo! Adventure time!",
+   "en": "Woo-hoo! Adventure, adventure!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 91,
@@ -888,10 +888,10 @@
   {
    "id": 107,
    "zh": "我要坐稳一点,可不能摔下去。",
-   "en": "I’d better hold on tight.{NEWLINE}I don’t want to fall off.",
+   "en": "I’d better sit tight. I mustn’t fall off.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 108,
@@ -1066,10 +1066,10 @@
   {
    "id": 129,
    "zh": "我是湛蓝道馆{NEWLINE}阿四馆主的大弟子信彦,{CLEAR}为了成为超越师傅的格斗大师{CLEAR}带着精灵在研钵山隐居修炼。",
-   "en": "I’m Kiyo, top student of Gym Leader{NEWLINE}Chuck of the Cianwood Gym. I’m training{CLEAR}in seclusion here in Mt. Mortar with{CLEAR}my Pokémon so I can become a fighting{CLEAR}master who surpasses my teacher.",
+   "en": "I’m Kiyo, senior disciple of Gym Leader{NEWLINE}Chuck of the Cianwood Gym. I’m training{CLEAR}in seclusion here in Mt. Mortar with my{CLEAR}Pokémon so I can become a fighting{CLEAR}master who surpasses my teacher.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 130,
@@ -1238,10 +1238,10 @@
   {
    "id": 150,
    "zh": "幸好你不是专精格斗系的训练家,{NEWLINE}不然我永远只能争当第二了。",
-   "en": "Good thing you don’t specialize in{NEWLINE}Fighting types. Otherwise I’d be{CLEAR}stuck at second best forever.",
+   "en": "Good thing you don’t specialize in{NEWLINE}Fighting types. Otherwise I could only{CLEAR}ever aim for second place.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 151,
@@ -1350,10 +1350,10 @@
   {
    "id": 164,
    "zh": "我感觉这更像是命中注定,{NEWLINE}注定我们一定能够探明{CLEAR}研钵山最深处的秘密。",
-   "en": "I’d call it more like destiny. We’re{NEWLINE}destined to uncover the secret{CLEAR}at the bottom of Mt. Mortar.",
+   "en": "I feel it’s more like destiny. We’re{NEWLINE}destined to uncover the secret at the{CLEAR}bottom of Mt. Mortar.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 165,

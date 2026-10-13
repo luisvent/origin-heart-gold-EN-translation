@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "所长『技能机５７是{NEWLINE}必杀！充电光线！{SCROLL}哔哔哔哔~{NEWLINE}发射后不仅能造成伤害,{CLEAR}有时我方还能提升特攻哦！",
-   "en": "Manager: TM57 is Charge Beam, my{NEWLINE}specialty!{SCROLL}Bzzzzt! It deals damage, and sometimes{NEWLINE}it raises your Sp. Atk too!",
+   "en": "Manager: TM57 is the finishing move,{NEWLINE}Charge Beam!{SCROLL}Bzzzzt! It deals damage, and sometimes{NEWLINE}it raises your Sp. Atk too!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve finishing move flourish rather than invented personal specialty."
   },
   {
    "id": 18,

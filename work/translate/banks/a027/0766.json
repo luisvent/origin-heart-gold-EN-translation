@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "正在向{VAR:0103:0}提出请求⋯⋯",
-   "en": "Communicating with {VAR:0103:0}...",
+   "en": "Sending a request to {VAR:0103:0}...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0778/17"
+   "origin": "agent",
+   "notes": "US 0778/17 | AGENT-0761-0802: CN fidelity"
   },
   {
    "id": 18,

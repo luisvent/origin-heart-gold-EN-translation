@@ -71,10 +71,10 @@
   {
    "id": 8,
    "zh": "不打你们一顿我不安心",
-   "en": "I won’t rest till I beat you",
+   "en": "I won’t rest till I beat you up",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense.",
    "category": "menu_touch_1line"
   },
   {
@@ -640,10 +640,10 @@
   {
    "id": 79,
    "zh": "阿金『你真是个贼心不死的家伙,{NEWLINE}不给你点教训是不会老实的。{CLEAR}上啊爆太郎！",
-   "en": "Gold: You just never learn, do you?{NEWLINE}You won’t behave until somebody{CLEAR}teaches you a lesson. Go, Exbo!",
+   "en": "Gold: You just can’t stop stealing, can{NEWLINE}you? You won’t behave until somebody{CLEAR}teaches you a lesson. Go, Exbo!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 80,
@@ -832,10 +832,10 @@
   {
    "id": 103,
    "zh": "岩铁『本来呆呆兽之井底下{NEWLINE}藏着海鸣铃铛这件事,{CLEAR}是我们家族代代相传的秘密。{CLEAR}与呆呆兽们合力守护铃铛{CLEAR}是我们家族代代相传的使命。{SCROLL}岩铁『唉,只恨老头子我年事已高、{NEWLINE}孙女年纪尚小,{CLEAR}桧皮镇的阿笔馆主也是稍显稚嫩。{CLEAR}面对知晓了海鸣铃铛所在的火箭队,{CLEAR}靠我们恐怕难以应对。{CLEAR}现在最有能力保护海鸣铃铛的人,{CLEAR}就是火箭队的克星{VAR:0103:0}你了。{CLEAR}所以我想把海鸣铃铛交给你,{CLEAR}希望你能保护好它。{CLEAR}等哪天火箭队被彻底消灭了,{CLEAR}再把铃铛放回呆呆兽之井。",
-   "en": "Kurt: That the Tidal Bell lies hidden{NEWLINE}under Slowpoke Well has been a{CLEAR}secret passed down in my family for{CLEAR}generations. Guarding the bell together{CLEAR}with the Slowpoke is our family’s duty.{SCROLL}Kurt: Sigh... But this old man is getting{NEWLINE}on in years, my granddaughter is still{CLEAR}young, and Azalea’s Gym Leader Bugsy{CLEAR}is a little green himself. Now that{CLEAR}Team Rocket knows where the Tidal{CLEAR}Bell is, I doubt we can handle them{CLEAR}on our own. The person most able to{CLEAR}protect the Tidal Bell right now is{CLEAR}you, {VAR:0103:0}, Team Rocket’s nemesis.{CLEAR}So I’d like to entrust the Tidal Bell{CLEAR}to you. Please keep it safe. Once{CLEAR}Team Rocket is wiped out for good,{CLEAR}bring the bell back to Slowpoke Well.",
+   "en": "Kurt: That the Tidal Bell lies hidden{NEWLINE}under Slowpoke Well has been a secret{CLEAR}passed down in my family for{CLEAR}generations. Guarding the bell together{CLEAR}with the Slowpoke is our family’s duty,{CLEAR}passed down for generations.{SCROLL}Kurt: Sigh... But this old man is getting{NEWLINE}on in years, my granddaughter is still{CLEAR}young, and Azalea’s Gym Leader Bugsy is{CLEAR}a little green himself. Now that Team{CLEAR}Rocket knows where the Tidal Bell is, I{CLEAR}doubt we can handle them on our own.{CLEAR}The person most able to protect the{CLEAR}Tidal Bell right now is you, {VAR:0103:0},{CLEAR}Team Rocket’s nemesis. So I’d like to{CLEAR}entrust the Tidal Bell to you. Please{CLEAR}keep it safe. Once Team Rocket is wiped{CLEAR}out for good, bring the bell back to{CLEAR}Slowpoke Well.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 104,
@@ -968,10 +968,10 @@
   {
    "id": 120,
    "zh": "呆呆兽『……　……　……{SCROLL}……　……　……{SCROLL}",
-   "en": "Slowpoke: ...{SCROLL}...{SCROLL}",
+   "en": "Slowpoke: ... ... ...{SCROLL}... ... ...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 121,
@@ -984,10 +984,10 @@
   {
    "id": 122,
    "zh": "呆河马『……　……　……{SCROLL}……　……　……{SCROLL}",
-   "en": "Slowbro: ...{SCROLL}...{SCROLL}",
+   "en": "Slowbro: ... ... ...{SCROLL}... ... ...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 123,

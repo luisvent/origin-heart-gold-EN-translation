@@ -39,10 +39,10 @@
   {
    "id": 4,
    "zh": "喵喵『就是这只伊布喵,{NEWLINE}这次跑出来的实验精灵之一。{CLEAR}抓回去咱们就立功了喵。",
-   "en": "Meowth: This Eevee’s one of the lab{NEWLINE}Pokémon that got loose, meow.{SCROLL}If we bring it back, we get the credit,{NEWLINE}meow.",
+   "en": "Meowth: This Eevee’s one of the{NEWLINE}experimental Pokémon that{CLEAR}got loose, meow.{SCROLL}If we bring it back, we get the credit,{NEWLINE}meow.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 5,
@@ -167,10 +167,10 @@
   {
    "id": 20,
    "zh": "小次郎『哇,我要用奖金去吃豪华大餐！{NEWLINE}哦,等等,还是买绝版瓶盖比较好呢？",
-   "en": "James: Ooh, I’ll spend my bonus on a{NEWLINE}lavish feast!{SCROLL}Oh, wait. Maybe I should buy some rare{NEWLINE}bottle caps instead?",
+   "en": "James: Ooh, I’ll spend my bonus on a{NEWLINE}lavish feast!{SCROLL}Oh, wait. Maybe I should buy some{NEWLINE}out-of-production bottle caps instead?",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 21,
@@ -183,10 +183,10 @@
   {
    "id": 22,
    "zh": "喵喵『不,我们一定要立功的喵,{NEWLINE}但是我要做的聪明一点啊喵。",
-   "en": "Meowth: Nah, we gotta{NEWLINE}get the credit, meow.{CLEAR}But we gotta be smart about it, meow.",
+   "en": "Meowth: Nah, we gotta get the credit,{NEWLINE}meow. But I gotta be smart{CLEAR}about it, meow.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 23,
@@ -199,10 +199,10 @@
   {
    "id": 24,
    "zh": "喵喵『没错啊喵,{NEWLINE}你们想一下,{CLEAR}最先发现逃走精灵的部队,{CLEAR}一定会与它交战的喵。{SCROLL}喵喵『我们只要在一旁观战,{NEWLINE}等那个精灵足够疲惫的时候,{CLEAR}全力冲刺去把它抓住,{CLEAR}最后的战功就是我们的了喵。",
-   "en": "Meowth: That’s right, meow. Think about{NEWLINE}it.{SCROLL}Whoever finds the runaway Pokémon first{NEWLINE}is gonna have to battle it, meow.{SCROLL}Meowth: We just watch from the{NEWLINE}sidelines. When the Pokémon’s worn out,{CLEAR}we charge in and grab it.{SCROLL}Then all the credit’s ours, meow.",
+   "en": "Meowth: That’s right, meow. Think about{NEWLINE}it.{SCROLL}Whoever finds the runaway Pokémon first{NEWLINE}is gonna have to battle it, meow.{SCROLL}Meowth: We just watch from the{NEWLINE}sidelines. When the Pokémon’s worn out,{CLEAR}we sprint in at full speed and grab it.{SCROLL}Then all the credit’s ours, meow.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 25,
@@ -519,10 +519,10 @@
   {
    "id": 64,
    "zh": "还没出生的精灵{NEWLINE}恐怕学不会这个技能……{SCROLL}",
-   "en": "A Pokémon that hasn’t hatched yet{NEWLINE}can’t learn this move...{SCROLL}",
+   "en": "I’m afraid a Pokémon that hasn’t{NEWLINE}hatched yet can’t learn this move...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl)"
+   "notes": "v3 TM: 1 source(s), same position; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl) | CES-early: Restore polite apprehension 恐怕 consistent0320#11"
   },
   {
    "id": 65,
@@ -559,10 +559,10 @@
   {
    "id": 69,
    "zh": "{VAR:0101:0}想要记住{NEWLINE}新的蝶舞……！{SCROLL}但是{VAR:0101:0}{NEWLINE}已经记住4个技能了！{SCROLL}为了学习蝶舞{NEWLINE}要让它忘记其他技能吗？{VAR:0200:0}",
-   "en": "{VAR:0101:0} wants to learn the move{NEWLINE}Quiver Dance...!{SCROLL}But {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}Forget a move to make{NEWLINE}room for Quiver Dance?{VAR:0200:0}",
+   "en": "{VAR:0101:0} wants to learn the new{NEWLINE}move Quiver Dance...!{SCROLL}But {VAR:0101:0} already knows four{NEWLINE}moves!{SCROLL}Forget a move to make room for{NEWLINE}Quiver Dance?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
-   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "layout rebalance 2026-10-09 (prompt icons / single-word page) | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 70,
@@ -575,10 +575,10 @@
   {
    "id": 71,
    "zh": "{VAR:0101:0}完全忘了{NEWLINE}{VAR:0106:1}的用法！{SCROLL}然后……！",
-   "en": "{VAR:0101:0} forgot how to use{NEWLINE}{VAR:0106:1}!{SCROLL}And...!",
+   "en": "{VAR:0101:0} completely forgot how to{NEWLINE}use {VAR:0106:1}!{SCROLL}And then...!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl)"
+   "notes": "v3 TM: 1 source(s), same position; other variants: 7 more v3 TM candidates (tm_v4_matches.jsonl) | CES-early: CN fidelity: restore source details and relations"
   },
   {
    "id": 72,

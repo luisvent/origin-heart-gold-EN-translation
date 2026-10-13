@@ -274,10 +274,10 @@
   {
    "id": 31,
    "zh": "你刚刚回答的问题有错误,{NEWLINE}仔细想想是哪里不对吧。",
-   "en": "You got one of those questions{NEWLINE}wrong. Think carefully{CLEAR}about where you went wrong.",
+   "en": "Some of your answers were wrong. Think{NEWLINE}carefully about where you went wrong.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Source errors does not specify exactly one wrong answer."
   }
  ]
 }

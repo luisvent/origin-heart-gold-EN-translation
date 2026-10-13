@@ -54,9 +54,9 @@
   {
    "id": 6,
    "zh": "请触摸树果培养皿",
-   "en": "Touch one of the{NEWLINE}Berry Pots.{NEWLINE}",
+   "en": "Touch a Berry Pot.{NEWLINE}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0248/6"
   },
   {
@@ -86,9 +86,9 @@
   {
    "id": 10,
    "zh": "软软的地面",
-   "en": "It’s soft, earthy soil.",
+   "en": "The soil is soft.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0248/10"
   },
   {
@@ -118,7 +118,7 @@
   {
    "id": 14,
    "zh": "{VAR:0108:0}树长大了！",
-   "en": "The {VAR:0108:0} Berry Plant is{NEWLINE}growing bigger.",
+   "en": "The {VAR:0108:0} Berry Plant has{NEWLINE}grown bigger.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -150,9 +150,9 @@
   {
    "id": 18,
    "zh": "软软的土地上长出了{NEWLINE}{VAR:0108:0}的果实！",
-   "en": "The {VAR:0108:0} Berry was planted{NEWLINE}in the soft, earthy soil.",
+   "en": "The {VAR:0108:0} Berry was planted{NEWLINE}in the soft soil.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0248/18"
   },
   {
@@ -174,9 +174,9 @@
   {
    "id": 21,
    "zh": "将{VAR:0108:0}的果实收进背包！{NEWLINE}又变成了软软的土地",
-   "en": "Put away the {VAR:0108:0} Berries!{NEWLINE}The soil is in a soft, earthy state.",
+   "en": "Put away the {VAR:0108:0} Berries!{NEWLINE}The soil is soft again.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0248/21"
   },
   {

@@ -6,7 +6,7 @@
   {
    "id": 0,
    "zh": "水晶『前辈,我本来是想去愤怒湖{NEWLINE}看红色暴鲤龙的,{CLEAR}但是在途中小迷蹦突然身体不适,{CLEAR}为了给它治疗我只能原路返回了。{SCROLL}水晶『虽说没能看成暴鲤龙有些遗憾,{NEWLINE}但好在小迷蹦的身体状态{CLEAR}已经渐渐恢复了。",
-   "en": "Crystal: I was going to the Lake of{NEWLINE}Rage to see the red Gyarados, but on{CLEAR}the way Chumee suddenly got sick, so{CLEAR}I had to turn back to get it treated.{SCROLL}Crystal: It’s a bit of a shame I didn’t{NEWLINE}get to see the Gyarados, but at least{CLEAR}Chumee is slowly getting better.",
+   "en": "Crystal: Senpai, I was going to the Lake{NEWLINE}of Rage to see the red Gyarados, but on{CLEAR}the way Chumee suddenly got sick, so{CLEAR}I had to turn back to get it treated.{SCROLL}Crystal: It’s a bit of a shame I didn’t{NEWLINE}get to see the Gyarados, but at least{CLEAR}Chumee is slowly getting better.",
    "status": "draft",
    "origin": "agent",
    "notes": "[D-1115 rename 2026-10-04: Smoochee → Chumee]"
@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "小尾立,我给你找来了解睡果哦,{NEWLINE}吃下这个就会变得有精神了,{CLEAR}快来尝尝吧。",
-   "en": "Sentret, I got you a Chesto{NEWLINE}Berry. Eat this and you’ll{CLEAR}perk right up. Come on, try it.",
+   "en": "Little Sentret, I got you a Chesto{NEWLINE}Berry. Eat this and you’ll perk right{CLEAR}up. Come on, try it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0391-0394-noncontiguous: Restore affectionate little address."
   },
   {
    "id": 7,
@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "原来上次尾立精神不振,{NEWLINE}都是火箭队的一个{CLEAR}什么电波装置搞的鬼。{CLEAR}幸好有精灵联盟的训练家们{CLEAR}帮我们赶走了火箭队,{CLEAR}现在尾立终于又活蹦乱跳了。",
-   "en": "So Sentret being so listless{NEWLINE}last time was all because of some{CLEAR}radio-wave device of Team Rocket’s.{SCROLL}Luckily, the Pokémon League’s{NEWLINE}Trainers drove Team Rocket away{CLEAR}for us. Now Sentret is lively{CLEAR}and bouncing around again.",
+   "en": "So Sentret being so listless last time{NEWLINE}was all because of some radio-wave{CLEAR}device of Team Rocket’s.{SCROLL}Luckily, the Pokémon League’s Trainers{NEWLINE}drove Team Rocket away for us. Now{CLEAR}Sentret is finally lively and bouncing{CLEAR}around again.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0391-0394-noncontiguous: Restore finally relief."
   },
   {
    "id": 13,

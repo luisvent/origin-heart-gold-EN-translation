@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "这里是社交所！{SCROLL}可以和训练家１对１{NEWLINE}展开对战！{SCROLL}要参加吗？{VAR:0200:0}",
-   "en": "Hello, welcome to our Training Hall.{SCROLL}You may battle Trainers one-on-one.{SCROLL}Would you like to participate? {VAR:0200:0}",
-   "status": "reviewed",
+   "en": "Welcome to the Trainer House!{SCROLL}You may battle Trainers one-on-one.{SCROLL}Would you like to participate? {VAR:0200:0}",
+   "status": "draft",
    "origin": "agent",
-   "notes": "US 0458/0 [User-approved warning review 2026-10-04; exact proposal applied.]"
+   "notes": "US 0458/0 [User-approved warning review 2026-10-04; exact proposal applied.]; D-2490 exact user-approved review correction (2026-10-13)."
   },
   {
    "id": 1,
@@ -71,7 +71,7 @@
    "id": 8,
    "zh": "这里是训练家们{NEWLINE}聚集的社交所。{SCROLL}在口袋计步器通信的{NEWLINE}朋友们也会在这里聚集！{SCROLL}可以和训练家１对１{NEWLINE}展开对战！{SCROLL}胜出的话{NEWLINE}能得到战斗点数,{CLEAR}请加油吧！{SCROLL}",
    "en": "This is the Trainer House--{NEWLINE}the place for Trainers.{SCROLL}The Pokéwalker will bring your{NEWLINE}friends here!{SCROLL}You can battle Trainers one-on-one.{SCROLL}You’ll earn Battle Points when you win.{CLEAR}Bring out your best!{SCROLL}",
-   "status": "reviewed",
+   "status": "draft",
    "origin": "agent",
    "notes": "US 0458/8 [User-approved warning review 2026-10-04; exact proposal applied.]"
   },

@@ -110,9 +110,9 @@
   {
    "id": 13,
    "zh": "相册里面的相片好像已经装满了。{SCROLL}用电脑把相册里面的照片{NEWLINE}整理一下吧！",
-   "en": "Your Photo Album is full.{SCROLL}Access your PC to delete{NEWLINE}some pictures.",
+   "en": "Your Photo Album seems full.{SCROLL}Use your PC to sort out{NEWLINE}the photos.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0611/13"
   },
   {

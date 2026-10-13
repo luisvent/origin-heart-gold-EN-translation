@@ -259,7 +259,7 @@
   {
    "id": 31,
    "zh": "这个冰空花束也有净化环境的功效,{NEWLINE}把它放到你的房间里,{CLEAR}或许对病情也有帮助哦。",
-   "en": "Gracidea also purify the air around{NEWLINE}them.{SCROLL}Put it in your room, and maybe it’ll help{NEWLINE}with your illness.",
+   "en": "Gracidea also purify their surroundings.{SCROLL}Put it in your room, and maybe it’ll help{NEWLINE}with your illness.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -459,7 +459,7 @@
   {
    "id": 56,
    "zh": "哎呀,怎么会呢！{NEWLINE}在我心中你就是最美的。",
-   "en": "Oh, come on, how could I? To me, you’re{NEWLINE}the most beautiful girl in the world.",
+   "en": "Oh, come on, how could I? To me, you’re{NEWLINE}the most beautiful to me.",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -475,7 +475,7 @@
   {
    "id": 58,
    "zh": "你在我心中也是最帅的呢。",
-   "en": "And to me, you’re the most handsome{NEWLINE}guy in the world.",
+   "en": "And to me, you’re the most handsome.",
    "status": "draft",
    "origin": "agent",
    "notes": ""

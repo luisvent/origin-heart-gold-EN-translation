@@ -30,10 +30,10 @@
   {
    "id": 3,
    "zh": "欢笑与泪水的收集{NEWLINE}这里是综艺频道！",
-   "en": "The Variety Channel that’s a treasure{NEWLINE}chest filled with laughter and tears!",
+   "en": "Gathering laughter and tears,{NEWLINE}this is the Variety Channel!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0413/3"
+   "origin": "agent",
+   "notes": "US 0413/3 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 4,
@@ -150,10 +150,10 @@
   {
    "id": 18,
    "zh": "小东『小西,{NEWLINE}这地方很安静很不错吧？{NEWLINE}小西『是啊小东！{NEWLINE}只有我们两个人的{NEWLINE}大自然⋯⋯{NEWLINE}好浪漫啊！{NEWLINE}旁白『就在这时！{NEWLINE}一声撕裂甜蜜气氛的声音！{NEWLINE}乓~~~！！{NEWLINE}这里是３２号道路,{NEWLINE}两人的头上{NEWLINE}是新干线的{NEWLINE}铁轨⋯⋯！{NEWLINE}连续剧{NEWLINE}「爱的波涛」{NEWLINE}敬请期待下集！",
-   "en": "East: West, this is such a quiet place.{NEWLINE}It’s so wonderful isn’t it?{NEWLINE}West: Yes, you’re right, East! It’s just{NEWLINE}the two of us and nature! It’s just so{NEWLINE}romantic!{NEWLINE}Narrator: But then...an alarming sound{NEWLINE}ripped through the beautiful atmosphere!{NEWLINE}BWAAAAAAAAAAANNNN!!{NEWLINE}There! On the Magnet Train tracks on{NEWLINE}Route 32, high above the young couple!{NEWLINE}Tune in next time for another episode of{NEWLINE}the Serial Radio Drama: Waves of Love!",
+   "en": "East: West, this is such a quiet place.{NEWLINE}It’s so wonderful isn’t it? West: Yes,{NEWLINE}you’re right, East! It’s just the two{NEWLINE}of us and nature! It’s just so{NEWLINE}romantic! Narrator: But then... an{NEWLINE}alarming sound ripped through the{NEWLINE}beautiful atmosphere!{NEWLINE}BWAAAAAAAAAAANNNN!! There! On the{NEWLINE}Magnet Train tracks on Route 32, high{NEWLINE}above the young couple! Tune in next{NEWLINE}time for another episode of the Serial{NEWLINE}Radio Drama: Waves of Love!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0413/18"
+   "origin": "agent",
+   "notes": "US 0413/18 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 19,
@@ -190,26 +190,26 @@
   {
    "id": 23,
    "zh": "帕里奥『我为了成为{NEWLINE}城都最叛逆的人而离开故乡,{NEWLINE}疯狂地骑着自行车{NEWLINE}奔驰于各地。{NEWLINE}我叫帕里奥,{NEWLINE}精灵对战也是非常强,{NEWLINE}骑自行车也是非常快,{NEWLINE}飞机头三米长,{NEWLINE}还有很多很多我必须{NEWLINE}要越过的墙。{NEWLINE}收音机连续剧{NEWLINE}「叛逆之路」{NEWLINE}次回　第３话{NEWLINE}「竞争对手」{NEWLINE}敬请期待！",
-   "en": "Pario: I left my hometown and came to the{NEWLINE}Johto region with the goal of becoming{NEWLINE}the number one outcast. I’ve been riding{NEWLINE}my Bicycle around every route in Johto.{NEWLINE}My name is Pario!{NEWLINE}I’m great at Pokémon battles,{NEWLINE}I pedal my Bicycle real fast,{NEWLINE}and my pompadour’s three meters long!{NEWLINE}But I’ve still got so many walls{NEWLINE}to get over!{NEWLINE}Tune in next time for episode three of{NEWLINE}the Serial Radio Drama: Delinquent Road,{NEWLINE}“A Rival Appears”!",
+   "en": "Pario: I left my hometown to become the{NEWLINE}biggest rebel in Johto, racing wildly{NEWLINE}from place to place on my Bicycle. My{NEWLINE}name is Pario! I’m great at Pokémon{NEWLINE}battles, I pedal my Bicycle real fast,{NEWLINE}and my pompadour’s three meters long!{NEWLINE}But I’ve still got so many walls to get{NEWLINE}over! Tune in next time for episode{NEWLINE}three of the Serial Radio Drama:{NEWLINE}Delinquent Road, “A Rival Appears”!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0413/23; ext-review B-021"
+   "notes": "US 0413/23; ext-review B-021 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 24,
    "zh": "帕里奥『怎么样！{NEWLINE}没人{NEWLINE}能赢我了吗！{NEWLINE}没有的话从今天开始{NEWLINE}我就是叛逆之王了！{NEWLINE}谜之女『哼哼哼！{NEWLINE}你还挺精神的啊⋯⋯{NEWLINE}旁白『突然出现的{NEWLINE}谜之女⋯⋯{NEWLINE}帕里奥『你是谁！？{NEWLINE}小西『我叫小西,{NEWLINE}关东的叛逆女王,{NEWLINE}我听过你的事了,{NEWLINE}城都的叛逆王帕里奥⋯⋯{NEWLINE}东帕里奥就是你吧？{NEWLINE}旁白『哦！{NEWLINE}剧情发展出人意料！{NEWLINE}收音机连续剧{NEWLINE}「叛逆之路」{NEWLINE}次回　最终话{NEWLINE}「自行车女孩」{NEWLINE}敬请期待！",
-   "en": "Pario: What do you think? There{NEWLINE}isn’t a guy around who can beat{NEWLINE}me! That means from today on,{NEWLINE}I’m the king of the outcasts!{NEWLINE}Strange Girl: Heh heh heh! You’re{NEWLINE}certainly full of energy...{NEWLINE}Narrator: Suddenly, a{NEWLINE}strange girl appeared...{NEWLINE}Pario: Who in the world are you?!{NEWLINE}West: My name’s West, queen of{NEWLINE}the outcasts in Kanto. I’ve heard{NEWLINE}all about you, Pario, king of the{NEWLINE}Johto outcasts... Pario of the{NEWLINE}East, that would be you, right?{NEWLINE}Narrator: Oh! What a{NEWLINE}surprising development!{NEWLINE}Tune in next time for the final{NEWLINE}episode of the Serial Radio Drama:{NEWLINE}Delinquent Road, “Bicycle Girl”!",
+   "en": "Pario: What do you think? Is there no{NEWLINE}one who can beat me?! If there isn’t,{NEWLINE}from today on, I’m the king of the{NEWLINE}rebels! Strange Girl: Heh heh heh!{NEWLINE}You’re certainly full of energy...{NEWLINE}Narrator: Suddenly, a strange girl{NEWLINE}appeared... Pario: Who in the world are{NEWLINE}you?! West: My name’s West, queen of{NEWLINE}the rebels in Kanto. I’ve heard all{NEWLINE}about you, Pario, king of the Johto{NEWLINE}rebels... Pario of the East, that would{NEWLINE}be you, right? Narrator: Oh! What a{NEWLINE}surprising development! Tune in next{NEWLINE}time for the final episode of the Serial{NEWLINE}Radio Drama: Delinquent Road, “Bicycle{NEWLINE}Girl”!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0413/24"
+   "notes": "US 0413/24 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 25,
    "zh": "帕里奥『你是关东的{NEWLINE}老大吗！来比比吧！{NEWLINE}小西『等一下,{NEWLINE}我们还要继续拼个{NEWLINE}你死我活的吗？{NEWLINE}其实我对你一见钟情了！{NEWLINE}我们一起⋯⋯{NEWLINE}帕里奥『⋯⋯是吗？其实{NEWLINE}我也很喜欢你⋯⋯{NEWLINE}旁白『就这样,{NEWLINE}两人放弃了叛逆,{NEWLINE}踏上了纯爱之旅。{NEWLINE}之后{NEWLINE}就是另一个故事了⋯{NEWLINE}收音机连续剧{NEWLINE}「叛逆之路」{NEWLINE}完结⋯⋯",
-   "en": "Pario: You’re the boss{NEWLINE}of Kanto? Let’s battle!{NEWLINE}West: Hold it just one minute. Are{NEWLINE}we really going to keep fighting{NEWLINE}until one of us drops? The truth{NEWLINE}is, I fell for you at first sight!{NEWLINE}How about the two of us go...?{NEWLINE}Pario: ...Is that so? Well, the{NEWLINE}truth is, I love you, too...{NEWLINE}Narrator: And so, the two gave up{NEWLINE}their rebellious ways and set off on the{NEWLINE}path of pure love. What happened after{NEWLINE}that is another story altogether...{NEWLINE}The Serial Radio Drama: Delinquent{NEWLINE}Road has come to an end...",
+   "en": "Pario: You’re the boss of Kanto? Let’s{NEWLINE}battle! West: Hold it just one minute.{NEWLINE}Are we really going to keep fighting{NEWLINE}until one of us drops? The truth is, I{NEWLINE}fell for you at first sight! How about{NEWLINE}the two of us go...? Pario: ...Is that{NEWLINE}so? Well, the truth is, I really like{NEWLINE}you, too... Narrator: And so, the two{NEWLINE}gave up their rebellious ways and set{NEWLINE}off on the path of pure love. What{NEWLINE}happened after that is another story{NEWLINE}altogether... The Serial Radio Drama:{NEWLINE}Delinquent Road has come to an end...",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0413/25"
+   "notes": "US 0413/25 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   }
  ]
 }

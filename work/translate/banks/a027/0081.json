@@ -606,10 +606,10 @@
   {
    "id": 75,
    "zh": "比夏斯『不过你别得意,{NEWLINE}我们火箭队的传说精灵捕捉计划{CLEAR}不会就此终止,{CLEAR}你们这些精灵联盟的混蛋{CLEAR}就等着被我们打败吧！",
-   "en": "Marauder: But don’t get cocky.{NEWLINE}Team Rocket’s plan to capture{CLEAR}legendary Pokémon won’t end here.{CLEAR}You bastards of the Pokémon League,{CLEAR}just wait until we crush you!",
+   "en": "Marauder: But don’t get cocky. Team{NEWLINE}Rocket’s plan to capture legendary{CLEAR}Pokémon won’t end here. You bastards{CLEAR}of the Pokémon League, just wait until{CLEAR}we defeat you!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 76,
@@ -1048,10 +1048,10 @@
   {
    "id": 130,
    "zh": "{VAR:0103:0}『就是你们炸毁了引擎,{NEWLINE}才导致了圣安努号上无数的生命惨死。{CLEAR}我不会再让这样的悲剧发生了！",
-   "en": "{VAR:0103:0}: You’re the ones who blew{NEWLINE}up the engine and killed countless{CLEAR}people on the S.S. Anne. I won’t{CLEAR}let that tragedy happen again!",
+   "en": "{VAR:0103:0}: You’re the ones who blew up{NEWLINE}the engine and caused countless people{CLEAR}on the S.S. Anne to die horribly. I{CLEAR}won’t let that tragedy happen again!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 131,
@@ -1072,10 +1072,10 @@
   {
    "id": 133,
    "zh": "水吾桐『不……你和刚刚船长室里的{NEWLINE}那个小鬼不是一个人。{CLEAR}我从你的眼神中能看出来,{CLEAR}你是那种经历过{CLEAR}无数次生死之战的强者。{CLEAR}可恶,真是不甘心啊……",
-   "en": "Archie: No... You’re not the same{NEWLINE}brat who was in the captain’s{CLEAR}cabin. I can see it in your eyes.{CLEAR}You’re someone who’s been through{CLEAR}countless life-or-death battles.{CLEAR}Damn, this is so frustrating...",
+   "en": "Archie: No... You’re not the same brat{NEWLINE}who was in the captain’s cabin. I can{CLEAR}see it in your eyes. You’re a strong{CLEAR}fighter who’s been through countless{CLEAR}life-or-death battles. Damn, this is{CLEAR}so frustrating...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 134,

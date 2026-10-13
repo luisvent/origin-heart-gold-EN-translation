@@ -230,10 +230,10 @@
   {
    "id": 28,
    "zh": "想做什么{NEWLINE}返回选择菜单。",
-   "en": "Return to previous selections.",
+   "en": "Return to the menu to choose{NEWLINE}what you want to do.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0031/28"
+   "origin": "agent",
+   "notes": "US 0031/28 | CES-early: omission: retain action-selection purpose"
   },
   {
    "id": 29,
@@ -430,10 +430,10 @@
   {
    "id": 53,
    "zh": "想做什么{NEWLINE}返回选择菜单。",
-   "en": "Return to previous selections.",
+   "en": "Return to the menu to choose{NEWLINE}what you want to do.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0031/53"
+   "origin": "agent",
+   "notes": "US 0031/53 | CES-early: omission: retain action-selection purpose"
   },
   {
    "id": 54,

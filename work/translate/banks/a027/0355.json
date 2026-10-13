@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "这里能够抓到凯西喔！{SCROLL}如果我有了凯西的话,{NEWLINE}就能像金黄市的娜姿小姐一样{CLEAR}成为超能力者了吧？",
-   "en": "You can catch Abra around here!{SCROLL}If I had an Abra, I could become a{NEWLINE}psychic just like Sabrina of Saffron{CLEAR}City, right?",
+   "en": "You can catch Abra around here!{SCROLL}If I had an Abra, I could become a{NEWLINE}psychic just like Miss Sabrina of Saffron{CLEAR}City, right?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Miss Sabrina honorific."
   },
   {
    "id": 10,
@@ -134,10 +134,10 @@
   {
    "id": 16,
    "zh": "我现在已经拥有了凯西,{NEWLINE}只要假以时日认真锻炼,{CLEAR}就能像金黄市的娜姿小姐一样{CLEAR}成为超能力者了吧？",
-   "en": "I have an Abra now. If I train hard and{NEWLINE}give it time, I can become a psychic like{CLEAR}Sabrina of Saffron City, right?",
+   "en": "I have an Abra now. If I train hard and{NEWLINE}give it time, I can become a psychic like{CLEAR}Miss Sabrina of Saffron City, right?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore Miss Sabrina honorific."
   }
  ]
 }

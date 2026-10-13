@@ -143,10 +143,10 @@
   {
    "id": 17,
    "zh": "小绿『我现在就去石英高原,{NEWLINE}也就是精灵联盟总部的所在地。{CLEAR}去那里挑战联盟四天王,{CLEAR}成为精灵联盟的冠军！{SCROLL}如果你也想挑战的话,{SCROLL}就跟我来吧！",
-   "en": "Blue: I’m heading to Indigo Plateau{NEWLINE}right now. That’s where the{CLEAR}Pokémon League is.{SCROLL}I’m gonna take on the Elite Four and{NEWLINE}become League Champion!{SCROLL}If you want to try too...{SCROLL}then follow me!",
+   "en": "Blue: I’m heading to Indigo Plateau{NEWLINE}right now. That’s where Pokémon League{CLEAR}HQ is. I’m gonna take on the Elite Four{CLEAR}and become League Champion! If you{CLEAR}want to try too... then follow me!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES002: Restore 总部 (headquarters)."
   },
   {
    "id": 18,
@@ -1538,10 +1538,10 @@
   {
    "id": 190,
    "zh": "{VAR:0103:0}『那咱们就好好逛逛,{NEWLINE}慢慢享受在这的时光。",
-   "en": "{VAR:0103:0}: Then let’s take our time and{NEWLINE}enjoy every minute here.",
+   "en": "{VAR:0103:0}: Then let’s take our time{NEWLINE}looking around and enjoy{CLEAR}every minute here.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES002: Restore 逛逛, exploring the resort together."
   },
   {
    "id": 191,
@@ -1722,10 +1722,10 @@
   {
    "id": 213,
    "zh": "加油啊！我看好你们哦！",
-   "en": "Go get ’em! We’re rooting for you!",
+   "en": "Go get ’em! I’m rooting for you!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES002: CN 我 is a single cheering speaker, not a group."
   },
   {
    "id": 214,
@@ -1746,10 +1746,10 @@
   {
    "id": 216,
    "zh": "恋爱最甜美的时候,{NEWLINE}就是刚刚在一起时的青涩时光。",
-   "en": "The sweetest time in love is when you’ve{NEWLINE}just started going out.",
+   "en": "The sweetest time in love is those shy,{NEWLINE}awkward early days when you’ve just{CLEAR}gotten together.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES004: Reuse CES003: restore 青涩 shy/inexperienced nuance."
   },
   {
    "id": 217,
@@ -1858,10 +1858,10 @@
   {
    "id": 230,
    "zh": "呜呜呜,真的是太感人了！{NEWLINE}两位情侣在我们的仪式上{CLEAR}交换了相守一生的誓言。{CLEAR}下面请两位用深情的拥吻,{CLEAR}为今天的祝福仪式画上圆满的句号！{SCROLL}各位来宾请为他们送上祝福的掌声！",
-   "en": "Waaah, that’s so moving!{SCROLL}Our couple has just exchanged vows to{NEWLINE}stay together for life!{SCROLL}Now, please seal today’s blessing{NEWLINE}ceremony with a loving kiss!{SCROLL}Everyone, give them a round of{NEWLINE}applause!",
+   "en": "*sniff* This is so moving! Our couple has{NEWLINE}exchanged vows to be together for life{CLEAR}at our ceremony. Now, please seal{CLEAR}today’s blessing ceremony with a{CLEAR}passionate embrace and kiss!{SCROLL}Everyone, please give them a round of{NEWLINE}applause!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES002: Reuse identical CN from 0508#123; retain ceremony setting and embrace as well as kiss."
   },
   {
    "id": 231,
@@ -1882,10 +1882,10 @@
   {
    "id": 233,
    "zh": "{VAR:0103:0}『仪式结束了,大家也都散了……",
-   "en": "{VAR:0103:0}: The ceremony’s over, and{NEWLINE}everyone’s gone home...",
+   "en": "{VAR:0103:0}: The ceremony’s over, and{NEWLINE}everyone’s gone...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES002: Reuse identical CN from 0508#126; 散了 does not say the guests went home."
   },
   {
    "id": 234,

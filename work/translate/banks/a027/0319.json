@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "前面是月见山,{SCROLL}途中还有{NEWLINE}月见山广场！",
-   "en": "Mt. Moon ahead.{SCROLL}Mt. Moon Square is on{NEWLINE}the way to the top!",
+   "en": "Mt. Moon ahead.{SCROLL}Mt. Moon Square is on the way!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0326/0"
+   "origin": "agent",
+   "notes": "US 0326/0 | CES-early: Remove invented summit destination"
   },
   {
    "id": 1,
@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "触摸陨石{NEWLINE}使某只精灵的{CLEAR}行动速度提高了！",
-   "en": "Touching the meteorite boosted{NEWLINE}the Speed of a certain Pokémon.",
+   "en": "Touching the meteorite boosted the{NEWLINE}Speed of a certain Pokémon!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0326/2"
+   "origin": "agent",
+   "notes": "US 0326/2 | CES-early: CN fidelity: restore meaning, subjects, context, repetition and emphasis"
   },
   {
    "id": 3,
@@ -459,10 +459,10 @@
   {
    "id": 56,
    "zh": "我的这只小火龙特别帅气矫健,{NEWLINE}我实在不忍心当我去世之后{CLEAR}留它自己在这里伤心落寞。{SCROLL}所以能否请你现在带上它,{NEWLINE}一同踏上旅途呢？",
-   "en": "This Charmander of mine is so handsome{NEWLINE}and spirited. I can’t bear the thought{CLEAR}of leaving it here all sad and alone when{CLEAR}I’m gone.{SCROLL}So would you take it with you now, on{NEWLINE}your journey?",
+   "en": "This Charmander of mine is so handsome{NEWLINE}and agile. I can’t bear the thought of{CLEAR}leaving it here all sad and alone {CLEAR}when I die.{SCROLL}So would you take it with you now, on{NEWLINE}your journey?",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES-early: Secondary CN comparison: restore exact meaning, subjects, register and explicit details"
   },
   {
    "id": 57,

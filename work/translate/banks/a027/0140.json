@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "在这之前是{NEWLINE}在所有的比赛中囊获{CLEAR}第１名的纪录,{CLEAR}只有优秀的口袋竞技员{CLEAR}才被允许进入。{SCROLL}请务必打破最高纪录,{NEWLINE}以取得第１名为目标吧！",
-   "en": "Only the Pokéathletes who have held{NEWLINE}the best record in every event{CLEAR}are allowed here.{SCROLL}Continue your hard work toward{NEWLINE}breaking every record there is.",
+   "en": "Only the Pokéathletes who have held the{NEWLINE}best record in every event are{CLEAR}allowed here.{SCROLL}Be sure to break the best records and{NEWLINE}aim for first place!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0142/1"
+   "origin": "agent",
+   "notes": "US 0142/1 | CES-early: omission: explicit aim for first place"
   },
   {
    "id": 2,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "我想你应该知道,{NEWLINE}在抢位置中{SCROLL}把对手推出圈是关键。{SCROLL}实际上呢,对精灵{NEWLINE}做出指示的瞬间{CLEAR}推搡的力量会增强！{SCROLL}勤快地做出指示的话,{NEWLINE}即使是强大的对手,{CLEAR}也可能会被挤出去呢！{SCROLL}",
-   "en": "The key is to push other Pokémon out{NEWLINE}of the Circles...which may be obvious.{SCROLL}Actually, your Pokémon can push harder{NEWLINE}if you pick the right moment to tell{CLEAR}them to push.{SCROLL}So you might be able to push back{NEWLINE}powerful Pokémon if you give frequent{CLEAR}instructions to push.{SCROLL}",
+   "en": "I think you know that pushing opponents{NEWLINE}out of the Circles is the key in{CLEAR}Circle Push.{SCROLL}Actually, your Pokémon’s pushing power{NEWLINE}increases the instant you give{CLEAR}an instruction!{SCROLL}If you give instructions frequently, you{NEWLINE}may be able to push even powerful{CLEAR}opponents out!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0142/10"
+   "origin": "agent",
+   "notes": "US 0142/10 | CES-early: meaning: instant instruction, not selecting right moment"
   },
   {
    "id": 11,
@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "抢飞碟中如何在更后面的位置接到{CLEAR}飞碟是得胜的关键所在！{SCROLL}特别是鸟精灵这样的{NEWLINE}精灵在跳跃过程中{CLEAR}还可以进行移动。{SCROLL}对全是鸟系精灵的队伍来说,{NEWLINE}拿到飞碟真是轻而易举呢。{SCROLL}",
-   "en": "Disc Catch is about how long you can{NEWLINE}wait until you catch the Discs.{SCROLL}Bird Pokémon can move around in the{NEWLINE}air, so it’ll be easier to catch Discs{CLEAR}if you form a team of bird Pokémon.{SCROLL}",
+   "en": "In Disc Catch, catching Discs from{NEWLINE}farther back is the key to winning!{SCROLL}Bird Pokémon in particular can move{NEWLINE}around while jumping.{SCROLL}Catching Discs is a breeze for a team{NEWLINE}made up entirely of bird Pokémon!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0142/12"
+   "origin": "agent",
+   "notes": "US 0142/12 | CES-early: D-1717: restore source spatial advice, not timing"
   },
   {
    "id": 13,
@@ -126,10 +126,10 @@
   {
    "id": 15,
    "zh": "撞人中{NEWLINE}单单撞击的话,要对准{CLEAR}头顶是很难的呢⋯⋯{SCROLL}你知道俯冲推挤么？{CLEAR}我是这么称呼它的⋯⋯{SCROLL}向着对手轻轻地起跳,{CLEAR}移动中也是可以起跳的哦。{SCROLL}往精灵聚集的地方{NEWLINE}使用俯冲推挤的话,{CLEAR}能把它们都弄下去！{SCROLL}",
-   "en": "In Ring Drop, just tackling makes it{NEWLINE}hard to aim for the top...{SCROLL}Do you know the Dive Push? That’s what{NEWLINE}I call it, anyway...{SCROLL}Jump lightly toward your opponent. You{NEWLINE}can jump while moving, too.{SCROLL}If you Dive Push where Pokémon are{NEWLINE}bunched up, you can knock them all off!{SCROLL}",
+   "en": "In Ring Drop, just tackling makes it{NEWLINE}hard to aim for the head...{SCROLL}Do you know the Dive Push? That’s what{NEWLINE}I call it, anyway...{SCROLL}Jump lightly toward your opponent. You{NEWLINE}can jump while moving, too.{SCROLL}If you Dive Push where Pokémon are{NEWLINE}bunched up, you can knock them all off!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0142/15 | RV039: meaning: 俯冲推挤 = Dive Push; clauses aligned"
+   "notes": "US 0142/15 | RV039: meaning: 俯冲推挤 = Dive Push; clauses aligned | CES-early: meaning: 头顶 head/top of head, not climbing rank"
   },
   {
    "id": 16,
@@ -166,10 +166,10 @@
   {
    "id": 20,
    "zh": "为了纪念在口袋竞技中,{NEWLINE}取得１００次胜利而制作的{SCROLL}量身定做的帅气手机！{SCROLL}在背面还刻着口袋竞技的商标。{CLEAR}真是特别的手机啊。",
-   "en": "It is a cool Pokégear to commemorate{NEWLINE}your 100th victory in the Pokéathlon.{SCROLL}That is your model!{NEWLINE}It is a special Pokégear with{CLEAR}the Pokéathlon logo in the back.",
+   "en": "A cool, custom-made Pokégear to{NEWLINE}commemorate 100 victories in{CLEAR}the Pokéathlon!{SCROLL}The Pokéathlon logo is engraved on the{NEWLINE}back, too. What a special Pokégear!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0142/20"
+   "origin": "agent",
+   "notes": "US 0142/20 | CES-early: meaning: custom-made, engraved rather than model"
   },
   {
    "id": 21,
@@ -182,10 +182,10 @@
   {
    "id": 22,
    "zh": "为了纪念在全部的比赛中,{NEWLINE}取得第１名５０次而制作的{SCROLL}量身定做的帅气精灵球！{SCROLL}上面还刻着「巅峰永驻」。",
-   "en": "It’s an awesome Poké Ball to{NEWLINE}commemorate your 50th victory{CLEAR}in every Pokéathlon event.{SCROLL}It’s your model Poké Ball!{NEWLINE}The engraving reads, “Stay on Top.”",
+   "en": "An awesome, custom-made Poké Ball to{NEWLINE}commemorate coming in first 50 times in{CLEAR}every Pokéathlon event!{SCROLL}The engraving reads, “Stay on Top.”",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0142/22"
+   "origin": "agent",
+   "notes": "US 0142/22 | CES-early: meaning: custom-made, first place not merely victories"
   },
   {
    "id": 23,

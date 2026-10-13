@@ -358,26 +358,26 @@
   {
    "id": 44,
    "zh": "小霞『为什么执着于水系精灵？{NEWLINE}其实我也不知道这是为什么。{CLEAR}怎么说呢,{CLEAR}嗯~因为我已经下了决心了。",
-   "en": "Misty: Why am I so into Water types?{NEWLINE}Honestly, I don’t know myself.{CLEAR}How do I put it...{CLEAR}I just made up my mind, that’s all.",
+   "en": "Misty: Why am I so into Water types?{NEWLINE}Honestly, I don’t know myself. How do I{CLEAR}put it... Hmm... I’ve already made up my{CLEAR}mind, that’s all.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: voice: restore hesitation and already-decided aspect"
   },
   {
    "id": 45,
    "zh": "小霞『并非我刻意要成为最强。{NEWLINE}但要是输了,{CLEAR}会觉得很对不起精灵。{CLEAR}因为它很努力,{CLEAR}作为训练家就要{CLEAR}去回报它的付出！",
-   "en": "Misty: It’s not that I have to be{NEWLINE}the strongest. But when I lose,{CLEAR}I feel like I’ve let my Pokémon down.{CLEAR}They try so hard for me,{CLEAR}and as their Trainer,{CLEAR}I have to repay them!",
+   "en": "Misty: It’s not that I deliberately aim{NEWLINE}to be the strongest. But when I lose, I{CLEAR}feel like I’ve let my Pokémon down. They{CLEAR}try so hard for me, and as their{CLEAR}Trainer, I have to repay them!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: meaning: deliberate aim, not obligation"
   },
   {
    "id": 46,
    "zh": "小霞『以前可能有人会想,{NEWLINE}我是靠着父亲{CLEAR}才能执掌华蓝道馆。{CLEAR}但我最终依靠自己的力量{CLEAR}通过了馆主考核！",
-   "en": "Misty: Some people used to think{NEWLINE}I only got to run Cerulean Gym{CLEAR}because of my dad.{CLEAR}But I passed the Gym Leader{CLEAR}assessment on my own!",
+   "en": "Misty: Some people may have thought I{NEWLINE}only got to run Cerulean Gym because of{CLEAR}my dad. But I passed the Gym Leader{CLEAR}assessment on my own!",
    "status": "draft",
    "origin": "agent",
-   "notes": "consistency fix (follow-up 4)"
+   "notes": "consistency fix (follow-up 4) | CES-early: meaning: preserve source uncertainty about others’ belief"
   },
   {
    "id": 47,

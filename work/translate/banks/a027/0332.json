@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "啊！您是菊子大人说的{NEWLINE}那几位年轻训练家之一！{SCROLL}既然如此您请过吧！",
-   "en": "Oh! You’re one of the young Trainers{NEWLINE}Agatha mentioned!{SCROLL}In that case, please, go right ahead!",
+   "en": "Oh! You’re one of the young Trainers{NEWLINE}Lady Agatha mentioned!{SCROLL}In that case, please, go right ahead!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve respectful Agatha title."
   },
   {
    "id": 3,

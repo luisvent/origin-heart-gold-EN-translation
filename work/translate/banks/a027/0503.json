@@ -182,7 +182,7 @@
   {
    "id": 19,
    "zh": "你也是参赛选手吗？{NEWLINE}那就跟我来场对战吧,{CLEAR}赢的人交出树果！",
-   "en": "Are you a contestant too?{SCROLL}Then battle me! The winner takes the{NEWLINE}loser’s Berries!",
+   "en": "Are you a contestant too?{SCROLL}Then battle me!{NEWLINE}The winner hands over their Berries!",
    "status": "draft",
    "origin": "agent",
    "notes": "",

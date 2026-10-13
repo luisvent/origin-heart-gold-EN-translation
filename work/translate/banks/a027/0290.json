@@ -574,26 +574,26 @@
   {
    "id": 71,
    "zh": "Ｂ　急刹1",
-   "en": "B　Jerk 1",
+   "en": "B　Abrupt stop 1",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0297/71"
+   "origin": "agent",
+   "notes": "US 0297/71 | CES-early: CN fidelity: restore omitted detail/emphasis"
   },
   {
    "id": 72,
    "zh": "Ｂ　急刹2",
-   "en": "B　Jerk 2",
+   "en": "B　Abrupt stop 2",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0297/72"
+   "origin": "agent",
+   "notes": "US 0297/72 | CES-early: CN fidelity: restore omitted detail/emphasis"
   },
   {
    "id": 73,
    "zh": "Ｂ　急刹3",
-   "en": "B　Jerk 3",
+   "en": "B　Abrupt stop 3",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0297/73"
+   "origin": "agent",
+   "notes": "US 0297/73 | CES-early: CN fidelity: restore omitted detail/emphasis"
   },
   {
    "id": 74,
@@ -958,50 +958,50 @@
   {
    "id": 119,
    "zh": "Ｂ　散乱横向摇晃Ａ1",
-   "en": "B　Squashed with horizontal shake A1",
+   "en": "B　Chaotic horizontal shake A1",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0297/119"
+   "origin": "agent",
+   "notes": "US 0297/119 | CES-early: CN 散乱横向摇晃 explicitly chaotic horizontal shake; squash not present"
   },
   {
    "id": 120,
    "zh": "Ｂ　散乱横向摇晃Ａ2",
-   "en": "B　Squashed with horizontal shake A2",
+   "en": "B　Chaotic horizontal shake A2",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0297/120"
+   "origin": "agent",
+   "notes": "US 0297/120 | CES-early: CN 散乱横向摇晃 explicitly chaotic horizontal shake; squash not present"
   },
   {
    "id": 121,
    "zh": "Ｂ　散乱横向摇晃Ａ3",
-   "en": "B　Squashed with horizontal shake A3",
+   "en": "B　Chaotic horizontal shake A3",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0297/121"
+   "origin": "agent",
+   "notes": "US 0297/121 | CES-early: CN 散乱横向摇晃 explicitly chaotic horizontal shake; squash not present"
   },
   {
    "id": 122,
    "zh": "Ｂ　散乱横向摇晃Ｂ1",
-   "en": "B　Squashed with horizontal shake B1",
+   "en": "B　Chaotic horizontal shake B1",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0297/122"
+   "origin": "agent",
+   "notes": "US 0297/122 | CES-early: CN 散乱横向摇晃 explicitly chaotic horizontal shake; squash not present"
   },
   {
    "id": 123,
    "zh": "Ｂ　散乱横向摇晃Ｂ2",
-   "en": "B　Squashed with horizontal shake B2",
+   "en": "B　Chaotic horizontal shake B2",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0297/123"
+   "origin": "agent",
+   "notes": "US 0297/123 | CES-early: CN 散乱横向摇晃 explicitly chaotic horizontal shake; squash not present"
   },
   {
    "id": 124,
    "zh": "Ｂ　散乱横向摇晃Ｂ3",
-   "en": "B　Squashed with horizontal shake B3",
+   "en": "B　Chaotic horizontal shake B3",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0297/124"
+   "origin": "agent",
+   "notes": "US 0297/124 | CES-early: CN 散乱横向摇晃 explicitly chaotic horizontal shake; squash not present"
   },
   {
    "id": 125,

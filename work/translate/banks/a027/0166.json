@@ -62,138 +62,138 @@
   {
    "id": 7,
    "zh": "MAXシングルれんしょう",
-   "en": "Max No. of Single win streak",
+   "en": "Longest Single win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 8,
    "zh": "MAXダブルれんしょう",
-   "en": "Max No. of Double win streak",
+   "en": "Longest Double win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 9,
    "zh": "MAXマルチれんしょう",
-   "en": "Max No. of Multi win streak",
+   "en": "Longest Multi win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 10,
    "zh": "MAX-CMultiれんしょう",
-   "en": "Max-CMulti straight wins",
+   "en": "Longest CMulti win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 11,
    "zh": "MAX-WiFiれんしょう",
-   "en": "Max No. of Wi-Fi win streak",
+   "en": "Longest Wi-Fi win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 12,
    "zh": "シングルれんしょう",
-   "en": "No. of Single win streak",
+   "en": "Single win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 13,
    "zh": "ダブルれんしょう",
-   "en": "No. of Double win streak",
+   "en": "Double win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 14,
    "zh": "マルチれんしょう",
-   "en": "No. of Multi win streak",
+   "en": "Multi win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 15,
    "zh": "CMultiれんしょう",
-   "en": "CMulti straight wins",
+   "en": "CMulti win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 16,
    "zh": "WiFiれんしょう",
-   "en": "No. of Wi-Fi win streak",
+   "en": "Wi-Fi win streak",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 17,
    "zh": "シングルちょうせん",
-   "en": "No. of Challenge Single",
+   "en": "Single challenges",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 18,
    "zh": "ダブルちょうせん",
-   "en": "No. of Challenge Double",
+   "en": "Double challenges",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 19,
    "zh": "マルチちょうせん",
-   "en": "No. of Challenge Multi",
+   "en": "Multi challenges",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 20,
    "zh": "CMultiちょうせん",
-   "en": "Challenge CMulti",
+   "en": "CMulti challenges",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 21,
    "zh": "WiFiちょうせん",
-   "en": "No. of Challenge Wi-Fi",
+   "en": "Wi-Fi challenges",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat labels, preserve mode and max/streak/challenge"
   },
   {
    "id": 22,
    "zh": "タワーちょうせん",
-   "en": "No. of Battle Tower challenge",
+   "en": "Battle Tower challenges",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 23,
    "zh": "タワーかちすう",
-   "en": "No. of Battle Tower win streak",
+   "en": "Battle Tower wins",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: wins not streak; collateral qualifier; no invented foe/count for Day Care; move Splash; probability/pocket money"
   },
   {
    "id": 24,
@@ -310,10 +310,10 @@
   {
    "id": 38,
    "zh": "ワイヤレスさんか",
-   "en": "Entry Wireless communication",
+   "en": "Wireless entries",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 39,
@@ -326,10 +326,10 @@
   {
    "id": 40,
    "zh": "ワイヤレスＧｐｘ",
-   "en": "No. of Wireless contest wins",
+   "en": "Wireless contest wins",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 41,
@@ -342,226 +342,226 @@
   {
    "id": 42,
    "zh": "Ｕじばく",
-   "en": "No. of Selfdestruct used",
+   "en": "Uses of Self-Destruct",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 43,
    "zh": "Ｕだいばくはつ",
-   "en": "No. of Explosion used",
+   "en": "Uses of Explosion",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 44,
    "zh": "Ｕむこうわざ",
-   "en": "No. of useless move used",
+   "en": "Uses of ineffective moves",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 45,
    "zh": "みかたきぜつ",
-   "en": "No. of Friend Pokémon fainted",
+   "en": "Ally Pokémon fainted",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 46,
    "zh": "みかたまきぞえ",
-   "en": "No. of Friend Pokémon damaged",
+   "en": "Ally Pokémon caught in collateral damage",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: wins not streak; collateral qualifier; no invented foe/count for Day Care; move Splash; probability/pocket money"
   },
   {
    "id": 47,
    "zh": "にげしっぱい",
-   "en": "No. of times failed to run",
+   "en": "Failed escape attempts",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 48,
    "zh": "Ｐｏｋｅにげた",
-   "en": "No. of foe Pokémon ran",
+   "en": "Pokémon that fled",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: wins not streak; collateral qualifier; no invented foe/count for Day Care; move Splash; probability/pocket money"
   },
   {
    "id": 49,
    "zh": "Ｐｏｋｅほかく",
-   "en": "No. of Pokémon captured",
+   "en": "Pokémon caught",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 50,
    "zh": "ワイヤレスこうかん",
-   "en": "No. of Wireless Trade",
+   "en": "Wireless trades",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 51,
    "zh": "ワイヤレスかち",
-   "en": "No. of Wireless Wins",
+   "en": "Wireless wins",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 52,
    "zh": "ワイヤレスまけ",
-   "en": "No. of Wireless Losses",
+   "en": "Wireless losses",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 53,
    "zh": "ワイヤレスドロー",
-   "en": "No. of Wireless Draws",
+   "en": "Wireless draws",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 54,
    "zh": "ＷｉＦｉこうかん",
-   "en": "No. of WiFi Trade",
+   "en": "Wi-Fi trades",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 55,
    "zh": "ＷｉＦｉかち",
-   "en": "No. of WiFi Wins",
+   "en": "Wi-Fi wins",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 56,
    "zh": "ＷｉＦｉまけ",
-   "en": "No. of Wi-Fi Losses",
+   "en": "Wi-Fi losses",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 57,
    "zh": "ＷｉＦｉドロー",
-   "en": "No. of Wi-Fi Draws",
+   "en": "Wi-Fi draws",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 58,
    "zh": "Ｐｏｋｅきぜつ",
-   "en": "No. of Pokémon fainted",
+   "en": "Pokémon fainted",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 59,
    "zh": "でんどういり",
-   "en": "No. of Hall of Fame",
+   "en": "Hall of Fame entries",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 60,
    "zh": "つりしっぱい",
-   "en": "No. of Fishing screw-up",
+   "en": "Failed fishing attempts",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: wins not streak; collateral qualifier; no invented foe/count for Day Care; move Splash; probability/pocket money"
   },
   {
    "id": 61,
    "zh": "つりせいこう",
-   "en": "No. of successful Fishing",
+   "en": "Successful fishing attempts",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 62,
    "zh": "きのみうえた",
-   "en": "No. of Berries planted",
+   "en": "Berries planted",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 63,
    "zh": "エンカウント",
-   "en": "No. of Pokémon encounter",
+   "en": "Pokémon encounters",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 64,
    "zh": "トレーナーせん",
-   "en": "No. of Trainer battles",
+   "en": "Trainer battles",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 65,
    "zh": "タマゴふか",
-   "en": "No. of Hatched Egg",
+   "en": "Eggs hatched",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 66,
    "zh": "そだてや",
-   "en": "No. of Pokémon taken to Day Care",
+   "en": "Day Care",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: wins not streak; collateral qualifier; no invented foe/count for Day Care; move Splash; probability/pocket money"
   },
   {
    "id": 67,
    "zh": "Ｐｏｋｅしんか",
-   "en": "No. of Pokémon evolution",
+   "en": "Pokémon evolutions",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: grammatical stat label without changed metric"
   },
   {
    "id": 68,
    "zh": "Uはねる",
-   "en": "No. of Jump used",
+   "en": "Uses of Splash",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: wins not streak; collateral qualifier; no invented foe/count for Day Care; move Splash; probability/pocket money"
   },
   {
    "id": 69,
    "zh": "でんわかんかく",
-   "en": "♡Phone call interval",
+   "en": "Phone call interval",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 70,
@@ -574,34 +574,34 @@
   {
    "id": 71,
    "zh": "でんわかくりつ",
-   "en": "♡Frequency of phone call",
+   "en": "Phone call probability",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: wins not streak; collateral qualifier; no invented foe/count for Day Care; move Splash; probability/pocket money"
   },
   {
    "id": 72,
    "zh": "でんわかくりつこてい",
-   "en": "♡Fix phone call odds",
+   "en": "Fix phone call odds",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 73,
    "zh": "でんわグループこてい",
-   "en": "♡Fix phone group",
+   "en": "Fix phone group",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 74,
    "zh": "いきなりちゃくしん",
-   "en": "♡Immediate incoming call",
+   "en": "Immediate incoming call",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 75,
@@ -718,106 +718,106 @@
   {
    "id": 89,
    "zh": "あかぼんぐり",
-   "en": "♡Red Apricorn",
+   "en": "Red Apricorn",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 90,
    "zh": "あおぼんぐり",
-   "en": "♡Blu Apricorn",
+   "en": "Blu Apricorn",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 91,
    "zh": "きぼんぐり",
-   "en": "♡Ylw Apricorn",
+   "en": "Ylw Apricorn",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 92,
    "zh": "みどぼんぐり",
-   "en": "♡Grn Apricorn",
+   "en": "Grn Apricorn",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 93,
    "zh": "ももぼんぐり",
-   "en": "♡Pnk Apricorn",
+   "en": "Pnk Apricorn",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 94,
    "zh": "しろぼんぐり",
-   "en": "♡Wht Apricorn",
+   "en": "Wht Apricorn",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 95,
    "zh": "くろぼんぐり",
-   "en": "♡Blk Apricorn",
+   "en": "Blk Apricorn",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 96,
    "zh": "ドリンクからさ",
-   "en": "♡Juice Spicy",
+   "en": "Juice Spicy",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 97,
    "zh": "ドリンクすっぱさ",
-   "en": "♡Juice Sour",
+   "en": "Juice Sour",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 98,
    "zh": "ドリンクしぶさ",
-   "en": "♡Juice Dry",
+   "en": "Juice Dry",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 99,
    "zh": "ドリンクにがさ",
-   "en": "♡Juice Bitter",
+   "en": "Juice Bitter",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 100,
    "zh": "ドリンクあまさ",
-   "en": "♡Juice Sweet",
+   "en": "Juice Sweet",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 101,
    "zh": "ドリンクまろやかさ",
-   "en": "♡Juice Mild",
+   "en": "Juice Mild",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 102,
@@ -1062,10 +1062,10 @@
   {
    "id": 132,
    "zh": "ファンのかず",
-   "en": "♡No. of Fans",
+   "en": "No. of Fans",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 133,
@@ -1094,26 +1094,26 @@
   {
    "id": 136,
    "zh": "おこずかい",
-   "en": "♡Savings",
+   "en": "Pocket money",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text (US inserts Language Code at 135, so one id later)"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text (US inserts Language Code at 135, so one id later) | CES-early: Japanese source-reference: wins not streak; collateral qualifier; no invented foe/count for Day Care; move Splash; probability/pocket money"
   },
   {
    "id": 137,
    "zh": "コイン",
-   "en": "♡Coins",
+   "en": "Coins",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text (US inserts Language Code at 135, so one id later)"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text (US inserts Language Code at 135, so one id later) | CES-early: Japanese source-reference: remove invented heart icon"
   },
   {
    "id": 138,
    "zh": "バトルポイント",
-   "en": "♡Battle Points",
+   "en": "Battle Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "debug menu, unused; US text (US inserts Language Code at 135, so one id later)"
+   "origin": "agent",
+   "notes": "debug menu, unused; US text (US inserts Language Code at 135, so one id later) | CES-early: Japanese source-reference: remove invented heart icon"
   }
  ]
 }

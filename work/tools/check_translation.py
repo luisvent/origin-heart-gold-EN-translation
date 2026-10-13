@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import subprocess
 import sys
 from pathlib import Path
@@ -13,6 +14,13 @@ MODULES = ("translation_context", "translation_package")
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--locales-only",
+        action="store_true",
+        help="run locale lint/tests without the separate typed context-tool gate",
+    )
+    args = parser.parse_args()
     files = [TOOLS / f"{name}.py" for name in MODULES]
     files.extend(TOOLS / f"test_{name}.py" for name in MODULES)
     files.append(Path(__file__).resolve())
@@ -29,6 +37,23 @@ def main() -> int:
         ["mypy", "--config-file", config, *paths],
         ["unittest", "discover", "-s", "work/tools", "-p", "test_translation_*.py", "-v"],
     ]
+    locale_files = [
+        f"work/tools/{name}.py"
+        for name in (
+            "localization",
+            "localization_build",
+            "test_localization",
+            "test_localization_build",
+        )
+    ]
+    locale_commands = [
+        ["ruff", "check", "--config", "ruff.toml", *locale_files],
+        ["unittest", "discover", "-s", "work/tools", "-p", "test_localization*.py", "-v"],
+    ]
+    if args.locales_only:
+        commands = locale_commands
+    else:
+        commands.extend(locale_commands)
     failed = False
     for command in commands:
         print("\n> " + " ".join([sys.executable, "-m", *command]), flush=True)

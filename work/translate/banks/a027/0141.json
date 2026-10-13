@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "辛夷『没错！您已经听到{NEWLINE}新的开始信号了吧！{CLEAR}那是您不得不越过的更高目标。{SCROLL}辛夷『为了成为传说中的口袋竞技员{NEWLINE}请看一下这个铜像,{CLEAR}您应该能看见您所憧憬的目标……{SCROLL}",
-   "en": "Magnus: That’s right!{NEWLINE}Surely you’ve heard the starting signal{CLEAR}ring out again! It marks a higher goal{CLEAR}you must now clear.{SCROLL}Magnus: To become a legendary{NEWLINE}Pokéathlete, please look at this{CLEAR}statue. You should see the goal you{CLEAR}long for...{SCROLL}",
+   "en": "Magnus: That’s right! Surely you’ve{NEWLINE}heard the starting signal ring out{CLEAR}again! It marks a higher goal you must{CLEAR}now clear.{SCROLL}Magnus: To become a legendary{NEWLINE}Pokéathlete, please look at this bronze{CLEAR}statue. You should see the goal you{CLEAR}long for...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: detail: source 铜像 bronze statue; sharing friendship#8"
   },
   {
    "id": 6,
@@ -62,58 +62,58 @@
   {
    "id": 7,
    "zh": "是自己的铜像！{SCROLL}",
-   "en": "It’s your statue!{SCROLL}",
+   "en": "It’s your bronze statue!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0143/7"
+   "origin": "agent",
+   "notes": "US 0143/7 | CES-early: detail: source 铜像 bronze statue; sharing friendship#8"
   },
   {
    "id": 8,
    "zh": "一起前进,相互帮助,{NEWLINE}共享友情的精灵的铜像！",
-   "en": "The statue of the Pokémon{NEWLINE}you’ve shared your journey{CLEAR}with, helping each other and{CLEAR}cultivating your friendship!",
+   "en": "The bronze statue of the Pokémon{NEWLINE}you’ve shared your journey with,{CLEAR}helping each other and sharing{CLEAR}your friendship!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0143/8"
+   "origin": "agent",
+   "notes": "US 0143/8 | CES-early: detail: source 铜像 bronze statue; sharing friendship#8"
   },
   {
    "id": 9,
    "zh": "是得奖精灵的铜像！{SCROLL}要替换铜像么？",
-   "en": "It is the statue of a Medalist Pokémon.{SCROLL}Do you want to replace it with another?",
+   "en": "It is the bronze statue of a Medalist{NEWLINE}Pokémon.{SCROLL}Do you want to replace it with another?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0143/9"
+   "origin": "agent",
+   "notes": "US 0143/9 | CES-early: detail: source 铜像 bronze statue; sharing friendship#8"
   },
   {
    "id": 10,
    "zh": "可以在这里摆放取得５枚奖章的{NEWLINE}得奖精灵的铜像{CLEAR}来进行装饰。{SCROLL}要放置铜像么？",
-   "en": "You can place a statue of a{NEWLINE}Medalist Pokémon that has{CLEAR}earned five medals.{SCROLL}Do you want to place a statue?",
+   "en": "You can place a bronze statue of a{NEWLINE}Medalist Pokémon that has earned{CLEAR}five medals.{SCROLL}Do you want to place a bronze statue?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0143/10"
+   "origin": "agent",
+   "notes": "US 0143/10 | CES-early: detail: source 铜像 bronze statue; sharing friendship#8"
   },
   {
    "id": 11,
    "zh": "是得奖精灵的铜像！{SCROLL}要替换铜像么？",
-   "en": "It is the statue of a Medalist Pokémon.{SCROLL}Do you want to replace it with another?",
+   "en": "It is the bronze statue of a Medalist{NEWLINE}Pokémon.{SCROLL}Do you want to replace it with another?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0143/11"
+   "origin": "agent",
+   "notes": "US 0143/11 | CES-early: detail: source 铜像 bronze statue; sharing friendship#8"
   },
   {
    "id": 12,
    "zh": "可以在这里摆放取得５枚奖章的{NEWLINE}得奖精灵的铜像{CLEAR}来进行装饰。{SCROLL}要放置铜像么？",
-   "en": "You can place a statue of a{NEWLINE}Medalist Pokémon that has{CLEAR}earned five medals.{SCROLL}Do you want to place a statue?",
+   "en": "You can place a bronze statue of a{NEWLINE}Medalist Pokémon that has earned{CLEAR}five medals.{SCROLL}Do you want to place a bronze statue?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0143/12"
+   "origin": "agent",
+   "notes": "US 0143/12 | CES-early: detail: source 铜像 bronze statue; sharing friendship#8"
   },
   {
    "id": 13,
    "zh": "是得奖精灵的铜像！{SCROLL}要替换铜像么？",
-   "en": "It is the statue of a Medalist Pokémon.{SCROLL}Do you want to replace it with another?",
+   "en": "It is the bronze statue of a Medalist{NEWLINE}Pokémon.{SCROLL}Do you want to replace it with another?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0143/13"
+   "origin": "agent",
+   "notes": "US 0143/13 | CES-early: detail: source 铜像 bronze statue; sharing friendship#8"
   }
  ]
 }

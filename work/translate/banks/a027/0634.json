@@ -14,9 +14,9 @@
   {
    "id": 1,
    "zh": "哦,{VAR:0101:0}！{NEWLINE}我不怎么会用电话,{CLEAR}和平时一样说话就行了吧！",
-   "en": "Oh hey, {VAR:0101:0}!{NEWLINE}Talking on the phone’s a bit odd.{CLEAR}Just talk to me!",
+   "en": "Oh hey, {VAR:0101:0}!{NEWLINE}I’m bad with phones.{CLEAR}Let’s just talk like usual!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0643/1"
   },
   {

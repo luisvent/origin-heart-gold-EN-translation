@@ -1,0 +1,29 @@
+{
+  "locale": "it",
+  "name": "Italian",
+  "source_locale": "zh-CN",
+  "catalogue_schema": 1,
+  "glossary": "glossary.json",
+  "decisions": "decisions.jsonl",
+  "voices": "voices.json",
+  "target_bank_dir": "banks",
+  "english_storage": null,
+  "build_resources": {
+    "graphics": {
+      "state": "unverified",
+      "files": []
+    },
+    "hardcoded_strings": {
+      "state": "unverified",
+      "files": []
+    },
+    "font": {
+      "state": "unverified",
+      "files": []
+    },
+    "grammar_audit": {
+      "state": "unverified",
+      "files": []
+    }
+  }
+}

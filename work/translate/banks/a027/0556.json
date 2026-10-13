@@ -112,18 +112,18 @@
   {
    "id": 13,
    "zh": "桧皮镇道馆{NEWLINE}馆主阿笔{CLEAR}陆行虫系精灵的专家",
-   "en": "Azalea Town Pokémon Gym{NEWLINE}Leader: Bugsy{CLEAR}The Walking Bug Pokémon Expert",
+   "en": "Azalea Town Pokémon Gym{NEWLINE}Leader: Bugsy{CLEAR}Expert in land-dwelling Bug Pokémon",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0564/13 | RV033: meaning: 专家 = expert, US ‘Encyclopedia’ not in the Chinese"
+   "notes": "US 0564/13 | RV033: meaning: 专家 = expert, US ‘Encyclopedia’ not in the Chinese | SOL-B: land-dwelling Bug/Sea Hare alias clarified from Chinese."
   },
   {
    "id": 14,
    "zh": "呆呆兽之井{NEWLINE}别名海兔之井,{SCROLL}是桧皮镇的圣兽{NEWLINE}呆呆兽们栖息的地方。{SCROLL}实际上,４００年前的记录{NEWLINE}写着,干旱之时{CLEAR}正是由于呆呆兽的哈欠{CLEAR}呼唤来了海神洛奇亚降下大雨,{CLEAR}大家才得救的。",
-   "en": "Slowpoke Well. Also known as{NEWLINE}the Rainmaker Well, it is home to{CLEAR}Azalea Town’s sacred Slowpoke.{SCROLL}Records from 400 years ago say that{NEWLINE}during a great drought, a Slowpoke’s{CLEAR}yawn called the sea god Lugia to bring{CLEAR}rain, and the people were saved.",
+   "en": "Slowpoke Well. Also known as Sea Hare{NEWLINE}Well, it is home to Azalea Town’s sacred{CLEAR}Slowpoke. Records from 400 years ago{CLEAR}say that during a great drought, a{CLEAR}Slowpoke’s yawn called the sea god{CLEAR}Lugia to bring rain. All were saved.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0564/14; modernised from US 0564#14"
+   "notes": "US 0564/14; modernised from US 0564#14 | SOL-B: 海兔之井 → Sea Hare Well, same alias as D-1474; prior review D-1879; target fidelity correction, not source repair. | SOL-B: land-dwelling Bug/Sea Hare alias clarified from Chinese."
   },
   {
    "id": 15,
@@ -224,10 +224,10 @@
   {
    "id": 27,
    "zh": "阿金『你的大钢蛇色泽不怎么样啊,{NEWLINE}看来平时没有好好照顾它。{CLEAR}就你这样的对待精灵的态度,{CLEAR}是不可能打败我的。{SCROLL}阿金『上啊爆太郎,{NEWLINE}让他看看咱们的厉害！",
-   "en": "Gold: Your Steelix’s coat looks pretty{NEWLINE}dull. I bet you never take good care{CLEAR}of it. With that attitude toward{CLEAR}Pokémon, there’s no way you’ll beat me.{SCROLL}Gold: Go, Exbo! Show{NEWLINE}him what we’re made of!",
+   "en": "Gold: Your Steelix’s sheen looks dull.{NEWLINE}I bet you don’t take good care of it.{CLEAR}With that attitude toward Pokémon,{CLEAR}you’ll never beat me.{SCROLL}Gold: Go, Exbo! Show him what{NEWLINE}we’re made of!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | SOL-B: 色泽 is sheen, not fur/coat."
   },
   {
    "id": 28,

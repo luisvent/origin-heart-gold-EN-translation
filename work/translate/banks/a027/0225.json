@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "将果实扔进{NEWLINE}吞食兽的嘴巴里吧！",
-   "en": "Throw Berries into Swalot’s big mouth!",
+   "en": "Throw Berries into Swalot’s mouth!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0230/0; modernised from US 0230#0"
+   "origin": "agent",
+   "notes": "US 0230/0; modernised from US 0230#0 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,

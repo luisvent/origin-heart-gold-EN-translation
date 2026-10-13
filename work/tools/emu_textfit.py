@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""emu_textfit - on-screen text-fit check: render translated strings in their real window on the English build
+"""emu_textfit - on-screen text-fit check: render translated strings in their real window on explicitly selected English/Spanish builds
 and decide from the pixels that they fit (`emu_harness.py textfit`, suite v2 step 4).
 
 Selection (one of):
@@ -66,6 +66,8 @@ WORK = TOOLS.parent
 REPO = WORK.parent
 BANKS = WORK / "translate" / "banks"
 BANKS_REL = "work/translate/banks"
+ES_BANKS = WORK / "translate" / "locales" / "es" / "banks"
+TARGET_LOCALES = ("en", "es")
 DEFAULT_SINCE = "v1.0.0-rc5"          # the fallback when `git describe` finds no tag
 CHARMAP_EN = TOOLS / "charmap_en.tsv"
 CHARMAP_ZH = TOOLS / "charmaps" / "charmap_zh_xzonn_gen4.tsv"
@@ -131,6 +133,29 @@ def load_bank(narc, bank, root=str(BANKS)):
     return json.loads(bank_path(narc, bank, root).read_text(encoding="utf-8"))
 
 
+def target_text(narc, bank, sid, lang="en"):
+    """Read the selected catalogue; missing Spanish never falls back to English."""
+    if lang == "cn":
+        return next(s["zh"] for s in _hydrated(narc, bank)["strings"] if s["id"] == sid)
+    if lang == "en":
+        value = next(s.get("en") for s in load_bank(narc, bank)["strings"] if s["id"] == sid)
+    elif lang == "es":
+        ref = ref_str((narc, bank, sid))
+        value = next(s.get("text") for s in load_bank(narc, bank, str(ES_BANKS))["strings"] if s["ref"] == ref)
+    else:
+        raise ValueError(f"unsupported locale {lang!r}")
+    if not isinstance(value, str):
+        raise ValueError(f"missing {lang} text for {ref_str((narc, bank, sid))}")
+    return value
+
+
+def target_locales(value):
+    langs = value.split(",")
+    if not langs or len(set(langs)) != len(langs) or any(x not in TARGET_LOCALES for x in langs):
+        raise ValueError("--locales must be en, es, or en,es (no duplicates)")
+    return langs
+
+
 def _git(*args, cwd=REPO):
     r = subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True)
     if r.returncode:
@@ -146,18 +171,23 @@ def latest_release_tag(cwd=REPO, fallback=DEFAULT_SINCE) -> str:
         return fallback
 
 
-def diff_strings(old: dict | None, new: dict) -> list[int]:
+def diff_strings(old: dict | None, new: dict, lang="en") -> list[int]:
     """ids of `new` whose en differs from `old` (a missing old bank: every id with English text)."""
-    before = {e["id"]: e.get("en") for e in (old or {}).get("strings", [])}
-    return [e["id"] for e in new["strings"]
-            if e.get("en") is not None and (old is None or before.get(e["id"], None) != e.get("en"))]
+    key = "text" if lang == "es" else "en"
+    identity = (lambda e: parse_ref(e["ref"])[2]) if lang == "es" else (lambda e: e["id"])
+    before = {identity(e): e.get(key) for e in (old or {}).get("strings", [])}
+    return [identity(e) for e in new["strings"]
+            if e.get(key) is not None and (old is None or before.get(identity(e)) != e.get(key))]
 
 
-def changed_refs(since=DEFAULT_SINCE, cwd=REPO, root=BANKS_REL):
+def changed_refs(since=DEFAULT_SINCE, cwd=REPO, root=BANKS_REL, lang="en"):
     """(narc, bank, id) of every string whose en differs between git ref `since` and the working tree."""
     _git("rev-parse", "--verify", f"{since}^{{commit}}", cwd=cwd)
     files = _git("diff", "--name-only", since, "--", root, cwd=cwd).split()
     files += _git("ls-files", "--others", "--exclude-standard", "--", root, cwd=cwd).split()
+    # Locale catalogues may intentionally be ignored, but are still explicit test inputs.
+    if lang == "es":
+        files += [str(p.relative_to(cwd)) for p in (Path(cwd) / root).glob("*/*.json")]
     out = []
     for f in sorted(set(files)):
         m = re.fullmatch(re.escape(root) + r"/([a-z_0-9]+)/(\d{4})\.json", f)
@@ -171,15 +201,18 @@ def changed_refs(since=DEFAULT_SINCE, cwd=REPO, root=BANKS_REL):
             old = json.loads(_git("show", f"{since}:{f}", cwd=cwd))
         except RuntimeError:
             old = None
-        out += [(m.group(1), int(m.group(2)), i) for i in diff_strings(old, new)]
+        out += [(m.group(1), int(m.group(2)), i) for i in diff_strings(old, new, lang)]
     return out
 
 
-def all_refs(root=BANKS):
+def all_refs(root=BANKS, lang="en"):
     out = []
     for p in sorted(Path(root).glob("*/*.json")):
         b = json.loads(p.read_text(encoding="utf-8"))
-        out += [(b["narc"], b["bank"], e["id"]) for e in b["strings"] if e.get("en")]
+        if lang == "es":
+            out += [parse_ref(e["ref"]) for e in b["strings"] if e.get("text")]
+        else:
+            out += [(b["narc"], b["bank"], e["id"]) for e in b["strings"] if e.get("en")]
     return out
 
 
@@ -227,13 +260,14 @@ def printable(en) -> bool:
         (tm.var_cmd(v) >> 8) == 0x01 for k, v in tm.tokenize(en) if k == "var")
 
 
-def window_for(narc, bank, sid, root=str(BANKS)):
+def window_for(narc, bank, sid, root=str(BANKS), lang="en"):
     """-> (window, None) for a rendered string, ('unsupported', reason) or ('empty', reason)."""
     b = _hydrated(narc, bank, root)
     e = next((s for s in b["strings"] if s["id"] == sid), None)
     if e is None:
         return "unsupported", "no such string"
-    if not printable(e.get("en")):
+    text = target_text(narc, bank, sid, lang) if lang != "en" else e.get("en")
+    if not printable(text):
         return "empty", "no printable text"
     _, tm, _ = _qa()
     if narc == "battle_string":
@@ -264,16 +298,16 @@ def _width(text, font=1):
 
 
 @lru_cache(maxsize=None)
-def _pool(bank):
+def _pool(bank, lang="en"):
     names = []
-    for e in load_bank("a027", bank)["strings"]:
-        en = e.get("en") or ""
+    for e in load_bank("a027", bank, str(ES_BANKS) if lang == "es" else str(BANKS))["strings"]:
+        en = e.get("text" if lang == "es" else "en") or ""
         if en and "{" not in en and en.strip() == en and len(en) > 1 and en.isprintable():
             names.append(en)
     return sorted(set(names), key=lambda n: (_width(n), n))
 
 
-def filler(tag, narc="a027", mode="typ"):
+def filler(tag, narc="a027", mode="typ", lang="en"):
     """Text for one {VAR:01KK:i}: a name of that kind as wide as QA's estimate (`mode` typ or max)."""
     _, tm, cfg = _qa()
     cmd = tm.var_cmd(tag)
@@ -282,12 +316,12 @@ def filler(tag, narc="a027", mode="typ"):
     if (narc == "battle_string" and kind == 0x0F) or 0x32 <= kind <= 0x3B:
         return "8" * max(1, target // 6)
     bank = (POOLS_BATTLE if narc == "battle_string" else POOLS).get(kind, 219)
-    names = _pool(bank)
+    names = _pool(bank, lang)
     fit = [n for n in names if _width(n) <= target]
     return fit[-1] if fit else (names[0] if names else "X" * max(1, target // 6))
 
 
-def fillers(en, narc="a027", mode="typ"):
+def fillers(en, narc="a027", mode="typ", lang="en"):
     """{buffer index: text} for every string buffer the string uses."""
     _, tm, _ = _qa()
     out = {}
@@ -295,7 +329,7 @@ def fillers(en, narc="a027", mode="typ"):
         if k == "var" and (tm.var_cmd(v) >> 8) == 0x01:
             args = tm.var_args(v)
             idx = args[0] if args else 0
-            out.setdefault(idx, filler(v, narc, mode))
+            out.setdefault(idx, filler(v, narc, mode, lang))
     return out
 
 
@@ -312,7 +346,7 @@ def expand(en, fill):
     return re.sub(r"\{([^{}]*)\}", rep, en or "")
 
 
-def expected_views(text, lines=2, battle=False):
+def expected_views(text, lines=2, battle=False, width_of=None):
     """Simulate the printer on an expanded string. -> {views: [[row text]*lines], widths: [[px]], waits,
     lost: [{view, row, text}], size: bool, prompt: bool, cursor: bool}.
     {NEWLINE}: next row; {SCROLL} (0x25BC): wait, then the window is cleared before the next glyph (a
@@ -320,6 +354,7 @@ def expected_views(text, lines=2, battle=False):
     the end of the string is one more wait (field: WaitButton); 0x0207 is a wait that keeps the view. Text on row >= lines is drawn past the window
     and never seen (`lost`). Control codes other than buffers print nothing; CURSOR_X (0x0203) moves x."""
     _, tm, _ = _qa()
+    width_of = width_of or _width
     rows, widths = [""] * lines, [0] * lines
     y, x = 0, 0
     pending_clear = False
@@ -374,12 +409,12 @@ def expected_views(text, lines=2, battle=False):
             if cursor and x > widths[y]:
                 rows[y] += " "
             rows[y] += val
-            x = max(x, widths[y]) + _width(val)
+            x = max(x, widths[y]) + width_of(val)
             widths[y] = x
         else:
             key = (len(views), y)
             lost_row[key] = lost_row.get(key, "") + val
-            x += _width(val)
+            x += width_of(val)
     waits += 1
     snap()
     lost = [{"view": v, "row": r, "text": t} for (v, r), t in lost_row.items()]
@@ -444,6 +479,17 @@ class Font:
         for k in self.index:        # longest first; the space last among equals
             self.index[k].sort(key=lambda g: (-g[1], g[0] == " "))
         self.space = next((g for g in glyphs.values() if g[0] == " "), None)
+
+    def width(self, text):
+        widths = {ch: width for ch, width, _ in self.glyphs.values()}
+        # Measure native glyph advances using the selected ROM font.
+        total = 0
+        for ch in text:
+            key = ch if ch in widths else norm(ch)
+            if key not in widths:
+                raise ValueError(f"font cannot measure glyph {ch!r}")
+            total += widths[key]
+        return total
 
     @classmethod
     def from_rom(cls, rom_path, font_id=1):
@@ -855,15 +901,15 @@ def _crop_sheet(views, path, title=None):
     return str(path)
 
 
-def item_plan(ref, mode="typ", lang="en"):
+def item_plan(ref, mode="typ", lang="en", font=None):
     """What to render for one ref: window, the fill-ins, the expanded text and the expected views."""
     narc, bank, sid = ref
-    e = next(s for s in load_bank(narc, bank)["strings"] if s["id"] == sid)
-    text = e["en"] if lang == "en" else next(s for s in _hydrated(narc, bank)["strings"] if s["id"] == sid)["zh"]
-    fill = fillers(e["en"], narc, mode)
+    text = target_text(narc, bank, sid, lang)
+    fill_text = text if lang != "cn" else target_text(narc, bank, sid, "en")
+    fill = fillers(fill_text, narc, mode, "es" if lang == "es" else "en")
     expanded = expand(text, fill)
     battle = narc == "battle_string"
-    return {"fill": fill, "expanded": expanded, "exp": expected_views(expanded, battle=battle)}
+    return {"fill": fill, "expanded": expanded, "exp": expected_views(expanded, battle=battle, width_of=font.width if font else None)}
 
 
 def cmd_child(a):
@@ -874,7 +920,7 @@ def cmd_child(a):
     a.rom, a.sav = str(Path(a.rom).resolve()), str(Path(a.sav).resolve())
     a.progress = a.progress and str(Path(a.progress).resolve())
     out.mkdir(parents=True, exist_ok=True)
-    font = rom_font(str(a.rom)) if a.lang == "en" else None
+    font = rom_font(str(a.rom)) if a.lang in TARGET_LOCALES else None
     box = WINDOWS[a.window]
     rows = []
     prog = open(a.progress, "a") if a.progress else None
@@ -894,7 +940,7 @@ def cmd_child(a):
                 t0 = time.time()
                 row = {"ref": ref_str(ref), "window": a.window, "lang": a.lang}
                 try:
-                    plan = item_plan(ref, a.buffers, a.lang)
+                    plan = item_plan(ref, a.buffers, a.lang, font)
                     exp = plan["exp"]
                     max_views = (exp["waits"] if a.window == "field" else len(exp["views"])) + 4
                     if a.window == "battle":
@@ -907,6 +953,8 @@ def cmd_child(a):
                         exp["prompt"] and a.window == "field" and k >= exp.get("prompt_view", len(views) - 1)) else None)
                         for k, v in enumerate(views)]
                     res = judge(decoded, exp, box, readback=font is not None, battle=a.window == "battle")
+                    if a.window == "field" and not info.get("read"):
+                        raise RuntimeError("native message read was not observed")
                     if info.get("unfilled"):
                         res["reasons"].append({"code": "buffers", "view": None, "row": None,
                                                "detail": f"buffers {info['unfilled']} could not be filled"})
@@ -949,7 +997,7 @@ def _strip_prompt(units):
 
 def add_child_arguments(p):
     p.add_argument("--rom", required=True)
-    p.add_argument("--lang", choices=("cn", "en"), default="en")
+    p.add_argument("--lang", choices=("cn", "en", "es"), default="en")
     p.add_argument("--window", choices=tuple(WINDOWS), required=True)
     p.add_argument("--items", required=True, help="JSON list of {ref: [narc, bank, id]}")
     p.add_argument("--sav", required=True)
@@ -982,32 +1030,38 @@ def add_arguments(p):
     p.add_argument("--save", choices=("fail", "all"), default="fail", help="window crops of failing (default) "
                    "or all strings")
     p.add_argument("--out", help="new folder for this run (default work/build/harness/textfit/run-<time>)")
+    p.add_argument("--require-complete", action="store_true", help="fail if any selected ref is unsupported, empty, or not rendered")
+    p.add_argument("--locales", default="en", help="target locales: en, es, or en,es")
+    p.add_argument("--rom-es", help="explicit Spanish ROM; required when es is selected")
+    p.add_argument("--sav-es", help="Spanish-compatible battery save (defaults to --sav)")
     p.add_argument("--rom-en", default=str(E.DEF_ROM_EN))
     p.add_argument("--rom-cn", default=str(E.DEF_ROM_CN))
     p.add_argument("--sav", default=str(E.DEF_SAVES / "full_bag_6mons.sav"))
 
 
-def select(a):
+def select(a, lang="en"):
     if a.refs:
         refs = [parse_ref(s) for s in re.split(r"[,\s]+", a.refs) if s]
         how = "refs"
     elif a.all:
-        refs, how = all_refs(), "all"
+        refs, how = all_refs(ES_BANKS, lang) if lang == "es" else all_refs(), "all"
     else:
         since = a.since or latest_release_tag()
-        refs, how = changed_refs(since), f"since {since}"
+        refs, how = changed_refs(since, root="work/translate/locales/es/banks", lang=lang) if lang == "es" else changed_refs(since), f"since {since}"
     refs = sorted(set(refs), key=lambda r: (r[0], r[1], r[2]))
     return sample(refs, a.limit), how, len(refs)
 
 
-def plan_rows(refs, windows):
+def plan_rows(refs, windows, lang="en"):
     """Split refs into {window: [refs]} and the rows of the strings that are not rendered."""
     todo, rows = {w: [] for w in WINDOWS}, []
     for ref in refs:
         try:
-            w, why = window_for(*ref)
-        except (FileNotFoundError, StopIteration) as e:
-            w, why = "unsupported", f"no such string ({e})"
+            w, why = window_for(*ref, lang=lang)
+        except (FileNotFoundError, StopIteration, ValueError) as e:
+            rows.append({"ref": ref_str(ref), "lang": lang, "window": None, "verdict": "error",
+                         "error": f"missing or invalid {lang} catalogue input: {e}"})
+            continue
         if w in WINDOWS and w in windows:
             todo[w].append(ref)
         elif w in WINDOWS:
@@ -1015,6 +1069,8 @@ def plan_rows(refs, windows):
                          "reason": f"window {w} not selected (--windows)"})
         else:
             rows.append({"ref": ref_str(ref), "window": None, "verdict": w, "reason": why})
+    for row in rows:
+        row["lang"] = lang
     return todo, rows
 
 
@@ -1040,7 +1096,7 @@ def _run_batches(a, groups, out, jobs):
             err = None
             try:
                 E.run_child(["textfit-child", "--rom", rom, "--lang", lang, "--window", window, "--items", items,
-                             "--sav", a.sav, "--out", out, "--progress", prog, "--buffers", a.buffers,
+                             "--sav", (getattr(a, "sav_es", None) or a.sav) if lang == "es" else a.sav, "--out", out, "--progress", prog, "--buffers", a.buffers,
                              "--save", a.save], timeout=300 + 40 * len(todo))
             except Exception as e:
                 err = str(e)[-800:]
@@ -1075,7 +1131,7 @@ def _pairs(out, en_rows, cn_rows):
         pair = Image.new("RGB", (512 + 8, max(a_.height, b_.height)), "white")
         pair.paste(a_, (0, 0))
         pair.paste(b_, (264, 0))
-        p = Path(r["crop"]).with_name(Path(r["crop"]).stem.replace("_en", "") + "_pair.png")
+        p = Path(r["crop"]).with_name(Path(r["crop"]).stem + "_pair.png")
         pair.save(p)
         r["pair"] = str(p)
 
@@ -1089,17 +1145,18 @@ def summarise(rows, how, selected, out, seconds, roms, args):
     for r in rows:
         if r["verdict"] in ("unsupported", "empty", "not-rendered"):
             unsupported.setdefault(r["reason"], []).append(r["ref"])
-    failures = [{"ref": r["ref"], "window": r["window"], "reasons": r["reasons"], "overflow_px": r["overflow_px"],
+    failures = [{"ref": r["ref"], "lang": r.get("lang", "en"), "window": r["window"], "reasons": r["reasons"], "overflow_px": r["overflow_px"],
                  "overflow_lines": r["overflow_lines"], "pages": r["pages"], "pages_expected": r["pages_expected"],
                  "crop": r.get("crop"), "pair": r.get("pair")} for r in rows if r["verdict"] == "fail"]
-    errors = [{"ref": r["ref"], "window": r["window"], "error": r.get("error")} for r in rows
+    errors = [{"ref": r["ref"], "lang": r.get("lang", "en"), "window": r["window"], "error": r.get("error")} for r in rows
               if r["verdict"] == "error"]
-    summary = {"pass": not failures and not errors, "selection": how, "selected": selected,
+    summary = {"pass": rendered > 0 and not failures and not errors,
+               "coverage_complete": not unsupported and not errors and rendered == selected, "selection": how, "selected": selected,
                "counts": {"strings": len(rows), "rendered": rendered, **counts}, "failures": failures,
                "errors": errors, "unsupported": {k: {"count": len(v), "refs": v} for k, v in
                                                   sorted(unsupported.items(), key=lambda kv: -len(kv[1]))},
                "roms": roms, "args": args, "out": str(out), "seconds": seconds,
-               "rows": sorted(rows, key=lambda r: (r["verdict"] != "fail", r["ref"]))}
+               "rows": sorted(rows, key=lambda r: (r["verdict"] != "fail", r["ref"], r.get("lang", "en")))}
     (Path(out) / "summary.json").write_text(json.dumps(summary, indent=1, ensure_ascii=False))
     return summary
 
@@ -1113,7 +1170,7 @@ def print_summary(s):
         print(f"ERROR {e['ref']} [{e['window']}] {str(e['error'])[:300]}")
     for why, v in s["unsupported"].items():
         print(f"NOT RENDERED {v['count']:5}  {why}")
-    print(json.dumps({"pass": s["pass"], **s["counts"], "seconds": s["seconds"],
+    print(json.dumps({"success": s["pass"], "counts": s["counts"], "seconds": s["seconds"],
                       "summary": str(Path(s["out"]) / "summary.json")}))
 
 
@@ -1125,12 +1182,18 @@ def rejudge(a):
     for p in sorted((src / "batches").glob("*.jsonl")):      # EN only: the CN pairs are in src/cn
         rows += [json.loads(line) for line in p.read_text().splitlines()]
     old = json.loads((src / "summary.json").read_text()) if (src / "summary.json").exists() else {}
-    seen = {r["ref"] for r in rows}
-    rows += [r for r in old.get("rows", []) if r["ref"] not in seen and r["verdict"] not in ("pass", "fail")]
+    seen = {(r["ref"], r.get("lang", "en")) for r in rows}
+    rows += [r for r in old.get("rows", []) if (r["ref"], r.get("lang", "en")) not in seen and r["verdict"] not in ("pass", "fail")]
     for r in rows:
-        if r.get("decoded") is None or r.get("lang", "en") != "en":
+        if r.get("decoded") is None or r.get("lang", "en") not in TARGET_LOCALES:
             continue
-        plan = item_plan(parse_ref(r["ref"]), a.buffers)
+        lang = r.get("lang", "en")
+        identity = old.get("roms", {}).get(lang, {})
+        rom = identity.get("path")
+        if not rom or not Path(rom).is_file() or _sha256(rom) != identity.get("sha256"):
+            r.update(verdict="error", error="rejudge requires the original locale ROM with matching SHA256")
+            continue
+        plan = item_plan(parse_ref(r["ref"]), a.buffers, lang, rom_font(rom))
         box = WINDOWS[r["window"]]
         res = judge(r["decoded"], plan["exp"], box, readback=True, battle=r["window"] == "battle")
         if r.get("info", {}).get("unfilled"):
@@ -1138,7 +1201,7 @@ def rejudge(a):
                                    "detail": f"buffers {r['info']['unfilled']} could not be filled"})
             res["verdict"] = "fail"
         r.update(res, expected=plan["exp"]["views"])
-        pair = r.get("crop") and Path(r["crop"]).with_name(Path(r["crop"]).stem.replace("_en", "") + "_pair.png")
+        pair = r.get("crop") and Path(r["crop"]).with_name(Path(r["crop"]).stem + "_pair.png")
         if pair and pair.exists():
             r["pair"] = str(pair)
     stale = sum(1 for r in rows if r["verdict"] in ("pass", "fail") and r.get("decoded") is None)
@@ -1160,28 +1223,52 @@ def run(a):
     if (out / "summary.json").exists() or (out / "batches").exists():
         print(f"{out} already holds a run; choose a new --out", file=sys.stderr)
         return 2
-    for rom in (a.rom_en,) + ((a.rom_cn,) if a.pairs else ()):
-        if not Path(rom).exists():
-            print(f"ROM not found: {rom}", file=sys.stderr)
-            return 2
     try:
-        refs, how, selected = select(a)
-    except (ValueError, RuntimeError) as e:
+        langs = target_locales(getattr(a, "locales", "en"))
+        rom_paths = {"en": a.rom_en, "es": getattr(a, "rom_es", None)}
+        for lang in langs:
+            if not rom_paths[lang] or not Path(rom_paths[lang]).is_file():
+                raise ValueError(f"{lang}: supply an existing --rom-{lang}")
+        if a.pairs and not Path(a.rom_cn).is_file():
+            raise ValueError("Chinese reference ROM not found")
+        windows = a.windows.split(",")
+        if not windows or any(w not in WINDOWS for w in windows):
+            raise ValueError("unknown --windows selection")
+        if a.chunk < 1 or a.jobs < 1:
+            raise ValueError("--chunk and --jobs must be positive")
+        selections = {lang: select(a, lang) for lang in langs}
+    except (ValueError, RuntimeError, OSError) as e:
         print(str(e), file=sys.stderr)
         return 2
     out.mkdir(parents=True, exist_ok=True)
-    windows = [w for w in a.windows.split(",") if w]
-    todo, rows = plan_rows(refs, windows)
-    print(json.dumps({"selection": how, "selected": selected, "sampled": len(refs),
-                      "render": {w: len(v) for w, v in todo.items()}, "not_rendered": len(rows)}), flush=True)
-    rows += _run_batches(a, [(w, "en", a.rom_en, refs_w) for w, refs_w in todo.items() if refs_w], out, a.jobs)
+    groups, rows, selected, selection = [], [], 0, {}
+    for lang, (refs, how, count) in selections.items():
+        todo, skipped = plan_rows(refs, windows, lang)
+        rows += skipped
+        selected += count
+        selection[lang] = {"how": how, "selected": count, "sampled": len(refs)}
+        groups += [(w, lang, rom_paths[lang], refs_w) for w, refs_w in todo.items() if refs_w]
+    rows += _run_batches(a, groups, out, a.jobs)
     if a.pairs:
-        failed = [r for r in rows if r["verdict"] == "fail"]
-        groups = [(w, "cn", a.rom_cn, [parse_ref(r["ref"]) for r in failed if r["window"] == w]) for w in WINDOWS]
-        _pairs(out, failed, _run_batches(a, [g for g in groups if g[3]], out / "cn", a.jobs))
-    roms = {"en": {"path": str(a.rom_en), "sha256": _sha256(a.rom_en)}}
-    s = summarise(rows, how, selected, out, round(time.time() - t0, 1), roms,
-                  {"buffers": a.buffers, "windows": windows, "limit": a.limit, "jobs": a.jobs})
+        for lang in langs:
+            failed = [r for r in rows if r.get("lang") == lang and r["verdict"] == "fail"]
+            groups_cn = [(w, "cn", a.rom_cn, [parse_ref(r["ref"]) for r in failed if r["window"] == w]) for w in WINDOWS]
+            _pairs(out, failed, _run_batches(a, [g for g in groups_cn if g[3]], out / "cn" / lang, a.jobs))
+    roms = {lang: {"path": str(rom_paths[lang]), "sha256": _sha256(rom_paths[lang])} for lang in langs}
+    if a.pairs:
+        roms["cn"] = {"path": str(a.rom_cn), "sha256": _sha256(a.rom_cn)}
+    s = summarise(rows, selection, selected, out, round(time.time() - t0, 1), roms,
+                  {"buffers": a.buffers, "windows": windows, "limit": a.limit, "jobs": a.jobs, "locales": langs})
+    s["by_locale"] = {lang: {"counts": {verdict: sum(r.get("lang") == lang and r["verdict"] == verdict for r in rows)
+                                         for verdict in sorted({r["verdict"] for r in rows if r.get("lang") == lang})},
+                                  "pass": any(r.get("lang") == lang and r["verdict"] == "pass" for r in rows)
+                                          and not any(r.get("lang") == lang and r["verdict"] in ("fail", "error") for r in rows)}
+                      for lang in langs}
+    s["pass"] = all(x["pass"] for x in s["by_locale"].values())
+    s["args"]["require_complete"] = getattr(a, "require_complete", False)
+    if s["args"]["require_complete"] and not s["coverage_complete"]:
+        s["pass"] = False
+    (out / "summary.json").write_text(json.dumps(s, indent=1, ensure_ascii=False))
     print_summary(s)
     return 0 if s["pass"] else 1
 
@@ -1195,6 +1282,43 @@ def _sha256(path):
     return h.hexdigest()
 
 
+
+def read_dex_category(path, expected, rom, lang):
+    """Read the native category panel; never substitute an English width cap.
+
+    The local EN/ES ROMs render at (120,40), 127 visible columns, using font 4/0
+    respectively. Exact glyph readback fails closed for a different font/layout.
+    A native bank-803 message-read check must separately bind the screenshot to
+    its catalogue ID; matching a displayed Dex number alone is insufficient.
+    """
+    from PIL import Image
+    if lang not in TARGET_LOCALES:
+        return {"verdict": "unsupported", "reason": "Latin glyph reader supports en/es only"}
+    result = {"verdict": "incomplete", "font": 4 if lang == "en" else 0,
+              "x": 120, "y": 40, "visible_width": 127, "expected": expected}
+    try:
+        with Image.open(path) as source:
+            if source.size != (256, 192):
+                raise ValueError("expected native 256x192 top screen")
+            image = source.convert("RGB")
+        # Font foreground/shadow; ignore the red header rule and white panel.
+        colors = {(88, 88, 88), (208, 216, 216)}
+        columns = [sum(1 << y for y in range(LINE_H)
+                       if image.getpixel((x, 40 + y)) in colors) & ROWMASK
+                   for x in range(120, 247)]
+        font = rom_font(str(rom), result["font"])
+        shown, right, unknown = parse_line(columns, font)
+        width = font.width(expected)
+        passed = bool(expected) and unknown == 0 and shown.rstrip() == expected.rstrip() and width <= 127
+        result.update(verdict="pass" if passed else "fail", shown=shown, unknown=unknown,
+                      ink_right=right, expected_width=width,
+                      screenshot_sha256=_sha256(path),
+                      reason=None if passed else "category mismatch, clipping, or unsupported rendering")
+    except (OSError, ValueError, KeyError) as error:
+        result["reason"] = str(error)
+    return result
+
+
 # ============================================================================= scenario observation
 
 def observe(h, ref, lang, mode="typ"):
@@ -1205,9 +1329,11 @@ def observe(h, ref, lang, mode="typ"):
     h.save_state(state)
     try:
         r = FieldRenderer(h, state)
-        plan = item_plan(ref, mode, lang)
+        font = rom_font(str(h.rom)) if lang in TARGET_LOCALES else None
+        plan = item_plan(ref, mode, lang, font)
         views, info = r.render(ref, plan["fill"], lang, plan["exp"]["waits"] + 4)
-        font = rom_font(str(h.rom)) if lang == "en" else None
+        if not info.get("read") or info.get("unfilled"):
+            raise RuntimeError("native message read or placeholder fill was not verified")
         box = WINDOWS["field"]
         decoded = [decode_view(Pixels(v), box, font, limit=box["prompt_px"] if (
             plan["exp"]["prompt"] and k >= plan["exp"].get("prompt_view", len(views) - 1)) else None)

@@ -302,10 +302,10 @@
   {
    "id": 37,
    "zh": "彩月『您是最有资格{NEWLINE}成为洛奇亚训练家的人,{CLEAR}请上前抚摸洛奇亚,{CLEAR}取得它正式的认可吧！",
-   "en": "Satsuki: You are the one most{NEWLINE}worthy of becoming Lugia’s Trainer.{CLEAR}Please step forward, touch Lugia{CLEAR}and receive its formal approval!",
+   "en": "Satsuki: You are the one most worthy of{NEWLINE}becoming Lugia’s Trainer.{CLEAR}Please step forward, stroke Lugia{CLEAR}and receive its formal approval!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0123-0125: Restore gentle stroking/petting, not generic touch."
   },
   {
    "id": 38,

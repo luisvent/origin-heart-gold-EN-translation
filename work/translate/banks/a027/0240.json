@@ -6,9 +6,9 @@
   {
    "id": 0,
    "zh": "神秘的礼物！",
-   "en": "Welcome to Mystery Gift!",
+   "en": "Mystery Gift!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0247/0"
   },
   {
@@ -70,9 +70,9 @@
   {
    "id": 8,
    "zh": "接收了礼物！{SCROLL}去友好商店的配送员{NEWLINE}拿取吧！",
-   "en": "The gift has been received!{SCROLL}Please pick up your gift from the{NEWLINE}deliveryman in any Poké Mart.",
+   "en": "The gift has been received!{SCROLL}Please pick up your gift from the{NEWLINE}deliveryman at the Poké Mart.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0247/8"
   },
   {
@@ -134,9 +134,9 @@
   {
    "id": 16,
    "zh": "通过ＷｉーＦｉ接收",
-   "en": "GET VIA NINTENDO WFC",
+   "en": "GET VIA WI-FI",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0247/16"
   },
   {
@@ -310,9 +310,9 @@
   {
    "id": 38,
    "zh": "从友好商店的{NEWLINE}配送员那里接收啊。",
-   "en": "Please pick up your gift from the{NEWLINE}deliveryman in any Poké Mart.",
+   "en": "Please pick up your gift from the{NEWLINE}deliveryman at the Poké Mart.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0247/38"
   },
   {
@@ -342,9 +342,9 @@
   {
    "id": 42,
    "zh": "这赠品可以送{VAR:0134:0}次给朋友。",
-   "en": "This gift can be distributed {VAR:0134:0}{NEWLINE}time(s).",
+   "en": "You can share this gift with friends{NEWLINE}{VAR:0134:0} time(s).",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0247/42"
   },
   {
@@ -582,9 +582,9 @@
   {
    "id": 72,
    "zh": "正在接受精灵护林员的申请。",
-   "en": "Receiving a Recruitment Message{NEWLINE}from a Pokémon Ranger.",
+   "en": "Receiving a request from{NEWLINE}Pokémon Ranger.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0247/72"
   },
   {

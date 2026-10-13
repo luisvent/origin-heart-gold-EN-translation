@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "箱子里没有６只精灵！",
-   "en": "There aren’t six Pokémon in{NEWLINE}the PC Boxes.",
+   "en": "There aren’t six Pokémon in the PC{NEWLINE}Boxes!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0301/5"
+   "origin": "agent",
+   "notes": "US 0301/5 | CES-early: Preserve source exclamations in migration messages"
   },
   {
    "id": 6,
@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "这张卡已经传送了６只精灵,{SCROLL}去联动公园参加捕获秀吧！",
-   "en": "This Game Card has already been{NEWLINE}stocked with six migrated Pokémon.{SCROLL}Please participate in a Catching{NEWLINE}Show at Pal Park.",
+   "en": "This Game Card has already been{NEWLINE}stocked with six migrated Pokémon!{SCROLL}Please participate in a Catching Show at{NEWLINE}Pal Park!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0301/7"
+   "origin": "agent",
+   "notes": "US 0301/7 | CES-early: Preserve source exclamations in migration messages"
   },
   {
    "id": 8,
@@ -78,18 +78,18 @@
   {
    "id": 9,
    "zh": "这只精灵记忆着秘传技能,{NEWLINE}因此无法传送！",
-   "en": "This Pokémon knows a hidden move.{NEWLINE}It cannot migrate.",
+   "en": "This Pokémon knows a hidden move. It{NEWLINE}cannot migrate!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0301/9"
+   "origin": "agent",
+   "notes": "US 0301/9 | CES-early: Preserve source exclamations in migration messages"
   },
   {
    "id": 10,
    "zh": "选中的６只精灵{NEWLINE}将被传送！",
-   "en": "The six chosen Pokémon will migrate.",
+   "en": "The six chosen Pokémon will migrate!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0301/10"
+   "origin": "agent",
+   "notes": "US 0301/10 | CES-early: Preserve source exclamations in migration messages"
   },
   {
    "id": 11,
@@ -254,10 +254,10 @@
   {
    "id": 31,
    "zh": "从这个卡带里带去的时间{NEWLINE}还没有经过１天！{SCROLL}同个卡带{NEWLINE}１天只能使用１回！",
-   "en": "Pokémon may migrate from a Game Boy{NEWLINE}Advance Game Pak only once a day.{SCROLL}A full day hasn’t passed since{NEWLINE}Pokémon migrated from this Game Pak.",
+   "en": "Pokémon may migrate from a Game Boy{NEWLINE}Advance Game Pak only once a day!{SCROLL}A full day hasn’t passed since Pokémon{NEWLINE}migrated from this Game Pak!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0301/31"
+   "origin": "agent",
+   "notes": "US 0301/31 | CES-early: Preserve source exclamations in migration messages"
   },
   {
    "id": 32,

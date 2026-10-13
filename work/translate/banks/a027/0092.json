@@ -150,10 +150,10 @@
   {
    "id": 18,
    "zh": "水晶『前辈,大竹蹦已经到极限了,{NEWLINE}我需要给它紧急治疗一下。{CLEAR}蜜柑小姐那边还在被火箭队干部围攻,{CLEAR}你先去帮她吧。",
-   "en": "Crystal: Megaree is at its limit. I{NEWLINE}need to give it emergency treatment.{SCROLL}Jasmine is still surrounded by{NEWLINE}the Team Rocket Executives.{CLEAR}Please go help her first.",
+   "en": "Crystal: Megaree is at its limit. I need{NEWLINE}to give it emergency treatment.{SCROLL}Miss Jasmine is still being attacked from{NEWLINE}all sides by the Team Rocket{CLEAR}Executives. Please go help her first.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 19,
@@ -206,10 +206,10 @@
   {
    "id": 25,
    "zh": "阿金『偶像,爆太郎的体力有些透支,{NEWLINE}可能没法继续战斗了。{CLEAR}蜜柑馆主那边还在被围攻,{CLEAR}只有你能去帮她了！",
-   "en": "Gold: Idol, Exbo’s worn out. I{NEWLINE}don’t think it can keep fighting.{SCROLL}Jasmine is still surrounded over{NEWLINE}there. Only you can help her now!",
+   "en": "Gold: Idol, Exbo’s worn out. I don’t{NEWLINE}think it can keep fighting.{SCROLL}Gym Leader Jasmine is still being{NEWLINE}attacked from all sides over there.{CLEAR}Only you can help her now!",
    "status": "draft",
    "origin": "agent",
-   "notes": "#25/#26: Gold's line depends on whether Crystal (Class Rep) has already been helped."
+   "notes": "#25/#26: Gold's line depends on whether Crystal (Class Rep) has already been helped. | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 26,
@@ -438,10 +438,10 @@
   {
    "id": 54,
    "zh": "水晶『我这里有一些解毒药,{NEWLINE}蜜柑小姐你看看能不能帮上忙。",
-   "en": "Crystal: I have some Antidotes.{NEWLINE}Jasmine, see if they help.",
+   "en": "Crystal: I have some Antidotes. Miss{NEWLINE}Jasmine, see if they help.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 55,
@@ -454,18 +454,18 @@
   {
    "id": 56,
    "zh": "阿金『就是就是,{NEWLINE}这种事当然义不容辞！",
-   "en": "Gold: Exactly! Of course we’ll do it!",
+   "en": "Gold: Exactly, exactly! Of course we’ll{NEWLINE}do it!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 57,
    "zh": "水晶『蜜柑小姐你就在这{NEWLINE}安心给小明治疗吧,{CLEAR}我们会尽快回来的。",
-   "en": "Crystal: Jasmine, stay here{NEWLINE}and take care of Amphy. We’ll{CLEAR}be back as soon as we can.",
+   "en": "Crystal: Miss Jasmine, stay here and{NEWLINE}take care of Amphy. We’ll be back as{CLEAR}soon as we can.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 58,
@@ -510,18 +510,18 @@
   {
    "id": 63,
    "zh": "{VAR:0103:0}『蜜柑小姐,小明怎么样了？",
-   "en": "{VAR:0103:0}: Jasmine, how’s Amphy?",
+   "en": "{VAR:0103:0}: Miss Jasmine, how’s Amphy?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 64,
    "zh": "小三郎『我会输给你{NEWLINE}绝不是强化精灵有问题,{CLEAR}而是因为你太强了。{CLEAR}看来只有使用传说中的精灵{CLEAR}才能将你彻底打败。",
-   "en": "Butch: I didn’t lose because the{NEWLINE}enhanced Pokémon are flawed. I{CLEAR}lost because you’re too strong.{SCROLL}Looks like only legendary{NEWLINE}Pokémon can beat you for good.",
+   "en": "Butch: I didn’t lose because the{NEWLINE}enhanced Pokémon are flawed. I lost{CLEAR}because you’re too strong.{SCROLL}Looks like only legendary Pokémon can{NEWLINE}defeat you completely.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 65,
@@ -550,10 +550,10 @@
   {
    "id": 68,
    "zh": "普通人看到联盟冠军{NEWLINE}可能会觉得高兴,{CLEAR}我们火箭队看到联盟冠军{CLEAR}只会觉得恶心。",
-   "en": "Ordinary people might be happy{NEWLINE}to see the League Champion. Team{CLEAR}Rocket just finds you disgusting.",
+   "en": "Ordinary people might be happy to see{NEWLINE}the League Champion. We in Team Rocket{CLEAR}feel nothing but disgust when we see{CLEAR}the League Champion.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 69,
@@ -574,10 +574,10 @@
   {
    "id": 71,
    "zh": "{VAR:0103:0}『蜜柑小姐,药我已经取来了。",
-   "en": "{VAR:0103:0}: Jasmine, I’ve{NEWLINE}brought the medicine.",
+   "en": "{VAR:0103:0}: Miss Jasmine, I’ve brought the{NEWLINE}medicine.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 72,

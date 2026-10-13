@@ -190,7 +190,7 @@
   {
    "id": 23,
    "zh": "没事,这小鬼打这么久已经累了,{NEWLINE}让我来亲自收拾他！",
-   "en": "Relax. The brat’s worn out from all{NEWLINE}that fighting. I’ll finish him off myself!",
+   "en": "Relax. The brat’s worn out from all{NEWLINE}that fighting. I’ll deal with him myself!",
    "status": "draft",
    "origin": "agent",
    "notes": "Male-player variant of #131."
@@ -1054,7 +1054,7 @@
   {
    "id": 131,
    "zh": "没事,这小鬼打这么久已经累了,{NEWLINE}让我来亲自收拾她！",
-   "en": "Relax. The brat’s worn out from all{NEWLINE}that fighting. I’ll finish her off myself!",
+   "en": "Relax. The brat’s worn out from all{NEWLINE}that fighting. I’ll deal with her myself!",
    "status": "draft",
    "origin": "agent",
    "notes": "Female-player variant of #23."

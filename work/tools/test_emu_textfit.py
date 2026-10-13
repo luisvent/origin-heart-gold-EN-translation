@@ -58,6 +58,122 @@ class Selection(unittest.TestCase):
         self.assertEqual(T.sample(refs, 50), refs)
 
 
+class SpanishTargets(unittest.TestCase):
+    def test_explicit_locale_selection(self):
+        self.assertEqual(T.target_locales("en,es"), ["en", "es"])
+        for value in ("", "en,en", "es,fr", " en"):
+            with self.assertRaises(ValueError):
+                T.target_locales(value)
+
+    def test_spanish_diff_and_inventory(self):
+        old = {"strings": [{"ref": "a027/0060#27", "text": "Hola"}]}
+        new = {"strings": [{"ref": "a027/0060#27", "text": "¡Hola!"},
+                           {"ref": "a027/0060#28", "text": None}]}
+        self.assertEqual(T.diff_strings(old, new, "es"), [27])
+        with tempfile.TemporaryDirectory() as folder:
+            p = Path(folder) / "a027"
+            p.mkdir()
+            (p / "0060.json").write_text(json.dumps(new))
+            self.assertEqual(T.all_refs(folder, "es"), [("a027", 60, 27)])
+
+    def test_spanish_text_and_fillers_never_use_english(self):
+        from unittest.mock import patch
+        source = bank("a027", 60, [("甲", "English")])
+        es = {"strings": [{"ref": "a027/0060#0", "text": "¡Hola, {VAR:0100:0}!"}]}
+        def load(narc, number, root=str(T.BANKS)):
+            return es if root == str(T.ES_BANKS) else source
+        with patch.object(T, "load_bank", side_effect=load), patch.object(T, "fillers", return_value={0: "Ñandú"}) as fill:
+            plan = T.item_plan(("a027", 60, 0), lang="es")
+            self.assertEqual(plan["expanded"], "¡Hola, Ñandú!")
+            self.assertEqual(fill.call_args.args[-1], "es")
+            es["strings"][0]["text"] = None
+            with self.assertRaises(ValueError):
+                T.item_plan(("a027", 60, 0), lang="es")
+
+    def test_dex_reader_checks_actual_glyphs_and_locale_font(self):
+        from unittest.mock import patch
+        from PIL import Image
+        font = T.Font({65: ("A", 2, (2, 2))})
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "screen.png"
+            im = Image.new("RGB", (256, 192), (248, 248, 248))
+            im.putpixel((120, 41), (88, 88, 88))
+            im.putpixel((121, 41), (208, 216, 216))
+            im.save(path)
+            for lang, font_id in (("en", 4), ("es", 0)):
+                with patch.object(T, "rom_font", return_value=font) as native:
+                    proof = T.read_dex_category(path, "A", "native.nds", lang)
+                    self.assertEqual(proof["verdict"], "pass")
+                    native.assert_called_with("native.nds", font_id)
+                    self.assertEqual(T.read_dex_category(path, "AA", "native.nds", lang)["verdict"], "fail")
+            self.assertEqual(T.read_dex_category(path, "A", "native.nds", "cn")["verdict"], "unsupported")
+            Image.new("RGB", (512, 384)).save(path)
+            self.assertEqual(T.read_dex_category(path, "A", "native.nds", "es")["verdict"], "incomplete")
+
+    def test_native_font_width_is_used(self):
+        exp = T.expected_views("ABC", width_of=lambda text: len(text) * 11)
+        self.assertEqual(exp["widths"], [[33, 0]])
+
+    def test_missing_locale_input_is_error(self):
+        from unittest.mock import patch
+        with patch.object(T, "window_for", side_effect=FileNotFoundError("es bank")):
+            todo, rows = T.plan_rows([("a027", 60, 0)], ["field"], "es")
+        self.assertEqual(rows[0]["verdict"], "error")
+        self.assertEqual(rows[0]["lang"], "es")
+        self.assertEqual(todo["field"], [])
+
+    def test_no_rendered_refs_cannot_pass(self):
+        with tempfile.TemporaryDirectory() as folder:
+            result = T.summarise([{"ref": "a027/0803#1", "lang": "es", "window": None,
+                                   "verdict": "unsupported", "reason": "dex category"}],
+                                 "refs", 1, folder, 0, {}, {})
+            self.assertFalse(result["pass"])
+            self.assertFalse(result["coverage_complete"])
+
+    def test_sampled_success_is_not_complete_coverage(self):
+        with tempfile.TemporaryDirectory() as folder:
+            result = T.summarise([{"ref": "a027/0060#27", "lang": "es",
+                                   "window": "field", "verdict": "pass"}],
+                                 {"es": {"selected": 20, "sampled": 1}}, 20, folder, 0, {}, {})
+            self.assertTrue(result["pass"])
+            self.assertFalse(result["coverage_complete"])
+
+    def test_matrix_runs_distinct_roms_and_locale_results(self):
+        import argparse
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            for name in ("en", "es"):
+                (root / (name + ".nds")).write_bytes(name.encode())
+            args = argparse.Namespace(rejudge=None, out=str(root / "run"), locales="en,es",
+                                      rom_en=str(root / "en.nds"), rom_es=str(root / "es.nds"),
+                                      pairs=False, windows="field", chunk=2, jobs=1,
+                                      buffers="typ", limit=None)
+            def batches(a, groups, out, jobs):
+                self.assertEqual([(g[1], g[2]) for g in groups], [("en", args.rom_en), ("es", args.rom_es)])
+                return [{"ref": "a027/0060#27", "lang": lang, "window": "field", "verdict": "pass"}
+                        for lang in ("en", "es")]
+            with patch.object(T, "select", return_value=([("a027", 60, 27)], "refs", 1)), \
+                 patch.object(T, "plan_rows", return_value=({"field": [("a027", 60, 27)]}, [])), \
+                 patch.object(T, "_run_batches", side_effect=batches):
+                self.assertEqual(T.run(args), 0)
+            summary = json.loads((root / "run/summary.json").read_text())
+            self.assertEqual(set(summary["roms"]), {"en", "es"})
+            self.assertTrue(summary["by_locale"]["es"]["pass"])
+            args.out = str(root / "strict")
+            args.require_complete = True
+            with patch.object(T, "select", return_value=([("a027", 60, 27)], "refs", 1)), \
+                 patch.object(T, "plan_rows", side_effect=lambda refs, windows, lang: (
+                     {"field": [("a027", 60, 27)]}, [{"ref": "a027/0803#252", "lang": lang,
+                     "window": None, "verdict": "unsupported", "reason": "dex category"}])), \
+                 patch.object(T, "_run_batches", side_effect=batches):
+                self.assertEqual(T.run(args), 1)
+            args.out = str(root / "missing")
+            args.rom_es = None
+            self.assertEqual(T.run(args), 2)
+            self.assertFalse((root / "missing").exists())
+
+
 class Windows(unittest.TestCase):
     def test_real_banks(self):
         self.assertEqual(T.window_for("battle_string", 1, 0), ("battle", None))

@@ -311,3 +311,15 @@ The fast registry check (`fixes.py check`) refuses a citation without its `[[us_
 
 **Two Python environments.** `check.py` runs in the root `.venv` with `work/tools/requirements-dev.txt` (ruff 0.16.8, capstone); it does not need mypy. The translation tooling has its own gate, `work/tools/check_translation.py`, run with `work/.venv/bin/python` (uv-locked in `work/uv.lock`: ruff 0.16.10, mypy 2.4.0); it lints with `work/tools/ruff-translation.toml` (stricter, line length 100) and type-checks with `work/pyproject.toml`'s `[tool.mypy]`. `work/pyproject.toml` has no `[tool.ruff]`, so a plain `ruff check` from the root uses `ruff.toml` everywhere. The two ruff pins differ (0.16.8 for `check.py`, 0.16.10 in `work/uv.lock`): aligning them needs a download, so it waits for the user; both versions report `ruff.toml` clean. When changing one pin, change both.
 
+
+### Optional graphics environment
+
+Image extraction/contact sheets use the `graphics` dependency group in `work/pyproject.toml` and `work/uv.lock`: Pillow **12.3.0**, matching `work/tools/requirements-runtime.txt`. The base environment already pins ndspy **4.2.0**. Use the repository-pinned uv **0.12.23**, from the repository root:
+
+```sh
+uv sync --project work --locked --no-default-groups --group graphics
+work/.venv/bin/python -m unittest discover -s work/tools -p 'test_graphics_dependencies.py'
+work/.venv/bin/python -m unittest discover -s work/tools -p 'test_emu_screenshots.py'
+```
+
+`work/.python-version` selects Python 3.14.8. An already installed compatible interpreter can be selected explicitly with `--python python3` (this worktree was verified with CPython 3.14.7); no Python version file is rewritten. The Pillow/ndspy package pins remain the same. Run graphics scripts with `work/.venv/bin/python`, not whichever system Python happens to be on PATH. `test_graphics_dependencies.py` rejects drift between the Pillow runtime requirement, graphics group and lockfile.

@@ -200,10 +200,10 @@
   {
    "id": 24,
    "zh": "雅典娜『对火箭对来说{NEWLINE}只有成功与失败,{CLEAR}没有高尚与卑鄙。{CLEAR}这点您应该也很清楚吧。",
-   "en": "Ariana: For Team Rocket, there’s{NEWLINE}only success and failure.{CLEAR}There’s no noble or dirty. Surely{CLEAR}you know that as well as anyone.",
+   "en": "Ariana: For Team Rocket, there’s only{NEWLINE}success and failure. There’s no noble{CLEAR}or dirty. You should know that very{CLEAR}well too.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0392: Remove invented comparison to anyone else."
   },
   {
    "id": 25,
@@ -248,10 +248,10 @@
   {
    "id": 30,
    "zh": "小银『切……{NEWLINE}你会为你今天的决定后悔的,{CLEAR}等我抓到了炎帝,{CLEAR}很快就能超越你成为最强！",
-   "en": "Silver: Tch... You’ll regret this.{NEWLINE}Once I catch Entei, I’ll soon surpass{CLEAR}you and become the strongest!",
+   "en": "Silver: Tch... You’ll regret your{NEWLINE}decision today. Once I catch Entei, I’ll{CLEAR}soon surpass you and become{CLEAR}the strongest!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0392: Restore explicit today’s decision."
   },
   {
    "id": 31,
@@ -312,10 +312,10 @@
   {
    "id": 38,
    "zh": "小银『简直不堪一击,闪一边去吧！",
-   "en": "Silver: Pathetic. Out of my way!",
+   "en": "Silver: You can’t even take a hit. Out{NEWLINE}of my way!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0392: Restore boast about inability to withstand attack rather than generic contempt."
   },
   {
    "id": 39,
@@ -528,10 +528,10 @@
   {
    "id": 65,
    "zh": "小银『跟孩子的约定不能实现,{NEWLINE}为自己的无能找各种借口,{CLEAR}你这样跟我那个{CLEAR}混蛋父亲还有什么区别！{CLEAR}不想被你女儿讨厌的话,{CLEAR}就给我从洗脑中清醒过来啊！",
-   "en": "Silver: Breaking your promise to{NEWLINE}your kid, making all kinds of excuses{CLEAR}for your own uselessness...{SCROLL}How is that any different{NEWLINE}from my bastard of a father?!{SCROLL}If you don’t want your{NEWLINE}daughter to hate you, snap{CLEAR}out of that brainwashing!",
+   "en": "Silver: Unable to keep your promise to{NEWLINE}your kid, making all kinds of excuses for{CLEAR}your own incompetence...{SCROLL}How is that any different from my{NEWLINE}bastard of a father?!{SCROLL}If you don’t want your daughter to{NEWLINE}hate you, snap out of{CLEAR}that brainwashing!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0392: Restore inability and incompetence, not voluntary promise-breaking or worthlessness."
   },
   {
    "id": 66,
@@ -584,10 +584,10 @@
   {
    "id": 72,
    "zh": "雅典娜『你不要太得意忘形,{NEWLINE}我们的「R计划」还没有正式实施呢。{CLEAR}到时候有你们哭的！",
-   "en": "Ariana: Don’t get too full of yourself.{NEWLINE}Our Project R hasn’t even officially{CLEAR}begun. You’ll be crying soon enough!",
+   "en": "Ariana: Don’t get too full of yourself.{NEWLINE}Our Project R hasn’t even officially{CLEAR}begun. You’ll all be crying when it does!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0392: Restore event-relative time and plural target; no added soon."
   },
   {
    "id": 73,
@@ -704,10 +704,10 @@
   {
    "id": 87,
    "zh": "我的图图犬在对战中缺少攻击性,{NEWLINE}我决定让它加练怪力术,{CLEAR}好让它能给敌人造成足够的伤害。",
-   "en": "My Smeargle lacks aggression in{NEWLINE}battle, so I’ve decided to have{CLEAR}it practice Strength so it can{CLEAR}deal enough damage to the enemy.",
+   "en": "My Smeargle lacks aggression in battle,{NEWLINE}so I’ve decided to have it get extra{CLEAR}practice with Strength so it can deal{CLEAR}enough damage to the enemy.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0392: Restore additional training."
   },
   {
    "id": 88,
@@ -950,10 +950,10 @@
   {
    "id": 117,
    "zh": "尊重自然,不要插手",
-   "en": "Let nature be",
+   "en": "Respect nature. Don’t interfere",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | root-full-comparison-0392: Restore respect and noninterference; verified one-line width must fit.",
    "category": "menu_touch_1line"
   },
   {

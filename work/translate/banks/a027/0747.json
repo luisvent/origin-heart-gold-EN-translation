@@ -318,10 +318,10 @@
   {
    "id": 39,
    "zh": "物防特防",
-   "en": "Defense stats",
+   "en": "Defense & Sp. Def",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0759/39 | Wi-Fi Plaza survey (defunct online feature)"
+   "origin": "agent",
+   "notes": "US 0759/39 | Wi-Fi Plaza survey (defunct online feature) | AGENT-0740-0760: CN fidelity"
   },
   {
    "id": 40,

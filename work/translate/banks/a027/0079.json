@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "炎帝『Eeen——tei！{SCROLL}炎帝『你们不要幻想出去了,{NEWLINE}这里还是阿鲁夫遗迹。",
-   "en": "Entei: Eeen-tei!{SCROLL}Entei: Don’t fool yourselves{NEWLINE}that you’ve gotten out. This{CLEAR}is still the Ruins of Alph.",
+   "en": "Entei: Eeen-tei!{SCROLL}Entei: Do not fool yourselves that{NEWLINE}you’ve gotten out. This is still the{CLEAR}Ruins of Alph.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 5,
@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "炎帝『Eeen——tei！{SCROLL}炎帝『这里是未知图腾{NEWLINE}感应到小美的愿望,{CLEAR}而创造出的独立空间,{CLEAR}只要小美不想离开,{CLEAR}这个空间就没有出口。",
-   "en": "Entei: Eeen-tei!{SCROLL}Entei: This is a separate space{NEWLINE}the Unown created when they sensed{CLEAR}Molly’s wish. As long as Molly doesn’t{CLEAR}want to leave, this space has no exit.",
+   "en": "Entei: Eeen-tei!{SCROLL}Entei: This is a separate space the{NEWLINE}Unown created when they sensed Molly’s{CLEAR}wish. As long as Molly does not want to{CLEAR}leave, this space has no exit.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "炎帝『Eeen——tei！{SCROLL}炎帝『小美只希望{NEWLINE}象征父亲的我陪伴她,{CLEAR}不希望你们去打扰。{CLEAR}我不会让你们见到她的。",
-   "en": "Entei: Eeen-tei!{SCROLL}Entei: Molly wants only me, the one{NEWLINE}who stands for her father, by her{CLEAR}side. She doesn’t want you bothering{CLEAR}her. I won’t let you see her.",
+   "en": "Entei: Eeen-tei!{SCROLL}Entei: Molly wants only me, the one who{NEWLINE}stands for her father, by her side. She{CLEAR}does not want you bothering her. I will{CLEAR}not let you see her.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 11,
@@ -238,10 +238,10 @@
   {
    "id": 29,
    "zh": "炎帝『Eeen——tei！{SCROLL}炎帝『小美的分身可不止一个,{NEWLINE}你能击败这个分身,{CLEAR}你的同伴却未必能击败其他分身。{CLEAR}比起找到小美,{CLEAR}你还是先关心下同伴的安危吧！",
-   "en": "Entei: Eeen-tei!{SCROLL}Entei: Molly has more than one clone.{NEWLINE}You may have beaten this one, but your{CLEAR}friends might not beat the others.{CLEAR}Instead of looking for Molly, you’d{CLEAR}better worry about your friends!",
+   "en": "Entei: Eeen-tei!{SCROLL}Entei: Molly has more than one clone.{NEWLINE}You may have beaten this one, but your{CLEAR}friends might not beat the others.{CLEAR}Instead of looking for Molly, you had{CLEAR}better worry about your friends!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 30,
@@ -270,10 +270,10 @@
   {
    "id": 33,
    "zh": "小美『哈哈,这种程度的攻击,{NEWLINE}也就是洒洒水啦。{CLEAR}顿甲使出地震！",
-   "en": "Molly: Ha ha, an attack like{NEWLINE}that is a piece of cake!{CLEAR}Donphan, use Earthquake!",
+   "en": "Molly: Ha ha, an attack like that is{NEWLINE}barely a splash of water! Donphan,{CLEAR}use Earthquake!",
    "status": "draft",
    "origin": "agent",
-   "notes": "洒洒水 (Cantonese slang ‘no big deal’) → ‘a piece of cake’."
+   "notes": "洒洒水 (Cantonese slang ‘no big deal’) → ‘a piece of cake’. | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 34,
@@ -302,10 +302,10 @@
   {
    "id": 37,
    "zh": "{VAR:0103:0}『别逞强了小银,我来帮你。",
-   "en": "{VAR:0103:0}: Don’t push yourself,{NEWLINE}Silver. I’ll help you.",
+   "en": "{VAR:0103:0}: Quit acting tough, Silver. I’ll{NEWLINE}help you.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 38,
@@ -558,10 +558,10 @@
   {
    "id": 69,
    "zh": "水晶『前辈,我感觉这个小美的分身{NEWLINE}比起阻止我们前进来,{CLEAR}更像是在跟我们玩。{CLEAR}如果我们能跟小美好好谈谈,{CLEAR}她应该愿意离开这里。{SCROLL}水晶『跟小朋友打交道{NEWLINE}我还是蛮有经验的,{CLEAR}接下来就看我的吧。",
-   "en": "Crystal: I feel like Molly’s clones{NEWLINE}aren’t so much trying to stop us{CLEAR}as trying to play with us. If we{CLEAR}can have a proper talk with Molly,{CLEAR}she should be willing to leave.{SCROLL}Crystal: I’ve got plenty{NEWLINE}of experience dealing with little{CLEAR}kids. Leave the next part to me.",
+   "en": "Crystal: I feel like this clone of Molly{NEWLINE}isn’t so much trying to stop us as{CLEAR}trying to play with us. If we can have a{CLEAR}proper talk with Molly, she should be{CLEAR}willing to leave.{SCROLL}Crystal: I’ve got plenty of experience{NEWLINE}dealing with little kids. Leave the next{CLEAR}part to me.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 70,

@@ -1,0 +1,11 @@
+{
+  "locale": "en",
+  "name": "English",
+  "source_locale": "zh-CN",
+  "catalogue_schema": 1,
+  "glossary": "glossary.json",
+  "decisions": "decisions.jsonl",
+  "voices": "voices.json",
+  "target_bank_dir": "banks",
+  "english_storage": "legacy work/translate/banks adapter"
+}

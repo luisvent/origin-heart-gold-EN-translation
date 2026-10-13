@@ -14,7 +14,7 @@
   {
    "id": 1,
    "zh": "要挑战战斗房间吗？{VAR:0200:0}",
-   "en": "Would you like to take the{NEWLINE}Battle Room challenge? {VAR:0200:0}",
+   "en": "Would you like to take the{NEWLINE}Battle Room challenge?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0096/1"
@@ -46,18 +46,18 @@
   {
    "id": 5,
    "zh": "您身上{SCROLL}没有３只可参加{NEWLINE}战斗的精灵！{SCROLL}想参加就必须准备{NEWLINE}３只不同种类的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:0}、{VAR:0100:1}{NEWLINE}{VAR:0100:2}、{VAR:0100:3}、{VAR:0100:4}{CLEAR}{VAR:0100:5}、{VAR:0100:6}、{VAR:0100:7}{CLEAR}不能参加！{SCROLL}准备好的话{NEWLINE}就请再来吧。{SCROLL}",
-   "en": "You don’t have 3 eligible Pokémon!{SCROLL}To enter, you must have 3{NEWLINE}different Pokémon, and they{CLEAR}must all hold different items.{SCROLL}Also, Eggs, {VAR:0100:0}, {VAR:0100:1},{NEWLINE}{VAR:0100:2}, {VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, and{CLEAR}{VAR:0100:7} are not allowed to enter!{SCROLL}Please come back when you’re ready.{SCROLL}",
+   "en": "You don’t have 3 eligible Pokémon!{SCROLL}To enter, you must have 3 Pokémon of{NEWLINE}different species, and they must all{CLEAR}hold different items.{SCROLL}Also, Eggs, {VAR:0100:0}, {VAR:0100:1},{NEWLINE}{VAR:0100:2}, {VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, and{CLEAR}{VAR:0100:7} are not allowed to enter!{SCROLL}Please come back when you’re ready.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 6,
    "zh": "您身上{SCROLL}没有４只可参加{NEWLINE}战斗的精灵！{SCROLL}想参加就必须准备{NEWLINE}４只不同种类的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:0}、{VAR:0100:1}{NEWLINE}{VAR:0100:2}、{VAR:0100:3}、{VAR:0100:4}{CLEAR}{VAR:0100:5}、{VAR:0100:6}、{VAR:0100:7}{CLEAR}{VAR:0100:8}、{VAR:0100:9}、{VAR:0100:10}{CLEAR}{VAR:0100:11}、{VAR:0100:12}、{VAR:0100:13}{CLEAR}{VAR:0100:14}、{VAR:0100:15}、{VAR:0100:16}{CLEAR}{VAR:0100:17}、{VAR:0100:18}{CLEAR}无法参加！{SCROLL}准备好了的话{NEWLINE}就请再来吧。{SCROLL}",
-   "en": "You don’t have 4 eligible Pokémon!{SCROLL}To enter, you must have 4{NEWLINE}different Pokémon, and they{CLEAR}must all hold different items.{SCROLL}Also, Eggs, {VAR:0100:0},{NEWLINE}{VAR:0100:1}, {VAR:0100:2}, {VAR:0100:3},{CLEAR}{VAR:0100:4}, {VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8}, {VAR:0100:9},{CLEAR}{VAR:0100:10}, {VAR:0100:11}, {VAR:0100:12},{CLEAR}{VAR:0100:13}, {VAR:0100:14}, {VAR:0100:15},{CLEAR}{VAR:0100:16}, {VAR:0100:17}, and{CLEAR}{VAR:0100:18} are not allowed to enter!{SCROLL}Please come back when you’re ready.{SCROLL}",
+   "en": "You don’t have 4 eligible Pokémon!{SCROLL}To enter, you must have 4 Pokémon of{NEWLINE}different species, and they must all{CLEAR}hold different items.{SCROLL}Also, Eggs, {VAR:0100:0}, {VAR:0100:1},{NEWLINE}{VAR:0100:2}, {VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, {VAR:0100:7},{CLEAR}{VAR:0100:8}, {VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12}, {VAR:0100:13},{CLEAR}{VAR:0100:14}, {VAR:0100:15}, {VAR:0100:16},{CLEAR}{VAR:0100:17}, and {VAR:0100:18} are not{CLEAR}allowed to enter!{SCROLL}Please come back when you’re ready.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
@@ -78,18 +78,18 @@
   {
    "id": 9,
    "zh": "其中有相同的精灵！{SCROLL}",
-   "en": "Two of them are the same Pokémon!{SCROLL}",
+   "en": "Some of them are the same species!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 10,
    "zh": "其中有相同的道具！{SCROLL}",
-   "en": "Two of them are holding the same item!{SCROLL}",
+   "en": "Some of them are holding the same item!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 11,
@@ -102,10 +102,10 @@
   {
    "id": 12,
    "zh": "恭喜！{NEWLINE}您漂亮地连胜７人！{SCROLL}",
-   "en": "Congratulations! You{NEWLINE}beat 7 Trainers in a row!{SCROLL}",
+   "en": "Congratulations! You beat 7 Trainers in{NEWLINE}a row in splendid fashion!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 13,
@@ -174,7 +174,7 @@
   {
    "id": 21,
    "zh": "要挑战{NEWLINE}多人战斗房间吗？{VAR:0200:0}",
-   "en": "Would you like to take the Multi{NEWLINE}Battle Room challenge? {VAR:0200:0}",
+   "en": "Would you like to take the Multi{NEWLINE}Battle Room challenge?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0096/21"
@@ -198,10 +198,10 @@
   {
    "id": 24,
    "zh": "您身上{SCROLL}没有两只可以{NEWLINE}参加的精灵！{SCROLL}要参加需要准备两只{NEWLINE}不同种类的精灵,{CLEAR}身上的道具{CLEAR}也都必须是不一样的！{SCROLL}另外,蛋、{VAR:0100:0}、{VAR:0100:1}{NEWLINE}{VAR:0100:2}、{VAR:0100:3}、{VAR:0100:4}{CLEAR}{VAR:0100:5}、{VAR:0100:6}、{VAR:0100:7}{CLEAR}{VAR:0100:8}、{VAR:0100:9}、{VAR:0100:10}{CLEAR}{VAR:0100:11}、{VAR:0100:12}、{VAR:0100:13}{CLEAR}{VAR:0100:14}、{VAR:0100:15}、{VAR:0100:16}{CLEAR}{VAR:0100:17}、{VAR:0100:18}{CLEAR}无法参加！{SCROLL}准备好了的话{NEWLINE}就请再来吧。{SCROLL}",
-   "en": "You don’t have 2 eligible Pokémon!{SCROLL}To enter, you must have 2{NEWLINE}different Pokémon, and they{CLEAR}must all hold different items!{SCROLL}Also, Eggs, {VAR:0100:0},{NEWLINE}{VAR:0100:1}, {VAR:0100:2}, {VAR:0100:3},{CLEAR}{VAR:0100:4}, {VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8}, {VAR:0100:9},{CLEAR}{VAR:0100:10}, {VAR:0100:11}, {VAR:0100:12},{CLEAR}{VAR:0100:13}, {VAR:0100:14}, {VAR:0100:15},{CLEAR}{VAR:0100:16}, {VAR:0100:17}, and{CLEAR}{VAR:0100:18} are not allowed to enter!{SCROLL}Please come back when you’re ready.{SCROLL}",
+   "en": "You don’t have 2 eligible Pokémon!{SCROLL}To enter, you must have 2 Pokémon of{NEWLINE}different species, and they must all{CLEAR}hold different items!{SCROLL}Also, Eggs, {VAR:0100:0}, {VAR:0100:1},{NEWLINE}{VAR:0100:2}, {VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, {VAR:0100:7},{CLEAR}{VAR:0100:8}, {VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12}, {VAR:0100:13},{CLEAR}{VAR:0100:14}, {VAR:0100:15}, {VAR:0100:16},{CLEAR}{VAR:0100:17}, and {VAR:0100:18} are not{CLEAR}allowed to enter!{SCROLL}Please come back when you’re ready.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 25,
@@ -214,7 +214,7 @@
   {
    "id": 26,
    "zh": "通过通信和{NEWLINE}朋友组队吗？{VAR:0200:0}",
-   "en": "Would you like to communicate with{NEWLINE}a friend and form a tag team? {VAR:0200:0}",
+   "en": "Would you like to communicate with{NEWLINE}a friend and form a tag team?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0096/26"
@@ -238,18 +238,18 @@
   {
    "id": 29,
    "zh": "其中有相同的精灵！{SCROLL}",
-   "en": "Two of them are the same Pokémon!{SCROLL}",
+   "en": "Some of them are the same species!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 30,
    "zh": "其中有拿着相同的道具！{SCROLL}",
-   "en": "Two of them are holding the same item!{SCROLL}",
+   "en": "Some of them are holding the same item!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 31,
@@ -270,18 +270,18 @@
   {
    "id": 33,
    "zh": "您和朋友一样选择了{NEWLINE}{VAR:0100:0}！{SCROLL}请和朋友商量一下{NEWLINE}再来吧。{SCROLL}",
-   "en": "Both Trainers have chosen the{NEWLINE}Pokémon {VAR:0100:0}.{SCROLL}Please confer with the other Trainer{NEWLINE}and choose different Pokémon.{SCROLL}",
+   "en": "Both Trainers have chosen the Pokémon{NEWLINE}{VAR:0100:0}.{SCROLL}Please discuss it with your friend and{NEWLINE}come back.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0096/33"
+   "origin": "agent",
+   "notes": "US 0096/33 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 34,
    "zh": "您和朋友选择了一样的{NEWLINE}{VAR:0100:0}或{CLEAR}{VAR:0100:1}！{SCROLL}请和朋友商量一下{NEWLINE}再来吧。{SCROLL}",
-   "en": "Both Trainers have chosen {VAR:0100:0}{NEWLINE}or {VAR:0100:1}.{SCROLL}Please confer with the other Trainer{NEWLINE}and choose different Pokémon.{SCROLL}",
+   "en": "Both Trainers have chosen {VAR:0100:0}{NEWLINE}or {VAR:0100:1}.{SCROLL}Please discuss it with your friend and{NEWLINE}come back.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0096/34 | RV043: meaning: 或 is 'or', not 'and' (D-1627)"
+   "notes": "US 0096/34 | RV043: meaning: 或 is 'or', not 'and' (D-1627) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 35,
@@ -302,7 +302,7 @@
   {
    "id": 37,
    "zh": "要挑战{NEWLINE}ＷｉーＦｉ战斗房间吗？{VAR:0200:0}",
-   "en": "Would you like to take the Wi-Fi{NEWLINE}Battle Room challenge? {VAR:0200:0}",
+   "en": "Would you like to take the Wi-Fi{NEWLINE}Battle Room challenge?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0096/37"
@@ -334,10 +334,10 @@
   {
    "id": 41,
    "zh": "您身上{SCROLL}没有{VAR:0132:0}只可以{NEWLINE}参加的精灵！{SCROLL}要参加就需要准备３只{NEWLINE}不同种类的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}、{VAR:0100:11}{CLEAR}{VAR:0100:12}、{VAR:0100:13}、{VAR:0100:14}{CLEAR}{VAR:0100:15}、{VAR:0100:16}、{VAR:0100:17}{CLEAR}{VAR:0100:18}、{VAR:0100:19}{CLEAR}无法参加！{SCROLL}请准备好后{NEWLINE}再来吧。{SCROLL}",
-   "en": "You don’t have {VAR:0132:0} eligible Pokémon!{SCROLL}To enter, you must have 3{NEWLINE}different Pokémon, and they{CLEAR}must all hold different items.{SCROLL}Also, Eggs, {VAR:0100:1},{NEWLINE}{VAR:0100:2}, {VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, {VAR:0100:7},{CLEAR}{VAR:0100:8}, {VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12}, {VAR:0100:13},{CLEAR}{VAR:0100:14}, {VAR:0100:15}, {VAR:0100:16},{CLEAR}{VAR:0100:17}, {VAR:0100:18}, and{CLEAR}{VAR:0100:19} are not allowed to enter!{SCROLL}Please come back when you’re ready.{SCROLL}",
+   "en": "You don’t have {VAR:0132:0} eligible Pokémon!{SCROLL}To enter, you must have 3 Pokémon of{NEWLINE}different species, and they must all{CLEAR}hold different items.{SCROLL}Also, Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, {VAR:0100:16}, {VAR:0100:17},{CLEAR}{VAR:0100:18}, and {VAR:0100:19} are not{CLEAR}allowed to enter!{SCROLL}Please come back when you’re ready.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 42,
@@ -350,18 +350,18 @@
   {
    "id": 43,
    "zh": "有相同的精灵！{SCROLL}",
-   "en": "Two of them are the same Pokémon!{SCROLL}",
+   "en": "Some of them are the same species!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 44,
    "zh": "有相同的道具！{SCROLL}",
-   "en": "Two of them are holding the same item!{SCROLL}",
+   "en": "Some of them are holding the same item!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 45,
@@ -382,7 +382,7 @@
   {
    "id": 47,
    "zh": "那么请跟我进{NEWLINE}战斗房间。{SCROLL}可以吗？{VAR:0200:0}",
-   "en": "OK. I’ll direct you to your Battle Room{NEWLINE}now.{SCROLL}Are you ready? {VAR:0200:0}",
+   "en": "OK. I’ll direct you to your Battle Room{NEWLINE}now.{SCROLL}Are you ready?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0096/47"
@@ -438,10 +438,10 @@
   {
    "id": 54,
    "zh": "恭喜！{NEWLINE}漂亮地连胜７人！{SCROLL}",
-   "en": "Congratulations! You{NEWLINE}beat 7 Trainers in a row!{SCROLL}",
+   "en": "Congratulations! You beat 7 Trainers in{NEWLINE}a row in splendid fashion!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 55,
@@ -462,7 +462,7 @@
   {
    "id": 57,
    "zh": "要将这次的成绩上传至{NEWLINE}ＷｉーＦｉ吗？{VAR:0200:0}",
-   "en": "Would you like to send these{NEWLINE}results using Nintendo WFC? {VAR:0200:0}",
+   "en": "Would you like to send these{NEWLINE}results using Nintendo WFC?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0096/57"
@@ -494,7 +494,7 @@
   {
    "id": 61,
    "zh": "久等了！{SCROLL}上次的成绩没有{NEWLINE}传送到{CLEAR}ＷｉーＦｉ上,{CLEAR}要现在传送吗？{VAR:0200:0}",
-   "en": "Thank you for waiting!{SCROLL}Your previous results were not sent{NEWLINE}out using Nintendo WFC.{SCROLL}Would you like to send them now? {VAR:0200:0}",
+   "en": "Thank you for waiting!{SCROLL}Your previous results were not sent{NEWLINE}out using Nintendo WFC.{SCROLL}Would you like to send them now?{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0096/61 | RV043: meaning: 久等了 is 'thank you for waiting', not 'good to see you back'"
@@ -566,18 +566,18 @@
   {
    "id": 70,
    "zh": "等级{VAR:0133:0}的奖励,{NEWLINE}授予参加的精灵{CLEAR}缎带！",
-   "en": "As a reward for reaching Rank {VAR:0133:0},{NEWLINE}your Pokémon will receive a Ribbon!",
+   "en": "As a reward for reaching Rank {VAR:0133:0}, your{NEWLINE}participating Pokémon will receive{CLEAR}a Ribbon!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 71,
    "zh": "{VAR:0134:0}连胜达成,{NEWLINE}特赠予{SCROLL}纪念品！",
-   "en": "For your {VAR:0134:0}-win streak, we present{NEWLINE}you with a commemorative prize!",
+   "en": "For your {VAR:0134:0}-win streak, we present{NEWLINE}you with...{SCROLL}a commemorative prize!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 72,
@@ -590,18 +590,18 @@
   {
    "id": 73,
    "zh": "５０连胜以上{NEWLINE}达成,{SCROLL}授予参加的精灵{NEWLINE}缎带！",
-   "en": "For achieving a streak{NEWLINE}of 50 wins or more,{SCROLL}your Pokémon will receive a Ribbon!",
+   "en": "For achieving a streak of 50 wins or{NEWLINE}more,{SCROLL}your participating Pokémon will receive{NEWLINE}a Ribbon!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 74,
    "zh": "正如您所见,战斗前线{NEWLINE}是个非常好的地方,{SCROLL}不过！{SCROLL}除了城都以外的地方{NEWLINE}似乎也有类似的设施。",
-   "en": "As you can see, Battle Frontier is a{NEWLINE}great facility.{SCROLL}You know what?{SCROLL}Apparently, similar facilities are{NEWLINE}available outside of Johto.",
+   "en": "As you can see, Battle Frontier is a{NEWLINE}great facility.{SCROLL}However!{SCROLL}Apparently, similar facilities are{NEWLINE}available outside of Johto.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0096/74"
+   "origin": "agent",
+   "notes": "US 0096/74 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 75,
@@ -630,10 +630,10 @@
   {
    "id": 78,
    "zh": "皮卡丘『⋯⋯　⋯⋯",
-   "en": "Pikachu: ...",
+   "en": "Pikachu: ... ...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0096/78; modernised from US 0096#78"
+   "origin": "agent",
+   "notes": "US 0096/78; modernised from US 0096#78 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 79,
@@ -662,26 +662,26 @@
   {
    "id": 82,
    "zh": "恭喜！{NEWLINE}５０连胜以上达成,{CLEAR}作为奖励授予参加的精灵{CLEAR}缎带！",
-   "en": "Congratulations! For achieving a{NEWLINE}streak of 50 wins or more, your{CLEAR}Pokémon will receive a Ribbon!",
+   "en": "Congratulations! For achieving a streak{NEWLINE}of 50 wins or more, your participating{CLEAR}Pokémon will receive a Ribbon!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 83,
    "zh": "恭喜！{NEWLINE}您升到了等级{VAR:0132:0}。{CLEAR}作为纪念授予参加的精灵{CLEAR}缎带！",
-   "en": "Congratulations! You’ve reached{NEWLINE}Rank {VAR:0132:0}. To commemorate it, your{CLEAR}Pokémon will receive a Ribbon!",
+   "en": "Congratulations! You’ve reached Rank{NEWLINE}{VAR:0132:0}. To commemorate it, your participating{CLEAR}Pokémon will receive a Ribbon!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 84,
    "zh": "恭喜！{NEWLINE}您战胜了塔主,{CLEAR}作为纪念授予参加的精灵{CLEAR}缎带！",
-   "en": "Congratulations! You defeated the{NEWLINE}Tower Tycoon. To commemorate it,{CLEAR}your Pokémon will receive a Ribbon!",
+   "en": "Congratulations! You defeated the{NEWLINE}Tower Tycoon. To commemorate it, your{CLEAR}participating Pokémon will receive{CLEAR}a Ribbon!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 85,
@@ -726,162 +726,162 @@
   {
    "id": 90,
    "zh": "和朋友一样选择了{NEWLINE}{VAR:0100:0}或{CLEAR}{VAR:0100:1}！{SCROLL}请和朋友商量后{NEWLINE}再来吧。",
-   "en": "Both Trainers have chosen {VAR:0100:0}{NEWLINE}or {VAR:0100:1}.{SCROLL}Please confer with the other Trainer{NEWLINE}and choose different Pokémon.",
+   "en": "Both Trainers have chosen {VAR:0100:0}{NEWLINE}or {VAR:0100:1}.{SCROLL}Please discuss it with your friend and{NEWLINE}come back.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0096/90 | RV043: meaning: 或 is 'or', not 'and' (D-1627)"
+   "notes": "US 0096/90 | RV043: meaning: 或 is 'or', not 'and' (D-1627) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 91,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,{NEWLINE}蛋无法参加！{SCROLL}请准备好了之后{NEWLINE}再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different Pokémon{NEWLINE}to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs are not allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0096/91"
+   "origin": "agent",
+   "notes": "US 0096/91 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 92,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}不同种类的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}{NEWLINE}无法参加！{SCROLL}请准备好了之后{NEWLINE}再来吧",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different Pokémon{NEWLINE}to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs and {VAR:0100:1} are not allowed{NEWLINE}to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs and {VAR:0100:1} are not allowed to{NEWLINE}enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0096/92"
+   "origin": "agent",
+   "notes": "US 0096/92 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 93,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}{NEWLINE}{VAR:0100:2}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different Pokémon{NEWLINE}to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, and {VAR:0100:2}{NEWLINE}are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, and {VAR:0100:2} are{NEWLINE}not allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0096/93"
+   "origin": "agent",
+   "notes": "US 0096/93 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 94,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}{NEWLINE}{VAR:0100:2}、{VAR:0100:3}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different Pokémon{NEWLINE}to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}and {VAR:0100:3} are not allowed.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2}, and{NEWLINE}{VAR:0100:3} are not allowed.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0096/94"
+   "origin": "agent",
+   "notes": "US 0096/94 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 95,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different Pokémon{NEWLINE}to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, and {VAR:0100:4}{CLEAR}are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, and {VAR:0100:4} are not{CLEAR}allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0096/95"
+   "origin": "agent",
+   "notes": "US 0096/95 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 96,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different Pokémon{NEWLINE}to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, and{CLEAR}{VAR:0100:5} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, and{CLEAR}{VAR:0100:5} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0096/96"
+   "origin": "agent",
+   "notes": "US 0096/96 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 97,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, and {VAR:0100:6}{CLEAR}are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}and {VAR:0100:6} are not allowed{CLEAR}to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": "#97–#109 extend the US #91–#96 eligibility template (banned list grows by one each)."
+   "notes": "#97–#109 extend the US #91–#96 eligibility template (banned list grows by one each). | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 98,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, and{CLEAR}{VAR:0100:7} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, and {VAR:0100:7} are not{CLEAR}allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0096/96 | seed rejected us [tag_mismatch] (candidate US 0096#96; text not kept)"
+   "notes": "US 0096/96 | seed rejected us [tag_mismatch] (candidate US 0096#96; text not kept) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 99,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, and{CLEAR}{VAR:0100:8} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, and{CLEAR}{VAR:0100:8} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0096/96 | seed rejected us [tag_mismatch] (candidate US 0096#96; text not kept)"
+   "notes": "US 0096/96 | seed rejected us [tag_mismatch] (candidate US 0096#96; text not kept) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 100,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8}, and{CLEAR}{VAR:0100:9} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}and {VAR:0100:9} are not allowed{CLEAR}to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0096/96 | seed rejected us [tag_mismatch] (candidate US 0096#96; text not kept)"
+   "notes": "US 0096/96 | seed rejected us [tag_mismatch] (candidate US 0096#96; text not kept) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 101,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1},{NEWLINE}{VAR:0100:2}, {VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, {VAR:0100:7},{CLEAR}{VAR:0100:8}, {VAR:0100:9}, and{CLEAR}{VAR:0100:10} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, and {VAR:0100:10} are not{CLEAR}allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0096/96 | seed rejected us [tag_mismatch] (candidate US 0096#96; text not kept)"
+   "notes": "US 0096/96 | seed rejected us [tag_mismatch] (candidate US 0096#96; text not kept) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 102,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}、{VAR:0100:11}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, and{CLEAR}{VAR:0100:11} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, and{CLEAR}{VAR:0100:11} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 103,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}、{VAR:0100:11}{CLEAR}{VAR:0100:12}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs,{NEWLINE}{VAR:0100:1}, {VAR:0100:2}, {VAR:0100:3},{CLEAR}{VAR:0100:4}, {VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8}, {VAR:0100:9},{CLEAR}{VAR:0100:10}, {VAR:0100:11}, and{CLEAR}{VAR:0100:12} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}and {VAR:0100:12} are not allowed{CLEAR}to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 104,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}、{VAR:0100:11}{CLEAR}{VAR:0100:12}、{VAR:0100:13}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1},{NEWLINE}{VAR:0100:2}, {VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, {VAR:0100:7},{CLEAR}{VAR:0100:8}, {VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12}, and{CLEAR}{VAR:0100:13} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, and {VAR:0100:13} are not{CLEAR}allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 105,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}、{VAR:0100:11}{CLEAR}{VAR:0100:12}、{VAR:0100:13}、{VAR:0100:14}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, and{CLEAR}{VAR:0100:14} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, and{CLEAR}{VAR:0100:14} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 106,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}、{VAR:0100:11}{CLEAR}{VAR:0100:12}、{VAR:0100:13}、{VAR:0100:14}{CLEAR}{VAR:0100:15}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs,{NEWLINE}{VAR:0100:1}, {VAR:0100:2}, {VAR:0100:3},{CLEAR}{VAR:0100:4}, {VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8}, {VAR:0100:9},{CLEAR}{VAR:0100:10}, {VAR:0100:11}, {VAR:0100:12},{CLEAR}{VAR:0100:13}, {VAR:0100:14}, and{CLEAR}{VAR:0100:15} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}and {VAR:0100:15} are not allowed{CLEAR}to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 107,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}、{VAR:0100:11}{CLEAR}{VAR:0100:12}、{VAR:0100:13}、{VAR:0100:14}{CLEAR}{VAR:0100:15}、{VAR:0100:16}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1},{NEWLINE}{VAR:0100:2}, {VAR:0100:3}, {VAR:0100:4},{CLEAR}{VAR:0100:5}, {VAR:0100:6}, {VAR:0100:7},{CLEAR}{VAR:0100:8}, {VAR:0100:9}, {VAR:0100:10},{CLEAR}{VAR:0100:11}, {VAR:0100:12}, {VAR:0100:13},{CLEAR}{VAR:0100:14}, {VAR:0100:15}, and{CLEAR}{VAR:0100:16} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, and {VAR:0100:16} are not{CLEAR}allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 108,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}、{VAR:0100:11}{CLEAR}{VAR:0100:12}、{VAR:0100:13}、{VAR:0100:14}{CLEAR}{VAR:0100:15}、{VAR:0100:16}、{VAR:0100:17}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, {VAR:0100:16}, and{CLEAR}{VAR:0100:17} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, {VAR:0100:16}, and{CLEAR}{VAR:0100:17} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 109,
    "zh": "客人！{SCROLL}您身上没有{VAR:0132:0}只{NEWLINE}可参加的精灵！{SCROLL}要参加需要{VAR:0132:0}只{NEWLINE}种类不同的精灵,{CLEAR}身上的道具{CLEAR}也必须都不一样。{SCROLL}另外,蛋、{VAR:0100:1}、{VAR:0100:2}{NEWLINE}{VAR:0100:3}、{VAR:0100:4}、{VAR:0100:5}{CLEAR}{VAR:0100:6}、{VAR:0100:7}、{VAR:0100:8}{CLEAR}{VAR:0100:9}、{VAR:0100:10}、{VAR:0100:11}{CLEAR}{VAR:0100:12}、{VAR:0100:13}、{VAR:0100:14}{CLEAR}{VAR:0100:15}、{VAR:0100:16}、{VAR:0100:17}{CLEAR}{VAR:0100:18}{CLEAR}无法参加！{SCROLL}请准备好了之后{NEWLINE}在再来吧。",
-   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} different{NEWLINE}Pokémon to enter.{SCROLL}They also must be holding{NEWLINE}different kinds of items.{SCROLL}Eggs,{NEWLINE}{VAR:0100:1}, {VAR:0100:2}, {VAR:0100:3},{CLEAR}{VAR:0100:4}, {VAR:0100:5}, {VAR:0100:6},{CLEAR}{VAR:0100:7}, {VAR:0100:8}, {VAR:0100:9},{CLEAR}{VAR:0100:10}, {VAR:0100:11}, {VAR:0100:12},{CLEAR}{VAR:0100:13}, {VAR:0100:14}, {VAR:0100:15},{CLEAR}{VAR:0100:16}, {VAR:0100:17}, and{CLEAR}{VAR:0100:18} are not allowed to enter.{SCROLL}Please come see me when you are ready.",
+   "en": "Excuse me!{SCROLL}You don’t have {VAR:0132:0} eligible Pokémon.{SCROLL}You must have {VAR:0132:0} Pokémon of different{NEWLINE}species to enter.{SCROLL}They also must be holding different{NEWLINE}kinds of items.{SCROLL}Eggs, {VAR:0100:1}, {VAR:0100:2},{NEWLINE}{VAR:0100:3}, {VAR:0100:4}, {VAR:0100:5},{CLEAR}{VAR:0100:6}, {VAR:0100:7}, {VAR:0100:8},{CLEAR}{VAR:0100:9}, {VAR:0100:10}, {VAR:0100:11},{CLEAR}{VAR:0100:12}, {VAR:0100:13}, {VAR:0100:14},{CLEAR}{VAR:0100:15}, {VAR:0100:16}, {VAR:0100:17},{CLEAR}and {VAR:0100:18} are not allowed{CLEAR}to enter.{SCROLL}Please come see me when you are ready.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 110,
@@ -902,7 +902,7 @@
   {
    "id": 112,
    "zh": "开始{NEWLINE}ＤＳ无线通信{VAR:0200:0}",
-   "en": "DS Wireless Communications will{NEWLINE}be launched. {VAR:0200:0}",
+   "en": "DS Wireless Communications will{NEWLINE}be launched.{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0096/112"
@@ -1062,10 +1062,10 @@
   {
    "id": 132,
    "zh": "授予参加的精灵{NEWLINE}缎带！",
-   "en": "Your Pokémon will receive a Ribbon!",
+   "en": "Your participating Pokémon will receive{NEWLINE}a Ribbon!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   }
  ]
 }

@@ -115,18 +115,18 @@
   {
    "id": 13,
    "zh": "阿响『桐树林消失了！？{SCROLL}……看样子不是,{NEWLINE}是我们移动到{CLEAR}其他地方了……{SCROLL}",
-   "en": "Ethan: Ilex Forest has disappeared!{SCROLL}...That’s not it.{NEWLINE}It’s more like we have been{CLEAR}transported somewhere else...?{SCROLL}",
+   "en": "Ethan: Has Ilex Forest disappeared!?{SCROLL}...Doesn’t look like it. It seems we’ve{NEWLINE}moved somewhere else...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0360/13"
+   "origin": "agent",
+   "notes": "US 0360/13 | AGENT-0321-0380: Restore question on disappearance and uncertainty about explanation."
   },
   {
    "id": 14,
    "zh": "琴音『桐树林消失了？{SCROLL}……看样子不是,{NEWLINE}我感觉是咱们移动到{CLEAR}其他地方了……{SCROLL}",
-   "en": "Lyra: Ilex Forest has disappeared!{SCROLL}...That’s not it.{NEWLINE}It’s more like we have been{CLEAR}transported somewhere else...?{SCROLL}",
+   "en": "Lyra: Has Ilex Forest disappeared?{SCROLL}...Doesn’t look like it. It feels like{NEWLINE}we’ve moved somewhere else...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0360/14"
+   "origin": "agent",
+   "notes": "US 0360/14 | AGENT-0321-0380: Restore question on disappearance and uncertainty about explanation."
   },
   {
    "id": 15,
@@ -147,18 +147,18 @@
   {
    "id": 17,
    "zh": "难不成……那个精灵……{NEWLINE}雪拉比？{SCROLL}噢！{NEWLINE}原因在雪拉比呀！{SCROLL}我爷爷说过的哦{NEWLINE}说雪拉比具有{VAR:FF00:1}穿越时空{VAR:FF00:0},{CLEAR}这是种奇异的力量,{CLEAR}能够自由在时空中穿梭！{SCROLL}肯定是我们被雪拉比{NEWLINE}带回到过去的时代了！{SCROLL}",
-   "en": "Could it be... that Pokémon... Celebi?{NEWLINE}Oh! Celebi is behind this!{SCROLL}My grandpa told me Celebi has a{NEWLINE}mysterious power called {VAR:FF00:1}Time Travel{VAR:FF00:0}{CLEAR}that lets it move freely through time!{SCROLL}Celebi must have taken us back in time!{SCROLL}",
+   "en": "Could it be... that Pokémon... Celebi?{NEWLINE}Oh! Celebi is behind this!{SCROLL}My grandpa told me Celebi has a{NEWLINE}mysterious power called {VAR:FF00:1}Time Travel{VAR:FF00:0}{CLEAR}that lets it move freely through time{CLEAR}and space!{SCROLL}Celebi must have taken us back in time!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0360/17; modernised from US 0360#17 | RV014: addition: dropped invented 'Literally!'; follows hack Chinese"
+   "notes": "US 0360/17; modernised from US 0360#17 | RV014: addition: dropped invented 'Literally!'; follows hack Chinese | AGENT-0321-0380: Restore supposition, freedom through time/space and remove invented Literally."
   },
   {
    "id": 18,
    "zh": "难不成……那个精灵……{NEWLINE}雪拉比？{SCROLL}一定是！{NEWLINE}原因在雪拉比哦！{SCROLL}我爷爷说过的哦{NEWLINE}说雪拉比具有{VAR:FF00:1}穿越时空{VAR:FF00:0},{CLEAR}这是种奇异的力量,{CLEAR}能够自由在时空中穿梭！{SCROLL}肯定是咱们被雪拉比{NEWLINE}带回到过去的时代了！{SCROLL}",
-   "en": "Could it be... that Pokémon... Celebi?{NEWLINE}It has to be! Celebi is behind this!{SCROLL}My grandpa told me Celebi has a{NEWLINE}mysterious power called {VAR:FF00:1}Time Travel{VAR:FF00:0}{CLEAR}that lets it move freely through time!{SCROLL}Celebi must have taken us back in time!{SCROLL}",
+   "en": "Could it be... that Pokémon... Celebi?{NEWLINE}It has to be! Celebi is behind this!{SCROLL}My grandpa told me Celebi has a{NEWLINE}mysterious power called {VAR:FF00:1}Time Travel{VAR:FF00:0}{CLEAR}that lets it move freely through time{CLEAR}and space!{SCROLL}Celebi must have taken us back in time!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0360/18; modernised from US 0360#18 | RV014: addition: dropped invented 'Literally!'; restored 一定是"
+   "notes": "US 0360/18; modernised from US 0360#18 | RV014: addition: dropped invented 'Literally!'; restored 一定是 | AGENT-0321-0380: Restore supposition, freedom through time/space and remove invented Literally."
   },
   {
    "id": 19,
@@ -195,18 +195,18 @@
   {
    "id": 23,
    "zh": "啊！和刚才一样……{SCROLL}是雪拉比的{VAR:FF00:1}穿越时空{VAR:FF00:0}{NEWLINE}啊。{SCROLL}",
-   "en": "Oh no! It’s happening again...!{SCROLL}It’s Celebi’s {VAR:FF00:1}Time Travel{VAR:FF00:0}!{SCROLL}",
+   "en": "Ah! It’s happening again...!{SCROLL}It’s Celebi’s {VAR:FF00:1}Time Travel{VAR:FF00:0}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0360/23; modernised from US 0360#23"
+   "origin": "agent",
+   "notes": "US 0360/23; modernised from US 0360#23 | AGENT-0321-0380: Remove added negative reaction; source just ah."
   },
   {
    "id": 24,
    "zh": "啊！和刚才一样……{SCROLL}是雪拉比的{VAR:FF00:1}穿越时空{VAR:FF00:0}{NEWLINE}啊。{SCROLL}",
-   "en": "Oh no! It’s happening again...!{SCROLL}It’s Celebi’s {VAR:FF00:1}Time Travel{VAR:FF00:0}!{SCROLL}",
+   "en": "Ah! It’s happening again...!{SCROLL}It’s Celebi’s {VAR:FF00:1}Time Travel{VAR:FF00:0}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0360/24; modernised from US 0360#24"
+   "origin": "agent",
+   "notes": "US 0360/24; modernised from US 0360#24 | AGENT-0321-0380: Remove added negative reaction; source just ah."
   },
   {
    "id": 25,
@@ -235,10 +235,10 @@
   {
    "id": 28,
    "zh": "小绿『{VAR:0103:0},你果然跟来了,{NEWLINE}刚刚我被精灵联盟的门卫挡住,{CLEAR}说什么只有在石英大会上{CLEAR}才能挑战精灵联盟四天王。{CLEAR}而要参加石英大会,{CLEAR}则必须收集到至少8枚徽章。{CLEAR}很显然我们还不够资格。",
-   "en": "Blue: {VAR:0103:0}. Knew you’d follow me.{SCROLL}The Pokémon League guard just stopped{NEWLINE}me. He said you can only take on the{CLEAR}Elite Four at the Indigo Conference.{SCROLL}And to enter the Indigo Conference,{NEWLINE}you need at least eight Badges.{SCROLL}Guess neither of us makes the cut yet.",
+   "en": "Blue: {VAR:0103:0}. Knew you’d follow me.{SCROLL}The Pokémon League guard just stopped{NEWLINE}me. He said you can only take on the{CLEAR}Elite Four at the Indigo Conference.{SCROLL}And to enter the Indigo Conference,{NEWLINE}you need at least eight Badges.{SCROLL}Clearly neither of us makes the{NEWLINE}cut yet.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position | Blue on Route 22: #28/#29 vs #30/#31 are two variants (story timing)."
+   "notes": "v3 TM: 1 source(s), same position | Blue on Route 22: #28/#29 vs #30/#31 are two variants (story timing). | AGENT-0321-0380: Restore explicit obviousness rather than guess."
   },
   {
    "id": 29,
@@ -267,10 +267,10 @@
   {
    "id": 32,
    "zh": "小绿『又让你撞了大运……{NEWLINE}不过感觉你确实变强了。{SCROLL}我现在要去收集徽章,{NEWLINE}争取早日回来参加石英大会,{CLEAR}你也快去吧。",
-   "en": "Blue: Lucky again... But I’ll admit it,{NEWLINE}you really have gotten stronger.{SCROLL}I’m off to collect Badges so I can come{NEWLINE}back for the Indigo Conference ASAP.{SCROLL}You’d better hurry up too. Smell ya{NEWLINE}later!",
+   "en": "Blue: Lucky again... But I’ll admit it,{NEWLINE}you really have gotten stronger.{SCROLL}I’m off to collect Badges so I can come{NEWLINE}back for the Indigo Conference ASAP.{SCROLL}You’d better hurry up too.",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | AGENT-0321-0380: Remove invented farewell catchphrase."
   },
   {
    "id": 33,
@@ -355,10 +355,10 @@
   {
    "id": 43,
    "zh": "我不是吓他,{NEWLINE}我是真的想弄死这个畜生。{CLEAR}它弄坏过我心爱的手办,{CLEAR}把我的充气娃娃咬漏气,{CLEAR}偷喝我家刚买的快乐水,{CLEAR}还在我家门口大小便,{CLEAR}我都不知道踩过几次它的米田共！{CLEAR}这狗东西死不足惜！",
-   "en": "I’m not trying to scare it. I really{NEWLINE}want to kill the beast.{SCROLL}It broke my precious figurines, bit a{NEWLINE}hole in my blow-up doll, and drank the{CLEAR}soda I’d just bought...{SCROLL}And it relieves itself right outside my{NEWLINE}door! I’ve lost count of how many times{CLEAR}I’ve stepped in its crap!{SCROLL}This little shit deserves to die!",
+   "en": "I’m not trying to scare it. I really{NEWLINE}want to kill the beast.{SCROLL}It broke my precious figurines, bit a{NEWLINE}hole in my blow-up doll, and stole a{CLEAR}drink of the soda I’d just bought...{SCROLL}And it relieves itself right outside my{NEWLINE}door! I’ve lost count of how many times{CLEAR}I’ve stepped in its crap!{SCROLL}This little shit deserves to die!",
    "status": "draft",
    "origin": "agent",
-   "notes": "zh 充气娃娃 (blow-up doll), 米田共 (crap), 狗东西 kept at strength."
+   "notes": "zh 充气娃娃 (blow-up doll), 米田共 (crap), 狗东西 kept at strength. | AGENT-0321-0380: Restore beloved figurines, bitten leaking doll and stolen soda actions."
   },
   {
    "id": 44,
@@ -515,10 +515,10 @@
   {
    "id": 63,
    "zh": "真是谢谢你了,为我……{NEWLINE}哦不,为常磐市除去了一大害啊！{CLEAR}功德无量,功德无量哈哈哈。",
-   "en": "Thanks so much! You’ve rid me...{NEWLINE}Er, I mean, you’ve rid{CLEAR}Viridian City of a real menace!{SCROLL}What a good deed! Ha ha ha!",
+   "en": "Thanks so much! You’ve rid me... Er, I{NEWLINE}mean, you’ve rid Viridian City of a{CLEAR}real menace!{SCROLL}What a good deed, what a good deed! Ha{NEWLINE}ha ha!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page) | AGENT-0321-0380: Restore repeated good-deed praise."
   },
   {
    "id": 64,
@@ -531,10 +531,10 @@
   {
    "id": 65,
    "zh": "怎么办,怎么办！{NEWLINE}就要参加石英大会了,好紧张啊！",
-   "en": "What do I do, what do I do?!{NEWLINE}The Indigo Conference{CLEAR}is almost here. I’m so nervous!",
+   "en": "What do I do, what do I do?! I’m about{NEWLINE}to enter the Indigo Conference. I’m{CLEAR}so nervous!",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "notes": "v3 TM: 1 source(s), same position; layout rebalance 2026-10-09 (prompt icons / single-word page) | AGENT-0321-0380: Restore speaker about to participate rather than only event approaching."
   },
   {
    "id": 66,

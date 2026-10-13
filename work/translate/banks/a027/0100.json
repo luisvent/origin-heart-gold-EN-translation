@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "空手道服是战斗中的男人的制服！{SCROLL}是前往战斗前线再合适不过的服装了！",
-   "en": "The karate uniform is the uniform{NEWLINE}of fighters!{SCROLL}There is nothing better suited for{NEWLINE}going to the Battle Frontier than this!",
+   "en": "The karate uniform is the uniform of men{NEWLINE}in battle!{SCROLL}There is nothing better suited for going{NEWLINE}to the Battle Frontier than this!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0102/0"
+   "origin": "agent",
+   "notes": "US 0102/0 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,

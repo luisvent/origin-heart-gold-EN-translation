@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "你知道「运动饮料」吗？{SCROLL}据说是用食物和饮料{NEWLINE}去引出精灵的特性{SCROLL}「运动饮料」是{NEWLINE}研究运动所需的营养,{SCROLL}为了引出特性{NEWLINE}所制作的饮料哦！{SCROLL}只要在参加口袋竞技{NEWLINE}之前喝的话,{SCROLL}一定能发挥出{NEWLINE}最大的特性！",
-   "en": "Have you heard of Aprijuice?{SCROLL}Pokémon can increase their Performance{NEWLINE}with food and drink.{SCROLL}Aprijuice is a drink developed{NEWLINE}from nutrition research{CLEAR}to improve Performance.{SCROLL}If you let your Pokémon drink it before{NEWLINE}a Pokéathlon event, it will show its{CLEAR}true potential!",
+   "en": "Have you heard of Aprijuice?{SCROLL}They say food and drink can draw out a{NEWLINE}Pokémon’s Performance.{SCROLL}Aprijuice was developed by studying the{NEWLINE}nutrition needed for sports, to draw{CLEAR}out Performance!{SCROLL}If your Pokémon drinks it before a{NEWLINE}Pokéathlon event, it’s sure to reach{CLEAR}its maximum Performance!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0137/17; layout rebalance 2026-10-09 (prompt icons / single-word page)"
+   "origin": "agent",
+   "notes": "US 0137/17; layout rebalance 2026-10-09 (prompt icons / single-word page) | CES005-0134-0135: Restore hearsay, sports nutrition, and maximum Performance."
   },
   {
    "id": 18,
@@ -158,10 +158,10 @@
   {
    "id": 19,
    "zh": "精灵有各种各样的性格,{SCROLL}了解这些性格{NEWLINE}引出精灵的特性,{CLEAR}才能真正{SCROLL}成为口袋竞技员！",
-   "en": "Each Pokémon has its unique traits.{SCROLL}A true Pokéathlete knows them and lets{NEWLINE}the true Performance of his or her{CLEAR}Pokémon emerge!",
+   "en": "Pokémon have all sorts of Natures.{SCROLL}Only by understanding these Natures{NEWLINE}and drawing out your Pokémon’s{CLEAR}Performance can you become a{CLEAR}true Pokéathlete!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0137/19"
+   "origin": "agent",
+   "notes": "US 0137/19 | CES005-0134-0135: Restore Natures rather than unspecified traits and necessary condition."
   },
   {
    "id": 20,
@@ -254,10 +254,10 @@
   {
    "id": 31,
    "zh": "从旁边的3个{NEWLINE}榨汁机里试着挑选,{SCROLL}看商标{NEWLINE}就能明白是什么饮料,{SCROLL}饮料有各种效果！{NEWLINE}配合要出场的竞技,{CLEAR}合理使用饮料{CLEAR}是通往顶级口袋竞技员的捷径哦！{SCROLL}但是！{SCROLL}但是当特性已经发挥{NEWLINE}最大的时候,{CLEAR}就无法再次{CLEAR}提升特性了,{SCROLL}让它们喝运动饮料的时候,{NEWLINE}要看清楚精灵的特性{CLEAR}再让它们喝！{SCROLL}其他还有什么想知道的吗？{VAR:0200:0}",
-   "en": "Choose from the three Apriblenders.{SCROLL}The labels tell you what kind of drink{NEWLINE}it is. Different drinks have{CLEAR}different effects.{SCROLL}You should use them to suit the event{NEWLINE}you want to participate in. That’s how{CLEAR}to make a top Pokéathlete.{SCROLL}But remember this!{NEWLINE}If your Pokémon’s Performance is maxed{CLEAR}out, you cannot make it higher.{SCROLL}You should check your Pokémon’s{NEWLINE}Performance before you{CLEAR}give it Aprijuice.{SCROLL}Do you have any more questions? {VAR:0200:0}",
+   "en": "Choose from the three Apriblenders.{SCROLL}The labels tell you what kind of drink it{NEWLINE}is. Different drinks have{CLEAR}different effects.{SCROLL}You should use them to suit the event{NEWLINE}you want to participate in. That’s a{CLEAR}shortcut to becoming a{CLEAR}top Pokéathlete.{SCROLL}But remember this! If your Pokémon’s{NEWLINE}Performance is maxed out, you cannot{CLEAR}make it higher.{SCROLL}You should check your Pokémon’s{NEWLINE}Performance before you give{CLEAR}it Aprijuice.{SCROLL}Do you have any more questions? {VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0137/31"
+   "origin": "agent",
+   "notes": "US 0137/31 | CES005-0134-0135: Restore shortcut rather than generic means."
   },
   {
    "id": 32,
@@ -302,10 +302,10 @@
   {
    "id": 37,
    "zh": "哦呀！钱好像不够呢！{SCROLL}",
-   "en": "Oh, you don’t have enough money!{SCROLL}",
+   "en": "Oh! You don’t seem to have enough{NEWLINE}money!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0137/37"
+   "origin": "agent",
+   "notes": "US 0137/37 | CES005-0134-0135: Restore apparent uncertainty."
   },
   {
    "id": 38,
@@ -318,10 +318,10 @@
   {
    "id": 39,
    "zh": "哟！欢迎光临！{SCROLL}",
-   "en": "Hi! What can I do for you?{SCROLL}",
+   "en": "Hi! Welcome!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0137/39"
+   "origin": "agent",
+   "notes": "US 0137/39 | CES005-0134-0135: Restore welcome instead of invented service question."
   },
   {
    "id": 40,
@@ -398,10 +398,10 @@
   {
    "id": 49,
    "zh": "这里是口袋竞技场,{NEWLINE}有来自全国各地的{CLEAR}优秀口袋竞技员们！",
-   "en": "The Pokéathlon Dome{NEWLINE}Top Pokéathletes from All Over!",
+   "en": "This is the Pokéathlon Dome, with{NEWLINE}outstanding Pokéathletes from all over{CLEAR}the country!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0137/49 | RV038: omission: restored 来自全国各地的优秀 (D-1668)"
+   "notes": "US 0137/49 | RV038: omission: restored 来自全国各地的优秀 (D-1668) | CES005-0134-0135: Carry D1668 countrywide athletes, not generic venue slogan."
   }
  ]
 }

@@ -646,10 +646,10 @@
   {
    "id": 80,
    "zh": "在其他地区联盟的淘汰赛{NEWLINE}上获得的纪念缎带",
-   "en": "A commemorative Ribbon won in another{NEWLINE}region’s Pokémon League tournament.",
+   "en": "A commemorative Ribbon won in another{NEWLINE}region’s Pokémon League knockout tournament.",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0424/80 | RV061: addition: zh only says won in another region's League tournament; US added Hall of Fame (D-1821)"
+   "notes": "US 0424/80 | RV061: addition: zh only says won in another region's League tournament; US added Hall of Fame (D-1821) | CES006: fidelity: Restore knockout/elimination tournament qualifier."
   },
   {
    "id": 81,
@@ -1070,10 +1070,10 @@
   {
    "id": 133,
    "zh": "让人想起刺激的事,{NEWLINE}能让人感到兴奋的缎带",
-   "en": "A Ribbon for recalling a thrilling{NEWLINE}event that made life more exciting.",
+   "en": "A Ribbon for recalling thrilling events{NEWLINE}that make you feel excited.",
    "status": "draft",
-   "origin": "us",
-   "notes": ""
+   "origin": "agent",
+   "notes": " | CES006: fidelity: Restore source excitement, without adding past life enhancement."
   },
   {
    "id": 134,
@@ -1118,10 +1118,10 @@
   {
    "id": 139,
    "zh": "没有比这更灿烂,{NEWLINE}使人感到华丽的缎带",
-   "en": "An extraordinarily gorgeous and{NEWLINE}extravagant Ribbon.",
+   "en": "A Ribbon of unsurpassed brilliance{NEWLINE}that feels luxurious.",
    "status": "draft",
-   "origin": "us",
-   "notes": ""
+   "origin": "agent",
+   "notes": " | CES006: fidelity: Restore unsurpassed brilliance and luxurious impression."
   },
   {
    "id": 140,
@@ -1134,10 +1134,10 @@
   {
    "id": 141,
    "zh": "没有比这更好的{NEWLINE}华丽的缎带",
-   "en": "A gorgeous and regal Ribbon that{NEWLINE}is the peak of fabulous.",
+   "en": "An unsurpassably gorgeous Ribbon.",
    "status": "draft",
-   "origin": "us",
-   "notes": ""
+   "origin": "agent",
+   "notes": " | CES006: fidelity: Restore superlative; source does not add regal quality here."
   },
   {
    "id": 142,
@@ -1150,10 +1150,10 @@
   {
    "id": 143,
    "zh": "留下珍贵记录的{NEWLINE}纪念缎带",
-   "en": "A Ribbon awarded for setting an{NEWLINE}incredible record.",
+   "en": "A commemorative Ribbon for setting{NEWLINE}a precious record.",
    "status": "draft",
-   "origin": "us",
-   "notes": ""
+   "origin": "agent",
+   "notes": " | CES006: fidelity: Restore precious record rather than incredible record."
   },
   {
    "id": 144,
@@ -1678,10 +1678,10 @@
   {
    "id": 209,
    "zh": "获得中意精灵后{NEWLINE}纪念缎带",
-   "en": "A commemorative Ribbon for a{NEWLINE}beloved Pokémon.",
+   "en": "A commemorative Ribbon for obtaining{NEWLINE}a Pokémon you like.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0424/209"
+   "origin": "agent",
+   "notes": "US 0424/209 | CES006: fidelity: Restore obtaining a liked Pokémon, not just a dedication to one."
   },
   {
    "id": 210,

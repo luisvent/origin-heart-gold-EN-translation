@@ -6,7 +6,7 @@
   {
    "id": 0,
    "zh": "七度灶『哦哦{VAR:0103:0}！{SCROLL}来给我看图鉴的收集情况了呢！{VAR:0200:0}",
-   "en": "Prof. Rowan: Oh, {VAR:0103:0}!{SCROLL}You’ve come to show me how{NEWLINE}your Pokédex is coming along! {VAR:0200:0}",
+   "en": "Prof. Rowan: Oh, oh, {VAR:0103:0}!{SCROLL}You’ve come to show me how your{NEWLINE}Pokédex is coming along!{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": "DP Pokédex-rating leftover (Rowan/Oak over the PC); probably unused in HGSS. #19 zh says over 400 kinds."
@@ -126,7 +126,7 @@
   {
    "id": 15,
    "zh": "大木『哦哦{VAR:0103:0}！{SCROLL}来给我看图鉴的收集情况呢！{VAR:0200:0}",
-   "en": "Prof. Oak: Oh, {VAR:0103:0}!{SCROLL}You’ve come to show me how{NEWLINE}your Pokédex is coming along! {VAR:0200:0}",
+   "en": "Prof. Oak: Oh, oh, {VAR:0103:0}!{SCROLL}You’ve come to show me how your{NEWLINE}Pokédex is coming along!{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -134,7 +134,7 @@
   {
    "id": 16,
    "zh": "大木『哦哦{VAR:0103:0}！{SCROLL}来给我看图鉴的收集情况呢！{VAR:0200:0}",
-   "en": "Prof. Oak: Oh, {VAR:0103:0}!{SCROLL}You’ve come to show me how{NEWLINE}your Pokédex is coming along! {VAR:0200:0}",
+   "en": "Prof. Oak: Oh, oh, {VAR:0103:0}!{SCROLL}You’ve come to show me how your{NEWLINE}Pokédex is coming along!{VAR:0200:0}",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -294,10 +294,10 @@
   {
    "id": 36,
    "zh": "很好很好,{NEWLINE}还差一点就能完成图鉴了！{SCROLL}完成这本图鉴的时候你一定会明白。{SCROLL}你对自己的精灵是怎样看待的！",
-   "en": "Very good! Just a little more and{NEWLINE}your Pokédex will be complete!{SCROLL}When you complete this Pokédex,{NEWLINE}you’ll surely understand{SCROLL}how you truly see your own Pokémon!",
+   "en": "Very good, very good! Just a little{NEWLINE}more and your Pokédex will be complete!{SCROLL}When you complete this Pokédex, you’ll{NEWLINE}surely understand{SCROLL}how you truly see your own Pokémon!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 37,

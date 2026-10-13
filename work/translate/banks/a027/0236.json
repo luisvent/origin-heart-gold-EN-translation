@@ -446,7 +446,7 @@
   {
    "id": 55,
    "zh": "介绍来信的{NEWLINE}节目时间！{SCROLL}今天,从电视观众{NEWLINE}那里受到了特别的{CLEAR}来信。{CLEAR}我们快来读一下~{CLEAR}⋯⋯　⋯⋯　⋯⋯{SCROLL}啪啊嗯,啪喀啪喀啪啊嗯！{SCROLL}锵锵~！{SCROLL}唞叩唞叩,唞叩唞叩,嗞哆哆哆{NEWLINE}啪嗯咯啦啵喀啊嗯！啪啪啪啪~！{SCROLL}哈啤~啵咝呔~~~{NEWLINE}{VAR:0103:0}！！{CLEAR}会一直关注你哟！！！{SCROLL}⋯⋯　⋯⋯　⋯⋯{SCROLL}嗯~~真是{NEWLINE}好有热情的来信啊！{CLEAR}一定是{VAR:0103:0}的{CLEAR}超级粉丝吧！{SCROLL}诚挚地祝愿您{NEWLINE}生日快乐！　",
-   "en": "It’s time for Viewer Letters!{SCROLL}Today we received a special letter{NEWLINE}from a viewer. Let’s read it{CLEAR}right away... ...... ...... ......{SCROLL}Pa-ahn, pakka-pakka-pa-ahn!{SCROLL}Ta-daa!{SCROLL}Toko-toko, toko-toko, zu-dododo,{NEWLINE}pan-kora-bokka-ahn! Papapapa!{SCROLL}Hap-pee~ bursdaaay~~~ {VAR:0103:0}!!{NEWLINE}We’ll always be watching you!!!{SCROLL}...... ...... ......{SCROLL}Wow... What a passionate letter! It{NEWLINE}must be from a huge fan of {VAR:0103:0}!{SCROLL}We sincerely wish you a happy birthday!",
+   "en": "It’s time for Viewer Letters!{SCROLL}Today we received a special letter{NEWLINE}from a viewer. Let’s read it{CLEAR}right away... ...... ...... ......{SCROLL}Pa-ahn, pakka-pakka-pa-ahn!{SCROLL}Ta-daa!{SCROLL}Toko-toko, toko-toko, zu-dododo,{NEWLINE}pan-kora-bokka-ahn! Papapapa!{SCROLL}Mm-mm-mm-mmm~~~ {VAR:0103:0}!!{NEWLINE}We’ll always be watching you!!!{SCROLL}...... ...... ......{SCROLL}Wow... What a passionate letter! It{NEWLINE}must be from a huge fan of {VAR:0103:0}!{SCROLL}We sincerely wish you a happy birthday!",
    "status": "draft",
    "origin": "agent",
    "notes": "哈啤~啵咝呔 = garbled ‘happy birthday’; not a song."

@@ -14,10 +14,10 @@
   {
    "id": 1,
    "zh": "那么我先收下了！",
-   "en": "OK, I’ll take your Pokémon for a few{NEWLINE}seconds.",
+   "en": "All right, I’ll take your Pokémon!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0040/1"
+   "origin": "agent",
+   "notes": "US 0040/1 | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 2,
@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "那么请交给我吧！",
-   "en": "I will be pleased to take your{NEWLINE}Pokémon for a few seconds.",
+   "en": "Then please leave them with me!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0040/7"
+   "origin": "agent",
+   "notes": "US 0040/7 | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 8,
@@ -86,10 +86,10 @@
   {
    "id": 10,
    "zh": "您交给我的精灵{NEWLINE}似乎染有病毒。{SCROLL}具体的我不清楚,{NEWLINE}但病毒似乎是{CLEAR}附着在精灵身上的{CLEAR}一种小生命体。{SCROLL}附着期间的精灵能更好的培养。",
-   "en": "Your Pokémon may be infected with{NEWLINE}the Pokérus.{SCROLL}Little is known about the Pokérus{NEWLINE}except that they are microscopic{CLEAR}life-forms that attach to Pokémon.{SCROLL}While infected, Pokémon are said to{NEWLINE}grow exceptionally well.",
+   "en": "The Pokémon you left with me seem{NEWLINE}to be infected with a virus.{SCROLL}I don’t know the details, but it seems{NEWLINE}to be a tiny life-form that{CLEAR}attaches itself to Pokémon.{SCROLL}Pokémon are easier to train{NEWLINE}while it is attached.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0040/10"
+   "origin": "agent",
+   "notes": "US 0040/10 | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 11,
@@ -390,10 +390,10 @@
   {
    "id": 48,
    "zh": "真不走运啊⋯⋯",
-   "en": "No bites...",
+   "en": "What bad luck...",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 49,
@@ -566,26 +566,26 @@
   {
    "id": 70,
    "zh": "读了下手上这块石板背面的字。{SCROLL}似乎是宇宙诞生时的碎片。{SCROLL}",
-   "en": "There is text engraved in the back{NEWLINE}of the obtained Plate...{SCROLL}“When the universe was created,{NEWLINE}its shards became this Plate.”{SCROLL}",
+   "en": "Read the writing on the back of{NEWLINE}the Plate in your hands.{SCROLL}It seems to be a fragment from{NEWLINE}the birth of the universe.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "v3 TM: 1 source(s), same position"
+   "origin": "agent",
+   "notes": "v3 TM: 1 source(s), same position | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 71,
    "zh": "读了下手上这块石板背面的字。{SCROLL}给予石板的力量是{NEWLINE}打倒了巨人们的力量。{SCROLL}",
-   "en": "There is text engraved in the back{NEWLINE}of the obtained Plate...{SCROLL}“The power of defeated giants{NEWLINE}infuses this Plate.”{SCROLL}",
+   "en": "Read the writing on the back of{NEWLINE}the Plate in your hands.{SCROLL}The power given to the Plate is{NEWLINE}the power that defeated the giants.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0040/71"
+   "origin": "agent",
+   "notes": "US 0040/71 | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 72,
    "zh": "读了下手上这块石板背面的字。{SCROLL}它将时间和空间的两个{NEWLINE}分身逐入尘世。{SCROLL}",
-   "en": "There is text engraved in the back{NEWLINE}of the obtained Plate...{SCROLL}“Two beings of time and space set{NEWLINE}free from the Original One.”{SCROLL}",
+   "en": "Read the writing on the back of{NEWLINE}the Plate in your hands.{SCROLL}It sent its two avatars of time{NEWLINE}and space into the mortal world.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "v3 TM: 1 source(s), same position"
+   "origin": "agent",
+   "notes": "v3 TM: 1 source(s), same position | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 73,
@@ -598,10 +598,10 @@
   {
    "id": 74,
    "zh": "读了下手上这块石板背面的字。{SCROLL}两只形体,三只心灵{NEWLINE}孕育生命,创造世界。{SCROLL}",
-   "en": "There is text engraved in the back{NEWLINE}of the obtained Plate...{SCROLL}“Two make matter, and three make{NEWLINE}spirit, shaping the world.”{SCROLL}",
+   "en": "Read the writing on the back of{NEWLINE}the Plate in your hands.{SCROLL}Two bodies, three spirits,{NEWLINE}nurturing life, creating the world.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0040/74"
+   "origin": "agent",
+   "notes": "US 0040/74 | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 75,
@@ -614,26 +614,26 @@
   {
    "id": 76,
    "zh": "读了下手上这块石板背面的字。{SCROLL}诞生的精灵都分到了石板的力量。{SCROLL}",
-   "en": "There is text engraved in the back{NEWLINE}of the obtained Plate...{SCROLL}“The powers of Plates are shared{NEWLINE}among Pokémon.”{SCROLL}",
+   "en": "Read the writing on the back of{NEWLINE}the Plate in your hands.{SCROLL}All the Pokémon that were born{NEWLINE}received a share of the Plates’ power.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0040/76"
+   "origin": "agent",
+   "notes": "US 0040/76 | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 77,
    "zh": "读了下手上这块石板背面的字。{SCROLL}石板,握紧各种,变化,力量涌出。{SCROLL}",
-   "en": "There is text engraved in the back{NEWLINE}of the obtained Plate...{SCROLL}“The rightful bearer of a Plate{NEWLINE}draws from the Plate it holds.”{SCROLL}",
+   "en": "Read the writing on the back of{NEWLINE}the Plate in your hands.{SCROLL}Plates, grasp the various kinds,{NEWLINE}change, power wells up.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0040/77"
+   "origin": "agent",
+   "notes": "US 0040/77 | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 78,
    "zh": "一张贴纸也没有贴,{NEWLINE}找不到球贴！{SCROLL}",
-   "en": "You don’t have a single Seal,{NEWLINE}so Ball Capsules can’t be used!{SCROLL}",
+   "en": "Not a single Seal is attached.{NEWLINE}No Ball Capsule can be found!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | CES-early: meaning/omission: restore exact source clause, uncertainty, action or image"
   },
   {
    "id": 79,

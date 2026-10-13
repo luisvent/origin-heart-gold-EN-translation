@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "有什么事的话{NEWLINE}我们就电话联系好了！",
-   "en": "Give me a call if you think of anything!",
+   "en": "If anything comes up, give us a call!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0702/2"
+   "origin": "agent",
+   "notes": "US 0702/2 | SOL-C: source nuance restored after exact-ref CN/EN/ES comparison."
   },
   {
    "id": 3,

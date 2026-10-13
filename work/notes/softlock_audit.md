@@ -119,3 +119,11 @@ The user authorized an isolated repair and chose direct-to-Bag Honey (D-2325).
 See [the investigation and regression evidence](honey_gather_investigation_20261010.md).
 The fix originated in `fix/honey-gather` and its source is now integrated in
 `release/rc7-prep`; the new combined build remains pending and it has not been released.
+
+## Ability-banner clipping (2026-10-13; D-2500 in fix/ability-banner worktree)
+
+Display-only finding: the shared Chinese/English renderer anchors ability text
+past its 120-pixel window. English Battle Armor is visibly clipped. Isolated
+two-instruction patch `ability-banner` is disabled; native Chinese, released
+rc7 and patched controls, font capacity tests and notes are in
+[ability_banner_fix.md](ability_banner_fix.md). No gameplay behavior changed.

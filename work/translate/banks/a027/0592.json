@@ -174,17 +174,17 @@
   {
    "id": 21,
    "zh": "你的宝贝不是{VAR:0100:0}吗？",
-   "en": "...Oh? Your favorite really is{NEWLINE}{VAR:0100:0}, isn’t it?",
+   "en": "...Oh? Isn’t your favorite {VAR:0100:0}?",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0600/21"
   },
   {
    "id": 22,
    "zh": "你的宝贝不是蛋吗？",
-   "en": "...Oh? Your favorite really is that Egg,{NEWLINE}isn’t it?",
+   "en": "...Oh? Isn’t your favorite that Egg?",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0600/22"
   },
   {

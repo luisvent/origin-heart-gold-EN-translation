@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "我们华蓝海角的对战庆典{NEWLINE}即将开始！{SCROLL}本届大赛由华丽实用、无所不包的{NEWLINE}华蓝商店赞助举办,{CLEAR}华蓝商店——您购物的最佳选择。{SCROLL}下面由我来为各位讲解一下比赛规则。{NEWLINE}所有选手在听到开始口令后,{CLEAR}从这里出发,前往华蓝海角,{CLEAR}在途中我们设置了对战考核,{CLEAR}只有通过考核之后,{CLEAR}才可以继续前进。{SCROLL}率先到达的人为本次庆典的冠军。{NEWLINE}本次的赞助商华蓝商店,{CLEAR}为冠军选手准备了丰厚的奖品,{CLEAR}请各位踊跃表现,{CLEAR}赛出风格、赛出水平！",
-   "en": "Our Cerulean Cape Battle Festival is{NEWLINE}about to begin!{SCROLL}This year’s event is sponsored by the{NEWLINE}stylish, has-it-all Cerulean Mart.{SCROLL}Cerulean Mart: your best choice for{NEWLINE}shopping!{SCROLL}Now let me explain the rules.{SCROLL}When you hear the signal, start from{NEWLINE}here and head for Cerulean Cape.{SCROLL}Along the way you’ll face battle{NEWLINE}checkpoints.{SCROLL}You can only go on once you’ve passed{NEWLINE}each one.{SCROLL}The first to reach the Cape wins the{NEWLINE}festival!{SCROLL}Our sponsor, Cerulean Mart, has{NEWLINE}prepared a fine prize for the winner.{SCROLL}So give it your all, and show us your{NEWLINE}style and your skill!",
+   "en": "Our Cerulean Cape Battle Festival is{NEWLINE}about to begin!{SCROLL}This year’s event is sponsored by the{NEWLINE}stylish, practical, has-it-all{CLEAR}Cerulean Mart.{SCROLL}Cerulean Mart: your best choice{NEWLINE}for shopping!{SCROLL}Now let me explain the rules.{SCROLL}When you hear the signal, start from{NEWLINE}here and head for Cerulean Cape.{SCROLL}Along the way you’ll face{NEWLINE}battle checkpoints.{SCROLL}You can only go on once you’ve passed{NEWLINE}each one.{SCROLL}The first to reach the Cape wins{NEWLINE}the festival!{SCROLL}Our sponsor, Cerulean Mart, has{NEWLINE}prepared a fine prize for the winner.{SCROLL}So give it your all, and show us your{NEWLINE}style and your skill!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore practical alongside stylish and comprehensive sponsor praise."
   },
   {
    "id": 6,
@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "干！你老在后面推什么推！{NEWLINE}害的我路都走不稳！",
-   "en": "Fuck! Quit shoving me from behind! You{NEWLINE}nearly knocked me off my feet!",
+   "en": "Fuck! Quit shoving me from behind! I{NEWLINE}can’t even walk steadily!",
    "status": "draft",
    "origin": "agent",
-   "notes": "ext-review B-014"
+   "notes": "ext-review B-014 | AGENT-0321-0380: Restore present instability walking rather than merely nearly fell."
   },
   {
    "id": 12,
@@ -158,10 +158,10 @@
   {
    "id": 19,
    "zh": "小霞『你还真是慢啊{VAR:0103:0}！{SCROLL}小霞『我刚刚可是答对了{NEWLINE}问答环节的所有问题哟。{CLEAR}你要是再不抓紧,{CLEAR}就只能看着宝石海星的尾灯到终点了！",
-   "en": "Misty: You’re so slow, {VAR:0103:0}!{SCROLL}Misty: I just got every question in the{NEWLINE}quiz right, you know.{SCROLL}If you don’t hurry, you’ll be eating{NEWLINE}Starmie’s dust all the way!",
+   "en": "Misty: You’re so slow, {VAR:0103:0}!{SCROLL}Misty: I just got every question in the{NEWLINE}quiz right, you know.{SCROLL}If you don’t hurry, you’ll only see{NEWLINE}Starmie’s taillights all the way to{CLEAR}the finish!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore finish-line endpoint of trailing Starmie."
   },
   {
    "id": 20,
@@ -450,10 +450,10 @@
   {
    "id": 53,
    "zh": "来了来了,{NEWLINE}终于来了一位帅气的选手啦！",
-   "en": "Here comes one! Finally, a handsome{NEWLINE}contestant!",
+   "en": "Here comes one, here comes one!{NEWLINE}Finally, a handsome contestant!",
    "status": "draft",
    "origin": "agent",
-   "notes": "#53/#55 male player, #54/#56 female player variants."
+   "notes": "#53/#55 male player, #54/#56 female player variants. | AGENT-0321-0380: Restore repeated announcement."
   },
   {
    "id": 54,
@@ -498,10 +498,10 @@
   {
    "id": 59,
    "zh": "哇哇哇哇！{NEWLINE}你真厉害！{CLEAR}居然在海角对战中保持了全胜记录！{CLEAR}请继续前进吧！{CLEAR}辉煌的冠军领奖台{CLEAR}正在前方等着你呢！",
-   "en": "Wowowow! You’re amazing! You’ve won{NEWLINE}every battle in the Cape festival!{SCROLL}Please go on ahead! The winner’s podium{NEWLINE}awaits!",
+   "en": "Wow, wow, wow, wow! You’re amazing!{NEWLINE}You’ve won every battle in the{CLEAR}Cape festival!{SCROLL}Please go on ahead! The glorious{NEWLINE}champion’s podium awaits!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore four exclamations and glorious champion podium."
   },
   {
    "id": 60,
@@ -530,18 +530,18 @@
   {
    "id": 63,
    "zh": "哦哦哦哦！{NEWLINE}冠军诞生了！",
-   "en": "Ooooh! We have our champion!",
+   "en": "Oh, oh, oh, oh! We have our champion!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore repeated oh and champion announcement."
   },
   {
    "id": 64,
    "zh": "哦哦！{NEWLINE}亚军诞生了！",
-   "en": "Ooh! We have our runner-up!",
+   "en": "Oh, oh! We have our runner-up!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore repeated oh."
   },
   {
    "id": 65,
@@ -586,10 +586,10 @@
   {
    "id": 70,
    "zh": "本次庆典中取得第一名的是——{SCROLL}{VAR:FF01:200}{VAR:0103:0}选手！{VAR:FF01:100}",
-   "en": "First place in this year’s festival goes{NEWLINE}to...{SCROLL}{VAR:FF01:200}{VAR:0103:0}!{VAR:FF01:100}",
+   "en": "First place in this year’s festival goes{NEWLINE}to the contestant...{SCROLL}{VAR:FF01:200}{VAR:0103:0}!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore contestant framing while preserving large-font name controls."
   },
   {
    "id": 71,
@@ -602,10 +602,10 @@
   {
    "id": 72,
    "zh": "本次庆典中取得第二名的是——{SCROLL}{VAR:FF01:200}希罗娜选手！{VAR:FF01:100}",
-   "en": "Second place in this year’s festival{NEWLINE}goes to...{SCROLL}{VAR:FF01:200}Cynthia!{VAR:FF01:100}",
+   "en": "Second place in this year’s festival{NEWLINE}goes to the contestant...{SCROLL}{VAR:FF01:200}Cynthia!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore contestant framing while preserving large-font name controls."
   },
   {
    "id": 73,
@@ -618,10 +618,10 @@
   {
    "id": 74,
    "zh": "本次庆典中取得第三名的是——{SCROLL}{VAR:FF01:200}小霞选手！{VAR:FF01:100}",
-   "en": "Third place in this year’s festival goes{NEWLINE}to...{SCROLL}{VAR:FF01:200}Misty!{VAR:FF01:100}",
+   "en": "Third place in this year’s festival goes{NEWLINE}to the contestant...{SCROLL}{VAR:FF01:200}Misty!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore contestant framing while preserving large-font name controls."
   },
   {
    "id": 75,
@@ -642,42 +642,42 @@
   {
    "id": 77,
    "zh": "那么,本次华蓝海角的对战庆典{NEWLINE}到此就全部结束了！{CLEAR}希望各位以后继续支持华蓝市的建设、{CLEAR}以及多多支持我们华蓝商店！{SCROLL}再会了,未来的精英训练家们！",
-   "en": "And that brings this year’s Cerulean{NEWLINE}Cape Battle Festival to a close!{SCROLL}Please keep supporting Cerulean City,{NEWLINE}and keep shopping at Cerulean Mart!{SCROLL}Farewell, future Ace Trainers!",
+   "en": "And that brings this year’s Cerulean{NEWLINE}Cape Battle Festival to a close!{SCROLL}Please keep supporting Cerulean City’s{NEWLINE}development, and keep shopping at{CLEAR}Cerulean Mart!{SCROLL}Farewell, future Ace Trainers!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore city development and future Ace Trainer farewell."
   },
   {
    "id": 78,
    "zh": "本次庆典中取得第一名的是——{SCROLL}{VAR:FF01:200}希罗娜选手！{VAR:FF01:100}",
-   "en": "First place in this year’s festival goes{NEWLINE}to...{SCROLL}{VAR:FF01:200}Cynthia!{VAR:FF01:100}",
+   "en": "First place in this year’s festival goes{NEWLINE}to the contestant...{SCROLL}{VAR:FF01:200}Cynthia!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore contestant framing while preserving large-font name controls."
   },
   {
    "id": 79,
    "zh": "本次庆典中取得第二名的是——{SCROLL}{VAR:FF01:200}{VAR:0103:0}选手！{VAR:FF01:100}",
-   "en": "Second place in this year’s festival{NEWLINE}goes to...{SCROLL}{VAR:FF01:200}{VAR:0103:0}!{VAR:FF01:100}",
+   "en": "Second place in this year’s festival{NEWLINE}goes to the contestant...{SCROLL}{VAR:FF01:200}{VAR:0103:0}!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore contestant framing while preserving large-font name controls."
   },
   {
    "id": 80,
    "zh": "本次庆典中取得第二名的是——{SCROLL}{VAR:FF01:200}小霞选手！{VAR:FF01:100}",
-   "en": "Second place in this year’s festival{NEWLINE}goes to...{SCROLL}{VAR:FF01:200}Misty!{VAR:FF01:100}",
+   "en": "Second place in this year’s festival{NEWLINE}goes to the contestant...{SCROLL}{VAR:FF01:200}Misty!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore contestant framing while preserving large-font name controls."
   },
   {
    "id": 81,
    "zh": "本次庆典中取得第三名的是——{SCROLL}{VAR:FF01:200}{VAR:0103:0}选手！{VAR:FF01:100}",
-   "en": "Third place in this year’s festival goes{NEWLINE}to...{SCROLL}{VAR:FF01:200}{VAR:0103:0}!{VAR:FF01:100}",
+   "en": "Third place in this year’s festival goes{NEWLINE}to the contestant...{SCROLL}{VAR:FF01:200}{VAR:0103:0}!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore contestant framing while preserving large-font name controls."
   },
   {
    "id": 82,
@@ -698,18 +698,18 @@
   {
    "id": 84,
    "zh": "{VAR:FF01:200}怎么会这样！！！！！！！{VAR:FF01:100}{SCROLL}{VAR:FF01:200}不要啊！！！！！！！{VAR:FF01:100}",
-   "en": "{VAR:FF01:200}How can this be!{VAR:FF01:100}{SCROLL}{VAR:FF01:200}Nooooo!!!{VAR:FF01:100}",
+   "en": "{VAR:FF01:200}How can this be!!!!!!!{VAR:FF01:100}{SCROLL}{VAR:FF01:200}Nooooo!!!!!!!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Preserve emphatic seven exclamation marks."
   },
   {
    "id": 85,
    "zh": "小霞『海角那边的房子里,{NEWLINE}好像有人在大声呼喊！{CLEAR}不会是发生什么意外了吧？{SCROLL}小霞『走,{VAR:0103:0}！{NEWLINE}咱们过去看看！",
-   "en": "Misty: Someone’s shouting in the house{NEWLINE}out on the Cape! Did something happen?{SCROLL}Misty: Come on, {VAR:0103:0}! Let’s go take{NEWLINE}a look!",
+   "en": "Misty: Sounds like someone’s shouting in{NEWLINE}the house out on the Cape! Did{CLEAR}something happen?{SCROLL}Misty: Come on, {VAR:0103:0}! Let’s go take{NEWLINE}a look!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore seems uncertainty."
   },
   {
    "id": 86,
@@ -834,10 +834,10 @@
   {
    "id": 101,
    "zh": "嗯,嗯{NEWLINE}你的{VAR:0100:0}{CLEAR}看上去更强大了！",
-   "en": "Mm-hm! Your {VAR:0100:0} looks stronger{NEWLINE}already!",
+   "en": "Mm, mm! Your {VAR:0100:0} looks{NEWLINE}stronger already!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore repeated assent."
   },
   {
    "id": 102,
@@ -914,10 +914,10 @@
   {
    "id": 111,
    "zh": "哦哈哈哈哈,这海角对战{NEWLINE}一上来就是激烈角逐啊！",
-   "en": "Oh ho ho ho! The Cape battle is fierce{NEWLINE}right from the start!",
+   "en": "Oh ha ha ha ha! The Cape battle is{NEWLINE}fierce right from the start!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore laugh syllables."
   },
   {
    "id": 112,
@@ -1066,10 +1066,10 @@
   {
    "id": 130,
    "zh": "终于还剩最后一个了,{NEWLINE}呼呼,好累啊……",
-   "en": "Just one more left... Phew, I’m beat...",
+   "en": "Just one more left... Phew, phew,{NEWLINE}I’m beat...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore repeated panting."
   },
   {
    "id": 131,
@@ -1218,10 +1218,10 @@
   {
    "id": 149,
    "zh": "正辉『咦？！这快龙是……？",
-   "en": "Bill: Huh?! Isn’t that Dragonite...?",
+   "en": "Bill: Huh?! This Dragonite...?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore question about this Dragonite rather than identifying species."
   },
   {
    "id": 150,
@@ -1370,10 +1370,10 @@
   {
    "id": 168,
    "zh": "{VAR:0103:0}『好,那咱们四个{NEWLINE}回去准备一下道具和精灵,{CLEAR}然后在华蓝洞穴碰头。",
-   "en": "{VAR:0103:0}: OK. Let’s all go back and get{NEWLINE}our items and Pokémon ready, then meet{CLEAR}up at Cerulean Cave.",
+   "en": "{VAR:0103:0}: OK. Let’s all four go back and{NEWLINE}get our items and Pokémon ready, then{CLEAR}meet up at Cerulean Cave.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore explicit four-person group."
   },
   {
    "id": 169,
@@ -1570,10 +1570,10 @@
   {
    "id": 193,
    "zh": "{VAR:0103:0}『啊……那个……{NEWLINE}可能是你看错了吧,哈哈。{CLEAR}话说阿金你怎么到华蓝市来了？",
-   "en": "{VAR:0103:0}: Ah... well... You must have{NEWLINE}been seeing things, ha ha.{SCROLL}Anyway, Gold, what brings you to{NEWLINE}Cerulean City?",
+   "en": "{VAR:0103:0}: Ah... well... Maybe you saw{NEWLINE}wrong, ha ha.{SCROLL}Anyway, Gold, what brings you to{NEWLINE}Cerulean City?",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore possible misperception rather than must have."
   },
   {
    "id": 194,

@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "{VAR:0101:0}好像要说{NEWLINE}什么一样发出呻吟。",
-   "en": "{VAR:0101:0} is growling in a way that{NEWLINE}sounds almost like speech...",
+   "en": "{VAR:0101:0} is moaning as though it{NEWLINE}wants to say something.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/7"
+   "origin": "agent",
+   "notes": "US 0265/7 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 8,
@@ -126,10 +126,10 @@
   {
    "id": 15,
    "zh": "{VAR:0101:0}不知怎么{NEWLINE}垂头丧气的⋯⋯",
-   "en": "{VAR:0101:0} looks a little{NEWLINE}downhearted...",
+   "en": "{VAR:0101:0} looks downhearted for some{NEWLINE}reason...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/15"
+   "origin": "agent",
+   "notes": "US 0265/15 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 16,
@@ -174,10 +174,10 @@
   {
    "id": 21,
    "zh": "{VAR:0101:0}　{NEWLINE}不知怎么很开心！",
-   "en": "{VAR:0101:0} just looks so very happy!",
+   "en": "{VAR:0101:0} is happy for some reason!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/21"
+   "origin": "agent",
+   "notes": "US 0265/21 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 22,
@@ -230,10 +230,10 @@
   {
    "id": 28,
    "zh": "{VAR:0101:0}{NEWLINE}对周围的事物很有兴趣！",
-   "en": "{VAR:0101:0} is paying close attention{NEWLINE}to its surroundings!",
+   "en": "{VAR:0101:0} is very interested in its{NEWLINE}surroundings!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/28"
+   "origin": "agent",
+   "notes": "US 0265/28 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 29,
@@ -246,10 +246,10 @@
   {
    "id": 30,
    "zh": "{VAR:0101:0}往旁边看了看{NEWLINE}突然撞了上去！",
-   "en": "{VAR:0101:0} was not paying attention{NEWLINE}and ran headfirst into you!",
+   "en": "{VAR:0101:0} looked to the side and{NEWLINE}suddenly bumped into something!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/30"
+   "origin": "agent",
+   "notes": "US 0265/30 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 31,
@@ -270,10 +270,10 @@
   {
    "id": 33,
    "zh": "{VAR:0101:0}{NEWLINE}不知怎么迷迷糊糊的⋯⋯{CLEAR}叫叫它名字看吧？{VAR:0200:0}",
-   "en": "{VAR:0101:0} seems to be nodding{NEWLINE}off... Call out its name? {VAR:0200:0}",
+   "en": "{VAR:0101:0} seems dazed{NEWLINE}for some reason...{CLEAR}Call out its name?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/33"
+   "origin": "agent",
+   "notes": "US 0265/33 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 34,
@@ -425,10 +425,10 @@
   {
    "id": 52,
    "zh": "{VAR:0101:0}开心地{NEWLINE}跳着小步！",
-   "en": "{VAR:0101:0} is jumping for joy!",
+   "en": "{VAR:0101:0} is taking happy little hops!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/52"
+   "origin": "agent",
+   "notes": "US 0265/52 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 53,
@@ -457,10 +457,10 @@
   {
    "id": 56,
    "zh": "{VAR:0101:0}咕咕地{NEWLINE}开始用劲！",
-   "en": "{VAR:0101:0} put in extra effort!",
+   "en": "{VAR:0101:0} is grunting as it starts to{NEWLINE}exert itself!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/56",
+   "origin": "agent",
+   "notes": "US 0265/56 | SUBAGENT-0258: CN semantic rereview; restored source action/detail.",
    "qa_ignore": [
     "glossary:咕咕"
    ]
@@ -492,10 +492,10 @@
   {
    "id": 60,
    "zh": "{VAR:0101:0}{NEWLINE}灵敏地动来动去！",
-   "en": "{VAR:0101:0} is showing off its{NEWLINE}agility!",
+   "en": "{VAR:0101:0} is moving around nimbly!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/60"
+   "origin": "agent",
+   "notes": "US 0265/60 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 61,
@@ -516,10 +516,10 @@
   {
    "id": 63,
    "zh": "{VAR:0101:0}{NEWLINE}轻快到跳了一下！",
-   "en": "{VAR:0101:0} is jumping around in a{NEWLINE}carefree way!",
+   "en": "{VAR:0101:0} gave a light little hop!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/63"
+   "origin": "agent",
+   "notes": "US 0265/63 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 64,
@@ -623,10 +623,10 @@
   {
    "id": 76,
    "zh": "{VAR:0101:0}似乎很喜欢{NEWLINE}小明！",
-   "en": "{VAR:0101:0} seems very interested in{NEWLINE}Amphy!",
+   "en": "{VAR:0101:0} seems to really like Amphy!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/76"
+   "origin": "agent",
+   "notes": "US 0265/76 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 77,
@@ -647,10 +647,10 @@
   {
    "id": 79,
    "zh": "{VAR:0101:0}很喜欢{NEWLINE}小明⋯⋯",
-   "en": "{VAR:0101:0} seems interested in{NEWLINE}Amphy...",
+   "en": "{VAR:0101:0} really likes Amphy...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/79"
+   "origin": "agent",
+   "notes": "US 0265/79 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 80,
@@ -714,10 +714,10 @@
   {
    "id": 87,
    "zh": "{VAR:0101:0}{NEWLINE}对周围保持高度警戒！",
-   "en": "{VAR:0101:0} is carefully scanning the{NEWLINE}area!",
+   "en": "{VAR:0101:0} is keeping a close watch on{NEWLINE}its surroundings!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/87"
+   "origin": "agent",
+   "notes": "US 0265/87 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 88,
@@ -810,10 +810,10 @@
   {
    "id": 99,
    "zh": "{VAR:0101:0}{NEWLINE}突然对着后面吼了起来！",
-   "en": "{VAR:0101:0} suddenly turned around{NEWLINE}and started barking!",
+   "en": "{VAR:0101:0} suddenly started roaring{NEWLINE}behind it!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/99"
+   "origin": "agent",
+   "notes": "US 0265/99 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 100,
@@ -915,10 +915,10 @@
   {
    "id": 111,
    "zh": "{VAR:0101:0}{NEWLINE}发出叫声！",
-   "en": "{VAR:0101:0} let out a roar!",
+   "en": "{VAR:0101:0} let out a cry!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/111",
+   "origin": "agent",
+   "notes": "US 0265/111 | SUBAGENT-0258: CN semantic rereview; restored source action/detail.",
    "qa_ignore": [
     "glossary:叫声"
    ]
@@ -926,10 +926,10 @@
   {
    "id": 112,
    "zh": "{VAR:0101:0}{NEWLINE}发出叫声！",
-   "en": "{VAR:0101:0} let out a roar!",
+   "en": "{VAR:0101:0} let out a cry!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/112",
+   "origin": "agent",
+   "notes": "US 0265/112 | SUBAGENT-0258: CN semantic rereview; restored source action/detail.",
    "qa_ignore": [
     "glossary:叫声"
    ]
@@ -1017,10 +1017,10 @@
   {
    "id": 123,
    "zh": "{VAR:0101:0}撞在{NEWLINE}树枝上吓了一跳！",
-   "en": "{VAR:0101:0} was surprised when it got{NEWLINE}hit by a branch!",
+   "en": "{VAR:0101:0} bumped into a branch and{NEWLINE}was startled!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/123"
+   "origin": "agent",
+   "notes": "US 0265/123 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 124,
@@ -1081,7 +1081,7 @@
   {
    "id": 131,
    "zh": "{VAR:0101:0}{NEWLINE}似乎对陷阱很好奇。",
-   "en": "{VAR:0101:0} is curious about the trap.",
+   "en": "{VAR:0101:0} seems curious{NEWLINE}about the trap.",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0265/131 | D-2275: 'curious about'/'interested in' for zh 好奇/有兴趣 (was US 'concerned about')"
@@ -1391,10 +1391,10 @@
   {
    "id": 169,
    "zh": "{VAR:0101:0}{NEWLINE}精力十足！",
-   "en": "{VAR:0101:0} is glowing with health!",
+   "en": "{VAR:0101:0} is full of energy!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/169"
+   "origin": "agent",
+   "notes": "US 0265/169 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 170,
@@ -1431,10 +1431,10 @@
   {
    "id": 174,
    "zh": "{VAR:0101:0}戳着地面{NEWLINE}在找什么东西。",
-   "en": "{VAR:0101:0} is scratching at the{NEWLINE}ground as if searching for something.",
+   "en": "{VAR:0101:0} is poking at the ground,{NEWLINE}searching for something.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/174",
+   "origin": "agent",
+   "notes": "US 0265/174 | SUBAGENT-0258: CN semantic rereview; restored source action/detail.",
    "qa_ignore": [
     "glossary:地面"
    ]
@@ -1530,10 +1530,10 @@
   {
    "id": 186,
    "zh": "{VAR:0101:0}{NEWLINE}吹着海风感觉很舒服！",
-   "en": "{VAR:0101:0} seems to be feeling better{NEWLINE}because of the sea breeze!",
+   "en": "{VAR:0101:0} feels comfortable in the sea{NEWLINE}breeze!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/186"
+   "origin": "agent",
+   "notes": "US 0265/186 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 187,
@@ -1646,10 +1646,10 @@
   {
    "id": 199,
    "zh": "{VAR:0101:0}{NEWLINE}挖洞玩。",
-   "en": "{VAR:0101:0} is playfully digging in the{NEWLINE}ground.",
+   "en": "{VAR:0101:0} is digging holes for fun.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/199"
+   "origin": "agent",
+   "notes": "US 0265/199 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 200,
@@ -1673,10 +1673,10 @@
   {
    "id": 202,
    "zh": "{VAR:0101:0}{NEWLINE}慎重地跟在后面！",
-   "en": "{VAR:0101:0} is walking along{NEWLINE}cautiously!",
+   "en": "{VAR:0101:0} is following behind{NEWLINE}cautiously!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/202"
+   "origin": "agent",
+   "notes": "US 0265/202 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 203,
@@ -2097,10 +2097,10 @@
   {
    "id": 255,
    "zh": "{VAR:0101:0}看着{NEWLINE}海水的流动⋯⋯",
-   "en": "{VAR:0101:0} is staring intently at the{NEWLINE}surging sea.",
+   "en": "{VAR:0101:0} is watching the movement of{NEWLINE}the seawater...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/255"
+   "origin": "agent",
+   "notes": "US 0265/255 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 256,
@@ -2532,10 +2532,10 @@
   {
    "id": 309,
    "zh": "{VAR:0101:0}迷路了,{NEWLINE}感到很不安。",
-   "en": "{VAR:0101:0} is looking around{NEWLINE}restlessly because it feels lost.",
+   "en": "{VAR:0101:0} is lost and feels uneasy.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/309"
+   "origin": "agent",
+   "notes": "US 0265/309 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 310,
@@ -2684,10 +2684,10 @@
   {
    "id": 328,
    "zh": "{VAR:0101:0}{NEWLINE}受烧伤折磨！",
-   "en": "{VAR:0101:0}’s burn looks painful!",
+   "en": "{VAR:0101:0} is suffering from its burn!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/328"
+   "origin": "agent",
+   "notes": "US 0265/328 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 329,
@@ -2810,10 +2810,10 @@
   {
    "id": 343,
    "zh": "{VAR:0101:0}悠哉地{NEWLINE}盯着脸看。",
-   "en": "{VAR:0101:0} slowly turned to look at{NEWLINE}your face.",
+   "en": "{VAR:0101:0} is leisurely gazing at your{NEWLINE}face.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/343"
+   "origin": "agent",
+   "notes": "US 0265/343 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 344,
@@ -2834,7 +2834,7 @@
   {
    "id": 346,
    "zh": "{VAR:0101:0}似乎对摇晃的{NEWLINE}柱子很好奇。",
-   "en": "{VAR:0101:0} is curious about the swaying{NEWLINE}pillar.",
+   "en": "{VAR:0101:0} seems curious about the{NEWLINE}swaying pillar.",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0265/346 | D-2275: 'curious about'/'interested in' for zh 好奇/有兴趣 (was US 'concerned about')"
@@ -2866,10 +2866,10 @@
   {
    "id": 350,
    "zh": "{VAR:0101:0}{NEWLINE}打了个大哈欠。",
-   "en": "{VAR:0101:0} yawned loudly.",
+   "en": "{VAR:0101:0} gave a big yawn.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/350"
+   "origin": "agent",
+   "notes": "US 0265/350 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 351,
@@ -2922,10 +2922,10 @@
   {
    "id": 357,
    "zh": "{VAR:0101:0}{NEWLINE}摇摇晃晃的就要倒了！",
-   "en": "{VAR:0101:0} is in danger of falling{NEWLINE}over!",
+   "en": "{VAR:0101:0} is wobbling and about to fall{NEWLINE}over!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/357"
+   "origin": "agent",
+   "notes": "US 0265/357 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 358,
@@ -2970,10 +2970,10 @@
   {
    "id": 363,
    "zh": "{VAR:0101:0}{NEWLINE}打了个大哈欠！",
-   "en": "{VAR:0101:0} yawned loudly!",
+   "en": "{VAR:0101:0} gave a big yawn!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/363"
+   "origin": "agent",
+   "notes": "US 0265/363 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 364,
@@ -3058,10 +3058,10 @@
   {
    "id": 374,
    "zh": "{VAR:0101:0}{NEWLINE}被草丛绊到了！",
-   "en": "{VAR:0101:0} seems to have gotten{NEWLINE}caught in the clumps of grass!",
+   "en": "{VAR:0101:0} tripped over the grass!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/374"
+   "origin": "agent",
+   "notes": "US 0265/374 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 375,
@@ -3074,10 +3074,10 @@
   {
    "id": 376,
    "zh": "{VAR:0101:0}{NEWLINE}嗅着草丛的味道。",
-   "en": "{VAR:0101:0} is noticing the scent of{NEWLINE}the grass.",
+   "en": "{VAR:0101:0} is sniffing the grass.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/376"
+   "origin": "agent",
+   "notes": "US 0265/376 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 377,
@@ -3122,10 +3122,10 @@
   {
    "id": 382,
    "zh": "{VAR:0101:0}{NEWLINE}吧唧嘴。",
-   "en": "{VAR:0101:0} is opening and closing its{NEWLINE}mouth.",
+   "en": "{VAR:0101:0} is smacking its lips.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/382"
+   "origin": "agent",
+   "notes": "US 0265/382 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 383,
@@ -3274,10 +3274,10 @@
   {
    "id": 401,
    "zh": "{VAR:0101:0}{NEWLINE}努力跟在后面。",
-   "en": "{VAR:0101:0} is somehow forcing itself{NEWLINE}to keep going.",
+   "en": "{VAR:0101:0} is trying hard to follow{NEWLINE}behind.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/401"
+   "origin": "agent",
+   "notes": "US 0265/401 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 402,
@@ -3632,10 +3632,10 @@
   {
    "id": 445,
    "zh": "啊！{NEWLINE}上面有树叶！",
-   "en": "Oh!{NEWLINE}There’s a leaf!",
+   "en": "Oh!{NEWLINE}There’s a leaf on top!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/445"
+   "origin": "agent",
+   "notes": "US 0265/445 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 446,
@@ -3902,10 +3902,10 @@
   {
    "id": 478,
    "zh": "打了个大哈欠！",
-   "en": "Your Pokémon yawned loudly!",
+   "en": "Your Pokémon gave a big yawn!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/478"
+   "origin": "agent",
+   "notes": "US 0265/478 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 479,
@@ -4121,10 +4121,10 @@
   {
    "id": 505,
    "zh": "{VAR:0101:0}{NEWLINE}戳着垃圾玩⋯⋯",
-   "en": "{VAR:0101:0} is poking at garbage...",
+   "en": "{VAR:0101:0} is playfully poking at the{NEWLINE}garbage...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0265/505"
+   "origin": "agent",
+   "notes": "US 0265/505 | SUBAGENT-0258: CN semantic rereview; restored source action/detail."
   },
   {
    "id": 506,
@@ -5371,7 +5371,7 @@
   {
    "id": 659,
    "zh": "掉了张纸片下来。",
-   "en": "Your Pokémon dropped a scrap of paper.",
+   "en": "A scrap of paper fell down.",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0265/659 | RV068: addition: zh 掉了张纸片下来; 'opened its mouth' not in zh"
@@ -5831,7 +5831,7 @@
   {
    "id": 715,
    "zh": "{VAR:0101:0}张开身体{NEWLINE}发出大叫！",
-   "en": "{VAR:0101:0} spread its body wide and let{NEWLINE}out a huge roar!",
+   "en": "{VAR:0101:0} spread its body wide and{NEWLINE}let out a loud cry!",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0265/715 | RV068: meaning: zh 张开身体 = spread its body"
@@ -5984,7 +5984,7 @@
   {
    "id": 733,
    "zh": "{VAR:0101:0}{NEWLINE}似乎对盒子的里面很好奇。",
-   "en": "{VAR:0101:0} is curious about the{NEWLINE}contents of the case.",
+   "en": "{VAR:0101:0} seems curious about{NEWLINE}the contents of the case.",
    "status": "draft",
    "origin": "agent",
    "notes": "US 0265/733 | D-2275: 'curious about'/'interested in' for zh 好奇/有兴趣 (was US 'concerned about')",

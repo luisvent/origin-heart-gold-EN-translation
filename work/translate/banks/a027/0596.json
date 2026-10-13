@@ -14,9 +14,9 @@
   {
    "id": 1,
    "zh": "在国外的他{NEWLINE}送给我的巴大蝴。{CLEAR}带着邮件呢！{SCROLL}想知道写了些什么吗？{NEWLINE}这个……{SCROLL}是秘ー密！",
-   "en": "My Butterfree came from my{NEWLINE}boyfriend overseas.{SCROLL}It carried some Mail from him.{CLEAR}Want to know what it says?{SCROLL}Let’s see...{SCROLL}Nope! It’s a secret!",
+   "en": "He sent me this Butterfree{NEWLINE}from overseas. It carries Mail.{SCROLL}Want to know what it says?{SCROLL}Let’s see...{SCROLL}It’s a secret!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0605/1; modernised from US 0605#1"
   },
   {

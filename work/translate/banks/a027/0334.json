@@ -30,34 +30,34 @@
   {
    "id": 3,
    "zh": "马志士『哦,不！{NEWLINE}我太~遗憾了。",
-   "en": "Lt. Surge: Oh no!{NEWLINE}How disappointing!",
+   "en": "Lt. Surge: Oh no! I’m{NEWLINE}sooo disappointed.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0341/3"
+   "origin": "agent",
+   "notes": "US 0341/3 | AGENT-0321-0380: Preserve drawn-out disappointment."
   },
   {
    "id": 4,
    "zh": "马志士『果然不出所料？{NEWLINE}想知道我的{CLEAR}电话号码了吧？{VAR:0200:0}",
-   "en": "Lt. Surge: Aha!{NEWLINE}Now you want to know my telephone{CLEAR}number, don’t you? {VAR:0200:0}",
+   "en": "Lt. Surge: Just as I thought? Now you{NEWLINE}want to know my telephone number,{CLEAR}don’t you?{VAR:0200:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0341/4"
+   "origin": "agent",
+   "notes": "US 0341/4 | AGENT-0321-0380: Preserve as-expected question."
   },
   {
    "id": 5,
    "zh": "马志士『哦~！在这里{NEWLINE}再会真是奇遇啊！{SCROLL}电站的附近能感觉到{CLEAR}麻酥酥的电能呢~！{SCROLL}要在常磐森林{NEWLINE}抓到皮卡丘的话,{CLEAR}带到这里来就好了！",
-   "en": "Lt. Surge: Oh! What are the chances{NEWLINE}of seeing you at a place like this?{SCROLL}I can feel electric power around{NEWLINE}the Power Plant.{SCROLL}You may want to catch a Pikachu in{NEWLINE}the Viridian Forest and bring it here!",
+   "en": "Lt. Surge: Oh! What are the chances of{NEWLINE}seeing you at a place like this?{SCROLL}I can feel tingling electric power{NEWLINE}around the Power Plant.{SCROLL}You may want to catch a Pikachu in the{NEWLINE}Viridian Forest and bring it here!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0341/5; modernised from US 0341#5"
+   "origin": "agent",
+   "notes": "US 0341/5; modernised from US 0341#5 | AGENT-0321-0380: Preserve tingling electric sensation."
   },
   {
    "id": 6,
    "zh": "大型精灵{NEWLINE}一动不动地注视着……！{SCROLL}",
-   "en": "There is a large Pokémon staring{NEWLINE}at you...!{SCROLL}",
+   "en": "A large Pokémon is staring{NEWLINE}without moving...!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0341/6"
+   "origin": "agent",
+   "notes": "US 0341/6 | AGENT-0321-0380: Preserve unmoving stare and exclamation."
   },
   {
    "id": 7,

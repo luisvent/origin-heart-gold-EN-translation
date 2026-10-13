@@ -982,10 +982,10 @@
   {
    "id": 113,
    "zh": "邪恶研究员",
-   "en": "Scientist",
+   "en": "Evil Sci.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0730/113"
+   "origin": "agent",
+   "notes": "US 0730/113 | SOL-C: 恶邪 qualifier restored within English trainer-class width."
   },
   {
    "id": 114,

@@ -1,0 +1,16 @@
+; ability-banner - disassembly snapshot of ability-banner.asm: every edit, old -> new. Generated; do not edit.
+; Regenerate: python3 work/tools/asmpatch.py listing --write ability-banner   (check.py --full fails when it is stale)
+; Old: the Chinese ROM. New: ability-banner.asm assembled alone over it by armips v0.11.0.
+; Disassembly: capstone 5.0.9 (UAL syntax). '  ' unchanged context, '- ' old, '+ ' new;
+; addresses are RAM addresses, Thumb bytes are halfwords, ARM bytes words; data rows are what one
+; statement writes (u16 rows of a string or key row with their characters, '|' = 0xFFFF end).
+
+== overlay14+0x25F2A (RAM 0x0222670A), 2 edits in 4 bytes, thumb: ability-banner-right-edge, ability-banner-nickname-padding
+  02226704  F5DC FBE8  bl #0x2002ed8
+  02226708  1C39       adds r1, r7, #0
+- 0222670A  2284       movs r2, #0x84
++ 0222670A  2270       movs r2, #0x70
+- 0222670C  3108       adds r1, #8
++ 0222670C  3110       adds r1, #0x10
+  0222670E  1A13       subs r3, r2, r0
+  02226710  1ACA       subs r2, r1, r3

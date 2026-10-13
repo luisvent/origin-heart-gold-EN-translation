@@ -14,18 +14,18 @@
   {
    "id": 1,
    "zh": "背包满了！",
-   "en": "The Bag is full...",
+   "en": "The Bag is full!",
    "status": "draft",
-   "origin": "tm_v3",
-   "notes": "v3 TM: 1 source(s)"
+   "origin": "agent",
+   "notes": "v3 TM: 1 source(s) | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 2,
    "zh": "{VAR:0103:0}将{VAR:0108:1}收进了{NEWLINE}{VAR:0108:2}口袋！",
-   "en": "{VAR:0103:0} put the {VAR:0108:1}{NEWLINE}in the {VAR:0108:2} Pocket.",
+   "en": "{VAR:0103:0} put the {VAR:0108:1}{NEWLINE}in the {VAR:0108:2} Pocket!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 3,
@@ -46,18 +46,18 @@
   {
    "id": 5,
    "zh": "{VAR:0103:0}将{VAR:0108:1}收进{NEWLINE}背包！",
-   "en": "{VAR:0103:0} put the {VAR:0108:1}{NEWLINE}in the Bag.",
+   "en": "{VAR:0103:0} put the {VAR:0108:1}{NEWLINE}in the Bag!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 6,
    "zh": "{VAR:0103:0}找到了{VAR:0108:1}{NEWLINE}「{VAR:0106:2}」！",
-   "en": "{VAR:0103:0} found{NEWLINE}{VAR:0108:1} {VAR:0106:2}!",
+   "en": "{VAR:0103:0} found{NEWLINE}{VAR:0108:1} “{VAR:0106:2}”!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0210/6"
+   "origin": "agent",
+   "notes": "US 0210/6 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "{VAR:0103:0}将{VAR:0108:1}收进{VAR:FF00:2}{NEWLINE}{VAR:011F:2}{VAR:FF00:0}口袋！",
-   "en": "{VAR:0103:0} put the {VAR:0108:1}{NEWLINE}in the {VAR:FF00:2}{VAR:011F:2}{VAR:FF00:0} Pocket.",
+   "en": "{VAR:0103:0} put the {VAR:0108:1}{NEWLINE}in the {VAR:FF00:2}{VAR:011F:2}{VAR:FF00:0} Pocket!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0210/9"
+   "origin": "agent",
+   "notes": "US 0210/9 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   }
  ]
 }

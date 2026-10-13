@@ -974,9 +974,9 @@
   {
    "id": 121,
    "zh": "嗯~胜利咯！{NEWLINE}真不愧是我的精灵！{SCROLL}",
-   "en": "Ooh, they did it!{NEWLINE}I knew I could count on my gang!{SCROLL}",
+   "en": "Ooh, we won!{NEWLINE}That’s my Pokémon!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/121"
   },
   {
@@ -1886,9 +1886,9 @@
   {
    "id": 235,
    "zh": "哦⋯⋯听得到呢⋯⋯{NEWLINE}听得到大海的声音呢⋯⋯{SCROLL}",
-   "en": "Oh... I hear them...{NEWLINE}I hear the sound of waves...{SCROLL}",
+   "en": "Oh... I hear it...{NEWLINE}I hear the sound of the sea...{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/235"
   },
   {
@@ -2518,9 +2518,9 @@
   {
    "id": 314,
    "zh": "今天开始请让我{NEWLINE}尊称您一声老师！{SCROLL}",
-   "en": "Please! Let me call you Master{NEWLINE}Trainer from now on!{SCROLL}",
+   "en": "Please let me call you my teacher{NEWLINE}from today on!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/314"
   },
   {
@@ -3038,9 +3038,9 @@
   {
    "id": 379,
    "zh": "我不是很擅长对战呢⋯⋯{SCROLL}",
-   "en": "I’ve never been much of a battler,{NEWLINE}but...{SCROLL}",
+   "en": "I’m not very good at battling...{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/379"
   },
   {
@@ -3238,9 +3238,9 @@
   {
    "id": 404,
    "zh": "哇~！妈妈咪呀！！{SCROLL}",
-   "en": "Waah!{NEWLINE}I want my mommy!{SCROLL}",
+   "en": "Waah! Mamma mia!!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/404"
   },
   {
@@ -3990,9 +3990,9 @@
   {
    "id": 498,
    "zh": "刚从老师那儿学到了{NEWLINE}对战的精髓！",
-   "en": "My teacher gave me advice on{NEWLINE}battling.",
+   "en": "I just learned the essence of battle{NEWLINE}from my teacher!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/498"
   },
   {
@@ -4038,7 +4038,7 @@
   {
    "id": 504,
    "zh": "初次作战用的精灵就是名种,{NEWLINE}谁胜谁负应该一目了然了吧？",
-   "en": "My Pokémon are pedigreed from the{NEWLINE}start. The result is obvious, right?",
+   "en": "Even my first Pokémon is a top{NEWLINE}breed. The winner is obvious, right?",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -4662,9 +4662,9 @@
   {
    "id": 582,
    "zh": "哇！哇！稍微！等等！！！{NEWLINE}我还没做好心理准备呐！！",
-   "en": "Waah! Wait! Wait a second!{NEWLINE}My mind’s not into this yet!",
+   "en": "Whoa! Whoa! Just... wait!!!{NEWLINE}I’m not mentally ready yet!!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/582"
   },
   {
@@ -4814,17 +4814,17 @@
   {
    "id": 601,
    "zh": "我可以收你当我的徒弟哦！{SCROLL}",
-   "en": "You can become a devotee if{NEWLINE}you’d like.{SCROLL}",
+   "en": "You can become my apprentice if{NEWLINE}you’d like.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/601"
   },
   {
    "id": 602,
    "zh": "好想成为你的徒弟啊！{SCROLL}",
-   "en": "I wish I could become your devotee.{SCROLL}",
+   "en": "I wish I could become your{NEWLINE}apprentice.{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/602"
   },
   {
@@ -4950,7 +4950,7 @@
   {
    "id": 618,
    "zh": "因为工作需要,比基尼姐姐{NEWLINE}也是会扮成成熟大姐姐的哦！",
-   "en": "For work, even a Swimmer like me{NEWLINE}dresses up as a Beauty!",
+   "en": "Even a bikini-clad Swimmer can play{NEWLINE}a mature Beauty for work!",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -5270,9 +5270,9 @@
   {
    "id": 658,
    "zh": "不行不行！{NEWLINE}你的培养方式太轻率了！{SCROLL}",
-   "en": "Not good enough!{NEWLINE}Your training style’s not up to par.{SCROLL}",
+   "en": "No, no! Your way of raising them{NEWLINE}is too careless!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/658"
   },
   {
@@ -5614,9 +5614,9 @@
   {
    "id": 701,
    "zh": "呜呀！好讨厌啊！{NEWLINE}我的精灵被⋯⋯！{SCROLL}",
-   "en": "Oh, no! That’s awful!{NEWLINE}What have you done to my Pokémon?!{SCROLL}",
+   "en": "Oh no! How awful!{NEWLINE}My Pokémon have...!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/701"
   },
   {
@@ -6182,7 +6182,7 @@
   {
    "id": 772,
    "zh": "不过骑车带人可不太好呢~{SCROLL}",
-   "en": "But riding double isn’t allowed,{NEWLINE}you know!{SCROLL}",
+   "en": "But riding double isn’t such{NEWLINE}a good idea...{SCROLL}",
    "status": "draft",
    "origin": "agent",
    "notes": ""
@@ -6622,9 +6622,9 @@
   {
    "id": 827,
    "zh": "看你干的好事！{NEWLINE}真是的！我要回去了啦！{SCROLL}",
-   "en": "What do you think you’re doing?{NEWLINE}I want to go already.{SCROLL}",
+   "en": "Look what you’ve done!{NEWLINE}Honestly! I’m going home!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/827"
   },
   {
@@ -6726,9 +6726,9 @@
   {
    "id": 840,
    "zh": "让我们来一场{NEWLINE}返璞归真的对战吧！",
-   "en": "I shall regress to my childhood for{NEWLINE}this battle.",
+   "en": "Let’s have a battle that goes{NEWLINE}back to basics!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/840"
   },
   {
@@ -6798,9 +6798,9 @@
   {
    "id": 849,
    "zh": "嗯！很好！{NEWLINE}来场对战吧！",
-   "en": "Why, sure! Sounds great!{NEWLINE}We have to do this!",
+   "en": "Yes! Great!{NEWLINE}Let’s battle!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/849"
   },
   {
@@ -6830,9 +6830,9 @@
   {
    "id": 853,
    "zh": "我办到了！{NEWLINE}我终于坚持到底了！{SCROLL}",
-   "en": "I’ve done it!{NEWLINE}I’ve achieved my goal!{SCROLL}",
+   "en": "I did it!{NEWLINE}I held on to the end!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/853"
   },
   {
@@ -6846,9 +6846,9 @@
   {
    "id": 855,
    "zh": "说到精灵对战{NEWLINE}就像写在沙滩上的爱的告白呢！",
-   "en": "A battle is... It is a love letter{NEWLINE}written in sand.",
+   "en": "A Pokémon battle is like a love{NEWLINE}confession written in sand.",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/855"
   },
   {
@@ -7334,9 +7334,9 @@
   {
    "id": 916,
    "zh": "真是场精彩的对战！{NEWLINE}以后再来一战吧！{SCROLL}",
-   "en": "A magnificent bout that was!{NEWLINE}Do come visit again!{SCROLL}",
+   "en": "What a magnificent battle!{NEWLINE}Let’s fight again sometime!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/916"
   },
   {
@@ -7358,9 +7358,9 @@
   {
    "id": 919,
    "zh": "真是场精彩的对战！{NEWLINE}以后再来一战吧！{SCROLL}",
-   "en": "A magnificent bout that was!{NEWLINE}Do come visit again!{SCROLL}",
+   "en": "What a magnificent battle!{NEWLINE}Let’s fight again sometime!{SCROLL}",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0723/919"
   },
   {

@@ -30,18 +30,18 @@
   {
    "id": 3,
    "zh": "啊！等一下！{SCROLL}我超人般的直觉告诉我{NEWLINE}现在你的相册{CLEAR}似乎是已经满了啊！{SCROLL}不好意思,等你先去{NEWLINE}电脑上整理一下照片后{CLEAR}再来找我吧~",
-   "en": "Wait a second!{SCROLL}My superhuman ability is telling me{NEWLINE}that your Photo Album{CLEAR}is full!{SCROLL}Sorry to trouble you, but{NEWLINE}can you delete some pictures{CLEAR}before you talk to me again?",
+   "en": "Ah! Wait a second!{SCROLL}My superhuman intuition tells me{NEWLINE}your Photo Album seems to be full!{SCROLL}Sorry, but sort out your photos{NEWLINE}on the PC before coming back to me!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0030/3"
+   "origin": "agent",
+   "notes": "US 0030/3 | CES-early: meaning: restore intuition, uncertainty and PC sorting"
   },
   {
    "id": 4,
    "zh": "哦呀哦呀？{NEWLINE}你没有相册啊。{SCROLL}要整理拍到的照片{NEWLINE}就一定要有相册啊。{SCROLL}我满金市的哥哥那有,{NEWLINE}你去那里拿一个相册吧~",
-   "en": "Hmmm...{NEWLINE}You don’t seem to have a Photo Album.{SCROLL}You need one to sort the pictures{NEWLINE}you’ve taken.{SCROLL}My big brother in Goldenrod City has{NEWLINE}some, so why not go and get one?",
+   "en": "Oh? Oh?{NEWLINE}You don’t have a Photo Album.{SCROLL}You need one to sort the pictures{NEWLINE}you’ve taken.{SCROLL}My big brother in Goldenrod City has{NEWLINE}some, so go and get one!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0030/4 | RV069: addition: US added the photo-studio detail; zh only says the brother in Goldenrod has one"
+   "notes": "US 0030/4 | RV069: addition: US added the photo-studio detail; zh only says the brother in Goldenrod has one | CES-early: voice: retain repeated interjection and source certainty"
   },
   {
    "id": 5,

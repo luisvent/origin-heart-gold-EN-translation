@@ -636,10 +636,10 @@
   {
    "id": 78,
    "zh": "那么就以{VAR:0137:0}¥{NEWLINE}收取了。",
-   "en": "I can pay ${VAR:0137:0}.{NEWLINE}Would that be OK?",
+   "en": "Then I’ll take it for{NEWLINE}${VAR:0137:0}.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0010/78"
+   "origin": "agent",
+   "notes": "US 0010/78 | CES-early: addition: remove unsupported permission question"
   },
   {
    "id": 79,
@@ -932,10 +932,10 @@
   {
    "id": 115,
    "zh": "松饼的数量",
-   "en": "Poffins",
+   "en": "Number of Poffins",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: omission: retain quantity label"
   },
   {
    "id": 116,

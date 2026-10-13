@@ -191,7 +191,7 @@
   {
    "id": 23,
    "zh": "唉？不需要吗？{NEWLINE}我觉得我们家小蚊香{CLEAR}应该可以帮上{VAR:0103:0}忙的。{SCROLL}如果需要的再来找我！",
-   "en": "Oh? You don’t want it?{CLEAR}I really think little Poliwag could help{NEWLINE}you out, {VAR:0103:0}.{SCROLL}Come back if you change your mind!",
+   "en": "Oh? You don’t need him?{SCROLL}I think little Poliwag could help you,{NEWLINE}{VAR:0103:0}.{SCROLL}Come see me if you need him!",
    "status": "draft",
    "origin": "agent",
    "notes": "v3 TM: 1 source(s), same position"
@@ -271,7 +271,7 @@
   {
    "id": 33,
    "zh": "{VAR:0103:0}哥哥看到光一了吗？{NEWLINE}最近都没怎么见他在镇上玩了。",
-   "en": "Hey, {VAR:0103:0}! Have you seen Wade?{SCROLL}He hasn’t been out playing in town much{NEWLINE}lately.",
+   "en": "Big brother {VAR:0103:0},{NEWLINE}have you seen Wade?{SCROLL}I haven’t seen him playing in town{NEWLINE}much lately.",
    "status": "draft",
    "origin": "agent",
    "notes": "光一 = Wade (trainer 0719 #127). zh 哥哥 (male player) variant."
@@ -279,7 +279,7 @@
   {
    "id": 34,
    "zh": "{VAR:0103:0}姐姐看到光一了吗？{NEWLINE}最近都没怎么见他在镇上玩了。",
-   "en": "Hey, {VAR:0103:0}! Have you seen Wade?{SCROLL}He hasn’t been out playing in town much{NEWLINE}lately.",
+   "en": "Big sister {VAR:0103:0},{NEWLINE}have you seen Wade?{SCROLL}I haven’t seen him playing in town{NEWLINE}much lately.",
    "status": "draft",
    "origin": "agent",
    "notes": "zh 姐姐 (female player) variant."

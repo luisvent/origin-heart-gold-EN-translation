@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "欢迎来到口袋竞技场！{NEWLINE}这次{VAR:0401:0}{SCROLL}闪耀的胜利将花落谁家呢？{NEWLINE}那么首先介绍选手！{SCROLL}",
-   "en": "Welcome to the Pokéathlon!{SCROLL}Today’s event--{NEWLINE}the {VAR:0401:0}!{SCROLL}Who will shine brightest today?{NEWLINE}Let’s meet the competitors!{SCROLL}",
+   "en": "Welcome to the Pokéathlon!{SCROLL}This time, the {VAR:0401:0}!{SCROLL}Who will claim a shining victory? Let’s{NEWLINE}introduce the competitors first!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/0"
+   "origin": "agent",
+   "notes": "US 0309/0 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 1,
@@ -22,18 +22,18 @@
   {
    "id": 2,
    "zh": "那么比赛开始！{NEWLINE}努力争取第一名吧！{SCROLL}{VAR:0205}{VAR:FF01:200}口袋竞技~！{SCROLL}",
-   "en": "All right, we’re ready!{NEWLINE}Aim for the top! Let’s{SCROLL}{VAR:0205}{VAR:FF01:200}Pokéathlon!{SCROLL}",
+   "en": "Now let the competition begin! Aim for{NEWLINE}first place!{SCROLL}{VAR:0205}{VAR:FF01:200}Pokéathlon~!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/2; modernised from US 0309#2"
+   "origin": "agent",
+   "notes": "US 0309/2; modernised from US 0309#2 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 3,
    "zh": "各位选手们辛苦了。{SCROLL}究竟哪个队伍是激斗的赢家呢,{NEWLINE}现在宣布！{SCROLL}首先要给予{NEWLINE}充满挑战精神的⋯⋯{SCROLL}",
-   "en": "Great job, athletes!{SCROLL}Which team won this fierce battle?{NEWLINE}We’ve got the results!{SCROLL}But first...{NEWLINE}who’s overflowing with fighting spirit?{SCROLL}",
+   "en": "Great job, athletes!{SCROLL}Which team won this fierce battle? We’ll{NEWLINE}announce it now!{SCROLL}First, an award for those overflowing{NEWLINE}with the spirit of challenge...{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0309/3 | RV079: meaning: zh asks which team won the fierce battle, not which fought hardest"
+   "notes": "US 0309/3 | RV079: meaning: zh asks which team won the fierce battle, not which fought hardest | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 4,
@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "接下来颁布的是⋯⋯{SCROLL}",
-   "en": "Continuing on, the individual prizes...{SCROLL}",
+   "en": "The next award is...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/6"
+   "origin": "agent",
+   "notes": "US 0309/6 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 7,
@@ -158,10 +158,10 @@
   {
    "id": 19,
    "zh": "分数{NEWLINE}最拿不到的精灵是⋯⋯{SCROLL}",
-   "en": "The Pokémon that missed collecting{NEWLINE}the most points...{SCROLL}",
+   "en": "The Pokémon that scored the fewest{NEWLINE}points...{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/19"
+   "origin": "agent",
+   "notes": "US 0309/19 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 20,
@@ -198,10 +198,10 @@
   {
    "id": 24,
    "zh": "什！什么？同分！{NEWLINE}这种情况就抓阄决定！{SCROLL}唔唔唔　⋯⋯{NEWLINE}⋯⋯　⋯⋯　⋯⋯{SCROLL}⋯⋯　⋯⋯　⋯⋯{NEWLINE}结果已经出来了！{SCROLL}",
-   "en": "What? We have a tie!?{NEWLINE}Well, we settle ties by a drawing!{SCROLL}No, no, hmm...{NEWLINE}...{SCROLL}...{NEWLINE}Got it!{SCROLL}",
+   "en": "Wh-What? A tie! We’ll decide by drawing{NEWLINE}lots!{SCROLL}Hmm hmm hmm... ... ... ...{SCROLL}... ... ... The result is in!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/24"
+   "origin": "agent",
+   "notes": "US 0309/24 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 25,
@@ -254,18 +254,18 @@
   {
    "id": 31,
    "zh": "恭喜恭喜,{NEWLINE}您的战斗非常华丽。{SCROLL}今后也请朝着口袋竞技员的顶点{NEWLINE}继续努力吧！{SCROLL}就是这样,{NEWLINE}口袋竞技,{SCROLL}{VAR:0205}{VAR:FF01:200}万岁！{SCROLL}",
-   "en": "Congratulations!{NEWLINE}That was a wonderful Performance!{SCROLL}Keep aiming to be the top Pokéathlete!{SCROLL}That is...{NEWLINE}Pokéathlon{SCROLL}{VAR:0205}{VAR:FF01:200}FOREVER!{SCROLL}",
+   "en": "Congratulations, congratulations! Your{NEWLINE}performance was splendid.{SCROLL}Keep striving for the top of the{NEWLINE}Pokéathletes!{SCROLL}That’s right, Pokéathlon,{SCROLL}{VAR:0205}{VAR:FF01:200}LONG LIVE IT!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/31"
+   "origin": "agent",
+   "notes": "US 0309/31 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 32,
    "zh": "参加次数{VAR:0137:1}次！{NEWLINE}口袋竞技员值得期待的新星！{SCROLL}",
-   "en": "Joined {VAR:0137:1} times!{NEWLINE}A new name in Pokéathletes!{SCROLL}",
+   "en": "Joined {VAR:0137:1} times! A promising new{NEWLINE}Pokéathlete star!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/32"
+   "origin": "agent",
+   "notes": "US 0309/32 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 33,
@@ -334,10 +334,10 @@
   {
    "id": 41,
    "zh": "倒数第一数{VAR:0137:1}次！{NEWLINE}但还是会一如既往地努力的！{SCROLL}",
-   "en": "Last Place, {VAR:0137:1} times!{NEWLINE}That’s all right. I’ll keep trying!{SCROLL}",
+   "en": "Last Place, {VAR:0137:1} times! But I’ll keep{NEWLINE}trying as hard as ever!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/41"
+   "origin": "agent",
+   "notes": "US 0309/41 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 42,
@@ -382,18 +382,18 @@
   {
    "id": 47,
    "zh": "记录第一,{VAR:0137:1}次！{NEWLINE}还能再拿第一吗？{SCROLL}",
-   "en": "First Place, {VAR:0137:1} times!{NEWLINE}Don’t tell me, another First Place?!{SCROLL}",
+   "en": "First Place, {VAR:0137:1} times! Can you take{NEWLINE}first place again?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/47"
+   "origin": "agent",
+   "notes": "US 0309/47 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 48,
    "zh": "别害怕失败！{NEWLINE}跌倒了就再爬起来！{SCROLL}",
-   "en": "Don’t worry about failure!{NEWLINE}Falling down is not the end!{SCROLL}",
+   "en": "Don’t fear failure! If you fall, get{NEWLINE}back up!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/48"
+   "origin": "agent",
+   "notes": "US 0309/48 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 49,
@@ -510,10 +510,10 @@
   {
    "id": 63,
    "zh": "失败记录{VAR:0137:1}次！{NEWLINE}失败是成功之母！{SCROLL}",
-   "en": "Failed {VAR:0137:1} times!{NEWLINE}Failure is the source of success!{SCROLL}",
+   "en": "Failed {VAR:0137:1} times! Failure is the{NEWLINE}mother of success!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/63"
+   "origin": "agent",
+   "notes": "US 0309/63 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 64,
@@ -542,10 +542,10 @@
   {
    "id": 67,
    "zh": "天空的彼端闪耀着五彩的明天！{NEWLINE}你就是为抓住它而生的！{SCROLL}",
-   "en": "The other side of the sky is a glittery{NEWLINE}tomorrow! You were born to catch it!{SCROLL}",
+   "en": "Beyond the sky shines a colorful{NEWLINE}tomorrow! You were born to grasp it!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/67"
+   "origin": "agent",
+   "notes": "US 0309/67 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 68,
@@ -590,10 +590,10 @@
   {
    "id": 73,
    "zh": "好！出现了！撞击之鬼！{NEWLINE}次数是{VAR:0137:1}次！{SCROLL}",
-   "en": "All right all right! The tackle fiend!{NEWLINE}The number of times: {VAR:0137:1}!{SCROLL}",
+   "en": "All right! Here comes the tackle fiend!{NEWLINE}The number of times: {VAR:0137:1}!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/73"
+   "origin": "agent",
+   "notes": "US 0309/73 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 74,
@@ -622,18 +622,18 @@
   {
    "id": 77,
    "zh": "从高的地方掉下！{NEWLINE}这快感实在太难以抗拒了！！{SCROLL}",
-   "en": "To fall from such heights!{NEWLINE}That thrilling feeling has got me!{SCROLL}",
+   "en": "Falling from high places! That pleasure{NEWLINE}is so hard to resist!!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/77"
+   "origin": "agent",
+   "notes": "US 0309/77 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 78,
    "zh": "在绝境时战斗的口袋竞技员,{NEWLINE}这就是认真的证明！{SCROLL}",
-   "en": "A Pokéathlete that fights even on the{NEWLINE}edge of the ring! Truly serious!{SCROLL}",
+   "en": "A Pokéathlete who fights in desperate{NEWLINE}straits! That{CLEAR}proves their seriousness!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/78"
+   "origin": "agent",
+   "notes": "US 0309/78 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 79,
@@ -694,10 +694,10 @@
   {
    "id": 86,
    "zh": "别大意！用这战略{NEWLINE}会被人逆转的！{SCROLL}",
-   "en": "Always be prepared! That strategy{NEWLINE}can be overturned!{SCROLL}",
+   "en": "Don’t be careless! With that strategy,{NEWLINE}someone could turn the tables on you!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/86"
+   "origin": "agent",
+   "notes": "US 0309/86 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 87,
@@ -782,18 +782,18 @@
   {
    "id": 97,
    "zh": "天外有天,{NEWLINE}这个你最清楚！{SCROLL}",
-   "en": "There are many strong people out{NEWLINE}there. You know that more than anyone!{SCROLL}",
+   "en": "There’s always someone better out{NEWLINE}there. You know that{CLEAR}better than anyone!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/97"
+   "origin": "agent",
+   "notes": "US 0309/97 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 98,
    "zh": "经常和人竞争！{NEWLINE}还一起和别人比赛！{SCROLL}",
-   "en": "Always compete with someone!{NEWLINE}And share in that competition!{SCROLL}",
+   "en": "Always compete with others! And{NEWLINE}compete alongside them too!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/98"
+   "origin": "agent",
+   "notes": "US 0309/98 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 99,
@@ -814,10 +814,10 @@
   {
    "id": 101,
    "zh": "没有我跨不过去的栏！{NEWLINE}看看我矫健的身姿吧！{SCROLL}",
-   "en": "There’s no Hurdle I can’t jump! Watch{NEWLINE}my beautiful footwork!{SCROLL}",
+   "en": "There’s no Hurdle I can’t clear! Watch{NEWLINE}my agile form!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/101"
+   "origin": "agent",
+   "notes": "US 0309/101 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 102,
@@ -862,10 +862,10 @@
   {
    "id": 107,
    "zh": "没有我抢不到的旗！{NEWLINE}冠军旗我也要抢！{SCROLL}",
-   "en": "There’s no Pennant I can’t capture!{NEWLINE}I’ll even capture the championship!{SCROLL}",
+   "en": "There’s no Pennant I can’t capture!{NEWLINE}I’ll capture the{CLEAR}championship Pennant too!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/107"
+   "origin": "agent",
+   "notes": "US 0309/107 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 108,
@@ -990,10 +990,10 @@
   {
    "id": 123,
    "zh": "在我眼里没有天空与{NEWLINE}地面的交界存在！！{SCROLL}",
-   "en": "There’s no border between the ground{NEWLINE}and the sky within me!{SCROLL}",
+   "en": "In my eyes, there’s no boundary{NEWLINE}between the sky and the ground!!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/123"
+   "origin": "agent",
+   "notes": "US 0309/123 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 124,
@@ -1014,10 +1014,10 @@
   {
    "id": 126,
    "zh": "一旦动起来就停不下来！{NEWLINE}口袋竞技的永动机！{SCROLL}",
-   "en": "Once I start moving, I can’t stop!{NEWLINE}The Pokéathlon’s perpetual motion!{SCROLL}",
+   "en": "Once I start moving, I can’t stop! The{NEWLINE}Pokéathlon’s perpetual motion machine!{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0309/126"
+   "notes": "US 0309/126 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 127,
@@ -1054,18 +1054,18 @@
   {
    "id": 131,
    "zh": "你到底是谁！{NEWLINE}赛场会告诉你！{SCROLL}",
-   "en": "What exactly are you anyway?{NEWLINE}That’s what the Ring will tell you!{SCROLL}",
+   "en": "Who exactly are you?! The Ring will tell{NEWLINE}you!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/131"
+   "origin": "agent",
+   "notes": "US 0309/131 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 132,
    "zh": "扔雪球的话天下第一！{NEWLINE}用你的精准追逐冠军吧。{SCROLL}",
-   "en": "The world’s best at throwing Snow!{NEWLINE}Chase the championship with that aim!{SCROLL}",
+   "en": "The world’s best at throwing Snowballs!{NEWLINE}Pursue the championship with your aim.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0309/132"
+   "notes": "US 0309/132 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 133,
@@ -1086,18 +1086,18 @@
   {
    "id": 135,
    "zh": "不知道会从哪儿飞来！{NEWLINE}雪球看起来就像有分身一样！{SCROLL}",
-   "en": "I don’t know where it will leap from{NEWLINE}next! The Snowballs seem to split!{SCROLL}",
+   "en": "Who knows where the next one will fly{NEWLINE}from! The Snowballs seem{CLEAR}to have doubles!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/135"
+   "origin": "agent",
+   "notes": "US 0309/135 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 136,
    "zh": "这球谁都停不下来！{NEWLINE}绝对不会打偏！{SCROLL}",
-   "en": "No one can stop this ball! It will hit{NEWLINE}any Goal I aim for!{SCROLL}",
+   "en": "No one can stop this ball! It will never{NEWLINE}miss!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/136"
+   "origin": "agent",
+   "notes": "US 0309/136 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 137,
@@ -1126,10 +1126,10 @@
   {
    "id": 140,
    "zh": "把分数送给它！{NEWLINE}身体力行公平竞赛精神吧。{SCROLL}",
-   "en": "Give the points as a gift to them. It’s{NEWLINE}the embodiment of fair play.{SCROLL}",
+   "en": "Give them the points! Put the spirit of{NEWLINE}fair play into practice.{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/140"
+   "origin": "agent",
+   "notes": "US 0309/140 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 141,
@@ -1182,10 +1182,10 @@
   {
    "id": 147,
    "zh": "我这么努力仅仅是因为{NEWLINE}胜利会带给大家欢乐！{SCROLL}",
-   "en": "When I do my best and win, I make{NEWLINE}everyone happy!{SCROLL}",
+   "en": "I only work this hard because victory{NEWLINE}brings everyone joy!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/147"
+   "origin": "agent",
+   "notes": "US 0309/147 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 148,
@@ -1246,90 +1246,90 @@
   {
    "id": 155,
    "zh": "{VAR:0205}３只的合计{VAR:0133:0}．{VAR:0132:1}圈",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0133:0}.{VAR:0132:1} Laps",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0133:0}.{VAR:0132:1} Laps",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 156,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}.{VAR:0133:1}秒",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0}.{VAR:0133:1} Seconds",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0}.{VAR:0133:1} Seconds",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/156"
+   "origin": "agent",
+   "notes": "US 0309/156 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 157,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}面",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0}",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/157"
+   "origin": "agent",
+   "notes": "US 0309/157 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 158,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/158"
+   "origin": "agent",
+   "notes": "US 0309/158 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 159,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}个",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Pieces",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Pieces",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/159"
+   "origin": "agent",
+   "notes": "US 0309/159 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 160,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/160"
+   "origin": "agent",
+   "notes": "US 0309/160 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 161,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/161"
+   "origin": "agent",
+   "notes": "US 0309/161 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 162,
    "zh": "{VAR:0205}３只的合计{VAR:0133:0}.{VAR:0132:1}圈",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0133:0}.{VAR:0132:1} Laps",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0133:0}.{VAR:0132:1} Laps",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/162"
+   "origin": "agent",
+   "notes": "US 0309/162 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 163,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/163"
+   "origin": "agent",
+   "notes": "US 0309/163 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 164,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}个",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0}",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/164"
+   "origin": "agent",
+   "notes": "US 0309/164 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 165,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/165"
+   "origin": "agent",
+   "notes": "US 0309/165 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 166,
@@ -1422,82 +1422,82 @@
   {
    "id": 177,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}.{VAR:0133:1}秒",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0}.{VAR:0133:1} Seconds",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0}.{VAR:0133:1} Seconds",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/177"
+   "origin": "agent",
+   "notes": "US 0309/177 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 178,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}面",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0}",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/178"
+   "origin": "agent",
+   "notes": "US 0309/178 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 179,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/179"
+   "origin": "agent",
+   "notes": "US 0309/179 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 180,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}个",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Pieces",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Pieces",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/180"
+   "origin": "agent",
+   "notes": "US 0309/180 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 181,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/181"
+   "origin": "agent",
+   "notes": "US 0309/181 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 182,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/182"
+   "origin": "agent",
+   "notes": "US 0309/182 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 183,
    "zh": "{VAR:0205}３只的合计{VAR:0133:0}．{VAR:0132:1}圈",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0133:0}.{VAR:0132:1} Laps",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0133:0}.{VAR:0132:1} Laps",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/183"
+   "origin": "agent",
+   "notes": "US 0309/183 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 184,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/184"
+   "origin": "agent",
+   "notes": "US 0309/184 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 185,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}个",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0}",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/185"
+   "origin": "agent",
+   "notes": "US 0309/185 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 186,
    "zh": "{VAR:0205}３只的合计{VAR:0134:0}分",
-   "en": "{VAR:0205}Pokémon Total: {VAR:0134:0} Points",
+   "en": "{VAR:0205}3 Pokémon Total: {VAR:0134:0} Points",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/186"
+   "origin": "agent",
+   "notes": "US 0309/186 | CES-early: Restore explicit total for three Pokémon"
   },
   {
    "id": 187,
@@ -1598,10 +1598,10 @@
   {
    "id": 199,
    "zh": "奔跑着收集旗子吧！",
-   "en": "Run, collect Pennants, and return!",
+   "en": "Run and collect Pennants!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/199"
+   "origin": "agent",
+   "notes": "US 0309/199 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 200,
@@ -1714,10 +1714,10 @@
   {
    "id": 213,
    "zh": "抢旗是用３只精灵{NEWLINE}交互进行抢旗,最后比{NEWLINE}旗子数量的比赛。{NEWLINE}旗子最多能抢到９面。{NEWLINE}从后面撞上去{NEWLINE}就能抢到对方的旗。{NEWLINE}{NEWLINE}速度：奔跑速度{NEWLINE}技术：行动的灵巧度",
-   "en": "In Pennant Capture, your three Pokémon{NEWLINE}run in turns to bring back Pennants.{NEWLINE}Up to nine Pennants can be held at{NEWLINE}one time. Strike your opponents from{NEWLINE}behind to steal their Pennants.{NEWLINE}{NEWLINE}Skill: Ease of Movement{NEWLINE}Speed: Running Speed",
+   "en": "In Pennant Capture, three Pokémon take{NEWLINE}turns collecting Pennants. The final{NEWLINE}count decides the winner. Hold up to nine{NEWLINE}at once. Hit foes from behind to steal{NEWLINE}theirs.{NEWLINE}{NEWLINE}Skill: Ease of Movement{NEWLINE}Speed: Running Speed",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/213",
+   "origin": "agent",
+   "notes": "US 0309/213 | CES-early: CN fidelity: restore omitted detail/emphasis",
    "category": "ui"
   },
   {
@@ -1822,10 +1822,10 @@
   {
    "id": 225,
    "zh": "蹦床是同时{NEWLINE}操作３只精灵,{NEWLINE}跳起来碰到{NEWLINE}亮着的灯的比赛。{NEWLINE}用尽所有的跳跃{NEWLINE}多碰灯多拿分数吧。{NEWLINE}{NEWLINE}跳跃：跳跃高度{NEWLINE}技术：横向跳跃轻易度",
-   "en": "In Lamp Jump, you control your three{NEWLINE}Pokémon as they try to jump and touch{NEWLINE}the Lamps as they light. Try to touch as{NEWLINE}many Lamps as you can in one jump.{NEWLINE}{NEWLINE}Jump: Jump Height{NEWLINE}Skill: Ability to Jump Sideways",
+   "en": "In Lamp Jump, you control three Pokémon{NEWLINE}at once, jumping to touch the lit Lamps.{NEWLINE}Make full use of their jumps to touch{NEWLINE}more Lamps and earn more points.{NEWLINE}{NEWLINE}Jump: Jump Height{NEWLINE}Skill: Ability to Jump Sideways",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/225",
+   "origin": "agent",
+   "notes": "US 0309/225 | CES-early: CN fidelity: restore omitted detail/emphasis",
    "category": "ui"
   },
   {
@@ -1885,10 +1885,10 @@
   {
    "id": 232,
    "zh": "１）用笔描着精灵{NEWLINE}　　进行移动！{NEWLINE}{NEWLINE}２）快速滑动触控笔{NEWLINE}　　就能朝着那方向撞！{NEWLINE}　　撞飞对手吧！{NEWLINE}{NEWLINE}３）轻轻点击精灵{NEWLINE}　　就是跳压！{NEWLINE}　　压住对手吧！",
-   "en": "1) Use the stylus to move your Pokémon!{NEWLINE}{NEWLINE}2) Quickly flick the stylus to tackle!{NEWLINE}Blow your opponent away!{NEWLINE}{NEWLINE}3) Lightly touch your{NEWLINE}Pokémon to get them to jump!{NEWLINE}Your Pokémon can stomp on others!",
+   "en": "1) Use the stylus to move your Pokémon!{NEWLINE}{NEWLINE}2) Flick the stylus quickly to tackle in{NEWLINE}that direction! Blow your opponent away!{NEWLINE}{NEWLINE}3) Lightly touch your Pokémon to get{NEWLINE}them to jump! Your Pokémon can stomp on{NEWLINE}others!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/232",
+   "origin": "agent",
+   "notes": "US 0309/232 | CES-early: CN fidelity: restore omitted detail/emphasis",
    "category": "ui"
   },
   {
@@ -1903,10 +1903,10 @@
   {
    "id": 234,
    "zh": "扔雪球是同时{NEWLINE}操作３只精灵向对方{NEWLINE}扔雪球,最后看谁扔中的{NEWLINE}最多的比赛。{NEWLINE}打中对方队伍的{NEWLINE}任何精灵都能得分。{NEWLINE}{NEWLINE}技术：扔的精度{NEWLINE}力量   ：雪球的力量",
-   "en": "In Snow Throw, you control three of your{NEWLINE}Pokémon at the same time and hit your{NEWLINE}opponents with Snowballs. You’ll receive{NEWLINE}points no matter who you hit on your{NEWLINE}opponent’s team.{NEWLINE}{NEWLINE}Skill: Throwing Accuracy{NEWLINE}Power: Snowball Strength",
+   "en": "In Snow Throw, control three Pokémon at{NEWLINE}once and hit foes with Snowballs. Whoever{NEWLINE}lands the most hits wins. Hitting any{NEWLINE}Pokémon on the opposing team earns{NEWLINE}points.{NEWLINE}{NEWLINE}Skill: Throwing Accuracy{NEWLINE}Power: Snowball Strength",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/234",
+   "origin": "agent",
+   "notes": "US 0309/234 | CES-early: CN fidelity: restore omitted detail/emphasis",
    "category": "ui"
   },
   {
@@ -1939,10 +1939,10 @@
   {
    "id": 238,
    "zh": "１）同时操作３只！{NEWLINE}　　用触控笔描着精灵{NEWLINE}　　进行移动！{NEWLINE}{NEWLINE}２）快速滑动笔{NEWLINE}　　朝着该方向奔跑！{NEWLINE}　　冲刺起来{NEWLINE}　　就会射门！",
-   "en": "1) Control three Pokémon at once. Use{NEWLINE}the stylus to move your Pokémon!{NEWLINE}{NEWLINE}2) Flick quickly with the stylus to{NEWLINE}dash! If you’re dashing, then{NEWLINE}you can shoot for the Goal!",
+   "en": "1) Control three Pokémon at once. Use{NEWLINE}the stylus to move your Pokémon!{NEWLINE}{NEWLINE}2) Flick quickly with the stylus to dash in{NEWLINE}that direction! If you’re dashing, then{NEWLINE}you can shoot for the Goal!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/238",
+   "origin": "agent",
+   "notes": "US 0309/238 | CES-early: CN fidelity: restore omitted detail/emphasis",
    "category": "ui"
   },
   {
@@ -2012,18 +2012,18 @@
   {
    "id": 247,
    "zh": "激动的第二场的比赛结果是？{SCROLL}",
-   "en": "So exciting! How was the second event?!{SCROLL}",
+   "en": "Exciting! What are the second event’s{NEWLINE}results?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/247"
+   "origin": "agent",
+   "notes": "US 0309/247 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 248,
    "zh": "最后！第三场的比赛结果是？{SCROLL}",
-   "en": "The end! How was the third event?!{SCROLL}",
+   "en": "Finally! What are the third event’s{NEWLINE}results?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/248"
+   "origin": "agent",
+   "notes": "US 0309/248 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 249,
@@ -2036,26 +2036,26 @@
   {
    "id": 250,
    "zh": "激动的第二场的比赛结果是？{SCROLL}",
-   "en": "So exciting! How was the second event?!{SCROLL}",
+   "en": "Exciting! What are the second event’s{NEWLINE}results?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/250"
+   "origin": "agent",
+   "notes": "US 0309/250 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 251,
    "zh": "接下来第三场的比赛结果是？{SCROLL}",
-   "en": "It’s not over yet! The third event!?{SCROLL}",
+   "en": "Next, what are the third event’s{NEWLINE}results?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/251"
+   "origin": "agent",
+   "notes": "US 0309/251 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 252,
    "zh": "最后！第四场的比赛结果是？{SCROLL}",
-   "en": "The end! How was the fourth event?!{SCROLL}",
+   "en": "Finally! What are the fourth event’s{NEWLINE}results?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/252"
+   "origin": "agent",
+   "notes": "US 0309/252 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 253,
@@ -2092,10 +2092,10 @@
   {
    "id": 257,
    "zh": "这才刚刚开始呢！{NEWLINE}接下来的比赛也请好好加油啊！{SCROLL}",
-   "en": "It’s only just begun!{NEWLINE}Get ready for the next competition!{SCROLL}",
+   "en": "It’s only just begun! Do your best in{NEWLINE}the next event too!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/257"
+   "origin": "agent",
+   "notes": "US 0309/257 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 258,
@@ -2212,10 +2212,10 @@
   {
    "id": 272,
    "zh": "这才刚刚开始呢！{NEWLINE}接下来的比赛也请好好加油啊！{SCROLL}",
-   "en": "It’s only just begun!{NEWLINE}Get ready for the next competition!{SCROLL}",
+   "en": "It’s only just begun! Do your best in{NEWLINE}the next event too!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/272"
+   "origin": "agent",
+   "notes": "US 0309/272 | CES-early: CN fidelity: restore meaning, source emphasis and uncertainty without invented detail"
   },
   {
    "id": 273,
@@ -2244,18 +2244,18 @@
   {
    "id": 276,
    "zh": "接着第二场！{NEWLINE}会有怎么样的剧情在等着我们呢？{SCROLL}",
-   "en": "It’s just the second event!{NEWLINE}What kind of drama awaits?{SCROLL}",
+   "en": "Next is the second event! What kind of{NEWLINE}drama awaits us?{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/276"
+   "origin": "agent",
+   "notes": "US 0309/276 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 277,
    "zh": "选手们还有体力吗？{NEWLINE}接下来是第三场！{SCROLL}",
-   "en": "Do you have any strength left?{NEWLINE}The third event is about to start!{SCROLL}",
+   "en": "Do the competitors still have strength{NEWLINE}left? Next is the third event!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/277"
+   "origin": "agent",
+   "notes": "US 0309/277 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 278,
@@ -2276,10 +2276,10 @@
   {
    "id": 280,
    "zh": "会场达到最高潮！{NEWLINE}好,接下来是第三场！{SCROLL}",
-   "en": "The stadium is full of suspense! Here{NEWLINE}comes the third event!{SCROLL}",
+   "en": "The stadium’s excitement has reached{NEWLINE}its peak! All right, next is{CLEAR}the third event!{SCROLL}",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0309/280"
+   "origin": "agent",
+   "notes": "US 0309/280 | CES-early: CN commentary/instruction fidelity: retain subject, action, repeated emphasis, metaphor and details; approved D1777/D2201 where applicable"
   },
   {
    "id": 281,

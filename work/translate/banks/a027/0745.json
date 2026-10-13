@@ -190,10 +190,10 @@
   {
    "id": 23,
    "zh": "在{VAR:FF00:1}{VAR:0300:0}{VAR:FF00:0}{NEWLINE}{VAR:FF00:2}{VAR:0103:1}{VAR:FF00:0}{NEWLINE}{VAR:FF00:3}{VAR:0103:2}{VAR:FF00:0}{NEWLINE}{VAR:FF00:4}{VAR:0103:3}{VAR:FF00:0}{NEWLINE}{VAR:FF00:5}{VAR:0103:4}{VAR:FF00:0}{NEWLINE}好像破坏了１０个以上的气球⋯⋯",
-   "en": "{VAR:FF00:1}{VAR:0300:0}{VAR:FF00:0}: {VAR:FF00:2}{VAR:0103:1}{VAR:FF00:0}, {VAR:FF00:3}{VAR:0103:2}{VAR:FF00:0}, {VAR:FF00:4}{VAR:0103:3}{VAR:FF00:0}, and {VAR:FF00:5}{VAR:0103:4}{VAR:FF00:0} have popped ten or more balloons...",
+   "en": "{VAR:FF00:1}{VAR:0300:0}{VAR:FF00:0}: {VAR:FF00:2}{VAR:0103:1}{VAR:FF00:0}, {VAR:FF00:3}{VAR:0103:2}{VAR:FF00:0}, {VAR:FF00:4}{VAR:0103:3}{VAR:FF00:0}, and {VAR:FF00:5}{VAR:0103:4}{VAR:FF00:0} seem to have popped ten or more balloons...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0757/23"
+   "origin": "agent",
+   "notes": "US 0757/23 | AGENT-0740-0760: CN fidelity"
   },
   {
    "id": 24,
@@ -222,18 +222,18 @@
   {
    "id": 27,
    "zh": "在{VAR:FF00:1}{VAR:0300:0}{VAR:FF00:0}{NEWLINE}{VAR:FF00:2}{VAR:0103:1}{VAR:FF00:0}{NEWLINE}{VAR:FF00:3}{VAR:0103:2}{VAR:FF00:0}{NEWLINE}好像破坏了１０个以上的气球⋯⋯",
-   "en": "{VAR:FF00:1}{VAR:0300:0}{VAR:FF00:0}: {VAR:FF00:2}{VAR:0103:1}{VAR:FF00:0} and {VAR:FF00:3}{VAR:0103:2}{VAR:FF00:0} have popped ten or more balloons...",
+   "en": "{VAR:FF00:1}{VAR:0300:0}{VAR:FF00:0}: {VAR:FF00:2}{VAR:0103:1}{VAR:FF00:0} and {VAR:FF00:3}{VAR:0103:2}{VAR:FF00:0} seem to have popped ten or more balloons...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0757/27"
+   "origin": "agent",
+   "notes": "US 0757/27 | AGENT-0740-0760: CN fidelity"
   },
   {
    "id": 28,
    "zh": "在{VAR:FF00:1}{VAR:0300:0}{VAR:FF00:0}{NEWLINE}{VAR:FF00:2}{VAR:0103:1}{VAR:FF00:0}{NEWLINE}{VAR:FF00:3}{VAR:0103:2}{VAR:FF00:0}{NEWLINE}{VAR:FF00:4}{VAR:0103:3}{VAR:FF00:0}{NEWLINE}好像破坏了１０个以上的气球⋯⋯",
-   "en": "{VAR:FF00:1}{VAR:0300:0}{VAR:FF00:0}: {VAR:FF00:2}{VAR:0103:1}{VAR:FF00:0}, {VAR:FF00:3}{VAR:0103:2}{VAR:FF00:0}, and {VAR:FF00:4}{VAR:0103:3}{VAR:FF00:0} have popped ten or more balloons...",
+   "en": "{VAR:FF00:1}{VAR:0300:0}{VAR:FF00:0}: {VAR:FF00:2}{VAR:0103:1}{VAR:FF00:0}, {VAR:FF00:3}{VAR:0103:2}{VAR:FF00:0}, and {VAR:FF00:4}{VAR:0103:3}{VAR:FF00:0} seem to have popped ten or more balloons...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0757/28"
+   "origin": "agent",
+   "notes": "US 0757/28 | AGENT-0740-0760: CN fidelity"
   }
  ]
 }

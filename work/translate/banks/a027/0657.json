@@ -210,9 +210,9 @@
   {
    "id": 25,
    "zh": "太棒了！{NEWLINE}全国图鉴完美了！{SCROLL}嗯嗯⋯⋯{NEWLINE}初次见面时{CLEAR}我对你的评价果然没错！{SCROLL}{VAR:0103:0}的{NEWLINE}成长甚至{CLEAR}超出了我的想象！{SCROLL}{VAR:0103:0}！{NEWLINE}谢谢！",
-   "en": "Excellent!{NEWLINE}That is an amazing National Pokédex!{SCROLL}Wow...{NEWLINE}You’ve lived up{CLEAR}to my expectations wonderfully!{SCROLL}No, you’ve exceeded them,{NEWLINE}{VAR:0103:0}. You’ve become an{CLEAR}amazing Trainer!{SCROLL}Thank you, {VAR:0103:0}!",
+   "en": "Excellent! The National Pokédex is{NEWLINE}complete!{SCROLL}Mm-hmm... I was right about you when we{NEWLINE}first met!{SCROLL}{VAR:0103:0}, you’ve grown even more than I{NEWLINE}imagined!{SCROLL}{VAR:0103:0}! Thank you!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0666/25; layout rebalance 2026-10-09 (prompt icons / single-word page)"
   },
   {

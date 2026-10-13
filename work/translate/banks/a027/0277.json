@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "返回",
-   "en": "QUIT",
+   "en": "BACK",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0284/2"
+   "origin": "agent",
+   "notes": "US 0284/2 | CES-early: meaning: return"
   }
  ]
 }

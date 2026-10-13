@@ -14,7 +14,7 @@
   {
    "id": 1,
    "zh": "挑战哪一种呢？{VAR:0200:0}",
-   "en": "Which challenge would{NEWLINE}you like to take? {VAR:0200:0}",
+   "en": "Which challenge would{NEWLINE}you like to take?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0107/1"
@@ -38,7 +38,7 @@
   {
    "id": 4,
    "zh": "要挑战战斗工厂的多人战吗？{VAR:0200:0}",
-   "en": "Would you like to take the Battle{NEWLINE}Factory Multi Battle challenge? {VAR:0200:0}",
+   "en": "Would you like to take the Battle{NEWLINE}Factory Multi Battle challenge?{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0107/4"
@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "已经等您好久了！{SCROLL}在重开挑战之前保存进度！",
-   "en": "We’ve missed you!{SCROLL}You must save the game before you{NEWLINE}resume your challenge. Please wait.",
+   "en": "We’ve been waiting for you for ages!{SCROLL}Save your progress before resuming the{NEWLINE}challenge!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0107/11"
+   "origin": "agent",
+   "notes": "US 0107/11 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 12,
@@ -201,7 +201,7 @@
   {
    "id": 24,
    "zh": "两人中的一人{NEWLINE}请选择“作为领队”{SCROLL}另一人请选择“加入小组”。{VAR:0200:0}",
-   "en": "One Trainer should select{NEWLINE}“BECOME LEADER.”{SCROLL}The other Trainer must select{NEWLINE}“JOIN GROUP.” {VAR:0200:0}",
+   "en": "One Trainer should select{NEWLINE}“BECOME LEADER.”{SCROLL}The other Trainer must select{NEWLINE}“JOIN GROUP.”{VAR:0200:0}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0107/24"
@@ -209,7 +209,7 @@
   {
    "id": 25,
    "zh": "开始进行ＤＳ无线通信。{VAR:0200:0}",
-   "en": "We need to launch DS Wireless{NEWLINE}Communications. {VAR:0200:0}{NEWLINE}",
+   "en": "We need to launch DS Wireless{NEWLINE}Communications.{VAR:0200:0}{NEWLINE}",
    "status": "draft",
    "origin": "us",
    "notes": "US 0107/25"
@@ -233,10 +233,10 @@
   {
    "id": 28,
    "zh": "为我们介绍下一位{NEWLINE}上场的训练家的信息？{CLEAR}我喜欢这话！{SCROLL}只要我们摸清了{NEWLINE}那位训练家的底细,{CLEAR}就能制定出各种对策。",
-   "en": "They tell you about the next Trainer{NEWLINE}you’ll face? That’s really nice.{SCROLL}You know, you can prepare for it{NEWLINE}once you know what kind of Trainer{CLEAR}the next one is!",
+   "en": "They tell us about the next Trainer to{NEWLINE}come out? I like the sound of that!{SCROLL}Once we know all about that Trainer, we{NEWLINE}can come up with all kinds{CLEAR}of strategies.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0107/28"
+   "origin": "agent",
+   "notes": "US 0107/28 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 29,

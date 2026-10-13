@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "移动球并保持平衡,{NEWLINE}不要让它掉下来！",
-   "en": "Roll the ball while keeping Mime Jr.{NEWLINE}balanced on top.",
+   "en": "Roll the ball with Mime Jr. balanced{NEWLINE}on top. Don’t let it fall!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0235/0; modernised from US 0235#0"
+   "origin": "agent",
+   "notes": "US 0235/0; modernised from US 0235#0 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 1,

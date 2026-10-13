@@ -502,9 +502,9 @@
   {
    "id": 62,
    "zh": "现在你到哪儿了？{NEWLINE}常磐市附近？{CLEAR}啊,是尼比市吧！{SCROLL}说起尼比市的话,{NEWLINE}那边有个博物馆。{SCROLL}和精灵一起{NEWLINE}去博物馆{CLEAR}参观一下吧！",
-   "en": "So, where are you now? Viridian City?{NEWLINE}Oh, you’re in Pewter City!{SCROLL}In Pewter there’s a museum, right?{SCROLL}You can take Pokémon over to the{NEWLINE}museum with you for a fun field trip!",
+   "en": "Where are you? Near Viridian City?{NEWLINE}Oh, you’re in Pewter City!{SCROLL}In Pewter there’s a museum, right?{SCROLL}You can take Pokémon over to the{NEWLINE}museum with you for a fun field trip!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0662/62"
   },
   {

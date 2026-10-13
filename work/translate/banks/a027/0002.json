@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "展开七彩的翅膀翱翔于天空{NEWLINE}之中的传说中的精灵。",
-   "en": "This Pokémon, with feathers{NEWLINE}of seven colors, flies through{NEWLINE}the sky, according to legend.",
+   "en": "A legendary Pokémon that spreads{NEWLINE}its seven-colored wings and soars{NEWLINE}through the sky.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0002/4"
+   "origin": "agent",
+   "notes": "US 0002/4 | CES005-root: Restore spreading its wings and legendary identity."
   },
   {
    "id": 5,

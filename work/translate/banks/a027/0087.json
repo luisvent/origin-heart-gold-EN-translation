@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "比起对战来,{NEWLINE}我更喜欢培育精灵。",
-   "en": "I like raising Pokémon more than{NEWLINE}battling them.",
+   "en": "I like raising Pokémon more than{NEWLINE}battling.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 8,
@@ -89,10 +89,10 @@
   {
    "id": 10,
    "zh": "这座五之岛似乎蕴藏着{NEWLINE}一股神奇的力量,{CLEAR}拥有着包罗万象的季节,{CLEAR}拥有着包罗万象的可能性。",
-   "en": "This Five Island seems to hold some{NEWLINE}mysterious power. It has every season,{CLEAR}and every possibility.",
+   "en": "This Five Island seems to hold some{NEWLINE}mysterious power. It has every season,{CLEAR}it has every possibility.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 11,
@@ -606,10 +606,10 @@
   {
    "id": 71,
    "zh": "阿弥陀佛,前面是佛门禁地,{NEWLINE}施主请止步……",
-   "en": "Amitabha. Beyond this point is holy{NEWLINE}ground. Please stop here, traveler...",
+   "en": "Amitabha. Beyond this point is forbidden{NEWLINE}Buddhist ground. Please stop{CLEAR}here, traveler...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 72,
@@ -712,10 +712,10 @@
   {
    "id": 84,
    "zh": "卡比兽,开饭了！是你最爱吃的零食哦！",
-   "en": "Snorlax, dinnertime! It’s your{NEWLINE}favorite snacks!",
+   "en": "Snorlax, mealtime! It’s your favorite{NEWLINE}snacks!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 85,
@@ -1171,10 +1171,10 @@
   {
    "id": 141,
    "zh": "谢谢施主、谢谢施主！",
-   "en": "Thank you, traveler! Thank you!",
+   "en": "Thank you, traveler! Thank you,{NEWLINE}traveler!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 142,
@@ -1259,18 +1259,18 @@
   {
    "id": 152,
    "zh": "阿弥陀佛,可喜可贺！",
-   "en": "Amitabha. What a joyous day!",
+   "en": "Amitabha. A cause for joy and{NEWLINE}congratulations!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 153,
    "zh": "这样一来冠军大人您就得到了{NEWLINE}一名得力干将,{CLEAR}梦幻也有了自己的训练家。{CLEAR}真的是可喜可贺啊。",
-   "en": "Now you have gained a capable partner,{NEWLINE}Champion, and Mew has a Trainer of its{CLEAR}own. A joyous day indeed.",
+   "en": "Now you have gained a capable partner,{NEWLINE}Champion, and Mew has a Trainer of its{CLEAR}own. A cause for joy and{CLEAR}congratulations indeed.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 154,

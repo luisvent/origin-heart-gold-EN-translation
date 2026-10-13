@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "输了⋯⋯{NEWLINE}{VAR:011C:0}！",
-   "en": "You win...{NEWLINE}{VAR:011C:0}!",
+   "en": "I lost...{NEWLINE}{VAR:011C:0}!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0292/0"
+   "origin": "agent",
+   "notes": "US 0292/0 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 1,
@@ -38,26 +38,26 @@
   {
    "id": 4,
    "zh": "{VAR:011C:0}ーーー！！！{NEWLINE}{VAR:011C:1}ーーーー！！！！",
-   "en": "{VAR:011C:0}!!!{NEWLINE}{VAR:011C:1}!!!!",
+   "en": "{VAR:011C:0}---!!!{NEWLINE}{VAR:011C:1}----!!!!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 5,
    "zh": "莫非是{VAR:011C:0}？",
-   "en": "Could it be...?{NEWLINE}{VAR:011C:0}...?",
+   "en": "Could it be {VAR:011C:0}?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0292/5"
+   "origin": "agent",
+   "notes": "US 0292/5 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 6,
    "zh": "{VAR:011C:0}实在是太过分了！",
-   "en": "{VAR:011C:0}!{NEWLINE}How awful!",
+   "en": "{VAR:011C:0} goes too far!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0292/6"
+   "origin": "agent",
+   "notes": "US 0292/6 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 7,
@@ -70,18 +70,18 @@
   {
    "id": 8,
    "zh": "你是{VAR:011C:0}吧⋯⋯",
-   "en": "You’re {VAR:011C:0},{NEWLINE}aren’t you?",
+   "en": "You’re {VAR:011C:0},{NEWLINE}aren’t you...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0292/8"
+   "origin": "agent",
+   "notes": "US 0292/8 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 9,
    "zh": "除了{VAR:011C:0}以外什么也不是。",
-   "en": "{VAR:011C:0}!{NEWLINE}Can’t be anything else but.",
+   "en": "It’s nothing but {VAR:011C:0}.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0292/9"
+   "origin": "agent",
+   "notes": "US 0292/9 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 10,
@@ -94,10 +94,10 @@
   {
    "id": 11,
    "zh": "{VAR:011C:0}真是让人伤心！",
-   "en": "{VAR:011C:0} makes me sad...",
+   "en": "{VAR:011C:0} really makes me sad!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0292/11"
+   "origin": "agent",
+   "notes": "US 0292/11 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   },
   {
    "id": 12,
@@ -158,10 +158,10 @@
   {
    "id": 19,
    "zh": "啊啊,{NEWLINE}就好比{VAR:011C:0}⋯⋯",
-   "en": "Aww... That’s really{NEWLINE}{VAR:011C:0}...",
+   "en": "Ah, just like{NEWLINE}{VAR:011C:0}...",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0292/19"
+   "origin": "agent",
+   "notes": "US 0292/19 | CES-early: meaning/voice: source actor, action, emphasis and scope; preserve template variables and controls"
   }
  ]
 }

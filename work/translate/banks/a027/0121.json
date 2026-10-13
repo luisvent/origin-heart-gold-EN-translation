@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "米那君『{VAR:0103:0},水晶小姐,{NEWLINE}虽说这次是咱们三人一起发现的水君,{CLEAR}但能追踪到这里主要还是靠{CLEAR}水晶小姐发现了湿润泥土现象。{CLEAR}所以我提议由水晶小姐{CLEAR}第一个尝试捕捉水君,{CLEAR}如果不成功,{CLEAR}再由我和{VAR:0103:0}尝试。",
-   "en": "Eusine: {VAR:0103:0}, Miss Crystal,{NEWLINE}the three of us found Suicune{CLEAR}together this time. But we only{CLEAR}tracked it here because Miss{CLEAR}Crystal noticed the damp soil.{SCROLL}So I propose that Miss Crystal{NEWLINE}try to catch Suicune first. If she{CLEAR}fails, {VAR:0103:0} and I will try next.",
+   "en": "Eusine: {VAR:0103:0}, Miss Crystal, the{NEWLINE}three of us found Suicune together this{CLEAR}time. But we tracked it here mainly{CLEAR}because Miss Crystal noticed the{CLEAR}damp soil.{SCROLL}So I propose that Miss Crystal try to{NEWLINE}catch Suicune first. If she fails,{CLEAR}{VAR:0103:0} and I will try next.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0121: Restore mainly, not exclusive attribution."
   },
   {
    "id": 18,
@@ -454,10 +454,10 @@
   {
    "id": 56,
    "zh": "小豪『呵,好多碍事的讨厌鬼,{NEWLINE}你们聚在这想干什……",
-   "en": "Goh: Heh. What a bunch of annoying{NEWLINE}pests. What are you all doing here...",
+   "en": "Goh: Heh. What a bunch of annoying{NEWLINE}pests getting in the way. What are you{CLEAR}all doing here...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0121: Restore obstructing nuisance and interrupted question."
   },
   {
    "id": 57,
@@ -510,10 +510,10 @@
   {
    "id": 63,
    "zh": "水晶『我也有点无法接受,{NEWLINE}传说中的精灵就这样被……",
-   "en": "Crystal: I can’t accept it either. A{NEWLINE}Legendary Pokémon, just like that...",
+   "en": "Crystal: I’m having a bit of trouble{NEWLINE}accepting it too. A Legendary Pokémon,{CLEAR}just like that...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0121: Restore a bit qualification rather than absolute rejection."
   },
   {
    "id": 64,
@@ -646,10 +646,10 @@
   {
    "id": 80,
    "zh": "我也只剩1只能战斗的精灵了……",
-   "en": "I’ve only got 1 Pokémon{NEWLINE}left that can fight...",
+   "en": "I too have only got 1 Pokémon left that{NEWLINE}can fight...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0121: Restore also linking second depleted trainer."
   },
   {
    "id": 81,
@@ -662,10 +662,10 @@
   {
    "id": 82,
    "zh": "水君『Suiiii……！{SCROLL}水君摇头晃脑很痛苦的样子。",
-   "en": "Suicune: Suiiii...!{SCROLL}Suicune is shaking its head in pain.",
+   "en": "Suicune: Suiiii...!{SCROLL}Suicune shakes its head, looking to be{NEWLINE}in great pain.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0121: Restore apparent suffering and intensity, not definite simple pain."
   },
   {
    "id": 83,
@@ -758,10 +758,10 @@
   {
    "id": 94,
    "zh": "{VAR:0103:0}『不知道是不是赶在了{NEWLINE}彻底洗脑之前……",
-   "en": "{VAR:0103:0}: I hope we made it before{NEWLINE}the brainwashing was complete...",
+   "en": "{VAR:0103:0}: I wonder if we made it before{NEWLINE}the brainwashing was complete...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0121: Restore uncertainty rather than added hope."
   },
   {
    "id": 95,
@@ -910,7 +910,7 @@
   {
    "id": 113,
    "zh": "呜呜呜……大哥哥,我还年轻,{NEWLINE}我不想就这么老死啊！！！呜呜呜……{CLEAR}有没有什么方法救救我啊！",
-   "en": "*sob sob*... Mister, I’m still{NEWLINE}young! I don’t want to die of{CLEAR}old age like this!!! *sob*...{SCROLL}Isn’t there any way to save me?!",
+   "en": "*sob sob*... big brother, I’m still{NEWLINE}young! I don’t want to die of{CLEAR}old age like this!!! *sob*...{SCROLL}Isn’t there any way to save me?!",
    "status": "draft",
    "origin": "agent",
    "notes": "male player (大哥哥)"
@@ -918,7 +918,7 @@
   {
    "id": 114,
    "zh": "呜呜呜……大姐姐,我还年轻,{NEWLINE}我不想就这么老死啊！！！呜呜呜……{CLEAR}有没有什么方法救救我啊！",
-   "en": "*sob sob*... Miss, I’m still{NEWLINE}young! I don’t want to die of{CLEAR}old age like this!!! *sob*...{SCROLL}Isn’t there any way to save me?!",
+   "en": "*sob sob*... big sister, I’m still{NEWLINE}young! I don’t want to die of{CLEAR}old age like this!!! *sob*...{SCROLL}Isn’t there any way to save me?!",
    "status": "draft",
    "origin": "agent",
    "notes": "female player (大姐姐)"
@@ -926,10 +926,10 @@
   {
    "id": 115,
    "zh": "看到那边的白发老头了吗？{NEWLINE}我亲眼看到他在试图穿过{CLEAR}前面这条隧道时,{CLEAR}从一个黄毛小孩变成了一个白发老头！{SCROLL}这条隧道一定是被下了诅咒,{NEWLINE}任何试图穿过它的人{CLEAR}身上的时间都会被无情地夺走。{CLEAR}你如果不想死的话就离隧道远点。",
-   "en": "See that white-haired old man over{NEWLINE}there? I saw it with my own eyes. When{CLEAR}he tried to go through the tunnel up{CLEAR}ahead, he turned from a young{CLEAR}kid into a white-haired old man!{SCROLL}That tunnel must be cursed.{NEWLINE}It mercilessly steals the time of{CLEAR}anyone who tries to go through it.{SCROLL}If you don’t want to{NEWLINE}die, stay away from it.",
+   "en": "See that white-haired old man over{NEWLINE}there? I saw it with my own eyes. When{CLEAR}he tried to go through the tunnel up{CLEAR}ahead, he turned from a blond kid into a{CLEAR}white-haired old man!{SCROLL}That tunnel must be cursed. It{NEWLINE}mercilessly steals the time of{CLEAR}anyone who tries to go through it.{SCROLL}If you don’t want to die, stay away{NEWLINE}from it.",
    "status": "draft",
    "origin": "agent",
-   "notes": "RV048: meaning: 黄毛小孩 = young kid, not blond"
+   "notes": "RV048: meaning: 黄毛小孩 = young kid, not blond; D-2490 exact user-approved review correction (2026-10-13)."
   },
   {
    "id": 116,
@@ -998,10 +998,10 @@
   {
    "id": 124,
    "zh": "多亏你帮忙,{NEWLINE}小山猪才暂时停止了老去的迹象。{CLEAR}这个是我报答你救命之恩的谢礼,{CLEAR}请收下吧。",
-   "en": "Thanks to your help, Swinub has{NEWLINE}stopped aging for now. This is my thanks{CLEAR}for saving its life. Please take it.",
+   "en": "Thanks to your help, Swinub has stopped{NEWLINE}showing signs of aging for now. This is{CLEAR}my thanks for saving its life. Please{CLEAR}take it.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0121: Restore observable signs temporarily stopping, not categorical physiological aging claim."
   },
   {
    "id": 125,
@@ -1014,10 +1014,10 @@
   {
    "id": 126,
    "zh": "{VAR:FF01:200}喂喂喂！你等一下！{VAR:FF01:100}",
-   "en": "{VAR:FF01:200}Hey! Wait up!{VAR:FF01:100}",
+   "en": "{VAR:FF01:200}Hey, hey, hey! Wait a moment!{VAR:FF01:100}",
    "status": "draft",
    "origin": "agent",
-   "notes": "SIZE-200% shout shortened to fit (zh 喂喂喂！你等一下！)"
+   "notes": "SIZE-200% shout shortened to fit (zh 喂喂喂！你等一下！) | CES005-0121: Restore triple hey."
   },
   {
    "id": 127,
@@ -1046,18 +1046,18 @@
   {
    "id": 130,
    "zh": "{VAR:0103:0}对自己使用了抗老喷雾。",
-   "en": "{VAR:0103:0} used the Anti-Age Spray!",
+   "en": "{VAR:0103:0} used the Anti-Age Spray on{NEWLINE}themself.",
    "status": "draft",
    "origin": "agent",
-   "notes": "zh 对自己使用了 (on self): written as a plain item-use line"
+   "notes": "zh 对自己使用了 (on self): written as a plain item-use line | CES005-0121: Restore self as explicit spray recipient."
   },
   {
    "id": 131,
    "zh": "{VAR:0103:0}『虽然是一次性的,{NEWLINE}但这样暂时就可以去隧道深处探索了。{CLEAR}请您放心,应该不会有事的。",
-   "en": "{VAR:0103:0}: It’s only good for{NEWLINE}one use, but it’ll let me explore{CLEAR}deep in the tunnel for now.{CLEAR}Please don’t worry. I’ll be fine.",
+   "en": "{VAR:0103:0}: It’s only good for one use,{NEWLINE}but it’ll let me explore deep in the{CLEAR}tunnel for now. Please don’t worry. I{CLEAR}should be fine.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0121: Restore should uncertainty."
   },
   {
    "id": 132,
@@ -1078,10 +1078,10 @@
   {
    "id": 134,
    "zh": "你知道该怎么穿过隧道吗",
-   "en": "How do I get through?",
+   "en": "Know how to cross the tunnel?",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": " | CES005-0121: Restore asking listener knowledge and explicit tunnel; no verified shorter UI constraint.",
    "category": "menu_touch_1line"
   },
   {
@@ -1217,10 +1217,10 @@
   {
    "id": 151,
    "zh": "这瓶抗老喷雾只够支撑你{NEWLINE}探索一次底层隧道,{CLEAR}一定要到隧道入口{CLEAR}再打开喷遍全身。{SCROLL}如果你的喷雾用完了,{NEWLINE}随时可以来找我,{CLEAR}只要有原材料和加工费,{CLEAR}多少瓶喷雾我都可以给你做。",
-   "en": "This bottle of Anti-Age Spray is only{NEWLINE}enough for one trip into the tunnel{CLEAR}below. Don’t open it and spray yourself{CLEAR}until you’re at the tunnel entrance.{SCROLL}If you run out, come see me{NEWLINE}anytime. As long as you bring the{CLEAR}ingredients and the fee, I’ll make{CLEAR}you as many bottles as you like.",
+   "en": "This bottle of Anti-Age Spray is only{NEWLINE}enough for one trip into the tunnel{CLEAR}below. Don’t open it and spray your{CLEAR}whole body until you’re at the{CLEAR}tunnel entrance.{SCROLL}If you run out, come see me anytime. As{NEWLINE}long as you bring the ingredients and{CLEAR}the fee, I’ll make you as many bottles{CLEAR}as you like.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | CES005-0121: Restore whole-body application."
   },
   {
    "id": 152,

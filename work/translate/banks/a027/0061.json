@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "洋二『我的派拉斯特{NEWLINE}能用蘑菇孢子{SCROLL}催眠对手！",
-   "en": "Ed: My Parasect{NEWLINE}puts Pokémon to{CLEAR}sleep with Spore.",
+   "en": "Ed: My Parasect can put foes to sleep{NEWLINE}with Spore!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0063/6; modernised from US 0063#6"
+   "origin": "agent",
+   "notes": "US 0063/6; modernised from US 0063#6 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 7,
@@ -198,10 +198,10 @@
   {
    "id": 24,
    "zh": "智道『 自出生以来一直{NEWLINE}只捉虫精灵的我{SCROLL}怎么可能会输呢！",
-   "en": "Josh: I’ve been collecting Bug-type{NEWLINE}Pokémon since I was just a baby.{SCROLL}There’s no way I’m going to lose!",
+   "en": "Josh: I’ve caught nothing but Bug{NEWLINE}Pokémon since the day I was born.{SCROLL}There’s no way I’m going to lose!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0063/24"
+   "origin": "agent",
+   "notes": "US 0063/24 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 25,
@@ -222,10 +222,10 @@
   {
    "id": 27,
    "zh": "库塔『你有这闲工夫{NEWLINE}聊天{CLEAR}还不如快去捉虫精灵。",
-   "en": "Samuel: If you’ve got the time to{NEWLINE}chat, go find some bug Pokémon.",
+   "en": "Samuel: If you’ve got time to chat,{NEWLINE}you’d better hurry and catch some{CLEAR}Bug Pokémon.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0063/27"
+   "origin": "agent",
+   "notes": "US 0063/27 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 28,
@@ -246,10 +246,10 @@
   {
    "id": 30,
    "zh": "知之『我学会了很多{NEWLINE}有关虫精灵的知识,{SCROLL}一定能赢得冠军的！",
-   "en": "Kipp: I’ve studied about bug Pokémon{NEWLINE}a lot. I’m going to win for sure.",
+   "en": "Kipp: I’ve learned a lot about{NEWLINE}Bug Pokémon. I’m sure to win!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0063/30"
+   "origin": "agent",
+   "notes": "US 0063/30 | CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 31,

@@ -110,9 +110,9 @@
   {
    "id": 13,
    "zh": "你有没有觉得{NEWLINE}不知不觉就肚子饿了？{SCROLL}别说什么吃太多了！{NEWLINE}我这年纪这样很正常的！",
-   "en": "Um, I’ve gotta tell you, I’m so{NEWLINE}hungry... Do you know how it feels?{SCROLL}I’m not an overeater or anything! This{NEWLINE}is completely normal for my age!",
+   "en": "Don’t you find yourself getting hungry{NEWLINE}without even noticing?{SCROLL}I’m not an overeater or anything! This{NEWLINE}is completely normal for my age!",
    "status": "draft",
-   "origin": "us",
+   "origin": "agent",
    "notes": "US 0644/13"
   },
   {

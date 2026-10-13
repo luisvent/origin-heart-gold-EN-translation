@@ -142,26 +142,26 @@
   {
    "id": 17,
    "zh": "{VAR:0103:0}刚刚通过了我的考验,{NEWLINE}我已经认可他的心智和实力了,{CLEAR}他就是当之无愧的最强训练家。",
-   "en": "{VAR:0103:0} has just passed{NEWLINE}my trial. I recognize his heart{CLEAR}and his strength. He is, without{CLEAR}question, the strongest Trainer.",
+   "en": "{VAR:0103:0} has just passed{NEWLINE}my trial. I recognize his mind{CLEAR}and his strength. He is, without{CLEAR}question, the strongest Trainer.",
    "status": "draft",
    "origin": "agent",
-   "notes": "male (#17) / female (#18)"
+   "notes": "male (#17) / female (#18) | CN 心智和实力 preserves mental faculty as mind/mente, not heart/corazón; Dragon’s Den Elder trial context."
   },
   {
    "id": 18,
    "zh": "{VAR:0103:0}刚刚通过了我的考验,{NEWLINE}我已经认可她的心智和实力了,{CLEAR}她就是当之无愧的最强训练家。",
-   "en": "{VAR:0103:0} has just passed my{NEWLINE}trial. I recognize her heart and{CLEAR}her strength. She is, without{CLEAR}question, the strongest Trainer.",
+   "en": "{VAR:0103:0} has just passed my{NEWLINE}trial. I recognize her mind and{CLEAR}her strength. She is, without{CLEAR}question, the strongest Trainer.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CN 心智和实力 preserves mental faculty as mind/mente, not heart/corazón; Dragon’s Den Elder trial context."
   },
   {
    "id": 19,
    "zh": "伊吹『怎么这样啊！？{NEWLINE}明明在烟墨市的年轻一代中{CLEAR}只有渡大哥获得过长老的认可,{CLEAR}连我都还没有……",
-   "en": "Clair: How can this be?! Of all the{NEWLINE}young people in Blackthorn City,{CLEAR}only Lance has ever won the Elder’s{CLEAR}approval. Not even I have...",
+   "en": "Clair: How can this be?! Of all the young{NEWLINE}people in Blackthorn City,{CLEAR}only my older cousin Lance{CLEAR}has ever won the Elder’s approval.{SCROLL}Not even I have...",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "Focused CN fidelity: restored senior cousin or Crystal Senpai address (D-2455)."
   },
   {
    "id": 20,
@@ -278,10 +278,10 @@
   {
    "id": 34,
    "zh": "伊吹『对不起啊,{VAR:0103:0}。{NEWLINE}我从小一直崇拜着渡大哥,{CLEAR}当听到渡大哥在石英大会上{CLEAR}连续被两个真新镇的年轻人打败时,{CLEAR}我真的很难接受。{CLEAR}但既然长老都认可了你的心智和实力,{CLEAR}渡大哥对你也赞不绝口,{CLEAR}那我自然也没什么话说了。{CLEAR}这是早就该属于你的升龙徽章,{CLEAR}请收下吧！",
-   "en": "Clair: I’m sorry, {VAR:0103:0}.{NEWLINE}I’ve looked up to my cousin{CLEAR}Lance ever since I was little.{SCROLL}When I heard he’d lost at the{NEWLINE}Indigo Conference to two young{CLEAR}people from Pallet Town in a row,{CLEAR}I really couldn’t accept it.{SCROLL}But now that the Elder has{NEWLINE}recognized your heart and strength,{CLEAR}and Lance can’t praise you enough,{CLEAR}I have nothing more to say.{SCROLL}This is the Rising Badge{NEWLINE}that should have been yours{CLEAR}long ago. Please accept it!",
+   "en": "Clair: I’m sorry, {VAR:0103:0}. I’ve looked{NEWLINE}up to my older cousin Lance ever since I{CLEAR}was little. When I heard my older cousin{CLEAR}Lance had lost at the Indigo Conference{CLEAR}to two young people from Pallet Town in{CLEAR}a row, I really couldn’t accept it. But{CLEAR}now that the Elder has recognized your{CLEAR}mind and strength, and my older cousin{CLEAR}Lance can’t praise you enough, I have{CLEAR}nothing more to say. This is the Rising{CLEAR}Badge that should have been yours long{CLEAR}ago. Please accept it!",
    "status": "draft",
    "origin": "agent",
-   "notes": "两个真新镇的年轻人: Red/Blue? (Lance lost to two Pallet Town Trainers in a row)"
+   "notes": "两个真新镇的年轻人: Red/Blue? (Lance lost to two Pallet Town Trainers in a row) | Focused CN fidelity: restored senior cousin or Crystal Senpai address (D-2455). | CN 心智和实力 preserves mental faculty as mind/mente, not heart/corazón; Dragon’s Den Elder trial context."
   },
   {
    "id": 35,

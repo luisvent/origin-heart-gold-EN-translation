@@ -622,10 +622,10 @@
   {
    "id": 77,
    "zh": "{VAR:0101:0}已经没有{NEWLINE}战斗的意志了了！",
-   "en": "{VAR:0101:0} has no energy{NEWLINE}left to battle!",
+   "en": "{VAR:0101:0} has lost the{NEWLINE}will to battle!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0006/77"
+   "origin": "agent",
+   "notes": "US 0006/77; source-fidelity followup: CN 战斗的意志 is will to battle, not energy. D-2196 records the doubled 了 typo; only that typo is silently normalized."
   },
   {
    "id": 78,

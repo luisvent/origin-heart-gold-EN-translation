@@ -1873,10 +1873,10 @@
   {
    "id": 210,
    "zh": "打倒对手时，与训练{NEWLINE}家的牵绊会增强，变{NEWLINE}为小智版甲贺忍蛙。{NEWLINE}飞水手里剑的招式威{NEWLINE}力会增强。",
-   "en": "KOs make Ash-Greninja,{NEWLINE}powering Water Shuriken.",
+   "en": "KOs deepen its Trainer{NEWLINE}bond. Becomes{CLEAR}Ash-Greninja. Water{CLEAR}Shuriken grows stronger.",
    "status": "draft",
    "origin": "agent",
-   "notes": "",
+   "notes": "| SOL-C: omitted source detail restored.",
    "qa_ignore": [
     "glossary:训练家"
    ]
@@ -2693,10 +2693,10 @@
   {
    "id": 300,
    "zh": "一般属性和格斗属性{NEWLINE}的招式可以击中幽灵{NEWLINE}属性的宝可梦。无视{NEWLINE}对手的闪避率的变化{NEWLINE}，且命中率不会被降{NEWLINE}低。",
-   "en": "Normal/Fighting moves hit{NEWLINE}Ghosts; ignores evasion.",
+   "en": "Normal/Fighting hit{NEWLINE}Ghosts. Ignores evasion;{CLEAR}accuracy cannot fall.",
    "status": "draft",
    "origin": "agent",
-   "notes": "zh also says its accuracy can’t be lowered; dropped for space.",
+   "notes": "zh also says its accuracy can’t be lowered; dropped for space. | SOL-C: omitted source detail restored.",
    "qa_ignore": [
     "glossary:变化",
     "glossary:命中",
@@ -2746,10 +2746,10 @@
   {
    "id": 306,
    "zh": "首次出场时，会散发{NEWLINE}出甜腻的蜜的香味来{NEWLINE}降低对手的闪避率。",
-   "en": "On first entry, its syrup{NEWLINE}lowers foes’ evasion.",
+   "en": "First entry: sweet syrup{NEWLINE}lowers foes’ evasion.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "| SOL-C: omitted source detail restored."
   },
   {
    "id": 307,

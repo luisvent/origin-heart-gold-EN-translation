@@ -630,10 +630,10 @@
   {
    "id": 78,
    "zh": "金婆婆『不要想着让我提前交货,{NEWLINE}拿下他们的头之后我再告诉你,婆婆。",
-   "en": "Granny Kin: Don’t expect me to pay up{NEWLINE}early. I’ll tell you once you’ve taken{CLEAR}their heads, dearie.",
+   "en": "Granny Kin: Don’t expect me to deliver{NEWLINE}ahead of time. I’ll tell you once you’ve{CLEAR}taken their heads, dearie.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 79,
@@ -710,10 +710,10 @@
   {
    "id": 88,
    "zh": "赤焰松『确实,看到这几个小鬼{NEWLINE}我的牙都快咬碎了。",
-   "en": "Maxie: Indeed. Just looking at these{NEWLINE}brats makes me grind my teeth.",
+   "en": "Maxie: Indeed. Just looking at these{NEWLINE}brats makes me grind my teeth so hard{CLEAR}they could crack.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 89,
@@ -998,10 +998,10 @@
   {
    "id": 124,
    "zh": "小绿『{VAR:0103:0},{NEWLINE}这次在浅红森林输给你,{CLEAR}我确实心服口服。{CLEAR}不过我还会继续努力变强的,{CLEAR}期待下次跟你的正式对决！",
-   "en": "Blue: {VAR:0103:0}, I lost to you fair and{NEWLINE}square in the Fuchsia Forest this time.{SCROLL}But I’ll keep working to get stronger.{SCROLL}I’m looking forward to our next real{NEWLINE}showdown!",
+   "en": "Blue: {VAR:0103:0}, you beat me in the{NEWLINE}Fuchsia Forest this time, and I accept{CLEAR}that wholeheartedly.{SCROLL}But I’ll keep working to get stronger.{SCROLL}I’m looking forward to our next real{NEWLINE}showdown!",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": "CES-mid-20261012: CN clause comparison restored meaning, emphasis or tense."
   },
   {
    "id": 125,

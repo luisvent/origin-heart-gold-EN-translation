@@ -38,10 +38,10 @@
   {
    "id": 4,
    "zh": "有几个研究员打扮的人{NEWLINE}匆匆忙忙地穿过这里,{CLEAR}把我好不容易捡的化石踩碎了。{CLEAR}我当时堵住他们索要赔偿,{CLEAR}他们就塞给了我一个技能机。{SCROLL}我的精灵都是岩石系的,{NEWLINE}学不会他们给的这个技能,{CLEAR}干脆送给你吧。{SCROLL}",
-   "en": "Some people dressed as researchers{NEWLINE}rushed through here and trampled{CLEAR}a fossil I’d worked hard to find.{SCROLL}I blocked their way and{NEWLINE}demanded compensation, so{CLEAR}they shoved a TM at me.{SCROLL}My Pokémon are all Rock types and{NEWLINE}can’t learn the move they gave{CLEAR}me. I might as well give it to you.{SCROLL}",
+   "en": "Some people dressed as researchers{NEWLINE}rushed through here and trampled and{CLEAR}shattered a fossil I’d worked{CLEAR}hard to find.{SCROLL}I blocked their way and demanded{NEWLINE}compensation, so they shoved a{CLEAR}TM at me.{SCROLL}My Pokémon are all Rock types and can’t{NEWLINE}learn the move they gave me. I might as{CLEAR}well give it to you.{SCROLL}",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0395-0397: Restore fossil shattered, not merely trodden on."
   },
   {
    "id": 5,
@@ -54,10 +54,10 @@
   {
    "id": 6,
    "zh": "我的菊石兽一穿过这个通道{NEWLINE}就难受地吱吱乱叫,{CLEAR}一退回来就啥事没有。{CLEAR}在搞清楚原因之前,{CLEAR}还是不要冒然离开这里了。",
-   "en": "Whenever my Omanyte goes through{NEWLINE}this passage, it squeals in pain. As{CLEAR}soon as it comes back, it’s fine.{SCROLL}Until I figure out why, I’d{NEWLINE}better not leave here rashly.",
+   "en": "Whenever my Omanyte goes through this{NEWLINE}passage, it squeals in distress. As soon{CLEAR}as it comes back, it’s fine.{SCROLL}Until I figure out why, I’d better not{NEWLINE}leave here rashly.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | root-full-comparison-0395-0397: Restore general discomfort, not definite pain."
   },
   {
    "id": 7,

@@ -6,10 +6,10 @@
   {
    "id": 0,
    "zh": "前面是月见山,{SCROLL}途中还有{NEWLINE}月见山广场！",
-   "en": "Mt. Moon ahead.{SCROLL}Mt. Moon Square is on{NEWLINE}the way to the top!",
+   "en": "Mt. Moon ahead.{SCROLL}Mt. Moon Square is on the way!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0328/0"
+   "origin": "agent",
+   "notes": "US 0328/0 | AGENT-0321-0380: CN says on the way, not on the way to the top."
   },
   {
    "id": 1,
@@ -606,10 +606,10 @@
   {
    "id": 75,
    "zh": "武藏『这小鬼好像又变厉害了……",
-   "en": "Jessie: This brat’s gotten even{NEWLINE}stronger...",
+   "en": "Jessie: This brat seems to have gotten{NEWLINE}even stronger...",
    "status": "draft",
    "origin": "agent",
-   "notes": "v3 TM: 1 source(s), same position"
+   "notes": "v3 TM: 1 source(s), same position | AGENT-0321-0380: Restore 好像 uncertainty."
   },
   {
    "id": 76,

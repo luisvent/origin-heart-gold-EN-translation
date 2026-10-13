@@ -19,6 +19,7 @@ obs = "dex.captured"
 len = 30
 
 [parity.differ."dex.digests"]
-why = "the panels show Chinese and English text"
+why = "the panels show Chinese, English and Spanish text"
 cn = { baseline = true, note = "panel digests equal the approved baseline (scenario_baselines.json; emu_harness.py approve)" }
 en = { baseline = true, note = "panel digests equal the approved baseline (scenario_baselines.json; emu_harness.py approve)" }
+es = { baseline = true, note = "Spanish panel digests need their own reviewed baseline; never reuse English approval" }

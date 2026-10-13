@@ -62,18 +62,18 @@
   {
    "id": 7,
    "zh": "我说⋯⋯{NEWLINE}你还记得我的{CLEAR}{VAR:0100:10}吗？{SCROLL}没错,就是那个美丽的{VAR:0100:10}！{NEWLINE}你不觉得和我很配？{SCROLL}我挂啦！",
-   "en": "Listen, pal of mine...{NEWLINE}Do you remember my {VAR:0100:10}?{SCROLL}Yes, exactly. That lovely {VAR:0100:10}.{NEWLINE}Wouldn’t you agree it’s a perfect match{CLEAR}for me?{SCROLL}Fine, you may go.",
+   "en": "Say... Do you remember my {VAR:0100:10}?{NEWLINE}Yes, that lovely {VAR:0100:10}! Doesn’t it{CLEAR}suit me? I’m hanging up!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0698/7"
+   "origin": "agent",
+   "notes": "US 0698/7 | SOL-C: source nuance restored after exact-ref CN/EN/ES comparison."
   },
   {
    "id": 8,
    "zh": "什么⋯⋯我跟{VAR:0100:11}{NEWLINE}战斗过吗？{SCROLL}当然了！{SCROLL}区区{VAR:0100:11}{NEWLINE}我都不知道打倒多少个了！{SCROLL}我挂啦！",
-   "en": "Have I ever faced a wild{NEWLINE}{VAR:0100:11}? You need to ask?{SCROLL}I’ve beaten {VAR:0100:11}{NEWLINE}on numerous occasions!{SCROLL}Fine, you may go.",
+   "en": "What? Have I battled a {VAR:0100:11}? Of{NEWLINE}course! I’ve beaten countless{CLEAR}{VAR:0100:11}! I’m hanging up!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0698/8"
+   "origin": "agent",
+   "notes": "US 0698/8 | SOL-C: source nuance restored after exact-ref CN/EN/ES comparison."
   },
   {
    "id": 9,

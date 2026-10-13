@@ -6,26 +6,26 @@
   {
    "id": 0,
    "zh": "下面是自行车道{SCROLL}乘着自行车飞翔！{NEWLINE}享受飞奔下坡的乐趣吧！",
-   "en": "The Cycling Road starts here!{SCROLL}Enjoy coasting downhill on{NEWLINE}your Bicycle!",
+   "en": "The Cycling Road is below!{SCROLL}Fly on your Bicycle! Enjoy the thrill of{NEWLINE}speeding downhill!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0354/0"
+   "origin": "agent",
+   "notes": "US 0354/0 | AGENT-0321-0380: Restore flying-on-your-bicycle exhortation and downhill location."
   },
   {
    "id": 1,
    "zh": "自从暴走族被赶走之后,{NEWLINE}我就敢偷偷溜进自行车道玩了。{CLEAR}不过你可别跟入口的大叔告发我啊。{CLEAR}作为封口费,这个就送给你吧。",
-   "en": "Ever since the bike gang got chased{NEWLINE}off, I’ve been sneaking onto the Cycling{CLEAR}Road to play.{SCROLL}But don’t tell the man at the entrance{NEWLINE}on me, okay?{SCROLL}Here, take this as hush money.",
+   "en": "Ever since the bike gang got chased{NEWLINE}off, I’ve dared to sneak onto the{CLEAR}Cycling Road to play.{SCROLL}But don’t tell the man at the entrance{NEWLINE}on me, okay?{SCROLL}Here, take this as hush money.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore newfound courage to sneak in, and explicit hush-money framing."
   },
   {
    "id": 2,
    "zh": "自从暴走族被赶走之后,{NEWLINE}我就敢偷偷溜进自行车道玩了。{CLEAR}不过你可别跟入口的大叔告发我啊。{CLEAR}作为封口费,这个就送给你吧。",
-   "en": "Ever since the bike gang got chased{NEWLINE}off, I’ve been sneaking onto the Cycling{CLEAR}Road to play.{SCROLL}But don’t tell the man at the entrance{NEWLINE}on me, okay?{SCROLL}Here, take this as hush money.",
+   "en": "Ever since the bike gang got chased{NEWLINE}off, I’ve dared to sneak onto the{CLEAR}Cycling Road to play.{SCROLL}But don’t tell the man at the entrance{NEWLINE}on me, okay?{SCROLL}Here, take this as hush money.",
    "status": "draft",
    "origin": "agent",
-   "notes": ""
+   "notes": " | AGENT-0321-0380: Restore newfound courage to sneak in, and explicit hush-money framing."
   },
   {
    "id": 3,

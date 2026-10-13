@@ -854,10 +854,10 @@
   {
    "id": 106,
    "zh": "洞窟",
-   "en": "Dungeon",
+   "en": "Cave",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0154/106 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0154/106 | debug/unused (battle debug menu) | CES-early: meaning: source 洞窟 cave not dungeon"
   },
   {
    "id": 107,
@@ -1086,26 +1086,26 @@
   {
    "id": 135,
    "zh": "洞窟Ａ",
-   "en": "Dungeon A",
+   "en": "Cave A",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0154/135 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0154/135 | debug/unused (battle debug menu) | CES-early: meaning: source 洞窟 cave not dungeon"
   },
   {
    "id": 136,
    "zh": "洞窟Ｂ",
-   "en": "Dungeon B",
+   "en": "Cave B",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0154/136 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0154/136 | debug/unused (battle debug menu) | CES-early: meaning: source 洞窟 cave not dungeon"
   },
   {
    "id": 137,
    "zh": "洞窟Ｃ",
-   "en": "Dungeon C",
+   "en": "Cave C",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0154/137 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0154/137 | debug/unused (battle debug menu) | CES-early: meaning: source 洞窟 cave not dungeon"
   },
   {
    "id": 138,
@@ -1206,10 +1206,10 @@
   {
    "id": 150,
    "zh": "白天",
-   "en": "Afternoon",
+   "en": "Daytime",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0154/150 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0154/150 | debug/unused (battle debug menu) | CES-early: meaning: 白天 daytime not afternoon"
   },
   {
    "id": 151,
@@ -1254,18 +1254,18 @@
   {
    "id": 156,
    "zh": "音效ＯＮ",
-   "en": "Effect ON",
+   "en": "Sound effect ON",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0154/156 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0154/156 | debug/unused (battle debug menu) | CES-early: detail: source sound/priority/video qualifier"
   },
   {
    "id": 157,
    "zh": "音效ＯＦＦ",
-   "en": "Effect OFF",
+   "en": "Sound effect OFF",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0154/157 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0154/157 | debug/unused (battle debug menu) | CES-early: detail: source sound/priority/video qualifier"
   },
   {
    "id": 158,
@@ -1350,10 +1350,10 @@
   {
    "id": 168,
    "zh": "重视伤害",
-   "en": "Damage AI",
+   "en": "Prioritize damage",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0154/168 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0154/168 | debug/unused (battle debug menu) | CES-early: detail: source sound/priority/video qualifier"
   },
   {
    "id": 169,
@@ -1870,10 +1870,10 @@
   {
    "id": 233,
    "zh": "录像记录",
-   "en": "Save the recorded data",
+   "en": "Save recorded video data",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0154/233 | debug/unused (battle debug menu)"
+   "origin": "agent",
+   "notes": "US 0154/233 | debug/unused (battle debug menu) | CES-early: detail: source sound/priority/video qualifier"
   },
   {
    "id": 234,

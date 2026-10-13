@@ -254,10 +254,10 @@
   {
    "id": 31,
    "zh": "舞女５人连胜",
-   "en": "5 Kimono Girls in a row",
+   "en": "5 Kimono Girl wins in a row",
    "status": "draft",
    "origin": "agent",
-   "notes": "debug/unused (debug menu)"
+   "notes": "debug/unused (debug menu) | CES-early: omission: consecutive victories"
   },
   {
    "id": 32,

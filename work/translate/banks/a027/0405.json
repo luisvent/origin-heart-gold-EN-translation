@@ -22,10 +22,10 @@
   {
    "id": 2,
    "zh": "ＣＭ『永远在你身边！{NEWLINE}精灵中心恭候您的大驾光临。",
-   "en": "Commercial: Always where you need it!{NEWLINE}Your local Pokémon Center!",
+   "en": "Commercial: Always by your side!{NEWLINE}The Pokémon Center welcomes you.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/2"
+   "origin": "agent",
+   "notes": "US 0412/2 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 3,
@@ -46,10 +46,10 @@
   {
    "id": 5,
    "zh": "ＣＭ『眼神交汇{NEWLINE}就是对战的开始！{NEWLINE}千万别向{NEWLINE}不是训练师的人挑战啊。{NEWLINE}精灵联盟广播。",
-   "en": "Commercial: Catch that Trainer’s eye for{NEWLINE}an intense battle! But don’t pick fights{NEWLINE}with those who aren’t Trainers. This has{NEWLINE}been a message from the Pokémon League.",
+   "en": "Commercial: When your eyes meet,{NEWLINE}the battle begins!{NEWLINE}Never challenge someone{NEWLINE}who isn’t a Trainer.{NEWLINE}A message from the Pokémon League.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/5"
+   "origin": "agent",
+   "notes": "US 0412/5 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 6,
@@ -62,10 +62,10 @@
   {
    "id": 7,
    "zh": "ＣＭ『悠远流逝的时间,{NEWLINE}保留远古原貌的{NEWLINE}桔梗市喇叭芽之塔{NEWLINE}在慢慢地摇曳中{NEWLINE}等待着您的到来。{NEWLINE}城都观光协会",
-   "en": "Commercial: The gentle flow of time, an{NEWLINE}ancient figure... The gentle vibrations{NEWLINE}of Sprout Tower in Violet City...{NEWLINE}It’s waiting for you. This message{NEWLINE}brought to you by the Johto Bureau{NEWLINE}of Tourism.",
+   "en": "Commercial: Through the long passage of{NEWLINE}time,{NEWLINE}Sprout Tower in Violet City{NEWLINE}retains its ancient appearance,{NEWLINE}swaying gently{NEWLINE}as it awaits your arrival.{NEWLINE}The Johto Bureau of Tourism.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/7"
+   "origin": "agent",
+   "notes": "US 0412/7 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 8,
@@ -78,10 +78,10 @@
   {
    "id": 9,
    "zh": "ＣＭ『悠扬的音乐{NEWLINE}伴随着悠扬的舞蹈,{NEWLINE}缘朱市著名的歌舞场。{NEWLINE}城都观光协会",
-   "en": "Commercial: A beautiful sound and{NEWLINE}graceful dance, together at the{NEWLINE}Ecruteak Dance Theater.{NEWLINE}This message brought to you by the{NEWLINE}Johto Bureau of Tourism.",
+   "en": "Commercial: A beautiful sound and{NEWLINE}graceful dance, together at the famous{NEWLINE}Ecruteak Dance Theater. This message{NEWLINE}brought to you by the Johto Bureau of{NEWLINE}Tourism.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/9"
+   "origin": "agent",
+   "notes": "US 0412/9 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 10,
@@ -110,18 +110,18 @@
   {
    "id": 13,
    "zh": "ＣＭ『在精灵中心开始的{NEWLINE}一段命运的邂逅⋯⋯{NEWLINE}还有相互连接起来的人们。{NEWLINE}爬上楼梯{NEWLINE}就是联机房间！",
-   "en": "Commercial: A fateful encounter that{NEWLINE}begins in the Pokémon Center...{NEWLINE}A connection between two people...{NEWLINE}If you climb the stairs, you’ll find it.{NEWLINE}The Union Room.",
+   "en": "Commercial: A fateful encounter that{NEWLINE}begins in the Pokémon Center... And{NEWLINE}people connecting with each other... If{NEWLINE}you climb the stairs, you’ll find it. The{NEWLINE}Union Room.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/13"
+   "origin": "agent",
+   "notes": "US 0412/13 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 14,
    "zh": "ＣＭ『在精灵中心开始的{NEWLINE}一段命运的邂逅⋯⋯{NEWLINE}还有相互连接起来的人们。{NEWLINE}坐上电梯{NEWLINE}就是ＷｉーＦｉ俱乐部！",
-   "en": "Commercial: A fateful encounter that{NEWLINE}begins in the Pokémon Center...{NEWLINE}A connection between two people...{NEWLINE}If you take the escalator down, you’ll{NEWLINE}find it--the Wi-Fi Club.",
+   "en": "Commercial: A fateful encounter that{NEWLINE}begins in the Pokémon Center... And{NEWLINE}people connecting with each other... If{NEWLINE}you take the escalator down, you’ll find{NEWLINE}it--the Wi-Fi Club.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/14"
+   "origin": "agent",
+   "notes": "US 0412/14 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 15,
@@ -142,10 +142,10 @@
   {
    "id": 17,
    "zh": "ＣＭ『有关精灵的东西{NEWLINE}一个不落！{NEWLINE}从上到下{NEWLINE}都充满了惊喜。{NEWLINE}满金市百货商店",
-   "en": "Commercial: If it’s Pokémon goods you{NEWLINE}want, you can get anything here.{NEWLINE}From top to bottom, a wonderful world{NEWLINE}of shopping in the Goldenrod{NEWLINE}Department Store.",
+   "en": "Commercial: If it’s Pokémon goods you{NEWLINE}want, you can get anything here. Full of{NEWLINE}surprises from top to bottom:{NEWLINE}the Goldenrod Department Store.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/17"
+   "origin": "agent",
+   "notes": "US 0412/17 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 18,
@@ -166,10 +166,10 @@
   {
    "id": 20,
    "zh": "ＣＭ『好啦好啦！{NEWLINE}你想确认{NEWLINE}你与精灵之间的友情吗！？{NEWLINE}让我们来竞技吧！{NEWLINE}挑战多达１０种的项目！",
-   "en": "Commercial: All right, all right, all right!{NEWLINE}Want to put the bond between you and{NEWLINE}your Pokémon to the test!? Let’s go to{NEWLINE}the Pokéathlon! There are ten different{NEWLINE}events for you to compete in!",
+   "en": "Commercial: All right, all right! Want to{NEWLINE}put the bond between you and your{NEWLINE}Pokémon to the test!? Let’s go to the{NEWLINE}Pokéathlon! There are ten different{NEWLINE}events for you to compete in!",
    "status": "draft",
    "origin": "agent",
-   "notes": "US 0412/20; ext-review B-021"
+   "notes": "US 0412/20; ext-review B-021 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 21,
@@ -182,10 +182,10 @@
   {
    "id": 22,
    "zh": "ＣＭ『你在抓虫精灵吗？{NEWLINE}每个礼拜的二四六{NEWLINE}都有捕虫大会！{NEWLINE}喜爱虫精灵的孩子们{NEWLINE}都在每个礼拜的二四六的{NEWLINE}自然公园集合吧！",
-   "en": "Commercial: Are you catching Bug-type{NEWLINE}Pokémon? Well Tuesdays, Thursdays,{NEWLINE}and Saturdays of every week are{NEWLINE}Bug-Catching Contest Days!{NEWLINE}Those of you who love Bug-type Pokémon,{NEWLINE}gather at the National Park every{NEWLINE}Tuesday, Thursday, and Saturday!{NEWLINE}See you there!",
+   "en": "Commercial: Are you catching Bug-type{NEWLINE}Pokémon? Well Tuesdays, Thursdays,{NEWLINE}and Saturdays of every week are{NEWLINE}Bug-Catching Contest Days!{NEWLINE}Those of you who love Bug-type{NEWLINE}Pokémon,{NEWLINE}gather at the National Park every{NEWLINE}Tuesday, Thursday, and Saturday!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/22"
+   "origin": "agent",
+   "notes": "US 0412/22 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 23,
@@ -214,18 +214,18 @@
   {
    "id": 26,
    "zh": "ＣＭ『你知道战斗塔的{NEWLINE}真正内涵吗？{NEWLINE}世界之门,{NEWLINE}能够与这个星球上的{NEWLINE}所有训练时交手,{NEWLINE}你能坚持到什么时候呢！",
-   "en": "Commercial: Do you know the true face of{NEWLINE}the Battle Tower? Opening every door on{NEWLINE}the planet; every Trainer awaits you!{NEWLINE}How far will you be able to go?",
+   "en": "Commercial: Do you know what the Battle{NEWLINE}Tower{NEWLINE}is truly about? A door to the world,{NEWLINE}where you can battle every Trainer{NEWLINE}on this planet!{NEWLINE}How long can you hold out?",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/26"
+   "origin": "agent",
+   "notes": "US 0412/26 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 27,
    "zh": "ＣＭ『让你喜欢的精灵{NEWLINE}成为第一的地方。{NEWLINE}战斗舞台,{NEWLINE}人生的舞台！{NEWLINE}能让精灵闪光的{NEWLINE}就只有作为训练师的你！",
-   "en": "Commercial: A place where your beloved{NEWLINE}Pokémon can become number one.{NEWLINE}The battle of a lifetime in the{NEWLINE}Battle Hall!{NEWLINE}Make your Pokémon shine bright here;{NEWLINE}you’re the only Trainer who can!",
+   "en": "Commercial: A place where your beloved{NEWLINE}Pokémon can become number one. The{NEWLINE}Battle Hall, the stage of life! Make{NEWLINE}your Pokémon shine bright here; you’re{NEWLINE}the only Trainer who can!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/27"
+   "origin": "agent",
+   "notes": "US 0412/27 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 28,
@@ -246,10 +246,10 @@
   {
    "id": 30,
    "zh": "ＣＭ『精灵要怎么战斗{NEWLINE}能够充分发挥他的实力呢？{NEWLINE}你知道吗？{NEWLINE}战斗工厂！{NEWLINE}充分的知识才能保证你前进！{NEWLINE}来吧,战斗工厂！",
-   "en": "Commercial: Do you know the best{NEWLINE}battle techniques to get Pokémon to{NEWLINE}show off their true potential?{NEWLINE}The Battle Factory! If you don’t know,{NEWLINE}you won’t win! See you at the{NEWLINE}Battle Factory!",
+   "en": "Commercial: Do you know the best battle{NEWLINE}techniques to get Pokémon to show off{NEWLINE}their true potential? The Battle{NEWLINE}Factory! Only sufficient knowledge can{NEWLINE}ensure you advance! See you at the{NEWLINE}Battle Factory!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/30"
+   "origin": "agent",
+   "notes": "US 0412/30 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 31,
@@ -262,10 +262,10 @@
   {
    "id": 32,
    "zh": "ＣＭ『要想在关东{NEWLINE}尽情地飙车的话{NEWLINE}就请去自行车道吧！{NEWLINE}它在１７号道路等着你。",
-   "en": "Commercial: If you’d like to ride your{NEWLINE}Bike around as much as you want{NEWLINE}under the Kanto sky, why not try{NEWLINE}Cycling Road?{NEWLINE}It’s waiting for you on Route 17.",
+   "en": "Commercial: If you’d like to race around{NEWLINE}on your Bike to your heart’s content in{NEWLINE}Kanto, why not try Cycling Road? It’s{NEWLINE}waiting for you on Route 17.",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/32"
+   "origin": "agent",
+   "notes": "US 0412/32 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 33,
@@ -278,10 +278,10 @@
   {
    "id": 34,
    "zh": "ＣＭ『整个镇子由于火山的{NEWLINE}喷发而毁灭,{NEWLINE}但是夏伯凭着惊人的毅力{NEWLINE}让镇子复活！{NEWLINE}被毁的红莲道馆{NEWLINE}在双子岛重生！",
-   "en": "Commercial: The man who restored a town{NEWLINE}devastated by a volcanic eruption. That{NEWLINE}man was none other than Blaine! He may{NEWLINE}have lost his Cinnabar Gym, but he’s been{NEWLINE}able to reopen it on Seafoam Islands!",
+   "en": "Commercial: A volcanic eruption{NEWLINE}destroyed{NEWLINE}the entire town, but Blaine’s{NEWLINE}astonishing{NEWLINE}perseverance brought it back to life!{NEWLINE}The destroyed Cinnabar Gym{NEWLINE}is reborn on the Seafoam Islands!",
    "status": "draft",
-   "origin": "us",
-   "notes": "US 0412/34"
+   "origin": "agent",
+   "notes": "US 0412/34 | CN–EN–ES full review 2026-10-12: CN comparison: retain source details, tone, repetitions and scene actions; preserve radio NEWLINE-only format"
   },
   {
    "id": 35,
