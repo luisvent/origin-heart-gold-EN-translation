@@ -4,10 +4,11 @@
 
 From the repository root, on the `feature/advanced-ai` branch:
 
-1. Python 3.14 environment: `python3 -m venv .venv && .venv/bin/pip install -r work/tools/requirements-runtime.txt`.
+1. Python 3.14 and xdelta3 (macOS: `brew install python@3.14 xdelta`), then
+   `python3.14 -m venv .venv && .venv/bin/pip install -r work/tools/requirements-runtime.txt`.
 2. Put your own Pokémon HeartGold (USA) ROM at `work/rom/Pokemon - HeartGold Version (USA).nds`.
 3. Download the release patch `Origin_HeartGold_v4.0.3_EN_v1.0.0-rc8.xdelta` from the repository's GitHub releases
-   and apply it: `xdelta3 -d -s "work/rom/Pokemon - HeartGold Version (USA).nds" Origin_HeartGold_v4.0.3_EN_v1.0.0-rc8.xdelta work/build/advanced-ai/base/rc8_release.nds`.
+   and apply it: `mkdir -p work/build/advanced-ai/base && xdelta3 -d -s "work/rom/Pokemon - HeartGold Version (USA).nds" Origin_HeartGold_v4.0.3_EN_v1.0.0-rc8.xdelta work/build/advanced-ai/base/rc8_release.nds`.
 4. Install the AI: `.venv/bin/python work/advanced-ai/builder/install.py --input work/build/advanced-ai/base/rc8_release.nds --out work/build/advanced-ai/ai.nds`.
 5. Make the test saves from a save of your own game (a raw 512 KiB `.sav` from melonDS or a flashcart, or a DeSmuME
    `.dsv`; at least one Pokémon that is not an Egg): `.venv/bin/python work/advanced-ai/testbench/lib/saves.py make --base /path/to/your/save.sav`.
