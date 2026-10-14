@@ -1,6 +1,6 @@
 # Unit tests
 
-The static tier's own tests for the advanced AI: builder, golden test, ids, installer, verifier and trainer marks. Standard `unittest` files named `test_*.py`, with no emulator.
+The static tier's own tests for the advanced AI: builder, golden test, ids, installer, verifier, release and trainer marks. Standard `unittest` files named `test_*.py`, with no emulator.
 
 ```sh
 .venv/bin/python -m unittest discover -s work/advanced-ai/testbench/unit            # all of them
@@ -17,6 +17,7 @@ Run from the repository root with the worktree's `.venv/bin/python`.
 | `test_ids.py` | Every id in `src/ids.h` names the right move, ability or item in our text banks. `src/IDS.md` lists exactly those ids. `ids.h` equals a fresh Spanish generation. `test_ids.py --write` rewrites `IDS.md` | The Spanish repository with its `work_es/rom/` ROMs and the toolchain, for the generation check only |
 | `test_install.py` | Every refusal on synthetic inputs, the receipt, a real install onto the rc8 release and the refusals on real ROMs (Chinese, rc8 standard, rc44, an already installed ROM) | The rc8 release for the real-ROM cases |
 | `test_verify.py` | The verifier catches each kind of wrong byte (hook, word, region, overlay 10, marks) | The rc8 release for its real-ROM case |
+| `test_release.py` | `builder/release.py` refuses each input a release must not be built from and writes nothing; `--allow-development` marks the output not releasable; `release.json` chains every hash, and the xdelta, applied on its own, gives the AI ROM and carries build.py's file names. Synthetic: the installer tests' ROM and payload, a synthetic difficulty receipt and verification, random bytes as the USA ROM | xdelta3 on PATH for the two cases that write a patch |
 | `test_marks.py` | `data/trainer_marks.json` against the Spanish build's lists and rc44's bits; byte 2 clear in every input; nothing in the hack reads byte 2 | The Spanish repository and the ROMs |
 
 ## Inputs

@@ -8,7 +8,7 @@ How the advanced AI's three test tiers ([testbench/README.md](../testbench/READM
 | Static, no ROM | `check.py` (the fast check) and `--full` | `ai-payload`, `ai-unit` (the unit tests that need no ROM) | Nothing beyond the fast check's own needs | About 4 s |
 | Static, all | `check.py --full` | `ai-unit` (every unit test), `ai-static` (the rest of `run.py static`) | The AI build (below); optional: the toolchain, `ADVAI_ES_REPO` | About 22 s + 15 s |
 | Quick | `check.py --full --emu` (the part `ai`) | `emu-ai` (`run.py quick`) | The AI build, the test bench's saves, py-desmume | About 20 min with 3 emulators (26 min with 2, beside another agent's deep run) |
-| Deep | By hand; required by RELEASING.md only for a release that ships the AI | None | The same as quick | 35–80 min |
+| Deep | By hand; RELEASING.md requires it for every release that ships the AI | None | The same as quick | 35–80 min |
 
 Times are from the reference machine on 2026-10-13.
 
@@ -76,22 +76,23 @@ of that commit. Give that build with `--ai-rom`.
 | py-desmume is missing under `--emu` | FAIL (as for the emulator layer) |
 | A tier step fails | FAIL; the step shows the tier's rows and its log |
 
-A missing AI input is never a failure, `--strict-release` included. The standard release does not ship the AI
-(it is installed only by its own installer, and shipping it is a separate decision: [PLAN.md](../PLAN.md), phase 5),
-so a standard release must not wait on the AI's inputs. A release that ships the AI runs the three tiers on its own
-ROM (below), where a SKIP does not count as a pass.
+A missing AI input is never a failure, `--strict-release` included. `check.py --full` checks the standard build,
+which holds neither difficulty nor the AI; the release installs both after it (RELEASING.md, step 3), so the standard
+gates must not wait on the AI's inputs. The release runs the three tiers on its own AI ROM (below), where a SKIP does
+not count as a pass.
 
 ## A release that ships the AI
 
-RELEASING.md requires these commands for such a release, on the release ROM (the standard build, difficulty and the
-AI):
+The next release ships the AI in its one xdelta, off by default (D-2506). Its ROM is the standard build, then
+difficulty, then the AI, made by `builder/release.py` ([builder/README.md](../builder/README.md)); RELEASING.md,
+step 3, gives every command in order. These three run on that ROM:
 
 ```sh
-ROM=<the release ROM>
+ROM=work/build/release-ai/<tag>/origin_hg_v4.0.3_en_ai.nds     # from release.py --out-dir
 P=work/advanced-ai/payload/payload.json
 .venv/bin/python work/tools/check.py --full --strict-release --ai-rom "$ROM"
 .venv/bin/python work/advanced-ai/testbench/run.py quick --rom "$ROM" --payload $P --workers 3 \
-    --options-receipt <the difficulty build's receipt>
+    --options-receipt work/build/difficulty-v2/integration-impl/receipt.json
 .venv/bin/python work/advanced-ai/testbench/run.py deep --rom "$ROM" --payload $P --workers 3
 ```
 

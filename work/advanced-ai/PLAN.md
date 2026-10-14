@@ -91,7 +91,8 @@ build does. The chosen layout is then documented in `docs/memory-layout.md`.
 
 **Delivery vehicle.** `builder/install.py` runs after the difficulty installer, on its pinned output. It writes
 overlay 10 and its y9 entry, the autoload sections, the arena words, the 5 hooks and the trainer marks. Then
-`builder/verify.py` re-reads everything independently and writes a receipt.
+`builder/verify.py` re-reads everything independently and writes a receipt. For a release, `builder/release.py` runs
+both on difficulty's verified candidate and makes the xdelta (builder/README.md, "Release").
 
 The reviewed compiler output (bytes, symbols, source digest) is committed in `payload/`, like text speed's
 `payload.json`, so normal builds need no compiler. The release repro check recompiles with the pinned gcc 16.2.0 and
@@ -202,7 +203,8 @@ Phase 4 can run in parallel with phase 3, because phase 3 sets the flags through
    - credits for the Spanish project;
    - a pointer from `AGENTS.md` to this directory;
    - the decisions recorded by the maintainer.
-3. Merge into `develop` with the installer not run by default. Shipping it in a release is a separate decision.
+3. Merge into `develop` with the installer not run by default. The next release ships it (decision 8): its release
+   step is `builder/release.py`, after difficulty and before the three tiers on the release ROM (RELEASING.md, step 3).
 
 ## Risks
 

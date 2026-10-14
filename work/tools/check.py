@@ -97,8 +97,8 @@ The AI build (ai-static, emu-ai) is --ai-rom (checked by builder/verify.py), els
 builder/install.py on the rc8 release, work/build/advanced-ai/base/rc8_release.nds, into <work-dir>-ai/check_ai.nds
 (about 2 s, every run). It is not this run's build: the installer needs an English build with difficulty, and build.py
 makes none. Without the rc8 release (or --ai-rom), or without the test bench's saves, those steps are a SKIP, never a
-failure, --strict-release included: a standard release does not ship the AI. A release that ships the AI runs the
-three tiers itself (RELEASING.md; work/advanced-ai/docs/checks.md).
+failure, --strict-release included: the standard build holds no AI. The release installs it after difficulty
+(builder/release.py) and runs the three tiers on that ROM (RELEASING.md, step 3; work/advanced-ai/docs/checks.md).
 
 Exit status 0 only when no step failed. Each step prints PASS / FAIL / SKIP with its time.
 """
@@ -140,7 +140,8 @@ AI_BASE = WORK / "build" / "advanced-ai" / "base" / "rc8_release.nds"   # docs/b
 # The unit test classes that need no ROM and no toolchain (testbench/unit/README.md, "Needs"), as unittest -k patterns:
 # the fast check runs only these (about 4 s), --full every unit test. test_check.py checks that each names a class.
 AI_UNIT_NO_ROM = ("test_build.ToolchainPin.", "test_install.Synthetic.", "test_install.ThumbBl.",
-                  "test_verify.Synthetic.", "test_ids.IdsHeader.", "test_marks.Lists.")
+                  "test_verify.Synthetic.", "test_ids.IdsHeader.", "test_marks.Lists.",
+                  "test_release.Release.")
 UNITTEST_SKIP = re.compile(r" \.\.\. skipped '(.*)'$")      # a skipped test's line in unittest -v output
 EXPECTED_HELP = """\
 work/patches/expected.toml records four SHA-1s of the default full build (`build.py`, every enabled fix):
@@ -804,8 +805,8 @@ class AiBuild:
         if not AI_BASE.is_file():
             raise Skip(f"no AI build: the AI installs only on an English build with difficulty, and this run's build "
                        f"has none. Put the rc8 release at {os.path.relpath(AI_BASE, REPO)} (docs/build-contract.md, "
-                       f"'Inputs') or give --ai-rom. A standard release does not ship the AI, so this is not a "
-                       f"failure (work/advanced-ai/docs/checks.md)")
+                       f"'Inputs') or give --ai-rom. The release runs the AI's tiers on its own ROM (RELEASING.md, "
+                       f"step 3), so this is not a failure (work/advanced-ai/docs/checks.md)")
         self.out_dir.mkdir(parents=True, exist_ok=True)
         rom = self.out_dir / "check_ai.nds"
         r = subprocess.run([sys.executable, str(AI / "builder" / "install.py"), "--input", str(AI_BASE),

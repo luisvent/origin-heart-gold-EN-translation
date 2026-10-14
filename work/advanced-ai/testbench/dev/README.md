@@ -1,8 +1,8 @@
 # dev: development tools no tier runs
 
 Tools for working on the AI: building a test ROM, running the bench's batches, tuning, timing, damage arithmetic and
-the engine probes the Spanish AI work was built on. Ported from the Spanish workspace (commit `dc8577c`, by Luis
-Ventura, reused with their permission); each file's docstring lists what changed. Only `tests/test_aitune.py` runs in a
+the engine probes the Spanish AI work was built on. Ported from the Spanish workspace (commit `dc8577c`, by
+luisvent, reused with their permission); each file's docstring lists what changed. Only `tests/test_aitune.py` runs in a
 tier (static).
 
 | Tool | What it does | Spanish source |

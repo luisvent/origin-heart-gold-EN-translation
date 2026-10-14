@@ -9,6 +9,7 @@ between the builder, the installer and the test bench is [../docs/build-contract
 | `layouts/` | The memory layouts: `en.json` (the English payload) and `es.json` (the Spanish rc44 layout, for the golden test). [layouts/README.md](layouts/README.md) explains the fields |
 | `install.py` | `install.py --input ROM --out ROM [--payload DIR] [--marks JSON]` writes the AI into a copy of an English build with difficulty and writes `<out>.receipt.json`. It refuses an input without difficulty, one that already has the AI, and any site that does not hold the expected bytes |
 | `verify.py` | `verify.py ROM [--input ROM]` re-reads an installed ROM with its own parser (not the installer's) and checks every write; with `--input` it also checks that nothing else changed. The placement is explained in [../docs/memory-layout.md](../docs/memory-layout.md) |
+| `release.py` | `release.py --difficulty-receipt JSON --out-dir DIR [--difficulty-verification JSON] [--tag TAG] [--allow-development]` makes the release patch: the AI installed and verified on difficulty's candidate, the xdelta against the USA ROM and `release.json`. See "Release" below |
 
 ## What it needs
 
@@ -17,6 +18,9 @@ between the builder, the installer and the test bench is [../docs/build-contract
   compiler gives other bytes. A binutils 2.47 release-branch build (`2.47.YYYYMMDD`) counts as 2.47.
 - Python 3.12 or later, standard library only. Run it with the worktree's `.venv/bin/python`.
 - No ROM. The installer reads the ROM; the builder only compiles.
+- For `release.py` only: xdelta3 on `PATH` (3.2.0, build.py's pin, for a release), the USA ROM at
+  `work/rom/`, and the project's runtime environment (`work/tools/requirements-runtime.txt`), because it imports
+  `work/tools/build.py` for the patch step.
 - For `--layout es` only: the Spanish workspace repository (read only), for the Spanish asm sources that come
   before the AI in its ITCM block.
 
@@ -99,3 +103,44 @@ The English build compiles luck steering out. `layouts/en.json` defines `AI_NO_S
 flag 0x218 and nothing can switch steering on. `steer_stash`, `steer_ledgers` and `steer_dstash` (the Spanish
 build kept them in `steer.s`) become zeroed slot bss that nothing arms. `es.json` leaves the switch undefined, so
 its bytes stay the Spanish ones.
+
+## Release
+
+`release.py` is the AI's step of the release chain: standard build, difficulty in release mode, this, then the AI's
+three test levels on its ROM. RELEASING.md, step 3, gives every command in order.
+
+```sh
+.venv/bin/python work/advanced-ai/builder/release.py --tag v1.0.0-rc9 \
+    --difficulty-receipt work/build/difficulty-v2/integration-impl/receipt.json \
+    --difficulty-verification work/build/difficulty-v2/verify-v1.0.0-rc9/verification.json \
+    --out-dir work/build/release-ai/v1.0.0-rc9
+```
+
+1. It finds difficulty's candidate from the receipt (its output path, or `candidate.nds` or `<name>.nds` beside it;
+   `--candidate` names it) and requires its size and SHA-256 to be the receipt's output. The verification must say
+   passed, for that receipt and that ROM.
+2. It runs `install.py` (the committed payload and trainer marks) into `DIR/origin_hg_v4.0.3_en_ai.nds`, then
+   `verify.py` on the written file, with the candidate as its input.
+3. It makes `DIR/Origin_HeartGold_v4.0.3_EN_<tag>.xdelta` with `work/tools/build.py`'s own `make_patch`
+   (`xdelta3 -e -9 -S lzma`, build.py's file names in the application header), re-applies it to the USA ROM and
+   compares the result with the AI ROM.
+4. It writes `DIR/release.json`: the hashes of the standard build, difficulty's receipt, verification and candidate,
+   the AI payload (with git HEAD and the payload's last commit), the install receipt, the AI ROM, the USA ROM and the
+   xdelta, and the three README.txt lines (`Patch:`, its `SHA-1`, `Result ROM SHA-1:`).
+
+| Refused unless `--allow-development` | Always refused |
+|---|---|
+| Difficulty built in development mode (`DIFFICULTY_DEV_TOOLS=1`), or a tool off its release pin | A candidate that is not the receipt's output; a verification that did not pass or is for another receipt or ROM |
+| No `--difficulty-verification`, or one made in development mode | A USA ROM with another SHA-1 |
+| xdelta3 other than build.py's pin (3.2.0) | `--out-dir` under `work/release/` (the AI ROM never goes in a release package) |
+| `payload/`, `data/` or `builder/` differ from git HEAD, or no git | A difficulty publication that needs recovery (`.publication.json` beside the receipt); every refusal of `install.py` and `verify.py` |
+
+With `--allow-development` the output is marked not releasable: `release.json` says `"releasable": false` and lists
+the reasons, and the patch is named `...-development.xdelta`. Its own refusals write nothing. A previous
+`release.json` is deleted before the install and the new one is written last, so it exists only for a complete run.
+
+Proof, 2026-10-13, with `--allow-development` on the development difficulty build of main
+(`work/build/advanced-ai/options/difficulty_dev_main.nds`, sha256 `5cdbe793…`): the AI ROM has sha256 `849ab3c3…`,
+byte-identical to `work/build/advanced-ai/layout/rom/main_dev_ai.nds`, on which the quick tier passed (8 of 8). The
+xdelta, 43,673,579 bytes with xdelta3 3.2.1 (not the pin), applied to the USA ROM by `xdelta3 -d` on its own gives
+the same sha256, and `verify.py --input` passes 55 checks. 34 s in all.
