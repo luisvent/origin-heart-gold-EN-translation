@@ -1,27 +1,35 @@
 # Advanced trainer AI: port plan
 
-Branch `feature/advanced-ai` (from `main` 204e1f8, rc8). Research behind this plan:
+Branch `feature/advanced-ai` (from `main` 204e1f8, rc8; `origin/main` 425c1ee merged in). Research behind this plan:
 [docs/research-2026-10-13.md](docs/research-2026-10-13.md). The directory layout and the rules every phase follows are
 in [README.md](README.md).
 
 The feature is the Spanish translation's advanced trainer AI at release rc44 (Spanish workspace commit `dc8577c`, by
-Luis Ventura, reused with his permission). It ships as an optional setting, off by default (D-1575). Nothing in this
-plan is built or merged yet.
+luisvent, reused with their permission). It ships as an optional setting, off by default (D-1575). Built and tested on the branch;
+not merged yet (PR target: `develop`).
 
 ## Decisions
 
 | # | Decision | By |
 |---|---|---|
-| 1 | Reuse the Spanish AI source | Luis Ventura, 2026-10-13 |
-| 2 | Port the AI core only; nothing else from the Spanish build for now | Luis Ventura, 2026-10-13 |
-| 3 | Keep the Spanish behaviour: the AI reads the player's committed action (70%/30% gate) and uses foresight | Luis Ventura, 2026-10-13 |
-| 4 | The setting lives on the Options screen; no Pokémon Centre NPC | Luis Ventura, 2026-10-13 |
-| 5 | Build it with arm-none-eabi-gcc, version-pinned | Luis Ventura, 2026-10-13 |
-| 6 | Port the whole AI test bench and run it on every AI build | Luis Ventura, 2026-10-13 |
-| 7 | Everything for the feature lives in `work/advanced-ai/`, tests in `work/advanced-ai/testbench/` | Luis Ventura, 2026-10-13 |
+| 1 | Reuse the Spanish AI source | luisvent, 2026-10-13 |
+| 2 | Port the AI core only; nothing else from the Spanish build for now | luisvent, 2026-10-13 |
+| 3 | Keep the Spanish behaviour: the AI reads the player's committed action (70%/30% gate) and uses foresight | luisvent, 2026-10-13 |
+| 4 | The setting lives on the Options screen; no Pokémon Centre NPC | luisvent, 2026-10-13 |
+| 5 | Build it with arm-none-eabi-gcc, version-pinned | luisvent, 2026-10-13 |
+| 6 | Port the whole AI test bench and run it on every AI build | luisvent, 2026-10-13 |
+| 7 | Everything for the feature lives in `work/advanced-ai/`, tests in `work/advanced-ai/testbench/` | luisvent, 2026-10-13 |
+| 8 | The next release includes the AI in its one xdelta, off by default | luisvent, 2026-10-13 |
+| 9 | Row values OFF / KEY / ALL, with the help line as built | luisvent, 2026-10-13 |
+| 10 | The PR targets `develop` | luisvent, 2026-10-13 |
+| 11 | The property test's `hp p0072 T` case is accepted as the Spanish AI's own behaviour | luisvent, 2026-10-13 |
+| 12 | No real-hardware test before merge: the release notes say so and ask testers to report | luisvent, 2026-10-13 |
+| 13 | Credit: "Advanced trainer AI: from the Spanish translation by luisvent." | luisvent, 2026-10-13 |
+| 14 | Test saves are derived from the developer's own save (`testbench/lib/saves.py make --base`), never committed | luisvent, 2026-10-13 |
+| 15 | This branch records main's current build hashes in `work/patches/expected.toml` | luisvent, 2026-10-13 |
 
-None of these is in the decision register yet. The maintainer records them (`decisions.py add --source user`, related
-D-1575).
+luisvent is a contributor, not the maintainer: these are recorded in the decision register as provisional
+(`--source agent:advanced-ai`), pending the maintainer's acceptance.
 
 ## What comes from the Spanish build
 

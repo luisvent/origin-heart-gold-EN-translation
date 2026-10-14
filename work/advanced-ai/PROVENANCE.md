@@ -1,8 +1,8 @@
 # Provenance
 
 Every file in this directory that comes from the Spanish translation's workspace. The source is the Spanish workspace
-repository at commit `dc8577cd8f9f81729e056c7b68c91e6ed034b567` (release rc44), by Luis Ventura, **reused with the
-author's permission (Luis Ventura, 2026-10-13)**.
+repository at commit `dc8577cd8f9f81729e056c7b68c91e6ed034b567` (release rc44), by luisvent, **reused with the
+author's permission (luisvent, 2026-10-13)**.
 
 The files were taken with `git show dc8577c:<path>`, never from the Spanish working tree. "sha256 here" is the file as
 first committed in this repository. A later change to one of these files is its own commit, so `git log -p` on the

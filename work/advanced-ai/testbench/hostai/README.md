@@ -4,7 +4,7 @@ The AI's own sources (`../../src/`: `advai.c`, `replace.c`, `lead.c`), compiled 
 stand-in of the battle engine. The simulator (`../sim/`) plays through this build, and `replay.py` checks it against the
 DS: each recorded bench decision is replayed here and must give the DS's choice, option values and snapshot.
 
-Ported from the Spanish workspace's `tools/hostai/` (commit `dc8577c`, by Luis Ventura, reused with his permission).
+Ported from the Spanish workspace's `tools/hostai/` (commit `dc8577c`, by luisvent, reused with their permission).
 
 ## What it needs
 

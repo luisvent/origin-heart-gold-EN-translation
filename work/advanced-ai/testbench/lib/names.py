@@ -9,7 +9,7 @@ Spanish rc44 ROM prints Spanish names and ours prints modern English ones, so RO
 scenarios, the simulator's S_/M_/A_/I_ constants (sim/gen_simdata.py: ident(norm(name))), aicalc's keys and the
 AI-vs-AI logs all use these names, so the logs of the same games are byte-identical on both ROMs' tool runs.
 
-Source (orchestrator decision, 2026-10-13): the Spanish workspace at commit dc8577c (Luis Ventura, reused with his
+Source (orchestrator decision, 2026-10-13): the Spanish workspace at commit dc8577c (luisvent, reused with his
 permission), project-authored ROM-style English names (12-character spellings such as 'WellBakedBdy'):
 - species: work_es/text/en/0232.json 'strings' (index = ROM species id);
 - moves, abilities, items: work_es/glossary/names_{moves,abilities,items}.json, each id's 'en';

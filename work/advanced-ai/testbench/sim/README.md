@@ -5,7 +5,7 @@ games instead of the emulator's ten a minute. It plays with the ROM's own data a
 has them where they were measured, and the official rules elsewhere. The advanced AI plays through the host build of
 `../hostai/`, unchanged, on either side.
 
-Ported from the Spanish workspace's `tools/sim/` (commit `dc8577c`, by Luis Ventura, reused with his permission). Its
+Ported from the Spanish workspace's `tools/sim/` (commit `dc8577c`, by luisvent, reused with their permission). Its
 design, measurements and history are in that workspace: `work_es/tools/sim/README.md` (the full command reference,
 the turn-level validator, the original AI's model, `sim cf`, luck and lookahead) and `work_es/qa/simulator_feasibility.md`.
 This README covers what differs here and how to run it.

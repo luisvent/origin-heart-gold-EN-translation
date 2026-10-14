@@ -7,7 +7,7 @@ every AI decision, the advanced AI's fallback codes, and every assert, NULL allo
 window, and sorts them (`lib/failures.py`) into inherited from the Chinese hack, by design, or for review. `FullBattle`
 is also the full-battle driver of `checks/aimode_check.py`, `checks/menulock.py` and `dev/animcheck.py`.
 
-Ported from the Spanish workspace's `tools/aifuzz.py` (commit `dc8577c`, by Luis Ventura, reused with his permission).
+Ported from the Spanish workspace's `tools/aifuzz.py` (commit `dc8577c`, by luisvent, reused with their permission).
 The random teams and the failure sorting are in `lib/randteams.py` and `lib/failures.py`; `--hard` (hard mode and its
 luck steering) is not ported.
 

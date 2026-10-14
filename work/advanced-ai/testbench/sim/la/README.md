@@ -5,7 +5,7 @@ the lookahead variants (`sim cf la`: greedy playouts, truncated depth with a lea
 margin) by band of the level-80 pool; `ds/` compiles the turn engine and the lookahead for the DS and counts their
 instructions in unicorn; `ds_cost.py` turns the counts into ideal DS time per decision. No tier runs them.
 
-Ported from the Spanish workspace's `tools/sim/la/` (commit `dc8577c`, by Luis Ventura, reused with his permission;
+Ported from the Spanish workspace's `tools/sim/la/` (commit `dc8577c`, by luisvent, reused with their permission;
 the Spanish `qa/simulator_feasibility.md` section 17 has the results). Changes: the test bench's imports and paths,
 the simulator from `sim/simbuild.py` (`LA_SIM` overrides it), runs under `work/build/advanced-ai/runs/sim/la/`.
 

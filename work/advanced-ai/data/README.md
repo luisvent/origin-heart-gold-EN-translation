@@ -16,7 +16,7 @@ A trainer can be in both lists (68 are), so byte 2 can be 1, 2 or 3. The Spanish
 trainers) is not ported: aura is out of scope ([PLAN.md](../PLAN.md), "Not ported").
 
 The lists are copied unchanged from `IMPORTANT_TRAINERS` and `KEEP_LEAD_TRAINERS` in the Spanish workspace's
-`work_es/tools/build.py` at commit `dc8577c` (Luis Ventura, reused with his permission). They equal bits 0 and 1 of
+`work_es/tools/build.py` at commit `dc8577c` (luisvent, reused with their permission). They equal bits 0 and 1 of
 byte 2 in the Spanish rc44 ROM. `testbench/unit/test_marks.py` checks both. The Spanish generator
 (`work_es/tools/trainers/important.py`) and its trainer catalog are not ported.
 

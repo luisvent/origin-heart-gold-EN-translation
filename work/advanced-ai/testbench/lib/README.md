@@ -1,7 +1,7 @@
 # lib: shared code of the test bench
 
 The emulator runner, the ROM data readers, the pools and the shared tables that every other test bench directory
-imports. Most modules are ports of the Spanish workspace's tools (commit `dc8577c`, by Luis Ventura, reused with his
+imports. Most modules are ports of the Spanish workspace's tools (commit `dc8577c`, by luisvent, reused with his
 permission); each module's docstring says what changed.
 
 ## Import convention

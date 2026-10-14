@@ -1,7 +1,7 @@
 # checks: pass/fail behaviour checks of an AI build
 
 Each tool here runs an AI build on the emulator and exits 0 when every case passes, 1 when one fails. They are
-ports of the Spanish workspace's checks (commit `dc8577c`, by Luis Ventura, reused with his permission); each file's
+ports of the Spanish workspace's checks (commit `dc8577c`, by luisvent, reused with their permission); each file's
 docstring lists what changed. The `options_*` files belong to the Options row (phase 4) and are described in their
 own docstrings.
 
